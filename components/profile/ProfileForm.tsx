@@ -5,6 +5,12 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { PushToggle } from '@/components/push/PushToggle';
+import { FlagIcon } from '@/components/ui/FlagIcon';
+import {
+  DEFAULT_ANGOL_PUSH_TIME,
+  DEFAULT_MAGIA_PUSH_TIME,
+  LOCALE_META,
+} from '@/lib/locale-meta';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -34,12 +40,12 @@ interface ProfileData {
 }
 
 const LOCALES = [
-  { value: 'hu', label: 'Magyar', flag: '🇭🇺' },
-  { value: 'en', label: 'English', flag: '🇬🇧' },
-  { value: 'de', label: 'Deutsch', flag: '🇩🇪' },
-  { value: 'es', label: 'Español', flag: '🇪🇸' },
-  { value: 'it', label: 'Italiano', flag: '🇮🇹' },
-];
+  { value: 'hu', label: LOCALE_META.hu.label },
+  { value: 'en', label: LOCALE_META.en.label },
+  { value: 'de', label: LOCALE_META.de.label },
+  { value: 'es', label: LOCALE_META.es.label },
+  { value: 'it', label: LOCALE_META.it.label },
+] as const;
 
 export function ProfileForm({ profile }: { profile: ProfileData }) {
   const t = useTranslations('profile');
@@ -51,8 +57,8 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
   const [pushEnabled, setPushEnabled] = useState(profile.push_enabled);
   const [magiaReminder, setMagiaReminder] = useState(profile.push_magia_reminders);
   const [angolReminder, setAngolReminder] = useState(profile.push_angol_reminders);
-  const [magiaTime, setMagiaTime] = useState(profile.push_magia_time || '08:00');
-  const [angolTime, setAngolTime] = useState(profile.push_angol_time || '18:00');
+  const [magiaTime, setMagiaTime] = useState(profile.push_magia_time || DEFAULT_MAGIA_PUSH_TIME);
+  const [angolTime, setAngolTime] = useState(profile.push_angol_time || DEFAULT_ANGOL_PUSH_TIME);
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState<string | null>(null);
@@ -146,7 +152,10 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
             <SelectContent>
               {LOCALES.map((loc) => (
                 <SelectItem key={loc.value} value={loc.value}>
-                  {loc.flag} {loc.label}
+                  <span className="flex items-center gap-2">
+                    <FlagIcon locale={loc.value} className="h-3.5 w-5" />
+                    {loc.label}
+                  </span>
                 </SelectItem>
               ))}
             </SelectContent>

@@ -3,15 +3,9 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { locales } from '@/i18n';
+import { LOCALE_META } from '@/lib/locale-meta';
+import { FlagIcon } from '@/components/ui/FlagIcon';
 import { cn } from '@/lib/utils';
-
-const LOCALE_META: Record<string, { label: string; flag: string }> = {
-  hu: { label: 'Magyar', flag: '🇭🇺' },
-  en: { label: 'English', flag: '🇬🇧' },
-  de: { label: 'Deutsch', flag: '🇩🇪' },
-  es: { label: 'Español', flag: '🇪🇸' },
-  it: { label: 'Italiano', flag: '🇮🇹' },
-};
 
 export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
   const locale = useLocale();
@@ -29,12 +23,12 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
       <select
         value={locale}
         onChange={(e) => switchLocale(e.target.value)}
-        className="input-premium h-9 cursor-pointer appearance-none rounded-lg border-border/60 bg-muted/40 px-2 py-1 text-xs font-medium"
+        className="input-premium h-9 min-w-0 cursor-pointer appearance-none rounded-lg border-border/60 bg-muted/40 px-2 py-1 text-xs font-medium"
         aria-label="Language"
       >
         {locales.map((loc) => (
           <option key={loc} value={loc}>
-            {LOCALE_META[loc].flag} {loc.toUpperCase()}
+            {LOCALE_META[loc].label} ({loc.toUpperCase()})
           </option>
         ))}
       </select>
@@ -57,8 +51,9 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
                 : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground'
             )}
             title={LOCALE_META[loc].label}
+            aria-label={LOCALE_META[loc].label}
           >
-            <span>{LOCALE_META[loc].flag}</span>
+            <FlagIcon locale={loc} className="h-3.5 w-5" />
             <span className="hidden sm:inline">{loc.toUpperCase()}</span>
           </button>
         );

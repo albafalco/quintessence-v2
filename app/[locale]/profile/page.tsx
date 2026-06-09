@@ -47,7 +47,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
             push_magia_reminders: profile.push_magia_reminders ?? true,
             push_angol_reminders: profile.push_angol_reminders ?? true,
             push_magia_time: profile.push_magia_time ?? '08:00',
-            push_angol_time: profile.push_angol_time ?? '18:00',
+            push_angol_time: profile.push_angol_time ?? '20:00',
           }}
         />
     </div>
