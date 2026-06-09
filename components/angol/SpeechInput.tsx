@@ -14,6 +14,11 @@ export function SpeechInput({ onResult, className, disabled }: SpeechInputProps)
   const [listening, setListening] = useState(false);
   const [supported, setSupported] = useState(true);
   const recognitionRef = useRef<SpeechRecognition | null>(null);
+  const onResultRef = useRef(onResult);
+
+  useEffect(() => {
+    onResultRef.current = onResult;
+  }, [onResult]);
 
   useEffect(() => {
     const SpeechRecognitionCtor =
@@ -37,7 +42,7 @@ export function SpeechInput({ onResult, className, disabled }: SpeechInputProps)
       for (let i = event.resultIndex; i < event.results.length; i++) {
         transcript += event.results[i][0].transcript;
       }
-      if (transcript) onResult(transcript.trim());
+      if (transcript) onResultRef.current(transcript.trim());
     };
 
     recognition.onend = () => setListening(false);
@@ -48,7 +53,7 @@ export function SpeechInput({ onResult, className, disabled }: SpeechInputProps)
     return () => {
       recognition.abort();
     };
-  }, [onResult]);
+  }, []);
 
   const toggle = useCallback(() => {
     const recognition = recognitionRef.current;
