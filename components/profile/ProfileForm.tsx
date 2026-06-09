@@ -64,6 +64,8 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [testingPush, setTestingPush] = useState(false);
+  const [pushTestMessage, setPushTestMessage] = useState<string | null>(null);
 
   const saveProfile = async () => {
     setSaving(true);
@@ -113,6 +115,27 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
     setMessage(t('saved'));
     setSaving(false);
     router.refresh();
+  };
+
+  const sendTestPush = async () => {
+    setTestingPush(true);
+    setPushTestMessage(null);
+
+    try {
+      const res = await fetch('/api/push/test', { method: 'POST' });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setPushTestMessage(typeof data.error === 'string' ? data.error : t('pushTestFailed'));
+        return;
+      }
+
+      setPushTestMessage(t('pushTestSent'));
+    } catch {
+      setPushTestMessage(t('pushTestFailed'));
+    } finally {
+      setTestingPush(false);
+    }
   };
 
   return (
@@ -177,6 +200,20 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
           {pushEnabled && (
             <>
               <Separator />
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-sm text-muted-foreground">{t('pushTestHint')}</p>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={sendTestPush}
+                  disabled={testingPush}
+                >
+                  {testingPush ? t('pushTesting') : t('pushTest')}
+                </Button>
+              </div>
+              {pushTestMessage && (
+                <p className="text-xs text-accent">{pushTestMessage}</p>
+              )}
               <div className="flex items-center justify-between">
                 <Label>{t('magiaReminder')}</Label>
                 <Switch checked={magiaReminder} onCheckedChange={setMagiaReminder} />

@@ -1,8 +1,10 @@
 {
+  "id": "/",
   "name": "Quintessence",
   "short_name": "Quintessence",
   "description": "Személyes fejlődés és tanulás moduláris rendszere",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0a0812",
   "theme_color": "#3B2A6E",
