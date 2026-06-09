@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server';
+import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { ModuleCard } from '@/components/dashboard/ModuleCard';
 import {
@@ -22,10 +23,14 @@ export default async function DashboardPage({
     data: { user },
   } = await supabase.auth.getUser();
 
+  if (!user) {
+    redirect(`/${locale}/auth/login`);
+  }
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('username, preferred_language')
-    .eq('id', user!.id)
+    .eq('id', user.id)
     .single();
 
   const username = profile?.username ?? 'user';
@@ -34,7 +39,7 @@ export default async function DashboardPage({
   const { data: magiaProgress } = await supabase
     .from('magia_progress')
     .select('fokozat, completed, completed_at')
-    .eq('user_id', user!.id);
+    .eq('user_id', user.id);
 
   const magiaStats = getMagiaDashboardStats(magiaProgress ?? []);
 
@@ -44,11 +49,11 @@ export default async function DashboardPage({
       supabase
         .from('angol_card_progress')
         .select('correct_count, last_seen')
-        .eq('user_id', user!.id),
+        .eq('user_id', user.id),
       supabase
         .from('angol_section_unlocks')
         .select('section_id, unlocked_at')
-        .eq('user_id', user!.id)
+        .eq('user_id', user.id)
         .eq('lesson_id', 1),
     ]);
     angolStats = getAngolDashboardStats(cardProgress ?? [], unlocks ?? []);

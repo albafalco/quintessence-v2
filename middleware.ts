@@ -61,7 +61,8 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user && !isPublic && pathnameWithoutLocale !== '') {
+  // pathnameWithoutLocale is '' for /{locale} (dashboard) — that route is also protected
+  if (!user && !isPublic) {
     const locale = pathname.split('/')[1] || defaultLocale;
     return NextResponse.redirect(new URL(`/${locale}/auth/login`, request.url));
   }
