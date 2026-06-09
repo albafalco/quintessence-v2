@@ -6,6 +6,7 @@ import { getMessages } from 'next-intl/server';
 import { locales, type Locale } from '@/i18n';
 import { createClient } from '@/lib/supabase/server';
 import { ConditionalAppShell } from '@/components/layout/ConditionalAppShell';
+import { ServiceWorkerInit } from '@/components/layout/ServiceWorkerInit';
 import '../globals.css';
 
 const outfit = Outfit({
@@ -71,6 +72,7 @@ export default async function LocaleLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className={`${outfit.variable} ${cinzel.variable} font-sans`}>
+        <ServiceWorkerInit />
         <NextIntlClientProvider messages={messages}>
           <ConditionalAppShell username={username}>{children}</ConditionalAppShell>
         </NextIntlClientProvider>
