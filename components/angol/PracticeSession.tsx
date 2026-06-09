@@ -42,6 +42,17 @@ export function PracticeSession({
     setFlipped(false);
   }, [mondatok, sectionId]);
 
+  useEffect(() => {
+    if (!flipped) return;
+    if (typeof window === 'undefined' || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(englishText);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.9;
+    window.speechSynthesis.speak(utterance);
+    return () => window.speechSynthesis.cancel();
+  }, [flipped, englishText]);
+
   const goNext = useCallback(() => {
     setFlipped(false);
     setIndex((i) => (i + 1) % total);
