@@ -1,0 +1,23 @@
+name: Push reminders
+
+on:
+  schedule:
+    # Hobby Vercel csak napi cront enged — 5 percenként GitHub Actions hívja az API-t
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  send-reminders:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger push reminder check
+        env:
+          APP_URL: https://quintessence-v2.vercel.app
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "CRON_SECRET nincs beállítva a GitHub repo Secrets-ben — kihagyva."
+            exit 0
+          fi
+          curl -fsS -X GET "$APP_URL/api/push/send" \
+            -H "Authorization: Bearer $CRON_SECRET"
