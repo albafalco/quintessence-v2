@@ -1,21 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { BookOpen } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
 import { ExerciseItem } from './ExerciseItem';
 import {
   getExerciseProgress,
   type MagiaProgressRecord,
 } from '@/lib/magia-utils';
 import { cn } from '@/lib/utils';
-import type { MagiaSection } from '@/lib/magia-data';
-
-interface Exercise {
-  key: string;
-  cim: string;
-  leiras: string;
-}
+import type { MagiaSection, Exercise } from '@/lib/magia-types';
 
 interface SectionData {
   cim: string;
@@ -25,25 +21,62 @@ interface SectionData {
 
 interface FokozatTabsProps {
   fokozatId: number;
+  nextFokozatTitle?: string;
   szellem: SectionData;
   lelek: SectionData;
   test: SectionData;
   progress: MagiaProgressRecord[];
   userId: string;
+  onMasteryChange?: () => void;
 }
 
 const TABS: MagiaSection[] = ['szellem', 'lelek', 'test'];
 
 export function FokozatTabs({
   fokozatId,
+  nextFokozatTitle,
   szellem,
   lelek,
   test,
   progress,
   userId,
+  onMasteryChange,
 }: FokozatTabsProps) {
   const t = useTranslations('magia');
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<MagiaSection>('szellem');
+
+  const checkAndNotifyFokozatUnlock = useCallback(async () => {
+    if (!nextFokozatTitle) return;
+    const supabase = createClient();
+    const { data } = await supabase
+      .from('magia_progress')
+      .select('status')
+      .eq('user_id', userId)
+      .eq('fokozat', fokozatId);
+
+    const totalExercises =
+      szellem.gyakorlatok.length + lelek.gyakorlatok.length + test.gyakorlatok.length;
+    const masteredCount = (data ?? []).filter((p) => p.status === 'mastered').length;
+
+    if (masteredCount >= totalExercises && totalExercises > 0) {
+      fetch('/api/push/magia-unlock', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          unlockedFokozatId: fokozatId + 1,
+          title: nextFokozatTitle,
+        }),
+      }).catch(() => {});
+    }
+  }, [fokozatId, nextFokozatTitle, userId, szellem, lelek, test]);
+
+  const handleMasteryChange = useCallback(() => {
+    checkAndNotifyFokozatUnlock();
+    onMasteryChange?.();
+    router.refresh();
+  }, [checkAndNotifyFokozatUnlock, onMasteryChange, router]);
 
   const sectionData: Record<MagiaSection, SectionData> = {
     szellem,
@@ -118,9 +151,16 @@ export function FokozatTabs({
                 exerciseKey={exercise.key}
                 title={exercise.cim}
                 description={exercise.leiras}
+                type={exercise.type}
+                params={exercise.params}
+                successCriteria={exercise.successCriteria}
+                minSessions={exercise.minSessions ?? 10}
                 initialCompleted={exerciseProgress.completed}
                 initialNotes={exerciseProgress.notes}
+                initialStatus={exerciseProgress.status}
+                initialSessionCount={exerciseProgress.sessionCount}
                 userId={userId}
+                onMasteryChange={handleMasteryChange}
               />
             );
           })}

@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { createClient } from '@/lib/supabase/server';
@@ -6,7 +6,7 @@ import { MAGIA_FOKOZATOK } from '@/lib/magia-data';
 import { FokozatTabs } from '@/components/magia/FokozatTabs';
 import { JournalSection } from '@/components/magia/JournalSection';
 import { ProgressRing } from '@/components/magia/ProgressRing';
-import { ROMAN_NUMERALS, getFokozatProgress } from '@/lib/magia-utils';
+import { ROMAN_NUMERALS, getFokozatProgress, isFokozatUnlocked } from '@/lib/magia-utils';
 import type { JournalEntryData } from '@/components/magia/JournalEntry';
 import type { MagiaProgressRecord } from '@/lib/magia-utils';
 
@@ -34,12 +34,12 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
 
   if (!user) notFound();
 
-  const [{ data: progressData }, { data: journalData }] = await Promise.all([
+  // Minden progress kell az unlock-ellenőrzéshez
+  const [{ data: allProgressData }, { data: journalData }] = await Promise.all([
     supabase
       .from('magia_progress')
-      .select('fokozat, section, exercise_key, completed, notes')
-      .eq('user_id', user.id)
-      .eq('fokozat', fokozatId),
+      .select('fokozat, section, exercise_key, completed, notes, status, mastered_at, session_count')
+      .eq('user_id', user.id),
     supabase
       .from('magia_journal')
       .select('id, fokozat, entry_date, content, created_at, updated_at')
@@ -48,8 +48,14 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
       .order('entry_date', { ascending: false }),
   ]);
 
-  const progress = (progressData ?? []) as MagiaProgressRecord[];
+  const allProgress = (allProgressData ?? []) as MagiaProgressRecord[];
+  const progress = allProgress.filter((p) => p.fokozat === fokozatId);
   const journalEntries = (journalData ?? []) as JournalEntryData[];
+
+  if (!isFokozatUnlocked(fokozatId, allProgress)) {
+    redirect(`/${locale}/modules/magia`);
+  }
+
   const fokozatProgress = getFokozatProgress(fokozatId, progress);
 
   return (
@@ -93,6 +99,7 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
 
         <FokozatTabs
           fokozatId={fokozatId}
+          nextFokozatTitle={MAGIA_FOKOZATOK.find((f) => f.id === fokozatId + 1)?.cim}
           szellem={fokozat.szellem}
           lelek={fokozat.lelek}
           test={fokozat.test}

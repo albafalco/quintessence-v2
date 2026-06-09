@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { createClient } from '@/lib/supabase/server';
 import { MAGIA_FOKOZATOK } from '@/lib/magia-data';
@@ -22,7 +23,7 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
   if (user) {
     const { data } = await supabase
       .from('magia_progress')
-      .select('fokozat, section, exercise_key, completed, notes')
+      .select('fokozat, section, exercise_key, completed, notes, status, mastered_at, session_count')
       .eq('user_id', user.id);
 
     progress = (data ?? []) as MagiaProgressRecord[];
@@ -36,6 +37,16 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
           {t('title')}
         </h1>
         <p className="mt-3 max-w-xl text-muted-foreground leading-relaxed">{t('subtitle')}</p>
+        {user && (
+          <div className="mt-4">
+            <Link
+              href={`/${locale}/modules/magia/ma`}
+              className="inline-flex items-center gap-2 rounded-xl bg-accent/20 px-4 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold"
+            >
+              ▶ Napi gyakorlás
+            </Link>
+          </div>
+        )}
       </header>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

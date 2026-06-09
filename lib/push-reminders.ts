@@ -100,6 +100,33 @@ export function getBudapestDayBounds(date: string): { start: string; end: string
   };
 }
 
+export async function hasMagiaActivityToday(
+  supabase: SupabaseClient,
+  userId: string,
+  budapestDate: string
+): Promise<boolean> {
+  const { start, end } = getBudapestDayBounds(budapestDate);
+  const { data } = await supabase
+    .from('magia_sessions')
+    .select('id')
+    .eq('user_id', userId)
+    .eq('completed', true)
+    .gte('ended_at', start)
+    .lte('ended_at', end)
+    .limit(1);
+  return Boolean(data?.length);
+}
+
+export async function getMagiaInactiveDays(
+  lastActivityDate: string | null,
+  budapestDate: string
+): Promise<number> {
+  if (!lastActivityDate) return 999;
+  const last = new Date(lastActivityDate + 'T00:00:00Z');
+  const today = new Date(budapestDate + 'T00:00:00Z');
+  return Math.round((today.getTime() - last.getTime()) / 86_400_000);
+}
+
 export async function hasAngolActivityToday(
   supabase: SupabaseClient,
   userId: string,

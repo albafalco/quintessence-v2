@@ -9,6 +9,8 @@ import { FlagIcon } from '@/components/ui/FlagIcon';
 import {
   DEFAULT_ANGOL_PUSH_TIME,
   DEFAULT_MAGIA_PUSH_TIME,
+  DEFAULT_MAGIA_EVENING_PUSH_TIME,
+  DEFAULT_MAGIA_STREAK_PUSH_TIME,
   LOCALE_META,
 } from '@/lib/locale-meta';
 import { LogoutButton } from '@/components/auth/LogoutButton';
@@ -34,8 +36,13 @@ interface ProfileData {
   preferred_language: string;
   push_enabled: boolean;
   push_magia_reminders: boolean;
-  push_angol_reminders: boolean;
   push_magia_time: string;
+  push_magia_evening: boolean;
+  push_magia_evening_time: string;
+  push_magia_streak: boolean;
+  push_magia_streak_time: string;
+  push_magia_reengagement: boolean;
+  push_angol_reminders: boolean;
   push_angol_time: string;
 }
 
@@ -56,8 +63,13 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
   const [language, setLanguage] = useState(profile.preferred_language);
   const [pushEnabled, setPushEnabled] = useState(profile.push_enabled);
   const [magiaReminder, setMagiaReminder] = useState(profile.push_magia_reminders);
-  const [angolReminder, setAngolReminder] = useState(profile.push_angol_reminders);
   const [magiaTime, setMagiaTime] = useState(profile.push_magia_time || DEFAULT_MAGIA_PUSH_TIME);
+  const [magiaEvening, setMagiaEvening] = useState(profile.push_magia_evening);
+  const [magiaEveningTime, setMagiaEveningTime] = useState(profile.push_magia_evening_time || DEFAULT_MAGIA_EVENING_PUSH_TIME);
+  const [magiaStreak, setMagiaStreak] = useState(profile.push_magia_streak);
+  const [magiaStreakTime, setMagiaStreakTime] = useState(profile.push_magia_streak_time || DEFAULT_MAGIA_STREAK_PUSH_TIME);
+  const [magiaReengagement, setMagiaReengagement] = useState(profile.push_magia_reengagement);
+  const [angolReminder, setAngolReminder] = useState(profile.push_angol_reminders);
   const [angolTime, setAngolTime] = useState(profile.push_angol_time || DEFAULT_ANGOL_PUSH_TIME);
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -78,8 +90,13 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
         name,
         preferred_language: language,
         push_magia_reminders: magiaReminder,
-        push_angol_reminders: angolReminder,
         push_magia_time: magiaTime,
+        push_magia_evening: magiaEvening,
+        push_magia_evening_time: magiaEveningTime,
+        push_magia_streak: magiaStreak,
+        push_magia_streak_time: magiaStreakTime,
+        push_magia_reengagement: magiaReengagement,
+        push_angol_reminders: angolReminder,
         push_angol_time: angolTime,
         updated_at: new Date().toISOString(),
       })
@@ -214,8 +231,13 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
               {pushTestMessage && (
                 <p className="text-xs text-accent">{pushTestMessage}</p>
               )}
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent/60">Mágia értesítések</p>
+
               <div className="flex items-center justify-between">
-                <Label>{t('magiaReminder')}</Label>
+                <div>
+                  <Label>Reggeli emlékeztető</Label>
+                  <p className="text-[11px] text-muted-foreground">Napi tervvel a beállított időben</p>
+                </div>
                 <Switch checked={magiaReminder} onCheckedChange={setMagiaReminder} />
               </div>
               {magiaReminder && (
@@ -229,8 +251,57 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
                   />
                 </div>
               )}
+
+              <div className="flex items-center justify-between">
+                <div>
+                  <Label>Esti emlékeztető</Label>
+                  <p className="text-[11px] text-muted-foreground">Az esti körre emlékeztet</p>
+                </div>
+                <Switch checked={magiaEvening} onCheckedChange={setMagiaEvening} />
+              </div>
+              {magiaEvening && (
+                <div>
+                  <Label>{t('reminderTime')}</Label>
+                  <Input
+                    type="time"
+                    value={magiaEveningTime}
+                    onChange={(e) => setMagiaEveningTime(e.target.value)}
+                    className="mt-1 w-40"
+                  />
+                </div>
+              )}
+
+              <div className="flex items-center justify-between">
+                <div>
+                  <Label>🔥 Sorozatvédő</Label>
+                  <p className="text-[11px] text-muted-foreground">Csak ha aznap még nem gyakoroltál</p>
+                </div>
+                <Switch checked={magiaStreak} onCheckedChange={setMagiaStreak} />
+              </div>
+              {magiaStreak && (
+                <div>
+                  <Label>{t('reminderTime')}</Label>
+                  <Input
+                    type="time"
+                    value={magiaStreakTime}
+                    onChange={(e) => setMagiaStreakTime(e.target.value)}
+                    className="mt-1 w-40"
+                  />
+                </div>
+              )}
+
+              <div className="flex items-center justify-between">
+                <div>
+                  <Label>Visszahívó</Label>
+                  <p className="text-[11px] text-muted-foreground">3+ nap inaktivitás után, hetente max. 1×</p>
+                </div>
+                <Switch checked={magiaReengagement} onCheckedChange={setMagiaReengagement} />
+              </div>
+
               {language === 'hu' && (
                 <>
+                  <Separator />
+                  <p className="text-xs font-semibold uppercase tracking-wider text-accent/60">Angol értesítések</p>
                   <div className="flex items-center justify-between">
                     <Label>{t('angolReminder')}</Label>
                     <Switch checked={angolReminder} onCheckedChange={setAngolReminder} />

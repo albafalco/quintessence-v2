@@ -45,8 +45,13 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
             preferred_language: profile.preferred_language,
             push_enabled: profile.push_enabled ?? false,
             push_magia_reminders: profile.push_magia_reminders ?? true,
-            push_angol_reminders: profile.push_angol_reminders ?? true,
             push_magia_time: profile.push_magia_time ?? '08:00',
+            push_magia_evening: profile.push_magia_evening ?? true,
+            push_magia_evening_time: profile.push_magia_evening_time ?? '19:00',
+            push_magia_streak: profile.push_magia_streak ?? true,
+            push_magia_streak_time: profile.push_magia_streak_time ?? '20:30',
+            push_magia_reengagement: profile.push_magia_reengagement ?? true,
+            push_angol_reminders: profile.push_angol_reminders ?? true,
             push_angol_time: profile.push_angol_time ?? '20:00',
           }}
         />
