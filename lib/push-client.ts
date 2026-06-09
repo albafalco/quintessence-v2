@@ -31,11 +31,25 @@ export async function waitForServiceWorker(timeoutMs = 30000): Promise<ServiceWo
     throw new Error('SERVICE_WORKER_UNSUPPORTED');
   }
 
+  // Get or create the registration
   let registration = await navigator.serviceWorker.getRegistration('/');
-  if (!registration?.active) {
+  if (!registration) {
     registration = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
   }
 
+  // SW already active — return immediately.
+  // iOS: navigator.serviceWorker.ready can be slow even when the SW is active,
+  // so we skip it when possible to avoid spurious timeouts.
+  if (registration.active) {
+    return registration;
+  }
+
+  // SW is in waiting state — nudge it to activate immediately.
+  if (registration.waiting) {
+    registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+  }
+
+  // SW is still installing — wait with timeout.
   return Promise.race([
     navigator.serviceWorker.ready,
     new Promise<ServiceWorkerRegistration>((_, reject) => {
