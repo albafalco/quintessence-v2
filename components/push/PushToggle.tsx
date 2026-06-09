@@ -23,8 +23,8 @@ interface PushToggleProps {
 function mapPushError(error: unknown, t: (key: string) => string): string {
   const message = error instanceof Error ? error.message : '';
 
-  if (message === 'SERVICE_WORKER_UNSUPPORTED') return t('pushErrorServiceWorker');
-  if (message === 'SERVICE_WORKER_TIMEOUT') return t('pushErrorServiceWorker');
+  if (message === 'SERVICE_WORKER_UNSUPPORTED') return `${t('pushErrorServiceWorker')} [unsupported]`;
+  if (message === 'SERVICE_WORKER_TIMEOUT') return `${t('pushErrorServiceWorker')} [timeout]`;
   if (message === 'VAPID_MISSING') return t('pushErrorVapid');
   if (message === 'INVALID_SUBSCRIPTION') return t('pushErrorSubscribe');
   if (message.includes('Subscribe failed')) return `${t('pushErrorSubscribe')} (${message})`;
