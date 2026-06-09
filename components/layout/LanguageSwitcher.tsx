@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { ChevronDown } from 'lucide-react';
@@ -37,7 +38,7 @@ export function LanguageSwitcher() {
 
   return (
     <>
-      {/* Mobile: csak az aktív zászló, kattintásra fixed dropdown */}
+      {/* Mobile: csak az aktív zászló, kattintásra portal-dropdown */}
       <div className="sm:hidden">
         <button
           ref={buttonRef}
@@ -51,41 +52,52 @@ export function LanguageSwitcher() {
           <FlagIcon locale={locale} className="h-3 w-4" />
           <span className="text-xs font-medium text-accent">{locale.toUpperCase()}</span>
           <ChevronDown
-            className={cn('h-3 w-3 text-muted-foreground transition-transform duration-200', open && 'rotate-180')}
+            className={cn(
+              'h-3 w-3 text-muted-foreground transition-transform duration-200',
+              open && 'rotate-180'
+            )}
           />
         </button>
 
-        {open && (
-          <>
-            <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
-            <div
-              className="fixed z-50 min-w-[9rem] overflow-hidden rounded-xl border border-border/60 bg-card shadow-xl"
-              style={{ top: dropdownPos.top, right: dropdownPos.right }}
-            >
-              {locales.map((loc) => {
-                const active = loc === locale;
-                return (
-                  <button
-                    key={loc}
-                    type="button"
-                    onClick={() => switchLocale(loc)}
-                    className={cn(
-                      'flex w-full items-center gap-2.5 px-3 py-2.5 text-sm transition-colors',
-                      active ? 'bg-primary/20 text-accent' : 'text-foreground hover:bg-muted/60'
-                    )}
-                    aria-current={active ? 'true' : undefined}
-                  >
-                    <FlagIcon locale={loc} className="h-3.5 w-5 shrink-0" />
-                    <span className="font-medium">{loc.toUpperCase()}</span>
-                    <span className="ml-auto text-xs text-muted-foreground">
-                      {LOCALE_META[loc as keyof typeof LOCALE_META].label}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </>
-        )}
+        {open &&
+          createPortal(
+            <>
+              {/* Backdrop */}
+              <div
+                className="fixed inset-0"
+                style={{ zIndex: 9998 }}
+                onClick={() => setOpen(false)}
+              />
+              {/* Dropdown — document.body gyereke, minden overflow/stacking context felett */}
+              <div
+                className="fixed min-w-[9rem] overflow-hidden rounded-xl border border-border/60 bg-card shadow-xl"
+                style={{ top: dropdownPos.top, right: dropdownPos.right, zIndex: 9999 }}
+              >
+                {locales.map((loc) => {
+                  const active = loc === locale;
+                  return (
+                    <button
+                      key={loc}
+                      type="button"
+                      onClick={() => switchLocale(loc)}
+                      className={cn(
+                        'flex w-full items-center gap-2.5 px-3 py-2.5 text-sm transition-colors',
+                        active ? 'bg-primary/20 text-accent' : 'text-foreground hover:bg-muted/60'
+                      )}
+                      aria-current={active ? 'true' : undefined}
+                    >
+                      <FlagIcon locale={loc} className="h-3.5 w-5 shrink-0" />
+                      <span className="font-medium">{loc.toUpperCase()}</span>
+                      <span className="ml-auto text-xs text-muted-foreground">
+                        {LOCALE_META[loc as keyof typeof LOCALE_META].label}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </>,
+            document.body
+          )}
       </div>
 
       {/* Desktop (sm+): változatlan — minden zászló egyszerre látható */}
