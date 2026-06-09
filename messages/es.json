@@ -130,6 +130,7 @@
     "saved": "¡Guardado!",
     "passwordMismatch": "Las contraseñas no coinciden",
     "passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
-    "readonly": "No editable"
+    "readonly": "No editable",
+    "logoutHint": "Tendrás que iniciar sesión de nuevo después de cerrar sesión."
   }
 }

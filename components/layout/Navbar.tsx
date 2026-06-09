@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
+import { LogoutButton } from '@/components/auth/LogoutButton';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { cn } from '@/lib/utils';
 
@@ -30,6 +31,8 @@ export function Navbar({ username }: NavbarProps) {
         <div className="sm:hidden">
           <LanguageSwitcher compact />
         </div>
+
+        <LogoutButton variant="icon" />
 
         <Link
           href={`/${locale}/profile`}

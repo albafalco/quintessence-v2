@@ -130,6 +130,7 @@
     "saved": "Mentve!",
     "passwordMismatch": "A jelszavak nem egyeznek",
     "passwordTooShort": "A jelszó legalább 8 karakter legyen",
-    "readonly": "Nem módosítható"
+    "readonly": "Nem módosítható",
+    "logoutHint": "Kijelentkezés után újra be kell jelentkezned."
   }
 }

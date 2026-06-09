@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display } from 'next/font/google';
+import { DM_Sans, Cormorant_Garamond } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -7,15 +7,16 @@ import { createClient } from '@/lib/supabase/server';
 import { ConditionalAppShell } from '@/components/layout/ConditionalAppShell';
 import '../globals.css';
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ['latin', 'latin-ext'],
-  variable: '--font-inter',
+  variable: '--font-sans',
   display: 'swap',
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin', 'latin-ext'],
-  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-display',
   display: 'swap',
 });
 
@@ -62,7 +63,7 @@ export default async function LocaleLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans`}>
+      <body className={`${dmSans.variable} ${cormorant.variable} font-sans`}>
         <NextIntlClientProvider messages={messages}>
           <ConditionalAppShell username={username}>{children}</ConditionalAppShell>
         </NextIntlClientProvider>

@@ -130,6 +130,7 @@
     "saved": "Saved!",
     "passwordMismatch": "Passwords do not match",
     "passwordTooShort": "Password must be at least 8 characters",
-    "readonly": "Not editable"
+    "readonly": "Not editable",
+    "logoutHint": "You will need to sign in again after logging out."
   }
 }

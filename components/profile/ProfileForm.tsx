@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { PushToggle } from '@/components/push/PushToggle';
+import { LogoutButton } from '@/components/auth/LogoutButton';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -238,6 +239,13 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
       <Button variant="gold" onClick={saveProfile} disabled={saving} className="w-full">
         {saving ? '...' : t('save')}
       </Button>
+
+      <Card className="premium-card border-red-500/10">
+        <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-muted-foreground">{t('logoutHint')}</p>
+          <LogoutButton variant="outline" className="w-full sm:w-auto" />
+        </CardContent>
+      </Card>
     </div>
   );
 }

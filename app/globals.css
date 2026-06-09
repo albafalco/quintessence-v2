@@ -113,7 +113,7 @@
 
 @layer utilities {
   .font-display {
-    font-family: var(--font-playfair), Georgia, serif;
+    font-family: var(--font-display), Georgia, serif;
   }
 
   .animate-stagger-1 { animation-delay: 0.1s; }
