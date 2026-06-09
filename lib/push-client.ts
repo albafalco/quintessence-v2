@@ -26,7 +26,7 @@ export function isStandalonePwa(): boolean {
   );
 }
 
-export async function waitForServiceWorker(timeoutMs = 10000): Promise<ServiceWorkerRegistration> {
+export async function waitForServiceWorker(timeoutMs = 30000): Promise<ServiceWorkerRegistration> {
   if (!('serviceWorker' in navigator)) {
     throw new Error('SERVICE_WORKER_UNSUPPORTED');
   }

@@ -44,7 +44,15 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
     let cancelled = false;
 
     async function syncExistingSubscription() {
-      if (!isPushSupported() || Notification.permission !== 'granted') {
+      if (!isPushSupported()) {
+        setSyncing(false);
+        return;
+      }
+
+      // Pre-warm the SW now so it's ready by the time the user taps the toggle.
+      waitForServiceWorker().catch(() => {});
+
+      if (Notification.permission !== 'granted') {
         setSyncing(false);
         return;
       }
