@@ -68,9 +68,19 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
             onEnabledChange(true);
           }
         } else if (enabled) {
-          await clearPushSubscription(supabase, user.id);
-          if (!cancelled) {
-            onEnabledChange(false);
+          // iOS may silently drop the push subscription between sessions.
+          // Try to re-subscribe without a permission dialog (already granted).
+          try {
+            const newSubscription = await subscribeToPush();
+            await persistPushSubscription(supabase, user.id, newSubscription);
+            if (!cancelled) {
+              onEnabledChange(true);
+            }
+          } catch {
+            await clearPushSubscription(supabase, user.id);
+            if (!cancelled) {
+              onEnabledChange(false);
+            }
           }
         }
       } catch {
