@@ -26,11 +26,24 @@ export async function createClient() {
   );
 }
 
+export function getSupabaseConfig() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  return { url, anonKey, serviceRoleKey };
+}
+
 export async function createServiceClient() {
+  const { url, serviceRoleKey } = getSupabaseConfig();
+
+  if (!url || !serviceRoleKey) {
+    throw new Error(
+      'Missing Supabase config: NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set'
+    );
+  }
+
   const { createClient } = await import('@supabase/supabase-js');
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-  );
+  return createClient(url, serviceRoleKey, {
+    auth: { autoRefreshToken: false, persistSession: false },
+  });
 }
