@@ -41,8 +41,8 @@ export function TTSButton({ text, className, size = 'md' }: TTSButtonProps) {
       aria-label="Hallgatás"
       title="Hallgatás"
       className={cn(
-        'inline-flex items-center justify-center rounded-full transition-colors',
-        'bg-primary/20 text-primary hover:bg-primary/30',
+        'inline-flex items-center justify-center rounded-full transition-all',
+        'border border-slate-500/30 bg-slate-700/40 text-slate-200 hover:bg-slate-600/50 hover:shadow-card',
         size === 'sm' ? 'h-8 w-8' : 'h-10 w-10',
         speaking && 'animate-pulse',
         className

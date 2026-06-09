@@ -2,7 +2,10 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Plus } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
+import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
 import { JournalEntry, type JournalEntryData } from './JournalEntry';
 
 interface JournalSectionProps {
@@ -57,59 +60,52 @@ export function JournalSection({
   };
 
   return (
-    <section id="journal" className="scroll-mt-8 space-y-4">
+    <section id="journal" className="scroll-mt-8 space-y-5">
       <div className="flex items-center justify-between">
-        <h2 className="font-display text-xl font-semibold text-foreground">
+        <h2 className="font-display text-2xl font-semibold text-gradient-gold">
           {t('journal')}
         </h2>
         {!showForm && (
-          <button
-            type="button"
-            onClick={() => setShowForm(true)}
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            + {t('addJournalEntry')}
-          </button>
+          <Button variant="outline" size="sm" onClick={() => setShowForm(true)}>
+            <Plus className="h-4 w-4" />
+            {t('addJournalEntry')}
+          </Button>
         )}
       </div>
 
       {showForm && (
-        <div className="rounded-lg border border-border bg-card p-4">
-          <textarea
+        <div className="premium-card magia-surface p-5">
+          <Textarea
             value={newContent}
             onChange={(e) => setNewContent(e.target.value)}
             rows={5}
             placeholder={t('newEntryPlaceholder')}
-            className="w-full resize-y rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            className="border-border/40 bg-background/30"
           />
-          <div className="mt-3 flex gap-2">
-            <button
-              type="button"
-              onClick={handleAdd}
-              disabled={adding || !newContent.trim()}
-              className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
-            >
+          <div className="mt-4 flex gap-2">
+            <Button variant="gold" onClick={handleAdd} disabled={adding || !newContent.trim()}>
               {adding ? t('saving') : t('save')}
-            </button>
-            <button
-              type="button"
+            </Button>
+            <Button
+              variant="ghost"
               onClick={() => {
                 setShowForm(false);
                 setNewContent('');
               }}
               disabled={adding}
-              className="rounded-lg border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {t('cancel')}
-            </button>
+            </Button>
           </div>
         </div>
       )}
 
       {entries.length === 0 ? (
-        <p className="text-sm text-muted-foreground">{t('noEntries')}</p>
+        <p className="rounded-xl border border-dashed border-border/50 py-8 text-center text-sm text-muted-foreground">
+          {t('noEntries')}
+        </p>
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-4">
           {entries.map((entry) => (
             <JournalEntry
               key={entry.id}

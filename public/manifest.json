@@ -4,8 +4,8 @@
   "description": "Személyes fejlődés és tanulás moduláris rendszere",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f0f1a",
-  "theme_color": "#7c3aed",
+  "background_color": "#0a0812",
+  "theme_color": "#3B2A6E",
   "orientation": "any",
   "icons": [
     {

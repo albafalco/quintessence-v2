@@ -33,11 +33,11 @@ interface ProfileData {
 }
 
 const LOCALES = [
-  { value: 'hu', label: 'Magyar' },
-  { value: 'en', label: 'English' },
-  { value: 'de', label: 'Deutsch' },
-  { value: 'es', label: 'Español' },
-  { value: 'it', label: 'Italiano' },
+  { value: 'hu', label: 'Magyar', flag: '🇭🇺' },
+  { value: 'en', label: 'English', flag: '🇬🇧' },
+  { value: 'de', label: 'Deutsch', flag: '🇩🇪' },
+  { value: 'es', label: 'Español', flag: '🇪🇸' },
+  { value: 'it', label: 'Italiano', flag: '🇮🇹' },
 ];
 
 export function ProfileForm({ profile }: { profile: ProfileData }) {
@@ -110,9 +110,9 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
-      <Card>
+      <Card className="premium-card">
         <CardHeader>
-          <CardTitle>{t('personalData')}</CardTitle>
+          <CardTitle className="text-gradient-gold">{t('personalData')}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -132,9 +132,9 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="premium-card">
         <CardHeader>
-          <CardTitle>{t('appearance')}</CardTitle>
+          <CardTitle className="text-gradient-gold">{t('appearance')}</CardTitle>
         </CardHeader>
         <CardContent>
           <Label>{t('preferredLanguage')}</Label>
@@ -145,7 +145,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
             <SelectContent>
               {LOCALES.map((loc) => (
                 <SelectItem key={loc.value} value={loc.value}>
-                  {loc.label}
+                  {loc.flag} {loc.label}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -153,9 +153,9 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="premium-card">
         <CardHeader>
-          <CardTitle>{t('pushNotifications')}</CardTitle>
+          <CardTitle className="text-gradient-gold">{t('pushNotifications')}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <PushToggle
@@ -206,9 +206,9 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="premium-card">
         <CardHeader>
-          <CardTitle>{t('changePassword')}</CardTitle>
+          <CardTitle className="text-gradient-gold">{t('changePassword')}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -235,7 +235,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
       {error && <p className="text-sm text-red-400">{error}</p>}
       {message && <p className="text-sm text-green-400">{message}</p>}
 
-      <Button onClick={saveProfile} disabled={saving} className="w-full">
+      <Button variant="gold" onClick={saveProfile} disabled={saving} className="w-full">
         {saving ? '...' : t('save')}
       </Button>
     </div>

@@ -109,19 +109,21 @@ export function ExamSession({
 
   if (phase === 'result' && result) {
     return (
-      <div className="mx-auto max-w-md space-y-6 text-center">
-        <h2 className="text-2xl font-bold">Vizsga eredmény</h2>
+      <div className="mx-auto max-w-md space-y-8 text-center animate-fade-in">
+        <h2 className="font-display text-2xl font-bold text-cream">Vizsga eredmény</h2>
         <div
           className={cn(
-            'rounded-2xl border p-8',
-            passed ? 'border-green-500/40 bg-green-500/10' : 'border-red-500/40 bg-red-500/10'
+            'premium-card p-10',
+            passed
+              ? 'border-green-500/30 bg-green-900/15 shadow-[0_0_40px_-10px_rgba(34,197,94,0.3)]'
+              : 'border-red-500/30 bg-red-900/15 shadow-[0_0_40px_-10px_rgba(239,68,68,0.2)]'
           )}
         >
-          <p className="text-4xl font-bold">
+          <p className="font-display text-5xl font-bold text-cream">
             {result.correct + result.partial * 0.5}/{total}
           </p>
-          <p className="mt-2 text-3xl font-semibold">{result.percent}%</p>
-          <p className="mt-4 text-lg">
+          <p className="mt-3 font-display text-4xl font-semibold text-gradient-gold">{result.percent}%</p>
+          <p className="mt-6 text-lg font-medium">
             {passed ? '✅ Sikeresen teljesítve!' : '❌ Nem sikerült'}
           </p>
           {!passed && (
@@ -184,9 +186,9 @@ export function ExamSession({
   }
 
   return (
-    <div className="mx-auto max-w-lg space-y-6">
+    <div className="mx-auto max-w-xl space-y-8">
       <div>
-        <h2 className="text-lg font-semibold">Vizsga — {sectionName}</h2>
+        <h2 className="font-display text-xl font-semibold text-cream">Vizsga — {sectionName}</h2>
         <p className="text-sm text-muted-foreground">
           Kérdés {currentQ + 1} / {total}
         </p>
@@ -207,7 +209,7 @@ export function ExamSession({
         </div>
       </div>
 
-      <div className="rounded-2xl border border-border bg-card p-6 space-y-4">
+      <div className="premium-card angol-surface p-8 space-y-5">
         <div>
           <p className="text-sm text-muted-foreground mb-1">Magyar:</p>
           <p className="text-xl font-medium">{question.hu}</p>

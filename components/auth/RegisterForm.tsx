@@ -117,7 +117,7 @@ export function RegisterForm() {
 
       {error && <p className="text-sm text-red-400">{error}</p>}
 
-      <Button type="submit" className="w-full" disabled={loading}>
+      <Button type="submit" variant="gold" className="w-full" disabled={loading}>
         {loading ? t('loading') : t('register')}
       </Button>
 

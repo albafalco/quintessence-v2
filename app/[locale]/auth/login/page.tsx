@@ -21,10 +21,10 @@ export default async function LoginPage({
   const t = await getTranslations({ locale, namespace: 'auth' });
 
   return (
-    <Card>
-      <CardHeader className="text-center">
-        <CardTitle className="font-display text-2xl text-primary">Quintessence</CardTitle>
-        <CardDescription>{t('welcomeBack')}</CardDescription>
+    <Card className="glass-strong border-border/50 shadow-glow">
+      <CardHeader className="text-center pb-2">
+        <CardTitle className="font-display text-xl text-cream">{t('welcomeBack')}</CardTitle>
+        <CardDescription>{t('login')}</CardDescription>
       </CardHeader>
       <CardContent>
         <LoginForm />

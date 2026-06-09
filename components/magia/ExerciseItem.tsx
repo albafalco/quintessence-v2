@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { buildExerciseKey } from '@/lib/magia-utils';
+import { Textarea } from '@/components/ui/textarea';
 import { cn } from '@/lib/utils';
 import type { MagiaSection } from '@/lib/magia-data';
 
@@ -79,36 +80,26 @@ export function ExerciseItem({
   return (
     <div
       className={cn(
-        'rounded-lg border border-border bg-card/50 p-4 transition-colors',
-        completed && 'border-primary/30 bg-primary/5'
+        'rounded-2xl border border-border/50 bg-card/40 p-5 transition-all duration-300',
+        completed && 'border-accent/25 bg-accent/5 shadow-glow-gold'
       )}
     >
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-4">
         <button
           type="button"
           onClick={handleToggle}
           disabled={saving}
           className={cn(
-            'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border-2 transition-colors',
+            'mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border-2 transition-all duration-200',
             completed
-              ? 'border-primary bg-primary text-primary-foreground'
-              : 'border-muted-foreground/50 hover:border-primary'
+              ? 'border-accent bg-accent text-accent-foreground shadow-glow-gold'
+              : 'border-muted-foreground/30 hover:border-accent/60 hover:shadow-glow-gold'
           )}
           aria-label={completed ? t('completed') : t('markDone')}
         >
           {completed && (
-            <svg
-              className="h-3 w-3"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={3}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M5 13l4 4L19 7"
-              />
+            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
             </svg>
           )}
         </button>
@@ -116,33 +107,31 @@ export function ExerciseItem({
         <div className="min-w-0 flex-1">
           <h4
             className={cn(
-              'font-medium text-foreground',
-              completed && 'text-muted-foreground line-through'
+              'font-display text-base font-medium text-cream',
+              completed && 'text-muted-foreground line-through decoration-accent/40'
             )}
           >
             {title}
           </h4>
-          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{description}</p>
 
-          <div className="mt-3">
-            <label className="mb-1 block text-xs text-muted-foreground">
+          <div className="mt-4">
+            <label className="mb-1.5 block text-[10px] font-semibold uppercase tracking-wider text-accent/60">
               {t('notes')}
             </label>
-            <textarea
+            <Textarea
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               onBlur={handleNotesBlur}
               disabled={saving}
               rows={2}
               placeholder={t('notesPlaceholder')}
-              className="w-full resize-y rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              className="border-border/40 bg-background/40 text-sm"
             />
           </div>
 
-          {saving && (
-            <p className="mt-1 text-xs text-muted-foreground">{t('saving')}</p>
-          )}
-          {error && <p className="mt-1 text-xs text-red-400">{error}</p>}
+          {saving && <p className="mt-2 text-xs text-muted-foreground">{t('saving')}</p>}
+          {error && <p className="mt-2 text-xs text-red-400">{error}</p>}
         </div>
       </div>
     </div>

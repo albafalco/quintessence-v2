@@ -53,46 +53,43 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
   const fokozatProgress = getFokozatProgress(fokozatId, progress);
 
   return (
-    <div className="min-h-screen bg-background px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-4xl">
-        <Link
-          href={`/${locale}/modules/magia`}
-          className="mb-6 inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+    <div className="mx-auto max-w-4xl space-y-10">
+      <Link
+        href={`/${locale}/modules/magia`}
+        className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-accent"
+      >
+        ← {t('back')}
+      </Link>
+
+      <header className="premium-card magia-surface flex items-start gap-5 p-6 md:p-8">
+        <div
+          className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-4xl"
+          style={{ background: `${fokozat.szin}18`, border: `1px solid ${fokozat.szin}33` }}
         >
-          ← {t('back')}
-        </Link>
-
-        <header className="mb-8 flex items-start gap-4">
-          <span className="text-4xl" role="img" aria-hidden>
-            {fokozat.icon}
-          </span>
-          <div className="flex-1">
-            <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-              {ROMAN_NUMERALS[fokozatId]}. {t('fokozat')}
-            </p>
-            <h1
-              className="font-display text-3xl font-bold"
-              style={{ color: fokozat.szin }}
-            >
-              {fokozat.cim}
-            </h1>
-            <p className="mt-2 text-sm text-muted-foreground">
-              {t('duration')}: {fokozat.idotartam}
-            </p>
-          </div>
-          <ProgressRing
-            progress={fokozatProgress.percent}
-            color={fokozat.szin}
-            size={72}
-            strokeWidth={4}
-          />
-        </header>
-
-        <div className="mb-8 rounded-lg border border-border bg-card/30 p-4">
-          <p className="text-sm leading-relaxed text-foreground/90">
-            {fokozat.osszefoglalo}
+          {fokozat.icon}
+        </div>
+        <div className="flex-1">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">
+            {ROMAN_NUMERALS[fokozatId]}. {t('fokozat')}
+          </p>
+          <h1 className="font-display text-3xl font-bold md:text-4xl" style={{ color: fokozat.szin }}>
+            {fokozat.cim}
+          </h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            {t('duration')}: {fokozat.idotartam}
           </p>
         </div>
+        <ProgressRing
+          progress={fokozatProgress.percent}
+          color={fokozat.szin}
+          size={80}
+          strokeWidth={4}
+        />
+      </header>
+
+      <div className="rounded-2xl border border-primary/15 bg-magia-gradient p-6">
+        <p className="text-sm leading-relaxed text-cream/85">{fokozat.osszefoglalo}</p>
+      </div>
 
         <FokozatTabs
           fokozatId={fokozatId}
@@ -103,14 +100,13 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
           userId={user.id}
         />
 
-        <div className="my-12 border-t border-border" />
+      <div className="border-t border-border/40 pt-10" />
 
-        <JournalSection
-          fokozatId={fokozatId}
-          userId={user.id}
-          initialEntries={journalEntries}
-        />
-      </div>
+      <JournalSection
+        fokozatId={fokozatId}
+        userId={user.id}
+        initialEntries={journalEntries}
+      />
     </div>
   );
 }

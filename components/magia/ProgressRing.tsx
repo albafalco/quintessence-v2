@@ -15,7 +15,7 @@ export function ProgressRing({
   progress,
   size = 64,
   strokeWidth = 4,
-  color = '#7c3aed',
+  color = '#D4AF37',
   className,
   showLabel = true,
 }: ProgressRingProps) {
@@ -36,7 +36,7 @@ export function ProgressRing({
           cy={center}
           r={radius}
           fill="none"
-          stroke="#2e2e42"
+          stroke="rgba(46, 38, 72, 0.8)"
           strokeWidth={strokeWidth}
         />
         <circle
@@ -49,11 +49,12 @@ export function ProgressRing({
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={offset}
-          className="transition-all duration-500 ease-out"
+          className="transition-all duration-700 ease-out"
+          style={{ filter: `drop-shadow(0 0 4px ${color}66)` }}
         />
       </svg>
       {showLabel && (
-        <span className="absolute text-xs font-semibold text-foreground">
+        <span className="absolute text-xs font-semibold text-cream">
           {clamped}%
         </span>
       )}

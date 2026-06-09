@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client';
 import { SZOLAP_1 } from '@/lib/angol-szolap';
 import { shuffleArray } from '@/lib/angol-utils';
 import { TTSButton } from '@/components/angol/TTSButton';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 interface FlashCardProps {
@@ -105,107 +106,86 @@ export function FlashCard({ lessonId = 1 }: FlashCardProps) {
   if (!current) return null;
 
   return (
-    <div className="mx-auto max-w-lg space-y-6">
-      <div className="flex items-center justify-between text-sm text-muted-foreground">
-        <span>
-          Kártya {index + 1}/{total}
-        </span>
-        <button
-          type="button"
-          onClick={handleShuffle}
-          className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 hover:bg-muted transition-colors"
-        >
-          <Shuffle size={16} />
+    <div className="mx-auto max-w-xl space-y-8">
+      <div className="flex items-center justify-between">
+        <div className="rounded-full border border-border/50 bg-muted/30 px-4 py-1.5 text-sm text-muted-foreground">
+          <span className="font-medium text-cream">{index + 1}</span>
+          <span className="mx-1 text-border">/</span>
+          <span>{total}</span>
+        </div>
+        <Button variant="ghost" size="sm" onClick={handleShuffle}>
+          <Shuffle className="h-4 w-4" />
           Keverés
-        </button>
+        </Button>
       </div>
 
       <div
-        className="relative h-56 cursor-pointer perspective-1000"
+        className="relative mx-auto h-64 w-full max-w-md cursor-pointer sm:h-72"
+        style={{ perspective: '1200px' }}
         onClick={() => setFlipped((f) => !f)}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
         <div
-          className={cn(
-            'relative h-full w-full transition-transform duration-500 transform-style-3d',
-            flipped && 'rotate-y-180'
-          )}
-          style={{ transformStyle: 'preserve-3d', transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
+          className={cn('flip-card relative h-full w-full', flipped && 'flip-card-flipped')}
         >
-          {/* Front — Hungarian */}
-          <div
-            className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-8 backface-hidden"
-            style={{ backfaceVisibility: 'hidden' }}
-          >
-            <p className="text-center text-3xl font-semibold">{current.hu}</p>
-            <p className="mt-4 text-sm text-muted-foreground">Kattints a fordításhoz</p>
+          <div className="flip-face absolute inset-0 flex flex-col items-center justify-center rounded-3xl border border-slate-500/20 bg-angol-gradient p-10 shadow-card">
+            <p className="text-center font-display text-4xl font-semibold text-cream sm:text-5xl">
+              {current.hu}
+            </p>
+            <p className="mt-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              Kattints a fordításhoz
+            </p>
           </div>
 
-          {/* Back — English */}
-          <div
-            className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-primary/40 bg-primary/10 p-8"
-            style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-          >
-            <div className="absolute right-4 top-4">
+          <div className="flip-face flip-face-back absolute inset-0 flex flex-col items-center justify-center rounded-3xl border border-slate-400/30 bg-gradient-to-br from-slate-800/60 to-card p-10 shadow-card">
+            <div className="absolute right-5 top-5">
               <TTSButton text={englishText} size="sm" />
             </div>
-            <p className="text-center text-3xl font-semibold text-primary">{current.en}</p>
+            <p className="text-center font-display text-3xl font-semibold text-slate-200 sm:text-4xl">
+              {current.en}
+            </p>
           </div>
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-4">
-        <button
-          type="button"
-          onClick={goPrev}
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-muted hover:bg-muted/80 transition-colors"
-          aria-label="Előző"
-        >
-          <ChevronLeft size={24} />
-        </button>
+      <div className="flex items-center justify-center gap-5">
+        <Button variant="secondary" size="icon" onClick={goPrev} className="rounded-full h-12 w-12">
+          <ChevronLeft className="h-5 w-5" />
+        </Button>
 
-        <button
-          type="button"
-          onClick={() => setFlipped((f) => !f)}
-          className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
-        >
-          <RotateCcw size={16} />
+        <Button variant="default" onClick={() => setFlipped((f) => !f)}>
+          <RotateCcw className="h-4 w-4" />
           Fordítás
-        </button>
+        </Button>
 
-        <button
-          type="button"
-          onClick={goNext}
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-muted hover:bg-muted/80 transition-colors"
-          aria-label="Következő"
-        >
-          <ChevronRight size={24} />
-        </button>
+        <Button variant="secondary" size="icon" onClick={goNext} className="rounded-full h-12 w-12">
+          <ChevronRight className="h-5 w-5" />
+        </Button>
       </div>
 
       {flipped && (
-        <div className="flex justify-center gap-4">
-          <button
-            type="button"
+        <div className="flex justify-center gap-4 animate-slide-up">
+          <Button
+            variant="secondary"
+            className="border-green-500/30 bg-green-900/20 text-green-300 hover:bg-green-900/40"
             onClick={() => {
               saveProgress(true);
               goNext();
             }}
-            className="rounded-lg bg-green-600/20 px-6 py-2 text-green-400 hover:bg-green-600/30"
           >
             Tudom ✓
-          </button>
-          <button
-            type="button"
+          </Button>
+          <Button
+            variant="secondary"
+            className="border-red-500/30 bg-red-900/20 text-red-300 hover:bg-red-900/40"
             onClick={() => {
               saveProgress(false);
               goNext();
             }}
-            className="rounded-lg bg-red-600/20 px-6 py-2 text-red-400 hover:bg-red-600/30"
           >
             Még gyakorolom ✗
-          </button>
+          </Button>
         </div>
       )}
     </div>

@@ -31,9 +31,11 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background px-4 py-8">
-      <div className="mx-auto max-w-2xl">
-        <h1 className="mb-8 font-display text-3xl font-bold">{t('title')}</h1>
+    <div className="mx-auto max-w-2xl space-y-8">
+      <header>
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent/70">Beállítások</p>
+        <h1 className="mt-2 font-display text-4xl font-bold text-gradient-gold">{t('title')}</h1>
+      </header>
         <ProfileForm
           profile={{
             id: profile.id,
@@ -48,7 +50,6 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
             push_angol_time: profile.push_angol_time ?? '18:00',
           }}
         />
-      </div>
     </div>
   );
 }

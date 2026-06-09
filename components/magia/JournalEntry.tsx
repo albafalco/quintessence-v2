@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
+import { Textarea } from '@/components/ui/textarea';
 import { cn } from '@/lib/utils';
 
 export interface JournalEntryData {
@@ -79,19 +80,19 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
   return (
     <article
       className={cn(
-        'rounded-lg border border-border bg-card p-4',
+        'premium-card border-l-2 border-l-accent/40 p-5 transition-opacity',
         deleting && 'opacity-50'
       )}
     >
       <div className="mb-3 flex items-center justify-between gap-2">
-        <time className="text-sm font-medium text-accent">{formattedDate}</time>
-        <div className="flex gap-2">
+        <time className="text-sm font-semibold text-accent">{formattedDate}</time>
+        <div className="flex gap-3">
           {!editing ? (
             <>
               <button
                 type="button"
                 onClick={() => setEditing(true)}
-                className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                className="text-xs font-medium text-muted-foreground transition-colors hover:text-accent"
               >
                 {t('edit')}
               </button>
@@ -99,7 +100,7 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
                 type="button"
                 onClick={handleDelete}
                 disabled={deleting}
-                className="text-xs text-red-400/80 transition-colors hover:text-red-400"
+                className="text-xs font-medium text-red-400/70 transition-colors hover:text-red-400"
               >
                 {t('delete')}
               </button>
@@ -110,7 +111,7 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
                 type="button"
                 onClick={handleSave}
                 disabled={saving || !content.trim()}
-                className="text-xs text-primary transition-colors hover:text-primary/80 disabled:opacity-50"
+                className="text-xs font-medium text-accent transition-colors hover:text-accent-light disabled:opacity-50"
               >
                 {saving ? t('saving') : t('save')}
               </button>
@@ -118,7 +119,7 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
                 type="button"
                 onClick={handleCancel}
                 disabled={saving}
-                className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                className="text-xs font-medium text-muted-foreground transition-colors hover:text-cream"
               >
                 {t('cancel')}
               </button>
@@ -128,14 +129,14 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
       </div>
 
       {editing ? (
-        <textarea
+        <Textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={5}
-          className="w-full resize-y rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+          className="border-border/40 bg-background/30"
         />
       ) : (
-        <p className="whitespace-pre-wrap text-sm leading-relaxed text-foreground/90">
+        <p className="whitespace-pre-wrap text-sm leading-relaxed text-cream/85">
           {entry.content}
         </p>
       )}

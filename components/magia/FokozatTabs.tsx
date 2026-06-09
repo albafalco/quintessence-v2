@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { BookOpen } from 'lucide-react';
 import { ExerciseItem } from './ExerciseItem';
 import {
   getExerciseProgress,
@@ -53,53 +54,54 @@ export function FokozatTabs({
   const current = sectionData[activeTab];
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap gap-2 border-b border-border pb-4">
+    <div className="space-y-8">
+      <div className="flex flex-wrap gap-2 rounded-2xl border border-border/40 bg-muted/20 p-2">
         {TABS.map((tab, index) => (
           <button
             key={tab}
             type="button"
             onClick={() => setActiveTab(tab)}
             className={cn(
-              'rounded-lg px-4 py-2 text-sm font-medium transition-colors',
+              'flex-1 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 min-w-[120px]',
               activeTab === tab
-                ? 'bg-primary text-primary-foreground'
-                : 'bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground'
+                ? 'bg-primary/30 text-accent shadow-glow-gold'
+                : 'text-muted-foreground hover:bg-muted/40 hover:text-cream'
             )}
           >
-            {index + 1}. {t(tab)}
+            <span className="text-accent/60">{index + 1}.</span> {t(tab)}
           </button>
         ))}
       </div>
 
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="font-display text-xl font-semibold text-foreground">
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <h2 className="font-display text-2xl font-semibold text-gradient-gold">
           {current.cim}
         </h2>
         <button
           type="button"
           onClick={() =>
-            document
-              .getElementById('journal')
-              ?.scrollIntoView({ behavior: 'smooth' })
+            document.getElementById('journal')?.scrollIntoView({ behavior: 'smooth' })
           }
-          className="shrink-0 rounded-lg border border-accent/50 bg-accent/10 px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent/20"
+          className="inline-flex items-center gap-2 rounded-xl border border-accent/30 bg-accent/10 px-4 py-2.5 text-sm font-medium text-accent transition-all hover:bg-accent/20 hover:shadow-glow-gold"
         >
-          + {t('journal')}
+          <BookOpen className="h-4 w-4" />
+          {t('journal')}
         </button>
       </div>
 
-      <div className="rounded-lg border border-border bg-card/30 p-4">
-        <p className="whitespace-pre-wrap text-sm leading-relaxed text-foreground/90">
+      <div className="rounded-2xl border border-primary/20 bg-magia-gradient p-6">
+        <p className="whitespace-pre-wrap text-sm leading-relaxed text-cream/90">
           {current.leiras}
         </p>
       </div>
 
       <div>
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+        <h3 className="mb-5 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent/70">
+          <span className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent" />
           {t('exercises')}
+          <span className="h-px flex-1 bg-gradient-to-l from-accent/40 to-transparent" />
         </h3>
-        <div className="space-y-3">
+        <div className="space-y-4">
           {current.gyakorlatok.map((exercise) => {
             const exerciseProgress = getExerciseProgress(
               fokozatId,

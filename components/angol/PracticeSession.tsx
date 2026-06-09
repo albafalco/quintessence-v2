@@ -55,34 +55,34 @@ export function PracticeSession({
   if (!current) return null;
 
   return (
-    <div className="mx-auto max-w-lg space-y-6">
-      <div className="text-center">
-        <h2 className="text-lg font-semibold">{sectionName}</h2>
+    <div className="mx-auto max-w-xl space-y-8">
+      <div className="text-center space-y-1">
+        <h2 className="font-display text-xl font-semibold text-cream">{sectionName}</h2>
         <p className="text-sm text-muted-foreground">
-          Kártya {index + 1}/{total}
+          Kártya <span className="font-medium text-slate-300">{index + 1}</span> / {total}
         </p>
       </div>
 
       <div
-        className="relative min-h-40 cursor-pointer"
+        className="relative min-h-48 cursor-pointer"
         onClick={() => setFlipped((f) => !f)}
       >
         <div
           className={cn(
-            'rounded-2xl border p-8 transition-all duration-300',
+            'rounded-3xl border p-10 transition-all duration-500 shadow-card',
             flipped
-              ? 'border-primary/40 bg-primary/10'
-              : 'border-border bg-card'
+              ? 'border-slate-400/30 bg-gradient-to-br from-slate-800/50 to-card'
+              : 'border-slate-500/20 bg-angol-gradient'
           )}
         >
           {!flipped ? (
-            <p className="text-center text-2xl font-medium">{current.hu}</p>
+            <p className="text-center font-display text-3xl font-medium text-cream">{current.hu}</p>
           ) : (
             <div className="relative">
               <div className="absolute right-0 top-0">
                 <TTSButton text={englishText} size="sm" />
               </div>
-              <p className="text-center text-2xl font-medium text-primary pr-10">
+              <p className="text-center font-display text-2xl font-medium text-slate-200 pr-10">
                 {current.en}
               </p>
             </div>
@@ -139,8 +139,8 @@ export function PracticeSession({
       )}
 
       {onStartExam && (
-        <div className="mt-8 rounded-xl border border-accent/30 bg-accent/5 p-6 text-center space-y-3">
-          <h3 className="font-semibold text-accent">Vizsga</h3>
+        <div className="premium-card angol-surface mt-8 p-8 text-center space-y-4">
+          <h3 className="font-display text-lg font-semibold text-slate-200">Vizsga</h3>
           <p className="text-sm text-muted-foreground">
             20 véletlenszerű kérdés. Minimum 80% szükséges az átlépéshez.
           </p>

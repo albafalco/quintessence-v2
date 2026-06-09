@@ -29,16 +29,16 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <header className="mb-8">
-          <h1 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
-            {t('title')}
-          </h1>
-          <p className="mt-2 text-muted-foreground">{t('subtitle')}</p>
-        </header>
+    <div className="space-y-10">
+      <header className="premium-card magia-surface p-8">
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent/70">✦ Beavatás Útja</p>
+        <h1 className="mt-2 font-display text-4xl font-bold text-gradient-gold sm:text-5xl">
+          {t('title')}
+        </h1>
+        <p className="mt-3 max-w-xl text-muted-foreground leading-relaxed">{t('subtitle')}</p>
+      </header>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {MAGIA_FOKOZATOK.map((fokozat) => (
             <FokozatCard
               key={fokozat.id}
@@ -47,7 +47,6 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
               progress={progress}
             />
           ))}
-        </div>
       </div>
     </div>
   );
