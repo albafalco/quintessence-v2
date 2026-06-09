@@ -1,0 +1,66 @@
+'use client';
+
+import { useState } from 'react';
+import type { Szakasz } from '@/lib/angol-lecke1';
+import { getStaticContent } from '@/lib/angol-static-content';
+import { FlashCard } from '@/components/angol/FlashCard';
+import { PracticeSession } from '@/components/angol/PracticeSession';
+import { ExamSession } from '@/components/angol/ExamSession';
+
+interface SzakaszViewProps {
+  lessonId: number;
+  sectionId: number;
+  sectionName: string;
+  szakasz?: Szakasz;
+  locale: string;
+  lastExamScore?: number | null;
+  lastExamPassed?: boolean;
+}
+
+export function SzakaszView({
+  lessonId,
+  sectionId,
+  sectionName,
+  szakasz,
+  locale,
+  lastExamScore,
+  lastExamPassed,
+}: SzakaszViewProps) {
+  const [examMode, setExamMode] = useState(false);
+
+  if (sectionId === 0) {
+    return <FlashCard lessonId={lessonId} />;
+  }
+
+  if (sectionId === 1 || sectionId === 2) {
+    return <div className="max-w-3xl">{getStaticContent(sectionId)}</div>;
+  }
+
+  if (!szakasz) {
+    return <p className="text-muted-foreground">Szakasz nem található.</p>;
+  }
+
+  if (examMode) {
+    return (
+      <ExamSession
+        lessonId={lessonId}
+        sectionId={sectionId}
+        sectionName={sectionName}
+        mondatok={szakasz.mondatok}
+        locale={locale}
+        onClose={() => setExamMode(false)}
+      />
+    );
+  }
+
+  return (
+    <PracticeSession
+      sectionId={sectionId}
+      sectionName={sectionName}
+      mondatok={szakasz.mondatok}
+      onStartExam={() => setExamMode(true)}
+      lastExamScore={lastExamScore}
+      lastExamPassed={lastExamPassed}
+    />
+  );
+}
