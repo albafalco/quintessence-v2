@@ -48,8 +48,8 @@ export function MobileNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/50 glass-strong md:hidden">
-      <div className="mx-auto flex max-w-lg items-center justify-around px-2 py-2.5">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/50 glass-strong pb-safe md:hidden">
+      <div className="mx-auto flex w-full max-w-lg items-center justify-around px-1 py-2">
         {items.map(({ href, label, icon: Icon, match, disabled }) => {
           const active = !disabled && match(pathname);
 
@@ -71,7 +71,7 @@ export function MobileNav() {
               key={href}
               href={href}
               className={cn(
-                'flex flex-col items-center gap-0.5 rounded-xl px-3 py-1.5 transition-all',
+                'flex min-w-0 flex-1 flex-col items-center gap-0.5 rounded-xl px-1 py-1 transition-all',
                 active
                   ? 'text-accent'
                   : 'text-muted-foreground hover:text-cream'
@@ -85,7 +85,7 @@ export function MobileNav() {
               >
                 <Icon className={cn('h-5 w-5', active && 'text-accent')} />
               </div>
-              <span className={cn('text-[9px] font-medium', active && 'text-accent')}>
+              <span className={cn('max-w-full truncate text-[9px] font-medium', active && 'text-accent')}>
                 {label}
               </span>
             </Link>

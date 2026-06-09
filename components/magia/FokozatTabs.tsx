@@ -62,7 +62,7 @@ export function FokozatTabs({
             type="button"
             onClick={() => setActiveTab(tab)}
             className={cn(
-              'flex-1 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 min-w-[120px]',
+              'min-w-0 flex-1 basis-0 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 sm:px-4',
               activeTab === tab
                 ? 'bg-primary/30 text-accent shadow-glow-gold'
                 : 'text-muted-foreground hover:bg-muted/40 hover:text-cream'

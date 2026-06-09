@@ -65,7 +65,7 @@ export default async function DashboardPage({
 
   return (
     <div className="space-y-10">
-      <section className="premium-card magia-surface relative overflow-hidden p-8 md:p-10">
+      <section className="premium-card magia-surface relative overflow-hidden p-4 sm:p-6 md:p-10">
         <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-primary/20 blur-3xl" />
         <div className="absolute -bottom-4 -left-4 h-32 w-32 rounded-full bg-accent/10 blur-2xl" />
         <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
@@ -76,12 +76,12 @@ export default async function DashboardPage({
                 Quintessence
               </p>
             </div>
-            <h1 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
+            <h1 className="font-display text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl">
               {t('welcome', { username })}
             </h1>
             <p className="text-muted-foreground">{t('date')}: {today}</p>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 min-[400px]:grid-cols-2 sm:grid-cols-3">
             <div className="rounded-xl border border-border/40 bg-background/40 px-4 py-3 backdrop-blur-sm">
               <div className="flex items-center gap-2 text-accent">
                 <Sparkles className="h-4 w-4" />

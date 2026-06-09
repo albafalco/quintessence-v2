@@ -31,7 +31,7 @@ export default async function SzakaszPage({ params }: SzakaszPageProps) {
   const lastExam = sectionId >= 5 ? await getLastExamResult(lessonId, sectionId) : null;
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6 p-6">
+    <div className="mx-auto w-full min-w-0 max-w-3xl space-y-6">
       <header className="space-y-2">
         <Link
           href={`/${locale}/modules/angol/lecke/${lessonId}`}

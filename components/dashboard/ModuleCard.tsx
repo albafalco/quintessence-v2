@@ -90,8 +90,8 @@ export function ModuleCard({
 
       <CardHeader className="relative">
         <div className="flex items-start justify-between gap-4">
-          <div className="space-y-2">
-            <CardTitle className="flex items-center gap-3 text-xl">
+          <div className="min-w-0 space-y-2">
+            <CardTitle className="flex items-center gap-3 text-lg sm:text-xl">
               <span
                 className={cn(
                   'flex h-11 w-11 items-center justify-center rounded-xl text-2xl',
@@ -101,7 +101,7 @@ export function ModuleCard({
               >
                 {icon}
               </span>
-              <span className={isMagia ? 'text-gradient-gold' : 'text-cream'}>{title}</span>
+              <span className={cn('break-words', isMagia ? 'text-gradient-gold' : 'text-cream')}>{title}</span>
             </CardTitle>
             <CardDescription className="max-w-[220px]">{subtitle}</CardDescription>
             {progressLabel && (

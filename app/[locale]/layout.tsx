@@ -1,4 +1,5 @@
 import { Outfit, Cinzel } from 'next/font/google';
+import type { Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -19,6 +20,12 @@ const cinzel = Cinzel({
   variable: '--font-display',
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

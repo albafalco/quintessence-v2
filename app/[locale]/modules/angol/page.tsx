@@ -16,7 +16,7 @@ export default function AngolPage({ params }: AngolPageProps) {
 
   return (
     <div className="mx-auto max-w-3xl space-y-10">
-      <header className="premium-card angol-surface p-8">
+      <header className="premium-card angol-surface p-4 sm:p-6 md:p-8">
         <Link
           href={`/${locale}`}
           className="mb-4 inline-flex text-sm text-muted-foreground transition-colors hover:text-slate-300"

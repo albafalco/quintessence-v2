@@ -25,7 +25,7 @@ export default async function LeckePage({ params }: LeckePageProps) {
   const practiceSections = LECKE_1_SZAKASZOK.map((s) => s.id);
 
   return (
-    <div className="mx-auto max-w-3xl space-y-8 p-6">
+    <div className="mx-auto w-full min-w-0 max-w-3xl space-y-8">
       <header className="space-y-2">
         <Link
           href={`/${locale}/modules/angol`}

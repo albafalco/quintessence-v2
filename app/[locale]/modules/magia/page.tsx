@@ -30,7 +30,7 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
 
   return (
     <div className="space-y-10">
-      <header className="premium-card magia-surface p-8">
+      <header className="premium-card magia-surface p-4 sm:p-6 md:p-8">
         <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent/70">✦ Beavatás Útja</p>
         <h1 className="mt-2 font-display text-4xl font-bold text-gradient-gold sm:text-5xl">
           {t('title')}
