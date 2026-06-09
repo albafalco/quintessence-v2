@@ -44,6 +44,34 @@ export async function waitForServiceWorker(timeoutMs = 10000): Promise<ServiceWo
   ]);
 }
 
+function arrayBufferToBase64Url(buffer: ArrayBuffer | null): string | undefined {
+  if (!buffer) return undefined;
+  const bytes = new Uint8Array(buffer);
+  let binary = '';
+  for (let i = 0; i < bytes.length; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+export function subscriptionToPayload(subscription: PushSubscription) {
+  const json = subscription.toJSON();
+  const endpoint = json.endpoint ?? subscription.endpoint;
+  let p256dh = json.keys?.p256dh;
+  let auth = json.keys?.auth;
+
+  if (!p256dh || !auth) {
+    p256dh = arrayBufferToBase64Url(subscription.getKey('p256dh'));
+    auth = arrayBufferToBase64Url(subscription.getKey('auth'));
+  }
+
+  if (!endpoint || !p256dh || !auth) {
+    throw new Error('INVALID_SUBSCRIPTION');
+  }
+
+  return { endpoint, p256dh, auth };
+}
+
 export async function subscribeToPush(): Promise<PushSubscription> {
   const registration = await waitForServiceWorker();
   const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;

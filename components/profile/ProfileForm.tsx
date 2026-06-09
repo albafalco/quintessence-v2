@@ -122,7 +122,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
     setPushTestMessage(null);
 
     try {
-      const res = await fetch('/api/push/test', { method: 'POST' });
+      const res = await fetch('/api/push/test', { method: 'POST', credentials: 'include' });
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
