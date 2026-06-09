@@ -28,12 +28,7 @@ export function Navbar({ username }: NavbarProps) {
       <div className="hidden min-w-0 md:block" />
 
       <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
-        <div className="hidden sm:block">
-          <LanguageSwitcher />
-        </div>
-        <div className="sm:hidden">
-          <LanguageSwitcher compact />
-        </div>
+        <LanguageSwitcher />
 
         <LogoutButton variant="icon" showLabel={false} />
 
