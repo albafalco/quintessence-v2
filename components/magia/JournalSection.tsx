@@ -32,17 +32,21 @@ const EMPTY_FORM: StructuredEntry = {
   content: '',
 };
 
-function entryToMarkdown(entry: JournalEntryData): string {
-  const lines: string[] = [
-    `## ${entry.entry_date}`,
-  ];
-  if (entry.successes) lines.push(`### Mi ment jól\n${entry.successes}`);
-  if (entry.failures) lines.push(`### Nehézségek\n${entry.failures}`);
-  if (entry.duration_sec) lines.push(`### Időtartam\n${Math.floor(entry.duration_sec / 60)} perc`);
-  if (entry.disturbances) lines.push(`### Zavaró tényezők\n${entry.disturbances}`);
-  if (entry.self_criticism) lines.push(`### Önkritika\n${entry.self_criticism}`);
-  if (entry.next_plan) lines.push(`### Terv\n${entry.next_plan}`);
-  if (entry.content) lines.push(`### Megjegyzés\n${entry.content}`);
+const FIELD_KEYS = ['successes', 'failures', 'disturbances', 'self_criticism', 'next_plan', 'content'] as const;
+type FieldKey = typeof FIELD_KEYS[number];
+
+function entryToMarkdown(
+  entry: JournalEntryData,
+  labels: Record<FieldKey, string>
+): string {
+  const lines: string[] = [`## ${entry.entry_date}`];
+  if (entry.successes) lines.push(`### ${labels.successes}\n${entry.successes}`);
+  if (entry.failures) lines.push(`### ${labels.failures}\n${entry.failures}`);
+  if (entry.duration_sec) lines.push(`### ${labels.disturbances}\n${Math.floor(entry.duration_sec / 60)} min`);
+  if (entry.disturbances) lines.push(`### ${labels.disturbances}\n${entry.disturbances}`);
+  if (entry.self_criticism) lines.push(`### ${labels.self_criticism}\n${entry.self_criticism}`);
+  if (entry.next_plan) lines.push(`### ${labels.next_plan}\n${entry.next_plan}`);
+  if (entry.content) lines.push(`### ${labels.content}\n${entry.content}`);
   return lines.join('\n\n');
 }
 
@@ -55,29 +59,6 @@ function exportJSON(entries: JournalEntryData[]) {
   a.click();
   URL.revokeObjectURL(url);
 }
-
-function exportMarkdown(entries: JournalEntryData[]) {
-  const md = `# Mágus Napló\n\n${entries.map(entryToMarkdown).join('\n\n---\n\n')}`;
-  const blob = new Blob([md], { type: 'text/markdown' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `magia-naplo-${new Date().toISOString().split('T')[0]}.md`;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-const FIELD_LABELS: (keyof StructuredEntry)[] = [
-  'successes', 'failures', 'disturbances', 'self_criticism', 'next_plan', 'content'
-];
-const FIELD_META: Record<keyof StructuredEntry, { label: string; placeholder: string }> = {
-  successes: { label: 'Mi ment jól', placeholder: 'Sikerek, pozitív tapasztalatok…' },
-  failures: { label: 'Nehézségek, kudarcok', placeholder: 'Mi volt nehéz, mi nem sikerült…' },
-  disturbances: { label: 'Zavaró tényezők', placeholder: 'Külső/belső zavarok…' },
-  self_criticism: { label: 'Önkritika', placeholder: 'Objektív önértékelés…' },
-  next_plan: { label: 'Terv a következő napra / hétre', placeholder: 'Mire fókuszálsz…' },
-  content: { label: 'Egyéb megjegyzés', placeholder: 'Szabad szöveg…' },
-};
 
 export function JournalSection({
   fokozatId,
@@ -92,6 +73,24 @@ export function JournalSection({
   const [searchQuery, setSearchQuery] = useState('');
   const [showExportMenu, setShowExportMenu] = useState(false);
 
+  const FIELD_META: Record<FieldKey, { label: string; placeholder: string }> = {
+    successes: { label: t('journalFieldSuccesses'), placeholder: t('journalPlaceholderSuccesses') },
+    failures: { label: t('journalFieldFailures'), placeholder: t('journalPlaceholderFailures') },
+    disturbances: { label: t('journalFieldDisturbances'), placeholder: t('journalPlaceholderDisturbances') },
+    self_criticism: { label: t('journalFieldSelfCriticism'), placeholder: t('journalPlaceholderSelfCriticism') },
+    next_plan: { label: t('journalFieldNextPlan'), placeholder: t('journalPlaceholderNextPlan') },
+    content: { label: t('journalFieldContent'), placeholder: t('journalPlaceholderContent') },
+  };
+
+  const markdownLabels: Record<FieldKey, string> = {
+    successes: t('journalFieldSuccesses'),
+    failures: t('journalFieldFailures'),
+    disturbances: t('journalFieldDisturbances'),
+    self_criticism: t('journalFieldSelfCriticism'),
+    next_plan: t('journalFieldNextPlan'),
+    content: t('journalFieldContent'),
+  };
+
   const filteredEntries = useMemo(() => {
     if (!searchQuery.trim()) return entries;
     const q = searchQuery.toLowerCase();
@@ -101,7 +100,7 @@ export function JournalSection({
     );
   }, [entries, searchQuery]);
 
-  const isFormEmpty = FIELD_LABELS.every((k) => !form[k].trim());
+  const isFormEmpty = FIELD_KEYS.every((k) => !form[k].trim());
 
   const handleAdd = async () => {
     if (isFormEmpty) return;
@@ -168,7 +167,17 @@ export function JournalSection({
                   </button>
                   <button
                     type="button"
-                    onClick={() => { exportMarkdown(entries); setShowExportMenu(false); }}
+                    onClick={() => {
+                      const md = `# Mágikus Napló\n\n${entries.map((e) => entryToMarkdown(e, markdownLabels)).join('\n\n---\n\n')}`;
+                      const blob = new Blob([md], { type: 'text/markdown' });
+                      const url = URL.createObjectURL(blob);
+                      const a = document.createElement('a');
+                      a.href = url;
+                      a.download = `magia-naplo-${new Date().toISOString().split('T')[0]}.md`;
+                      a.click();
+                      URL.revokeObjectURL(url);
+                      setShowExportMenu(false);
+                    }}
                     className="block w-full px-4 py-2.5 text-left text-sm text-cream hover:bg-muted/40"
                   >
                     Markdown
@@ -194,7 +203,7 @@ export function JournalSection({
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Keresés a naplóban…"
+            placeholder={t('journalSearchPlaceholder')}
             className="w-full rounded-xl border border-border/40 bg-background/40 py-2.5 pl-9 pr-4 text-sm text-cream placeholder:text-muted-foreground/50 focus:border-accent/50 focus:outline-none"
           />
         </div>
@@ -204,13 +213,13 @@ export function JournalSection({
       {showForm && (
         <div className="premium-card magia-surface space-y-4 p-5">
           <p className="text-xs font-bold uppercase tracking-wider text-accent/60">
-            Új bejegyzés
+            {t('journalNewEntry')}
           </p>
-          {FIELD_LABELS.map((key) => (
+          {FIELD_KEYS.map((key) => (
             <div key={key}>
               <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/70">
                 {FIELD_META[key].label}
-                <span className="ml-1 normal-case text-muted-foreground/40">(opcionális)</span>
+                <span className="ml-1 normal-case text-muted-foreground/40">{t('optional')}</span>
               </label>
               <Textarea
                 value={form[key]}
@@ -238,7 +247,7 @@ export function JournalSection({
 
       {filteredEntries.length === 0 ? (
         <p className="rounded-xl border border-dashed border-border/50 py-8 text-center text-sm text-muted-foreground">
-          {searchQuery ? 'Nincs találat.' : t('noEntries')}
+          {searchQuery ? t('journalNoResults') : t('noEntries')}
         </p>
       ) : (
         <div className="space-y-4">

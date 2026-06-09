@@ -32,7 +32,7 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
   return (
     <div className="space-y-10">
       <header className="premium-card magia-surface p-4 sm:p-6 md:p-8">
-        <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent/70">✦ Beavatás Útja</p>
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent/70">{t('initiationPath')}</p>
         <h1 className="mt-2 font-display text-4xl font-bold text-gradient-gold sm:text-5xl">
           {t('title')}
         </h1>
@@ -43,7 +43,7 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
               href={`/${locale}/modules/magia/ma`}
               className="inline-flex items-center gap-2 rounded-xl bg-accent/20 px-4 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold"
             >
-              ▶ Napi gyakorlás
+              {t('dailyPracticeButton')}
             </Link>
           </div>
         )}

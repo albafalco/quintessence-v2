@@ -29,16 +29,6 @@ interface ExerciseItemProps {
   onMasteryChange?: () => void;
 }
 
-const TYPE_LABELS: Partial<Record<ExerciseType, string>> = {
-  progressive_timed: '⏱ Időzített',
-  timed: '⏱ Időzített',
-  habit: '✓ Szokás',
-  practice: '◉ Gyakorlat',
-  journal: '✍ Napló',
-  instructional: '📖 Tanulmány',
-  worksheet: '✏ Munkalap',
-};
-
 export function ExerciseItem({
   fokozatId,
   section,
@@ -66,6 +56,16 @@ export function ExerciseItem({
   const [runnerOpen, setRunnerOpen] = useState(false);
   const [masteryOpen, setMasteryOpen] = useState(false);
   const [mirrorOpen, setMirrorOpen] = useState(false);
+
+  const TYPE_LABELS: Partial<Record<ExerciseType, string>> = {
+    progressive_timed: t('typeLabelProgressiveTimed'),
+    timed: t('typeLabelTimed'),
+    habit: t('typeLabelHabit'),
+    practice: t('typeLabelPractice'),
+    journal: t('typeLabelJournal'),
+    instructional: t('typeLabelInstructional'),
+    worksheet: t('typeLabelWorksheet'),
+  };
 
   const fullKey = buildExerciseKey(section, fokozatId, exerciseKey);
   const isMastered = status === 'mastered';
@@ -166,7 +166,7 @@ export function ExerciseItem({
               )}
               {isMastered && (
                 <span className="rounded-md bg-accent/20 px-1.5 py-0.5 text-[10px] font-bold text-accent shadow-glow-gold">
-                  URALT
+                  {t('masteredBadge')}
                 </span>
               )}
             </div>
@@ -176,7 +176,7 @@ export function ExerciseItem({
             {/* Munkamenet-számláló */}
             {sessionCount > 0 && (
               <p className="mt-2 text-[11px] text-accent/60">
-                {sessionCount} munkamenet elvégezve
+                {t('sessionCountDisplay', { count: sessionCount })}
               </p>
             )}
 
@@ -188,7 +188,7 @@ export function ExerciseItem({
                   onClick={() => setMirrorOpen(true)}
                   className="inline-flex items-center gap-1.5 rounded-xl bg-accent/15 px-3 py-1.5 text-xs font-semibold text-accent transition hover:bg-accent/25 hover:shadow-glow-gold"
                 >
-                  ✏ Lelki tükör szerkesztő
+                  {t('soulMirrorEditorButton')}
                 </button>
               ) : (
                 <button
@@ -196,7 +196,7 @@ export function ExerciseItem({
                   onClick={() => setRunnerOpen(true)}
                   className="inline-flex items-center gap-1.5 rounded-xl bg-accent/15 px-3 py-1.5 text-xs font-semibold text-accent transition hover:bg-accent/25 hover:shadow-glow-gold"
                 >
-                  ▶ Indítás
+                  {t('startButton')}
                 </button>
               )}
               {successCriteria && (
@@ -209,7 +209,7 @@ export function ExerciseItem({
                       : 'border-border/40 text-muted-foreground hover:border-accent/30 hover:text-cream'
                   }`}
                 >
-                  {isMastered ? '★ Uralt' : '☆ Jelölés uraltként'}
+                  {isMastered ? t('masteredButton') : t('markMasteredButton')}
                 </button>
               )}
             </div>

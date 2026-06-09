@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import type { Mondat } from '@/lib/angol-lecke1';
 import { shuffleArray } from '@/lib/angol-utils';
 import { TTSButton } from '@/components/angol/TTSButton';
@@ -24,6 +25,7 @@ export function PracticeSession({
   lastExamScore,
   lastExamPassed,
 }: PracticeSessionProps) {
+  const t = useTranslations('angol');
   const [cards, setCards] = useState(() => shuffleArray(mondatok));
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
@@ -70,7 +72,7 @@ export function PracticeSession({
       <div className="text-center space-y-1">
         <h2 className="font-display text-xl font-semibold text-cream">{sectionName}</h2>
         <p className="text-sm text-muted-foreground">
-          Kártya <span className="font-medium text-slate-300">{index + 1}</span> / {total}
+          {t('cardCount', { current: index + 1, total })}
         </p>
       </div>
 
@@ -106,7 +108,7 @@ export function PracticeSession({
           type="button"
           onClick={goPrev}
           className="flex h-10 w-10 items-center justify-center rounded-full bg-muted hover:bg-muted/80"
-          aria-label="Előző"
+          aria-label={t('previous')}
         >
           <ChevronLeft size={20} />
         </button>
@@ -117,14 +119,14 @@ export function PracticeSession({
           className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
         >
           <RotateCcw size={16} />
-          Fordítás
+          {t('flip')}
         </button>
 
         <button
           type="button"
           onClick={goNext}
           className="flex h-10 w-10 items-center justify-center rounded-full bg-muted hover:bg-muted/80"
-          aria-label="Következő"
+          aria-label={t('next')}
         >
           <ChevronRight size={20} />
         </button>
@@ -137,27 +139,27 @@ export function PracticeSession({
             onClick={goNext}
             className="rounded-lg bg-green-600/20 px-6 py-2 text-green-400 hover:bg-green-600/30"
           >
-            Helyes ✓
+            {t('correctButton')}
           </button>
           <button
             type="button"
             onClick={goNext}
             className="rounded-lg bg-red-600/20 px-6 py-2 text-red-400 hover:bg-red-600/30"
           >
-            Helytelen ✗
+            {t('incorrectButton')}
           </button>
         </div>
       )}
 
       {onStartExam && (
         <div className="premium-card angol-surface mt-8 p-8 text-center space-y-4">
-          <h3 className="font-display text-lg font-semibold text-slate-200">Vizsga</h3>
+          <h3 className="font-display text-lg font-semibold text-slate-200">{t('exam')}</h3>
           <p className="text-sm text-muted-foreground">
-            20 véletlenszerű kérdés. Minimum 80% szükséges az átlépéshez.
+            {t('examDesc')}
           </p>
           {lastExamScore != null && (
             <p className="text-sm">
-              Utolsó eredmény: {lastExamScore}%{' '}
+              {t('lastScore', { score: lastExamScore })}{' '}
               {lastExamPassed ? '✅' : '❌'}
             </p>
           )}
@@ -166,7 +168,7 @@ export function PracticeSession({
             onClick={onStartExam}
             className="rounded-lg bg-accent px-6 py-2.5 font-medium text-accent-foreground hover:bg-accent/90"
           >
-            Vizsga indítása
+            {t('startExam')}
           </button>
         </div>
       )}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { buildExerciseKey, getNextDailyTargetSec } from '@/lib/magia-utils';
 import { SessionTimer } from './SessionTimer';
@@ -31,21 +32,6 @@ function getTargetSec(type: ExerciseType, params?: ExerciseParams, sessionCount 
   return 300;
 }
 
-function getTargetLabel(type: ExerciseType, params?: ExerciseParams, sessionCount = 0): string {
-  if (type === 'progressive_timed' && params?.startSec && params?.stepSec && params?.maxSec) {
-    const target = getNextDailyTargetSec(params.startSec, params.stepSec, params.maxSec, sessionCount);
-    const base = Math.floor(params.startSec / 60);
-    const day = sessionCount + 1;
-    const targetMin = Math.floor(target / 60);
-    return `Mai cél: ${targetMin} perc (${base} + ${day}. nap)`;
-  }
-  if (params?.targetSec) {
-    const m = Math.floor(params.targetSec / 60);
-    return `Cél: ${m} perc`;
-  }
-  return '';
-}
-
 const NO_TIMER_TYPES: ExerciseType[] = ['habit', 'instructional', 'worksheet'];
 
 export function ExerciseRunner({
@@ -61,6 +47,7 @@ export function ExerciseRunner({
   onClose,
   onSessionSaved,
 }: ExerciseRunnerProps) {
+  const t = useTranslations('magia');
   const [step, setStep] = useState<RunnerStep>('ready');
   const [completedDurationSec, setCompletedDurationSec] = useState(0);
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -68,8 +55,26 @@ export function ExerciseRunner({
 
   const fullKey = buildExerciseKey(section, fokozatId, exerciseKey);
   const targetSec = getTargetSec(type, params, sessionCount);
-  const targetLabel = getTargetLabel(type, params, sessionCount);
   const hasTimer = !NO_TIMER_TYPES.includes(type);
+
+  // Célcímke fordítással
+  let targetLabel = '';
+  if (type === 'progressive_timed' && params?.startSec && params?.stepSec && params?.maxSec) {
+    const target = getNextDailyTargetSec(params.startSec, params.stepSec, params.maxSec, sessionCount);
+    const base = Math.floor(params.startSec / 60);
+    const day = sessionCount + 1;
+    const targetMin = Math.floor(target / 60);
+    targetLabel = t('runnerDailyGoal', { targetMin, base, day });
+  } else if (params?.targetSec) {
+    const m = Math.floor(params.targetSec / 60);
+    targetLabel = t('runnerGoal', { m });
+  }
+
+  const sectionLabel = section === 'szellem'
+    ? t('shortSzellem')
+    : section === 'lelek'
+    ? t('shortLelek')
+    : t('shortTest');
 
   const saveSession = useCallback(
     async (durationSec: number, completed: boolean) => {
@@ -112,7 +117,6 @@ export function ExerciseRunner({
         { onConflict: 'user_id,fokozat,section,exercise_key' }
       );
 
-      // Utolsó tevékenység dátuma a profilba
       await supabase
         .from('profiles')
         .update({ last_magia_activity_date: new Date().toISOString().split('T')[0] })
@@ -199,7 +203,7 @@ export function ExerciseRunner({
         <div className="mb-5 flex items-start justify-between gap-3">
           <div className="flex-1">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/60">
-              {section === 'szellem' ? 'Szellem' : section === 'lelek' ? 'Lélek' : 'Test'}
+              {sectionLabel}
             </p>
             <h3 className="font-display text-xl font-semibold text-cream">{title}</h3>
             {targetLabel && (
@@ -234,7 +238,7 @@ export function ExerciseRunner({
                 onClick={handleMarkDone}
                 className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition-all hover:bg-accent/30 hover:shadow-glow-gold"
               >
-                ✓ Elvégeztem
+                {t('runnerCompletedButton')}
               </button>
             )}
           </div>
@@ -261,16 +265,16 @@ export function ExerciseRunner({
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/20 text-3xl shadow-glow-gold">
               ✓
             </div>
-            <p className="font-display text-lg font-semibold text-cream">Munkamenet elmentve</p>
+            <p className="font-display text-lg font-semibold text-cream">{t('runnerSessionSaved')}</p>
             <p className="text-sm text-muted-foreground">
-              Összesen: <strong className="text-cream">{sessionCount + 1}</strong> munkamenet
+              {t('runnerTotalSessions', { count: sessionCount + 1 })}
             </p>
             <button
               type="button"
               onClick={() => { onSessionSaved(); onClose(); }}
               className="rounded-xl bg-accent/20 px-6 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30"
             >
-              Bezárás
+              {t('closing')}
             </button>
           </div>
         )}

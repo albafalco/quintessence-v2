@@ -231,12 +231,12 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
               {pushTestMessage && (
                 <p className="text-xs text-accent">{pushTestMessage}</p>
               )}
-              <p className="text-xs font-semibold uppercase tracking-wider text-accent/60">Mágia értesítések</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent/60">{t('magiaNotificationsTitle')}</p>
 
               <div className="flex items-center justify-between">
                 <div>
-                  <Label>Reggeli emlékeztető</Label>
-                  <p className="text-[11px] text-muted-foreground">Napi tervvel a beállított időben</p>
+                  <Label>{t('morningReminder')}</Label>
+                  <p className="text-[11px] text-muted-foreground">{t('morningReminderDesc')}</p>
                 </div>
                 <Switch checked={magiaReminder} onCheckedChange={setMagiaReminder} />
               </div>
@@ -254,8 +254,8 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
 
               <div className="flex items-center justify-between">
                 <div>
-                  <Label>Esti emlékeztető</Label>
-                  <p className="text-[11px] text-muted-foreground">Az esti körre emlékeztet</p>
+                  <Label>{t('eveningReminder')}</Label>
+                  <p className="text-[11px] text-muted-foreground">{t('eveningReminderDesc')}</p>
                 </div>
                 <Switch checked={magiaEvening} onCheckedChange={setMagiaEvening} />
               </div>
@@ -273,8 +273,8 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
 
               <div className="flex items-center justify-between">
                 <div>
-                  <Label>🔥 Sorozatvédő</Label>
-                  <p className="text-[11px] text-muted-foreground">Csak ha aznap még nem gyakoroltál</p>
+                  <Label>{t('streakProtector')}</Label>
+                  <p className="text-[11px] text-muted-foreground">{t('streakProtectorDesc')}</p>
                 </div>
                 <Switch checked={magiaStreak} onCheckedChange={setMagiaStreak} />
               </div>
@@ -292,8 +292,8 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
 
               <div className="flex items-center justify-between">
                 <div>
-                  <Label>Visszahívó</Label>
-                  <p className="text-[11px] text-muted-foreground">3+ nap inaktivitás után, hetente max. 1×</p>
+                  <Label>{t('reengagement')}</Label>
+                  <p className="text-[11px] text-muted-foreground">{t('reengagementDesc')}</p>
                 </div>
                 <Switch checked={magiaReengagement} onCheckedChange={setMagiaReengagement} />
               </div>
@@ -301,7 +301,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
               {language === 'hu' && (
                 <>
                   <Separator />
-                  <p className="text-xs font-semibold uppercase tracking-wider text-accent/60">Angol értesítések</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-accent/60">{t('anglNotificationsTitle')}</p>
                   <div className="flex items-center justify-between">
                     <Label>{t('angolReminder')}</Label>
                     <Switch checked={angolReminder} onCheckedChange={setAngolReminder} />

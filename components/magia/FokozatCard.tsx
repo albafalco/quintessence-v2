@@ -84,7 +84,7 @@ export function FokozatCard({ fokozat, locale, progress }: FokozatCardProps) {
     return (
       <div
         className="group relative premium-card magia-surface block cursor-not-allowed p-6 opacity-45"
-        title={`Feltétel: a ${fokozat.id - 1}. fokozat összes gyakorlatának uralása`}
+        title={t('fokozatLockedCondition', { id: fokozat.id - 1 })}
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-4">
@@ -96,7 +96,7 @@ export function FokozatCard({ fokozat, locale, progress }: FokozatCardProps) {
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/50">
-                {ROMAN_NUMERALS[fokozat.id]}. {t('fokozat')} — Zárolt
+                {ROMAN_NUMERALS[fokozat.id]}. {t('fokozat')} — {t('lockedFokozat')}
               </p>
               <h3
                 className="font-display text-lg font-semibold opacity-60"
@@ -108,7 +108,7 @@ export function FokozatCard({ fokozat, locale, progress }: FokozatCardProps) {
           </div>
         </div>
         <p className="mt-4 text-xs text-muted-foreground">
-          A {fokozat.id - 1}. fokozat összes gyakorlatának uralása szükséges.
+          {t('fokozatLockedMessage', { id: fokozat.id - 1 })}
         </p>
       </div>
     );
@@ -163,7 +163,7 @@ export function FokozatCard({ fokozat, locale, progress }: FokozatCardProps) {
 
       {overallPercent === 100 && (
         <div className="mt-4 flex items-center justify-center gap-1.5 rounded-xl bg-accent/10 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent shadow-glow-gold">
-          ★ Fokozat uralt
+          {t('fokozatMasteredBadge')}
         </div>
       )}
     </Link>

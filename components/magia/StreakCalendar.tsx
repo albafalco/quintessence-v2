@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import type { DailyHeatmapEntry } from '@/lib/magia-utils';
 
 interface StreakCalendarProps {
@@ -15,14 +16,23 @@ function getIntensityClass(totalSec: number): string {
   return 'bg-accent shadow-glow-gold';
 }
 
-const DAYS_HU = ['H', 'K', 'Sz', 'Cs', 'P', 'Szo', 'V'];
-
 export function StreakCalendar({ data, streak }: StreakCalendarProps) {
-  // Naptár sorokba rendezés (5×7)
+  const t = useTranslations('magia');
+
+  const DAYS = [
+    t('calendarDayH'),
+    t('calendarDayK'),
+    t('calendarDaySz'),
+    t('calendarDayCs'),
+    t('calendarDayP'),
+    t('calendarDaySzo'),
+    t('calendarDayV'),
+  ];
+
   const firstDayOfWeek = data.length > 0
     ? new Date(data[0].date + 'T00:00:00Z').getDay()
     : 0;
-  const adjustedFirst = (firstDayOfWeek + 6) % 7; // H=0 ... V=6
+  const adjustedFirst = (firstDayOfWeek + 6) % 7;
 
   const padded = [
     ...Array(adjustedFirst).fill(null),
@@ -36,26 +46,26 @@ export function StreakCalendar({ data, streak }: StreakCalendarProps) {
 
   const formatMin = (sec: number) => {
     const m = Math.floor(sec / 60);
-    return m > 0 ? `${m} perc` : '';
+    return m > 0 ? `${m} ${t('calendarMinutes')}` : '';
   };
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-accent/70">
-          Aktivitás — 35 nap
+          {t('calendarTitle')}
         </h3>
         {streak > 0 && (
           <div className="flex items-center gap-1.5 rounded-xl bg-accent/10 px-3 py-1 text-sm font-bold text-accent shadow-glow-gold">
-            🔥 {streak} napos sorozat
+            🔥 {streak} {t('calendarStreak')}
           </div>
         )}
       </div>
 
       {/* Napok fejléce */}
       <div className="grid grid-cols-7 gap-1 text-center">
-        {DAYS_HU.map((d) => (
-          <div key={d} className="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground/60">
+        {DAYS.map((d, i) => (
+          <div key={i} className="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground/60">
             {d}
           </div>
         ))}
@@ -79,11 +89,11 @@ export function StreakCalendar({ data, streak }: StreakCalendarProps) {
 
       {/* Jelmagyarázat */}
       <div className="flex items-center gap-2 justify-end">
-        <span className="text-[9px] text-muted-foreground/60">Kevesebb</span>
+        <span className="text-[9px] text-muted-foreground/60">{t('calendarLess')}</span>
         {[0, 300, 900, 1800, 3600].map((v, i) => (
           <div key={i} className={`h-3 w-3 rounded-sm ${getIntensityClass(v)}`} />
         ))}
-        <span className="text-[9px] text-muted-foreground/60">Több</span>
+        <span className="text-[9px] text-muted-foreground/60">{t('calendarMore')}</span>
       </div>
     </div>
   );

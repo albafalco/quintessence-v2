@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import type { Mondat } from '@/lib/angol-lecke1';
 import { evaluateAnswer, scoreExam, shuffleArray } from '@/lib/angol-utils';
 import { createClient } from '@/lib/supabase/client';
@@ -37,6 +38,7 @@ export function ExamSession({
   locale,
   onClose,
 }: ExamSessionProps) {
+  const t = useTranslations('angol');
   const questions = useMemo(
     () => shuffleArray(mondatok),
     [mondatok]
@@ -126,7 +128,7 @@ export function ExamSession({
   if (phase === 'result' && result) {
     return (
       <div className="mx-auto max-w-md space-y-8 text-center animate-fade-in">
-        <h2 className="font-display text-2xl font-bold text-cream">Vizsga eredmény</h2>
+        <h2 className="font-display text-2xl font-bold text-cream">{t('examResult')}</h2>
         <div
           className={cn(
             'premium-card p-10',
@@ -140,11 +142,11 @@ export function ExamSession({
           </p>
           <p className="mt-3 font-display text-4xl font-semibold text-gradient-gold">{result.percent}%</p>
           <p className="mt-6 text-lg font-medium">
-            {passed ? '✅ Sikeresen teljesítve!' : '❌ Nem sikerült'}
+            {passed ? t('passedResult') : t('failedResult')}
           </p>
           {!passed && (
             <p className="mt-2 text-sm text-muted-foreground">
-              Min. {PASS_THRESHOLD}% szükséges
+              {t('passThresholdMsg', { threshold: PASS_THRESHOLD })}
             </p>
           )}
         </div>
@@ -152,22 +154,22 @@ export function ExamSession({
         <div className="grid grid-cols-3 gap-2 text-sm">
           <div className="rounded-lg bg-green-600/20 p-3">
             <p className="text-green-400 font-medium">{result.correct}</p>
-            <p className="text-muted-foreground">Helyes</p>
+            <p className="text-muted-foreground">{t('correctCount')}</p>
           </div>
           <div className="rounded-lg bg-amber-500/20 p-3">
             <p className="text-amber-400 font-medium">{result.partial}</p>
-            <p className="text-muted-foreground">Részleges</p>
+            <p className="text-muted-foreground">{t('partialCount')}</p>
           </div>
           <div className="rounded-lg bg-red-600/20 p-3">
             <p className="text-red-400 font-medium">{result.incorrect}</p>
-            <p className="text-muted-foreground">Helytelen</p>
+            <p className="text-muted-foreground">{t('incorrectCount')}</p>
           </div>
         </div>
 
         {wrongAnswers.length > 0 && (
           <div className="space-y-3 text-left">
             <h3 className="font-display text-lg font-semibold text-cream">
-              Hibás / részleges válaszok ({wrongAnswers.length})
+              {t('wrongAnswersTitle', { count: wrongAnswers.length })}
             </h3>
             <div className="space-y-2">
               {wrongAnswers.map((w, i) => (
@@ -182,13 +184,13 @@ export function ExamSession({
                 >
                   <p className="text-sm font-medium text-foreground">{w.hu}</p>
                   <p className="mt-1 text-sm">
-                    <span className="text-muted-foreground">Te: </span>
+                    <span className="text-muted-foreground">{t('yourAnswer')} </span>
                     <span className={w.eval === 'partial' ? 'text-amber-300' : 'text-red-300'}>
-                      {w.userAnswer || '(üres)'}
+                      {w.userAnswer || t('emptyAnswer')}
                     </span>
                   </p>
                   <p className="text-sm">
-                    <span className="text-muted-foreground">Helyes: </span>
+                    <span className="text-muted-foreground">{t('correctAnswerLabel')} </span>
                     <span className="text-green-300">{w.correctEn}</span>
                   </p>
                 </div>
@@ -203,7 +205,7 @@ export function ExamSession({
               href={`/${locale}/modules/angol/lecke/${lessonId}/szakasz/${unlockedNext}`}
               className="rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90"
             >
-              Következő szakasz →
+              {t('nextSection')} →
             </Link>
           )}
           <button
@@ -217,19 +219,19 @@ export function ExamSession({
             }}
             className="rounded-lg bg-muted px-6 py-3 hover:bg-muted/80"
           >
-            Újra próbálom
+            {t('retryExam')}
           </button>
           <button
             type="button"
             onClick={onClose}
             className="text-sm text-muted-foreground hover:text-foreground"
           >
-            Visszatérés a gyakorláshoz
+            {t('backToPractice')}
           </button>
         </div>
 
         {saving && (
-          <p className="text-xs text-muted-foreground">Eredmény mentése...</p>
+          <p className="text-xs text-muted-foreground">{t('savingResult')}</p>
         )}
       </div>
     );
@@ -238,9 +240,9 @@ export function ExamSession({
   return (
     <div className="mx-auto max-w-xl space-y-8">
       <div>
-        <h2 className="font-display text-xl font-semibold text-cream">Vizsga — {sectionName}</h2>
+        <h2 className="font-display text-xl font-semibold text-cream">{t('examHeader')} — {sectionName}</h2>
         <p className="text-sm text-muted-foreground">
-          Kérdés {currentQ + 1} / {total}
+          {t('examQuestion', { current: currentQ + 1, total })}
         </p>
         <div className="mt-2 flex gap-1">
           {questions.map((_, i) => (
@@ -261,18 +263,18 @@ export function ExamSession({
 
       <div className="premium-card angol-surface p-8 space-y-5">
         <div>
-          <p className="text-sm text-muted-foreground mb-1">Magyar:</p>
+          <p className="text-sm text-muted-foreground mb-1">{t('hungarianLabel')}</p>
           <p className="text-xl font-medium">{question.hu}</p>
         </div>
 
         <div>
-          <p className="text-sm text-muted-foreground mb-1">Angol fordítás:</p>
+          <p className="text-sm text-muted-foreground mb-1">{t('englishTranslationLabel')}</p>
           <input
             type="text"
             value={answers[currentQ]}
             onChange={(e) => handleAnswerChange(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-            placeholder="Írd be az angol fordítást..."
+            placeholder={t('answerPlaceholder')}
             className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
             autoFocus
           />
@@ -285,7 +287,7 @@ export function ExamSession({
             onClick={handleSubmit}
             className="rounded-lg bg-primary px-6 py-2 font-medium text-primary-foreground hover:bg-primary/90"
           >
-            {currentQ < total - 1 ? 'Következő' : 'Befejezés'}
+            {currentQ < total - 1 ? t('next') : t('finishButton')}
           </button>
         </div>
 
@@ -296,7 +298,7 @@ export function ExamSession({
         onClick={onClose}
         className="text-sm text-muted-foreground hover:text-foreground"
       >
-        ← Vissza a gyakorláshoz
+        {t('backButton')}
       </button>
     </div>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import type { SoulMirrorItem, SoulMirrorType, ElementType, WorkMethod } from '@/lib/magia-types';
 
@@ -9,31 +10,40 @@ interface SoulMirrorEditorProps {
   showWorkMethods?: boolean;
 }
 
-const ELEMENT_LABELS: Record<ElementType, string> = {
-  tuz: '🔥 Tűz',
-  levego: '💨 Levegő',
-  viz: '💧 Víz',
-  fold: '🌍 Föld',
-};
-
 const INTENSITY_LABELS = ['', '●', '●●', '●●●'] as const;
-const INTENSITY_TITLES = ['', 'Gyenge', 'Közepes', 'Erős'];
-
-const WORK_METHOD_LABELS: Record<WorkMethod, string> = {
-  uralas: 'Uralás',
-  autoszuggeszcio: 'Autoszuggesztió',
-  transzmutacio: 'Transzmutáció',
-};
 
 const BLANK_ITEM = { trait: '', element: '' as ElementType | '', intensity: 1 as 1 | 2 | 3 };
 
+const ELEMENT_COLORS: Record<ElementType, string> = {
+  tuz: '#fb923c',
+  levego: '#93c5fd',
+  viz: '#38bdf8',
+  fold: '#86efac',
+};
+
 export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirrorEditorProps) {
+  const t = useTranslations('magia');
   const [items, setItems] = useState<SoulMirrorItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<SoulMirrorType>('fekete');
   const [showAddForm, setShowAddForm] = useState(false);
   const [newItem, setNewItem] = useState(BLANK_ITEM);
   const [saving, setSaving] = useState(false);
+
+  const ELEMENT_LABELS: Record<ElementType, string> = {
+    tuz: t('soulMirrorElementFire'),
+    levego: t('soulMirrorElementAir'),
+    viz: t('soulMirrorElementWater'),
+    fold: t('soulMirrorElementEarth'),
+  };
+
+  const INTENSITY_TITLES = ['', t('soulMirrorIntensityWeak'), t('soulMirrorIntensityMedium'), t('soulMirrorIntensityStrong')];
+
+  const WORK_METHOD_LABELS: Record<WorkMethod, string> = {
+    uralas: t('soulMirrorMethodMastery'),
+    autoszuggeszcio: t('soulMirrorMethodAutosuggestion'),
+    transzmutacio: t('soulMirrorMethodTransmutation'),
+  };
 
   const fetchItems = useCallback(async () => {
     const supabase = createClient();
@@ -101,20 +111,13 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Törölni szeretnéd ezt a tételt?')) return;
+    if (!confirm(t('soulMirrorDeleteConfirm'))) return;
     const supabase = createClient();
     await supabase.from('magia_soul_mirror').delete().eq('id', id);
     setItems((prev) => prev.filter((i) => i.id !== id));
   };
 
   const tabItems = items.filter((i) => i.mirror === activeTab);
-
-  const ELEMENT_COLORS: Record<ElementType, string> = {
-    tuz: '#fb923c',
-    levego: '#93c5fd',
-    viz: '#38bdf8',
-    fold: '#86efac',
-  };
 
   return (
     <div className="space-y-4">
@@ -131,23 +134,21 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
                 : 'text-muted-foreground hover:text-cream'
             }`}
           >
-            {tab === 'fekete' ? '🖤 Fekete tükör' : '🤍 Fehér tükör'}
+            {tab === 'fekete' ? t('soulMirrorBlack') : t('soulMirrorWhite')}
           </button>
         ))}
       </div>
 
       <p className="text-xs text-muted-foreground">
-        {activeTab === 'fekete'
-          ? 'Hibák, gyengeségek, szenvedélyek — elemekhez rendelve.'
-          : 'Erények, jó tulajdonságok — elemekhez rendelve.'}
+        {activeTab === 'fekete' ? t('soulMirrorBlackDesc') : t('soulMirrorWhiteDesc')}
       </p>
 
       {/* Tételek listája */}
       {loading ? (
-        <p className="text-sm text-muted-foreground">Betöltés…</p>
+        <p className="text-sm text-muted-foreground">{t('loading')}</p>
       ) : tabItems.length === 0 ? (
         <p className="rounded-xl border border-dashed border-border/50 py-6 text-center text-sm text-muted-foreground">
-          Még nincs tétel ebben a tükörben.
+          {t('soulMirrorNoItems')}
         </p>
       ) : (
         <div className="space-y-2">
@@ -235,7 +236,7 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
             type="text"
             value={newItem.trait}
             onChange={(e) => setNewItem((n) => ({ ...n, trait: e.target.value }))}
-            placeholder={activeTab === 'fekete' ? 'Hiba / gyengeség neve…' : 'Erény / jó tulajdonság neve…'}
+            placeholder={activeTab === 'fekete' ? t('soulMirrorTraitBlackPlaceholder') : t('soulMirrorTraitWhitePlaceholder')}
             className="w-full rounded-xl border border-border/40 bg-background/40 px-3 py-2 text-sm text-cream placeholder:text-muted-foreground/50 focus:border-accent/50 focus:outline-none"
             onKeyDown={(e) => e.key === 'Enter' && handleAdd()}
           />
@@ -279,14 +280,14 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
               disabled={saving || !newItem.trait.trim()}
               className="flex-1 rounded-xl bg-accent/20 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30 disabled:opacity-50"
             >
-              {saving ? 'Mentés…' : 'Hozzáadás'}
+              {saving ? t('saving') : t('soulMirrorAdd')}
             </button>
             <button
               type="button"
               onClick={() => { setShowAddForm(false); setNewItem(BLANK_ITEM); }}
               className="rounded-xl border border-border/40 px-4 py-2.5 text-sm text-muted-foreground transition hover:text-cream"
             >
-              Mégse
+              {t('cancel')}
             </button>
           </div>
         </div>
@@ -296,7 +297,7 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
           onClick={() => setShowAddForm(true)}
           className="flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-border/50 py-3 text-sm text-muted-foreground transition hover:border-accent/30 hover:text-cream"
         >
-          + Tétel hozzáadása
+          {t('soulMirrorAddItem')}
         </button>
       )}
     </div>

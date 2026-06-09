@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Volume2, VolumeX } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -11,6 +12,7 @@ interface TTSButtonProps {
 }
 
 export function TTSButton({ text, className, size = 'md' }: TTSButtonProps) {
+  const t = useTranslations('angol');
   const [speaking, setSpeaking] = useState(false);
 
   const speak = useCallback(() => {
@@ -38,8 +40,8 @@ export function TTSButton({ text, className, size = 'md' }: TTSButtonProps) {
         e.stopPropagation();
         speak();
       }}
-      aria-label="Hallgatás"
-      title="Hallgatás"
+      aria-label={t('listen')}
+      title={t('listen')}
       className={cn(
         'inline-flex items-center justify-center rounded-full transition-all',
         'border border-slate-500/30 bg-slate-700/40 text-slate-200 hover:bg-slate-600/50 hover:shadow-card',

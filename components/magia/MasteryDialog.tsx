@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { buildExerciseKey } from '@/lib/magia-utils';
 import type { MagiaSection, ExerciseStatus } from '@/lib/magia-types';
@@ -32,6 +33,7 @@ export function MasteryDialog({
   onStatusChange,
   onClose,
 }: MasteryDialogProps) {
+  const t = useTranslations('magia');
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -74,7 +76,7 @@ export function MasteryDialog({
         <div className="mb-5 flex items-start justify-between gap-3">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/60">
-              Uraltság jelölése
+              {t('masteryDialogTitle')}
             </p>
             <h3 className="font-display text-lg font-semibold text-cream">{title}</h3>
           </div>
@@ -90,7 +92,7 @@ export function MasteryDialog({
         {/* Sikerkritérium */}
         <div className="mb-5 rounded-xl border border-accent/20 bg-accent/5 p-4">
           <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-accent/60">
-            Sikerkritérium
+            {t('masteryDialogCriteria')}
           </p>
           <p className="text-sm leading-relaxed text-cream/90">{successCriteria}</p>
         </div>
@@ -104,11 +106,11 @@ export function MasteryDialog({
           <span className="text-xl">{meetsMinSessions ? '✓' : '⚠'}</span>
           <div>
             <p className="text-xs font-semibold text-cream">
-              {sessionCount} / {minSessions} munkamenet elvégezve
+              {t('masteryDialogSessions', { count: sessionCount, min: minSessions })}
             </p>
             {!meetsMinSessions && (
               <p className="text-[11px] text-amber-400/80">
-                Legalább {minSessions} munkamenet ajánlott az uraltság jelöléséhez
+                {t('masteryDialogMinHint', { min: minSessions })}
               </p>
             )}
           </div>
@@ -122,7 +124,7 @@ export function MasteryDialog({
         {isAlreadyMastered ? (
           <div className="space-y-2">
             <p className="mb-3 text-sm text-muted-foreground text-center">
-              Ez a gyakorlat uralt. Visszavonod a jelölést?
+              {t('masteryDialogAlreadyMastered')}
             </p>
             <div className="flex gap-3">
               <button
@@ -131,7 +133,7 @@ export function MasteryDialog({
                 disabled={saving}
                 className="flex-1 rounded-xl border border-border/40 py-2.5 text-sm font-medium text-muted-foreground transition hover:border-red-400/40 hover:text-red-400 disabled:opacity-50"
               >
-                {saving ? 'Mentés…' : 'Visszavonás'}
+                {saving ? t('saving') : t('masteryDialogRevoke')}
               </button>
               <button
                 type="button"
@@ -139,7 +141,7 @@ export function MasteryDialog({
                 disabled={saving}
                 className="flex-1 rounded-xl bg-accent/20 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30"
               >
-                Mégse
+                {t('cancel')}
               </button>
             </div>
           </div>
@@ -151,7 +153,7 @@ export function MasteryDialog({
               disabled={saving}
               className="flex-1 rounded-xl bg-accent/20 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold disabled:opacity-50"
             >
-              {saving ? 'Mentés…' : '★ Igen, uraltam'}
+              {saving ? t('saving') : t('masteryDialogConfirm')}
             </button>
             <button
               type="button"
@@ -159,7 +161,7 @@ export function MasteryDialog({
               disabled={saving}
               className="rounded-xl border border-border/40 px-4 py-3 text-sm text-muted-foreground transition hover:text-cream"
             >
-              Mégse
+              {t('cancel')}
             </button>
           </div>
         )}

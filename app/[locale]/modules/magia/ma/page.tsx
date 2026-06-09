@@ -60,7 +60,6 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   const todaySessions = recentSessions.filter((s) => s.started_at.startsWith(todayDate));
   const todayExerciseKeys = new Set(todaySessions.map((s) => s.exercise_key));
 
-  // Napi terv: az aktuális fokozat nem uralt gyakorlatai
   const sections = ['szellem', 'lelek', 'test'] as const;
   type PlanExercise = {
     section: 'szellem' | 'lelek' | 'test';
@@ -79,7 +78,6 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
       const fullKey = buildExerciseKey(section, currentFokozatId, exercise.key);
       const doneToday = todayExerciseKeys.has(fullKey);
 
-      // Twice_daily: kétszer jelenjen meg, de ne duplikálj ha mindkettő kész
       if (exercise.params?.frequency === 'twice_daily') {
         const todayCount = todaySessions.filter((s) => s.exercise_key === fullKey).length;
         planExercises.push({ section, exercise, progress: ep, doneToday: todayCount >= 1 });
@@ -93,19 +91,21 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   const pillarEmoji = { szellem: '🧠', lelek: '💎', test: '⚡' } as const;
   const sectionLabel = { szellem: t('szellem'), lelek: t('lelek'), test: t('test') } as const;
 
+  const formattedDate = new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(new Date(todayDate));
+
   return (
     <div className="mx-auto max-w-2xl space-y-10">
       <header className="premium-card magia-surface p-5 sm:p-6">
         <div className="flex items-center justify-between gap-4">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">
-              ✦ Mágia — Ma
+              {t('maBadge')}
             </p>
             <h1 className="font-display text-3xl font-bold text-gradient-gold">
-              Napi gyakorlás
+              {t('maTitle')}
             </h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              {new Intl.DateTimeFormat('hu', { dateStyle: 'long' }).format(new Date(todayDate))}
+              {formattedDate}
               {' · '}
               {fokozat.rovidcim}
             </p>
@@ -114,7 +114,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
             <div className="flex flex-col items-center gap-1 rounded-2xl bg-accent/10 px-4 py-3 shadow-glow-gold">
               <span className="text-2xl">🔥</span>
               <span className="font-display text-xl font-bold text-accent">{streak}</span>
-              <span className="text-[9px] font-semibold uppercase tracking-wider text-accent/70">nap</span>
+              <span className="text-[9px] font-semibold uppercase tracking-wider text-accent/70">{t('maStreak')}</span>
             </div>
           )}
         </div>
@@ -123,13 +123,13 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
             href={`/${locale}/modules/magia`}
             className="text-xs text-muted-foreground transition hover:text-accent"
           >
-            ← Összes fokozat
+            {t('maBackToAll')}
           </Link>
           <Link
             href={`/${locale}/modules/magia/fokozat/${currentFokozatId}`}
             className="text-xs text-muted-foreground transition hover:text-accent"
           >
-            {fokozat.rovidcim} részletek →
+            {t('maLevelDetails', { title: fokozat.rovidcim })}
           </Link>
         </div>
       </header>
@@ -138,7 +138,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
       <section className="space-y-4">
         <h2 className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent/70">
           <span className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent" />
-          Mai terv
+          {t('maTodayPlan')}
           <span className="h-px flex-1 bg-gradient-to-l from-accent/40 to-transparent" />
         </h2>
 
@@ -146,10 +146,10 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
           <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6 text-center">
             <p className="text-2xl mb-2">🎉</p>
             <p className="font-display text-lg font-semibold text-cream">
-              Minden gyakorlat uralt!
+              {t('maAllMastered')}
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
-              A {fokozat.cim} összes gyakorlata uralt. Hamarosan feloldódik a következő fokozat.
+              {t('maAllMasteredDesc', { title: fokozat.cim })}
             </p>
           </div>
         ) : (
@@ -157,14 +157,14 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
             {planExercises.map((item, idx) => {
               const isTwiceDaily = item.exercise.params?.frequency === 'twice_daily';
               const label = isTwiceDaily
-                ? `${pillarEmoji[item.section]} ${sectionLabel[item.section]} — ${idx % 2 === 0 ? 'Reggel' : 'Este'}`
+                ? `${pillarEmoji[item.section]} ${sectionLabel[item.section]} — ${idx % 2 === 0 ? t('morning') : t('evening')}`
                 : `${pillarEmoji[item.section]} ${sectionLabel[item.section]}`;
 
               return (
                 <div key={`${item.exercise.key}-${idx}`} className={item.doneToday ? 'opacity-50' : ''}>
                   <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60">
                     {label}
-                    {item.doneToday && <span className="ml-2 text-accent/60">✓ Ma elvégezve</span>}
+                    {item.doneToday && <span className="ml-2 text-accent/60">{t('maCompletedToday')}</span>}
                   </p>
                   <ExerciseItem
                     fokozatId={currentFokozatId}
@@ -201,18 +201,18 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
       {recentSessions.length > 0 && (
         <section className="rounded-2xl border border-border/40 bg-card/20 p-5">
           <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-accent/70">
-            Összesített statisztika — 35 nap
+            {t('maStatsTitle')}
           </h3>
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <p className="font-display text-2xl font-bold text-accent">{recentSessions.length}</p>
-              <p className="text-xs text-muted-foreground">munkamenet</p>
+              <p className="text-xs text-muted-foreground">{t('maStatsSessions')}</p>
             </div>
             <div>
               <p className="font-display text-2xl font-bold text-accent">
                 {Math.floor(recentSessions.reduce((s, r) => s + (r.duration_sec ?? 0), 0) / 60)}
               </p>
-              <p className="text-xs text-muted-foreground">perc összesen</p>
+              <p className="text-xs text-muted-foreground">{t('maStatsTotalMin')}</p>
             </div>
             <div>
               <p className="font-display text-2xl font-bold text-accent">
@@ -220,7 +220,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
                   ? Math.floor(recentSessions.reduce((s, r) => s + (r.duration_sec ?? 0), 0) / recentSessions.length / 60)
                   : 0}
               </p>
-              <p className="text-xs text-muted-foreground">perc átlag</p>
+              <p className="text-xs text-muted-foreground">{t('maStatsAvgMin')}</p>
             </div>
           </div>
         </section>

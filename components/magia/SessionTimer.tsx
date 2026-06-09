@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface SessionTimerProps {
   targetSec: number;
@@ -32,6 +33,7 @@ function playGong(ctx: AudioContext, volume = 0.4) {
 }
 
 export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: SessionTimerProps) {
+  const t = useTranslations('magia');
   const [state, setState] = useState<TimerState>('idle');
   const [displaySec, setDisplaySec] = useState(0);
   const [silenceCountdown, setSilenceCountdown] = useState(silenceSec);
@@ -168,7 +170,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition-all hover:bg-accent/30 hover:shadow-glow-gold"
       >
         <span className="text-base">▶</span>
-        Gyakorlás indítása
+        {t('timerStartButton')}
       </button>
     );
   }
@@ -176,7 +178,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
   if (state === 'silence') {
     return (
       <div className="flex flex-col items-center gap-4 py-6">
-        <p className="text-sm text-muted-foreground">Elcsendesedés…</p>
+        <p className="text-sm text-muted-foreground">{t('timerSilencing')}</p>
         <div className="flex h-20 w-20 items-center justify-center rounded-full border border-accent/30 bg-accent/5">
           <span className="font-display text-3xl font-bold text-accent">{silenceCountdown}</span>
         </div>
@@ -205,16 +207,16 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
           ) : (
             <>
               <span className="font-display text-2xl font-bold text-cream">{formatTime(remaining)}</span>
-              <span className="text-[10px] text-muted-foreground">hátra</span>
+              <span className="text-[10px] text-muted-foreground">{t('timerRemaining')}</span>
             </>
           )}
         </div>
       </div>
 
       <p className="text-xs text-muted-foreground">
-        Eltelt: <strong className="text-cream">{formatTime(displaySec)}</strong>
+        {t('timerElapsed')} <strong className="text-cream">{formatTime(displaySec)}</strong>
         {' · '}
-        Cél: <strong className="text-cream">{formatTime(targetSec)}</strong>
+        {t('timerTarget')} <strong className="text-cream">{formatTime(targetSec)}</strong>
       </p>
 
       {/* Gombok */}
@@ -225,7 +227,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
             onClick={handlePause}
             className="rounded-xl border border-border/50 bg-muted/30 px-4 py-2.5 text-sm font-medium text-cream transition hover:bg-muted/50"
           >
-            ⏸ Szünet
+            {t('timerPause')}
           </button>
         )}
         {state === 'paused' && (
@@ -234,7 +236,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
             onClick={handleResume}
             className="rounded-xl bg-accent/20 px-4 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30"
           >
-            ▶ Folytatás
+            {t('timerResume')}
           </button>
         )}
         {state === 'completed' && (
@@ -243,7 +245,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
             onClick={handleComplete}
             className="rounded-xl bg-accent/20 px-5 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold"
           >
-            Naplózás →
+            {t('timerLog')}
           </button>
         )}
         {(state === 'running' || state === 'paused') && (
@@ -252,7 +254,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
             onClick={handleStop}
             className="rounded-xl border border-border/40 px-4 py-2.5 text-sm font-medium text-muted-foreground transition hover:border-red-400/40 hover:text-red-400"
           >
-            ✕ Leállítás
+            {t('timerStop')}
           </button>
         )}
       </div>

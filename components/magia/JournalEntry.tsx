@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { Textarea } from '@/components/ui/textarea';
 import { cn } from '@/lib/utils';
@@ -27,16 +27,6 @@ interface JournalEntryProps {
   onDelete: (id: string) => void;
 }
 
-const STRUCTURED_FIELDS: { key: keyof JournalEntryData; label: string }[] = [
-  { key: 'successes', label: 'Mi ment jól' },
-  { key: 'failures', label: 'Nehézségek' },
-  { key: 'duration_sec', label: 'Időtartam' },
-  { key: 'disturbances', label: 'Zavaró tényezők' },
-  { key: 'self_criticism', label: 'Önkritika' },
-  { key: 'next_plan', label: 'Terv' },
-  { key: 'content', label: 'Megjegyzés' },
-];
-
 function formatDuration(sec: number): string {
   const m = Math.floor(sec / 60);
   const s = sec % 60;
@@ -45,12 +35,23 @@ function formatDuration(sec: number): string {
 
 export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
   const t = useTranslations('magia');
+  const locale = useLocale();
   const [editing, setEditing] = useState(false);
   const [editContent, setEditContent] = useState(entry.content ?? '');
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
-  const formattedDate = new Intl.DateTimeFormat('hu', {
+  const STRUCTURED_FIELDS: { key: keyof JournalEntryData; label: string }[] = [
+    { key: 'successes', label: t('journalFieldSuccessesShort') },
+    { key: 'failures', label: t('journalFieldFailuresShort') },
+    { key: 'duration_sec', label: t('journalFieldDuration') },
+    { key: 'disturbances', label: t('journalFieldDisturbancesShort') },
+    { key: 'self_criticism', label: t('journalFieldSelfCriticismShort') },
+    { key: 'next_plan', label: t('journalFieldNextPlanShort') },
+    { key: 'content', label: t('journalFieldContentShort') },
+  ];
+
+  const formattedDate = new Intl.DateTimeFormat(locale, {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -179,7 +180,7 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
       )}
 
       {!hasStructured && !entry.content && !editing && (
-        <p className="text-sm text-muted-foreground italic">Nincs szöveges tartalom.</p>
+        <p className="text-sm text-muted-foreground italic">{t('journalNoContent')}</p>
       )}
     </article>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import type { Mondat, Szakasz } from '@/lib/angol-lecke1';
 import { SZOLAP_1 } from '@/lib/angol-szolap';
 import { getStaticContent } from '@/lib/angol-static-content';
@@ -27,6 +28,7 @@ export function SzakaszView({
   lastExamScore,
   lastExamPassed,
 }: SzakaszViewProps) {
+  const t = useTranslations('angol');
   const [examMode, setExamMode] = useState(false);
 
   if (sectionId === 0) {
@@ -35,7 +37,7 @@ export function SzakaszView({
         <ExamSession
           lessonId={lessonId}
           sectionId={0}
-          sectionName="Szólap"
+          sectionName={t('vocabulary')}
           mondatok={SZOLAP_1 as Mondat[]}
           locale={locale}
           onClose={() => setExamMode(false)}
@@ -50,7 +52,7 @@ export function SzakaszView({
   }
 
   if (!szakasz) {
-    return <p className="text-muted-foreground">Szakasz nem található.</p>;
+    return <p className="text-muted-foreground">{t('sectionNotFound')}</p>;
   }
 
   if (examMode) {
