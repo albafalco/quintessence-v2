@@ -3,13 +3,12 @@
 import { useCallback, useMemo, useState } from 'react';
 import Link from 'next/link';
 import type { Mondat } from '@/lib/angol-lecke1';
-import { scoreExam, shuffleArray } from '@/lib/angol-utils';
+import { evaluateAnswer, scoreExam, shuffleArray } from '@/lib/angol-utils';
 import { createClient } from '@/lib/supabase/client';
 import { getNextSectionId } from '@/lib/angol-unlocks';
 import { SpeechInput } from '@/components/angol/SpeechInput';
 import { cn } from '@/lib/utils';
 
-const EXAM_SIZE = 20;
 const PASS_THRESHOLD = 80;
 
 interface ExamSessionProps {
@@ -23,6 +22,13 @@ interface ExamSessionProps {
 
 type ExamPhase = 'exam' | 'result';
 
+type WrongAnswer = {
+  hu: string;
+  userAnswer: string;
+  correctEn: string;
+  eval: 'partial' | 'incorrect';
+};
+
 export function ExamSession({
   lessonId,
   sectionId,
@@ -32,7 +38,7 @@ export function ExamSession({
   onClose,
 }: ExamSessionProps) {
   const questions = useMemo(
-    () => shuffleArray(mondatok).slice(0, Math.min(EXAM_SIZE, mondatok.length)),
+    () => shuffleArray(mondatok),
     [mondatok]
   );
 
@@ -40,6 +46,7 @@ export function ExamSession({
   const [currentQ, setCurrentQ] = useState(0);
   const [answers, setAnswers] = useState<string[]>(() => questions.map(() => ''));
   const [result, setResult] = useState<ReturnType<typeof scoreExam> | null>(null);
+  const [wrongAnswers, setWrongAnswers] = useState<WrongAnswer[]>([]);
   const [passed, setPassed] = useState(false);
   const [saving, setSaving] = useState(false);
   const [unlockedNext, setUnlockedNext] = useState<number | null>(null);
@@ -62,6 +69,15 @@ export function ExamSession({
     setResult(scored);
     const didPass = scored.percent >= PASS_THRESHOLD;
     setPassed(didPass);
+
+    const wrongs: WrongAnswer[] = questions
+      .map((q, i) => {
+        const ev = evaluateAnswer(answers[i], q.en);
+        return { hu: q.hu, userAnswer: answers[i], correctEn: q.en, eval: ev };
+      })
+      .filter((w): w is WrongAnswer => w.eval !== 'correct');
+    setWrongAnswers(wrongs);
+
     setPhase('result');
     setSaving(true);
 
@@ -148,6 +164,39 @@ export function ExamSession({
           </div>
         </div>
 
+        {wrongAnswers.length > 0 && (
+          <div className="space-y-3 text-left">
+            <h3 className="font-display text-lg font-semibold text-cream">
+              Hibás / részleges válaszok ({wrongAnswers.length})
+            </h3>
+            <div className="space-y-2">
+              {wrongAnswers.map((w, i) => (
+                <div
+                  key={i}
+                  className={cn(
+                    'rounded-lg border p-3',
+                    w.eval === 'partial'
+                      ? 'border-amber-500/30 bg-amber-900/20'
+                      : 'border-red-500/30 bg-red-900/20'
+                  )}
+                >
+                  <p className="text-sm font-medium text-foreground">{w.hu}</p>
+                  <p className="mt-1 text-sm">
+                    <span className="text-muted-foreground">Te: </span>
+                    <span className={w.eval === 'partial' ? 'text-amber-300' : 'text-red-300'}>
+                      {w.userAnswer || '(üres)'}
+                    </span>
+                  </p>
+                  <p className="text-sm">
+                    <span className="text-muted-foreground">Helyes: </span>
+                    <span className="text-green-300">{w.correctEn}</span>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="flex flex-col gap-3">
           {passed && unlockedNext !== null && (
             <Link
@@ -164,6 +213,7 @@ export function ExamSession({
               setCurrentQ(0);
               setAnswers(questions.map(() => ''));
               setResult(null);
+              setWrongAnswers([]);
             }}
             className="rounded-lg bg-muted px-6 py-3 hover:bg-muted/80"
           >

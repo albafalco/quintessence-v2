@@ -11,9 +11,10 @@ import { cn } from '@/lib/utils';
 
 interface FlashCardProps {
   lessonId?: number;
+  onStartExam?: () => void;
 }
 
-export function FlashCard({ lessonId = 1 }: FlashCardProps) {
+export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
   const [cards, setCards] = useState(SZOLAP_1);
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
@@ -103,6 +104,17 @@ export function FlashCard({ lessonId = 1 }: FlashCardProps) {
     return () => window.removeEventListener('keydown', onKey);
   }, [goNext, goPrev]);
 
+  useEffect(() => {
+    if (!flipped) return;
+    if (typeof window === 'undefined' || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(englishText);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.9;
+    window.speechSynthesis.speak(utterance);
+    return () => window.speechSynthesis.cancel();
+  }, [flipped, englishText]);
+
   if (!current) return null;
 
   return (
@@ -185,6 +197,14 @@ export function FlashCard({ lessonId = 1 }: FlashCardProps) {
             }}
           >
             Még gyakorolom ✗
+          </Button>
+        </div>
+      )}
+
+      {onStartExam && (
+        <div className="flex justify-center border-t border-border/30 pt-4">
+          <Button variant="ghost" size="sm" onClick={onStartExam} className="text-muted-foreground hover:text-foreground">
+            Vizsga indítása →
           </Button>
         </div>
       )}

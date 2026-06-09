@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import type { Szakasz } from '@/lib/angol-lecke1';
+import type { Mondat, Szakasz } from '@/lib/angol-lecke1';
+import { SZOLAP_1 } from '@/lib/angol-szolap';
 import { getStaticContent } from '@/lib/angol-static-content';
 import { FlashCard } from '@/components/angol/FlashCard';
 import { PracticeSession } from '@/components/angol/PracticeSession';
@@ -29,7 +30,19 @@ export function SzakaszView({
   const [examMode, setExamMode] = useState(false);
 
   if (sectionId === 0) {
-    return <FlashCard lessonId={lessonId} />;
+    if (examMode) {
+      return (
+        <ExamSession
+          lessonId={lessonId}
+          sectionId={0}
+          sectionName="Szólap"
+          mondatok={SZOLAP_1 as Mondat[]}
+          locale={locale}
+          onClose={() => setExamMode(false)}
+        />
+      );
+    }
+    return <FlashCard lessonId={lessonId} onStartExam={() => setExamMode(true)} />;
   }
 
   if (sectionId === 1 || sectionId === 2) {
