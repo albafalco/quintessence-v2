@@ -13,6 +13,7 @@ import {
   User,
 } from 'lucide-react';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
+import { LogoutButton } from '@/components/auth/LogoutButton';
 import { cn } from '@/lib/utils';
 
 const STORAGE_KEY = 'quintessence-sidebar-collapsed';
@@ -131,13 +132,9 @@ export function Sidebar() {
         })}
       </nav>
 
-      {!collapsed && (
-        <div className="border-t border-border/40 p-4">
-          <p className="text-center text-[10px] tracking-widest text-muted-foreground/60">
-            ✦ PERSONAL GROWTH ✦
-          </p>
-        </div>
-      )}
+      <div className="border-t border-border/40 p-3">
+        <LogoutButton variant="nav" showLabel={!collapsed} />
+      </div>
     </aside>
   );
 }

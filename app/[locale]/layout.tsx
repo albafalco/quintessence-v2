@@ -1,4 +1,4 @@
-import { DM_Sans, Cormorant_Garamond } from 'next/font/google';
+import { Outfit, Cinzel } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -7,13 +7,13 @@ import { createClient } from '@/lib/supabase/server';
 import { ConditionalAppShell } from '@/components/layout/ConditionalAppShell';
 import '../globals.css';
 
-const dmSans = DM_Sans({
+const outfit = Outfit({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-sans',
   display: 'swap',
 });
 
-const cormorant = Cormorant_Garamond({
+const cinzel = Cinzel({
   subsets: ['latin', 'latin-ext'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-display',
@@ -63,7 +63,7 @@ export default async function LocaleLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className={`${dmSans.variable} ${cormorant.variable} font-sans`}>
+      <body className={`${outfit.variable} ${cinzel.variable} font-sans`}>
         <NextIntlClientProvider messages={messages}>
           <ConditionalAppShell username={username}>{children}</ConditionalAppShell>
         </NextIntlClientProvider>

@@ -32,7 +32,7 @@ export function Navbar({ username }: NavbarProps) {
           <LanguageSwitcher compact />
         </div>
 
-        <LogoutButton variant="icon" />
+        <LogoutButton variant="icon" showLabel />
 
         <Link
           href={`/${locale}/profile`}
