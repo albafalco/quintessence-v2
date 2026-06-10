@@ -357,10 +357,10 @@
     "description": "Sistema modulare per crescita personale e apprendimento"
   },
   "locale": {
-    "hu": "Olasz",
-    "en": "Italian",
-    "de": "Italienisch",
-    "es": "Italiano",
+    "hu": "Ungherese",
+    "en": "Inglese",
+    "de": "Tedesco",
+    "es": "Spagnolo",
     "it": "Italiano"
   },
   "push": {

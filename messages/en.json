@@ -357,11 +357,11 @@
     "description": "Modular system for personal growth and learning"
   },
   "locale": {
-    "hu": "Angol",
+    "hu": "Hungarian",
     "en": "English",
-    "de": "Englisch",
-    "es": "Inglés",
-    "it": "Inglese"
+    "de": "German",
+    "es": "Spanish",
+    "it": "Italian"
   },
   "push": {
     "morningTitle": "✦ Magia — Morning practice",

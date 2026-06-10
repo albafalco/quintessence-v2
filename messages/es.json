@@ -357,11 +357,11 @@
     "description": "Sistema modular de crecimiento personal y aprendizaje"
   },
   "locale": {
-    "hu": "Spanyol",
-    "en": "Spanish",
-    "de": "Spanisch",
+    "hu": "Húngaro",
+    "en": "Inglés",
+    "de": "Alemán",
     "es": "Español",
-    "it": "Spagnolo"
+    "it": "Italiano"
   },
   "push": {
     "morningTitle": "✦ Magia — Práctica matutina",

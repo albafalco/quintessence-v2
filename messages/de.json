@@ -357,11 +357,11 @@
     "description": "Modulares System für persönliche Entwicklung und Lernen"
   },
   "locale": {
-    "hu": "Német",
-    "en": "German",
+    "hu": "Ungarisch",
+    "en": "Englisch",
     "de": "Deutsch",
-    "es": "Alemán",
-    "it": "Tedesco"
+    "es": "Spanisch",
+    "it": "Italienisch"
   },
   "push": {
     "morningTitle": "✦ Magia — Morgenübung",
