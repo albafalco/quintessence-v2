@@ -28,6 +28,8 @@ interface ProfileRow {
   push_magia_streak_time: string | null;
   push_magia_reengagement: boolean;
   last_magia_push_date: string | null;
+  last_magia_evening_push_date: string | null;
+  last_magia_streak_push_date: string | null;
   last_magia_reengagement_date: string | null;
   last_magia_activity_date: string | null;
   push_angol_reminders: boolean;
@@ -75,8 +77,10 @@ async function buildPushNotifications(
   }
 
   const eveningTime = profile.push_magia_evening_time || DEFAULT_MAGIA_EVENING_PUSH_TIME;
+  const eveningAlreadySent = profile.last_magia_evening_push_date === budapestNow.date;
   if (
     profile.push_magia_evening &&
+    !eveningAlreadySent &&
     isReminderDue(budapestNow.totalMinutes, eveningTime)
   ) {
     notifications.push({
@@ -88,8 +92,10 @@ async function buildPushNotifications(
   }
 
   const streakTime = profile.push_magia_streak_time || DEFAULT_MAGIA_STREAK_PUSH_TIME;
+  const streakAlreadySent = profile.last_magia_streak_push_date === budapestNow.date;
   if (
     profile.push_magia_streak &&
+    !streakAlreadySent &&
     isReminderDue(budapestNow.totalMinutes, streakTime)
   ) {
     const hasActivity = await hasMagiaActivityToday(supabase, profile.id, budapestNow.date);
@@ -167,7 +173,7 @@ export async function GET(request: Request) {
   const { data: profiles, error } = await supabase
     .from('profiles')
     .select(
-      'id, push_enabled, push_magia_reminders, push_magia_time, push_magia_evening, push_magia_evening_time, push_magia_streak, push_magia_streak_time, push_magia_reengagement, last_magia_push_date, last_magia_reengagement_date, last_magia_activity_date, push_angol_reminders, push_angol_time, preferred_language, last_angol_push_date'
+      'id, push_enabled, push_magia_reminders, push_magia_time, push_magia_evening, push_magia_evening_time, push_magia_streak, push_magia_streak_time, push_magia_reengagement, last_magia_push_date, last_magia_evening_push_date, last_magia_streak_push_date, last_magia_reengagement_date, last_magia_activity_date, push_angol_reminders, push_angol_time, preferred_language, last_angol_push_date'
     )
     .eq('push_enabled', true);
 
@@ -194,6 +200,8 @@ export async function GET(request: Request) {
 
     let angolSent = false;
     let magiaMorningSent = false;
+    let magiaEveningSent = false;
+    let magiaStreakSent = false;
     let magiaReengagementSent = false;
 
     for (const sub of subscriptions) {
@@ -203,6 +211,8 @@ export async function GET(request: Request) {
           sent++;
           if (notif.type === 'angol') angolSent = true;
           if (notif.type === 'magia_morning') magiaMorningSent = true;
+          if (notif.type === 'magia_evening') magiaEveningSent = true;
+          if (notif.type === 'magia_streak') magiaStreakSent = true;
           if (notif.type === 'magia_reengagement') magiaReengagementSent = true;
         } catch {
           // expired or invalid subscription — skip
@@ -213,6 +223,8 @@ export async function GET(request: Request) {
     const updates: Record<string, string> = { updated_at: new Date().toISOString() };
     if (angolSent) updates.last_angol_push_date = budapestNow.date;
     if (magiaMorningSent) updates.last_magia_push_date = budapestNow.date;
+    if (magiaEveningSent) updates.last_magia_evening_push_date = budapestNow.date;
+    if (magiaStreakSent) updates.last_magia_streak_push_date = budapestNow.date;
     if (magiaReengagementSent) updates.last_magia_reengagement_date = budapestNow.date;
 
     if (Object.keys(updates).length > 1) {

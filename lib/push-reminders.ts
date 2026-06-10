@@ -1,7 +1,10 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 const BUDAPEST_TZ = 'Europe/Budapest';
-export const PUSH_CRON_WINDOW_MINUTES = 5;
+// GitHub Actions cron delays can be 5–15 min; use a 30-min window so any
+// cron run in that range still catches the target time.  Per-day dedup in
+// the send route prevents duplicate sends within the wider window.
+export const PUSH_CRON_WINDOW_MINUTES = 30;
 
 export interface BudapestNow {
   date: string;
