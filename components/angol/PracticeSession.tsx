@@ -4,7 +4,6 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { MondatPair } from '@/lib/i18n-content';
-import { shuffleArray } from '@/lib/angol-utils';
 import { TTSButton } from '@/components/angol/TTSButton';
 import { cn } from '@/lib/utils';
 
@@ -26,12 +25,11 @@ export function PracticeSession({
   lastExamPassed,
 }: PracticeSessionProps) {
   const t = useTranslations('angol');
-  const [cards, setCards] = useState(() => shuffleArray(mondatok));
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
 
-  const current = cards[index];
-  const total = cards.length;
+  const current = mondatok[index];
+  const total = mondatok.length;
 
   const englishText = useMemo(() => {
     if (!current) return '';
@@ -39,7 +37,6 @@ export function PracticeSession({
   }, [current]);
 
   useEffect(() => {
-    setCards(shuffleArray(mondatok));
     setIndex(0);
     setFlipped(false);
   }, [mondatok, sectionId]);
