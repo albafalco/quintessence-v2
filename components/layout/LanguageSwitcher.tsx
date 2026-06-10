@@ -5,14 +5,13 @@ import { createPortal } from 'react-dom';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { ChevronDown } from 'lucide-react';
-import { locales } from '@/i18n';
-import { useTranslations } from 'next-intl';
+import { locales, type Locale } from '@/i18n';
+import { getNativeLocaleLabel } from '@/lib/locale-meta';
 import { FlagIcon } from '@/components/ui/FlagIcon';
 import { cn } from '@/lib/utils';
 
 export function LanguageSwitcher() {
-  const locale = useLocale();
-  const tLocale = useTranslations('locale');
+  const locale = useLocale() as Locale;
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -46,12 +45,12 @@ export function LanguageSwitcher() {
           type="button"
           onClick={handleToggle}
           className="flex items-center gap-1 rounded-lg border border-border/60 bg-muted/30 px-2 py-1.5 transition-all hover:bg-muted/60"
-          title={tLocale(locale)}
-          aria-label={tLocale(locale)}
+          title={getNativeLocaleLabel(locale)}
+          aria-label={getNativeLocaleLabel(locale)}
           aria-expanded={open}
         >
           <FlagIcon locale={locale} className="h-3 w-4" />
-          <span className="text-xs font-medium text-accent">{locale.toUpperCase()}</span>
+          <span className="text-xs font-medium text-accent">{getNativeLocaleLabel(locale)}</span>
           <ChevronDown
             className={cn(
               'h-3 w-3 text-muted-foreground transition-transform duration-200',
@@ -88,10 +87,7 @@ export function LanguageSwitcher() {
                       aria-current={active ? 'true' : undefined}
                     >
                       <FlagIcon locale={loc} className="h-3.5 w-5 shrink-0" />
-                      <span className="font-medium">{loc.toUpperCase()}</span>
-                      <span className="ml-auto text-xs text-muted-foreground">
-                        {tLocale(loc)}
-                      </span>
+                      <span className="font-medium">{getNativeLocaleLabel(loc)}</span>
                     </button>
                   );
                 })}
@@ -116,12 +112,12 @@ export function LanguageSwitcher() {
                   ? 'bg-primary/30 text-accent shadow-sm'
                   : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground'
               )}
-              title={tLocale(loc)}
-              aria-label={tLocale(loc)}
+              title={getNativeLocaleLabel(loc)}
+              aria-label={getNativeLocaleLabel(loc)}
               aria-current={active ? 'true' : undefined}
             >
               <FlagIcon locale={loc} className="h-3.5 w-5" />
-              <span className="text-xs font-medium">{loc.toUpperCase()}</span>
+              <span className="text-xs font-medium">{getNativeLocaleLabel(loc)}</span>
             </button>
           );
         })}

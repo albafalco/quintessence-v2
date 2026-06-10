@@ -21,14 +21,6 @@ const newKeys = {
       it: 'Sistema modulare per crescita personale e apprendimento',
     },
   },
-  // Each key = language code; nested key = UI locale → display name of that language
-  locale: {
-    hu: { hu: 'Magyar', en: 'Hungarian', de: 'Ungarisch', es: 'Húngaro', it: 'Ungherese' },
-    en: { hu: 'Angol', en: 'English', de: 'Englisch', es: 'Inglés', it: 'Inglese' },
-    de: { hu: 'Német', en: 'German', de: 'Deutsch', es: 'Alemán', it: 'Tedesco' },
-    es: { hu: 'Spanyol', en: 'Spanish', de: 'Spanisch', es: 'Español', it: 'Spagnolo' },
-    it: { hu: 'Olasz', en: 'Italian', de: 'Italienisch', es: 'Italiano', it: 'Italiano' },
-  },
   dashboard: {
     magiaLabel: { hu: 'Mágia', en: 'Magia', de: 'Magia', es: 'Magia', it: 'Magia' },
     angolLabel: { hu: 'Angol', en: 'English', de: 'Englisch', es: 'Inglés', it: 'Inglese' },

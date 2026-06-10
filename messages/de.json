@@ -356,13 +356,6 @@
     "name": "Quintessence",
     "description": "Modulares System für persönliche Entwicklung und Lernen"
   },
-  "locale": {
-    "hu": "Ungarisch",
-    "en": "Englisch",
-    "de": "Deutsch",
-    "es": "Spanisch",
-    "it": "Italienisch"
-  },
   "push": {
     "morningTitle": "✦ Magia — Morgenübung",
     "morningBody": "Beginne den Tag mit deiner täglichen Magia-Übung!",

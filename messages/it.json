@@ -356,13 +356,6 @@
     "name": "Quintessence",
     "description": "Sistema modulare per crescita personale e apprendimento"
   },
-  "locale": {
-    "hu": "Ungherese",
-    "en": "Inglese",
-    "de": "Tedesco",
-    "es": "Spagnolo",
-    "it": "Italiano"
-  },
   "push": {
     "morningTitle": "✦ Magia — Pratica mattutina",
     "morningBody": "Inizia la giornata con la tua pratica Magia quotidiana!",

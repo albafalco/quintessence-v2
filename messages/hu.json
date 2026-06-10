@@ -356,13 +356,6 @@
     "name": "Quintessence",
     "description": "Személyes fejlődés és tanulás moduláris rendszere"
   },
-  "locale": {
-    "hu": "Magyar",
-    "en": "Angol",
-    "de": "Német",
-    "es": "Spanyol",
-    "it": "Olasz"
-  },
   "push": {
     "morningTitle": "✦ Mágia — Reggeli gyakorlás",
     "morningBody": "Kezdd a napot a napi Mágia-gyakorlatoddal!",

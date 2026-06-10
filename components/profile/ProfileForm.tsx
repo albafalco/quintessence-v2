@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { locales } from '@/i18n';
+import { locales, type Locale } from '@/i18n';
 import { createClient } from '@/lib/supabase/client';
 import { PushToggle } from '@/components/push/PushToggle';
 import { FlagIcon } from '@/components/ui/FlagIcon';
@@ -12,6 +12,7 @@ import {
   DEFAULT_MAGIA_PUSH_TIME,
   DEFAULT_MAGIA_EVENING_PUSH_TIME,
   DEFAULT_MAGIA_STREAK_PUSH_TIME,
+  getNativeLocaleLabel,
 } from '@/lib/locale-meta';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { Button } from '@/components/ui/button';
@@ -48,8 +49,10 @@ interface ProfileData {
 
 export function ProfileForm({ profile }: { profile: ProfileData }) {
   const t = useTranslations('profile');
-  const tLocale = useTranslations('locale');
-  const LOCALES = locales.map((value) => ({ value, label: tLocale(value) }));
+  const LOCALES = locales.map((value) => ({
+    value,
+    label: getNativeLocaleLabel(value as Locale),
+  }));
   const router = useRouter();
   const supabase = createClient();
 
