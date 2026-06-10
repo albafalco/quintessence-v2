@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { buildExerciseKey, getNextDailyTargetSec } from '@/lib/magia-utils';
+import { MagiaModal } from './MagiaModal';
 import { SessionTimer } from './SessionTimer';
 import { PostSessionLog } from './PostSessionLog';
 import type { MagiaSection, ExerciseType, ExerciseParams } from '@/lib/magia-types';
@@ -197,8 +198,7 @@ export function ExerciseRunner({
   }, [saveSession, updateProgress]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-sm sm:items-center">
-      <div className="relative w-full max-w-lg rounded-t-3xl border border-border/40 bg-background p-6 shadow-2xl sm:rounded-3xl">
+    <MagiaModal onClose={onClose}>
         {/* Fejléc */}
         <div className="mb-5 flex items-start justify-between gap-3">
           <div className="flex-1">
@@ -278,7 +278,6 @@ export function ExerciseRunner({
             </button>
           </div>
         )}
-      </div>
-    </div>
+    </MagiaModal>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { buildExerciseKey } from '@/lib/magia-utils';
+import { MagiaModal } from './MagiaModal';
 import type { MagiaSection, ExerciseStatus } from '@/lib/magia-types';
 
 interface MasteryDialogProps {
@@ -70,8 +71,7 @@ export function MasteryDialog({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-      <div className="w-full max-w-md rounded-3xl border border-border/40 bg-background p-6 shadow-2xl">
+    <MagiaModal onClose={onClose} className="max-w-md">
         {/* Fejléc */}
         <div className="mb-5 flex items-start justify-between gap-3">
           <div>
@@ -165,7 +165,6 @@ export function MasteryDialog({
             </button>
           </div>
         )}
-      </div>
-    </div>
+    </MagiaModal>
   );
 }

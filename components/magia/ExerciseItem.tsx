@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client';
 import { buildExerciseKey } from '@/lib/magia-utils';
 import { Textarea } from '@/components/ui/textarea';
 import { ExerciseRunner } from './ExerciseRunner';
+import { MagiaModal } from './MagiaModal';
 import { MasteryDialog } from './MasteryDialog';
 import { SoulMirrorEditor } from './SoulMirrorEditor';
 import { cn } from '@/lib/utils';
@@ -238,8 +239,7 @@ export function ExerciseItem({
 
       {/* Lelki tükör modal */}
       {mirrorOpen && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-sm sm:items-center">
-          <div className="relative w-full max-w-lg rounded-t-3xl border border-border/40 bg-background p-6 shadow-2xl sm:rounded-3xl max-h-[85vh] overflow-y-auto">
+        <MagiaModal onClose={() => setMirrorOpen(false)}>
             <div className="mb-4 flex items-start justify-between gap-3">
               <h3 className="font-display text-xl font-semibold text-cream">{title}</h3>
               <button
@@ -254,8 +254,7 @@ export function ExerciseItem({
               userId={userId}
               showWorkMethods={fokozatId >= 2}
             />
-          </div>
-        </div>
+        </MagiaModal>
       )}
 
       {/* MasteryDialog modal */}
