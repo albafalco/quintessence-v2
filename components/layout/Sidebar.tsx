@@ -81,8 +81,19 @@ export function Sidebar() {
         collapsed ? 'w-[4.5rem]' : 'w-64'
       )}
     >
-      <div className="flex h-16 items-center justify-between border-b border-border/40 px-4">
-        <Link href={`/${locale}`} className="flex items-center gap-3 overflow-hidden">
+      <div
+        className={cn(
+          'relative flex h-16 items-center border-b border-border/40',
+          collapsed ? 'justify-center px-2' : 'justify-between px-4'
+        )}
+      >
+        <Link
+          href={`/${locale}`}
+          className={cn(
+            'flex items-center gap-3 overflow-hidden',
+            collapsed && 'justify-center'
+          )}
+        >
           <ShieldLogo size={36} showGlow />
           {!collapsed && (
             <span className="font-display text-lg font-semibold tracking-wide text-gradient-gold">
@@ -90,14 +101,25 @@ export function Sidebar() {
             </span>
           )}
         </Link>
-        <button
-          type="button"
-          onClick={toggleCollapsed}
-          className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted/60 hover:text-accent"
-          aria-label={collapsed ? t('expand') : t('collapse')}
-        >
-          {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
-        </button>
+        {!collapsed ? (
+          <button
+            type="button"
+            onClick={toggleCollapsed}
+            className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted/60 hover:text-accent"
+            aria-label={t('collapse')}
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={toggleCollapsed}
+            className="absolute -right-3 top-1/2 z-50 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full border border-border/60 bg-card text-muted-foreground shadow-md transition-colors hover:border-accent/40 hover:text-accent"
+            aria-label={t('expand')}
+          >
+            <ChevronRight className="h-3.5 w-3.5" />
+          </button>
+        )}
       </div>
 
       <nav className="flex flex-1 flex-col gap-1.5 p-3">

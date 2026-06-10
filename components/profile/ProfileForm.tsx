@@ -56,7 +56,6 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
   const router = useRouter();
   const supabase = createClient();
 
-  const [name, setName] = useState(profile.name);
   const [language, setLanguage] = useState(profile.preferred_language);
   const [pushEnabled, setPushEnabled] = useState(profile.push_enabled);
   const [magiaReminder, setMagiaReminder] = useState(profile.push_magia_reminders);
@@ -84,7 +83,6 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
     const { error: updateError } = await supabase
       .from('profiles')
       .update({
-        name,
         preferred_language: language,
         push_magia_reminders: magiaReminder,
         push_magia_time: magiaTime,
@@ -161,7 +159,8 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
         <CardContent className="space-y-4">
           <div>
             <Label htmlFor="name">{t('name')}</Label>
-            <Input id="name" value={name} onChange={(e) => setName(e.target.value)} />
+            <Input id="name" value={profile.name} disabled className="opacity-60" />
+            <p className="mt-1 text-xs text-muted-foreground">{t('readonly')}</p>
           </div>
           <div>
             <Label>{t('username')}</Label>
