@@ -186,6 +186,7 @@ export async function GET(request: Request) {
   }
 
   let sent = 0;
+  let staleRemoved = 0;
 
   for (const profile of profiles as ProfileRow[]) {
     const { data: subscriptions } = await supabase
@@ -203,8 +204,11 @@ export async function GET(request: Request) {
     let magiaEveningSent = false;
     let magiaStreakSent = false;
     let magiaReengagementSent = false;
+    const staleEndpoints = new Set<string>();
 
     for (const sub of subscriptions) {
+      if (staleEndpoints.has(sub.endpoint)) continue;
+
       for (const notif of notifications) {
         try {
           await sendPushNotification(sub, notif);
@@ -214,13 +218,30 @@ export async function GET(request: Request) {
           if (notif.type === 'magia_evening') magiaEveningSent = true;
           if (notif.type === 'magia_streak') magiaStreakSent = true;
           if (notif.type === 'magia_reengagement') magiaReengagementSent = true;
-        } catch {
-          // expired or invalid subscription — skip
+        } catch (err) {
+          const statusCode = (err as { statusCode?: number }).statusCode;
+          if (statusCode === 410 || statusCode === 404) {
+            // iOS/FCM invalidated this subscription — remove it so we stop
+            // retrying and the UI toggle reflects the broken state.
+            staleEndpoints.add(sub.endpoint);
+            break;
+          }
         }
       }
     }
 
-    const updates: Record<string, string> = { updated_at: new Date().toISOString() };
+    if (staleEndpoints.size > 0) {
+      await supabase
+        .from('push_subscriptions')
+        .delete()
+        .eq('user_id', profile.id)
+        .in('endpoint', [...staleEndpoints]);
+      staleRemoved += staleEndpoints.size;
+    }
+
+    const hasValidSub = subscriptions.some((s) => !staleEndpoints.has(s.endpoint));
+    const updates: Record<string, unknown> = { updated_at: new Date().toISOString() };
+    if (!hasValidSub) updates.push_enabled = false;
     if (angolSent) updates.last_angol_push_date = budapestNow.date;
     if (magiaMorningSent) updates.last_magia_push_date = budapestNow.date;
     if (magiaEveningSent) updates.last_magia_evening_push_date = budapestNow.date;
@@ -235,6 +256,7 @@ export async function GET(request: Request) {
   return NextResponse.json({
     sent,
     checked: profiles.length,
+    staleRemoved,
     budapest: budapestNow,
   });
 }
