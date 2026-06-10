@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 
 interface ShieldLogoProps {
@@ -8,6 +11,8 @@ interface ShieldLogoProps {
 }
 
 export function ShieldLogo({ size = 40, className, showGlow = false }: ShieldLogoProps) {
+  const t = useTranslations('brand');
+
   return (
     <div
       className={cn(
@@ -19,7 +24,7 @@ export function ShieldLogo({ size = 40, className, showGlow = false }: ShieldLog
     >
       <Image
         src="/favicon.png"
-        alt="Quintessence"
+        alt={t('name')}
         width={size}
         height={size}
         className="h-full w-full object-contain"

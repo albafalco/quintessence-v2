@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { locales } from '@/i18n';
 import { createClient } from '@/lib/supabase/client';
 import { PushToggle } from '@/components/push/PushToggle';
 import { FlagIcon } from '@/components/ui/FlagIcon';
@@ -11,7 +12,6 @@ import {
   DEFAULT_MAGIA_PUSH_TIME,
   DEFAULT_MAGIA_EVENING_PUSH_TIME,
   DEFAULT_MAGIA_STREAK_PUSH_TIME,
-  LOCALE_META,
 } from '@/lib/locale-meta';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { Button } from '@/components/ui/button';
@@ -46,16 +46,10 @@ interface ProfileData {
   push_angol_time: string;
 }
 
-const LOCALES = [
-  { value: 'hu', label: LOCALE_META.hu.label },
-  { value: 'en', label: LOCALE_META.en.label },
-  { value: 'de', label: LOCALE_META.de.label },
-  { value: 'es', label: LOCALE_META.es.label },
-  { value: 'it', label: LOCALE_META.it.label },
-] as const;
-
 export function ProfileForm({ profile }: { profile: ProfileData }) {
   const t = useTranslations('profile');
+  const tLocale = useTranslations('locale');
+  const LOCALES = locales.map((value) => ({ value, label: tLocale(value) }));
   const router = useRouter();
   const supabase = createClient();
 

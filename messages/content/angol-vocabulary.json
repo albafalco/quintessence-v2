@@ -1,0 +1,506 @@
+[
+  {
+    "prompt": "egy",
+    "answer": "a, an"
+  },
+  {
+    "prompt": "a, az",
+    "answer": "the"
+  },
+  {
+    "prompt": "melyik",
+    "answer": "which"
+  },
+  {
+    "prompt": "ez a",
+    "answer": "this"
+  },
+  {
+    "prompt": "az a",
+    "answer": "that"
+  },
+  {
+    "prompt": "minden",
+    "answer": "every"
+  },
+  {
+    "prompt": "kinek a",
+    "answer": "whose"
+  },
+  {
+    "prompt": "az én",
+    "answer": "my"
+  },
+  {
+    "prompt": "a te",
+    "answer": "your"
+  },
+  {
+    "prompt": "az ő (hímnem)",
+    "answer": "his"
+  },
+  {
+    "prompt": "az ő (nőnem)",
+    "answer": "her"
+  },
+  {
+    "prompt": "annak a",
+    "answer": "its"
+  },
+  {
+    "prompt": "az Ön",
+    "answer": "your"
+  },
+  {
+    "prompt": "a mi",
+    "answer": "our"
+  },
+  {
+    "prompt": "a ti",
+    "answer": "your"
+  },
+  {
+    "prompt": "az ők",
+    "answer": "their"
+  },
+  {
+    "prompt": "az Önök",
+    "answer": "your"
+  },
+  {
+    "prompt": "ő",
+    "answer": "he, she"
+  },
+  {
+    "prompt": "ez, az",
+    "answer": "it, this, that"
+  },
+  {
+    "prompt": "minden",
+    "answer": "everything"
+  },
+  {
+    "prompt": "van",
+    "answer": "is"
+  },
+  {
+    "prompt": "volt",
+    "answer": "was"
+  },
+  {
+    "prompt": "itt",
+    "answer": "here"
+  },
+  {
+    "prompt": "ott",
+    "answer": "there"
+  },
+  {
+    "prompt": "otthon",
+    "answer": "at home"
+  },
+  {
+    "prompt": "közel",
+    "answer": "near"
+  },
+  {
+    "prompt": "távol",
+    "answer": "far"
+  },
+  {
+    "prompt": "és",
+    "answer": "and"
+  },
+  {
+    "prompt": "is",
+    "answer": "also, too"
+  },
+  {
+    "prompt": "de",
+    "answer": "but"
+  },
+  {
+    "prompt": "vagy",
+    "answer": "or"
+  },
+  {
+    "prompt": "csak",
+    "answer": "only"
+  },
+  {
+    "prompt": "még",
+    "answer": "still"
+  },
+  {
+    "prompt": "már",
+    "answer": "already"
+  },
+  {
+    "prompt": "talán",
+    "answer": "perhaps"
+  },
+  {
+    "prompt": "éppen",
+    "answer": "just"
+  },
+  {
+    "prompt": "most",
+    "answer": "now"
+  },
+  {
+    "prompt": "mindig",
+    "answer": "always"
+  },
+  {
+    "prompt": "gyakran",
+    "answer": "often"
+  },
+  {
+    "prompt": "ritkán",
+    "answer": "seldom, rarely"
+  },
+  {
+    "prompt": "újból",
+    "answer": "again"
+  },
+  {
+    "prompt": "így",
+    "answer": "so, this way"
+  },
+  {
+    "prompt": "úgy",
+    "answer": "so, that way"
+  },
+  {
+    "prompt": "egyedül",
+    "answer": "alone"
+  },
+  {
+    "prompt": "ma",
+    "answer": "today"
+  },
+  {
+    "prompt": "tegnap",
+    "answer": "yesterday"
+  },
+  {
+    "prompt": "nagyon",
+    "answer": "very"
+  },
+  {
+    "prompt": "kissé",
+    "answer": "a little (bit)"
+  },
+  {
+    "prompt": "olyan",
+    "answer": "so"
+  },
+  {
+    "prompt": "túl",
+    "answer": "too"
+  },
+  {
+    "prompt": "egészen",
+    "answer": "quite"
+  },
+  {
+    "prompt": "elégge",
+    "answer": "enough"
+  },
+  {
+    "prompt": "meglehetősen",
+    "answer": "quite, pretty"
+  },
+  {
+    "prompt": "jó",
+    "answer": "good"
+  },
+  {
+    "prompt": "jobb",
+    "answer": "better"
+  },
+  {
+    "prompt": "legjobb",
+    "answer": "best"
+  },
+  {
+    "prompt": "rossz",
+    "answer": "bad"
+  },
+  {
+    "prompt": "nagy",
+    "answer": "big"
+  },
+  {
+    "prompt": "kicsi",
+    "answer": "small, little"
+  },
+  {
+    "prompt": "új",
+    "answer": "new"
+  },
+  {
+    "prompt": "régi",
+    "answer": "old"
+  },
+  {
+    "prompt": "fiatal",
+    "answer": "young"
+  },
+  {
+    "prompt": "öreg",
+    "answer": "old"
+  },
+  {
+    "prompt": "szép",
+    "answer": "beautiful"
+  },
+  {
+    "prompt": "csinos",
+    "answer": "pretty"
+  },
+  {
+    "prompt": "csodás",
+    "answer": "wonderful"
+  },
+  {
+    "prompt": "boldog",
+    "answer": "happy"
+  },
+  {
+    "prompt": "fáradt",
+    "answer": "tired"
+  },
+  {
+    "prompt": "érdekes",
+    "answer": "interesting"
+  },
+  {
+    "prompt": "fontos",
+    "answer": "important"
+  },
+  {
+    "prompt": "egyszerű",
+    "answer": "simple"
+  },
+  {
+    "prompt": "pontos",
+    "answer": "exact"
+  },
+  {
+    "prompt": "helyes",
+    "answer": "right, correct"
+  },
+  {
+    "prompt": "igaz",
+    "answer": "true"
+  },
+  {
+    "prompt": "lehetséges",
+    "answer": "possible"
+  },
+  {
+    "prompt": "biztos",
+    "answer": "sure"
+  },
+  {
+    "prompt": "egész",
+    "answer": "whole"
+  },
+  {
+    "prompt": "fél",
+    "answer": "half"
+  },
+  {
+    "prompt": "saját",
+    "answer": "own"
+  },
+  {
+    "prompt": "modern",
+    "answer": "modern"
+  },
+  {
+    "prompt": "fantasztikus",
+    "answer": "fantastic"
+  },
+  {
+    "prompt": "család",
+    "answer": "family"
+  },
+  {
+    "prompt": "apa",
+    "answer": "father"
+  },
+  {
+    "prompt": "anya",
+    "answer": "mother"
+  },
+  {
+    "prompt": "fia",
+    "answer": "son"
+  },
+  {
+    "prompt": "lánya",
+    "answer": "daughter"
+  },
+  {
+    "prompt": "gyerek",
+    "answer": "child"
+  },
+  {
+    "prompt": "bátya",
+    "answer": "brother"
+  },
+  {
+    "prompt": "nővér",
+    "answer": "sister"
+  },
+  {
+    "prompt": "férj",
+    "answer": "husband"
+  },
+  {
+    "prompt": "feleség",
+    "answer": "wife"
+  },
+  {
+    "prompt": "ember",
+    "answer": "man"
+  },
+  {
+    "prompt": "férfi",
+    "answer": "man"
+  },
+  {
+    "prompt": "nő",
+    "answer": "woman"
+  },
+  {
+    "prompt": "úr",
+    "answer": "gentleman"
+  },
+  {
+    "prompt": "hölgy",
+    "answer": "lady"
+  },
+  {
+    "prompt": "fiú",
+    "answer": "boy"
+  },
+  {
+    "prompt": "lány",
+    "answer": "girl"
+  },
+  {
+    "prompt": "barát",
+    "answer": "friend"
+  },
+  {
+    "prompt": "barátnő",
+    "answer": "girlfriend"
+  },
+  {
+    "prompt": "tanár",
+    "answer": "teacher"
+  },
+  {
+    "prompt": "tanárnő",
+    "answer": "teacher"
+  },
+  {
+    "prompt": "diák",
+    "answer": "student"
+  },
+  {
+    "prompt": "diáklány",
+    "answer": "student"
+  },
+  {
+    "prompt": "orvos",
+    "answer": "doctor"
+  },
+  {
+    "prompt": "fogorvos",
+    "answer": "dentist"
+  },
+  {
+    "prompt": "kolléga",
+    "answer": "colleague"
+  },
+  {
+    "prompt": "ház",
+    "answer": "house"
+  },
+  {
+    "prompt": "lakás",
+    "answer": "flat"
+  },
+  {
+    "prompt": "város",
+    "answer": "town"
+  },
+  {
+    "prompt": "falu",
+    "answer": "village"
+  },
+  {
+    "prompt": "kérdés",
+    "answer": "question"
+  },
+  {
+    "prompt": "válasz",
+    "answer": "answer"
+  },
+  {
+    "prompt": "név",
+    "answer": "name"
+  },
+  {
+    "prompt": "cím",
+    "answer": "address"
+  },
+  {
+    "prompt": "telefonszám",
+    "answer": "telephone number"
+  },
+  {
+    "prompt": "történet",
+    "answer": "story"
+  },
+  {
+    "prompt": "dolog",
+    "answer": "thing"
+  },
+  {
+    "prompt": "nap",
+    "answer": "day"
+  },
+  {
+    "prompt": "fotó",
+    "answer": "photo"
+  },
+  {
+    "prompt": "autó",
+    "answer": "car"
+  },
+  {
+    "prompt": "hotel",
+    "answer": "hotel"
+  },
+  {
+    "prompt": "program",
+    "answer": "program"
+  },
+  {
+    "prompt": "téma",
+    "answer": "topic, theme"
+  },
+  {
+    "prompt": "probléma",
+    "answer": "problem"
+  },
+  {
+    "prompt": "ötlet",
+    "answer": "idea"
+  }
+]

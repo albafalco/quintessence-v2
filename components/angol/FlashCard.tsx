@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ChevronLeft, ChevronRight, RotateCcw, Shuffle } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
-import { SZOLAP_1 } from '@/lib/angol-szolap';
+import type { MondatPair } from '@/lib/i18n-content';
 import { shuffleArray } from '@/lib/angol-utils';
 import { TTSButton } from '@/components/angol/TTSButton';
 import { Button } from '@/components/ui/button';
@@ -11,11 +12,13 @@ import { cn } from '@/lib/utils';
 
 interface FlashCardProps {
   lessonId?: number;
+  vocabulary: MondatPair[];
   onStartExam?: () => void;
 }
 
-export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
-  const [cards, setCards] = useState(SZOLAP_1);
+export function FlashCard({ lessonId = 1, vocabulary, onStartExam }: FlashCardProps) {
+  const t = useTranslations('angol');
+  const [cards, setCards] = useState(vocabulary);
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -25,7 +28,7 @@ export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
 
   const englishText = useMemo(() => {
     if (!current) return '';
-    return current.en.split(',')[0].trim();
+    return current.answer.split(',')[0].trim();
   }, [current]);
 
   const saveProgress = useCallback(
@@ -42,15 +45,15 @@ export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
         .select('correct_count, incorrect_count')
         .eq('user_id', user.id)
         .eq('lesson_id', lessonId)
-        .eq('word_hu', current.hu)
+        .eq('word_hu', current.prompt)
         .maybeSingle();
 
       await supabase.from('angol_card_progress').upsert(
         {
           user_id: user.id,
           lesson_id: lessonId,
-          word_hu: current.hu,
-          word_en: current.en,
+          word_hu: current.prompt,
+          word_en: current.answer,
           correct_count: (existing?.correct_count ?? 0) + (correct ? 1 : 0),
           incorrect_count: (existing?.incorrect_count ?? 0) + (correct ? 0 : 1),
           last_seen: new Date().toISOString(),
@@ -72,7 +75,7 @@ export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
   }, [total]);
 
   const handleShuffle = () => {
-    setCards(shuffleArray(SZOLAP_1));
+    setCards(shuffleArray(vocabulary));
     setIndex(0);
     setFlipped(false);
   };
@@ -127,7 +130,7 @@ export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
         </div>
         <Button variant="ghost" size="sm" onClick={handleShuffle}>
           <Shuffle className="h-4 w-4" />
-          Keverés
+          {t('shuffle')}
         </Button>
       </div>
 
@@ -143,10 +146,10 @@ export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
         >
           <div className="flip-face absolute inset-0 flex flex-col items-center justify-center rounded-3xl border border-slate-500/20 bg-angol-gradient p-10 shadow-card">
             <p className="text-center font-display text-4xl font-semibold text-cream sm:text-5xl">
-              {current.hu}
+              {current.prompt}
             </p>
             <p className="mt-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              Kattints a fordításhoz
+              {t('tapToFlip')}
             </p>
           </div>
 
@@ -155,7 +158,7 @@ export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
               <TTSButton text={englishText} size="sm" />
             </div>
             <p className="text-center font-display text-3xl font-semibold text-slate-200 sm:text-4xl">
-              {current.en}
+              {current.answer}
             </p>
           </div>
         </div>
@@ -168,7 +171,7 @@ export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
 
         <Button variant="default" onClick={() => setFlipped((f) => !f)}>
           <RotateCcw className="h-4 w-4" />
-          Fordítás
+          {t('flip')}
         </Button>
 
         <Button variant="secondary" size="icon" onClick={goNext} className="rounded-full h-12 w-12">
@@ -186,7 +189,7 @@ export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
               goNext();
             }}
           >
-            Tudom ✓
+            {t('knowIt')}
           </Button>
           <Button
             variant="secondary"
@@ -196,7 +199,7 @@ export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
               goNext();
             }}
           >
-            Még gyakorolom ✗
+            {t('stillPracticing')}
           </Button>
         </div>
       )}
@@ -204,7 +207,7 @@ export function FlashCard({ lessonId = 1, onStartExam }: FlashCardProps) {
       {onStartExam && (
         <div className="flex justify-center border-t border-border/30 pt-4">
           <Button variant="ghost" size="sm" onClick={onStartExam} className="text-muted-foreground hover:text-foreground">
-            Vizsga indítása →
+            {t('startExamArrow')}
           </Button>
         </div>
       )}

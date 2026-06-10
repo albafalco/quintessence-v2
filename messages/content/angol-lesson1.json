@@ -1,0 +1,4164 @@
+{
+  "practice": [
+    {
+      "id": 5,
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "prompt": "egy család",
+          "answer": "a family"
+        },
+        {
+          "prompt": "a család",
+          "answer": "the family"
+        },
+        {
+          "prompt": "melyik család",
+          "answer": "which family"
+        },
+        {
+          "prompt": "ez a család",
+          "answer": "this family"
+        },
+        {
+          "prompt": "az a család",
+          "answer": "that family"
+        },
+        {
+          "prompt": "minden család",
+          "answer": "every family"
+        },
+        {
+          "prompt": "a családom",
+          "answer": "my family"
+        },
+        {
+          "prompt": "a családod",
+          "answer": "your family"
+        },
+        {
+          "prompt": "a családja",
+          "answer": "his family"
+        },
+        {
+          "prompt": "az Ön családja",
+          "answer": "your family"
+        },
+        {
+          "prompt": "a családunk",
+          "answer": "our family"
+        },
+        {
+          "prompt": "a családotok",
+          "answer": "your family"
+        },
+        {
+          "prompt": "a családjuk",
+          "answer": "their family"
+        },
+        {
+          "prompt": "az Önök háza",
+          "answer": "your house"
+        },
+        {
+          "prompt": "a házuk",
+          "answer": "their house"
+        },
+        {
+          "prompt": "a házatok",
+          "answer": "your house"
+        },
+        {
+          "prompt": "a házunk",
+          "answer": "our house"
+        },
+        {
+          "prompt": "az Ön háza",
+          "answer": "your house"
+        },
+        {
+          "prompt": "az ő háza",
+          "answer": "his/her house"
+        },
+        {
+          "prompt": "a házad",
+          "answer": "your house"
+        },
+        {
+          "prompt": "a házam",
+          "answer": "my house"
+        },
+        {
+          "prompt": "kinek a háza",
+          "answer": "whose house"
+        },
+        {
+          "prompt": "minden ház",
+          "answer": "every house"
+        },
+        {
+          "prompt": "az a ház",
+          "answer": "that house"
+        },
+        {
+          "prompt": "ez a ház",
+          "answer": "this house"
+        },
+        {
+          "prompt": "melyik ház",
+          "answer": "which house"
+        },
+        {
+          "prompt": "a ház",
+          "answer": "the house"
+        },
+        {
+          "prompt": "egy ház",
+          "answer": "a house"
+        },
+        {
+          "prompt": "ez a gyerek",
+          "answer": "this child"
+        },
+        {
+          "prompt": "az a gyerek",
+          "answer": "that child"
+        },
+        {
+          "prompt": "a gyerekem",
+          "answer": "my child"
+        },
+        {
+          "prompt": "a gyerek",
+          "answer": "the child"
+        },
+        {
+          "prompt": "minden gyerek",
+          "answer": "every child"
+        },
+        {
+          "prompt": "melyik gyerek",
+          "answer": "which child"
+        },
+        {
+          "prompt": "a gyerekünk",
+          "answer": "our child"
+        },
+        {
+          "prompt": "egy gyerek",
+          "answer": "a child"
+        },
+        {
+          "prompt": "a gyereke",
+          "answer": "her child"
+        },
+        {
+          "prompt": "minden barát",
+          "answer": "every friend"
+        },
+        {
+          "prompt": "a barátom",
+          "answer": "my friend"
+        },
+        {
+          "prompt": "egy barát",
+          "answer": "a friend"
+        },
+        {
+          "prompt": "a barátjuk",
+          "answer": "their friend"
+        },
+        {
+          "prompt": "az a barát",
+          "answer": "that friend"
+        },
+        {
+          "prompt": "a ti barátotok",
+          "answer": "your friend"
+        },
+        {
+          "prompt": "melyik barát",
+          "answer": "which friend"
+        },
+        {
+          "prompt": "a barátod",
+          "answer": "your friend"
+        },
+        {
+          "prompt": "ez a barát",
+          "answer": "this friend"
+        },
+        {
+          "prompt": "minden apa",
+          "answer": "every father"
+        },
+        {
+          "prompt": "az apám",
+          "answer": "my father"
+        },
+        {
+          "prompt": "egy apa",
+          "answer": "a father"
+        },
+        {
+          "prompt": "melyik apa",
+          "answer": "which father"
+        },
+        {
+          "prompt": "az apja",
+          "answer": "his father"
+        },
+        {
+          "prompt": "az apád",
+          "answer": "your father"
+        },
+        {
+          "prompt": "az apa",
+          "answer": "the father"
+        },
+        {
+          "prompt": "kinek az apja",
+          "answer": "whose father"
+        },
+        {
+          "prompt": "apánk",
+          "answer": "our father"
+        },
+        {
+          "prompt": "az Ön apja",
+          "answer": "your father"
+        },
+        {
+          "prompt": "melyik autó",
+          "answer": "which car"
+        },
+        {
+          "prompt": "az autónk",
+          "answer": "our car"
+        },
+        {
+          "prompt": "ez az autó",
+          "answer": "this car"
+        },
+        {
+          "prompt": "az Ön autója",
+          "answer": "your car"
+        },
+        {
+          "prompt": "az az autó",
+          "answer": "that car"
+        },
+        {
+          "prompt": "az autótok",
+          "answer": "your car"
+        },
+        {
+          "prompt": "minden autó",
+          "answer": "every car"
+        },
+        {
+          "prompt": "egy autó",
+          "answer": "a car"
+        },
+        {
+          "prompt": "az autó",
+          "answer": "the car"
+        },
+        {
+          "prompt": "az autóm",
+          "answer": "my car"
+        },
+        {
+          "prompt": "a lakásunk",
+          "answer": "our flat"
+        },
+        {
+          "prompt": "ez a lakás",
+          "answer": "this flat"
+        },
+        {
+          "prompt": "Kinek a lakása",
+          "answer": "whose flat"
+        },
+        {
+          "prompt": "melyik lakás",
+          "answer": "which flat"
+        },
+        {
+          "prompt": "a lakásotok",
+          "answer": "your flat"
+        },
+        {
+          "prompt": "az Önök lakása",
+          "answer": "your flat"
+        },
+        {
+          "prompt": "minden lakás",
+          "answer": "every flat"
+        },
+        {
+          "prompt": "a lakásuk",
+          "answer": "their flat"
+        },
+        {
+          "prompt": "az a lakás",
+          "answer": "that flat"
+        },
+        {
+          "prompt": "a lakása",
+          "answer": "her flat"
+        },
+        {
+          "prompt": "ez a város",
+          "answer": "this town"
+        },
+        {
+          "prompt": "a városunk",
+          "answer": "our town"
+        },
+        {
+          "prompt": "melyik város",
+          "answer": "which town"
+        },
+        {
+          "prompt": "a város",
+          "answer": "the town"
+        },
+        {
+          "prompt": "a városuk",
+          "answer": "their town"
+        },
+        {
+          "prompt": "minden város",
+          "answer": "every town"
+        },
+        {
+          "prompt": "az Önök városa",
+          "answer": "your town"
+        },
+        {
+          "prompt": "az a város",
+          "answer": "that town"
+        },
+        {
+          "prompt": "a ti városotok",
+          "answer": "your town"
+        },
+        {
+          "prompt": "egy szép város",
+          "answer": "a beautiful town"
+        },
+        {
+          "prompt": "az én problémám",
+          "answer": "my problem"
+        },
+        {
+          "prompt": "ez a probléma",
+          "answer": "this problem"
+        },
+        {
+          "prompt": "egy probléma",
+          "answer": "a problem"
+        },
+        {
+          "prompt": "a ti problémátok",
+          "answer": "your problem"
+        },
+        {
+          "prompt": "minden probléma",
+          "answer": "every problem"
+        },
+        {
+          "prompt": "az ő problémája",
+          "answer": "her problem"
+        },
+        {
+          "prompt": "melyik probléma",
+          "answer": "which problem"
+        },
+        {
+          "prompt": "a te problémád",
+          "answer": "your problem"
+        },
+        {
+          "prompt": "a mi problémánk",
+          "answer": "our problem"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "prompt": "egy nagy család",
+          "answer": "a big family"
+        },
+        {
+          "prompt": "egy kis gyerek",
+          "answer": "a little child"
+        },
+        {
+          "prompt": "egy fiatal férfi",
+          "answer": "a young man"
+        },
+        {
+          "prompt": "egy új ház",
+          "answer": "a new house"
+        },
+        {
+          "prompt": "egy régi lakás",
+          "answer": "an old flat"
+        },
+        {
+          "prompt": "egy nagy város",
+          "answer": "a big city"
+        },
+        {
+          "prompt": "egy kis falu",
+          "answer": "a small village"
+        },
+        {
+          "prompt": "egy szép nő",
+          "answer": "a beautiful woman"
+        },
+        {
+          "prompt": "egy jó orvos",
+          "answer": "a good doctor"
+        },
+        {
+          "prompt": "egy öreg ember",
+          "answer": "an old man"
+        },
+        {
+          "prompt": "egy kis fiú",
+          "answer": "a little boy"
+        },
+        {
+          "prompt": "egy nagy lány",
+          "answer": "a big girl"
+        },
+        {
+          "prompt": "egy jó feleség",
+          "answer": "a good wife"
+        },
+        {
+          "prompt": "egy csinos nő",
+          "answer": "a pretty woman"
+        },
+        {
+          "prompt": "egy rossz gyerek",
+          "answer": "a bad child"
+        },
+        {
+          "prompt": "egy boldog ember",
+          "answer": "a happy man"
+        },
+        {
+          "prompt": "egy régi barát",
+          "answer": "an old friend"
+        },
+        {
+          "prompt": "egy új barátnő",
+          "answer": "a new girlfriend"
+        },
+        {
+          "prompt": "egy érdekes történet",
+          "answer": "an interesting story"
+        },
+        {
+          "prompt": "egy szép nap",
+          "answer": "a beautiful day"
+        },
+        {
+          "prompt": "egy nagy lakás",
+          "answer": "a big flat"
+        },
+        {
+          "prompt": "egy nagy probléma",
+          "answer": "a big problem"
+        },
+        {
+          "prompt": "egy egész város",
+          "answer": "a whole town"
+        },
+        {
+          "prompt": "egy jó fogorvos",
+          "answer": "a good dentist"
+        },
+        {
+          "prompt": "egy rossz autó",
+          "answer": "a bad car"
+        },
+        {
+          "prompt": "egy fiatal diáklány",
+          "answer": "a young student"
+        },
+        {
+          "prompt": "egy fantasztikus anya",
+          "answer": "a fantastic mother"
+        },
+        {
+          "prompt": "egy boldog család",
+          "answer": "a happy family"
+        },
+        {
+          "prompt": "egy új lakás",
+          "answer": "a new flat"
+        },
+        {
+          "prompt": "egy csinos feleség",
+          "answer": "a pretty wife"
+        },
+        {
+          "prompt": "egy idős úr",
+          "answer": "an old gentleman"
+        },
+        {
+          "prompt": "egy fiatal hölgy",
+          "answer": "a young lady"
+        },
+        {
+          "prompt": "egy szép fotó",
+          "answer": "a beautiful photo"
+        },
+        {
+          "prompt": "egy öreg fiú",
+          "answer": "an old boy"
+        },
+        {
+          "prompt": "egy pontos ember",
+          "answer": "an exact man"
+        },
+        {
+          "prompt": "egy pontos válasz",
+          "answer": "an exact answer"
+        },
+        {
+          "prompt": "egy érdekes kérdés",
+          "answer": "an interesting question"
+        },
+        {
+          "prompt": "egy csodás program",
+          "answer": "a wonderful program"
+        },
+        {
+          "prompt": "egy egyszerű dolog",
+          "answer": "a simple thing"
+        },
+        {
+          "prompt": "egy jó kérdés",
+          "answer": "a good question"
+        },
+        {
+          "prompt": "egy jobb lakás",
+          "answer": "a better flat"
+        },
+        {
+          "prompt": "egy jobb autó",
+          "answer": "a better car"
+        },
+        {
+          "prompt": "egy jobb fotó",
+          "answer": "a better photo"
+        },
+        {
+          "prompt": "egy jobb ötlet",
+          "answer": "a better idea"
+        },
+        {
+          "prompt": "egy jobb férj",
+          "answer": "a better husband"
+        },
+        {
+          "prompt": "egy jobb válasz",
+          "answer": "a better answer"
+        },
+        {
+          "prompt": "egy jobb diák",
+          "answer": "a better student"
+        },
+        {
+          "prompt": "egy jobb tanár",
+          "answer": "a better teacher"
+        },
+        {
+          "prompt": "egy jobb hotel",
+          "answer": "a better hotel"
+        },
+        {
+          "prompt": "egy jobb téma",
+          "answer": "a better topic"
+        },
+        {
+          "prompt": "egy új téma",
+          "answer": "a new topic"
+        },
+        {
+          "prompt": "egy igaz történet",
+          "answer": "a true story"
+        },
+        {
+          "prompt": "egy biztos válasz",
+          "answer": "a sure answer"
+        },
+        {
+          "prompt": "egy modern hotel",
+          "answer": "a modern hotel"
+        },
+        {
+          "prompt": "egy érdekes program",
+          "answer": "an interesting program"
+        },
+        {
+          "prompt": "egy csinos lány",
+          "answer": "a pretty girl"
+        },
+        {
+          "prompt": "egy fél ház",
+          "answer": "half a house"
+        },
+        {
+          "prompt": "egy jó fiú",
+          "answer": "a good boy"
+        },
+        {
+          "prompt": "egy fontos cím",
+          "answer": "an important address"
+        },
+        {
+          "prompt": "egy új autó",
+          "answer": "a new car"
+        },
+        {
+          "prompt": "egy kis autó",
+          "answer": "a small car"
+        },
+        {
+          "prompt": "egy régi fotó",
+          "answer": "an old photo"
+        },
+        {
+          "prompt": "egy csodás ember",
+          "answer": "a wonderful man"
+        },
+        {
+          "prompt": "egy fontos dolog",
+          "answer": "an important thing"
+        },
+        {
+          "prompt": "egy nagy lakás",
+          "answer": "a big flat"
+        },
+        {
+          "prompt": "egy kis probléma",
+          "answer": "a small problem"
+        },
+        {
+          "prompt": "egy csinos tanárnő",
+          "answer": "a pretty teacher"
+        },
+        {
+          "prompt": "egy öreg férj",
+          "answer": "an old husband"
+        },
+        {
+          "prompt": "egy fiatal feleség",
+          "answer": "a young wife"
+        },
+        {
+          "prompt": "egy modern lakás",
+          "answer": "a modern flat"
+        },
+        {
+          "prompt": "egy nagyon jó barát",
+          "answer": "a very good friend"
+        },
+        {
+          "prompt": "egy nagyon rossz fotó",
+          "answer": "a very bad photo"
+        },
+        {
+          "prompt": "egy egész jó ötlet",
+          "answer": "quite a good idea"
+        },
+        {
+          "prompt": "egy nagyon jó kolléga",
+          "answer": "a very good colleague"
+        },
+        {
+          "prompt": "egy nagyon jó kérdés",
+          "answer": "a very good question"
+        },
+        {
+          "prompt": "egy nagyon nagy probléma",
+          "answer": "a very big problem"
+        },
+        {
+          "prompt": "egy csodás nap",
+          "answer": "a wonderful day"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "prompt": "a kis lány",
+          "answer": "the little girl"
+        },
+        {
+          "prompt": "a kis fiú",
+          "answer": "the little boy"
+        },
+        {
+          "prompt": "az új ház",
+          "answer": "the new house"
+        },
+        {
+          "prompt": "a régi lakás",
+          "answer": "the old flat"
+        },
+        {
+          "prompt": "egy fiatal férfi",
+          "answer": "the young man"
+        },
+        {
+          "prompt": "az öreg hölgy",
+          "answer": "the old lady"
+        },
+        {
+          "prompt": "a nagy város",
+          "answer": "the big city"
+        },
+        {
+          "prompt": "a kis falu",
+          "answer": "the small village"
+        },
+        {
+          "prompt": "az egész család",
+          "answer": "the whole family"
+        },
+        {
+          "prompt": "a fél ház",
+          "answer": "half the house"
+        },
+        {
+          "prompt": "az új orvos",
+          "answer": "the new doctor"
+        },
+        {
+          "prompt": "az új fogorvos",
+          "answer": "the new dentist"
+        },
+        {
+          "prompt": "a kis gyerek",
+          "answer": "the little child"
+        },
+        {
+          "prompt": "a régi barát",
+          "answer": "the old friend"
+        },
+        {
+          "prompt": "az új kolléga",
+          "answer": "the new colleague"
+        },
+        {
+          "prompt": "az új hotel",
+          "answer": "the new hotel"
+        },
+        {
+          "prompt": "a régi probléma",
+          "answer": "the old problem"
+        },
+        {
+          "prompt": "a boldog apa",
+          "answer": "the happy father"
+        },
+        {
+          "prompt": "a fáradt feleség",
+          "answer": "the tired wife"
+        },
+        {
+          "prompt": "a modern lakás",
+          "answer": "the modern flat"
+        },
+        {
+          "prompt": "az öreg tanár",
+          "answer": "the old teacher"
+        },
+        {
+          "prompt": "a régi történet",
+          "answer": "the old story"
+        },
+        {
+          "prompt": "az új barátnő",
+          "answer": "the new girlfriend"
+        },
+        {
+          "prompt": "az egész ház",
+          "answer": "the whole house"
+        },
+        {
+          "prompt": "a fél falu",
+          "answer": "half the village"
+        },
+        {
+          "prompt": "a régi név",
+          "answer": "the old name"
+        },
+        {
+          "prompt": "a helyes dolog",
+          "answer": "the right thing"
+        },
+        {
+          "prompt": "az új fogorvos",
+          "answer": "the new dentist"
+        },
+        {
+          "prompt": "a modern ember",
+          "answer": "the modern man"
+        },
+        {
+          "prompt": "a modern nő",
+          "answer": "the modern woman"
+        },
+        {
+          "prompt": "az egész város",
+          "answer": "the whole town"
+        },
+        {
+          "prompt": "a jó feleség",
+          "answer": "the good wife"
+        },
+        {
+          "prompt": "az új cím",
+          "answer": "the new adress"
+        },
+        {
+          "prompt": "a fél falu",
+          "answer": "half the village"
+        },
+        {
+          "prompt": "az idős úr",
+          "answer": "the old gentleman"
+        },
+        {
+          "prompt": "a csodás város",
+          "answer": "the wonderful town"
+        },
+        {
+          "prompt": "a legjobb válasz",
+          "answer": "the best answer"
+        },
+        {
+          "prompt": "a fél város",
+          "answer": "half the town"
+        },
+        {
+          "prompt": "az új probléma",
+          "answer": "the new problem"
+        },
+        {
+          "prompt": "az idős hölgy",
+          "answer": "the old lady"
+        },
+        {
+          "prompt": "az egész család",
+          "answer": "the whole family"
+        },
+        {
+          "prompt": "az egész történet",
+          "answer": "the whole story"
+        },
+        {
+          "prompt": "a helyes válasz",
+          "answer": "the right answer"
+        },
+        {
+          "prompt": "az új téma",
+          "answer": "the new topic"
+        },
+        {
+          "prompt": "a fontos dolog",
+          "answer": "the important thing"
+        },
+        {
+          "prompt": "a nagy probléma",
+          "answer": "the big problem"
+        },
+        {
+          "prompt": "a kis ember",
+          "answer": "the little man"
+        },
+        {
+          "prompt": "a régi történet",
+          "answer": "the old story"
+        },
+        {
+          "prompt": "az új kérdés",
+          "answer": "the new question"
+        },
+        {
+          "prompt": "a fáradt anya",
+          "answer": "the tired mother"
+        },
+        {
+          "prompt": "a modern lakás",
+          "answer": "the modern flat"
+        },
+        {
+          "prompt": "az új program",
+          "answer": "the new program"
+        },
+        {
+          "prompt": "a rossz gyerek",
+          "answer": "the bad child"
+        },
+        {
+          "prompt": "a fiatal ember",
+          "answer": "the young man"
+        },
+        {
+          "prompt": "a régi lakás",
+          "answer": "the old flat"
+        },
+        {
+          "prompt": "az igaz történet",
+          "answer": "the true story"
+        },
+        {
+          "prompt": "az idős férfi",
+          "answer": "the old man"
+        },
+        {
+          "prompt": "az új autó",
+          "answer": "the new car"
+        },
+        {
+          "prompt": "a régi fotó",
+          "answer": "the old photo"
+        },
+        {
+          "prompt": "a régi lakás",
+          "answer": "the old flat"
+        },
+        {
+          "prompt": "a modern ember",
+          "answer": "the modern man"
+        },
+        {
+          "prompt": "a modern nő",
+          "answer": "the modern woman"
+        },
+        {
+          "prompt": "az egész város",
+          "answer": "the whole town"
+        },
+        {
+          "prompt": "a jó feleség",
+          "answer": "the good wife"
+        },
+        {
+          "prompt": "az új telefonszám",
+          "answer": "the new telephone number"
+        },
+        {
+          "prompt": "a pontos program",
+          "answer": "the exact program"
+        },
+        {
+          "prompt": "a fantasztikus dolog",
+          "answer": "the fantastic thing"
+        },
+        {
+          "prompt": "a csinos diáklány",
+          "answer": "the pretty student"
+        },
+        {
+          "prompt": "a pontos telefonszám",
+          "answer": "the exact telephone number"
+        },
+        {
+          "prompt": "a fantasztikus történet",
+          "answer": "the fantastic story"
+        },
+        {
+          "prompt": "a pontos cím",
+          "answer": "the exact address"
+        },
+        {
+          "prompt": "a pontos ember",
+          "answer": "the exact man"
+        },
+        {
+          "prompt": "az érdekes program",
+          "answer": "the interesting program"
+        },
+        {
+          "prompt": "az új, érdekes téma",
+          "answer": "the new, interesting topic"
+        },
+        {
+          "prompt": "a legjobb diák",
+          "answer": "the best student"
+        },
+        {
+          "prompt": "a legjobb tanár",
+          "answer": "the best teacher"
+        },
+        {
+          "prompt": "a legjobb orvos",
+          "answer": "the best doctor"
+        },
+        {
+          "prompt": "a legjobb kolléga",
+          "answer": "the best colleague"
+        },
+        {
+          "prompt": "a legjobb fotó",
+          "answer": "the best photo"
+        },
+        {
+          "prompt": "a legjobb ötlet",
+          "answer": "the best idea"
+        },
+        {
+          "prompt": "a legjobb válasz",
+          "answer": "the best answer"
+        },
+        {
+          "prompt": "a legjobb dolog",
+          "answer": "the best thing"
+        },
+        {
+          "prompt": "a legjobb program",
+          "answer": "the best program"
+        },
+        {
+          "prompt": "a legjobb téma",
+          "answer": "the best topic"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "prompt": "melyik nap",
+          "answer": "which day"
+        },
+        {
+          "prompt": "melyik diák",
+          "answer": "which student"
+        },
+        {
+          "prompt": "melyik fiú",
+          "answer": "which boy"
+        },
+        {
+          "prompt": "melyik lány",
+          "answer": "which girl"
+        },
+        {
+          "prompt": "melyik ember",
+          "answer": "which person"
+        },
+        {
+          "prompt": "melyik autó",
+          "answer": "which car"
+        },
+        {
+          "prompt": "melyik ház",
+          "answer": "which house"
+        },
+        {
+          "prompt": "melyik fotó",
+          "answer": "which photo"
+        },
+        {
+          "prompt": "melyik cím",
+          "answer": "which address"
+        },
+        {
+          "prompt": "melyik telefonszám",
+          "answer": "which telephone number"
+        },
+        {
+          "prompt": "ez az ember",
+          "answer": "this person"
+        },
+        {
+          "prompt": "ez a férfi",
+          "answer": "this man"
+        },
+        {
+          "prompt": "ez a nő",
+          "answer": "this woman"
+        },
+        {
+          "prompt": "ez a nap",
+          "answer": "this day"
+        },
+        {
+          "prompt": "ez a kérdés",
+          "answer": "this question"
+        },
+        {
+          "prompt": "ez a név",
+          "answer": "this name"
+        },
+        {
+          "prompt": "ez a cím",
+          "answer": "this address"
+        },
+        {
+          "prompt": "ez a telefonszám",
+          "answer": "this telephone number"
+        },
+        {
+          "prompt": "ez a dolog",
+          "answer": "this thing"
+        },
+        {
+          "prompt": "ez a probléma",
+          "answer": "this problem"
+        },
+        {
+          "prompt": "az az ember",
+          "answer": "that person"
+        },
+        {
+          "prompt": "az a hotel",
+          "answer": "that hotel"
+        },
+        {
+          "prompt": "az az autó",
+          "answer": "that car"
+        },
+        {
+          "prompt": "az a férfi",
+          "answer": "that man"
+        },
+        {
+          "prompt": "az a fiú",
+          "answer": "that boy"
+        },
+        {
+          "prompt": "az a lány",
+          "answer": "that girl"
+        },
+        {
+          "prompt": "az az úr",
+          "answer": "that gentleman"
+        },
+        {
+          "prompt": "az a cím",
+          "answer": "that address"
+        },
+        {
+          "prompt": "az a nap",
+          "answer": "that day"
+        },
+        {
+          "prompt": "az a dolog",
+          "answer": "that thing"
+        },
+        {
+          "prompt": "minden gyerek",
+          "answer": "every child"
+        },
+        {
+          "prompt": "minden diák",
+          "answer": "every student"
+        },
+        {
+          "prompt": "minden diáklány",
+          "answer": "every student"
+        },
+        {
+          "prompt": "minden tanár",
+          "answer": "every teacher"
+        },
+        {
+          "prompt": "minden fiú",
+          "answer": "every boy"
+        },
+        {
+          "prompt": "minden lány",
+          "answer": "every girl"
+        },
+        {
+          "prompt": "minden férfi",
+          "answer": "every man"
+        },
+        {
+          "prompt": "minden nő",
+          "answer": "every woman"
+        },
+        {
+          "prompt": "minden probléma",
+          "answer": "every problem"
+        },
+        {
+          "prompt": "minden nap",
+          "answer": "every day"
+        },
+        {
+          "prompt": "melyik régi barát",
+          "answer": "which old friend"
+        },
+        {
+          "prompt": "melyik fáradt ember",
+          "answer": "which tired person"
+        },
+        {
+          "prompt": "melyik csinos nő",
+          "answer": "which pretty woman"
+        },
+        {
+          "prompt": "melyik fiatal feleség",
+          "answer": "which young wife"
+        },
+        {
+          "prompt": "melyik öreg autó",
+          "answer": "which old car"
+        },
+        {
+          "prompt": "melyik öreg ház",
+          "answer": "which old house"
+        },
+        {
+          "prompt": "melyik ötlet",
+          "answer": "which idea"
+        },
+        {
+          "prompt": "melyik új téma",
+          "answer": "which new topic"
+        },
+        {
+          "prompt": "melyik gyerek",
+          "answer": "which child"
+        },
+        {
+          "prompt": "melyik dolog",
+          "answer": "which thing"
+        },
+        {
+          "prompt": "ez a kis ház",
+          "answer": "this small house"
+        },
+        {
+          "prompt": "ez a boldog család",
+          "answer": "this happy family"
+        },
+        {
+          "prompt": "ez a nagy város",
+          "answer": "this big city"
+        },
+        {
+          "prompt": "ez a kis falu",
+          "answer": "this small village"
+        },
+        {
+          "prompt": "ez az egész dolog",
+          "answer": "this whole thing"
+        },
+        {
+          "prompt": "ez a régi történet",
+          "answer": "this old story"
+        },
+        {
+          "prompt": "ez a fáradt ember",
+          "answer": "this tired person"
+        },
+        {
+          "prompt": "ez a fiatal hölgy",
+          "answer": "this young lady"
+        },
+        {
+          "prompt": "ez az új ötlet",
+          "answer": "this new idea"
+        },
+        {
+          "prompt": "ez az érdekes téma",
+          "answer": "this interesting topic"
+        },
+        {
+          "prompt": "az a csodás város",
+          "answer": "that wonderful town"
+        },
+        {
+          "prompt": "az a régi fotó",
+          "answer": "that old photo"
+        },
+        {
+          "prompt": "az a régi barát",
+          "answer": "that old friend"
+        },
+        {
+          "prompt": "az a rossz gyerek",
+          "answer": "that bad child"
+        },
+        {
+          "prompt": "az az idős úr",
+          "answer": "that old gentleman"
+        },
+        {
+          "prompt": "az a csinos lány",
+          "answer": "that pretty girl"
+        },
+        {
+          "prompt": "az a régi probléma",
+          "answer": "that old problem"
+        },
+        {
+          "prompt": "az a kis család",
+          "answer": "that small family"
+        },
+        {
+          "prompt": "az a nagy ház",
+          "answer": "that big house"
+        },
+        {
+          "prompt": "az a boldog nap",
+          "answer": "that happy day"
+        },
+        {
+          "prompt": "minden nagy család",
+          "answer": "every big family"
+        },
+        {
+          "prompt": "minden kis falu",
+          "answer": "every small village"
+        },
+        {
+          "prompt": "minden boldog ember",
+          "answer": "every happy person"
+        },
+        {
+          "prompt": "minden jó feleség",
+          "answer": "every good wife"
+        },
+        {
+          "prompt": "minden jó anya",
+          "answer": "every good mother"
+        },
+        {
+          "prompt": "minden régi barát",
+          "answer": "every old friend"
+        },
+        {
+          "prompt": "minden fontos kérdés",
+          "answer": "every important question"
+        },
+        {
+          "prompt": "minden új dolog",
+          "answer": "every new thing"
+        },
+        {
+          "prompt": "minden jó ötlet",
+          "answer": "every good idea"
+        },
+        {
+          "prompt": "minden helyes válasz",
+          "answer": "every right answer"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "prompt": "kinek a gyereke",
+          "answer": "whose child"
+        },
+        {
+          "prompt": "kinek a fia",
+          "answer": "whose son"
+        },
+        {
+          "prompt": "kinek a lánya",
+          "answer": "whose daughter"
+        },
+        {
+          "prompt": "kinek a barátnője",
+          "answer": "whose girlfriend"
+        },
+        {
+          "prompt": "kinek az autója",
+          "answer": "whose car"
+        },
+        {
+          "prompt": "kinek a kollégája",
+          "answer": "whose colleague"
+        },
+        {
+          "prompt": "kinek az ötlete",
+          "answer": "whose idea"
+        },
+        {
+          "prompt": "kinek a háza",
+          "answer": "whose house"
+        },
+        {
+          "prompt": "kinek a problémája",
+          "answer": "whose problem"
+        },
+        {
+          "prompt": "kinek a régi barátja",
+          "answer": "whose old friend"
+        },
+        {
+          "prompt": "az anyám",
+          "answer": "my mother"
+        },
+        {
+          "prompt": "az apám",
+          "answer": "my father"
+        },
+        {
+          "prompt": "a fiam",
+          "answer": "my son"
+        },
+        {
+          "prompt": "a lányom",
+          "answer": "my daughter"
+        },
+        {
+          "prompt": "a nővérem",
+          "answer": "my sister"
+        },
+        {
+          "prompt": "a bátyám",
+          "answer": "my brother"
+        },
+        {
+          "prompt": "a feleségem",
+          "answer": "my wife"
+        },
+        {
+          "prompt": "a férjem",
+          "answer": "my husband"
+        },
+        {
+          "prompt": "a nevem",
+          "answer": "my name"
+        },
+        {
+          "prompt": "a címem",
+          "answer": "my address"
+        },
+        {
+          "prompt": "a felesége",
+          "answer": "his wife"
+        },
+        {
+          "prompt": "a férje",
+          "answer": "her husband"
+        },
+        {
+          "prompt": "a nővére",
+          "answer": "his/her sister"
+        },
+        {
+          "prompt": "a bátyja",
+          "answer": "his/her brother"
+        },
+        {
+          "prompt": "a fia",
+          "answer": "his/her son"
+        },
+        {
+          "prompt": "a lánya",
+          "answer": "his/her daughter"
+        },
+        {
+          "prompt": "a neve",
+          "answer": "his/her name"
+        },
+        {
+          "prompt": "a címe",
+          "answer": "his/her address"
+        },
+        {
+          "prompt": "a telefonszáma",
+          "answer": "his/her telephone number"
+        },
+        {
+          "prompt": "az új barátnője",
+          "answer": "his new girlfriend"
+        },
+        {
+          "prompt": "a fiunk",
+          "answer": "our son"
+        },
+        {
+          "prompt": "a lányunk",
+          "answer": "our daughter"
+        },
+        {
+          "prompt": "a gyermekünk",
+          "answer": "our child"
+        },
+        {
+          "prompt": "a városunk",
+          "answer": "our town"
+        },
+        {
+          "prompt": "a falunk",
+          "answer": "our village"
+        },
+        {
+          "prompt": "a házunk",
+          "answer": "our house"
+        },
+        {
+          "prompt": "az új lakásunk",
+          "answer": "our new flat"
+        },
+        {
+          "prompt": "a mi problémánk",
+          "answer": "our problem"
+        },
+        {
+          "prompt": "az autónk",
+          "answer": "our car"
+        },
+        {
+          "prompt": "a kis családunk",
+          "answer": "our little family"
+        },
+        {
+          "prompt": "a gyerekük",
+          "answer": "their child"
+        },
+        {
+          "prompt": "a fiuk",
+          "answer": "their son"
+        },
+        {
+          "prompt": "a lányuk",
+          "answer": "their daughter"
+        },
+        {
+          "prompt": "a családjuk",
+          "answer": "their family"
+        },
+        {
+          "prompt": "az anyjuk",
+          "answer": "their mother"
+        },
+        {
+          "prompt": "a kérdésük",
+          "answer": "their question"
+        },
+        {
+          "prompt": "az ő problémájuk",
+          "answer": "their problem"
+        },
+        {
+          "prompt": "a tanárnőjük",
+          "answer": "their teacher"
+        },
+        {
+          "prompt": "az új lakásuk",
+          "answer": "their new flat"
+        },
+        {
+          "prompt": "a régi barátjuk",
+          "answer": "their old friend"
+        },
+        {
+          "prompt": "a ti városotok",
+          "answer": "your town"
+        },
+        {
+          "prompt": "a fiad",
+          "answer": "your son"
+        },
+        {
+          "prompt": "a lányod",
+          "answer": "your daughter"
+        },
+        {
+          "prompt": "az anyád",
+          "answer": "your mother"
+        },
+        {
+          "prompt": "az apád",
+          "answer": "your father"
+        },
+        {
+          "prompt": "a bátyád",
+          "answer": "your brother"
+        },
+        {
+          "prompt": "a nővéred",
+          "answer": "your sister"
+        },
+        {
+          "prompt": "a férjed",
+          "answer": "your husband"
+        },
+        {
+          "prompt": "a feleséged",
+          "answer": "your wife"
+        },
+        {
+          "prompt": "a neved",
+          "answer": "your name"
+        },
+        {
+          "prompt": "az új címed",
+          "answer": "your new address"
+        },
+        {
+          "prompt": "a telefonszámom",
+          "answer": "my telephone number"
+        },
+        {
+          "prompt": "az új címem",
+          "answer": "my new address"
+        },
+        {
+          "prompt": "a régi barátom",
+          "answer": "my old friend"
+        },
+        {
+          "prompt": "a barátnőm",
+          "answer": "my girlfriend"
+        },
+        {
+          "prompt": "a kollégám",
+          "answer": "my colleague"
+        },
+        {
+          "prompt": "az én ötletem",
+          "answer": "my idea"
+        },
+        {
+          "prompt": "az én problémám",
+          "answer": "my problem"
+        },
+        {
+          "prompt": "a kérdésem",
+          "answer": "my question"
+        },
+        {
+          "prompt": "a válaszom",
+          "answer": "my answer"
+        },
+        {
+          "prompt": "a kis családom",
+          "answer": "my little family"
+        },
+        {
+          "prompt": "az Ön családja",
+          "answer": "your family"
+        },
+        {
+          "prompt": "az Ön férje",
+          "answer": "your husband"
+        },
+        {
+          "prompt": "az Ön felesége",
+          "answer": "your wife"
+        },
+        {
+          "prompt": "az Ön fia",
+          "answer": "your son"
+        },
+        {
+          "prompt": "az Ön lánya",
+          "answer": "your daughter"
+        },
+        {
+          "prompt": "az Ön nővére",
+          "answer": "your sister"
+        },
+        {
+          "prompt": "az Ön bátyja",
+          "answer": "your brother"
+        },
+        {
+          "prompt": "az Ön kérdése",
+          "answer": "your question"
+        },
+        {
+          "prompt": "az Ön autója",
+          "answer": "your car"
+        },
+        {
+          "prompt": "az Ön régi barátja",
+          "answer": "your old friend"
+        },
+        {
+          "prompt": "a városotok",
+          "answer": "your town"
+        },
+        {
+          "prompt": "az új autótok",
+          "answer": "your new car"
+        },
+        {
+          "prompt": "a kollégátok",
+          "answer": "your colleague"
+        },
+        {
+          "prompt": "a családotok",
+          "answer": "your family"
+        },
+        {
+          "prompt": "a címetek",
+          "answer": "your address"
+        },
+        {
+          "prompt": "a kérdésetek",
+          "answer": "your question"
+        },
+        {
+          "prompt": "a válaszotok",
+          "answer": "your answer"
+        },
+        {
+          "prompt": "a ti problémátok",
+          "answer": "your problem"
+        },
+        {
+          "prompt": "a saját házatok",
+          "answer": "your own house"
+        },
+        {
+          "prompt": "az új tanárotok",
+          "answer": "your new teacher"
+        },
+        {
+          "prompt": "az Önök gyermeke",
+          "answer": "your child"
+        },
+        {
+          "prompt": "az Önök fia",
+          "answer": "your son"
+        },
+        {
+          "prompt": "az Önök lánya",
+          "answer": "your daughter"
+        },
+        {
+          "prompt": "az Önök családja",
+          "answer": "your family"
+        },
+        {
+          "prompt": "az Önök címe",
+          "answer": "your address"
+        },
+        {
+          "prompt": "az Önök telefonszáma",
+          "answer": "your telephone number"
+        },
+        {
+          "prompt": "az Önök neve",
+          "answer": "your name"
+        },
+        {
+          "prompt": "az Önök programja",
+          "answer": "your program"
+        },
+        {
+          "prompt": "az Önök szép városa",
+          "answer": "your beautiful town"
+        },
+        {
+          "prompt": "az Önök új kollégája",
+          "answer": "your new colleague"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "prompt": "még mindig",
+          "answer": "still"
+        },
+        {
+          "prompt": "már megint",
+          "answer": "again"
+        },
+        {
+          "prompt": "épp most",
+          "answer": "just now/right now"
+        },
+        {
+          "prompt": "talán ma",
+          "answer": "perhaps today"
+        },
+        {
+          "prompt": "most már",
+          "answer": "now"
+        },
+        {
+          "prompt": "még ma",
+          "answer": "still today"
+        },
+        {
+          "prompt": "most megint",
+          "answer": "now again"
+        },
+        {
+          "prompt": "éppen így",
+          "answer": "just so"
+        },
+        {
+          "prompt": "újr a itthon",
+          "answer": "again at home"
+        },
+        {
+          "prompt": "talán most",
+          "answer": "perhaps now"
+        },
+        {
+          "prompt": "épp ma",
+          "answer": "just today"
+        },
+        {
+          "prompt": "már tegnap",
+          "answer": "already yesterday"
+        },
+        {
+          "prompt": "már ma",
+          "answer": "already today"
+        },
+        {
+          "prompt": "talán éppen",
+          "answer": "perhaps just"
+        },
+        {
+          "prompt": "most is",
+          "answer": "now also"
+        },
+        {
+          "prompt": "vagy csak",
+          "answer": "or only"
+        },
+        {
+          "prompt": "és most",
+          "answer": "and now"
+        },
+        {
+          "prompt": "tegnap is",
+          "answer": "also yesterday"
+        },
+        {
+          "prompt": "vagy talán",
+          "answer": "or perhaps"
+        },
+        {
+          "prompt": "újból egyedül",
+          "answer": "alone again"
+        },
+        {
+          "prompt": "csak most",
+          "answer": "only now"
+        },
+        {
+          "prompt": "most csak egyedül",
+          "answer": "now only alone"
+        },
+        {
+          "prompt": "ma is",
+          "answer": "also today"
+        },
+        {
+          "prompt": "talán meg ma",
+          "answer": "perhaps still today"
+        },
+        {
+          "prompt": "és így",
+          "answer": "and so"
+        },
+        {
+          "prompt": "most már minden",
+          "answer": "now everything"
+        },
+        {
+          "prompt": "még csak",
+          "answer": "still only"
+        },
+        {
+          "prompt": "már minden",
+          "answer": "already everything"
+        },
+        {
+          "prompt": "talán még mindig",
+          "answer": "perhaps still"
+        },
+        {
+          "prompt": "he also",
+          "answer": "he also"
+        },
+        {
+          "prompt": "talán újból",
+          "answer": "perhaps again"
+        },
+        {
+          "prompt": "de még mindig",
+          "answer": "but still"
+        },
+        {
+          "prompt": "mindig egyedül",
+          "answer": "always alone"
+        },
+        {
+          "prompt": "de most újra",
+          "answer": "but now again"
+        },
+        {
+          "prompt": "gyakran itt",
+          "answer": "often here"
+        },
+        {
+          "prompt": "de csak most",
+          "answer": "but only now"
+        },
+        {
+          "prompt": "és ma",
+          "answer": "and today"
+        },
+        {
+          "prompt": "de most már",
+          "answer": "but now"
+        },
+        {
+          "prompt": "mindig úgy",
+          "answer": "always so"
+        },
+        {
+          "prompt": "újból egyedül",
+          "answer": "alone again"
+        },
+        {
+          "prompt": "vagy így",
+          "answer": "or so"
+        },
+        {
+          "prompt": "csak így",
+          "answer": "only so"
+        },
+        {
+          "prompt": "már közel",
+          "answer": "already near"
+        },
+        {
+          "prompt": "ma megint",
+          "answer": "today again"
+        },
+        {
+          "prompt": "még messze",
+          "answer": "still far"
+        },
+        {
+          "prompt": "csak ő",
+          "answer": "only she"
+        },
+        {
+          "prompt": "mindig itt",
+          "answer": "always here"
+        },
+        {
+          "prompt": "gyakran otthon",
+          "answer": "often at home"
+        },
+        {
+          "prompt": "még mindig nagyon messze",
+          "answer": "still very far"
+        },
+        {
+          "prompt": "most már eléggé közel",
+          "answer": "now near enough"
+        },
+        {
+          "prompt": "talán még mindig ott",
+          "answer": "perhaps still there"
+        },
+        {
+          "prompt": "talán már elég közel",
+          "answer": "perhaps already near enough"
+        },
+        {
+          "prompt": "most még túl messze",
+          "answer": "now still too far"
+        },
+        {
+          "prompt": "még mindig nagyon gyakran",
+          "answer": "still very often"
+        },
+        {
+          "prompt": "most már elég ritkán",
+          "answer": "now quite seldom"
+        },
+        {
+          "prompt": "vagy talán ő is?",
+          "answer": "or perhaps she also?"
+        },
+        {
+          "prompt": "csak most vagy mindig?",
+          "answer": "only now or always?"
+        },
+        {
+          "prompt": "talán most egyedül is",
+          "answer": "perhaps now also alone"
+        },
+        {
+          "prompt": "talán éppen most",
+          "answer": "perhaps right now"
+        },
+        {
+          "prompt": "még nagyon messze",
+          "answer": "still very far"
+        },
+        {
+          "prompt": "már nagyon közel",
+          "answer": "already very near"
+        },
+        {
+          "prompt": "megint itt",
+          "answer": "again here"
+        },
+        {
+          "prompt": "még mindig ott",
+          "answer": "still there"
+        },
+        {
+          "prompt": "talán épp így",
+          "answer": "perhaps just so"
+        },
+        {
+          "prompt": "ma vagy tegnap",
+          "answer": "today or yesterday"
+        },
+        {
+          "prompt": "még mindig otthon",
+          "answer": "still at home"
+        },
+        {
+          "prompt": "így vagy úgy",
+          "answer": "this way or that way"
+        },
+        {
+          "prompt": "most teljesen egyedül",
+          "answer": "now quite alone"
+        },
+        {
+          "prompt": "és így talán",
+          "answer": "and so perhaps"
+        },
+        {
+          "prompt": "most még minden",
+          "answer": "now still everything"
+        },
+        {
+          "prompt": "mindig csak így",
+          "answer": "always only so"
+        },
+        {
+          "prompt": "talán éppen",
+          "answer": "perhaps just"
+        },
+        {
+          "prompt": "itt vagy ott",
+          "answer": "here or there"
+        },
+        {
+          "prompt": "most is",
+          "answer": "now also"
+        },
+        {
+          "prompt": "ez vagy az",
+          "answer": "this or that"
+        },
+        {
+          "prompt": "vagy csak",
+          "answer": "or only"
+        },
+        {
+          "prompt": "most csak úgy",
+          "answer": "now only so"
+        },
+        {
+          "prompt": "és most",
+          "answer": "and now"
+        },
+        {
+          "prompt": "most talán",
+          "answer": "now perhaps"
+        },
+        {
+          "prompt": "tegnap is",
+          "answer": "also yesterday"
+        },
+        {
+          "prompt": "talán még mindig",
+          "answer": "perhaps still"
+        },
+        {
+          "prompt": "vagy talán",
+          "answer": "or perhaps"
+        },
+        {
+          "prompt": "most vagy soha!",
+          "answer": "now or never!"
+        },
+        {
+          "prompt": "újból egyedül",
+          "answer": "alone again"
+        },
+        {
+          "prompt": "mindent vagy semmit!",
+          "answer": "all or nothing!"
+        },
+        {
+          "prompt": "csak most",
+          "answer": "only now"
+        },
+        {
+          "prompt": "most csak egyedül",
+          "answer": "now only alone"
+        },
+        {
+          "prompt": "ma is",
+          "answer": "also today"
+        },
+        {
+          "prompt": "talán meg ma",
+          "answer": "perhaps still today"
+        },
+        {
+          "prompt": "és így",
+          "answer": "and so"
+        },
+        {
+          "prompt": "most már minden",
+          "answer": "now everything"
+        },
+        {
+          "prompt": "még csak",
+          "answer": "still only"
+        },
+        {
+          "prompt": "még mindig gyakran",
+          "answer": "still often"
+        },
+        {
+          "prompt": "már minden",
+          "answer": "already everything"
+        },
+        {
+          "prompt": "talán most",
+          "answer": "perhaps now"
+        },
+        {
+          "prompt": "he also",
+          "answer": "he also"
+        },
+        {
+          "prompt": "talán újból",
+          "answer": "perhaps again"
+        },
+        {
+          "prompt": "de még mindig",
+          "answer": "but still"
+        },
+        {
+          "prompt": "mindig egyedül",
+          "answer": "always alone"
+        },
+        {
+          "prompt": "de most újra",
+          "answer": "but now again"
+        },
+        {
+          "prompt": "gyakran itt",
+          "answer": "often here"
+        },
+        {
+          "prompt": "de csak most",
+          "answer": "but only now"
+        },
+        {
+          "prompt": "és ma",
+          "answer": "and today"
+        },
+        {
+          "prompt": "de most már",
+          "answer": "but now"
+        },
+        {
+          "prompt": "mindig úgy",
+          "answer": "always so"
+        },
+        {
+          "prompt": "újból egyedül",
+          "answer": "alone again"
+        },
+        {
+          "prompt": "vagy így",
+          "answer": "or so"
+        },
+        {
+          "prompt": "csak így",
+          "answer": "only so"
+        },
+        {
+          "prompt": "már közel",
+          "answer": "already near"
+        },
+        {
+          "prompt": "ma megint",
+          "answer": "today again"
+        },
+        {
+          "prompt": "még messze",
+          "answer": "still far"
+        },
+        {
+          "prompt": "csak ő",
+          "answer": "only she"
+        },
+        {
+          "prompt": "mindig itt",
+          "answer": "always here"
+        },
+        {
+          "prompt": "gyakran otthon",
+          "answer": "often at home"
+        },
+        {
+          "prompt": "még mindig nagyon messze",
+          "answer": "still very far"
+        },
+        {
+          "prompt": "most már eléggé közel",
+          "answer": "now near enough"
+        },
+        {
+          "prompt": "talán még mindig ott",
+          "answer": "perhaps still there"
+        },
+        {
+          "prompt": "talán már elég közel",
+          "answer": "perhaps already near enough"
+        },
+        {
+          "prompt": "most még túl messze",
+          "answer": "now still too far"
+        },
+        {
+          "prompt": "még mindig nagyon gyakran",
+          "answer": "still very often"
+        },
+        {
+          "prompt": "most már elég ritkán",
+          "answer": "now quite seldom"
+        },
+        {
+          "prompt": "vagy talán ő is?",
+          "answer": "or perhaps she also?"
+        },
+        {
+          "prompt": "csak most vagy mindig?",
+          "answer": "only now or always?"
+        },
+        {
+          "prompt": "talán most egyedül is",
+          "answer": "perhaps now also alone"
+        },
+        {
+          "prompt": "még mindig nagyon messze",
+          "answer": "still very far"
+        },
+        {
+          "prompt": "most már eléggé közel",
+          "answer": "now near enough"
+        },
+        {
+          "prompt": "talán még mindig ott",
+          "answer": "perhaps still there"
+        },
+        {
+          "prompt": "talán már elég közel",
+          "answer": "perhaps already near enough"
+        },
+        {
+          "prompt": "most még túl messze",
+          "answer": "now still too far"
+        },
+        {
+          "prompt": "még mindig nagyon gyakran",
+          "answer": "still very often"
+        },
+        {
+          "prompt": "most már elég ritkán",
+          "answer": "now quite seldom"
+        },
+        {
+          "prompt": "vagy talán ő is?",
+          "answer": "or perhaps she also?"
+        },
+        {
+          "prompt": "csak most vagy mindig?",
+          "answer": "only now or always?"
+        },
+        {
+          "prompt": "talán most egyedül is",
+          "answer": "perhaps now also alone"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "prompt": "egy fontos nap",
+          "answer": "an important day"
+        },
+        {
+          "prompt": "egy orvosom",
+          "answer": "my doctor"
+        },
+        {
+          "prompt": "egy régi történet",
+          "answer": "an old story"
+        },
+        {
+          "prompt": "még nagyon messze",
+          "answer": "still very far"
+        },
+        {
+          "prompt": "az új tanárunk",
+          "answer": "our new teacher"
+        },
+        {
+          "prompt": "és ma",
+          "answer": "and today"
+        },
+        {
+          "prompt": "teljesen igaz",
+          "answer": "quite true"
+        },
+        {
+          "prompt": "a te problémád",
+          "answer": "your problem"
+        },
+        {
+          "prompt": "ez a lány",
+          "answer": "this girl"
+        },
+        {
+          "prompt": "a legjobb téma",
+          "answer": "the best topic"
+        },
+        {
+          "prompt": "az orvosa",
+          "answer": "her doctor"
+        },
+        {
+          "prompt": "egy új ötlet",
+          "answer": "a new idea"
+        },
+        {
+          "prompt": "ez a nap",
+          "answer": "this day"
+        },
+        {
+          "prompt": "a nevem",
+          "answer": "my name"
+        },
+        {
+          "prompt": "a címem",
+          "answer": "my address"
+        },
+        {
+          "prompt": "mindig itt",
+          "answer": "always here"
+        },
+        {
+          "prompt": "a kérdésem",
+          "answer": "my question"
+        },
+        {
+          "prompt": "a férfi",
+          "answer": "that man"
+        },
+        {
+          "prompt": "még mindig",
+          "answer": "still"
+        },
+        {
+          "prompt": "olyan szép",
+          "answer": "so beautiful"
+        },
+        {
+          "prompt": "egy jó fiú",
+          "answer": "a good boy"
+        },
+        {
+          "prompt": "a mi emberünk",
+          "answer": "our man"
+        },
+        {
+          "prompt": "az egész család",
+          "answer": "the whole family"
+        },
+        {
+          "prompt": "az Ön neve",
+          "answer": "your name"
+        },
+        {
+          "prompt": "az Ön címe",
+          "answer": "your address"
+        },
+        {
+          "prompt": "az Ön fia",
+          "answer": "your son"
+        },
+        {
+          "prompt": "még mindig",
+          "answer": "still"
+        },
+        {
+          "prompt": "de így",
+          "answer": "but so"
+        },
+        {
+          "prompt": "minden ember",
+          "answer": "every man/person"
+        },
+        {
+          "prompt": "melyik fotó",
+          "answer": "which photo"
+        },
+        {
+          "prompt": "ő is",
+          "answer": "he also"
+        },
+        {
+          "prompt": "túl nagy",
+          "answer": "too big"
+        },
+        {
+          "prompt": "a fiam",
+          "answer": "my son"
+        },
+        {
+          "prompt": "ez a probléma",
+          "answer": "this problem"
+        },
+        {
+          "prompt": "a lányod",
+          "answer": "your daughter"
+        },
+        {
+          "prompt": "és most",
+          "answer": "and now"
+        },
+        {
+          "prompt": "minden új dolog",
+          "answer": "every new thing"
+        },
+        {
+          "prompt": "egy kérdés",
+          "answer": "a question"
+        },
+        {
+          "prompt": "az Önök városa",
+          "answer": "your town"
+        },
+        {
+          "prompt": "kissé fáradt",
+          "answer": "a little bit tired"
+        },
+        {
+          "prompt": "a programunk",
+          "answer": "our program"
+        },
+        {
+          "prompt": "az új fogorvos",
+          "answer": "the new dentist"
+        },
+        {
+          "prompt": "elég gyakran",
+          "answer": "pretty often"
+        },
+        {
+          "prompt": "az új ötletem",
+          "answer": "my new idea"
+        },
+        {
+          "prompt": "melyik diák",
+          "answer": "which student"
+        },
+        {
+          "prompt": "a hölgy",
+          "answer": "that lady"
+        },
+        {
+          "prompt": "nagyon ritkán",
+          "answer": "very seldom"
+        },
+        {
+          "prompt": "minden nap",
+          "answer": "every day"
+        },
+        {
+          "prompt": "az ő problémája",
+          "answer": "his problem"
+        },
+        {
+          "prompt": "egy szép nő",
+          "answer": "a beautiful woman"
+        },
+        {
+          "prompt": "a régi barát",
+          "answer": "the old friend"
+        },
+        {
+          "prompt": "a saját ötletem",
+          "answer": "my own idea"
+        },
+        {
+          "prompt": "csak ő",
+          "answer": "only she"
+        },
+        {
+          "prompt": "egy öreg hölgy",
+          "answer": "an old lady"
+        },
+        {
+          "prompt": "talán most",
+          "answer": "perhaps now"
+        },
+        {
+          "prompt": "nagyon egyszerű",
+          "answer": "very simple"
+        },
+        {
+          "prompt": "a mi falunk",
+          "answer": "our village"
+        },
+        {
+          "prompt": "teljesen egyedül",
+          "answer": "quite alone"
+        },
+        {
+          "prompt": "az Ön felesége",
+          "answer": "your wife"
+        },
+        {
+          "prompt": "egy jobb ötlet",
+          "answer": "a better idea"
+        },
+        {
+          "prompt": "az egész nap",
+          "answer": "the whole day"
+        },
+        {
+          "prompt": "talán ott",
+          "answer": "perhaps there"
+        },
+        {
+          "prompt": "egy jó fiú",
+          "answer": "a good boy"
+        },
+        {
+          "prompt": "az öreg orvos",
+          "answer": "the old doctor"
+        },
+        {
+          "prompt": "ez vagy az",
+          "answer": "this or that"
+        },
+        {
+          "prompt": "minden ember",
+          "answer": "every man/person"
+        },
+        {
+          "prompt": "az új címem",
+          "answer": "my new address"
+        },
+        {
+          "prompt": "a legjobb diák",
+          "answer": "the best student"
+        },
+        {
+          "prompt": "ő is",
+          "answer": "he also"
+        },
+        {
+          "prompt": "az ő fia is",
+          "answer": "also her son"
+        },
+        {
+          "prompt": "túl nagy",
+          "answer": "too big"
+        },
+        {
+          "prompt": "egy fontos dolog",
+          "answer": "an important thing"
+        },
+        {
+          "prompt": "a fiam",
+          "answer": "my son"
+        },
+        {
+          "prompt": "túl régi",
+          "answer": "too old"
+        },
+        {
+          "prompt": "ez a probléma",
+          "answer": "this problem"
+        },
+        {
+          "prompt": "most is",
+          "answer": "also now"
+        },
+        {
+          "prompt": "a lányod",
+          "answer": "your daughter"
+        },
+        {
+          "prompt": "egy nagy probléma",
+          "answer": "a big problem"
+        },
+        {
+          "prompt": "és most",
+          "answer": "and now"
+        },
+        {
+          "prompt": "minden új dolog",
+          "answer": "every new thing"
+        },
+        {
+          "prompt": "egy kérdés",
+          "answer": "a question"
+        },
+        {
+          "prompt": "az Önök városa",
+          "answer": "your town"
+        },
+        {
+          "prompt": "kissé fáradt",
+          "answer": "a little bit tired"
+        },
+        {
+          "prompt": "éppen ma",
+          "answer": "just today"
+        },
+        {
+          "prompt": "a neve",
+          "answer": "his name"
+        },
+        {
+          "prompt": "túl messze",
+          "answer": "too far"
+        },
+        {
+          "prompt": "a telefonszám",
+          "answer": "the telephone number"
+        },
+        {
+          "prompt": "a telefonszám",
+          "answer": "the telephone number"
+        },
+        {
+          "prompt": "a pontos program",
+          "answer": "the exact program"
+        },
+        {
+          "prompt": "a saját lakásunk",
+          "answer": "our own flat"
+        },
+        {
+          "prompt": "talán éppen most",
+          "answer": "perhaps just now"
+        },
+        {
+          "prompt": "a pontos címünk",
+          "answer": "our exact address"
+        },
+        {
+          "prompt": "az Ön telefonszáma",
+          "answer": "your telephone number"
+        },
+        {
+          "prompt": "gyakran ott",
+          "answer": "often there"
+        },
+        {
+          "prompt": "az én nővérem is",
+          "answer": "also my sister"
+        },
+        {
+          "prompt": "ritkán egyedül",
+          "answer": "seldom alone"
+        },
+        {
+          "prompt": "éppen most",
+          "answer": "just now"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "prompt": "Az rossz.",
+          "answer": "That's bad."
+        },
+        {
+          "prompt": "Ez helyes.",
+          "answer": "This is right."
+        },
+        {
+          "prompt": "Ez igaz.",
+          "answer": "It's true."
+        },
+        {
+          "prompt": "Ez biztos.",
+          "answer": "It's sure."
+        },
+        {
+          "prompt": "Ez lehetséges.",
+          "answer": "It's possible."
+        },
+        {
+          "prompt": "Ez egyszerű.",
+          "answer": "It's simple."
+        },
+        {
+          "prompt": "Ez fantasztikus.",
+          "answer": "It's fantastic."
+        },
+        {
+          "prompt": "Ez itt van.",
+          "answer": "This is here."
+        },
+        {
+          "prompt": "Az ott van.",
+          "answer": "That's there."
+        },
+        {
+          "prompt": "Ez közel van.",
+          "answer": "This is near."
+        },
+        {
+          "prompt": "Az távol van.",
+          "answer": "That is far."
+        },
+        {
+          "prompt": "Ez így van.",
+          "answer": "It's so."
+        },
+        {
+          "prompt": "Most jó volt.",
+          "answer": "It was good now."
+        },
+        {
+          "prompt": "Túl messze van.",
+          "answer": "It's too far."
+        },
+        {
+          "prompt": "Jó itt.",
+          "answer": "It's good here."
+        },
+        {
+          "prompt": "De legjobb otthon.",
+          "answer": "But it's best at home."
+        },
+        {
+          "prompt": "Ez egészen biztos.",
+          "answer": "This is quite sure."
+        },
+        {
+          "prompt": "Az nagyon fontos.",
+          "answer": "That's very important."
+        },
+        {
+          "prompt": "Most jobb.",
+          "answer": "It's better now."
+        },
+        {
+          "prompt": "Nagyon szép itt.",
+          "answer": "It's very nice here."
+        },
+        {
+          "prompt": "Talán igaz.",
+          "answer": "Perhaps it's true."
+        },
+        {
+          "prompt": "Tegnap jobb volt.",
+          "answer": "It was better yesterday."
+        },
+        {
+          "prompt": "Csodás itthon.",
+          "answer": "It's wonderful at home."
+        },
+        {
+          "prompt": "Még lehetséges.",
+          "answer": "It's still possible."
+        },
+        {
+          "prompt": "Ez most nagyon fontos.",
+          "answer": "This is very important now."
+        },
+        {
+          "prompt": "Ez mindig itt van.",
+          "answer": "This is always here."
+        },
+        {
+          "prompt": "Ez még mindig túl nagy.",
+          "answer": "This is still too big."
+        },
+        {
+          "prompt": "Az már megint rossz.",
+          "answer": "That's bad again."
+        },
+        {
+          "prompt": "Ez már egész jó.",
+          "answer": "This is already pretty good."
+        },
+        {
+          "prompt": "Ez most a legjobb.",
+          "answer": "This is now the best."
+        },
+        {
+          "prompt": "Az túl messze van.",
+          "answer": "That's too far."
+        },
+        {
+          "prompt": "Ez nagyon egyszerű volt.",
+          "answer": "This was very simple."
+        },
+        {
+          "prompt": "Ez volt talán a legjobb.",
+          "answer": "This was perhaps the best."
+        },
+        {
+          "prompt": "Az jobb volt.",
+          "answer": "That was better."
+        },
+        {
+          "prompt": "Már egészen közel van.",
+          "answer": "It's already quite near."
+        },
+        {
+          "prompt": "Még nagyon messze van.",
+          "answer": "It's still very far."
+        },
+        {
+          "prompt": "Csak ez van itt.",
+          "answer": "Only this is here."
+        },
+        {
+          "prompt": "Az is igaz.",
+          "answer": "That's true, too. That's also true."
+        },
+        {
+          "prompt": "Ez is rossz itt.",
+          "answer": "This is bad here, too."
+        },
+        {
+          "prompt": "Olyan fantasztikus volt az egész.",
+          "answer": "The whole thing was so fantastic."
+        },
+        {
+          "prompt": "Az is lehetséges.",
+          "answer": "That's possible, too."
+        },
+        {
+          "prompt": "Csak ez volt ott.",
+          "answer": "Only this was there."
+        },
+        {
+          "prompt": "Tegnap még itt volt.",
+          "answer": "It was still here yesterday."
+        },
+        {
+          "prompt": "Ez volt talán a legjobb.",
+          "answer": "This was perhaps the best."
+        },
+        {
+          "prompt": "Minden igaz.",
+          "answer": "Everything is true."
+        },
+        {
+          "prompt": "Minden lehetséges.",
+          "answer": "Everything is possible."
+        },
+        {
+          "prompt": "Itt minden csodás.",
+          "answer": "Everything is wonderful here."
+        },
+        {
+          "prompt": "így minden jobb.",
+          "answer": "Everything is better this way."
+        },
+        {
+          "prompt": "Tegnap még minden biztos volt.",
+          "answer": "Everything was still sure yesterday."
+        },
+        {
+          "prompt": "Minden fantasztikus volt.",
+          "answer": "Everything was fantastic."
+        },
+        {
+          "prompt": "Ez volt minden.",
+          "answer": "That was everything."
+        },
+        {
+          "prompt": "Még minden lehetséges.",
+          "answer": "Everything is still possible."
+        },
+        {
+          "prompt": "Már minden jobb.",
+          "answer": "Everything is already better."
+        },
+        {
+          "prompt": "Ez minden.",
+          "answer": "That's all."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "prompt": "Ez a fiam.",
+          "answer": "This is my son."
+        },
+        {
+          "prompt": "Ez a lányom.",
+          "answer": "This is my daughter."
+        },
+        {
+          "prompt": "Ez a nővérem.",
+          "answer": "This is my sister."
+        },
+        {
+          "prompt": "Ez a bátyám.",
+          "answer": "This is my brother."
+        },
+        {
+          "prompt": "Ez a feleségem.",
+          "answer": "This is my wife."
+        },
+        {
+          "prompt": "Ez a férjem.",
+          "answer": "This is my husband."
+        },
+        {
+          "prompt": "Az a házunk.",
+          "answer": "That's our house."
+        },
+        {
+          "prompt": "Ez Barbara.",
+          "answer": "This is Barbara."
+        },
+        {
+          "prompt": "Ez volt az egész.",
+          "answer": "That was all."
+        },
+        {
+          "prompt": "Ez volt a probléma.",
+          "answer": "This was the problem."
+        },
+        {
+          "prompt": "Ez a nevem.",
+          "answer": "This is my name."
+        },
+        {
+          "prompt": "Ez a címem.",
+          "answer": "This is my address."
+        },
+        {
+          "prompt": "Ez a telefonszámom.",
+          "answer": "This is my telephone number."
+        },
+        {
+          "prompt": "Ez a lakásunk.",
+          "answer": "This is our flat."
+        },
+        {
+          "prompt": "Ez csak egy kérdés.",
+          "answer": "This is only a question."
+        },
+        {
+          "prompt": "Ez az autónk.",
+          "answer": "This is our car."
+        },
+        {
+          "prompt": "Ez az én kérdésem.",
+          "answer": "This is my question."
+        },
+        {
+          "prompt": "Ez a válaszom.",
+          "answer": "This is my answer."
+        },
+        {
+          "prompt": "Ez az én problémám.",
+          "answer": "This is my problem."
+        },
+        {
+          "prompt": "Ez csak egy ötlet volt.",
+          "answer": "This was only an idea."
+        },
+        {
+          "prompt": "Ez egy fontos nap.",
+          "answer": "This is an important day."
+        },
+        {
+          "prompt": "Ez a régi címe.",
+          "answer": "This is her old address."
+        },
+        {
+          "prompt": "Ez a kis családom.",
+          "answer": "This is my little family."
+        },
+        {
+          "prompt": "Ez most a legjobb ötlet.",
+          "answer": "This is the best idea now."
+        },
+        {
+          "prompt": "Ez egy jobb program.",
+          "answer": "This is a better program."
+        },
+        {
+          "prompt": "Ez egy kis ház.",
+          "answer": "This is a little house."
+        },
+        {
+          "prompt": "Ez egy igaz történet.",
+          "answer": "This is a true story."
+        },
+        {
+          "prompt": "Ez egy nagy probléma.",
+          "answer": "This is a big problem."
+        },
+        {
+          "prompt": "Ez egy fontos dolog.",
+          "answer": "This is an important thing."
+        },
+        {
+          "prompt": "Most ez a címem.",
+          "answer": "This is my address now."
+        },
+        {
+          "prompt": "Ez a helyes válasz.",
+          "answer": "It's the right answer."
+        },
+        {
+          "prompt": "Ez egy érdekes kérdés.",
+          "answer": "This is an interesting question."
+        },
+        {
+          "prompt": "Ez a pontos program.",
+          "answer": "This is the exact program."
+        },
+        {
+          "prompt": "Ez egy régi történet.",
+          "answer": "It's an old story."
+        },
+        {
+          "prompt": "Ez egy jó kérdés.",
+          "answer": "This is a good question."
+        },
+        {
+          "prompt": "Ez az új téma.",
+          "answer": "It's the new topic."
+        },
+        {
+          "prompt": "Ez egy régi fotó.",
+          "answer": "This is an old photo."
+        },
+        {
+          "prompt": "Ez az én problémám.",
+          "answer": "This is my problem."
+        },
+        {
+          "prompt": "Ez a te ötleted volt.",
+          "answer": "It was your idea."
+        },
+        {
+          "prompt": "Ez volt az ő válasza.",
+          "answer": "This was his answer."
+        },
+        {
+          "prompt": "Ez most egy egészen új dolog.",
+          "answer": "This is quite a new thing now."
+        },
+        {
+          "prompt": "Ez egy érdekes kérdés.",
+          "answer": "It's an interesting question."
+        },
+        {
+          "prompt": "Ez is egy nagyon fontos dolog.",
+          "answer": "This is a very important thing, too."
+        },
+        {
+          "prompt": "Kinek a címe ez?",
+          "answer": "Whose address is this?"
+        },
+        {
+          "prompt": "Ez talán már Péter.",
+          "answer": "Perhaps it's Peter already."
+        },
+        {
+          "prompt": "Ez most egy nagy probléma.",
+          "answer": "This is a big problem now."
+        },
+        {
+          "prompt": "Ez egy csodálatos nap volt.",
+          "answer": "This was a wonderful day."
+        },
+        {
+          "prompt": "Talán épp az ő ötlete volt.",
+          "answer": "Perhaps it was just his idea."
+        },
+        {
+          "prompt": "Már megint ez a probléma.",
+          "answer": "This is the problem again."
+        },
+        {
+          "prompt": "Ez egy fantasztikus, de igaz történet.",
+          "answer": "This is a fantastic, but true story."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "prompt": "Ő szép.",
+          "answer": "She is beautiful. She's be"
+        },
+        {
+          "prompt": "Ő fiatal.",
+          "answer": "He is young. He's young."
+        },
+        {
+          "prompt": "Ő csinos.",
+          "answer": "She's pretty."
+        },
+        {
+          "prompt": "Ő boldog.",
+          "answer": "He's happy."
+        },
+        {
+          "prompt": "Ő öreg.",
+          "answer": "She's old."
+        },
+        {
+          "prompt": "Fáradt.",
+          "answer": "He's tired."
+        },
+        {
+          "prompt": "Őjobb.",
+          "answer": "He's better."
+        },
+        {
+          "prompt": "Ő a legjobb.",
+          "answer": "She is the best. He is the"
+        },
+        {
+          "prompt": "Ő fantasztikus.",
+          "answer": "He is fantastic."
+        },
+        {
+          "prompt": "Ő biztos (ebben).",
+          "answer": "She is sure (of it)."
+        },
+        {
+          "prompt": "Ő itt van.",
+          "answer": "He's here."
+        },
+        {
+          "prompt": "Ő ott van.",
+          "answer": "She's there."
+        },
+        {
+          "prompt": "Ő otthon van.",
+          "answer": "He's at home."
+        },
+        {
+          "prompt": "Egyedül van.",
+          "answer": "She's alone."
+        },
+        {
+          "prompt": "Újból itt van.",
+          "answer": "He is here again."
+        },
+        {
+          "prompt": "Talán egyedül van.",
+          "answer": "Perhaps she's alone."
+        },
+        {
+          "prompt": "Ő is itt van.",
+          "answer": "He is here, too. He is also here."
+        },
+        {
+          "prompt": "Ma otthon van.",
+          "answer": "She's at home today."
+        },
+        {
+          "prompt": "Egyedül volt.",
+          "answer": "He was alone."
+        },
+        {
+          "prompt": "Otthon volt.",
+          "answer": "He was at home."
+        },
+        {
+          "prompt": "Kissé fáradt.",
+          "answer": "She's a little bit tired."
+        },
+        {
+          "prompt": "Még mindig itt van.",
+          "answer": "He's still here."
+        },
+        {
+          "prompt": "Ő olyan szép.",
+          "answer": "She is so beautiful."
+        },
+        {
+          "prompt": "Ő most a legjobb.",
+          "answer": "He is the best now."
+        },
+        {
+          "prompt": "Ritkán van otthon.",
+          "answer": "She is seldom at home."
+        },
+        {
+          "prompt": "Most épp itt van.",
+          "answer": "He's just here now."
+        },
+        {
+          "prompt": "Ma nagyon csinos.",
+          "answer": "She's very pretty today."
+        },
+        {
+          "prompt": "Már túl öreg.",
+          "answer": "He's already too old."
+        },
+        {
+          "prompt": "Most talán otthon var",
+          "answer": "Perhaps she's at home now."
+        },
+        {
+          "prompt": "Ritkán van otthon.",
+          "answer": "He's seldom at home."
+        },
+        {
+          "prompt": "Még mindig gyakran fáradt.",
+          "answer": "He's still often tired."
+        },
+        {
+          "prompt": "Már otthon van.",
+          "answer": "She's already at home."
+        },
+        {
+          "prompt": "Talán már egyedül van.",
+          "answer": "Perhaps he's already alone."
+        },
+        {
+          "prompt": "Még itt van.",
+          "answer": "She's still here."
+        },
+        {
+          "prompt": "Már megint itt van.",
+          "answer": "He's here again."
+        },
+        {
+          "prompt": "Ő teljesen biztos (ebben).",
+          "answer": "She's quite sure (of it)."
+        },
+        {
+          "prompt": "De ő most fáradt.",
+          "answer": "But he's tired now."
+        },
+        {
+          "prompt": "Ma is itt van.",
+          "answer": "He's here today also."
+        },
+        {
+          "prompt": "Teljesen egyedül volt.",
+          "answer": "She was quite alone."
+        },
+        {
+          "prompt": "Ő is ott volt tegnap.",
+          "answer": "He was also there yesterday."
+        },
+        {
+          "prompt": "Ő mindig itt van.",
+          "answer": "He's always here."
+        },
+        {
+          "prompt": "Mindig olyan csinos.",
+          "answer": "She's always so pretty."
+        },
+        {
+          "prompt": "Mindig otthon van.",
+          "answer": "He's always at home."
+        },
+        {
+          "prompt": "Mindig egyedül van.",
+          "answer": "She is always alone."
+        },
+        {
+          "prompt": "Ő mindig a legjobb.",
+          "answer": "He's always the best."
+        },
+        {
+          "prompt": "Ő mindig nagyon fáradt.",
+          "answer": "She's always very tired."
+        },
+        {
+          "prompt": "0 mindig nagyon pontos.",
+          "answer": "He's always very exact."
+        },
+        {
+          "prompt": "Mindig ilyen rossz.",
+          "answer": "She's always so bad."
+        },
+        {
+          "prompt": "Mindig pontos volt.",
+          "answer": "He was always exact."
+        },
+        {
+          "prompt": "Mindig egyedül volt.",
+          "answer": "She was always alone."
+        },
+        {
+          "prompt": "Még mindig gyakran fáradt.",
+          "answer": "He's still often tired."
+        },
+        {
+          "prompt": "Már otthon van.",
+          "answer": "She's already at home."
+        },
+        {
+          "prompt": "Talán már egyedül van.",
+          "answer": "Perhaps he's already alone."
+        },
+        {
+          "prompt": "Még itt van.",
+          "answer": "She's still here."
+        },
+        {
+          "prompt": "Már megint itt van.",
+          "answer": "He's here again."
+        },
+        {
+          "prompt": "Ő teljesen biztos (ebben).",
+          "answer": "She's quite sure (of it)."
+        },
+        {
+          "prompt": "De ő most fáradt.",
+          "answer": "But he's tired now."
+        },
+        {
+          "prompt": "Ma is itt van.",
+          "answer": "He's here today also."
+        },
+        {
+          "prompt": "Teljesen egyedül volt.",
+          "answer": "She was quite alone."
+        },
+        {
+          "prompt": "Ő is ott volt tegnap.",
+          "answer": "He was also there yesterday."
+        },
+        {
+          "prompt": "Ő mindig itt van.",
+          "answer": "He's always here."
+        },
+        {
+          "prompt": "Mindig olyan csinos.",
+          "answer": "She's always so pretty."
+        },
+        {
+          "prompt": "Mindig otthon van.",
+          "answer": "He's always at home."
+        },
+        {
+          "prompt": "Mindig egyedül van.",
+          "answer": "She is always alone."
+        },
+        {
+          "prompt": "Ő mindig a legjobb.",
+          "answer": "He's always the best."
+        },
+        {
+          "prompt": "Ő mindig nagyon fáradt.",
+          "answer": "She's always very tired."
+        },
+        {
+          "prompt": "0 mindig nagyon pontos.",
+          "answer": "He's always very exact."
+        },
+        {
+          "prompt": "Mindig ilyen rossz.",
+          "answer": "She's always so bad."
+        },
+        {
+          "prompt": "Mindig pontos volt.",
+          "answer": "He was always exact."
+        },
+        {
+          "prompt": "Mindig egyedül volt.",
+          "answer": "She was always alone."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "prompt": "Ő tanár.",
+          "answer": "He's a teacher."
+        },
+        {
+          "prompt": "Ő tanárnő.",
+          "answer": "She's a teacher."
+        },
+        {
+          "prompt": "Ő diák.",
+          "answer": "He's a student."
+        },
+        {
+          "prompt": "Ő diáklány.",
+          "answer": "She's a student."
+        },
+        {
+          "prompt": "Ő orvos.",
+          "answer": "He's a doctor."
+        },
+        {
+          "prompt": "Ő fogorvos.",
+          "answer": "She's a dentist."
+        },
+        {
+          "prompt": "Őnő.",
+          "answer": "She's a woman."
+        },
+        {
+          "prompt": "Ő férfi.",
+          "answer": "He's a man."
+        },
+        {
+          "prompt": "Őfiú.",
+          "answer": "He's a boy."
+        },
+        {
+          "prompt": "Ő lány.",
+          "answer": "She's a girl."
+        },
+        {
+          "prompt": "Ő a fiam.",
+          "answer": "He is my son."
+        },
+        {
+          "prompt": "Ő a lányom.",
+          "answer": "She is my daughter."
+        },
+        {
+          "prompt": "Ő az anyám.",
+          "answer": "She is my mother."
+        },
+        {
+          "prompt": "Ő az apám.",
+          "answer": "He's my father."
+        },
+        {
+          "prompt": "Ő a nővérem.",
+          "answer": "She's my sister."
+        },
+        {
+          "prompt": "Ő a bátyám.",
+          "answer": "He's my brother."
+        },
+        {
+          "prompt": "Ő a férjem.",
+          "answer": "He's my husband."
+        },
+        {
+          "prompt": "Ő a feleségem.",
+          "answer": "She is my wife."
+        },
+        {
+          "prompt": "Ő a gyermekem.",
+          "answer": "He/she is my child."
+        },
+        {
+          "prompt": "Ő a tanárom.",
+          "answer": "He's my teacher."
+        },
+        {
+          "prompt": "Ő egy érdekes ember.",
+          "answer": "He is an interesting man."
+        },
+        {
+          "prompt": "Ő egy nagyon jó kollég",
+          "answer": "He's a very good colleague."
+        },
+        {
+          "prompt": "Ő egy csodálatos feleség.",
+          "answer": "She is a wonderful wife."
+        },
+        {
+          "prompt": "Ő egy pontos ember.",
+          "answer": "He is a precise man."
+        },
+        {
+          "prompt": "Ő egy nagyon jó orvos.",
+          "answer": "He's a very good doctor."
+        },
+        {
+          "prompt": "Ő a legjobb tanár.",
+          "answer": "He is the best teacher."
+        },
+        {
+          "prompt": "Ő az új kolléga.",
+          "answer": "She is the new colleague."
+        },
+        {
+          "prompt": "Ő a legjobb barátom.",
+          "answer": "He's my best friend."
+        },
+        {
+          "prompt": "Ő az új barátnőm.",
+          "answer": "She's my new girlfriend."
+        },
+        {
+          "prompt": "Ő az a férfi.",
+          "answer": "He's that man."
+        },
+        {
+          "prompt": "Ő egy szép nő.",
+          "answer": "She's a beautiful woman."
+        },
+        {
+          "prompt": "Ő az új felesége.",
+          "answer": "She's his new wife."
+        },
+        {
+          "prompt": "Ő a kislányuk.",
+          "answer": "She's their little daughter."
+        },
+        {
+          "prompt": "Ő az Önök új kollégája.",
+          "answer": "He's your new colleague."
+        },
+        {
+          "prompt": "Ő a mi emberünk.",
+          "answer": "He is our man."
+        },
+        {
+          "prompt": "Ő a legjobb diák.",
+          "answer": "He's the best student."
+        },
+        {
+          "prompt": "Ő az a rossz gyerek.",
+          "answer": "He's that bad child."
+        },
+        {
+          "prompt": "Ő az új kolléga.",
+          "answer": "He is the new colleague."
+        },
+        {
+          "prompt": "Ő egy boldog ember volt.",
+          "answer": "He was a happy man."
+        },
+        {
+          "prompt": "Ő volt a legjobb barátja.",
+          "answer": "He was his best friend."
+        },
+        {
+          "prompt": "Még mindig diáklány.",
+          "answer": "She is still a student."
+        },
+        {
+          "prompt": "Ő is egy jó fogorvos.",
+          "answer": "He's a good dentist, too."
+        },
+        {
+          "prompt": "Itt csak ő a barátom.",
+          "answer": "Only he's my friend here."
+        },
+        {
+          "prompt": "Még mindig a barátnője.",
+          "answer": "She is still his girlfriend."
+        },
+        {
+          "prompt": "Most ő a legjobb tanulónk.",
+          "answer": "He's our best student now."
+        },
+        {
+          "prompt": "Ő itt a legjobb orvos.",
+          "answer": "He's the best doctor here."
+        },
+        {
+          "prompt": "Ő volt a legjobb tanárunk.",
+          "answer": "He was our best teacher."
+        },
+        {
+          "prompt": "Mindig a barátom volt.",
+          "answer": "He was always my friend."
+        },
+        {
+          "prompt": "Ő egy úr.",
+          "answer": "He is a gentleman."
+        },
+        {
+          "prompt": "Még gyerek.",
+          "answer": "He is still a child."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "prompt": "A lakásunk már régi.",
+          "answer": "Our flat is already old."
+        },
+        {
+          "prompt": "Péter most boldog.",
+          "answer": "Péter is happy now."
+        },
+        {
+          "prompt": "A feleségem kissé fáradt.",
+          "answer": "My wife is a little bit tired."
+        },
+        {
+          "prompt": "A válasz egyszerű.",
+          "answer": "The answer is simple."
+        },
+        {
+          "prompt": "A válasz helyes.",
+          "answer": "The answer is correct."
+        },
+        {
+          "prompt": "A program ritkán jó.",
+          "answer": "The program is seldom good."
+        },
+        {
+          "prompt": "Egy új téma mindig érdekes.",
+          "answer": "A new topic is always interesting."
+        },
+        {
+          "prompt": "Az a hotel túl messze van.",
+          "answer": "That hotel is too far."
+        },
+        {
+          "prompt": "A válasza helyes volt.",
+          "answer": "His answer was correct."
+        },
+        {
+          "prompt": "Ma az egész család otthon volt.",
+          "answer": "The whole family was at home today."
+        },
+        {
+          "prompt": "Ma otthon van Barbara.",
+          "answer": "Barbara is at home today."
+        },
+        {
+          "prompt": "Itt van egy kis falu.",
+          "answer": "Here is a little village."
+        },
+        {
+          "prompt": "A barátnőd nagyon csinos.",
+          "answer": "Your girlfriend is very pretty."
+        },
+        {
+          "prompt": "Ez a téma nagyon érdekes.",
+          "answer": "This topic is very interesting."
+        },
+        {
+          "prompt": "Minden kis dolog fontos.",
+          "answer": "Every little thing is important."
+        },
+        {
+          "prompt": "A kérdésem egyszerű.",
+          "answer": "My question is simple."
+        },
+        {
+          "prompt": "Minden jó ötlet egyszerű.",
+          "answer": "Every good idea is simple."
+        },
+        {
+          "prompt": "A régi fogorvos jobb volt.",
+          "answer": "The old dentist was better."
+        },
+        {
+          "prompt": "Csodás ez a város.",
+          "answer": "This town is wonderful."
+        },
+        {
+          "prompt": "Egy diák volt megint itt.",
+          "answer": "A student was here again."
+        },
+        {
+          "prompt": "A férjed van itt.",
+          "answer": "Your husband is here."
+        },
+        {
+          "prompt": "Olyan rossz ez a gyerek.",
+          "answer": "This child is so bad."
+        },
+        {
+          "prompt": "Ez a dolog nagyon fontos.",
+          "answer": "This thing is very important."
+        },
+        {
+          "prompt": "A mi fiunk a legjobb.",
+          "answer": "Our son is the best."
+        },
+        {
+          "prompt": "Barbara mindig nagyon csinos.",
+          "answer": "Barbara is always very pretty."
+        },
+        {
+          "prompt": "Nagyon jó ez a fotó.",
+          "answer": "This photo is very good."
+        },
+        {
+          "prompt": "Anya ma otthon van.",
+          "answer": "Mother is at home today."
+        },
+        {
+          "prompt": "A férjem gyakran fáradt.",
+          "answer": "My husband is often tired."
+        },
+        {
+          "prompt": "Ma csodás volt a program.",
+          "answer": "The program was wonderful today."
+        },
+        {
+          "prompt": "A fél város ott volt.",
+          "answer": "Half the town was there."
+        },
+        {
+          "prompt": "A férje ritkán van otthon.",
+          "answer": "Her husband is seldom at home."
+        },
+        {
+          "prompt": "Ez a történet teljesen igaz.",
+          "answer": "This story is completely true."
+        },
+        {
+          "prompt": "Itt minden lány csinos.",
+          "answer": "Every girl is pretty here."
+        },
+        {
+          "prompt": "Egy jó ötlet mindig egyszerű.",
+          "answer": "A good idea is always simple."
+        },
+        {
+          "prompt": "Egy jó kérdés mindig pontos.",
+          "answer": "A good question is always precise."
+        },
+        {
+          "prompt": "Egy jó anya gyakran fáradt.",
+          "answer": "A good mother is often tired."
+        },
+        {
+          "prompt": "A hotel már egész közel van.",
+          "answer": "The hotel is already quite near."
+        },
+        {
+          "prompt": "Már megint itt volt az az ember.",
+          "answer": "That man was here again."
+        },
+        {
+          "prompt": "A pontos cím nagyon fontos.",
+          "answer": "The exact address is very important."
+        },
+        {
+          "prompt": "Ez a dolog tegnap még biztos volt.",
+          "answer": "This thing was still sure yesterday."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "prompt": "A lányom még diáklány.",
+          "answer": "My daughter is still a student."
+        },
+        {
+          "prompt": "A fiam még diák.",
+          "answer": "My son is still a student."
+        },
+        {
+          "prompt": "Anyám tanárnő.",
+          "answer": "My mother is a teacher."
+        },
+        {
+          "prompt": "Apám tanár.",
+          "answer": "My father is a teacher."
+        },
+        {
+          "prompt": "A barátom fogorvos.",
+          "answer": "My friend is a dentist."
+        },
+        {
+          "prompt": "A nevem Péter.",
+          "answer": "My name is Péter."
+        },
+        {
+          "prompt": "A bátyám az Ön kollégája.",
+          "answer": "My brother is your colleague."
+        },
+        {
+          "prompt": "Ez a fiú a fiunk.",
+          "answer": "This boy is our son."
+        },
+        {
+          "prompt": "Ez a lány a mi lányunk.",
+          "answer": "This girl is our daughter."
+        },
+        {
+          "prompt": "A neve Barbara.",
+          "answer": "Her name is Barbara."
+        },
+        {
+          "prompt": "Ez a férfi az apám.",
+          "answer": "This man is my father."
+        },
+        {
+          "prompt": "Az a nő az anyám.",
+          "answer": "That woman is my mother."
+        },
+        {
+          "prompt": "A bátyám orvos.",
+          "answer": "My brother is a doctor."
+        },
+        {
+          "prompt": "A nővérem tanárnő.",
+          "answer": "My sister is a teacher."
+        },
+        {
+          "prompt": "A férjem egy csodás apa.",
+          "answer": "My husband is a wonderful father."
+        },
+        {
+          "prompt": "A tanárunk egy érdekes ember.",
+          "answer": "Our teacher is an interesting man."
+        },
+        {
+          "prompt": "A bátyád egy boldog ember.",
+          "answer": "Your brother is a happy man."
+        },
+        {
+          "prompt": "A tanárnőnk egy csinos nő.",
+          "answer": "Our teacher is a pretty woman."
+        },
+        {
+          "prompt": "Az apja egy egyszerű ember.",
+          "answer": "Her father is a simple man."
+        },
+        {
+          "prompt": "Az én fiam is diák még.",
+          "answer": "My son is still a student, too."
+        },
+        {
+          "prompt": "Ez a hölgy az új tanárnőtök.",
+          "answer": "This lady is your new teacher."
+        },
+        {
+          "prompt": "Ez a csinos nő a felesége.",
+          "answer": "This pretty woman is his wife."
+        },
+        {
+          "prompt": "Kinek a barátnője ez a lány?",
+          "answer": "Whose girlfriend is this girl?"
+        },
+        {
+          "prompt": "Ez a probléma egy régi dolog.",
+          "answer": "This problem is an old thing."
+        },
+        {
+          "prompt": "Ez a férfi egy fontos ember.",
+          "answer": "This man is an important person."
+        },
+        {
+          "prompt": "Az új kollégánk egy csinos nő.",
+          "answer": "Our new colleague is a pretty woman."
+        },
+        {
+          "prompt": "Éva a legjobb barátnőm volt.",
+          "answer": "Eva was my best friend! (ha hölgy mondja)"
+        },
+        {
+          "prompt": "Ez a fiú régi jó barátom.",
+          "answer": "This boy is my good old friend."
+        },
+        {
+          "prompt": "Ez az ember a legjobb barátom volt.",
+          "answer": "This man was my best friend."
+        },
+        {
+          "prompt": "Ez a fiú a legjobb tanulónk.",
+          "answer": "This boy is our best student."
+        },
+        {
+          "prompt": "Ez a lány a legjobb tanulónk.",
+          "answer": "This girl is our best student."
+        },
+        {
+          "prompt": "Ez a lány már egy kis hölgy.",
+          "answer": "This girl is already a little lady."
+        },
+        {
+          "prompt": "Az apja fantasztikus ember volt.",
+          "answer": "Her father was a fantastic man."
+        },
+        {
+          "prompt": "Ez a program jó ötlet volt.",
+          "answer": "This program was a good idea."
+        },
+        {
+          "prompt": "Egy jó kérdés már egy fél válasz.",
+          "answer": "A good question is already half an answer."
+        },
+        {
+          "prompt": "Mindig minden az én problémám.",
+          "answer": "Everything is always my problem."
+        },
+        {
+          "prompt": "Az egyszerű válasz a legjobb válasz.",
+          "answer": "The simple answer is the best answer."
+        },
+        {
+          "prompt": "Ez az egyszerű kérdés ma egy nagy probléma.",
+          "answer": "This simple question is a big problem today."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "prompt": "Szép.",
+          "answer": "He/she/it is beautiful."
+        },
+        {
+          "prompt": "Itt van.",
+          "answer": "He/she/it is here."
+        },
+        {
+          "prompt": "Tanárnő.",
+          "answer": "She's a teacher."
+        },
+        {
+          "prompt": "Ő a fiam.",
+          "answer": "He's my son."
+        },
+        {
+          "prompt": "Egyedül van.",
+          "answer": "He's alone."
+        },
+        {
+          "prompt": "Fáradt.",
+          "answer": "She is tired."
+        },
+        {
+          "prompt": "Ez biztos.",
+          "answer": "This is sure."
+        },
+        {
+          "prompt": "Még messze van.",
+          "answer": "It's still far."
+        },
+        {
+          "prompt": "Ő a bátyja.",
+          "answer": "He is her brother."
+        },
+        {
+          "prompt": "Diáklány.",
+          "answer": "She's a student."
+        },
+        {
+          "prompt": "Ez fantasztikus.",
+          "answer": "This is fantastic."
+        },
+        {
+          "prompt": "Lehetséges.",
+          "answer": "It's possible."
+        },
+        {
+          "prompt": "Ő a legjobb.",
+          "answer": "He's the best. She's the best."
+        },
+        {
+          "prompt": "Ez a neve.",
+          "answer": "This is her name."
+        },
+        {
+          "prompt": "Rossz az egész.",
+          "answer": "The whole thing is bad."
+        },
+        {
+          "prompt": "Ez igaz.",
+          "answer": "It's true."
+        },
+        {
+          "prompt": "Még gyerek.",
+          "answer": "She is still a child."
+        },
+        {
+          "prompt": "Úgy van.",
+          "answer": "It's so."
+        },
+        {
+          "prompt": "Helyes!",
+          "answer": "That's right!"
+        },
+        {
+          "prompt": "Még diák.",
+          "answer": "He's still a student."
+        },
+        {
+          "prompt": "Még diáklány.",
+          "answer": "She's still a student."
+        },
+        {
+          "prompt": "Ez az ő problémája.",
+          "answer": "This is his problem."
+        },
+        {
+          "prompt": "Ez teljesen igaz.",
+          "answer": "It's completely true."
+        },
+        {
+          "prompt": "Ez az úr orvos.",
+          "answer": "This gentleman is a doctor."
+        },
+        {
+          "prompt": "Ez egy csodás nap.",
+          "answer": "This is a wonderful day."
+        },
+        {
+          "prompt": "Az a hölgy a felesége.",
+          "answer": "That lady is his wife."
+        },
+        {
+          "prompt": "Ez nagyon egyszerű.",
+          "answer": "This is very simple."
+        },
+        {
+          "prompt": "Ez a te ötleted volt.",
+          "answer": "It was your idea."
+        },
+        {
+          "prompt": "Az talán elég nagy.",
+          "answer": "Perhaps that's big enough."
+        },
+        {
+          "prompt": "Ő még mindig ott van.",
+          "answer": "She's still there."
+        },
+        {
+          "prompt": "Ez így volt.",
+          "answer": "It was so."
+        },
+        {
+          "prompt": "Az tegnap még itt volt.",
+          "answer": "That was still here yesterday."
+        },
+        {
+          "prompt": "Az tegnap még itt volt.",
+          "answer": "That was still here yesterday."
+        },
+        {
+          "prompt": "Kinek a felesége ez a csinos hölgy?",
+          "answer": "Whose wife is this pretty lady?"
+        },
+        {
+          "prompt": "Melyik hotel jobb?",
+          "answer": "Which hotel is better?"
+        },
+        {
+          "prompt": "Minden lehetséges.",
+          "answer": "Everything is possible."
+        },
+        {
+          "prompt": "Anyám egy fantasztikus nő.",
+          "answer": "My mother is a fantastic woman."
+        },
+        {
+          "prompt": "A fél falu ott volt.",
+          "answer": "Half the village was there."
+        },
+        {
+          "prompt": "Minden itt van.",
+          "answer": "Everything is here."
+        },
+        {
+          "prompt": "Nagyon jó volt.",
+          "answer": "It was very good."
+        },
+        {
+          "prompt": "Fáradt volt már egy kicsit.",
+          "answer": "She was already a little bit tired."
+        },
+        {
+          "prompt": "A fia itt a legjobb fogorvos.",
+          "answer": "His son is the best dentist here."
+        },
+        {
+          "prompt": "Melyik falu az ott?",
+          "answer": "Which village is that there?"
+        },
+        {
+          "prompt": "A lakásunk nagyon közel van.",
+          "answer": "Our flat is very near."
+        },
+        {
+          "prompt": "Az apja is orvos volt.",
+          "answer": "His father was a doctor, too."
+        },
+        {
+          "prompt": "Ez a férfi már tegnap itt volt.",
+          "answer": "This man was already here yesterday."
+        },
+        {
+          "prompt": "Ez is nagyon fontos.",
+          "answer": "This is very important, too."
+        },
+        {
+          "prompt": "Ez volt az én kérdésem.",
+          "answer": "This was my question."
+        },
+        {
+          "prompt": "Megint itt van az az ember.",
+          "answer": "That man is here again."
+        }
+      ]
+    }
+  ]
+}

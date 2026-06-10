@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "5": "Esercizio A — Collegamenti di base",
+    "6": "Esercizio — Articolo indeterminativo",
+    "7": "Esercizio — Articolo determinativo",
+    "8": "Esercizio — Pronomi dimostrativi",
+    "9": "Esercizio — Pronomi possessivi",
+    "10": "Esercizio — Altri collegamenti",
+    "11": "Esercizio di proposizioni — Misto",
+    "12": "Esercizio di frasi — Questo + Altro",
+    "13": "Esercizio di frasi — Questo + ABC",
+    "14": "Esercizio di frasi — Lui/Lei + Altro",
+    "15": "Esercizio di frasi — Lui/Lei + ABC",
+    "16": "Esercizio di frasi — ABC + Altro",
+    "17": "Esercizio di frasi — ABC + ABC",
+    "18": "Esercizio di frasi — Misto"
+  },
+  "sectionLabels": {
+    "0": "Scheda parole",
+    "1": "Spiegazione della scheda parole",
+    "2": "Grammatica I",
+    "5": "Esercizio A — Collegamenti di base",
+    "6": "Esercizio — Articolo indeterminativo",
+    "7": "Esercizio — Articolo determinativo",
+    "8": "Esercizio — Pronomi dimostrativi",
+    "9": "Esercizio — Pronomi possessivi",
+    "10": "Esercizio — Altri collegamenti",
+    "11": "Esercizio di proposizioni — Misto",
+    "12": "Esercizio di frasi — Questo + Altro",
+    "13": "Esercizio di frasi — Questo + ABC",
+    "14": "Esercizio di frasi — Lui/Lei + Altro",
+    "15": "Esercizio di frasi — Lui/Lei + ABC",
+    "16": "Esercizio di frasi — ABC + Altro",
+    "17": "Esercizio di frasi — ABC + ABC",
+    "18": "Esercizio di frasi — Misto"
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Lezione I",
+      "subtitle": "Fondamenti — articoli, pronomi, frasi"
+    },
+    {
+      "id": 2,
+      "title": "Lezione II",
+      "subtitle": "Prossimamente"
+    },
+    {
+      "id": 3,
+      "title": "Lezione III",
+      "subtitle": "Prossimamente"
+    },
+    {
+      "id": 4,
+      "title": "Lezione IV",
+      "subtitle": "Prossimamente"
+    },
+    {
+      "id": 5,
+      "title": "Lezione V",
+      "subtitle": "Prossimamente"
+    },
+    {
+      "id": 6,
+      "title": "Lezione VI",
+      "subtitle": "Prossimamente"
+    },
+    {
+      "id": 7,
+      "title": "Lezione VII",
+      "subtitle": "Prossimamente"
+    },
+    {
+      "id": 8,
+      "title": "Lezione VIII",
+      "subtitle": "Prossimamente"
+    },
+    {
+      "id": 9,
+      "title": "Lezione IX",
+      "subtitle": "Prossimamente"
+    },
+    {
+      "id": 10,
+      "title": "Lezione X",
+      "subtitle": "Prossimamente"
+    }
+  ]
+}

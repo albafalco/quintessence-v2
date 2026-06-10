@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "5": "Übung A — Grundverbindungen",
+    "6": "Übung — Unbestimmter Artikel",
+    "7": "Übung — Bestimmter Artikel",
+    "8": "Übung — Demonstrativpronomen",
+    "9": "Übung — Possessivpronomen",
+    "10": "Übung — Weitere Verbindungen",
+    "11": "Satzteilübung — Gemischt",
+    "12": "Satzübung — Dies + Andere",
+    "13": "Satzübung — Dies + ABC",
+    "14": "Satzübung — Er/Sie + Andere",
+    "15": "Satzübung — Er/Sie + ABC",
+    "16": "Satzübung — ABC + Andere",
+    "17": "Satzübung — ABC + ABC",
+    "18": "Satzübung — Gemischt"
+  },
+  "sectionLabels": {
+    "0": "Wortblatt",
+    "1": "Wortblatt-Erklärung",
+    "2": "Grammatik I",
+    "5": "Übung A — Grundverbindungen",
+    "6": "Übung — Unbestimmter Artikel",
+    "7": "Übung — Bestimmter Artikel",
+    "8": "Übung — Demonstrativpronomen",
+    "9": "Übung — Possessivpronomen",
+    "10": "Übung — Weitere Verbindungen",
+    "11": "Satzteilübung — Gemischt",
+    "12": "Satzübung — Dies + Andere",
+    "13": "Satzübung — Dies + ABC",
+    "14": "Satzübung — Er/Sie + Andere",
+    "15": "Satzübung — Er/Sie + ABC",
+    "16": "Satzübung — ABC + Andere",
+    "17": "Satzübung — ABC + ABC",
+    "18": "Satzübung — Gemischt"
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Lektion I",
+      "subtitle": "Grundlagen — Artikel, Pronomen, Sätze"
+    },
+    {
+      "id": 2,
+      "title": "Lektion II",
+      "subtitle": "Demnächst"
+    },
+    {
+      "id": 3,
+      "title": "Lektion III",
+      "subtitle": "Demnächst"
+    },
+    {
+      "id": 4,
+      "title": "Lektion IV",
+      "subtitle": "Demnächst"
+    },
+    {
+      "id": 5,
+      "title": "Lektion V",
+      "subtitle": "Demnächst"
+    },
+    {
+      "id": 6,
+      "title": "Lektion VI",
+      "subtitle": "Demnächst"
+    },
+    {
+      "id": 7,
+      "title": "Lektion VII",
+      "subtitle": "Demnächst"
+    },
+    {
+      "id": 8,
+      "title": "Lektion VIII",
+      "subtitle": "Demnächst"
+    },
+    {
+      "id": 9,
+      "title": "Lektion IX",
+      "subtitle": "Demnächst"
+    },
+    {
+      "id": 10,
+      "title": "Lektion X",
+      "subtitle": "Demnächst"
+    }
+  ]
+}

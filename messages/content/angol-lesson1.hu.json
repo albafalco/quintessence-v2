@@ -1,0 +1,4265 @@
+{
+  "sections": {
+    "5": "Gyakorló A — Alapkapcsolások",
+    "6": "Gyakorló — Határozatlan Névelő",
+    "7": "Gyakorló — Határozott Névelő",
+    "8": "Gyakorló — Mutató Névmások",
+    "9": "Gyakorló — Birtokos Névmások",
+    "10": "Gyakorló — Egyéb Kapcsolások",
+    "11": "Mondatrész Gyakorló Vegyes",
+    "12": "Mondat Gyakorló — Ez + Egyéb",
+    "13": "Mondat Gyakorló — Ez + ABC",
+    "14": "Mondat Gyakorló — Ő + Egyéb",
+    "15": "Mondat Gyakorló — Ő + ABC",
+    "16": "Mondat Gyakorló — ABC + Egyéb",
+    "17": "Mondat Gyakorló — ABC + ABC",
+    "18": "Mondat Gyakorló Vegyes"
+  },
+  "practice": [
+    {
+      "id": 5,
+      "nev": "Gyakorló A — Alapkapcsolások",
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "hu": "egy család",
+          "en": "a family"
+        },
+        {
+          "hu": "a család",
+          "en": "the family"
+        },
+        {
+          "hu": "melyik család",
+          "en": "which family"
+        },
+        {
+          "hu": "ez a család",
+          "en": "this family"
+        },
+        {
+          "hu": "az a család",
+          "en": "that family"
+        },
+        {
+          "hu": "minden család",
+          "en": "every family"
+        },
+        {
+          "hu": "a családom",
+          "en": "my family"
+        },
+        {
+          "hu": "a családod",
+          "en": "your family"
+        },
+        {
+          "hu": "a családja",
+          "en": "his family"
+        },
+        {
+          "hu": "az Ön családja",
+          "en": "your family"
+        },
+        {
+          "hu": "a családunk",
+          "en": "our family"
+        },
+        {
+          "hu": "a családotok",
+          "en": "your family"
+        },
+        {
+          "hu": "a családjuk",
+          "en": "their family"
+        },
+        {
+          "hu": "az Önök háza",
+          "en": "your house"
+        },
+        {
+          "hu": "a házuk",
+          "en": "their house"
+        },
+        {
+          "hu": "a házatok",
+          "en": "your house"
+        },
+        {
+          "hu": "a házunk",
+          "en": "our house"
+        },
+        {
+          "hu": "az Ön háza",
+          "en": "your house"
+        },
+        {
+          "hu": "az ő háza",
+          "en": "his/her house"
+        },
+        {
+          "hu": "a házad",
+          "en": "your house"
+        },
+        {
+          "hu": "a házam",
+          "en": "my house"
+        },
+        {
+          "hu": "kinek a háza",
+          "en": "whose house"
+        },
+        {
+          "hu": "minden ház",
+          "en": "every house"
+        },
+        {
+          "hu": "az a ház",
+          "en": "that house"
+        },
+        {
+          "hu": "ez a ház",
+          "en": "this house"
+        },
+        {
+          "hu": "melyik ház",
+          "en": "which house"
+        },
+        {
+          "hu": "a ház",
+          "en": "the house"
+        },
+        {
+          "hu": "egy ház",
+          "en": "a house"
+        },
+        {
+          "hu": "ez a gyerek",
+          "en": "this child"
+        },
+        {
+          "hu": "az a gyerek",
+          "en": "that child"
+        },
+        {
+          "hu": "a gyerekem",
+          "en": "my child"
+        },
+        {
+          "hu": "a gyerek",
+          "en": "the child"
+        },
+        {
+          "hu": "minden gyerek",
+          "en": "every child"
+        },
+        {
+          "hu": "melyik gyerek",
+          "en": "which child"
+        },
+        {
+          "hu": "a gyerekünk",
+          "en": "our child"
+        },
+        {
+          "hu": "egy gyerek",
+          "en": "a child"
+        },
+        {
+          "hu": "a gyereke",
+          "en": "her child"
+        },
+        {
+          "hu": "minden barát",
+          "en": "every friend"
+        },
+        {
+          "hu": "a barátom",
+          "en": "my friend"
+        },
+        {
+          "hu": "egy barát",
+          "en": "a friend"
+        },
+        {
+          "hu": "a barátjuk",
+          "en": "their friend"
+        },
+        {
+          "hu": "az a barát",
+          "en": "that friend"
+        },
+        {
+          "hu": "a ti barátotok",
+          "en": "your friend"
+        },
+        {
+          "hu": "melyik barát",
+          "en": "which friend"
+        },
+        {
+          "hu": "a barátod",
+          "en": "your friend"
+        },
+        {
+          "hu": "ez a barát",
+          "en": "this friend"
+        },
+        {
+          "hu": "minden apa",
+          "en": "every father"
+        },
+        {
+          "hu": "az apám",
+          "en": "my father"
+        },
+        {
+          "hu": "egy apa",
+          "en": "a father"
+        },
+        {
+          "hu": "melyik apa",
+          "en": "which father"
+        },
+        {
+          "hu": "az apja",
+          "en": "his father"
+        },
+        {
+          "hu": "az apád",
+          "en": "your father"
+        },
+        {
+          "hu": "az apa",
+          "en": "the father"
+        },
+        {
+          "hu": "kinek az apja",
+          "en": "whose father"
+        },
+        {
+          "hu": "apánk",
+          "en": "our father"
+        },
+        {
+          "hu": "az Ön apja",
+          "en": "your father"
+        },
+        {
+          "hu": "melyik autó",
+          "en": "which car"
+        },
+        {
+          "hu": "az autónk",
+          "en": "our car"
+        },
+        {
+          "hu": "ez az autó",
+          "en": "this car"
+        },
+        {
+          "hu": "az Ön autója",
+          "en": "your car"
+        },
+        {
+          "hu": "az az autó",
+          "en": "that car"
+        },
+        {
+          "hu": "az autótok",
+          "en": "your car"
+        },
+        {
+          "hu": "minden autó",
+          "en": "every car"
+        },
+        {
+          "hu": "egy autó",
+          "en": "a car"
+        },
+        {
+          "hu": "az autó",
+          "en": "the car"
+        },
+        {
+          "hu": "az autóm",
+          "en": "my car"
+        },
+        {
+          "hu": "a lakásunk",
+          "en": "our flat"
+        },
+        {
+          "hu": "ez a lakás",
+          "en": "this flat"
+        },
+        {
+          "hu": "Kinek a lakása",
+          "en": "whose flat"
+        },
+        {
+          "hu": "melyik lakás",
+          "en": "which flat"
+        },
+        {
+          "hu": "a lakásotok",
+          "en": "your flat"
+        },
+        {
+          "hu": "az Önök lakása",
+          "en": "your flat"
+        },
+        {
+          "hu": "minden lakás",
+          "en": "every flat"
+        },
+        {
+          "hu": "a lakásuk",
+          "en": "their flat"
+        },
+        {
+          "hu": "az a lakás",
+          "en": "that flat"
+        },
+        {
+          "hu": "a lakása",
+          "en": "her flat"
+        },
+        {
+          "hu": "ez a város",
+          "en": "this town"
+        },
+        {
+          "hu": "a városunk",
+          "en": "our town"
+        },
+        {
+          "hu": "melyik város",
+          "en": "which town"
+        },
+        {
+          "hu": "a város",
+          "en": "the town"
+        },
+        {
+          "hu": "a városuk",
+          "en": "their town"
+        },
+        {
+          "hu": "minden város",
+          "en": "every town"
+        },
+        {
+          "hu": "az Önök városa",
+          "en": "your town"
+        },
+        {
+          "hu": "az a város",
+          "en": "that town"
+        },
+        {
+          "hu": "a ti városotok",
+          "en": "your town"
+        },
+        {
+          "hu": "egy szép város",
+          "en": "a beautiful town"
+        },
+        {
+          "hu": "az én problémám",
+          "en": "my problem"
+        },
+        {
+          "hu": "ez a probléma",
+          "en": "this problem"
+        },
+        {
+          "hu": "egy probléma",
+          "en": "a problem"
+        },
+        {
+          "hu": "a ti problémátok",
+          "en": "your problem"
+        },
+        {
+          "hu": "minden probléma",
+          "en": "every problem"
+        },
+        {
+          "hu": "az ő problémája",
+          "en": "her problem"
+        },
+        {
+          "hu": "melyik probléma",
+          "en": "which problem"
+        },
+        {
+          "hu": "a te problémád",
+          "en": "your problem"
+        },
+        {
+          "hu": "a mi problémánk",
+          "en": "our problem"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nev": "Gyakorló — Határozatlan Névelő",
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "hu": "egy nagy család",
+          "en": "a big family"
+        },
+        {
+          "hu": "egy kis gyerek",
+          "en": "a little child"
+        },
+        {
+          "hu": "egy fiatal férfi",
+          "en": "a young man"
+        },
+        {
+          "hu": "egy új ház",
+          "en": "a new house"
+        },
+        {
+          "hu": "egy régi lakás",
+          "en": "an old flat"
+        },
+        {
+          "hu": "egy nagy város",
+          "en": "a big city"
+        },
+        {
+          "hu": "egy kis falu",
+          "en": "a small village"
+        },
+        {
+          "hu": "egy szép nő",
+          "en": "a beautiful woman"
+        },
+        {
+          "hu": "egy jó orvos",
+          "en": "a good doctor"
+        },
+        {
+          "hu": "egy öreg ember",
+          "en": "an old man"
+        },
+        {
+          "hu": "egy kis fiú",
+          "en": "a little boy"
+        },
+        {
+          "hu": "egy nagy lány",
+          "en": "a big girl"
+        },
+        {
+          "hu": "egy jó feleség",
+          "en": "a good wife"
+        },
+        {
+          "hu": "egy csinos nő",
+          "en": "a pretty woman"
+        },
+        {
+          "hu": "egy rossz gyerek",
+          "en": "a bad child"
+        },
+        {
+          "hu": "egy boldog ember",
+          "en": "a happy man"
+        },
+        {
+          "hu": "egy régi barát",
+          "en": "an old friend"
+        },
+        {
+          "hu": "egy új barátnő",
+          "en": "a new girlfriend"
+        },
+        {
+          "hu": "egy érdekes történet",
+          "en": "an interesting story"
+        },
+        {
+          "hu": "egy szép nap",
+          "en": "a beautiful day"
+        },
+        {
+          "hu": "egy nagy lakás",
+          "en": "a big flat"
+        },
+        {
+          "hu": "egy nagy probléma",
+          "en": "a big problem"
+        },
+        {
+          "hu": "egy egész város",
+          "en": "a whole town"
+        },
+        {
+          "hu": "egy jó fogorvos",
+          "en": "a good dentist"
+        },
+        {
+          "hu": "egy rossz autó",
+          "en": "a bad car"
+        },
+        {
+          "hu": "egy fiatal diáklány",
+          "en": "a young student"
+        },
+        {
+          "hu": "egy fantasztikus anya",
+          "en": "a fantastic mother"
+        },
+        {
+          "hu": "egy boldog család",
+          "en": "a happy family"
+        },
+        {
+          "hu": "egy új lakás",
+          "en": "a new flat"
+        },
+        {
+          "hu": "egy csinos feleség",
+          "en": "a pretty wife"
+        },
+        {
+          "hu": "egy idős úr",
+          "en": "an old gentleman"
+        },
+        {
+          "hu": "egy fiatal hölgy",
+          "en": "a young lady"
+        },
+        {
+          "hu": "egy szép fotó",
+          "en": "a beautiful photo"
+        },
+        {
+          "hu": "egy öreg fiú",
+          "en": "an old boy"
+        },
+        {
+          "hu": "egy pontos ember",
+          "en": "an exact man"
+        },
+        {
+          "hu": "egy pontos válasz",
+          "en": "an exact answer"
+        },
+        {
+          "hu": "egy érdekes kérdés",
+          "en": "an interesting question"
+        },
+        {
+          "hu": "egy csodás program",
+          "en": "a wonderful program"
+        },
+        {
+          "hu": "egy egyszerű dolog",
+          "en": "a simple thing"
+        },
+        {
+          "hu": "egy jó kérdés",
+          "en": "a good question"
+        },
+        {
+          "hu": "egy jobb lakás",
+          "en": "a better flat"
+        },
+        {
+          "hu": "egy jobb autó",
+          "en": "a better car"
+        },
+        {
+          "hu": "egy jobb fotó",
+          "en": "a better photo"
+        },
+        {
+          "hu": "egy jobb ötlet",
+          "en": "a better idea"
+        },
+        {
+          "hu": "egy jobb férj",
+          "en": "a better husband"
+        },
+        {
+          "hu": "egy jobb válasz",
+          "en": "a better answer"
+        },
+        {
+          "hu": "egy jobb diák",
+          "en": "a better student"
+        },
+        {
+          "hu": "egy jobb tanár",
+          "en": "a better teacher"
+        },
+        {
+          "hu": "egy jobb hotel",
+          "en": "a better hotel"
+        },
+        {
+          "hu": "egy jobb téma",
+          "en": "a better topic"
+        },
+        {
+          "hu": "egy új téma",
+          "en": "a new topic"
+        },
+        {
+          "hu": "egy igaz történet",
+          "en": "a true story"
+        },
+        {
+          "hu": "egy biztos válasz",
+          "en": "a sure answer"
+        },
+        {
+          "hu": "egy modern hotel",
+          "en": "a modern hotel"
+        },
+        {
+          "hu": "egy érdekes program",
+          "en": "an interesting program"
+        },
+        {
+          "hu": "egy csinos lány",
+          "en": "a pretty girl"
+        },
+        {
+          "hu": "egy fél ház",
+          "en": "half a house"
+        },
+        {
+          "hu": "egy jó fiú",
+          "en": "a good boy"
+        },
+        {
+          "hu": "egy fontos cím",
+          "en": "an important address"
+        },
+        {
+          "hu": "egy új autó",
+          "en": "a new car"
+        },
+        {
+          "hu": "egy kis autó",
+          "en": "a small car"
+        },
+        {
+          "hu": "egy régi fotó",
+          "en": "an old photo"
+        },
+        {
+          "hu": "egy csodás ember",
+          "en": "a wonderful man"
+        },
+        {
+          "hu": "egy fontos dolog",
+          "en": "an important thing"
+        },
+        {
+          "hu": "egy nagy lakás",
+          "en": "a big flat"
+        },
+        {
+          "hu": "egy kis probléma",
+          "en": "a small problem"
+        },
+        {
+          "hu": "egy csinos tanárnő",
+          "en": "a pretty teacher"
+        },
+        {
+          "hu": "egy öreg férj",
+          "en": "an old husband"
+        },
+        {
+          "hu": "egy fiatal feleség",
+          "en": "a young wife"
+        },
+        {
+          "hu": "egy modern lakás",
+          "en": "a modern flat"
+        },
+        {
+          "hu": "egy nagyon jó barát",
+          "en": "a very good friend"
+        },
+        {
+          "hu": "egy nagyon rossz fotó",
+          "en": "a very bad photo"
+        },
+        {
+          "hu": "egy egész jó ötlet",
+          "en": "quite a good idea"
+        },
+        {
+          "hu": "egy nagyon jó kolléga",
+          "en": "a very good colleague"
+        },
+        {
+          "hu": "egy nagyon jó kérdés",
+          "en": "a very good question"
+        },
+        {
+          "hu": "egy nagyon nagy probléma",
+          "en": "a very big problem"
+        },
+        {
+          "hu": "egy csodás nap",
+          "en": "a wonderful day"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "nev": "Gyakorló — Határozott Névelő",
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "hu": "a kis lány",
+          "en": "the little girl"
+        },
+        {
+          "hu": "a kis fiú",
+          "en": "the little boy"
+        },
+        {
+          "hu": "az új ház",
+          "en": "the new house"
+        },
+        {
+          "hu": "a régi lakás",
+          "en": "the old flat"
+        },
+        {
+          "hu": "egy fiatal férfi",
+          "en": "the young man"
+        },
+        {
+          "hu": "az öreg hölgy",
+          "en": "the old lady"
+        },
+        {
+          "hu": "a nagy város",
+          "en": "the big city"
+        },
+        {
+          "hu": "a kis falu",
+          "en": "the small village"
+        },
+        {
+          "hu": "az egész család",
+          "en": "the whole family"
+        },
+        {
+          "hu": "a fél ház",
+          "en": "half the house"
+        },
+        {
+          "hu": "az új orvos",
+          "en": "the new doctor"
+        },
+        {
+          "hu": "az új fogorvos",
+          "en": "the new dentist"
+        },
+        {
+          "hu": "a kis gyerek",
+          "en": "the little child"
+        },
+        {
+          "hu": "a régi barát",
+          "en": "the old friend"
+        },
+        {
+          "hu": "az új kolléga",
+          "en": "the new colleague"
+        },
+        {
+          "hu": "az új hotel",
+          "en": "the new hotel"
+        },
+        {
+          "hu": "a régi probléma",
+          "en": "the old problem"
+        },
+        {
+          "hu": "a boldog apa",
+          "en": "the happy father"
+        },
+        {
+          "hu": "a fáradt feleség",
+          "en": "the tired wife"
+        },
+        {
+          "hu": "a modern lakás",
+          "en": "the modern flat"
+        },
+        {
+          "hu": "az öreg tanár",
+          "en": "the old teacher"
+        },
+        {
+          "hu": "a régi történet",
+          "en": "the old story"
+        },
+        {
+          "hu": "az új barátnő",
+          "en": "the new girlfriend"
+        },
+        {
+          "hu": "az egész ház",
+          "en": "the whole house"
+        },
+        {
+          "hu": "a fél falu",
+          "en": "half the village"
+        },
+        {
+          "hu": "a régi név",
+          "en": "the old name"
+        },
+        {
+          "hu": "a helyes dolog",
+          "en": "the right thing"
+        },
+        {
+          "hu": "az új fogorvos",
+          "en": "the new dentist"
+        },
+        {
+          "hu": "a modern ember",
+          "en": "the modern man"
+        },
+        {
+          "hu": "a modern nő",
+          "en": "the modern woman"
+        },
+        {
+          "hu": "az egész város",
+          "en": "the whole town"
+        },
+        {
+          "hu": "a jó feleség",
+          "en": "the good wife"
+        },
+        {
+          "hu": "az új cím",
+          "en": "the new adress"
+        },
+        {
+          "hu": "a fél falu",
+          "en": "half the village"
+        },
+        {
+          "hu": "az idős úr",
+          "en": "the old gentleman"
+        },
+        {
+          "hu": "a csodás város",
+          "en": "the wonderful town"
+        },
+        {
+          "hu": "a legjobb válasz",
+          "en": "the best answer"
+        },
+        {
+          "hu": "a fél város",
+          "en": "half the town"
+        },
+        {
+          "hu": "az új probléma",
+          "en": "the new problem"
+        },
+        {
+          "hu": "az idős hölgy",
+          "en": "the old lady"
+        },
+        {
+          "hu": "az egész család",
+          "en": "the whole family"
+        },
+        {
+          "hu": "az egész történet",
+          "en": "the whole story"
+        },
+        {
+          "hu": "a helyes válasz",
+          "en": "the right answer"
+        },
+        {
+          "hu": "az új téma",
+          "en": "the new topic"
+        },
+        {
+          "hu": "a fontos dolog",
+          "en": "the important thing"
+        },
+        {
+          "hu": "a nagy probléma",
+          "en": "the big problem"
+        },
+        {
+          "hu": "a kis ember",
+          "en": "the little man"
+        },
+        {
+          "hu": "a régi történet",
+          "en": "the old story"
+        },
+        {
+          "hu": "az új kérdés",
+          "en": "the new question"
+        },
+        {
+          "hu": "a fáradt anya",
+          "en": "the tired mother"
+        },
+        {
+          "hu": "a modern lakás",
+          "en": "the modern flat"
+        },
+        {
+          "hu": "az új program",
+          "en": "the new program"
+        },
+        {
+          "hu": "a rossz gyerek",
+          "en": "the bad child"
+        },
+        {
+          "hu": "a fiatal ember",
+          "en": "the young man"
+        },
+        {
+          "hu": "a régi lakás",
+          "en": "the old flat"
+        },
+        {
+          "hu": "az igaz történet",
+          "en": "the true story"
+        },
+        {
+          "hu": "az idős férfi",
+          "en": "the old man"
+        },
+        {
+          "hu": "az új autó",
+          "en": "the new car"
+        },
+        {
+          "hu": "a régi fotó",
+          "en": "the old photo"
+        },
+        {
+          "hu": "a régi lakás",
+          "en": "the old flat"
+        },
+        {
+          "hu": "a modern ember",
+          "en": "the modern man"
+        },
+        {
+          "hu": "a modern nő",
+          "en": "the modern woman"
+        },
+        {
+          "hu": "az egész város",
+          "en": "the whole town"
+        },
+        {
+          "hu": "a jó feleség",
+          "en": "the good wife"
+        },
+        {
+          "hu": "az új telefonszám",
+          "en": "the new telephone number"
+        },
+        {
+          "hu": "a pontos program",
+          "en": "the exact program"
+        },
+        {
+          "hu": "a fantasztikus dolog",
+          "en": "the fantastic thing"
+        },
+        {
+          "hu": "a csinos diáklány",
+          "en": "the pretty student"
+        },
+        {
+          "hu": "a pontos telefonszám",
+          "en": "the exact telephone number"
+        },
+        {
+          "hu": "a fantasztikus történet",
+          "en": "the fantastic story"
+        },
+        {
+          "hu": "a pontos cím",
+          "en": "the exact address"
+        },
+        {
+          "hu": "a pontos ember",
+          "en": "the exact man"
+        },
+        {
+          "hu": "az érdekes program",
+          "en": "the interesting program"
+        },
+        {
+          "hu": "az új, érdekes téma",
+          "en": "the new, interesting topic"
+        },
+        {
+          "hu": "a legjobb diák",
+          "en": "the best student"
+        },
+        {
+          "hu": "a legjobb tanár",
+          "en": "the best teacher"
+        },
+        {
+          "hu": "a legjobb orvos",
+          "en": "the best doctor"
+        },
+        {
+          "hu": "a legjobb kolléga",
+          "en": "the best colleague"
+        },
+        {
+          "hu": "a legjobb fotó",
+          "en": "the best photo"
+        },
+        {
+          "hu": "a legjobb ötlet",
+          "en": "the best idea"
+        },
+        {
+          "hu": "a legjobb válasz",
+          "en": "the best answer"
+        },
+        {
+          "hu": "a legjobb dolog",
+          "en": "the best thing"
+        },
+        {
+          "hu": "a legjobb program",
+          "en": "the best program"
+        },
+        {
+          "hu": "a legjobb téma",
+          "en": "the best topic"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "nev": "Gyakorló — Mutató Névmások",
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "hu": "melyik nap",
+          "en": "which day"
+        },
+        {
+          "hu": "melyik diák",
+          "en": "which student"
+        },
+        {
+          "hu": "melyik fiú",
+          "en": "which boy"
+        },
+        {
+          "hu": "melyik lány",
+          "en": "which girl"
+        },
+        {
+          "hu": "melyik ember",
+          "en": "which person"
+        },
+        {
+          "hu": "melyik autó",
+          "en": "which car"
+        },
+        {
+          "hu": "melyik ház",
+          "en": "which house"
+        },
+        {
+          "hu": "melyik fotó",
+          "en": "which photo"
+        },
+        {
+          "hu": "melyik cím",
+          "en": "which address"
+        },
+        {
+          "hu": "melyik telefonszám",
+          "en": "which telephone number"
+        },
+        {
+          "hu": "ez az ember",
+          "en": "this person"
+        },
+        {
+          "hu": "ez a férfi",
+          "en": "this man"
+        },
+        {
+          "hu": "ez a nő",
+          "en": "this woman"
+        },
+        {
+          "hu": "ez a nap",
+          "en": "this day"
+        },
+        {
+          "hu": "ez a kérdés",
+          "en": "this question"
+        },
+        {
+          "hu": "ez a név",
+          "en": "this name"
+        },
+        {
+          "hu": "ez a cím",
+          "en": "this address"
+        },
+        {
+          "hu": "ez a telefonszám",
+          "en": "this telephone number"
+        },
+        {
+          "hu": "ez a dolog",
+          "en": "this thing"
+        },
+        {
+          "hu": "ez a probléma",
+          "en": "this problem"
+        },
+        {
+          "hu": "az az ember",
+          "en": "that person"
+        },
+        {
+          "hu": "az a hotel",
+          "en": "that hotel"
+        },
+        {
+          "hu": "az az autó",
+          "en": "that car"
+        },
+        {
+          "hu": "az a férfi",
+          "en": "that man"
+        },
+        {
+          "hu": "az a fiú",
+          "en": "that boy"
+        },
+        {
+          "hu": "az a lány",
+          "en": "that girl"
+        },
+        {
+          "hu": "az az úr",
+          "en": "that gentleman"
+        },
+        {
+          "hu": "az a cím",
+          "en": "that address"
+        },
+        {
+          "hu": "az a nap",
+          "en": "that day"
+        },
+        {
+          "hu": "az a dolog",
+          "en": "that thing"
+        },
+        {
+          "hu": "minden gyerek",
+          "en": "every child"
+        },
+        {
+          "hu": "minden diák",
+          "en": "every student"
+        },
+        {
+          "hu": "minden diáklány",
+          "en": "every student"
+        },
+        {
+          "hu": "minden tanár",
+          "en": "every teacher"
+        },
+        {
+          "hu": "minden fiú",
+          "en": "every boy"
+        },
+        {
+          "hu": "minden lány",
+          "en": "every girl"
+        },
+        {
+          "hu": "minden férfi",
+          "en": "every man"
+        },
+        {
+          "hu": "minden nő",
+          "en": "every woman"
+        },
+        {
+          "hu": "minden probléma",
+          "en": "every problem"
+        },
+        {
+          "hu": "minden nap",
+          "en": "every day"
+        },
+        {
+          "hu": "melyik régi barát",
+          "en": "which old friend"
+        },
+        {
+          "hu": "melyik fáradt ember",
+          "en": "which tired person"
+        },
+        {
+          "hu": "melyik csinos nő",
+          "en": "which pretty woman"
+        },
+        {
+          "hu": "melyik fiatal feleség",
+          "en": "which young wife"
+        },
+        {
+          "hu": "melyik öreg autó",
+          "en": "which old car"
+        },
+        {
+          "hu": "melyik öreg ház",
+          "en": "which old house"
+        },
+        {
+          "hu": "melyik ötlet",
+          "en": "which idea"
+        },
+        {
+          "hu": "melyik új téma",
+          "en": "which new topic"
+        },
+        {
+          "hu": "melyik gyerek",
+          "en": "which child"
+        },
+        {
+          "hu": "melyik dolog",
+          "en": "which thing"
+        },
+        {
+          "hu": "ez a kis ház",
+          "en": "this small house"
+        },
+        {
+          "hu": "ez a boldog család",
+          "en": "this happy family"
+        },
+        {
+          "hu": "ez a nagy város",
+          "en": "this big city"
+        },
+        {
+          "hu": "ez a kis falu",
+          "en": "this small village"
+        },
+        {
+          "hu": "ez az egész dolog",
+          "en": "this whole thing"
+        },
+        {
+          "hu": "ez a régi történet",
+          "en": "this old story"
+        },
+        {
+          "hu": "ez a fáradt ember",
+          "en": "this tired person"
+        },
+        {
+          "hu": "ez a fiatal hölgy",
+          "en": "this young lady"
+        },
+        {
+          "hu": "ez az új ötlet",
+          "en": "this new idea"
+        },
+        {
+          "hu": "ez az érdekes téma",
+          "en": "this interesting topic"
+        },
+        {
+          "hu": "az a csodás város",
+          "en": "that wonderful town"
+        },
+        {
+          "hu": "az a régi fotó",
+          "en": "that old photo"
+        },
+        {
+          "hu": "az a régi barát",
+          "en": "that old friend"
+        },
+        {
+          "hu": "az a rossz gyerek",
+          "en": "that bad child"
+        },
+        {
+          "hu": "az az idős úr",
+          "en": "that old gentleman"
+        },
+        {
+          "hu": "az a csinos lány",
+          "en": "that pretty girl"
+        },
+        {
+          "hu": "az a régi probléma",
+          "en": "that old problem"
+        },
+        {
+          "hu": "az a kis család",
+          "en": "that small family"
+        },
+        {
+          "hu": "az a nagy ház",
+          "en": "that big house"
+        },
+        {
+          "hu": "az a boldog nap",
+          "en": "that happy day"
+        },
+        {
+          "hu": "minden nagy család",
+          "en": "every big family"
+        },
+        {
+          "hu": "minden kis falu",
+          "en": "every small village"
+        },
+        {
+          "hu": "minden boldog ember",
+          "en": "every happy person"
+        },
+        {
+          "hu": "minden jó feleség",
+          "en": "every good wife"
+        },
+        {
+          "hu": "minden jó anya",
+          "en": "every good mother"
+        },
+        {
+          "hu": "minden régi barát",
+          "en": "every old friend"
+        },
+        {
+          "hu": "minden fontos kérdés",
+          "en": "every important question"
+        },
+        {
+          "hu": "minden új dolog",
+          "en": "every new thing"
+        },
+        {
+          "hu": "minden jó ötlet",
+          "en": "every good idea"
+        },
+        {
+          "hu": "minden helyes válasz",
+          "en": "every right answer"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "nev": "Gyakorló — Birtokos Névmások",
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "hu": "kinek a gyereke",
+          "en": "whose child"
+        },
+        {
+          "hu": "kinek a fia",
+          "en": "whose son"
+        },
+        {
+          "hu": "kinek a lánya",
+          "en": "whose daughter"
+        },
+        {
+          "hu": "kinek a barátnője",
+          "en": "whose girlfriend"
+        },
+        {
+          "hu": "kinek az autója",
+          "en": "whose car"
+        },
+        {
+          "hu": "kinek a kollégája",
+          "en": "whose colleague"
+        },
+        {
+          "hu": "kinek az ötlete",
+          "en": "whose idea"
+        },
+        {
+          "hu": "kinek a háza",
+          "en": "whose house"
+        },
+        {
+          "hu": "kinek a problémája",
+          "en": "whose problem"
+        },
+        {
+          "hu": "kinek a régi barátja",
+          "en": "whose old friend"
+        },
+        {
+          "hu": "az anyám",
+          "en": "my mother"
+        },
+        {
+          "hu": "az apám",
+          "en": "my father"
+        },
+        {
+          "hu": "a fiam",
+          "en": "my son"
+        },
+        {
+          "hu": "a lányom",
+          "en": "my daughter"
+        },
+        {
+          "hu": "a nővérem",
+          "en": "my sister"
+        },
+        {
+          "hu": "a bátyám",
+          "en": "my brother"
+        },
+        {
+          "hu": "a feleségem",
+          "en": "my wife"
+        },
+        {
+          "hu": "a férjem",
+          "en": "my husband"
+        },
+        {
+          "hu": "a nevem",
+          "en": "my name"
+        },
+        {
+          "hu": "a címem",
+          "en": "my address"
+        },
+        {
+          "hu": "a felesége",
+          "en": "his wife"
+        },
+        {
+          "hu": "a férje",
+          "en": "her husband"
+        },
+        {
+          "hu": "a nővére",
+          "en": "his/her sister"
+        },
+        {
+          "hu": "a bátyja",
+          "en": "his/her brother"
+        },
+        {
+          "hu": "a fia",
+          "en": "his/her son"
+        },
+        {
+          "hu": "a lánya",
+          "en": "his/her daughter"
+        },
+        {
+          "hu": "a neve",
+          "en": "his/her name"
+        },
+        {
+          "hu": "a címe",
+          "en": "his/her address"
+        },
+        {
+          "hu": "a telefonszáma",
+          "en": "his/her telephone number"
+        },
+        {
+          "hu": "az új barátnője",
+          "en": "his new girlfriend"
+        },
+        {
+          "hu": "a fiunk",
+          "en": "our son"
+        },
+        {
+          "hu": "a lányunk",
+          "en": "our daughter"
+        },
+        {
+          "hu": "a gyermekünk",
+          "en": "our child"
+        },
+        {
+          "hu": "a városunk",
+          "en": "our town"
+        },
+        {
+          "hu": "a falunk",
+          "en": "our village"
+        },
+        {
+          "hu": "a házunk",
+          "en": "our house"
+        },
+        {
+          "hu": "az új lakásunk",
+          "en": "our new flat"
+        },
+        {
+          "hu": "a mi problémánk",
+          "en": "our problem"
+        },
+        {
+          "hu": "az autónk",
+          "en": "our car"
+        },
+        {
+          "hu": "a kis családunk",
+          "en": "our little family"
+        },
+        {
+          "hu": "a gyerekük",
+          "en": "their child"
+        },
+        {
+          "hu": "a fiuk",
+          "en": "their son"
+        },
+        {
+          "hu": "a lányuk",
+          "en": "their daughter"
+        },
+        {
+          "hu": "a családjuk",
+          "en": "their family"
+        },
+        {
+          "hu": "az anyjuk",
+          "en": "their mother"
+        },
+        {
+          "hu": "a kérdésük",
+          "en": "their question"
+        },
+        {
+          "hu": "az ő problémájuk",
+          "en": "their problem"
+        },
+        {
+          "hu": "a tanárnőjük",
+          "en": "their teacher"
+        },
+        {
+          "hu": "az új lakásuk",
+          "en": "their new flat"
+        },
+        {
+          "hu": "a régi barátjuk",
+          "en": "their old friend"
+        },
+        {
+          "hu": "a ti városotok",
+          "en": "your town"
+        },
+        {
+          "hu": "a fiad",
+          "en": "your son"
+        },
+        {
+          "hu": "a lányod",
+          "en": "your daughter"
+        },
+        {
+          "hu": "az anyád",
+          "en": "your mother"
+        },
+        {
+          "hu": "az apád",
+          "en": "your father"
+        },
+        {
+          "hu": "a bátyád",
+          "en": "your brother"
+        },
+        {
+          "hu": "a nővéred",
+          "en": "your sister"
+        },
+        {
+          "hu": "a férjed",
+          "en": "your husband"
+        },
+        {
+          "hu": "a feleséged",
+          "en": "your wife"
+        },
+        {
+          "hu": "a neved",
+          "en": "your name"
+        },
+        {
+          "hu": "az új címed",
+          "en": "your new address"
+        },
+        {
+          "hu": "a telefonszámom",
+          "en": "my telephone number"
+        },
+        {
+          "hu": "az új címem",
+          "en": "my new address"
+        },
+        {
+          "hu": "a régi barátom",
+          "en": "my old friend"
+        },
+        {
+          "hu": "a barátnőm",
+          "en": "my girlfriend"
+        },
+        {
+          "hu": "a kollégám",
+          "en": "my colleague"
+        },
+        {
+          "hu": "az én ötletem",
+          "en": "my idea"
+        },
+        {
+          "hu": "az én problémám",
+          "en": "my problem"
+        },
+        {
+          "hu": "a kérdésem",
+          "en": "my question"
+        },
+        {
+          "hu": "a válaszom",
+          "en": "my answer"
+        },
+        {
+          "hu": "a kis családom",
+          "en": "my little family"
+        },
+        {
+          "hu": "az Ön családja",
+          "en": "your family"
+        },
+        {
+          "hu": "az Ön férje",
+          "en": "your husband"
+        },
+        {
+          "hu": "az Ön felesége",
+          "en": "your wife"
+        },
+        {
+          "hu": "az Ön fia",
+          "en": "your son"
+        },
+        {
+          "hu": "az Ön lánya",
+          "en": "your daughter"
+        },
+        {
+          "hu": "az Ön nővére",
+          "en": "your sister"
+        },
+        {
+          "hu": "az Ön bátyja",
+          "en": "your brother"
+        },
+        {
+          "hu": "az Ön kérdése",
+          "en": "your question"
+        },
+        {
+          "hu": "az Ön autója",
+          "en": "your car"
+        },
+        {
+          "hu": "az Ön régi barátja",
+          "en": "your old friend"
+        },
+        {
+          "hu": "a városotok",
+          "en": "your town"
+        },
+        {
+          "hu": "az új autótok",
+          "en": "your new car"
+        },
+        {
+          "hu": "a kollégátok",
+          "en": "your colleague"
+        },
+        {
+          "hu": "a családotok",
+          "en": "your family"
+        },
+        {
+          "hu": "a címetek",
+          "en": "your address"
+        },
+        {
+          "hu": "a kérdésetek",
+          "en": "your question"
+        },
+        {
+          "hu": "a válaszotok",
+          "en": "your answer"
+        },
+        {
+          "hu": "a ti problémátok",
+          "en": "your problem"
+        },
+        {
+          "hu": "a saját házatok",
+          "en": "your own house"
+        },
+        {
+          "hu": "az új tanárotok",
+          "en": "your new teacher"
+        },
+        {
+          "hu": "az Önök gyermeke",
+          "en": "your child"
+        },
+        {
+          "hu": "az Önök fia",
+          "en": "your son"
+        },
+        {
+          "hu": "az Önök lánya",
+          "en": "your daughter"
+        },
+        {
+          "hu": "az Önök családja",
+          "en": "your family"
+        },
+        {
+          "hu": "az Önök címe",
+          "en": "your address"
+        },
+        {
+          "hu": "az Önök telefonszáma",
+          "en": "your telephone number"
+        },
+        {
+          "hu": "az Önök neve",
+          "en": "your name"
+        },
+        {
+          "hu": "az Önök programja",
+          "en": "your program"
+        },
+        {
+          "hu": "az Önök szép városa",
+          "en": "your beautiful town"
+        },
+        {
+          "hu": "az Önök új kollégája",
+          "en": "your new colleague"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "nev": "Gyakorló — Egyéb Kapcsolások",
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "hu": "még mindig",
+          "en": "still"
+        },
+        {
+          "hu": "már megint",
+          "en": "again"
+        },
+        {
+          "hu": "épp most",
+          "en": "just now/right now"
+        },
+        {
+          "hu": "talán ma",
+          "en": "perhaps today"
+        },
+        {
+          "hu": "most már",
+          "en": "now"
+        },
+        {
+          "hu": "még ma",
+          "en": "still today"
+        },
+        {
+          "hu": "most megint",
+          "en": "now again"
+        },
+        {
+          "hu": "éppen így",
+          "en": "just so"
+        },
+        {
+          "hu": "újr a itthon",
+          "en": "again at home"
+        },
+        {
+          "hu": "talán most",
+          "en": "perhaps now"
+        },
+        {
+          "hu": "épp ma",
+          "en": "just today"
+        },
+        {
+          "hu": "már tegnap",
+          "en": "already yesterday"
+        },
+        {
+          "hu": "már ma",
+          "en": "already today"
+        },
+        {
+          "hu": "talán éppen",
+          "en": "perhaps just"
+        },
+        {
+          "hu": "most is",
+          "en": "now also"
+        },
+        {
+          "hu": "vagy csak",
+          "en": "or only"
+        },
+        {
+          "hu": "és most",
+          "en": "and now"
+        },
+        {
+          "hu": "tegnap is",
+          "en": "also yesterday"
+        },
+        {
+          "hu": "vagy talán",
+          "en": "or perhaps"
+        },
+        {
+          "hu": "újból egyedül",
+          "en": "alone again"
+        },
+        {
+          "hu": "csak most",
+          "en": "only now"
+        },
+        {
+          "hu": "most csak egyedül",
+          "en": "now only alone"
+        },
+        {
+          "hu": "ma is",
+          "en": "also today"
+        },
+        {
+          "hu": "talán meg ma",
+          "en": "perhaps still today"
+        },
+        {
+          "hu": "és így",
+          "en": "and so"
+        },
+        {
+          "hu": "most már minden",
+          "en": "now everything"
+        },
+        {
+          "hu": "még csak",
+          "en": "still only"
+        },
+        {
+          "hu": "már minden",
+          "en": "already everything"
+        },
+        {
+          "hu": "talán még mindig",
+          "en": "perhaps still"
+        },
+        {
+          "hu": "he also",
+          "en": "he also"
+        },
+        {
+          "hu": "talán újból",
+          "en": "perhaps again"
+        },
+        {
+          "hu": "de még mindig",
+          "en": "but still"
+        },
+        {
+          "hu": "mindig egyedül",
+          "en": "always alone"
+        },
+        {
+          "hu": "de most újra",
+          "en": "but now again"
+        },
+        {
+          "hu": "gyakran itt",
+          "en": "often here"
+        },
+        {
+          "hu": "de csak most",
+          "en": "but only now"
+        },
+        {
+          "hu": "és ma",
+          "en": "and today"
+        },
+        {
+          "hu": "de most már",
+          "en": "but now"
+        },
+        {
+          "hu": "mindig úgy",
+          "en": "always so"
+        },
+        {
+          "hu": "újból egyedül",
+          "en": "alone again"
+        },
+        {
+          "hu": "vagy így",
+          "en": "or so"
+        },
+        {
+          "hu": "csak így",
+          "en": "only so"
+        },
+        {
+          "hu": "már közel",
+          "en": "already near"
+        },
+        {
+          "hu": "ma megint",
+          "en": "today again"
+        },
+        {
+          "hu": "még messze",
+          "en": "still far"
+        },
+        {
+          "hu": "csak ő",
+          "en": "only she"
+        },
+        {
+          "hu": "mindig itt",
+          "en": "always here"
+        },
+        {
+          "hu": "gyakran otthon",
+          "en": "often at home"
+        },
+        {
+          "hu": "még mindig nagyon messze",
+          "en": "still very far"
+        },
+        {
+          "hu": "most már eléggé közel",
+          "en": "now near enough"
+        },
+        {
+          "hu": "talán még mindig ott",
+          "en": "perhaps still there"
+        },
+        {
+          "hu": "talán már elég közel",
+          "en": "perhaps already near enough"
+        },
+        {
+          "hu": "most még túl messze",
+          "en": "now still too far"
+        },
+        {
+          "hu": "még mindig nagyon gyakran",
+          "en": "still very often"
+        },
+        {
+          "hu": "most már elég ritkán",
+          "en": "now quite seldom"
+        },
+        {
+          "hu": "vagy talán ő is?",
+          "en": "or perhaps she also?"
+        },
+        {
+          "hu": "csak most vagy mindig?",
+          "en": "only now or always?"
+        },
+        {
+          "hu": "talán most egyedül is",
+          "en": "perhaps now also alone"
+        },
+        {
+          "hu": "talán éppen most",
+          "en": "perhaps right now"
+        },
+        {
+          "hu": "még nagyon messze",
+          "en": "still very far"
+        },
+        {
+          "hu": "már nagyon közel",
+          "en": "already very near"
+        },
+        {
+          "hu": "megint itt",
+          "en": "again here"
+        },
+        {
+          "hu": "még mindig ott",
+          "en": "still there"
+        },
+        {
+          "hu": "talán épp így",
+          "en": "perhaps just so"
+        },
+        {
+          "hu": "ma vagy tegnap",
+          "en": "today or yesterday"
+        },
+        {
+          "hu": "még mindig otthon",
+          "en": "still at home"
+        },
+        {
+          "hu": "így vagy úgy",
+          "en": "this way or that way"
+        },
+        {
+          "hu": "most teljesen egyedül",
+          "en": "now quite alone"
+        },
+        {
+          "hu": "és így talán",
+          "en": "and so perhaps"
+        },
+        {
+          "hu": "most még minden",
+          "en": "now still everything"
+        },
+        {
+          "hu": "mindig csak így",
+          "en": "always only so"
+        },
+        {
+          "hu": "talán éppen",
+          "en": "perhaps just"
+        },
+        {
+          "hu": "itt vagy ott",
+          "en": "here or there"
+        },
+        {
+          "hu": "most is",
+          "en": "now also"
+        },
+        {
+          "hu": "ez vagy az",
+          "en": "this or that"
+        },
+        {
+          "hu": "vagy csak",
+          "en": "or only"
+        },
+        {
+          "hu": "most csak úgy",
+          "en": "now only so"
+        },
+        {
+          "hu": "és most",
+          "en": "and now"
+        },
+        {
+          "hu": "most talán",
+          "en": "now perhaps"
+        },
+        {
+          "hu": "tegnap is",
+          "en": "also yesterday"
+        },
+        {
+          "hu": "talán még mindig",
+          "en": "perhaps still"
+        },
+        {
+          "hu": "vagy talán",
+          "en": "or perhaps"
+        },
+        {
+          "hu": "most vagy soha!",
+          "en": "now or never!"
+        },
+        {
+          "hu": "újból egyedül",
+          "en": "alone again"
+        },
+        {
+          "hu": "mindent vagy semmit!",
+          "en": "all or nothing!"
+        },
+        {
+          "hu": "csak most",
+          "en": "only now"
+        },
+        {
+          "hu": "most csak egyedül",
+          "en": "now only alone"
+        },
+        {
+          "hu": "ma is",
+          "en": "also today"
+        },
+        {
+          "hu": "talán meg ma",
+          "en": "perhaps still today"
+        },
+        {
+          "hu": "és így",
+          "en": "and so"
+        },
+        {
+          "hu": "most már minden",
+          "en": "now everything"
+        },
+        {
+          "hu": "még csak",
+          "en": "still only"
+        },
+        {
+          "hu": "még mindig gyakran",
+          "en": "still often"
+        },
+        {
+          "hu": "már minden",
+          "en": "already everything"
+        },
+        {
+          "hu": "talán most",
+          "en": "perhaps now"
+        },
+        {
+          "hu": "he also",
+          "en": "he also"
+        },
+        {
+          "hu": "talán újból",
+          "en": "perhaps again"
+        },
+        {
+          "hu": "de még mindig",
+          "en": "but still"
+        },
+        {
+          "hu": "mindig egyedül",
+          "en": "always alone"
+        },
+        {
+          "hu": "de most újra",
+          "en": "but now again"
+        },
+        {
+          "hu": "gyakran itt",
+          "en": "often here"
+        },
+        {
+          "hu": "de csak most",
+          "en": "but only now"
+        },
+        {
+          "hu": "és ma",
+          "en": "and today"
+        },
+        {
+          "hu": "de most már",
+          "en": "but now"
+        },
+        {
+          "hu": "mindig úgy",
+          "en": "always so"
+        },
+        {
+          "hu": "újból egyedül",
+          "en": "alone again"
+        },
+        {
+          "hu": "vagy így",
+          "en": "or so"
+        },
+        {
+          "hu": "csak így",
+          "en": "only so"
+        },
+        {
+          "hu": "már közel",
+          "en": "already near"
+        },
+        {
+          "hu": "ma megint",
+          "en": "today again"
+        },
+        {
+          "hu": "még messze",
+          "en": "still far"
+        },
+        {
+          "hu": "csak ő",
+          "en": "only she"
+        },
+        {
+          "hu": "mindig itt",
+          "en": "always here"
+        },
+        {
+          "hu": "gyakran otthon",
+          "en": "often at home"
+        },
+        {
+          "hu": "még mindig nagyon messze",
+          "en": "still very far"
+        },
+        {
+          "hu": "most már eléggé közel",
+          "en": "now near enough"
+        },
+        {
+          "hu": "talán még mindig ott",
+          "en": "perhaps still there"
+        },
+        {
+          "hu": "talán már elég közel",
+          "en": "perhaps already near enough"
+        },
+        {
+          "hu": "most még túl messze",
+          "en": "now still too far"
+        },
+        {
+          "hu": "még mindig nagyon gyakran",
+          "en": "still very often"
+        },
+        {
+          "hu": "most már elég ritkán",
+          "en": "now quite seldom"
+        },
+        {
+          "hu": "vagy talán ő is?",
+          "en": "or perhaps she also?"
+        },
+        {
+          "hu": "csak most vagy mindig?",
+          "en": "only now or always?"
+        },
+        {
+          "hu": "talán most egyedül is",
+          "en": "perhaps now also alone"
+        },
+        {
+          "hu": "még mindig nagyon messze",
+          "en": "still very far"
+        },
+        {
+          "hu": "most már eléggé közel",
+          "en": "now near enough"
+        },
+        {
+          "hu": "talán még mindig ott",
+          "en": "perhaps still there"
+        },
+        {
+          "hu": "talán már elég közel",
+          "en": "perhaps already near enough"
+        },
+        {
+          "hu": "most még túl messze",
+          "en": "now still too far"
+        },
+        {
+          "hu": "még mindig nagyon gyakran",
+          "en": "still very often"
+        },
+        {
+          "hu": "most már elég ritkán",
+          "en": "now quite seldom"
+        },
+        {
+          "hu": "vagy talán ő is?",
+          "en": "or perhaps she also?"
+        },
+        {
+          "hu": "csak most vagy mindig?",
+          "en": "only now or always?"
+        },
+        {
+          "hu": "talán most egyedül is",
+          "en": "perhaps now also alone"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "nev": "Mondatrész Gyakorló Vegyes",
+      "tipus": "mondatresz",
+      "mondatok": [
+        {
+          "hu": "egy fontos nap",
+          "en": "an important day"
+        },
+        {
+          "hu": "egy orvosom",
+          "en": "my doctor"
+        },
+        {
+          "hu": "egy régi történet",
+          "en": "an old story"
+        },
+        {
+          "hu": "még nagyon messze",
+          "en": "still very far"
+        },
+        {
+          "hu": "az új tanárunk",
+          "en": "our new teacher"
+        },
+        {
+          "hu": "és ma",
+          "en": "and today"
+        },
+        {
+          "hu": "teljesen igaz",
+          "en": "quite true"
+        },
+        {
+          "hu": "a te problémád",
+          "en": "your problem"
+        },
+        {
+          "hu": "ez a lány",
+          "en": "this girl"
+        },
+        {
+          "hu": "a legjobb téma",
+          "en": "the best topic"
+        },
+        {
+          "hu": "az orvosa",
+          "en": "her doctor"
+        },
+        {
+          "hu": "egy új ötlet",
+          "en": "a new idea"
+        },
+        {
+          "hu": "ez a nap",
+          "en": "this day"
+        },
+        {
+          "hu": "a nevem",
+          "en": "my name"
+        },
+        {
+          "hu": "a címem",
+          "en": "my address"
+        },
+        {
+          "hu": "mindig itt",
+          "en": "always here"
+        },
+        {
+          "hu": "a kérdésem",
+          "en": "my question"
+        },
+        {
+          "hu": "a férfi",
+          "en": "that man"
+        },
+        {
+          "hu": "még mindig",
+          "en": "still"
+        },
+        {
+          "hu": "olyan szép",
+          "en": "so beautiful"
+        },
+        {
+          "hu": "egy jó fiú",
+          "en": "a good boy"
+        },
+        {
+          "hu": "a mi emberünk",
+          "en": "our man"
+        },
+        {
+          "hu": "az egész család",
+          "en": "the whole family"
+        },
+        {
+          "hu": "az Ön neve",
+          "en": "your name"
+        },
+        {
+          "hu": "az Ön címe",
+          "en": "your address"
+        },
+        {
+          "hu": "az Ön fia",
+          "en": "your son"
+        },
+        {
+          "hu": "még mindig",
+          "en": "still"
+        },
+        {
+          "hu": "de így",
+          "en": "but so"
+        },
+        {
+          "hu": "minden ember",
+          "en": "every man/person"
+        },
+        {
+          "hu": "melyik fotó",
+          "en": "which photo"
+        },
+        {
+          "hu": "ő is",
+          "en": "he also"
+        },
+        {
+          "hu": "túl nagy",
+          "en": "too big"
+        },
+        {
+          "hu": "a fiam",
+          "en": "my son"
+        },
+        {
+          "hu": "ez a probléma",
+          "en": "this problem"
+        },
+        {
+          "hu": "a lányod",
+          "en": "your daughter"
+        },
+        {
+          "hu": "és most",
+          "en": "and now"
+        },
+        {
+          "hu": "minden új dolog",
+          "en": "every new thing"
+        },
+        {
+          "hu": "egy kérdés",
+          "en": "a question"
+        },
+        {
+          "hu": "az Önök városa",
+          "en": "your town"
+        },
+        {
+          "hu": "kissé fáradt",
+          "en": "a little bit tired"
+        },
+        {
+          "hu": "a programunk",
+          "en": "our program"
+        },
+        {
+          "hu": "az új fogorvos",
+          "en": "the new dentist"
+        },
+        {
+          "hu": "elég gyakran",
+          "en": "pretty often"
+        },
+        {
+          "hu": "az új ötletem",
+          "en": "my new idea"
+        },
+        {
+          "hu": "melyik diák",
+          "en": "which student"
+        },
+        {
+          "hu": "a hölgy",
+          "en": "that lady"
+        },
+        {
+          "hu": "nagyon ritkán",
+          "en": "very seldom"
+        },
+        {
+          "hu": "minden nap",
+          "en": "every day"
+        },
+        {
+          "hu": "az ő problémája",
+          "en": "his problem"
+        },
+        {
+          "hu": "egy szép nő",
+          "en": "a beautiful woman"
+        },
+        {
+          "hu": "a régi barát",
+          "en": "the old friend"
+        },
+        {
+          "hu": "a saját ötletem",
+          "en": "my own idea"
+        },
+        {
+          "hu": "csak ő",
+          "en": "only she"
+        },
+        {
+          "hu": "egy öreg hölgy",
+          "en": "an old lady"
+        },
+        {
+          "hu": "talán most",
+          "en": "perhaps now"
+        },
+        {
+          "hu": "nagyon egyszerű",
+          "en": "very simple"
+        },
+        {
+          "hu": "a mi falunk",
+          "en": "our village"
+        },
+        {
+          "hu": "teljesen egyedül",
+          "en": "quite alone"
+        },
+        {
+          "hu": "az Ön felesége",
+          "en": "your wife"
+        },
+        {
+          "hu": "egy jobb ötlet",
+          "en": "a better idea"
+        },
+        {
+          "hu": "az egész nap",
+          "en": "the whole day"
+        },
+        {
+          "hu": "talán ott",
+          "en": "perhaps there"
+        },
+        {
+          "hu": "egy jó fiú",
+          "en": "a good boy"
+        },
+        {
+          "hu": "az öreg orvos",
+          "en": "the old doctor"
+        },
+        {
+          "hu": "ez vagy az",
+          "en": "this or that"
+        },
+        {
+          "hu": "minden ember",
+          "en": "every man/person"
+        },
+        {
+          "hu": "az új címem",
+          "en": "my new address"
+        },
+        {
+          "hu": "a legjobb diák",
+          "en": "the best student"
+        },
+        {
+          "hu": "ő is",
+          "en": "he also"
+        },
+        {
+          "hu": "az ő fia is",
+          "en": "also her son"
+        },
+        {
+          "hu": "túl nagy",
+          "en": "too big"
+        },
+        {
+          "hu": "egy fontos dolog",
+          "en": "an important thing"
+        },
+        {
+          "hu": "a fiam",
+          "en": "my son"
+        },
+        {
+          "hu": "túl régi",
+          "en": "too old"
+        },
+        {
+          "hu": "ez a probléma",
+          "en": "this problem"
+        },
+        {
+          "hu": "most is",
+          "en": "also now"
+        },
+        {
+          "hu": "a lányod",
+          "en": "your daughter"
+        },
+        {
+          "hu": "egy nagy probléma",
+          "en": "a big problem"
+        },
+        {
+          "hu": "és most",
+          "en": "and now"
+        },
+        {
+          "hu": "minden új dolog",
+          "en": "every new thing"
+        },
+        {
+          "hu": "egy kérdés",
+          "en": "a question"
+        },
+        {
+          "hu": "az Önök városa",
+          "en": "your town"
+        },
+        {
+          "hu": "kissé fáradt",
+          "en": "a little bit tired"
+        },
+        {
+          "hu": "éppen ma",
+          "en": "just today"
+        },
+        {
+          "hu": "a neve",
+          "en": "his name"
+        },
+        {
+          "hu": "túl messze",
+          "en": "too far"
+        },
+        {
+          "hu": "a telefonszám",
+          "en": "the telephone number"
+        },
+        {
+          "hu": "a telefonszám",
+          "en": "the telephone number"
+        },
+        {
+          "hu": "a pontos program",
+          "en": "the exact program"
+        },
+        {
+          "hu": "a saját lakásunk",
+          "en": "our own flat"
+        },
+        {
+          "hu": "talán éppen most",
+          "en": "perhaps just now"
+        },
+        {
+          "hu": "a pontos címünk",
+          "en": "our exact address"
+        },
+        {
+          "hu": "az Ön telefonszáma",
+          "en": "your telephone number"
+        },
+        {
+          "hu": "gyakran ott",
+          "en": "often there"
+        },
+        {
+          "hu": "az én nővérem is",
+          "en": "also my sister"
+        },
+        {
+          "hu": "ritkán egyedül",
+          "en": "seldom alone"
+        },
+        {
+          "hu": "éppen most",
+          "en": "just now"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "nev": "Mondat Gyakorló — Ez + Egyéb",
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "hu": "Az rossz.",
+          "en": "That's bad."
+        },
+        {
+          "hu": "Ez helyes.",
+          "en": "This is right."
+        },
+        {
+          "hu": "Ez igaz.",
+          "en": "It's true."
+        },
+        {
+          "hu": "Ez biztos.",
+          "en": "It's sure."
+        },
+        {
+          "hu": "Ez lehetséges.",
+          "en": "It's possible."
+        },
+        {
+          "hu": "Ez egyszerű.",
+          "en": "It's simple."
+        },
+        {
+          "hu": "Ez fantasztikus.",
+          "en": "It's fantastic."
+        },
+        {
+          "hu": "Ez itt van.",
+          "en": "This is here."
+        },
+        {
+          "hu": "Az ott van.",
+          "en": "That's there."
+        },
+        {
+          "hu": "Ez közel van.",
+          "en": "This is near."
+        },
+        {
+          "hu": "Az távol van.",
+          "en": "That is far."
+        },
+        {
+          "hu": "Ez így van.",
+          "en": "It's so."
+        },
+        {
+          "hu": "Most jó volt.",
+          "en": "It was good now."
+        },
+        {
+          "hu": "Túl messze van.",
+          "en": "It's too far."
+        },
+        {
+          "hu": "Jó itt.",
+          "en": "It's good here."
+        },
+        {
+          "hu": "De legjobb otthon.",
+          "en": "But it's best at home."
+        },
+        {
+          "hu": "Ez egészen biztos.",
+          "en": "This is quite sure."
+        },
+        {
+          "hu": "Az nagyon fontos.",
+          "en": "That's very important."
+        },
+        {
+          "hu": "Most jobb.",
+          "en": "It's better now."
+        },
+        {
+          "hu": "Nagyon szép itt.",
+          "en": "It's very nice here."
+        },
+        {
+          "hu": "Talán igaz.",
+          "en": "Perhaps it's true."
+        },
+        {
+          "hu": "Tegnap jobb volt.",
+          "en": "It was better yesterday."
+        },
+        {
+          "hu": "Csodás itthon.",
+          "en": "It's wonderful at home."
+        },
+        {
+          "hu": "Még lehetséges.",
+          "en": "It's still possible."
+        },
+        {
+          "hu": "Ez most nagyon fontos.",
+          "en": "This is very important now."
+        },
+        {
+          "hu": "Ez mindig itt van.",
+          "en": "This is always here."
+        },
+        {
+          "hu": "Ez még mindig túl nagy.",
+          "en": "This is still too big."
+        },
+        {
+          "hu": "Az már megint rossz.",
+          "en": "That's bad again."
+        },
+        {
+          "hu": "Ez már egész jó.",
+          "en": "This is already pretty good."
+        },
+        {
+          "hu": "Ez most a legjobb.",
+          "en": "This is now the best."
+        },
+        {
+          "hu": "Az túl messze van.",
+          "en": "That's too far."
+        },
+        {
+          "hu": "Ez nagyon egyszerű volt.",
+          "en": "This was very simple."
+        },
+        {
+          "hu": "Ez volt talán a legjobb.",
+          "en": "This was perhaps the best."
+        },
+        {
+          "hu": "Az jobb volt.",
+          "en": "That was better."
+        },
+        {
+          "hu": "Már egészen közel van.",
+          "en": "It's already quite near."
+        },
+        {
+          "hu": "Még nagyon messze van.",
+          "en": "It's still very far."
+        },
+        {
+          "hu": "Csak ez van itt.",
+          "en": "Only this is here."
+        },
+        {
+          "hu": "Az is igaz.",
+          "en": "That's true, too. That's also true."
+        },
+        {
+          "hu": "Ez is rossz itt.",
+          "en": "This is bad here, too."
+        },
+        {
+          "hu": "Olyan fantasztikus volt az egész.",
+          "en": "The whole thing was so fantastic."
+        },
+        {
+          "hu": "Az is lehetséges.",
+          "en": "That's possible, too."
+        },
+        {
+          "hu": "Csak ez volt ott.",
+          "en": "Only this was there."
+        },
+        {
+          "hu": "Tegnap még itt volt.",
+          "en": "It was still here yesterday."
+        },
+        {
+          "hu": "Ez volt talán a legjobb.",
+          "en": "This was perhaps the best."
+        },
+        {
+          "hu": "Minden igaz.",
+          "en": "Everything is true."
+        },
+        {
+          "hu": "Minden lehetséges.",
+          "en": "Everything is possible."
+        },
+        {
+          "hu": "Itt minden csodás.",
+          "en": "Everything is wonderful here."
+        },
+        {
+          "hu": "így minden jobb.",
+          "en": "Everything is better this way."
+        },
+        {
+          "hu": "Tegnap még minden biztos volt.",
+          "en": "Everything was still sure yesterday."
+        },
+        {
+          "hu": "Minden fantasztikus volt.",
+          "en": "Everything was fantastic."
+        },
+        {
+          "hu": "Ez volt minden.",
+          "en": "That was everything."
+        },
+        {
+          "hu": "Még minden lehetséges.",
+          "en": "Everything is still possible."
+        },
+        {
+          "hu": "Már minden jobb.",
+          "en": "Everything is already better."
+        },
+        {
+          "hu": "Ez minden.",
+          "en": "That's all."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "nev": "Mondat Gyakorló — Ez + ABC",
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "hu": "Ez a fiam.",
+          "en": "This is my son."
+        },
+        {
+          "hu": "Ez a lányom.",
+          "en": "This is my daughter."
+        },
+        {
+          "hu": "Ez a nővérem.",
+          "en": "This is my sister."
+        },
+        {
+          "hu": "Ez a bátyám.",
+          "en": "This is my brother."
+        },
+        {
+          "hu": "Ez a feleségem.",
+          "en": "This is my wife."
+        },
+        {
+          "hu": "Ez a férjem.",
+          "en": "This is my husband."
+        },
+        {
+          "hu": "Az a házunk.",
+          "en": "That's our house."
+        },
+        {
+          "hu": "Ez Barbara.",
+          "en": "This is Barbara."
+        },
+        {
+          "hu": "Ez volt az egész.",
+          "en": "That was all."
+        },
+        {
+          "hu": "Ez volt a probléma.",
+          "en": "This was the problem."
+        },
+        {
+          "hu": "Ez a nevem.",
+          "en": "This is my name."
+        },
+        {
+          "hu": "Ez a címem.",
+          "en": "This is my address."
+        },
+        {
+          "hu": "Ez a telefonszámom.",
+          "en": "This is my telephone number."
+        },
+        {
+          "hu": "Ez a lakásunk.",
+          "en": "This is our flat."
+        },
+        {
+          "hu": "Ez csak egy kérdés.",
+          "en": "This is only a question."
+        },
+        {
+          "hu": "Ez az autónk.",
+          "en": "This is our car."
+        },
+        {
+          "hu": "Ez az én kérdésem.",
+          "en": "This is my question."
+        },
+        {
+          "hu": "Ez a válaszom.",
+          "en": "This is my answer."
+        },
+        {
+          "hu": "Ez az én problémám.",
+          "en": "This is my problem."
+        },
+        {
+          "hu": "Ez csak egy ötlet volt.",
+          "en": "This was only an idea."
+        },
+        {
+          "hu": "Ez egy fontos nap.",
+          "en": "This is an important day."
+        },
+        {
+          "hu": "Ez a régi címe.",
+          "en": "This is her old address."
+        },
+        {
+          "hu": "Ez a kis családom.",
+          "en": "This is my little family."
+        },
+        {
+          "hu": "Ez most a legjobb ötlet.",
+          "en": "This is the best idea now."
+        },
+        {
+          "hu": "Ez egy jobb program.",
+          "en": "This is a better program."
+        },
+        {
+          "hu": "Ez egy kis ház.",
+          "en": "This is a little house."
+        },
+        {
+          "hu": "Ez egy igaz történet.",
+          "en": "This is a true story."
+        },
+        {
+          "hu": "Ez egy nagy probléma.",
+          "en": "This is a big problem."
+        },
+        {
+          "hu": "Ez egy fontos dolog.",
+          "en": "This is an important thing."
+        },
+        {
+          "hu": "Most ez a címem.",
+          "en": "This is my address now."
+        },
+        {
+          "hu": "Ez a helyes válasz.",
+          "en": "It's the right answer."
+        },
+        {
+          "hu": "Ez egy érdekes kérdés.",
+          "en": "This is an interesting question."
+        },
+        {
+          "hu": "Ez a pontos program.",
+          "en": "This is the exact program."
+        },
+        {
+          "hu": "Ez egy régi történet.",
+          "en": "It's an old story."
+        },
+        {
+          "hu": "Ez egy jó kérdés.",
+          "en": "This is a good question."
+        },
+        {
+          "hu": "Ez az új téma.",
+          "en": "It's the new topic."
+        },
+        {
+          "hu": "Ez egy régi fotó.",
+          "en": "This is an old photo."
+        },
+        {
+          "hu": "Ez az én problémám.",
+          "en": "This is my problem."
+        },
+        {
+          "hu": "Ez a te ötleted volt.",
+          "en": "It was your idea."
+        },
+        {
+          "hu": "Ez volt az ő válasza.",
+          "en": "This was his answer."
+        },
+        {
+          "hu": "Ez most egy egészen új dolog.",
+          "en": "This is quite a new thing now."
+        },
+        {
+          "hu": "Ez egy érdekes kérdés.",
+          "en": "It's an interesting question."
+        },
+        {
+          "hu": "Ez is egy nagyon fontos dolog.",
+          "en": "This is a very important thing, too."
+        },
+        {
+          "hu": "Kinek a címe ez?",
+          "en": "Whose address is this?"
+        },
+        {
+          "hu": "Ez talán már Péter.",
+          "en": "Perhaps it's Peter already."
+        },
+        {
+          "hu": "Ez most egy nagy probléma.",
+          "en": "This is a big problem now."
+        },
+        {
+          "hu": "Ez egy csodálatos nap volt.",
+          "en": "This was a wonderful day."
+        },
+        {
+          "hu": "Talán épp az ő ötlete volt.",
+          "en": "Perhaps it was just his idea."
+        },
+        {
+          "hu": "Már megint ez a probléma.",
+          "en": "This is the problem again."
+        },
+        {
+          "hu": "Ez egy fantasztikus, de igaz történet.",
+          "en": "This is a fantastic, but true story."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "nev": "Mondat Gyakorló — Ő + Egyéb",
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "hu": "Ő szép.",
+          "en": "She is beautiful. She's be"
+        },
+        {
+          "hu": "Ő fiatal.",
+          "en": "He is young. He's young."
+        },
+        {
+          "hu": "Ő csinos.",
+          "en": "She's pretty."
+        },
+        {
+          "hu": "Ő boldog.",
+          "en": "He's happy."
+        },
+        {
+          "hu": "Ő öreg.",
+          "en": "She's old."
+        },
+        {
+          "hu": "Fáradt.",
+          "en": "He's tired."
+        },
+        {
+          "hu": "Őjobb.",
+          "en": "He's better."
+        },
+        {
+          "hu": "Ő a legjobb.",
+          "en": "She is the best. He is the"
+        },
+        {
+          "hu": "Ő fantasztikus.",
+          "en": "He is fantastic."
+        },
+        {
+          "hu": "Ő biztos (ebben).",
+          "en": "She is sure (of it)."
+        },
+        {
+          "hu": "Ő itt van.",
+          "en": "He's here."
+        },
+        {
+          "hu": "Ő ott van.",
+          "en": "She's there."
+        },
+        {
+          "hu": "Ő otthon van.",
+          "en": "He's at home."
+        },
+        {
+          "hu": "Egyedül van.",
+          "en": "She's alone."
+        },
+        {
+          "hu": "Újból itt van.",
+          "en": "He is here again."
+        },
+        {
+          "hu": "Talán egyedül van.",
+          "en": "Perhaps she's alone."
+        },
+        {
+          "hu": "Ő is itt van.",
+          "en": "He is here, too. He is also here."
+        },
+        {
+          "hu": "Ma otthon van.",
+          "en": "She's at home today."
+        },
+        {
+          "hu": "Egyedül volt.",
+          "en": "He was alone."
+        },
+        {
+          "hu": "Otthon volt.",
+          "en": "He was at home."
+        },
+        {
+          "hu": "Kissé fáradt.",
+          "en": "She's a little bit tired."
+        },
+        {
+          "hu": "Még mindig itt van.",
+          "en": "He's still here."
+        },
+        {
+          "hu": "Ő olyan szép.",
+          "en": "She is so beautiful."
+        },
+        {
+          "hu": "Ő most a legjobb.",
+          "en": "He is the best now."
+        },
+        {
+          "hu": "Ritkán van otthon.",
+          "en": "She is seldom at home."
+        },
+        {
+          "hu": "Most épp itt van.",
+          "en": "He's just here now."
+        },
+        {
+          "hu": "Ma nagyon csinos.",
+          "en": "She's very pretty today."
+        },
+        {
+          "hu": "Már túl öreg.",
+          "en": "He's already too old."
+        },
+        {
+          "hu": "Most talán otthon var",
+          "en": "Perhaps she's at home now."
+        },
+        {
+          "hu": "Ritkán van otthon.",
+          "en": "He's seldom at home."
+        },
+        {
+          "hu": "Még mindig gyakran fáradt.",
+          "en": "He's still often tired."
+        },
+        {
+          "hu": "Már otthon van.",
+          "en": "She's already at home."
+        },
+        {
+          "hu": "Talán már egyedül van.",
+          "en": "Perhaps he's already alone."
+        },
+        {
+          "hu": "Még itt van.",
+          "en": "She's still here."
+        },
+        {
+          "hu": "Már megint itt van.",
+          "en": "He's here again."
+        },
+        {
+          "hu": "Ő teljesen biztos (ebben).",
+          "en": "She's quite sure (of it)."
+        },
+        {
+          "hu": "De ő most fáradt.",
+          "en": "But he's tired now."
+        },
+        {
+          "hu": "Ma is itt van.",
+          "en": "He's here today also."
+        },
+        {
+          "hu": "Teljesen egyedül volt.",
+          "en": "She was quite alone."
+        },
+        {
+          "hu": "Ő is ott volt tegnap.",
+          "en": "He was also there yesterday."
+        },
+        {
+          "hu": "Ő mindig itt van.",
+          "en": "He's always here."
+        },
+        {
+          "hu": "Mindig olyan csinos.",
+          "en": "She's always so pretty."
+        },
+        {
+          "hu": "Mindig otthon van.",
+          "en": "He's always at home."
+        },
+        {
+          "hu": "Mindig egyedül van.",
+          "en": "She is always alone."
+        },
+        {
+          "hu": "Ő mindig a legjobb.",
+          "en": "He's always the best."
+        },
+        {
+          "hu": "Ő mindig nagyon fáradt.",
+          "en": "She's always very tired."
+        },
+        {
+          "hu": "0 mindig nagyon pontos.",
+          "en": "He's always very exact."
+        },
+        {
+          "hu": "Mindig ilyen rossz.",
+          "en": "She's always so bad."
+        },
+        {
+          "hu": "Mindig pontos volt.",
+          "en": "He was always exact."
+        },
+        {
+          "hu": "Mindig egyedül volt.",
+          "en": "She was always alone."
+        },
+        {
+          "hu": "Még mindig gyakran fáradt.",
+          "en": "He's still often tired."
+        },
+        {
+          "hu": "Már otthon van.",
+          "en": "She's already at home."
+        },
+        {
+          "hu": "Talán már egyedül van.",
+          "en": "Perhaps he's already alone."
+        },
+        {
+          "hu": "Még itt van.",
+          "en": "She's still here."
+        },
+        {
+          "hu": "Már megint itt van.",
+          "en": "He's here again."
+        },
+        {
+          "hu": "Ő teljesen biztos (ebben).",
+          "en": "She's quite sure (of it)."
+        },
+        {
+          "hu": "De ő most fáradt.",
+          "en": "But he's tired now."
+        },
+        {
+          "hu": "Ma is itt van.",
+          "en": "He's here today also."
+        },
+        {
+          "hu": "Teljesen egyedül volt.",
+          "en": "She was quite alone."
+        },
+        {
+          "hu": "Ő is ott volt tegnap.",
+          "en": "He was also there yesterday."
+        },
+        {
+          "hu": "Ő mindig itt van.",
+          "en": "He's always here."
+        },
+        {
+          "hu": "Mindig olyan csinos.",
+          "en": "She's always so pretty."
+        },
+        {
+          "hu": "Mindig otthon van.",
+          "en": "He's always at home."
+        },
+        {
+          "hu": "Mindig egyedül van.",
+          "en": "She is always alone."
+        },
+        {
+          "hu": "Ő mindig a legjobb.",
+          "en": "He's always the best."
+        },
+        {
+          "hu": "Ő mindig nagyon fáradt.",
+          "en": "She's always very tired."
+        },
+        {
+          "hu": "0 mindig nagyon pontos.",
+          "en": "He's always very exact."
+        },
+        {
+          "hu": "Mindig ilyen rossz.",
+          "en": "She's always so bad."
+        },
+        {
+          "hu": "Mindig pontos volt.",
+          "en": "He was always exact."
+        },
+        {
+          "hu": "Mindig egyedül volt.",
+          "en": "She was always alone."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "nev": "Mondat Gyakorló — Ő + ABC",
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "hu": "Ő tanár.",
+          "en": "He's a teacher."
+        },
+        {
+          "hu": "Ő tanárnő.",
+          "en": "She's a teacher."
+        },
+        {
+          "hu": "Ő diák.",
+          "en": "He's a student."
+        },
+        {
+          "hu": "Ő diáklány.",
+          "en": "She's a student."
+        },
+        {
+          "hu": "Ő orvos.",
+          "en": "He's a doctor."
+        },
+        {
+          "hu": "Ő fogorvos.",
+          "en": "She's a dentist."
+        },
+        {
+          "hu": "Őnő.",
+          "en": "She's a woman."
+        },
+        {
+          "hu": "Ő férfi.",
+          "en": "He's a man."
+        },
+        {
+          "hu": "Őfiú.",
+          "en": "He's a boy."
+        },
+        {
+          "hu": "Ő lány.",
+          "en": "She's a girl."
+        },
+        {
+          "hu": "Ő a fiam.",
+          "en": "He is my son."
+        },
+        {
+          "hu": "Ő a lányom.",
+          "en": "She is my daughter."
+        },
+        {
+          "hu": "Ő az anyám.",
+          "en": "She is my mother."
+        },
+        {
+          "hu": "Ő az apám.",
+          "en": "He's my father."
+        },
+        {
+          "hu": "Ő a nővérem.",
+          "en": "She's my sister."
+        },
+        {
+          "hu": "Ő a bátyám.",
+          "en": "He's my brother."
+        },
+        {
+          "hu": "Ő a férjem.",
+          "en": "He's my husband."
+        },
+        {
+          "hu": "Ő a feleségem.",
+          "en": "She is my wife."
+        },
+        {
+          "hu": "Ő a gyermekem.",
+          "en": "He/she is my child."
+        },
+        {
+          "hu": "Ő a tanárom.",
+          "en": "He's my teacher."
+        },
+        {
+          "hu": "Ő egy érdekes ember.",
+          "en": "He is an interesting man."
+        },
+        {
+          "hu": "Ő egy nagyon jó kollég",
+          "en": "He's a very good colleague."
+        },
+        {
+          "hu": "Ő egy csodálatos feleség.",
+          "en": "She is a wonderful wife."
+        },
+        {
+          "hu": "Ő egy pontos ember.",
+          "en": "He is a precise man."
+        },
+        {
+          "hu": "Ő egy nagyon jó orvos.",
+          "en": "He's a very good doctor."
+        },
+        {
+          "hu": "Ő a legjobb tanár.",
+          "en": "He is the best teacher."
+        },
+        {
+          "hu": "Ő az új kolléga.",
+          "en": "She is the new colleague."
+        },
+        {
+          "hu": "Ő a legjobb barátom.",
+          "en": "He's my best friend."
+        },
+        {
+          "hu": "Ő az új barátnőm.",
+          "en": "She's my new girlfriend."
+        },
+        {
+          "hu": "Ő az a férfi.",
+          "en": "He's that man."
+        },
+        {
+          "hu": "Ő egy szép nő.",
+          "en": "She's a beautiful woman."
+        },
+        {
+          "hu": "Ő az új felesége.",
+          "en": "She's his new wife."
+        },
+        {
+          "hu": "Ő a kislányuk.",
+          "en": "She's their little daughter."
+        },
+        {
+          "hu": "Ő az Önök új kollégája.",
+          "en": "He's your new colleague."
+        },
+        {
+          "hu": "Ő a mi emberünk.",
+          "en": "He is our man."
+        },
+        {
+          "hu": "Ő a legjobb diák.",
+          "en": "He's the best student."
+        },
+        {
+          "hu": "Ő az a rossz gyerek.",
+          "en": "He's that bad child."
+        },
+        {
+          "hu": "Ő az új kolléga.",
+          "en": "He is the new colleague."
+        },
+        {
+          "hu": "Ő egy boldog ember volt.",
+          "en": "He was a happy man."
+        },
+        {
+          "hu": "Ő volt a legjobb barátja.",
+          "en": "He was his best friend."
+        },
+        {
+          "hu": "Még mindig diáklány.",
+          "en": "She is still a student."
+        },
+        {
+          "hu": "Ő is egy jó fogorvos.",
+          "en": "He's a good dentist, too."
+        },
+        {
+          "hu": "Itt csak ő a barátom.",
+          "en": "Only he's my friend here."
+        },
+        {
+          "hu": "Még mindig a barátnője.",
+          "en": "She is still his girlfriend."
+        },
+        {
+          "hu": "Most ő a legjobb tanulónk.",
+          "en": "He's our best student now."
+        },
+        {
+          "hu": "Ő itt a legjobb orvos.",
+          "en": "He's the best doctor here."
+        },
+        {
+          "hu": "Ő volt a legjobb tanárunk.",
+          "en": "He was our best teacher."
+        },
+        {
+          "hu": "Mindig a barátom volt.",
+          "en": "He was always my friend."
+        },
+        {
+          "hu": "Ő egy úr.",
+          "en": "He is a gentleman."
+        },
+        {
+          "hu": "Még gyerek.",
+          "en": "He is still a child."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "nev": "Mondat Gyakorló — ABC + Egyéb",
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "hu": "A lakásunk már régi.",
+          "en": "Our flat is already old."
+        },
+        {
+          "hu": "Péter most boldog.",
+          "en": "Péter is happy now."
+        },
+        {
+          "hu": "A feleségem kissé fáradt.",
+          "en": "My wife is a little bit tired."
+        },
+        {
+          "hu": "A válasz egyszerű.",
+          "en": "The answer is simple."
+        },
+        {
+          "hu": "A válasz helyes.",
+          "en": "The answer is correct."
+        },
+        {
+          "hu": "A program ritkán jó.",
+          "en": "The program is seldom good."
+        },
+        {
+          "hu": "Egy új téma mindig érdekes.",
+          "en": "A new topic is always interesting."
+        },
+        {
+          "hu": "Az a hotel túl messze van.",
+          "en": "That hotel is too far."
+        },
+        {
+          "hu": "A válasza helyes volt.",
+          "en": "His answer was correct."
+        },
+        {
+          "hu": "Ma az egész család otthon volt.",
+          "en": "The whole family was at home today."
+        },
+        {
+          "hu": "Ma otthon van Barbara.",
+          "en": "Barbara is at home today."
+        },
+        {
+          "hu": "Itt van egy kis falu.",
+          "en": "Here is a little village."
+        },
+        {
+          "hu": "A barátnőd nagyon csinos.",
+          "en": "Your girlfriend is very pretty."
+        },
+        {
+          "hu": "Ez a téma nagyon érdekes.",
+          "en": "This topic is very interesting."
+        },
+        {
+          "hu": "Minden kis dolog fontos.",
+          "en": "Every little thing is important."
+        },
+        {
+          "hu": "A kérdésem egyszerű.",
+          "en": "My question is simple."
+        },
+        {
+          "hu": "Minden jó ötlet egyszerű.",
+          "en": "Every good idea is simple."
+        },
+        {
+          "hu": "A régi fogorvos jobb volt.",
+          "en": "The old dentist was better."
+        },
+        {
+          "hu": "Csodás ez a város.",
+          "en": "This town is wonderful."
+        },
+        {
+          "hu": "Egy diák volt megint itt.",
+          "en": "A student was here again."
+        },
+        {
+          "hu": "A férjed van itt.",
+          "en": "Your husband is here."
+        },
+        {
+          "hu": "Olyan rossz ez a gyerek.",
+          "en": "This child is so bad."
+        },
+        {
+          "hu": "Ez a dolog nagyon fontos.",
+          "en": "This thing is very important."
+        },
+        {
+          "hu": "A mi fiunk a legjobb.",
+          "en": "Our son is the best."
+        },
+        {
+          "hu": "Barbara mindig nagyon csinos.",
+          "en": "Barbara is always very pretty."
+        },
+        {
+          "hu": "Nagyon jó ez a fotó.",
+          "en": "This photo is very good."
+        },
+        {
+          "hu": "Anya ma otthon van.",
+          "en": "Mother is at home today."
+        },
+        {
+          "hu": "A férjem gyakran fáradt.",
+          "en": "My husband is often tired."
+        },
+        {
+          "hu": "Ma csodás volt a program.",
+          "en": "The program was wonderful today."
+        },
+        {
+          "hu": "A fél város ott volt.",
+          "en": "Half the town was there."
+        },
+        {
+          "hu": "A férje ritkán van otthon.",
+          "en": "Her husband is seldom at home."
+        },
+        {
+          "hu": "Ez a történet teljesen igaz.",
+          "en": "This story is completely true."
+        },
+        {
+          "hu": "Itt minden lány csinos.",
+          "en": "Every girl is pretty here."
+        },
+        {
+          "hu": "Egy jó ötlet mindig egyszerű.",
+          "en": "A good idea is always simple."
+        },
+        {
+          "hu": "Egy jó kérdés mindig pontos.",
+          "en": "A good question is always precise."
+        },
+        {
+          "hu": "Egy jó anya gyakran fáradt.",
+          "en": "A good mother is often tired."
+        },
+        {
+          "hu": "A hotel már egész közel van.",
+          "en": "The hotel is already quite near."
+        },
+        {
+          "hu": "Már megint itt volt az az ember.",
+          "en": "That man was here again."
+        },
+        {
+          "hu": "A pontos cím nagyon fontos.",
+          "en": "The exact address is very important."
+        },
+        {
+          "hu": "Ez a dolog tegnap még biztos volt.",
+          "en": "This thing was still sure yesterday."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "nev": "Mondat Gyakorló — ABC + ABC",
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "hu": "A lányom még diáklány.",
+          "en": "My daughter is still a student."
+        },
+        {
+          "hu": "A fiam még diák.",
+          "en": "My son is still a student."
+        },
+        {
+          "hu": "Anyám tanárnő.",
+          "en": "My mother is a teacher."
+        },
+        {
+          "hu": "Apám tanár.",
+          "en": "My father is a teacher."
+        },
+        {
+          "hu": "A barátom fogorvos.",
+          "en": "My friend is a dentist."
+        },
+        {
+          "hu": "A nevem Péter.",
+          "en": "My name is Péter."
+        },
+        {
+          "hu": "A bátyám az Ön kollégája.",
+          "en": "My brother is your colleague."
+        },
+        {
+          "hu": "Ez a fiú a fiunk.",
+          "en": "This boy is our son."
+        },
+        {
+          "hu": "Ez a lány a mi lányunk.",
+          "en": "This girl is our daughter."
+        },
+        {
+          "hu": "A neve Barbara.",
+          "en": "Her name is Barbara."
+        },
+        {
+          "hu": "Ez a férfi az apám.",
+          "en": "This man is my father."
+        },
+        {
+          "hu": "Az a nő az anyám.",
+          "en": "That woman is my mother."
+        },
+        {
+          "hu": "A bátyám orvos.",
+          "en": "My brother is a doctor."
+        },
+        {
+          "hu": "A nővérem tanárnő.",
+          "en": "My sister is a teacher."
+        },
+        {
+          "hu": "A férjem egy csodás apa.",
+          "en": "My husband is a wonderful father."
+        },
+        {
+          "hu": "A tanárunk egy érdekes ember.",
+          "en": "Our teacher is an interesting man."
+        },
+        {
+          "hu": "A bátyád egy boldog ember.",
+          "en": "Your brother is a happy man."
+        },
+        {
+          "hu": "A tanárnőnk egy csinos nő.",
+          "en": "Our teacher is a pretty woman."
+        },
+        {
+          "hu": "Az apja egy egyszerű ember.",
+          "en": "Her father is a simple man."
+        },
+        {
+          "hu": "Az én fiam is diák még.",
+          "en": "My son is still a student, too."
+        },
+        {
+          "hu": "Ez a hölgy az új tanárnőtök.",
+          "en": "This lady is your new teacher."
+        },
+        {
+          "hu": "Ez a csinos nő a felesége.",
+          "en": "This pretty woman is his wife."
+        },
+        {
+          "hu": "Kinek a barátnője ez a lány?",
+          "en": "Whose girlfriend is this girl?"
+        },
+        {
+          "hu": "Ez a probléma egy régi dolog.",
+          "en": "This problem is an old thing."
+        },
+        {
+          "hu": "Ez a férfi egy fontos ember.",
+          "en": "This man is an important person."
+        },
+        {
+          "hu": "Az új kollégánk egy csinos nő.",
+          "en": "Our new colleague is a pretty woman."
+        },
+        {
+          "hu": "Éva a legjobb barátnőm volt.",
+          "en": "Eva was my best friend! (ha hölgy mondja)"
+        },
+        {
+          "hu": "Ez a fiú régi jó barátom.",
+          "en": "This boy is my good old friend."
+        },
+        {
+          "hu": "Ez az ember a legjobb barátom volt.",
+          "en": "This man was my best friend."
+        },
+        {
+          "hu": "Ez a fiú a legjobb tanulónk.",
+          "en": "This boy is our best student."
+        },
+        {
+          "hu": "Ez a lány a legjobb tanulónk.",
+          "en": "This girl is our best student."
+        },
+        {
+          "hu": "Ez a lány már egy kis hölgy.",
+          "en": "This girl is already a little lady."
+        },
+        {
+          "hu": "Az apja fantasztikus ember volt.",
+          "en": "Her father was a fantastic man."
+        },
+        {
+          "hu": "Ez a program jó ötlet volt.",
+          "en": "This program was a good idea."
+        },
+        {
+          "hu": "Egy jó kérdés már egy fél válasz.",
+          "en": "A good question is already half an answer."
+        },
+        {
+          "hu": "Mindig minden az én problémám.",
+          "en": "Everything is always my problem."
+        },
+        {
+          "hu": "Az egyszerű válasz a legjobb válasz.",
+          "en": "The simple answer is the best answer."
+        },
+        {
+          "hu": "Ez az egyszerű kérdés ma egy nagy probléma.",
+          "en": "This simple question is a big problem today."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "nev": "Mondat Gyakorló Vegyes",
+      "tipus": "mondat",
+      "mondatok": [
+        {
+          "hu": "Szép.",
+          "en": "He/she/it is beautiful."
+        },
+        {
+          "hu": "Itt van.",
+          "en": "He/she/it is here."
+        },
+        {
+          "hu": "Tanárnő.",
+          "en": "She's a teacher."
+        },
+        {
+          "hu": "Ő a fiam.",
+          "en": "He's my son."
+        },
+        {
+          "hu": "Egyedül van.",
+          "en": "He's alone."
+        },
+        {
+          "hu": "Fáradt.",
+          "en": "She is tired."
+        },
+        {
+          "hu": "Ez biztos.",
+          "en": "This is sure."
+        },
+        {
+          "hu": "Még messze van.",
+          "en": "It's still far."
+        },
+        {
+          "hu": "Ő a bátyja.",
+          "en": "He is her brother."
+        },
+        {
+          "hu": "Diáklány.",
+          "en": "She's a student."
+        },
+        {
+          "hu": "Ez fantasztikus.",
+          "en": "This is fantastic."
+        },
+        {
+          "hu": "Lehetséges.",
+          "en": "It's possible."
+        },
+        {
+          "hu": "Ő a legjobb.",
+          "en": "He's the best. She's the best."
+        },
+        {
+          "hu": "Ez a neve.",
+          "en": "This is her name."
+        },
+        {
+          "hu": "Rossz az egész.",
+          "en": "The whole thing is bad."
+        },
+        {
+          "hu": "Ez igaz.",
+          "en": "It's true."
+        },
+        {
+          "hu": "Még gyerek.",
+          "en": "She is still a child."
+        },
+        {
+          "hu": "Úgy van.",
+          "en": "It's so."
+        },
+        {
+          "hu": "Helyes!",
+          "en": "That's right!"
+        },
+        {
+          "hu": "Még diák.",
+          "en": "He's still a student."
+        },
+        {
+          "hu": "Még diáklány.",
+          "en": "She's still a student."
+        },
+        {
+          "hu": "Ez az ő problémája.",
+          "en": "This is his problem."
+        },
+        {
+          "hu": "Ez teljesen igaz.",
+          "en": "It's completely true."
+        },
+        {
+          "hu": "Ez az úr orvos.",
+          "en": "This gentleman is a doctor."
+        },
+        {
+          "hu": "Ez egy csodás nap.",
+          "en": "This is a wonderful day."
+        },
+        {
+          "hu": "Az a hölgy a felesége.",
+          "en": "That lady is his wife."
+        },
+        {
+          "hu": "Ez nagyon egyszerű.",
+          "en": "This is very simple."
+        },
+        {
+          "hu": "Ez a te ötleted volt.",
+          "en": "It was your idea."
+        },
+        {
+          "hu": "Az talán elég nagy.",
+          "en": "Perhaps that's big enough."
+        },
+        {
+          "hu": "Ő még mindig ott van.",
+          "en": "She's still there."
+        },
+        {
+          "hu": "Ez így volt.",
+          "en": "It was so."
+        },
+        {
+          "hu": "Az tegnap még itt volt.",
+          "en": "That was still here yesterday."
+        },
+        {
+          "hu": "Az tegnap még itt volt.",
+          "en": "That was still here yesterday."
+        },
+        {
+          "hu": "Kinek a felesége ez a csinos hölgy?",
+          "en": "Whose wife is this pretty lady?"
+        },
+        {
+          "hu": "Melyik hotel jobb?",
+          "en": "Which hotel is better?"
+        },
+        {
+          "hu": "Minden lehetséges.",
+          "en": "Everything is possible."
+        },
+        {
+          "hu": "Anyám egy fantasztikus nő.",
+          "en": "My mother is a fantastic woman."
+        },
+        {
+          "hu": "A fél falu ott volt.",
+          "en": "Half the village was there."
+        },
+        {
+          "hu": "Minden itt van.",
+          "en": "Everything is here."
+        },
+        {
+          "hu": "Nagyon jó volt.",
+          "en": "It was very good."
+        },
+        {
+          "hu": "Fáradt volt már egy kicsit.",
+          "en": "She was already a little bit tired."
+        },
+        {
+          "hu": "A fia itt a legjobb fogorvos.",
+          "en": "His son is the best dentist here."
+        },
+        {
+          "hu": "Melyik falu az ott?",
+          "en": "Which village is that there?"
+        },
+        {
+          "hu": "A lakásunk nagyon közel van.",
+          "en": "Our flat is very near."
+        },
+        {
+          "hu": "Az apja is orvos volt.",
+          "en": "His father was a doctor, too."
+        },
+        {
+          "hu": "Ez a férfi már tegnap itt volt.",
+          "en": "This man was already here yesterday."
+        },
+        {
+          "hu": "Ez is nagyon fontos.",
+          "en": "This is very important, too."
+        },
+        {
+          "hu": "Ez volt az én kérdésem.",
+          "en": "This was my question."
+        },
+        {
+          "hu": "Megint itt van az az ember.",
+          "en": "That man is here again."
+        }
+      ]
+    }
+  ],
+  "sectionLabels": {
+    "0": "Szólap",
+    "1": "Szólap Magyarázat",
+    "2": "Nyelvtan I",
+    "5": "Gyakorló A — Alapkapcsolások",
+    "6": "Gyakorló — Határozatlan Névelő",
+    "7": "Gyakorló — Határozott Névelő",
+    "8": "Gyakorló — Mutató Névmások",
+    "9": "Gyakorló — Birtokos Névmások",
+    "10": "Gyakorló — Egyéb Kapcsolások",
+    "11": "Mondatrész Gyakorló Vegyes",
+    "12": "Mondat Gyakorló — Ez + Egyéb",
+    "13": "Mondat Gyakorló — Ez + ABC",
+    "14": "Mondat Gyakorló — Ő + Egyéb",
+    "15": "Mondat Gyakorló — Ő + ABC",
+    "16": "Mondat Gyakorló — ABC + Egyéb",
+    "17": "Mondat Gyakorló — ABC + ABC",
+    "18": "Mondat Gyakorló Vegyes"
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "title": "I. Lecke",
+      "subtitle": "Alapok — névelők, névmások, mondatok"
+    },
+    {
+      "id": 2,
+      "title": "II. Lecke",
+      "subtitle": "Hamarosan"
+    },
+    {
+      "id": 3,
+      "title": "III. Lecke",
+      "subtitle": "Hamarosan"
+    },
+    {
+      "id": 4,
+      "title": "IV. Lecke",
+      "subtitle": "Hamarosan"
+    },
+    {
+      "id": 5,
+      "title": "V. Lecke",
+      "subtitle": "Hamarosan"
+    },
+    {
+      "id": 6,
+      "title": "VI. Lecke",
+      "subtitle": "Hamarosan"
+    },
+    {
+      "id": 7,
+      "title": "VII. Lecke",
+      "subtitle": "Hamarosan"
+    },
+    {
+      "id": 8,
+      "title": "VIII. Lecke",
+      "subtitle": "Hamarosan"
+    },
+    {
+      "id": 9,
+      "title": "IX. Lecke",
+      "subtitle": "Hamarosan"
+    },
+    {
+      "id": 10,
+      "title": "X. Lecke",
+      "subtitle": "Hamarosan"
+    }
+  ]
+}

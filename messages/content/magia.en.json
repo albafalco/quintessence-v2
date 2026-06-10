@@ -1,0 +1,1163 @@
+[
+  {
+    "id": 1,
+    "cim": "First Grade",
+    "rovidcim": "Grade I",
+    "icon": "🌱",
+    "szin": "#4ade80",
+    "szellem": {
+      "cim": "Magical Spirit Training (I) — Thought Control, Discipline, and Mastery",
+      "leiras": "The first step: sit comfortably or lie down, relax your body, close your eyes, and for 5 minutes observe the flow of your thoughts as a passive observer. Each day extend by 1 minute until you can sustain 10 minutes. This is to be done morning and evening. The goal: complete thought emptiness for 10 minutes.",
+      "gyakorlatok": [
+        {
+          "key": "gondolatellenorzes",
+          "cim": "Thought Control",
+          "leiras": "Twice daily for 5–10 minutes: observe the flow of your thoughts as a passive observer without judging them.",
+          "type": "progressive_timed",
+          "params": {
+            "startSec": 300,
+            "stepSec": 60,
+            "maxSec": 600,
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Can you passively observe your thoughts for 10 minutes without the slightest judgment, twice daily in succession?",
+          "minSessions": 10
+        },
+        {
+          "key": "gondolatfegyelmezés",
+          "cim": "Thought Discipline",
+          "leiras": "Consciously dismiss certain thoughts; retain one thought of your own choosing; cultivate thought emptiness.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you hold a single chosen thought uninterrupted for 10 minutes?",
+          "minSessions": 10
+        },
+        {
+          "key": "gondolaturales",
+          "cim": "Thought Mastery + Magic Journal",
+          "leiras": "Keep a magic journal: record every success, failure, and the duration of your practices. Self-criticism and planning for the next day/week.",
+          "type": "journal",
+          "successCriteria": "Do you regularly keep your magic journal and objectively assess your progress each day?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magical Soul Training (I) — Introspection or Self-Knowledge",
+      "leiras": "Self-knowledge is a prerequisite of every initiatory method. Record in your journal all the dark sides of your soul: your faults, habits, and passions. Be strict with yourself. Assign every fault to one of the four elements (Fire, Water, Air, Earth) in three degrees of strength.",
+      "gyakorlatok": [
+        {
+          "key": "introspekcio",
+          "cim": "Introspection — Self-Knowledge",
+          "leiras": "Devote a few minutes morning and evening to self-criticism: discover the faults, habits, and weaknesses of your soul. Write them down.",
+          "type": "journal",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Do you recognize new patterns and traits in yourself daily through self-knowledge reflection?",
+          "minSessions": 10
+        },
+        {
+          "key": "fekete_tukor",
+          "cim": "Black Soul Mirror (faults)",
+          "leiras": "Assign your faults to the four elements in three degrees of strength. FIRE: irritability, jealousy, anger. AIR: frivolity, vanity, gossip. WATER: indifference, negligence, stubbornness. EARTH: touchiness, laziness, heaviness.",
+          "type": "worksheet",
+          "successCriteria": "Have you completed the black mirror: recorded every known fault, assigned them to elements, and ranked them in three degrees of strength?",
+          "minSessions": 1
+        },
+        {
+          "key": "feher_tukor",
+          "cim": "White Soul Mirror (virtues)",
+          "leiras": "Assign your good qualities to the elements as well. FIRE: initiative, enthusiasm, courage. AIR: diligence, joy, kindness. WATER: modesty, calm, gentleness. EARTH: perseverance, precision, sense of responsibility.",
+          "type": "worksheet",
+          "successCriteria": "Have you completed the white mirror: recorded your virtues and assigned them to elements?",
+          "minSessions": 1
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magical Body Training (I) — The Material Body, Breathing, Eating, Water",
+      "leiras": "Body, soul, and spirit are to be trained simultaneously. Morning body care, morning exercise, conscious breathing, conscious eating, the magic of water.",
+      "gyakorlatok": [
+        {
+          "key": "reggeli_testapolas",
+          "cim": "Morning Body Care",
+          "leiras": "Each morning brush your entire body with a soft brush (the skin should turn slightly pink). Then rinse with cold water and rub dry. A lifelong daily habit.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Do you perform morning body care (brushing + cold water) daily without interruption?",
+          "minSessions": 21
+        },
+        {
+          "key": "reggeli_torna",
+          "cim": "Morning Exercise",
+          "leiras": "A few minutes of morning exercise daily; goal: a supple, flexible body.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Do you perform morning exercise daily?",
+          "minSessions": 21
+        },
+        {
+          "key": "tudatos_legzes",
+          "cim": "Conscious Breathing",
+          "leiras": "While breathing, vividly imagine health, calm, and success flowing into every part of your body. Begin with 7 breaths morning and evening, increasing by 1 each day. Never exceed half an hour.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300,
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Do you perform the conscious breathing exercise morning and evening daily, and vividly feel the flow of energy?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudatos_etkezes",
+          "cim": "Conscious Eating (the mystery of the Eucharist)",
+          "leiras": "Focus your wish over food or drink as though it has already been fulfilled. Eat slowly and consciously; do not read or distract yourself. Always use the same wish for both breathing and eating.",
+          "type": "habit",
+          "params": {
+            "frequency": "per_meal"
+          },
+          "successCriteria": "At every meal do you consciously focus on your wish and eat slowly and mindfully?",
+          "minSessions": 21
+        },
+        {
+          "key": "viz_magiaja",
+          "cim": "The Magic of Water",
+          "leiras": "Each time you wash your hands, imagine that along with physical dirt your spiritual burdens, failures, and restlessness are washed away. Pour out the dirty water immediately. Conversely: you may charge bath water with a wish so that its power passes into your body.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Do you consciously apply the magic of water at every handwashing and bathing?",
+          "minSessions": 21
+        }
+      ]
+    },
+    "idotartam": "2 weeks – 1 month",
+    "osszefoglalo": "Thought control and mastery, completion of the soul mirror (black and white), daily body care, and mastery of conscious breathing + eating + the magic of water."
+  },
+  {
+    "id": 2,
+    "cim": "Second Grade",
+    "rovidcim": "Grade II",
+    "icon": "🌿",
+    "szin": "#34d399",
+    "szellem": {
+      "cim": "Magical Spirit Training (II) — Autosuggestion and Concentration Exercises",
+      "leiras": "Learning the secret of the subconscious mind and mastering autosuggestion. Concentration exercises for the five senses.",
+      "gyakorlatok": [
+        {
+          "key": "autoszuggesztio",
+          "cim": "Autosuggestion — the Secret of the Subconscious",
+          "leiras": "At the moment before falling asleep (when the gate to the subconscious is open), preserve your strongest wish and finest thoughts, and carry them into sleep.",
+          "type": "habit",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Do you consistently apply your chosen wish/formula before sleep and upon waking?",
+          "minSessions": 21
+        },
+        {
+          "key": "konc_keppel",
+          "cim": "Concentration with image",
+          "leiras": "Visualize an object, person, or landscape in as much detail as possible. Hold it for 10 minutes.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Can you hold a visual image undisturbed for 5 minutes in your inner sight?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_hanggal",
+          "cim": "Concentration with sound",
+          "leiras": "Recall a sound, music, or word through inner hearing. Maintain it without external distraction.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Can you recall a sound undisturbed for 5 minutes through inner hearing?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_erzekkel",
+          "cim": "Concentration with sensation (touch/temperature)",
+          "leiras": "Imagine the precise sensation of touching an object or material. E.g. wood, metal, the warmth/cold of water.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Can you recall a tactile or temperature sensation undisturbed for 5 minutes?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_illattal",
+          "cim": "Concentration with scent",
+          "leiras": "Recall the precise sensation of a scent through inner smell (flower, grass, bread, etc.).",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Can you recall a scent undisturbed for 5 minutes through inner smell?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_izzal",
+          "cim": "Concentration with taste",
+          "leiras": "Recall the precise sensation of a taste through inner taste (sweet, sour, salty, bitter).",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Can you recall a taste undisturbed for 5 minutes through inner taste?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magical Soul Training (II) — Astral-Magical Balance and Character Refinement",
+      "leiras": "Restoring balance among the elements: overcoming faults, self-suggestion, transmutation.",
+      "gyakorlatok": [
+        {
+          "key": "jellemnemesites_lekuzdes",
+          "cim": "Character Refinement — Overcoming/Mastery",
+          "leiras": "From the black mirror of the first grade, select your strongest faults. Each day work on restraining them with strong will.",
+          "type": "practice",
+          "successCriteria": "Do you consistently work on overcoming the strongest faults from the black mirror, and experience measurable improvement in your daily behavior?",
+          "minSessions": 10
+        },
+        {
+          "key": "jellemnemesites_szuggesztio",
+          "cim": "Character Refinement — Self-Suggestion",
+          "leiras": "Suggest into yourself the virtuous quality opposite to the fault, before sleep and upon waking.",
+          "type": "habit",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Do you consistently suggest the opposite virtuous quality into yourself before sleep and upon waking?",
+          "minSessions": 21
+        },
+        {
+          "key": "jellemnemesites_transmutacio",
+          "cim": "Character Refinement — Transmutation",
+          "leiras": "Transform the fault into the opposite quality: e.g. irritability into energy, touchiness into understanding.",
+          "type": "practice",
+          "successCriteria": "Can you immediately turn a negative impulse in a positive direction in daily life?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magical Body Training (II) — Conscious Pore Breathing, Posture",
+      "leiras": "Conscious breathing through the skin and daily development of mastery over the body.",
+      "gyakorlatok": [
+        {
+          "key": "poruszlegzes",
+          "cim": "Conscious Pore Breathing",
+          "leiras": "Imagine that you breathe in life energy from the cosmos not only through your lungs but through your entire skin surface. Feel how this energy spreads throughout your body.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you evoke a vivid and real sensation of breathing through your entire skin surface?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudatos_testtartas",
+          "cim": "Conscious Posture",
+          "leiras": "Each day pay attention to your bodily state; sit, stand, and walk with discipline and uprightness.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Do you daily observe and consciously correct your posture?",
+          "minSessions": 21
+        },
+        {
+          "key": "test_uralasa",
+          "cim": "Mastery of the Body in Daily Life",
+          "leiras": "Develop the ability to direct the body at will; consciously influence fatigue, cold sensations, and muscle movements.",
+          "type": "practice",
+          "successCriteria": "Can you consciously influence and reduce fatigue, cold sensations, or muscle tension?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "idotartam": "2 weeks – 1 month",
+    "osszefoglalo": "Autosuggestion, concentration exercises for the five senses, character refinement (overcoming, self-suggestion, transmutation), conscious pore breathing and posture."
+  },
+  {
+    "id": 3,
+    "cim": "Third Grade",
+    "rovidcim": "Grade III",
+    "icon": "🔥",
+    "szin": "#fb923c",
+    "szellem": {
+      "cim": "Magical Spirit Training (III) — Thought Concentration with Two and Three Senses",
+      "leiras": "Concentration with two or three senses simultaneously, then on objects, landscapes, animals, and persons.",
+      "gyakorlatok": [
+        {
+          "key": "konc_2_erzek",
+          "cim": "Concentration with 2–3 senses at once",
+          "leiras": "Combine, for example, the imagined experience of sight and hearing, or sight + hearing + touch simultaneously.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you hold two or three sensory experiences combined simultaneously in inner concentration?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_targyakra",
+          "cim": "Thought concentration on objects, landscapes, rooms",
+          "leiras": "Recall a familiar object, room, or place in as much detail as possible with all senses.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you recall an object, room, or place in detail and stably with all senses?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_allatokra",
+          "cim": "Thought concentration on animals and people",
+          "leiras": "Recall an animal or person in their full being; their movements, sounds, and essence.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you recall an animal or person in their full being, with their movement and essence?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magical Soul Training (III) — Element Breathing in the Whole Body",
+      "leiras": "Conscious inhalation of the four elements into the whole body, together with the quality of each element.",
+      "gyakorlatok": [
+        {
+          "key": "elemlegzes_tuz",
+          "cim": "FIRE element breathing (warm)",
+          "leiras": "While breathing, imagine inhaling the FIRE element; warm, glowing energy fills your entire body. Body-guarding, warming, activating.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Can you evoke the genuine sensation of warmth of the FIRE element throughout the whole body while breathing?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_levego",
+          "cim": "AIR element breathing (light)",
+          "leiras": "While breathing, imagine inhaling the AIR element; lightness and a sense of freedom fill the body.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Can you evoke the sensation of lightness of the AIR element throughout the whole body while breathing?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_viz",
+          "cim": "WATER element breathing (cool)",
+          "leiras": "While breathing, imagine inhaling the WATER element; cool, flowing energy fills your body and brings calm.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Can you evoke the cooling, flowing sensation of the WATER element throughout the whole body while breathing?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_fold",
+          "cim": "EARTH element breathing (heavy)",
+          "leiras": "While breathing, imagine inhaling the EARTH element; heaviness, solidity, and stability fill you.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Can you evoke the sensation of heaviness and solidity of the EARTH element throughout the whole body while breathing?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magical Body Training (III) — Vital Energy Accumulation, Space Impregnation, Biomagnetism",
+      "leiras": "Conscious gathering of vital energy in the body, charging a space, magnetism.",
+      "gyakorlatok": [
+        {
+          "key": "eleterotorlaszolas_test",
+          "cim": "Vital energy accumulation in the whole body",
+          "leiras": "Accumulate life energy throughout the whole body through lung and pore breathing. Feel its warmth and density.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you gather life energy throughout your whole body and vividly feel its warmth and density?",
+          "minSessions": 10
+        },
+        {
+          "key": "eleterotorlaszolas_reszek",
+          "cim": "Vital energy accumulation in individual body parts",
+          "leiras": "Concentrate and accumulate life energy, e.g. in your hand, head, or around your heart.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you consciously concentrate life energy into individual body parts and feel warmth or tingling there?",
+          "minSessions": 10
+        },
+        {
+          "key": "terimpregnalás",
+          "cim": "Space Impregnation (Appendix)",
+          "leiras": "Fill an entire room with a positive wish (health, success, peace) through attention turned toward the Akasha principle.",
+          "type": "practice",
+          "successCriteria": "Have you performed the space impregnation exercise and felt the energetic change in the room?",
+          "minSessions": 5
+        },
+        {
+          "key": "biomagnetizmus",
+          "cim": "Biomagnetism (Appendix)",
+          "leiras": "Apply the magnetic force flowing from your hand to heal and charge people and objects.",
+          "type": "instructional",
+          "successCriteria": "Have you understood the principle of biomagnetism and conducted experiments with the conscious application of the force flowing from your hand?",
+          "minSessions": 3
+        }
+      ]
+    },
+    "idotartam": "2 weeks – 1 month",
+    "osszefoglalo": "Multi-sensory thought concentration, element breathing (Fire/Water/Air/Earth in the whole body), vital energy accumulation, space impregnation, biomagnetism."
+  },
+  {
+    "id": 4,
+    "cim": "Fourth Grade",
+    "rovidcim": "Grade IV",
+    "icon": "🌊",
+    "szin": "#38bdf8",
+    "szellem": {
+      "cim": "Magical Spirit Training (IV) — Consciousness Projection into Objects, Animals, and People",
+      "leiras": "The deliberate transfer of consciousness into other beings/objects for an inner perspective.",
+      "gyakorlatok": [
+        {
+          "key": "tudat_targyakba",
+          "cim": "Consciousness projection into objects",
+          "leiras": "Place your consciousness into a familiar object (e.g. chair, table); perceive its structure and weight from within.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you place your consciousness into an object and perceive its structure and weight from within?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudat_allatokba",
+          "cim": "Consciousness projection into animals",
+          "leiras": "Place your consciousness into an animal's body; feel its movements and the functioning of its senses.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you place your consciousness into an animal's body and feel its movements and sensory experiences from within?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudat_emberekbe",
+          "cim": "Consciousness projection into people",
+          "leiras": "Place your consciousness into a person's body/mind; this develops deep empathy and intuition.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you place your consciousness into a person's mind/body and empathetically perceive their inner state?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magical Soul Training (IV) — Element Accumulation and Element Harmony",
+      "leiras": "Accumulating the elements in the whole body and in body regions, then restoring element harmony.",
+      "gyakorlatok": [
+        {
+          "key": "elemtorlaszolas_test",
+          "cim": "Element accumulation in the whole body",
+          "leiras": "Accumulate a single element into the whole body, then dissolve it. Each element separately.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you accumulate any element into your whole body and then completely dissolve it?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemtorlaszolas_reszek",
+          "cim": "Element accumulation in individual body parts",
+          "leiras": "Accumulate an element into a specific body part (e.g. FIRE → into the head), then dissolve it. By two methods: through the lungs and through pore breathing.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you accumulate an element into a specific body part (e.g. FIRE into the head) by both methods, then completely dissolve it?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemharmonia",
+          "cim": "Restoring element harmony in body regions",
+          "leiras": "FIRE → head, AIR → chest, WATER → abdomen, EARTH → coccyx/legs. Each element has its own bodily region.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you direct each element to the appropriate body region and consciously restore the harmony of the elements?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magical Body Training (IV) — Rituals and Gestures",
+      "leiras": "Gestures, postures, and finger positions as ritual tools.",
+      "gyakorlatok": [
+        {
+          "key": "gesztusok",
+          "cim": "Gesticulation (Gesture)",
+          "leiras": "Learn symbolic gestures that you may use to reinforce the elements, will, and intention.",
+          "type": "instructional",
+          "successCriteria": "Have you mastered several basic symbolic gestures and consciously apply them to reinforce your magical work?",
+          "minSessions": 3
+        },
+        {
+          "key": "ritualis_testtartas",
+          "cim": "Ritual Posture",
+          "leiras": "How certain postures (e.g. sitting, standing, lying down) can strengthen magical work.",
+          "type": "practice",
+          "successCriteria": "Have you performed magical work in different postures and experienced their differing effects?",
+          "minSessions": 5
+        },
+        {
+          "key": "ujjallitas",
+          "cim": "Finger Positions (Mudra-like)",
+          "leiras": "Certain finger positions strengthen electric/magnetic currents in connection with specific elements.",
+          "type": "practice",
+          "successCriteria": "Do you practice different finger positions and feel their effect on energy flow?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "1–2 months",
+    "osszefoglalo": "Consciousness projection into objects/animals/people, element accumulation and element harmony in body regions, rituals and gestures."
+  },
+  {
+    "id": 5,
+    "cim": "Fifth Grade",
+    "rovidcim": "Grade V",
+    "icon": "⭐",
+    "szin": "#facc15",
+    "szellem": {
+      "cim": "Magical Spirit Training (V) — Space Magic",
+      "leiras": "Transferring consciousness into the center of any form, from the atom to the infinite. Experiencing the fourth dimension — spacelessness and timelessness.",
+      "gyakorlatok": [
+        {
+          "key": "termagia_pont",
+          "cim": "Transferring consciousness into the center of objects",
+          "leiras": "Choose an object, then imagine placing your consciousness into its geometric center. From there observe its balance.",
+          "type": "timed",
+          "params": {
+            "targetSec": 900
+          },
+          "successCriteria": "Can you place your consciousness into the geometric center of an object and observe it from there?",
+          "minSessions": 10
+        },
+        {
+          "key": "termagia_bővítés",
+          "cim": "Expanding consciousness to the infinite and contracting it to an atom",
+          "leiras": "Expand your consciousness into the infinite, then contract it to a point the size of an atom. Continue until it becomes natural.",
+          "type": "timed",
+          "params": {
+            "targetSec": 900
+          },
+          "successCriteria": "Can you expand your consciousness into the infinite, then contract it to a single point, with the experience stable and repeatable?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magical Soul Training (V) — Element Outpouring Outward",
+      "leiras": "The energy gathered through element breathing can be outpoured outward from the body, and later also without the body.",
+      "gyakorlatok": [
+        {
+          "key": "elemkiaraszt_plexus",
+          "cim": "Element outpouring outward — through the solar plexus",
+          "leiras": "Channel the element accumulated in the body outward into the air through the solar plexus chakra.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you channel an element outward through the solar plexus and feel the effect of the outpoured energy?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemkiaraszt_kez",
+          "cim": "Element outpouring from hand/fingers",
+          "leiras": "Channel the element gathered in your hand outward through the fingertips with special dynamics.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you channel the element outward from hand/fingers and direct its effect onto an external object or person?",
+          "minSessions": 10
+        },
+        {
+          "key": "kulso_kiaraszt",
+          "cim": "External outpouring without the body",
+          "leiras": "Directly from the air, without mediation through the body, charge a space with the desired element.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Can you outpour the element directly into the air without direct participation of the body?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magical Body Training (V) — Passive Contact with the Invisible",
+      "leiras": "Preparation and realization: contact with one's own guardian spirit and the deceased.",
+      "gyakorlatok": [
+        {
+          "key": "kez_szabadda",
+          "cim": "Freeing one's own hand",
+          "leiras": "Neutralize the hand, especially the fingers, from all external influences so that they perceive only spiritual stimuli.",
+          "type": "practice",
+          "successCriteria": "Has your hand become neutral to everyday influences and does it perceive fine spiritual impulses?",
+          "minSessions": 5
+        },
+        {
+          "key": "inga_ceruza",
+          "cim": "Preparing the fingers with pendulum, pencil, and circle board",
+          "leiras": "With the help of a pendulum and pencil, develop the sensitivity of the fingers to spiritual impulses.",
+          "type": "practice",
+          "successCriteria": "Does the pendulum or pencil move in your hand under the influence of your will and inner impulses, reliably?",
+          "minSessions": 5
+        },
+        {
+          "key": "passiv_vedoszellem",
+          "cim": "Passive contact with one's own guardian spirit",
+          "leiras": "In a meditative state receive signs and messages from your own inner guardian spirit/Higher Self.",
+          "type": "practice",
+          "successCriteria": "In a meditative state have you successfully contacted your inner guardian spirit/Higher Self and received signs and messages?",
+          "minSessions": 5
+        },
+        {
+          "key": "passiv_elhunytak",
+          "cim": "Passive contact with the deceased and other beings",
+          "leiras": "Develop passive medium-like sensitivity; through the movement of the pendulum or pencil.",
+          "type": "practice",
+          "successCriteria": "In a passive medium-like state have you received perceptible signals, and do you experience them under controlled conditions?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "1–2 months",
+    "osszefoglalo": "Space magic (consciousness transfer), element outpouring outward, passive contact with the invisible (guardian spirit, deceased)."
+  },
+  {
+    "id": 6,
+    "cim": "Sixth Grade",
+    "rovidcim": "Grade VI",
+    "icon": "🌀",
+    "szin": "#818cf8",
+    "szellem": {
+      "cim": "Magical Spirit Training (VI) — Focus on One's Own Spirit, Consciousness of the Senses",
+      "leiras": "Consciousness of the spirit (mental body) and raising the senses to the spiritual level.",
+      "gyakorlatok": [
+        {
+          "key": "sajat_szellem",
+          "cim": "Focus on one's own spirit",
+          "leiras": "Meditate on your own spirit as the interplay of the four elements: FIRE→will, WATER→feeling, AIR→intellect, EARTH→consciousness.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Can you consciously distinguish the four elements of your own spirit (will/feeling/intellect/consciousness) and behold them as a unity?",
+          "minSessions": 10
+        },
+        {
+          "key": "erzekek_szellemi",
+          "cim": "Consciousness of the senses on the spiritual level",
+          "leiras": "Raise every sense organ (sight, hearing, etc.) to the spiritual level; perceive spiritually as well, not only physically.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Can you consciously raise all your sense organs to the spiritual level, beyond physical perception?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magical Soul Training (VI) — Mastery of the Akasha Principle",
+      "leiras": "Learning and applying the fifth element, the Akasha principle: trance state and mastery of the elements.",
+      "gyakorlatok": [
+        {
+          "key": "akasha_elokeszit",
+          "cim": "Preparation for mastery of the Akasha principle",
+          "leiras": "Deep meditation on the Akasha principle: the cause of all things, the primordial principle of spacelessness and timelessness.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Can you meditatively experience the essence of the Akasha principle (spacelessness/timelessness, cause of all things)?",
+          "minSessions": 10
+        },
+        {
+          "key": "akasha_transz",
+          "cim": "Consciously inducing a trance state through the Akasha",
+          "leiras": "With the help of the Akasha principle enter deep trance while retaining full self-awareness.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Can you consciously enter deep trance with the help of the Akasha principle and retain full self-awareness?",
+          "minSessions": 10
+        },
+        {
+          "key": "akasha_elem_ritual",
+          "cim": "Mastery of an element through individual ritual from the Akasha",
+          "leiras": "From the neutral state of the Akasha evoke any element with ritual intention.",
+          "type": "practice",
+          "successCriteria": "From the neutral state of the Akasha can you ritually evoke and master any element?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magical Body Training (VI) — Elementals, Larvae, Schemas, Phantoms",
+      "leiras": "Conscious creation of spiritual beings and forms.",
+      "gyakorlatok": [
+        {
+          "key": "elemental_teremtes",
+          "cim": "Conscious creation of elementals",
+          "leiras": "Create elemental beings (fire-, water-, air-, earth-elementals) with intention, assign them a task, then dissolve them.",
+          "type": "practice",
+          "successCriteria": "Have you created elementals, assigned them tasks, and successfully dissolved them when their work was done?",
+          "minSessions": 5
+        },
+        {
+          "key": "larvak",
+          "cim": "Creation of larvae",
+          "leiras": "Create thought-beings that fulfill a defined purpose and work automatically, then dissolve them when they have done their work.",
+          "type": "practice",
+          "successCriteria": "Have you created and successfully dissolved thought-beings (larvae)?",
+          "minSessions": 5
+        },
+        {
+          "key": "semak",
+          "cim": "Creation of schemas",
+          "leiras": "Create magical units on the astral plane that carry out programmed action.",
+          "type": "practice",
+          "successCriteria": "Have you created and operated astral schemas?",
+          "minSessions": 5
+        },
+        {
+          "key": "fantomok",
+          "cim": "Creation of phantoms",
+          "leiras": "Create magical beings endowed with a spark of life that may also assume material appearance, from the Akasha.",
+          "type": "practice",
+          "successCriteria": "Have you successfully created phantoms from the Akasha and experienced their material appearance under controlled conditions?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–3 months",
+    "osszefoglalo": "Consciousness of one's own spirit, mastery of the Akasha principle (trance state, element ritual), creation of elementals/larvae/schemas/phantoms."
+  },
+  {
+    "id": 7,
+    "cim": "Seventh Grade",
+    "rovidcim": "Grade VII",
+    "icon": "👁️",
+    "szin": "#a78bfa",
+    "szellem": {
+      "cim": "Magical Spirit Training (VII) — Analysis of the Spirit in Relation to Practice",
+      "leiras": "Detailed analysis and application of the four elements of the spirit, including the mutual transformation of light and the FIRE element.",
+      "gyakorlatok": [
+        {
+          "key": "szellem_elemzes",
+          "cim": "Analysis of the elements of the spirit",
+          "leiras": "Deepen the role of each element (FIRE/Air/WATER/EARTH) in the spirit: will, intellect, feeling, consciousness.",
+          "type": "journal",
+          "successCriteria": "Have you analyzed and described in detail the role of each element in your own spirit, and do these insights deepen your magical practice?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magical Soul Training (VII) — Development of Astral Senses",
+      "leiras": "Development of astral clairvoyance, clairaudience, and clairsentience with the help of elements and fluidic condensers.",
+      "gyakorlatok": [
+        {
+          "key": "asztralis_latás",
+          "cim": "Development of astral clairvoyance",
+          "leiras": "With the help of a fluidic condenser develop astral sight; first perceive static images, then movement.",
+          "type": "practice",
+          "successCriteria": "Do you regularly and reliably perceive astral images, movement, and energies in your inner sight?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralis_halles",
+          "cim": "Development of astral clairaudience",
+          "leiras": "Astral hearing: perceiving sounds and words without a physical source, under controlled conditions.",
+          "type": "practice",
+          "successCriteria": "Under controlled conditions do you regularly perceive astral sounds and words without a physical source?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralis_erzes",
+          "cim": "Development of astral clairsentience",
+          "leiras": "Astral touch and perception: empathetic detection of others' feelings and physical condition.",
+          "type": "practice",
+          "successCriteria": "Can you empathetically and reliably perceive others' feelings and physical condition on the astral plane?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magical Body Training (VII) — Four Methods of Creating Elementals, Magical Animation of Images",
+      "leiras": "Advanced creative techniques for elementals and animating images.",
+      "gyakorlatok": [
+        {
+          "key": "elemental_4modszer",
+          "cim": "Four basic methods of elementals",
+          "leiras": "1. Thought creation. 2. Shaping astral matter. 3. Creation from electric/magnetic fluid. 4. Direct creation from the Akasha principle.",
+          "type": "practice",
+          "successCriteria": "Have you created elementals by all four methods and experienced their differing qualities?",
+          "minSessions": 10
+        },
+        {
+          "key": "kep_eletrekelt",
+          "cim": "Magical animation of images",
+          "leiras": "Charge a painting, statue, or mental image with life to such a degree that it is capable of acting independently.",
+          "type": "practice",
+          "successCriteria": "Have you successfully animated an image or statue and observed independent, observable activity?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–4 months",
+    "osszefoglalo": "Analysis of the spirit, astral clairvoyance/clairaudience/clairsentience, elementals by four methods, animation of images."
+  },
+  {
+    "id": 8,
+    "cim": "Eighth Grade",
+    "rovidcim": "Grade VIII",
+    "icon": "🌙",
+    "szin": "#64748b",
+    "szellem": {
+      "cim": "Magical Spirit Training (VIII) — Mental Wandering",
+      "leiras": "Separation of the mental body from the material body and conscious mental travel to various places.",
+      "gyakorlatok": [
+        {
+          "key": "mentalis_elokeszit",
+          "cim": "Preparations for mental wandering",
+          "leiras": "Relaxation, breathing, and the gradual development of the sensation of consciousness separating.",
+          "type": "practice",
+          "successCriteria": "Do you regularly reach the preparatory state of deep relaxation and consciousness separation?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_szoba",
+          "cim": "Mental wandering: in the room",
+          "leiras": "First wander mentally in your own room; observe yourself from outside and the familiar objects.",
+          "type": "practice",
+          "successCriteria": "Have you successfully wandered mentally in your own room and observed yourself and the objects from outside?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_rovid",
+          "cim": "Mental wandering: short route",
+          "leiras": "Extend mental travel to short familiar routes and streets.",
+          "type": "practice",
+          "successCriteria": "Have you successfully wandered mentally along familiar routes and partially verified your observations?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_ismerosok",
+          "cim": "Mental visits to acquaintances and relatives",
+          "leiras": "Visit familiar persons mentally and verify your observations physically as well.",
+          "type": "practice",
+          "successCriteria": "Have you successfully verified part of the observations gained during mental visits physically?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magical Soul Training (VIII) — The Great 'NOW', Mastery of Fluids",
+      "leiras": "Experiencing Akasha-like timelessness, mastery of electric and magnetic fluid.",
+      "gyakorlatok": [
+        {
+          "key": "nagy_most",
+          "cim": "The great 'NOW' — Experiencing timelessness",
+          "leiras": "Immerse yourself completely in the present moment; past and future disappear, only the 'now' exists.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Do you daily experience moments of timelessness, and has presence in the 'now' become natural?",
+          "minSessions": 21
+        },
+        {
+          "key": "ne_ragaszkodj",
+          "cim": "Let us not cling to the past",
+          "leiras": "Consciously release past events and grievances; the magician does not carry unnecessary burdens.",
+          "type": "journal",
+          "successCriteria": "Do you regularly perform the practice of release and feel inner liberation from the burdens of the past?",
+          "minSessions": 5
+        },
+        {
+          "key": "elektromos_fluidum",
+          "cim": "Mastery of electric fluid (inductive and deductive method)",
+          "leiras": "Electric fluid: the active, expansive aspect of the FIRE element. Induction: gathering from outside. Deduction: outpouring from one's own body.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "With both methods (inductive and deductive) do you successfully master electric fluid and test its effect on other beings?",
+          "minSessions": 10
+        },
+        {
+          "key": "magnetikus_fluidum",
+          "cim": "Mastery of magnetic fluid (inductive and deductive method)",
+          "leiras": "Magnetic fluid: the passive, attractive aspect of the WATER element. Applicable in healing and attraction.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "With both methods do you successfully master magnetic fluid and try its healing/attractive applications?",
+          "minSessions": 10
+        },
+        {
+          "key": "elektromagnetikus_fluidum",
+          "cim": "Mastery of electromagnetic fluid",
+          "leiras": "Combination of the two fluids: the fundamental force of creation in the universe. The strongest magical tool.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Have you successfully combined the two fluids into an electromagnetic unity and consciously apply its creative power?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magical Body Training (VIII) — Influence through the Elements, Fluidic Condensers, Magic Mirror",
+      "leiras": "Making magical objects and the influencing power of the elements.",
+      "gyakorlatok": [
+        {
+          "key": "elemek_befolyasolás",
+          "cim": "Magical influence through the elements (Fire/Air/Water/Earth)",
+          "leiras": "Fire: burning (destruction of negative effects). Air: evaporation. Water: mixing. Earth: rotting — all magical methods for dissolving problems.",
+          "type": "practice",
+          "successCriteria": "Have you performed all four methods (burning, evaporation, mixing, rotting) and experienced their effects?",
+          "minSessions": 5
+        },
+        {
+          "key": "egyszerű_kondenzt",
+          "cim": "Preparation of a simple fluidic condenser",
+          "leiras": "Preparation of a plant infusion (e.g. chamomile) as a fluidic condenser that stores electromagnetic force.",
+          "type": "instructional",
+          "successCriteria": "Have you prepared the simple fluidic condenser and understood and applied the principle of electromagnetic charging?",
+          "minSessions": 3
+        },
+        {
+          "key": "osszetett_kondenzt",
+          "cim": "Preparation of a compound fluidic condenser",
+          "leiras": "Preparation of a compound condenser containing gold and silver.",
+          "type": "instructional",
+          "successCriteria": "Have you prepared the compound fluidic condenser using gold and silver?",
+          "minSessions": 3
+        },
+        {
+          "key": "magikus_tukor_keszit",
+          "cim": "Making a magic mirror with fluidic condenser",
+          "leiras": "Charging a glass disc or mirror with fluidic condenser and one's own electromagnetic fluid.",
+          "type": "practice",
+          "successCriteria": "Have you made the magic mirror, charged it with condenser and your own fluid, and begun to feel its activity?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–4 months",
+    "osszefoglalo": "Mental wandering, the great 'NOW', mastery of electromagnetic fluids, influence through the elements, fluidic condensers and making a magic mirror."
+  },
+  {
+    "id": 9,
+    "cim": "Ninth Grade",
+    "rovidcim": "Grade IX",
+    "icon": "🪞",
+    "szin": "#f9a8d4",
+    "szellem": {
+      "cim": "Magical Spirit Training (IX) — Clairvoyance with Magic Mirrors",
+      "leiras": "The magic mirror as the principal tool for extending the senses across time and space.",
+      "gyakorlatok": [
+        {
+          "key": "tukortöltés",
+          "cim": "Charging the magic mirror",
+          "leiras": "Charge the magic mirror with electromagnetic fluid and your own astral energy; give it intention and purpose.",
+          "type": "practice",
+          "successCriteria": "Do you regularly and effectively charge your mirror, and does it perceptibly respond to your will?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukorbetegkez",
+          "cim": "Magic mirror as a remote-viewing tool (space/time)",
+          "leiras": "Through the mirror see into the distance, explore past/present/future.",
+          "type": "practice",
+          "successCriteria": "In the mirror do you reliably see distant, past, and future images that you can partially verify?",
+          "minSessions": 10
+        },
+        {
+          "key": "tukorbefoly",
+          "cim": "Magic mirror as an influencing tool",
+          "leiras": "Through the mirror radiate positive energy and power onto the sick and into situations.",
+          "type": "practice",
+          "successCriteria": "Do you successfully apply the mirror to radiate positive energies and experience measurable effects?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukortavolhat",
+          "cim": "Magic mirror as a transmitter-receiver (communication)",
+          "leiras": "Communication with living persons and other beings through the mirror.",
+          "type": "practice",
+          "successCriteria": "Have you successfully communicated through the mirror and been able to verify part of the messages from an external source?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukorvedo",
+          "cim": "Magic mirror as a protective tool",
+          "leiras": "Turn back harmful and unwanted influences with the mirror.",
+          "type": "practice",
+          "successCriteria": "Do you successfully apply the mirror for protection and experience the reversal of unwanted effects?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magical Soul Training (IX) — Separation of the Astral Body, Divine Primary Qualities",
+      "leiras": "Conscious separation of the astral body from the physical body and charging it with four divine primary qualities.",
+      "gyakorlatok": [
+        {
+          "key": "asztralist_elvalaszt",
+          "cim": "Conscious separation of the astral body from the material body",
+          "leiras": "The astral body — the soul's bodily appendage — leaves the physical body with full self-awareness and by will, and returns.",
+          "type": "practice",
+          "successCriteria": "Can you consciously and voluntarily separate your astral body and return it, with full self-awareness?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralist_istenialap",
+          "cim": "Charging the astral body with four divine primary qualities",
+          "leiras": "Imbue the astral body with divine Love, Wisdom, Will/Power, and Consciousness.",
+          "type": "practice",
+          "successCriteria": "Have you successfully charged your astral body with all four divine primary qualities and do you maintain this constantly?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magical Body Training (IX) — Healing, Talismans, Wish Fulfillment",
+      "leiras": "Healing with electromagnetic fluid, charging talismans and amulets, wish fulfillment in the Akasha.",
+      "gyakorlatok": [
+        {
+          "key": "betegkez_fluidum",
+          "cim": "Healing with electromagnetic fluid",
+          "leiras": "Healing sick persons by laying on of hands or from a distance by channeling electromagnetic fluid.",
+          "type": "practice",
+          "successCriteria": "Have you successfully treated persons with electromagnetic fluid and experienced measurable improvement?",
+          "minSessions": 5
+        },
+        {
+          "key": "talizmantoltes",
+          "cim": "Magical charging of talismans, amulets, and gemstones (10 methods)",
+          "leiras": "10 different methods for charging objects with electromagnetic/astral energy with a defined intention.",
+          "type": "practice",
+          "successCriteria": "Have you performed talisman charging with all 10 methods, and is the effect of the charged objects perceptible?",
+          "minSessions": 10
+        },
+        {
+          "key": "kivanság_akasha",
+          "cim": "Wish fulfillment in the Akasha with electromagnetic charging ('Voltozation')",
+          "leiras": "You place the wish, enclosed in an electromagnetic sphere, onto the Akasha plane, where it automatically strives toward fulfillment.",
+          "type": "practice",
+          "successCriteria": "Have you performed the voltozation technique, and do wishes fulfill without your actively thinking of them?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "3–6 months",
+    "osszefoglalo": "Clairvoyance with magic mirrors, separation of the astral body, healing with fluid, charging talismans by 10 methods, wish fulfillment in the Akasha."
+  },
+  {
+    "id": 10,
+    "cim": "Tenth Grade",
+    "rovidcim": "Grade X",
+    "icon": "✨",
+    "szin": "#fbbf24",
+    "szellem": {
+      "cim": "Magical Spirit Training (X) — Raising the Spirit to the Higher Planes",
+      "leiras": "Conscious raising of the mental body to the mental planes above the physical and astral planes, and then even higher.",
+      "gyakorlatok": [
+        {
+          "key": "szellem_emelese",
+          "cim": "Raising the spirit to the higher planes",
+          "leiras": "Deliberate transfer of consciousness to the mental plane, then to the planes beyond it. The physical world temporarily disappears completely.",
+          "type": "practice",
+          "successCriteria": "Do you consciously raise your spirit to the mental plane and from there to the higher planes, with the physical world disappearing completely?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magical Soul Training (X) — Contact with the Personal God and Deities",
+      "leiras": "The highest level of soul contact: conscious communion with one's own personal deity and other spiritual hierarchies.",
+      "gyakorlatok": [
+        {
+          "key": "sajat_isten",
+          "cim": "Conscious contact with one's own personal God",
+          "leiras": "Conscious, direct, two-way communication with one's own inner divine spark and Higher Self.",
+          "type": "practice",
+          "successCriteria": "Do you regularly and reliably communicate two-way with your own inner divine spark/Higher Self?",
+          "minSessions": 10
+        },
+        {
+          "key": "istenségek",
+          "cim": "Contact with deities and spiritual hierarchies",
+          "leiras": "The magician is able on the Akasha plane to communicate and cooperate with deities, archangels, and other spiritual beings.",
+          "type": "practice",
+          "successCriteria": "On the Akasha plane have you successfully contacted deities or spiritual hierarchies, and is the cooperation fruitful?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magical Body Training (X) — Various Methods of Magical Abilities",
+      "leiras": "Synthesis of all previous grades; the magician is able to evoke all the phenomena described according to universal laws.",
+      "gyakorlatok": [
+        {
+          "key": "magikus_kepessegek",
+          "cim": "Various methods for attaining magical abilities",
+          "leiras": "Influencing weather, healing, harmonizing the living space, communication with the dead, and other higher magical works.",
+          "type": "instructional",
+          "successCriteria": "As the synthesis of all previous grades, are you able to deliberately evoke the magical phenomena described in the book?",
+          "minSessions": 1
+        }
+      ]
+    },
+    "idotartam": "Individual — this concludes the course",
+    "osszefoglalo": "Raising the spirit to the higher planes, conscious contact with the personal God and deities, synthesis of all magical abilities."
+  }
+]

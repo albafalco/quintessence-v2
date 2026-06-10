@@ -13,6 +13,7 @@ interface NavbarProps {
 
 export function Navbar({ username }: NavbarProps) {
   const t = useTranslations('nav');
+  const tBrand = useTranslations('brand');
   const locale = useLocale();
 
   return (
@@ -21,7 +22,7 @@ export function Navbar({ username }: NavbarProps) {
         <ShieldLogo size={28} showGlow className="shrink-0 sm:hidden" />
         <ShieldLogo size={32} showGlow className="hidden shrink-0 sm:block" />
         <span className="hidden truncate font-display text-sm font-semibold text-gradient-gold min-[400px]:inline sm:text-base">
-          Quintessence
+          {tBrand('name')}
         </span>
       </Link>
 

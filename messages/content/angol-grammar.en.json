@@ -1,0 +1,251 @@
+{
+  "szolapMagyarazat": {
+    "title": "Word Sheet Explanation",
+    "intro": "Usage and nuances of meaning of the word sheet vocabulary — an explanation for beginners.",
+    "sections": [
+      {
+        "heading": "Articles and demonstratives",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>a / an</strong> — indefinite article: \"a, an\". Use <em>an</em> before words beginning with a vowel sound (<em>an old flat</em>, <em>an interesting story</em>)."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>the</strong> — definite article: \"the\". Refers to a specific, known thing (<em>the family</em> = that particular family)."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>this / that</strong> — demonstrative pronouns: <em>this</em> = this one (near), <em>that</em> = that one (far). They stand before a noun without an article: <em>this house</em>, <em>that car</em>."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>which</strong> — interrogative word meaning \"which\": <em>which house?</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>every</strong> — \"every, each\": <em>every child</em> = every child."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>whose</strong> — possessive interrogative: <em>whose house?</em> = whose house?"
+          }
+        ]
+      },
+      {
+        "heading": "Possessive pronouns",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": ["Meaning", "English"],
+            "rows": [
+              ["my (possessive)", "my"],
+              ["your (informal singular)", "your"],
+              ["his (masculine)", "his"],
+              ["her (feminine)", "her"],
+              ["its (neutral)", "its"],
+              ["our", "our"],
+              ["your (informal plural)", "your"],
+              ["their", "their"]
+            ]
+          },
+          {
+            "type": "note",
+            "paragraphs": [
+              "<strong>your</strong> has four meanings: 1) informal singular <em>your</em>, 2) formal singular <em>your</em>, 3) informal plural <em>your</em>, 4) formal plural <em>your</em>. Context determines which one is meant.",
+              "<strong>his / her / its</strong>: <em>his</em> after a male referent, <em>her</em> after a female referent, <em>its</em> after an object or animal (<em>its house</em>)."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Personal pronouns",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>he / she</strong> — third person singular: <em>he</em> for male, <em>she</em> for female. In a standalone sentence: <em>He is young.</em> / <em>She is beautiful.</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>it</strong> — for things and abstract concepts: <em>It is true.</em> = That is true."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>it vs this/that</strong>: <em>this</em> and <em>that</em> indicate more concretely; <em>it</em> is more general and abstract (<em>It is possible.</em> = It is possible)."
+          }
+        ]
+      },
+      {
+        "heading": "Time and place expressions",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>here / there</strong> — here / there"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>at home</strong> — at home (<em>at home</em>, not <em>in home</em>)"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>near / far</strong> — near / far"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>still vs already</strong>: <em>still</em> = still (continuing), <em>already</em> = already (completed). <em>He is still here.</em> vs <em>He is already at home.</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>enough</strong> — enough. It usually comes <strong>after</strong> the adjective: <em>near enough</em>, <em>good enough</em>."
+          }
+        ]
+      },
+      {
+        "heading": "Degrees of adjectives",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Positive — comparative — superlative:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>good</em> → <em>better</em> → <em>the best</em>",
+              "<em>big</em> → <em>bigger</em> → <em>the biggest</em> (regular: -er / -est)",
+              "<em>beautiful</em> → <em>more beautiful</em> → <em>the most beautiful</em> (long adjectives)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nyelvtanI": {
+    "title": "Grammar I",
+    "intro": "Basic structure of the English sentence — articles, verb, word order.",
+    "sections": [
+      {
+        "heading": "ABC structures",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "An English sentence is built from three main parts:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<strong>A</strong> — subject (who? what?): <em>the child</em>, <em>Peter</em>, <em>she</em>",
+              "<strong>B</strong> — predicate / verb: <em>is</em>, <em>was</em>",
+              "<strong>C</strong> — sentence element (adjective, place, etc.): <em>happy</em>, <em>here</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Example: <em>[A: The child] [B: is] [C: happy].</em> = The child is happy."
+          }
+        ]
+      },
+      {
+        "heading": "Indefinite article: a / an",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Meaning: \"a, an\" (not specific, mentioned for the first time)."
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>a</em> — before a consonant sound: <em>a house</em>, <em>a car</em>",
+              "<em>an</em> — before a vowel sound: <em>an old flat</em>, <em>an idea</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Pronunciation matters, not spelling: <em>an hour</em> (hour — silent h), <em>a university</em> (university — /j/ sound)."
+          }
+        ]
+      },
+      {
+        "heading": "Definite article: the",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Meaning: \"the\" — a known, specific thing."
+          },
+          {
+            "type": "paragraph",
+            "html": "<em>the family</em> = the (already known) family"
+          },
+          {
+            "type": "paragraph",
+            "html": "<em>the best answer</em> = the best answer (<em>the</em> is always used before the superlative)"
+          }
+        ]
+      },
+      {
+        "heading": "is → he's / she's",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "The verb <em>is</em> can be contracted with the pronoun:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>he is</em> → <em>he's</em>",
+              "<em>she is</em> → <em>she's</em>",
+              "<em>it is</em> → <em>it's</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Example: <em>He's a teacher.</em> = He is a teacher. / <em>She's at home.</em> = She is at home."
+          }
+        ]
+      },
+      {
+        "heading": "The four basic sentence types",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": ["Type", "Structure", "Example", "Translation"],
+            "rows": [
+              ["Declarative", "A + B + C", "She is happy.", "She is happy."],
+              ["Interrogative", "B + A + C (?)", "Is she happy?", "Is she happy?"],
+              ["Negative", "A + B + not + C", "She is not happy.", "She is not happy."],
+              ["Negative interrogative", "B + A + not + C (?)", "Is she not happy?", "Is she not happy?"]
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Word order: 1-2-3 system",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Basic English word order:"
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "<strong>1st position</strong> — subject (A): <em>The child</em>",
+              "<strong>2nd position</strong> — verb (B): <em>is</em>",
+              "<strong>3rd position</strong> — complement (C): <em>happy</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "In questions, the <strong>2nd position (verb)</strong> moves before the <strong>1st position</strong>, and a <strong>(?)</strong> is placed at the end of the sentence."
+          },
+          {
+            "type": "mono",
+            "lines": [
+              "Declarative:  [1: She] [2: is] [3: here].",
+              "Question:     [2: Is] [1: she] [3: here]?"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

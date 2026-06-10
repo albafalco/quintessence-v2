@@ -36,7 +36,21 @@ export function RegisterForm() {
     setLoading(false);
 
     if (!res.ok) {
-      setError(data.error ?? t('registerError'));
+      const errorCode = data.errorCode as string | undefined;
+      const errorKeyMap: Record<string, string> = {
+        SERVER_CONFIG: 'errors.serverConfig',
+        MISSING_FIELDS: 'errors.missingFields',
+        INVALID_USERNAME: 'errors.invalidUsername',
+        PASSWORD_TOO_SHORT: 'errors.passwordTooShort',
+        INVALID_INVITE: 'errors.invalidInvite',
+        REGISTRATION_FAILED: 'errors.registrationFailed',
+        METHOD_NOT_ALLOWED: 'errors.methodNotAllowed',
+      };
+      setError(
+        errorCode && errorKeyMap[errorCode]
+          ? t(errorKeyMap[errorCode] as 'errors.serverConfig')
+          : data.error ?? t('registerError')
+      );
       return;
     }
 

@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
-import { LECKE_1_SZAKASZOK } from '@/lib/angol-lecke1';
-import { SECTION_LABELS, isSectionUnlocked } from '@/lib/angol-unlocks';
+import { getTranslations } from 'next-intl/server';
+import { loadAngolLesson1, loadAngolVocabulary, loadAngolGrammar } from '@/lib/i18n-content';
+import { getSectionLabels, isSectionUnlocked } from '@/lib/angol-unlocks';
 import { getLastExamResult, getUnlockedSectionIds } from '@/lib/angol-db';
 import { SzakaszView } from '@/components/angol/SzakaszView';
+import type { Locale } from '@/i18n';
 
 interface SzakaszPageProps {
   params: { locale: string; id: string; sid: string };
@@ -18,7 +20,10 @@ export default async function SzakaszPage({ params }: SzakaszPageProps) {
   if (isNaN(lessonId) || lessonId !== 1) notFound();
   if (isNaN(sectionId)) notFound();
 
-  const validSections = [0, 1, 2, ...LECKE_1_SZAKASZOK.map((s) => s.id)];
+  const t = await getTranslations('angol');
+  const lessonContent = await loadAngolLesson1(locale as Locale);
+  const sectionLabels = getSectionLabels(lessonContent);
+  const validSections = [0, 1, 2, ...lessonContent.practice.map((s) => s.id)];
   if (!validSections.includes(sectionId)) notFound();
 
   const unlockedIds = await getUnlockedSectionIds(lessonId);
@@ -26,9 +31,14 @@ export default async function SzakaszPage({ params }: SzakaszPageProps) {
     redirect(`/${locale}/modules/angol/lecke/${lessonId}`);
   }
 
-  const szakasz = LECKE_1_SZAKASZOK.find((s) => s.id === sectionId);
-  const sectionName = SECTION_LABELS[sectionId] ?? `Szakasz ${sectionId}`;
+  const szakasz = lessonContent.practice.find((s) => s.id === sectionId);
+  const sectionName = sectionLabels[sectionId] ?? t('sectionFallback', { id: sectionId });
   const lastExam = sectionId >= 5 ? await getLastExamResult(lessonId, sectionId) : null;
+
+  const [vocabulary, grammar] = await Promise.all([
+    loadAngolVocabulary(),
+    loadAngolGrammar(locale as Locale),
+  ]);
 
   return (
     <div className="mx-auto w-full min-w-0 max-w-3xl space-y-6">
@@ -37,7 +47,7 @@ export default async function SzakaszPage({ params }: SzakaszPageProps) {
           href={`/${locale}/modules/angol/lecke/${lessonId}`}
           className="text-sm text-muted-foreground hover:text-foreground"
         >
-          ← Szakaszok
+          {t('backToSections')}
         </Link>
         <h1 className="font-display text-2xl font-bold text-primary">
           {sectionName}
@@ -50,6 +60,8 @@ export default async function SzakaszPage({ params }: SzakaszPageProps) {
         sectionName={sectionName}
         szakasz={szakasz}
         locale={locale}
+        vocabulary={vocabulary}
+        grammar={grammar}
         lastExamScore={lastExam?.score ?? null}
         lastExamPassed={lastExam?.passed ?? false}
       />

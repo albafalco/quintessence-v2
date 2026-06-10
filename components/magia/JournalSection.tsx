@@ -154,7 +154,7 @@ export function JournalSection({
                 onClick={() => setShowExportMenu((v) => !v)}
               >
                 <Download className="h-4 w-4" />
-                Export
+                {t('journalExport')}
               </Button>
               {showExportMenu && (
                 <div className="absolute right-0 top-full z-20 mt-1 w-36 rounded-xl border border-border/40 bg-background shadow-lg">
@@ -163,12 +163,12 @@ export function JournalSection({
                     onClick={() => { exportJSON(entries); setShowExportMenu(false); }}
                     className="block w-full px-4 py-2.5 text-left text-sm text-cream hover:bg-muted/40"
                   >
-                    JSON
+                    {t('journalExportJson')}
                   </button>
                   <button
                     type="button"
                     onClick={() => {
-                      const md = `# Mágikus Napló\n\n${entries.map((e) => entryToMarkdown(e, markdownLabels)).join('\n\n---\n\n')}`;
+                      const md = `${t('journalExportHeader')}\n\n${entries.map((e) => entryToMarkdown(e, markdownLabels)).join('\n\n---\n\n')}`;
                       const blob = new Blob([md], { type: 'text/markdown' });
                       const url = URL.createObjectURL(blob);
                       const a = document.createElement('a');
@@ -180,7 +180,7 @@ export function JournalSection({
                     }}
                     className="block w-full px-4 py-2.5 text-left text-sm text-cream hover:bg-muted/40"
                   >
-                    Markdown
+                    {t('journalExportMarkdown')}
                   </button>
                 </div>
               )}

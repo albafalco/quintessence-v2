@@ -33,7 +33,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   return (
     <div className="mx-auto max-w-2xl space-y-8">
       <header>
-        <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent/70">Beállítások</p>
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent/70">{t('settingsEyebrow')}</p>
         <h1 className="mt-2 font-display text-4xl font-bold text-gradient-gold">{t('title')}</h1>
       </header>
         <ProfileForm

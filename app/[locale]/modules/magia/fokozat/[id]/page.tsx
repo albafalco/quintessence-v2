@@ -2,7 +2,8 @@ import { notFound, redirect } from 'next/navigation';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { createClient } from '@/lib/supabase/server';
-import { MAGIA_FOKOZATOK } from '@/lib/magia-data';
+import { loadMagiaFokozatok } from '@/lib/magia-data';
+import type { Locale } from '@/i18n';
 import { FokozatTabs } from '@/components/magia/FokozatTabs';
 import { JournalSection } from '@/components/magia/JournalSection';
 import { ProgressRing } from '@/components/magia/ProgressRing';
@@ -22,7 +23,8 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
     notFound();
   }
 
-  const fokozat = MAGIA_FOKOZATOK.find((f) => f.id === fokozatId);
+  const fokozatok = await loadMagiaFokozatok(locale as Locale);
+  const fokozat = fokozatok.find((f) => f.id === fokozatId);
   if (!fokozat) notFound();
 
   const t = await getTranslations('magia');
@@ -99,7 +101,7 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
 
         <FokozatTabs
           fokozatId={fokozatId}
-          nextFokozatTitle={MAGIA_FOKOZATOK.find((f) => f.id === fokozatId + 1)?.cim}
+          nextFokozatTitle={fokozatok.find((f) => f.id === fokozatId + 1)?.cim}
           szellem={fokozat.szellem}
           lelek={fokozat.lelek}
           test={fokozat.test}

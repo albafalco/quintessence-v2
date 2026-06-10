@@ -19,6 +19,7 @@ export default async function DashboardPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'dashboard' });
   const tModules = await getTranslations({ locale, namespace: 'modules' });
+  const tBrand = await getTranslations({ locale, namespace: 'brand' });
 
   const supabase = await createClient();
   const {
@@ -45,7 +46,7 @@ export default async function DashboardPage({
 
   const magiaStats = getMagiaDashboardStats(magiaProgress ?? []);
 
-  let angolStats = { progress: 0, lastActivity: null as string | null, progressLabel: '1. Lecke' };
+  let angolStats = { progress: 0, lastActivity: null as string | null };
   if (showAngol) {
     const [{ data: cardProgress }, { data: unlocks }] = await Promise.all([
       supabase
@@ -73,7 +74,7 @@ export default async function DashboardPage({
             <div className="flex items-center gap-3">
               <ShieldLogo size={48} showGlow />
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent/80">
-                Quintessence
+                {tBrand('name')}
               </p>
             </div>
             <h1 className="font-display text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl">
@@ -85,7 +86,7 @@ export default async function DashboardPage({
             <div className="rounded-xl border border-border/40 bg-background/40 px-4 py-3 backdrop-blur-sm">
               <div className="flex items-center gap-2 text-accent">
                 <Sparkles className="h-4 w-4" />
-                <span className="text-[10px] font-semibold uppercase tracking-wider">Mágia</span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider">{t('magiaLabel')}</span>
               </div>
               <p className="mt-2 font-display text-2xl font-bold text-cream">
                 {magiaStats.fokozatPercent}%
@@ -98,18 +99,18 @@ export default async function DashboardPage({
               <div className="rounded-xl border border-border/40 bg-background/40 px-4 py-3 backdrop-blur-sm">
                 <div className="flex items-center gap-2 text-slate-300">
                   <BookOpen className="h-4 w-4" />
-                  <span className="text-[10px] font-semibold uppercase tracking-wider">Angol</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-wider">{t('angolLabel')}</span>
                 </div>
                 <p className="mt-2 font-display text-2xl font-bold text-cream">
                   {angolStats.progress}%
                 </p>
-                <p className="text-xs text-muted-foreground">{angolStats.progressLabel}</p>
+                <p className="text-xs text-muted-foreground">{t('lesson1Progress')}</p>
               </div>
             )}
             <div className="rounded-xl border border-border/40 bg-background/40 px-4 py-3 backdrop-blur-sm">
               <div className="flex items-center gap-2 text-accent/70">
                 <TrendingUp className="h-4 w-4" />
-                <span className="text-[10px] font-semibold uppercase tracking-wider">Össz.</span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider">{t('totalLabel')}</span>
               </div>
               <p className="mt-2 font-display text-2xl font-bold text-cream">
                 {magiaStats.overallPercent}%
@@ -142,7 +143,7 @@ export default async function DashboardPage({
               href={`/${locale}/modules/angol`}
               progressType="bar"
               progress={angolStats.progress}
-              progressLabel={angolStats.progressLabel}
+              progressLabel={t('lesson1Progress')}
               lastActivity={formatActivityDate(angolStats.lastActivity, locale)}
               icon="🇬🇧"
               variant="angol"

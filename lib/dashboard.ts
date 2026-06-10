@@ -1,18 +1,19 @@
-import { MAGIA_FOKOZATOK } from '@/lib/magia-data';
-import { SZOLAP_1 } from '@/lib/angol-szolap';
+import type { FokozatData } from '@/lib/i18n-content';
+import magiaStructure from '@/messages/content/magia.hu.json';
+import vocabulary from '@/messages/content/angol-vocabulary.json';
+import { getFokozatExerciseCount } from '@/lib/i18n-content';
 
-export function getFokozatExerciseCount(fokozatId: number): number {
-  const fokozat = MAGIA_FOKOZATOK.find((f) => f.id === fokozatId);
+const MAGIA_STRUCTURE = magiaStructure as FokozatData[];
+const VOCABULARY = vocabulary as { prompt: string; answer: string }[];
+
+export function getFokozatExerciseCountFromStructure(fokozatId: number): number {
+  const fokozat = MAGIA_STRUCTURE.find((f) => f.id === fokozatId);
   if (!fokozat) return 0;
-  return (
-    fokozat.szellem.gyakorlatok.length +
-    fokozat.lelek.gyakorlatok.length +
-    fokozat.test.gyakorlatok.length
-  );
+  return getFokozatExerciseCount(fokozat);
 }
 
-export function getTotalMagiaExercises(): number {
-  return MAGIA_FOKOZATOK.reduce((sum, f) => sum + getFokozatExerciseCount(f.id), 0);
+export function getTotalMagiaExercisesFromStructure(): number {
+  return MAGIA_STRUCTURE.reduce((sum, f) => sum + getFokozatExerciseCount(f), 0);
 }
 
 interface MagiaProgressRow {
@@ -28,11 +29,11 @@ export function getMagiaDashboardStats(progress: MagiaProgressRow[]) {
       ? Math.max(...completedRows.map((p) => p.fokozat))
       : 1;
 
-  const fokozatTotal = getFokozatExerciseCount(currentFokozat);
+  const fokozatTotal = getFokozatExerciseCountFromStructure(currentFokozat);
   const fokozatCompleted = completedRows.filter((p) => p.fokozat === currentFokozat).length;
   const fokozatPercent = fokozatTotal > 0 ? Math.round((fokozatCompleted / fokozatTotal) * 100) : 0;
 
-  const overallTotal = getTotalMagiaExercises();
+  const overallTotal = getTotalMagiaExercisesFromStructure();
   const overallPercent =
     overallTotal > 0 ? Math.round((completedRows.length / overallTotal) * 100) : 0;
 
@@ -47,7 +48,6 @@ export function getMagiaDashboardStats(progress: MagiaProgressRow[]) {
     fokozatPercent,
     overallPercent,
     lastActivity,
-    progressLabel: `Fokozat ${currentFokozat}`,
   };
 }
 
@@ -61,14 +61,14 @@ interface AngolUnlockRow {
   unlocked_at: string;
 }
 
-const TOTAL_ANGOL_SECTIONS = 17; // sections 0-2 + 5-18
+const TOTAL_ANGOL_SECTIONS = 17;
 
 export function getAngolDashboardStats(
   cards: AngolCardRow[],
   unlocks: AngolUnlockRow[]
 ) {
   const learnedCards = cards.filter((c) => c.correct_count >= 3).length;
-  const cardPercent = SZOLAP_1.length > 0 ? Math.round((learnedCards / SZOLAP_1.length) * 100) : 0;
+  const cardPercent = VOCABULARY.length > 0 ? Math.round((learnedCards / VOCABULARY.length) * 100) : 0;
 
   const unlockedSections = unlocks.length;
   const sectionPercent = Math.round((unlockedSections / TOTAL_ANGOL_SECTIONS) * 100);
@@ -92,7 +92,6 @@ export function getAngolDashboardStats(
   return {
     progress,
     lastActivity,
-    progressLabel: '1. Lecke',
   };
 }
 

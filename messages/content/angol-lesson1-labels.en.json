@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "5": "Practice A — Basic Connections",
+    "6": "Practice — Indefinite Article",
+    "7": "Practice — Definite Article",
+    "8": "Practice — Demonstrative Pronouns",
+    "9": "Practice — Possessive Pronouns",
+    "10": "Practice — Other Connections",
+    "11": "Clause Practice — Mixed",
+    "12": "Sentence Practice — This + Other",
+    "13": "Sentence Practice — This + ABC",
+    "14": "Sentence Practice — He/She + Other",
+    "15": "Sentence Practice — He/She + ABC",
+    "16": "Sentence Practice — ABC + Other",
+    "17": "Sentence Practice — ABC + ABC",
+    "18": "Sentence Practice — Mixed"
+  },
+  "sectionLabels": {
+    "0": "Word Sheet",
+    "1": "Word Sheet Explanation",
+    "2": "Grammar I",
+    "5": "Practice A — Basic Connections",
+    "6": "Practice — Indefinite Article",
+    "7": "Practice — Definite Article",
+    "8": "Practice — Demonstrative Pronouns",
+    "9": "Practice — Possessive Pronouns",
+    "10": "Practice — Other Connections",
+    "11": "Clause Practice — Mixed",
+    "12": "Sentence Practice — This + Other",
+    "13": "Sentence Practice — This + ABC",
+    "14": "Sentence Practice — He/She + Other",
+    "15": "Sentence Practice — He/She + ABC",
+    "16": "Sentence Practice — ABC + Other",
+    "17": "Sentence Practice — ABC + ABC",
+    "18": "Sentence Practice — Mixed"
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Lesson I",
+      "subtitle": "Basics — articles, pronouns, sentences"
+    },
+    {
+      "id": 2,
+      "title": "Lesson II",
+      "subtitle": "Coming soon"
+    },
+    {
+      "id": 3,
+      "title": "Lesson III",
+      "subtitle": "Coming soon"
+    },
+    {
+      "id": 4,
+      "title": "Lesson IV",
+      "subtitle": "Coming soon"
+    },
+    {
+      "id": 5,
+      "title": "Lesson V",
+      "subtitle": "Coming soon"
+    },
+    {
+      "id": 6,
+      "title": "Lesson VI",
+      "subtitle": "Coming soon"
+    },
+    {
+      "id": 7,
+      "title": "Lesson VII",
+      "subtitle": "Coming soon"
+    },
+    {
+      "id": 8,
+      "title": "Lesson VIII",
+      "subtitle": "Coming soon"
+    },
+    {
+      "id": 9,
+      "title": "Lesson IX",
+      "subtitle": "Coming soon"
+    },
+    {
+      "id": 10,
+      "title": "Lesson X",
+      "subtitle": "Coming soon"
+    }
+  ]
+}

@@ -14,6 +14,8 @@ import {
   getMagiaInactiveDays,
   isReminderDue,
 } from '@/lib/push-reminders';
+import { getMessage, resolveLocale } from '@/lib/i18n-messages';
+import type { Locale } from '@/i18n';
 
 interface ProfileRow {
   id: string;
@@ -46,6 +48,105 @@ interface PushPayload {
   title: string;
   body: string;
   url: string;
+}
+
+async function buildPushNotifications(
+  profile: ProfileRow,
+  budapestNow: ReturnType<typeof getBudapestNow>,
+  supabase: Awaited<ReturnType<typeof createServiceClient>>
+): Promise<PushPayload[]> {
+  const locale = resolveLocale(profile.preferred_language);
+  const notifications: PushPayload[] = [];
+  const magiaUrl = `/${locale}/modules/magia/ma`;
+
+  const magiaTime = profile.push_magia_time || DEFAULT_MAGIA_PUSH_TIME;
+  const morningAlreadySent = profile.last_magia_push_date === budapestNow.date;
+  if (
+    profile.push_magia_reminders &&
+    !morningAlreadySent &&
+    isReminderDue(budapestNow.totalMinutes, magiaTime)
+  ) {
+    notifications.push({
+      type: 'magia_morning',
+      title: await getMessage(locale, 'push.morningTitle'),
+      body: await getMessage(locale, 'push.morningBody'),
+      url: magiaUrl,
+    });
+  }
+
+  const eveningTime = profile.push_magia_evening_time || DEFAULT_MAGIA_EVENING_PUSH_TIME;
+  if (
+    profile.push_magia_evening &&
+    isReminderDue(budapestNow.totalMinutes, eveningTime)
+  ) {
+    notifications.push({
+      type: 'magia_evening',
+      title: await getMessage(locale, 'push.eveningTitle'),
+      body: await getMessage(locale, 'push.eveningBody'),
+      url: magiaUrl,
+    });
+  }
+
+  const streakTime = profile.push_magia_streak_time || DEFAULT_MAGIA_STREAK_PUSH_TIME;
+  if (
+    profile.push_magia_streak &&
+    isReminderDue(budapestNow.totalMinutes, streakTime)
+  ) {
+    const hasActivity = await hasMagiaActivityToday(supabase, profile.id, budapestNow.date);
+    if (!hasActivity) {
+      notifications.push({
+        type: 'magia_streak',
+        title: await getMessage(locale, 'push.streakTitle'),
+        body: await getMessage(locale, 'push.streakBody'),
+        url: magiaUrl,
+      });
+    }
+  }
+
+  if (
+    profile.push_magia_reengagement &&
+    isReminderDue(budapestNow.totalMinutes, '10:00')
+  ) {
+    const inactiveDays = await getMagiaInactiveDays(
+      profile.last_magia_activity_date,
+      budapestNow.date
+    );
+    if (inactiveDays >= 3) {
+      const daysSinceReengagement = await getMagiaInactiveDays(
+        profile.last_magia_reengagement_date,
+        budapestNow.date
+      );
+      if (daysSinceReengagement >= 7) {
+        notifications.push({
+          type: 'magia_reengagement',
+          title: await getMessage(locale, 'push.reengagementTitle'),
+          body: await getMessage(locale, 'push.reengagementBody', { days: inactiveDays }),
+          url: magiaUrl,
+        });
+      }
+    }
+  }
+
+  const angolTime = profile.push_angol_time || DEFAULT_ANGOL_PUSH_TIME;
+  const angolDue =
+    profile.push_angol_reminders &&
+    profile.preferred_language === 'hu' &&
+    isReminderDue(budapestNow.totalMinutes, angolTime);
+  const alreadySentAngolToday = profile.last_angol_push_date === budapestNow.date;
+
+  if (angolDue && !alreadySentAngolToday) {
+    const completedToday = await hasAngolActivityToday(supabase, profile.id, budapestNow.date);
+    if (!completedToday) {
+      notifications.push({
+        type: 'angol',
+        title: await getMessage(locale as Locale, 'push.angolTitle'),
+        body: await getMessage(locale as Locale, 'push.angolBody'),
+        url: `/${locale}/modules/angol`,
+      });
+    }
+  }
+
+  return notifications;
 }
 
 export async function GET(request: Request) {
@@ -88,100 +189,7 @@ export async function GET(request: Request) {
 
     if (!subscriptions?.length) continue;
 
-    const notifications: PushPayload[] = [];
-
-    // 1. Reggeli emlékeztető
-    const magiaTime = profile.push_magia_time || DEFAULT_MAGIA_PUSH_TIME;
-    const morningAlreadySent = profile.last_magia_push_date === budapestNow.date;
-    if (
-      profile.push_magia_reminders &&
-      !morningAlreadySent &&
-      isReminderDue(budapestNow.totalMinutes, magiaTime)
-    ) {
-      notifications.push({
-        type: 'magia_morning',
-        title: '✦ Mágia — Reggeli gyakorlás',
-        body: 'Kezdd a napot a napi Mágia-gyakorlatoddal!',
-        url: '/hu/modules/magia/ma',
-      });
-    }
-
-    // 2. Esti emlékeztető
-    const eveningTime = profile.push_magia_evening_time || DEFAULT_MAGIA_EVENING_PUSH_TIME;
-    if (
-      profile.push_magia_evening &&
-      isReminderDue(budapestNow.totalMinutes, eveningTime)
-    ) {
-      notifications.push({
-        type: 'magia_evening',
-        title: '✦ Mágia — Esti gyakorlás',
-        body: 'Az esti kör vár rád. Szánd rá a pillanatot!',
-        url: '/hu/modules/magia/ma',
-      });
-    }
-
-    // 3. Sorozatvédő — csak ha aznap még semmi nincs naplózva
-    const streakTime = profile.push_magia_streak_time || DEFAULT_MAGIA_STREAK_PUSH_TIME;
-    if (
-      profile.push_magia_streak &&
-      isReminderDue(budapestNow.totalMinutes, streakTime)
-    ) {
-      const hasActivity = await hasMagiaActivityToday(supabase, profile.id, budapestNow.date);
-      if (!hasActivity) {
-        notifications.push({
-          type: 'magia_streak',
-          title: '🔥 Sorozatvédő',
-          body: 'Még nem gyakoroltál ma — ne szakítsd meg a sorozatod!',
-          url: '/hu/modules/magia/ma',
-        });
-      }
-    }
-
-    // 4. Visszahívó — 3+ nap inaktivitás, hetente legfeljebb egyszer
-    if (
-      profile.push_magia_reengagement &&
-      isReminderDue(budapestNow.totalMinutes, '10:00')
-    ) {
-      const inactiveDays = await getMagiaInactiveDays(
-        profile.last_magia_activity_date,
-        budapestNow.date
-      );
-      if (inactiveDays >= 3) {
-        const daysSinceReengagement = await getMagiaInactiveDays(
-          profile.last_magia_reengagement_date,
-          budapestNow.date
-        );
-        if (daysSinceReengagement >= 7) {
-          notifications.push({
-            type: 'magia_reengagement',
-            title: '✦ Mágia vár rád',
-            body: `${inactiveDays} napja nem gyakoroltál. Nem kell nagy lépés — csak egy kis kezdés.`,
-            url: '/hu/modules/magia/ma',
-          });
-        }
-      }
-    }
-
-    // 5. Angol emlékeztető
-    const angolTime = profile.push_angol_time || DEFAULT_ANGOL_PUSH_TIME;
-    const angolDue =
-      profile.push_angol_reminders &&
-      profile.preferred_language === 'hu' &&
-      isReminderDue(budapestNow.totalMinutes, angolTime);
-    const alreadySentAngolToday = profile.last_angol_push_date === budapestNow.date;
-
-    if (angolDue && !alreadySentAngolToday) {
-      const completedToday = await hasAngolActivityToday(supabase, profile.id, budapestNow.date);
-      if (!completedToday) {
-        notifications.push({
-          type: 'angol',
-          title: 'Angol emlékeztető',
-          body: 'Még nem gyakoroltál ma angolul. Ideje egy kis gyakorlás!',
-          url: '/hu/modules/angol',
-        });
-      }
-    }
-
+    const notifications = await buildPushNotifications(profile, budapestNow, supabase);
     if (!notifications.length) continue;
 
     let angolSent = false;

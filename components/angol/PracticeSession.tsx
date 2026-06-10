@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import type { Mondat } from '@/lib/angol-lecke1';
+import type { MondatPair } from '@/lib/i18n-content';
 import { shuffleArray } from '@/lib/angol-utils';
 import { TTSButton } from '@/components/angol/TTSButton';
 import { cn } from '@/lib/utils';
@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 interface PracticeSessionProps {
   sectionId: number;
   sectionName: string;
-  mondatok: Mondat[];
+  mondatok: MondatPair[];
   onStartExam?: () => void;
   lastExamScore?: number | null;
   lastExamPassed?: boolean;
@@ -35,7 +35,7 @@ export function PracticeSession({
 
   const englishText = useMemo(() => {
     if (!current) return '';
-    return current.en.split('.')[0].split(',')[0].trim();
+    return current.answer.split('.')[0].split(',')[0].trim();
   }, [current]);
 
   useEffect(() => {
@@ -89,14 +89,14 @@ export function PracticeSession({
           )}
         >
           {!flipped ? (
-            <p className="text-center font-display text-3xl font-medium text-cream">{current.hu}</p>
+            <p className="text-center font-display text-3xl font-medium text-cream">{current.prompt}</p>
           ) : (
             <div className="relative">
               <div className="absolute right-0 top-0">
                 <TTSButton text={englishText} size="sm" />
               </div>
               <p className="text-center font-display text-2xl font-medium text-slate-200 pr-10">
-                {current.en}
+                {current.answer}
               </p>
             </div>
           )}

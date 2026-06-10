@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { createClient } from '@/lib/supabase/server';
-import { MAGIA_FOKOZATOK } from '@/lib/magia-data';
+import { loadMagiaFokozatok } from '@/lib/magia-data';
+import type { Locale } from '@/i18n';
 import { ExerciseItem } from '@/components/magia/ExerciseItem';
 import { StreakCalendar } from '@/components/magia/StreakCalendar';
 import { PillarBalanceChart } from '@/components/magia/PillarBalance';
@@ -24,6 +25,7 @@ interface MaMagiaPageProps {
 export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   const { locale } = await params;
   const t = await getTranslations('magia');
+  const fokozatok = await loadMagiaFokozatok(locale as Locale);
   const supabase = await createClient();
 
   const { data: { user } } = await supabase.auth.getUser();
@@ -51,7 +53,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   const recentSessions = (sessionsData ?? []) as SessionRecord[];
 
   const currentFokozatId = getCurrentFokozatId(allProgress);
-  const fokozat = MAGIA_FOKOZATOK.find((f) => f.id === currentFokozatId)!;
+  const fokozat = fokozatok.find((f) => f.id === currentFokozatId)!;
 
   const streak = computeStreak(recentSessions, todayDate);
   const heatmapData = computeHeatmap(recentSessions, 35);

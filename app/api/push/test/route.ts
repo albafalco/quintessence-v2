@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { sendPushNotification } from '@/lib/push';
+import { getMessage, resolveLocale } from '@/lib/i18n-messages';
 
 export async function POST() {
   const supabase = await createClient();
@@ -12,6 +13,14 @@ export async function POST() {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('preferred_language')
+    .eq('id', user.id)
+    .single();
+
+  const locale = resolveLocale(profile?.preferred_language);
+
   const { data: subscriptions, error } = await supabase
     .from('push_subscriptions')
     .select('endpoint, p256dh, auth')
@@ -22,25 +31,33 @@ export async function POST() {
   }
 
   if (!subscriptions?.length) {
-    return NextResponse.json({ error: 'No subscription found' }, { status: 404 });
+    return NextResponse.json(
+      { errorCode: 'NO_SUBSCRIPTION', error: await getMessage(locale, 'push.noSubscription') },
+      { status: 404 }
+    );
   }
 
+  const title = await getMessage(locale, 'push.testTitle');
+  const body = await getMessage(locale, 'push.testBody');
   const failures: string[] = [];
 
   for (const sub of subscriptions) {
     try {
       await sendPushNotification(sub, {
-        title: 'Quintessence',
-        body: 'A push értesítések működnek!',
-        url: '/hu/profile',
+        title,
+        body,
+        url: `/${locale}/profile`,
       });
     } catch (err) {
-      failures.push(err instanceof Error ? err.message : 'Send failed');
+      failures.push(err instanceof Error ? err.message : await getMessage(locale, 'push.sendFailed'));
     }
   }
 
   if (failures.length === subscriptions.length) {
-    return NextResponse.json({ error: failures[0] ?? 'Send failed' }, { status: 500 });
+    return NextResponse.json(
+      { errorCode: 'SEND_FAILED', error: failures[0] ?? await getMessage(locale, 'push.sendFailed') },
+      { status: 500 }
+    );
   }
 
   return NextResponse.json({ success: true, sent: subscriptions.length - failures.length });

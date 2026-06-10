@@ -1,18 +1,26 @@
 import Link from 'next/link';
 import { Lock, BookOpen, ArrowRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
-import { LESSONS } from '@/lib/angol-unlocks';
+import { getTranslations } from 'next-intl/server';
+import { loadAngolLesson1 } from '@/lib/angol-lecke1';
+import { getLessons } from '@/lib/angol-unlocks';
+import type { Locale } from '@/i18n';
 
 interface AngolPageProps {
   params: { locale: string };
 }
 
-export default function AngolPage({ params }: AngolPageProps) {
+export default async function AngolPage({ params }: AngolPageProps) {
   const { locale } = params;
 
   if (locale !== 'hu') {
     notFound();
   }
+
+  const t = await getTranslations('angol');
+  const tModules = await getTranslations('modules.angol');
+  const lessonContent = await loadAngolLesson1(locale as Locale);
+  const lessons = getLessons(lessonContent);
 
   return (
     <div className="mx-auto max-w-3xl space-y-10">
@@ -21,17 +29,17 @@ export default function AngolPage({ params }: AngolPageProps) {
           href={`/${locale}`}
           className="mb-4 inline-flex text-sm text-muted-foreground transition-colors hover:text-slate-300"
         >
-          ← Vissza
+          {t('backButton')}
         </Link>
-        <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate-400">Focused Learning</p>
-        <h1 className="mt-2 font-display text-4xl font-bold text-cream">Kreatív Angol</h1>
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate-400">{t('eyebrow')}</p>
+        <h1 className="mt-2 font-display text-4xl font-bold text-cream">{tModules('title')}</h1>
         <p className="mt-3 text-muted-foreground leading-relaxed">
-          Kezdő angol nyelvtanulás — szólap, nyelvtan, gyakorlás és vizsga
+          {t('pageDescription')}
         </p>
       </header>
 
       <div className="grid gap-4">
-        {LESSONS.map((lesson) => {
+        {lessons.map((lesson) => {
           const isActive = lesson.id === 1;
           const isLocked = lesson.id > 1;
 
@@ -69,7 +77,7 @@ export default function AngolPage({ params }: AngolPageProps) {
                 <p className="text-sm text-muted-foreground/70">{lesson.subtitle}</p>
               </div>
               <span className="rounded-full border border-border/50 px-3 py-1 text-xs text-muted-foreground">
-                Zárolt
+                {t('locked')}
               </span>
             </div>
           );

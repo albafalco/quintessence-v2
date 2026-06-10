@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { sendPushNotification } from '@/lib/push';
+import { getMessage, resolveLocale } from '@/lib/i18n-messages';
 
 interface UnlockPayload {
   unlockedFokozatId: number;
@@ -29,6 +30,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
   }
 
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('preferred_language')
+    .eq('id', user.id)
+    .single();
+
+  const locale = resolveLocale(profile?.preferred_language);
+
   const { data: subscriptions } = await supabase
     .from('push_subscriptions')
     .select('endpoint, p256dh, auth')
@@ -38,13 +47,16 @@ export async function POST(request: Request) {
     return NextResponse.json({ sent: 0 });
   }
 
+  const pushTitle = await getMessage(locale, 'push.unlockTitle', { id: unlockedFokozatId });
+  const pushBody = await getMessage(locale, 'push.unlockBody', { title });
+
   let sent = 0;
   for (const sub of subscriptions) {
     try {
       await sendPushNotification(sub, {
-        title: `⭐ ${unlockedFokozatId}. fokozat feloldva!`,
-        body: `Gratulálok! Elérted a(z) "${title}" fokozatot. Folytasd az utad!`,
-        url: `/hu/modules/magia/fokozat/${unlockedFokozatId}`,
+        title: pushTitle,
+        body: pushBody,
+        url: `/${locale}/modules/magia/fokozat/${unlockedFokozatId}`,
       });
       sent++;
     } catch {

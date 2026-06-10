@@ -1,0 +1,251 @@
+{
+  "szolapMagyarazat": {
+    "title": "Spiegazione del Foglio di Parole",
+    "intro": "Uso e sfumature di significato delle parole del foglio — spiegazione per principianti.",
+    "sections": [
+      {
+        "heading": "Articoli e dimostrativi",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>a / an</strong> — articolo indeterminativo: «un/una». Si usa <em>an</em> davanti a parole che iniziano con suono vocalico (<em>an old flat</em>, <em>an interesting story</em>)."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>the</strong> — articolo determinativo: «il/la/i/le». Indica qualcosa di concreto e noto (<em>the family</em> = quella famiglia in particolare)."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>this / that</strong> — pronomi dimostrativi: <em>this</em> = questo/questa (vicino), <em>that</em> = quello/quella (lontano). Stanno davanti al sostantivo senza articolo: <em>this house</em>, <em>that car</em>."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>which</strong> — parola interrogativa «quale»: <em>which house?</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>every</strong> — «ogni/tutti»: <em>every child</em> = ogni bambino."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>whose</strong> — possessivo interrogativo «di chi»: <em>whose house?</em> = Di chi è la casa?"
+          }
+        ]
+      },
+      {
+        "heading": "Pronomi possessivi",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": ["Italiano", "Inglese"],
+            "rows": [
+              ["mio", "my"],
+              ["tuo (informale)", "your"],
+              ["suo (maschile)", "his"],
+              ["sua (femminile)", "her"],
+              ["suo (neutro)", "its"],
+              ["nostro", "our"],
+              ["vostro (informale plurale)", "your"],
+              ["loro", "their"]
+            ]
+          },
+          {
+            "type": "note",
+            "paragraphs": [
+              "<strong>your</strong> ha quattro significati: 1) <em>your</em> informale singolare, 2) <em>your</em> formale singolare, 3) <em>your</em> informale plurale, 4) <em>your</em> formale plurale. Il contesto decide quale si intende.",
+              "<strong>his / her / its</strong>: <em>his</em> dopo un referente maschile, <em>her</em> dopo un referente femminile, <em>its</em> dopo un oggetto o un animale (<em>its house</em>)."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Pronomi personali",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>he / she</strong> — «lui/lei»: <em>he</em> maschile, <em>she</em> femminile. In una frase autonoma: <em>He is young.</em> / <em>She is beautiful.</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>it</strong> — «esso/ciò» per cose e concetti: <em>It is true.</em> = È vero."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>it vs this/that</strong>: <em>this</em> e <em>that</em> indicano in modo più concreto; <em>it</em> è più generale e astratto (<em>It is possible.</em> = È possibile)."
+          }
+        ]
+      },
+      {
+        "heading": "Espressioni di tempo e luogo",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>here / there</strong> — qui / lì"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>at home</strong> — a casa (<em>at home</em>, non <em>in home</em>)"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>near / far</strong> — vicino / lontano"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>still vs already</strong>: <em>still</em> = ancora (continua), <em>already</em> = già (è già accaduto). <em>He is still here.</em> vs <em>He is already at home.</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>enough</strong> — abbastanza. Di solito viene <strong>dopo</strong> l'aggettivo: <em>near enough</em>, <em>good enough</em>."
+          }
+        ]
+      },
+      {
+        "heading": "Gradi degli aggettivi",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Positivo — comparativo — superlativo:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>good</em> → <em>better</em> → <em>the best</em>",
+              "<em>big</em> → <em>bigger</em> → <em>the biggest</em> (regolare: -er / -est)",
+              "<em>beautiful</em> → <em>more beautiful</em> → <em>the most beautiful</em> (aggettivi lunghi)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nyelvtanI": {
+    "title": "Grammatica I",
+    "intro": "Struttura di base della frase inglese — articoli, verbo, ordine delle parole.",
+    "sections": [
+      {
+        "heading": "Strutture ABC",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Una frase inglese è costruita da tre parti principali:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<strong>A</strong> — soggetto (chi? cosa?): <em>the child</em>, <em>Peter</em>, <em>she</em>",
+              "<strong>B</strong> — predicato / verbo: <em>is</em>, <em>was</em>",
+              "<strong>C</strong> — elemento della frase (aggettivo, luogo, ecc.): <em>happy</em>, <em>here</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Esempio: <em>[A: The child] [B: is] [C: happy].</em> = Il bambino è felice."
+          }
+        ]
+      },
+      {
+        "heading": "Articolo indeterminativo: a / an",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Significato: «un/una» (non concreto, menzionato per la prima volta)."
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>a</em> — davanti a suono consonantico: <em>a house</em>, <em>a car</em>",
+              "<em>an</em> — davanti a suono vocalico: <em>an old flat</em>, <em>an idea</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Conta la pronuncia, non l'ortografia: <em>an hour</em> (ora — h muta), <em>a university</em> (università — suono /j/)."
+          }
+        ]
+      },
+      {
+        "heading": "Articolo determinativo: the",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Significato: «il/la/i/le» — cosa nota e concreta."
+          },
+          {
+            "type": "paragraph",
+            "html": "<em>the family</em> = la famiglia (già nota)"
+          },
+          {
+            "type": "paragraph",
+            "html": "<em>the best answer</em> = la migliore risposta (prima del superlativo c'è sempre <em>the</em>)"
+          }
+        ]
+      },
+      {
+        "heading": "is → he's / she's",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Il verbo <em>is</em> può contrarsi con il pronome:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>he is</em> → <em>he's</em>",
+              "<em>she is</em> → <em>she's</em>",
+              "<em>it is</em> → <em>it's</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Esempio: <em>He's a teacher.</em> = Lui è insegnante. / <em>She's at home.</em> = Lei è a casa."
+          }
+        ]
+      },
+      {
+        "heading": "I quattro tipi base di frase",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": ["Tipo", "Struttura", "Esempio", "Italiano"],
+            "rows": [
+              ["Affermativa", "A + B + C", "She is happy.", "Lei è felice."],
+              ["Interrogativa", "B + A + C (?)", "Is she happy?", "È felice lei?"],
+              ["Negativa", "A + B + not + C", "She is not happy.", "Lei non è felice."],
+              ["Interrogativa negativa", "B + A + not + C (?)", "Is she not happy?", "Non è felice lei?"]
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Ordine delle parole: sistema 1-2-3",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "L'ordine di base in inglese:"
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "<strong>1ª posizione</strong> — soggetto (A): <em>The child</em>",
+              "<strong>2ª posizione</strong> — verbo (B): <em>is</em>",
+              "<strong>3ª posizione</strong> — complemento (C): <em>happy</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Nelle domande, la <strong>2ª posizione (verbo)</strong> va prima della <strong>1ª posizione</strong>, e alla fine della frase si mette un <strong>(?)</strong>."
+          },
+          {
+            "type": "mono",
+            "lines": [
+              "Affermativa:  [1: She] [2: is] [3: here].",
+              "Domanda:      [2: Is] [1: she] [3: here]?"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

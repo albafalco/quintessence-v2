@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Mic, MicOff } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -11,6 +12,7 @@ interface SpeechInputProps {
 }
 
 export function SpeechInput({ onResult, className, disabled }: SpeechInputProps) {
+  const t = useTranslations('angol');
   const [listening, setListening] = useState(false);
   const [supported, setSupported] = useState(true);
   const recognitionRef = useRef<SpeechRecognition | null>(null);
@@ -75,7 +77,7 @@ export function SpeechInput({ onResult, className, disabled }: SpeechInputProps)
   if (!supported) {
     return (
       <span className="text-xs text-muted-foreground">
-        A diktálás nem támogatott ebben a böngészőben.
+        {t('speechNotSupported')}
       </span>
     );
   }
@@ -85,7 +87,7 @@ export function SpeechInput({ onResult, className, disabled }: SpeechInputProps)
       type="button"
       onClick={toggle}
       disabled={disabled}
-      aria-label={listening ? 'Diktálás leállítása' : 'Diktálás'}
+      aria-label={listening ? t('stopDictation') : t('dictate')}
       className={cn(
         'inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors',
         listening
@@ -96,7 +98,7 @@ export function SpeechInput({ onResult, className, disabled }: SpeechInputProps)
       )}
     >
       {listening ? <MicOff size={18} /> : <Mic size={18} />}
-      {listening ? 'Leállítás' : 'Diktálás'}
+      {listening ? t('stopDictation') : t('dictate')}
     </button>
   );
 }

@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { createClient } from '@/lib/supabase/server';
-import { MAGIA_FOKOZATOK } from '@/lib/magia-data';
+import { loadMagiaFokozatok } from '@/lib/magia-data';
+import type { Locale } from '@/i18n';
 import { FokozatCard } from '@/components/magia/FokozatCard';
 import type { MagiaProgressRecord } from '@/lib/magia-utils';
 
@@ -12,6 +13,7 @@ interface MagiaPageProps {
 export default async function MagiaPage({ params }: MagiaPageProps) {
   const { locale } = await params;
   const t = await getTranslations('magia');
+  const fokozatok = await loadMagiaFokozatok(locale as Locale);
   const supabase = await createClient();
 
   const {
@@ -50,7 +52,7 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
       </header>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {MAGIA_FOKOZATOK.map((fokozat) => (
+          {fokozatok.map((fokozat) => (
             <FokozatCard
               key={fokozat.id}
               fokozat={fokozat}

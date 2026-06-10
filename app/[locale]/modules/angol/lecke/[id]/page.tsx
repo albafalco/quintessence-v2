@@ -1,13 +1,11 @@
 import Link from 'next/link';
 import { Lock, CheckCircle, ChevronRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
-import { LECKE_1_SZAKASZOK } from '@/lib/angol-lecke1';
-import {
-  ALL_SECTION_IDS,
-  SECTION_LABELS,
-  isSectionUnlocked,
-} from '@/lib/angol-unlocks';
+import { getTranslations } from 'next-intl/server';
+import { loadAngolLesson1 } from '@/lib/angol-lecke1';
+import { ALL_SECTION_IDS, getSectionLabels, isSectionUnlocked } from '@/lib/angol-unlocks';
 import { getUnlockedSectionIds } from '@/lib/angol-db';
+import type { Locale } from '@/i18n';
 
 interface LeckePageProps {
   params: { locale: string; id: string };
@@ -20,9 +18,12 @@ export default async function LeckePage({ params }: LeckePageProps) {
   if (locale !== 'hu') notFound();
   if (isNaN(lessonId) || lessonId !== 1) notFound();
 
+  const t = await getTranslations('angol');
+  const lessonContent = await loadAngolLesson1(locale as Locale);
+  const sectionLabels = getSectionLabels(lessonContent);
+  const lesson = lessonContent.lessons.find((l) => l.id === lessonId);
   const unlockedIds = await getUnlockedSectionIds(lessonId);
-
-  const practiceSections = LECKE_1_SZAKASZOK.map((s) => s.id);
+  const practiceSections = lessonContent.practice.map((s) => s.id);
 
   return (
     <div className="mx-auto w-full min-w-0 max-w-3xl space-y-8">
@@ -31,23 +32,23 @@ export default async function LeckePage({ params }: LeckePageProps) {
           href={`/${locale}/modules/angol`}
           className="text-sm text-muted-foreground hover:text-foreground"
         >
-          ← Leckék
+          {t('backToLessons')}
         </Link>
         <h1 className="font-display text-3xl font-bold text-primary">
-          I. Lecke
+          {lesson?.title}
         </h1>
         <p className="text-muted-foreground">
-          Szólap, magyarázat, nyelvtan és gyakorló szakaszok
+          {t('lesson1Description')}
         </p>
       </header>
 
       <div className="space-y-3">
         <h2 className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
-          Alapok
+          {t('basics')}
         </h2>
         {ALL_SECTION_IDS.filter((sid) => sid < 5).map((sectionId) => {
           const unlocked = isSectionUnlocked(sectionId, unlockedIds);
-          const label = SECTION_LABELS[sectionId];
+          const label = sectionLabels[sectionId];
 
           return (
             <SectionLink
@@ -57,6 +58,7 @@ export default async function LeckePage({ params }: LeckePageProps) {
               sectionId={sectionId}
               label={label}
               unlocked={unlocked}
+              lockedLabel={t('locked')}
             />
           );
         })}
@@ -64,11 +66,11 @@ export default async function LeckePage({ params }: LeckePageProps) {
 
       <div className="space-y-3">
         <h2 className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
-          Gyakorló szakaszok
+          {t('practiceSections')}
         </h2>
         {practiceSections.map((sectionId) => {
           const unlocked = isSectionUnlocked(sectionId, unlockedIds);
-          const label = SECTION_LABELS[sectionId];
+          const label = sectionLabels[sectionId];
 
           return (
             <SectionLink
@@ -78,6 +80,7 @@ export default async function LeckePage({ params }: LeckePageProps) {
               sectionId={sectionId}
               label={label}
               unlocked={unlocked}
+              lockedLabel={t('locked')}
             />
           );
         })}
@@ -92,12 +95,14 @@ function SectionLink({
   sectionId,
   label,
   unlocked,
+  lockedLabel,
 }: {
   locale: string;
   lessonId: number;
   sectionId: number;
   label: string;
   unlocked: boolean;
+  lockedLabel: string;
 }) {
   if (!unlocked) {
     return (
@@ -106,7 +111,7 @@ function SectionLink({
         <div className="flex-1 min-w-0">
           <p className="font-medium text-muted-foreground truncate">{label}</p>
         </div>
-        <span className="text-xs text-muted-foreground shrink-0">Zárolt</span>
+        <span className="text-xs text-muted-foreground shrink-0">{lockedLabel}</span>
       </div>
     );
   }

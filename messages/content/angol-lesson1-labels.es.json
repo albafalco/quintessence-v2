@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "5": "Práctica A — Conexiones básicas",
+    "6": "Práctica — Artículo indefinido",
+    "7": "Práctica — Artículo definido",
+    "8": "Práctica — Pronombres demostrativos",
+    "9": "Práctica — Pronombres posesivos",
+    "10": "Práctica — Otras conexiones",
+    "11": "Práctica de cláusulas — Mixta",
+    "12": "Práctica de oraciones — Esto + Otro",
+    "13": "Práctica de oraciones — Esto + ABC",
+    "14": "Práctica de oraciones — Él/Ella + Otro",
+    "15": "Práctica de oraciones — Él/Ella + ABC",
+    "16": "Práctica de oraciones — ABC + Otro",
+    "17": "Práctica de oraciones — ABC + ABC",
+    "18": "Práctica de oraciones — Mixta"
+  },
+  "sectionLabels": {
+    "0": "Ficha de palabras",
+    "1": "Explicación de la ficha de palabras",
+    "2": "Gramática I",
+    "5": "Práctica A — Conexiones básicas",
+    "6": "Práctica — Artículo indefinido",
+    "7": "Práctica — Artículo definido",
+    "8": "Práctica — Pronombres demostrativos",
+    "9": "Práctica — Pronombres posesivos",
+    "10": "Práctica — Otras conexiones",
+    "11": "Práctica de cláusulas — Mixta",
+    "12": "Práctica de oraciones — Esto + Otro",
+    "13": "Práctica de oraciones — Esto + ABC",
+    "14": "Práctica de oraciones — Él/Ella + Otro",
+    "15": "Práctica de oraciones — Él/Ella + ABC",
+    "16": "Práctica de oraciones — ABC + Otro",
+    "17": "Práctica de oraciones — ABC + ABC",
+    "18": "Práctica de oraciones — Mixta"
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Lección I",
+      "subtitle": "Fundamentos — artículos, pronombres, oraciones"
+    },
+    {
+      "id": 2,
+      "title": "Lección II",
+      "subtitle": "Próximamente"
+    },
+    {
+      "id": 3,
+      "title": "Lección III",
+      "subtitle": "Próximamente"
+    },
+    {
+      "id": 4,
+      "title": "Lección IV",
+      "subtitle": "Próximamente"
+    },
+    {
+      "id": 5,
+      "title": "Lección V",
+      "subtitle": "Próximamente"
+    },
+    {
+      "id": 6,
+      "title": "Lección VI",
+      "subtitle": "Próximamente"
+    },
+    {
+      "id": 7,
+      "title": "Lección VII",
+      "subtitle": "Próximamente"
+    },
+    {
+      "id": 8,
+      "title": "Lección VIII",
+      "subtitle": "Próximamente"
+    },
+    {
+      "id": 9,
+      "title": "Lección IX",
+      "subtitle": "Próximamente"
+    },
+    {
+      "id": 10,
+      "title": "Lección X",
+      "subtitle": "Próximamente"
+    }
+  ]
+}

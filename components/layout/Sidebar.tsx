@@ -20,6 +20,7 @@ const STORAGE_KEY = 'quintessence-sidebar-collapsed';
 
 export function Sidebar() {
   const t = useTranslations('nav');
+  const tBrand = useTranslations('brand');
   const locale = useLocale();
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
@@ -85,7 +86,7 @@ export function Sidebar() {
           <ShieldLogo size={36} showGlow />
           {!collapsed && (
             <span className="font-display text-lg font-semibold tracking-wide text-gradient-gold">
-              Quintessence
+              {tBrand('name')}
             </span>
           )}
         </Link>

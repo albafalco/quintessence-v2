@@ -41,7 +41,7 @@ export function StreakCalendar({ data, streak }: StreakCalendarProps) {
 
   const formatDate = (dateStr: string) => {
     const d = new Date(dateStr + 'T00:00:00Z');
-    return `${d.getMonth() + 1}. ${d.getDate()}.`;
+    return t('calendarDateFormat', { month: d.getMonth() + 1, day: d.getDate() });
   };
 
   const formatMin = (sec: number) => {

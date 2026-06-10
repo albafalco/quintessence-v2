@@ -9,7 +9,8 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'auth' });
-  return { title: `${t('register')} | Quintessence` };
+  const tBrand = await getTranslations({ locale, namespace: 'brand' });
+  return { title: `${t('register')} | ${tBrand('name')}` };
 }
 
 export default async function RegisterPage({

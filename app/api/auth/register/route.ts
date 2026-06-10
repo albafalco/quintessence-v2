@@ -1,8 +1,21 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getSupabaseConfig } from '@/lib/supabase/server';
 
+const ERROR_CODES = {
+  SERVER_CONFIG: 'SERVER_CONFIG',
+  MISSING_FIELDS: 'MISSING_FIELDS',
+  INVALID_USERNAME: 'INVALID_USERNAME',
+  PASSWORD_TOO_SHORT: 'PASSWORD_TOO_SHORT',
+  INVALID_INVITE: 'INVALID_INVITE',
+  REGISTRATION_FAILED: 'REGISTRATION_FAILED',
+  METHOD_NOT_ALLOWED: 'METHOD_NOT_ALLOWED',
+} as const;
+
 export async function GET() {
-  return NextResponse.json({ error: 'Method not allowed. Use POST.' }, { status: 405 });
+  return NextResponse.json(
+    { errorCode: ERROR_CODES.METHOD_NOT_ALLOWED },
+    { status: 405 }
+  );
 }
 
 export async function POST(request: Request) {
@@ -14,7 +27,7 @@ export async function POST(request: Request) {
         hasServiceRoleKey: Boolean(serviceRoleKey),
       });
       return NextResponse.json(
-        { error: 'Server configuration error. Contact administrator.' },
+        { errorCode: ERROR_CODES.SERVER_CONFIG },
         { status: 500 }
       );
     }
@@ -22,15 +35,15 @@ export async function POST(request: Request) {
     const { name, username, email, password, inviteCode } = await request.json();
 
     if (!name || !username || !email || !password || !inviteCode) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+      return NextResponse.json({ errorCode: ERROR_CODES.MISSING_FIELDS }, { status: 400 });
     }
 
     if (!/^[a-z0-9_-]+$/.test(username)) {
-      return NextResponse.json({ error: 'Invalid username format' }, { status: 400 });
+      return NextResponse.json({ errorCode: ERROR_CODES.INVALID_USERNAME }, { status: 400 });
     }
 
     if (password.length < 8) {
-      return NextResponse.json({ error: 'Password must be at least 8 characters' }, { status: 400 });
+      return NextResponse.json({ errorCode: ERROR_CODES.PASSWORD_TOO_SHORT }, { status: 400 });
     }
 
     const supabase = await createServiceClient();
@@ -45,15 +58,15 @@ export async function POST(request: Request) {
       console.error('[register] invite_codes query failed:', inviteError.message, inviteError.code);
       if (inviteError.message?.includes('API key')) {
         return NextResponse.json(
-          { error: 'Server configuration error. Contact administrator.' },
+          { errorCode: ERROR_CODES.SERVER_CONFIG },
           { status: 500 }
         );
       }
-      return NextResponse.json({ error: 'Invalid or used invite code' }, { status: 400 });
+      return NextResponse.json({ errorCode: ERROR_CODES.INVALID_INVITE }, { status: 400 });
     }
 
     if (!invite || invite.is_used) {
-      return NextResponse.json({ error: 'Invalid or used invite code' }, { status: 400 });
+      return NextResponse.json({ errorCode: ERROR_CODES.INVALID_INVITE }, { status: 400 });
     }
 
     const { data: authData, error: signUpError } = await supabase.auth.admin.createUser({
@@ -64,7 +77,10 @@ export async function POST(request: Request) {
 
     if (signUpError || !authData.user) {
       console.error('[register] createUser failed:', signUpError?.message);
-      return NextResponse.json({ error: signUpError?.message ?? 'Registration failed' }, { status: 400 });
+      return NextResponse.json(
+        { errorCode: ERROR_CODES.REGISTRATION_FAILED, error: signUpError?.message },
+        { status: 400 }
+      );
     }
 
     const userId = authData.user.id;
@@ -79,7 +95,10 @@ export async function POST(request: Request) {
     if (profileError) {
       console.error('[register] profiles insert failed:', profileError.message);
       await supabase.auth.admin.deleteUser(userId);
-      return NextResponse.json({ error: profileError.message }, { status: 400 });
+      return NextResponse.json(
+        { errorCode: ERROR_CODES.REGISTRATION_FAILED, error: profileError.message },
+        { status: 400 }
+      );
     }
 
     const { error: inviteUpdateError } = await supabase
@@ -109,6 +128,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error('[register] unexpected error:', err);
-    return NextResponse.json({ error: 'Registration failed' }, { status: 500 });
+    return NextResponse.json({ errorCode: ERROR_CODES.REGISTRATION_FAILED }, { status: 500 });
   }
 }

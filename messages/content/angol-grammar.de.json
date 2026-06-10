@@ -1,0 +1,251 @@
+{
+  "szolapMagyarazat": {
+    "title": "Erklärung zum Wortblatt",
+    "intro": "Verwendung und Bedeutungsnuancen der Wörter auf dem Wortblatt — Erklärung für Anfänger.",
+    "sections": [
+      {
+        "heading": "Artikel und Demonstrativpronomen",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>a / an</strong> — unbestimmter Artikel: „ein/eine“. <em>an</em> verwendet man vor Wörtern mit Vokalklang (<em>an old flat</em>, <em>an interesting story</em>)."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>the</strong> — bestimmter Artikel: „der/die/das“. Bezeichnet etwas Konkretes, Bekanntes (<em>the family</em> = die betreffende Familie)."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>this / that</strong> — Demonstrativpronomen: <em>this</em> = dieses (nah), <em>that</em> = jenes (fern). Sie stehen ohne Artikel vor dem Substantiv: <em>this house</em>, <em>that car</em>."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>which</strong> — Fragewort „welcher/welche/welches“: <em>which house?</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>every</strong> — „jeder/jede/jedes“: <em>every child</em> = jedes Kind."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>whose</strong> — Possessivfrage „wessen“: <em>whose house?</em> = Wessen Haus?"
+          }
+        ]
+      },
+      {
+        "heading": "Possessivpronomen",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": ["Deutsch", "Englisch"],
+            "rows": [
+              ["mein", "my"],
+              ["dein (informell)", "your"],
+              ["sein (männlich)", "his"],
+              ["ihr (weiblich)", "her"],
+              ["sein (sächlich)", "its"],
+              ["unser", "our"],
+              ["euer (informell Plural)", "your"],
+              ["ihr (Plural)", "their"]
+            ]
+          },
+          {
+            "type": "note",
+            "paragraphs": [
+              "<strong>your</strong> hat vier Bedeutungen: 1) informelles Singular-<em>your</em>, 2) formelles Singular-<em>your</em>, 3) informelles Plural-<em>your</em>, 4) formelles Plural-<em>your</em>. Der Kontext entscheidet, welche gemeint ist.",
+              "<strong>his / her / its</strong>: <em>his</em> nach männlichem Bezug, <em>her</em> nach weiblichem Bezug, <em>its</em> nach einem Gegenstand oder Tier (<em>its house</em>)."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Personalpronomen",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>he / she</strong> — „er/sie“: <em>he</em> männlich, <em>she</em> weiblich. In einem eigenständigen Satz: <em>He is young.</em> / <em>She is beautiful.</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>it</strong> — „es/das“ für Dinge und Begriffe: <em>It is true.</em> = Das ist wahr."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>it vs this/that</strong>: <em>this</em> und <em>that</em> zeigen konkreter; <em>it</em> ist allgemeiner und abstrakter (<em>It is possible.</em> = Es ist möglich)."
+          }
+        ]
+      },
+      {
+        "heading": "Zeit- und Ortsausdrücke",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>here / there</strong> — hier / dort"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>at home</strong> — zu Hause (<em>at home</em>, nicht <em>in home</em>)"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>near / far</strong> — nah / fern"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>still vs already</strong>: <em>still</em> = noch (dauert an), <em>already</em> = schon (bereits geschehen). <em>He is still here.</em> vs <em>He is already at home.</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>enough</strong> — genug. Steht meist <strong>nach</strong> dem Adjektiv: <em>near enough</em>, <em>good enough</em>."
+          }
+        ]
+      },
+      {
+        "heading": "Steigerung der Adjektive",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Positiv — Komparativ — Superlativ:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>good</em> → <em>better</em> → <em>the best</em>",
+              "<em>big</em> → <em>bigger</em> → <em>the biggest</em> (regelmäßig: -er / -est)",
+              "<em>beautiful</em> → <em>more beautiful</em> → <em>the most beautiful</em> (lange Adjektive)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nyelvtanI": {
+    "title": "Grammatik I",
+    "intro": "Grundstruktur des englischen Satzes — Artikel, Verb, Wortstellung.",
+    "sections": [
+      {
+        "heading": "ABC-Strukturen",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Ein englischer Satz besteht aus drei Hauptteilen:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<strong>A</strong> — Subjekt (wer? was?): <em>the child</em>, <em>Peter</em>, <em>she</em>",
+              "<strong>B</strong> — Prädikat / Verb: <em>is</em>, <em>was</em>",
+              "<strong>C</strong> — Satzglied (Adjektiv, Ort usw.): <em>happy</em>, <em>here</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Beispiel: <em>[A: The child] [B: is] [C: happy].</em> = Das Kind ist glücklich."
+          }
+        ]
+      },
+      {
+        "heading": "Unbestimmter Artikel: a / an",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Bedeutung: „ein/eine“ (nicht konkret, zum ersten Mal erwähnt)."
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>a</em> — vor Konsonantenklang: <em>a house</em>, <em>a car</em>",
+              "<em>an</em> — vor Vokalenklang: <em>an old flat</em>, <em>an idea</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Die Aussprache zählt, nicht die Schreibweise: <em>an hour</em> (Stunde — stummes h), <em>a university</em> (Universität — /j/-Laut)."
+          }
+        ]
+      },
+      {
+        "heading": "Bestimmter Artikel: the",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Bedeutung: „der/die/das“ — bekanntes, konkretes Ding."
+          },
+          {
+            "type": "paragraph",
+            "html": "<em>the family</em> = die (bereits bekannte) Familie"
+          },
+          {
+            "type": "paragraph",
+            "html": "<em>the best answer</em> = die beste Antwort (vor dem Superlativ steht immer <em>the</em>)"
+          }
+        ]
+      },
+      {
+        "heading": "is → he's / she's",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Das Verb <em>is</em> kann mit dem Pronomen zusammengezogen werden:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>he is</em> → <em>he's</em>",
+              "<em>she is</em> → <em>she's</em>",
+              "<em>it is</em> → <em>it's</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Beispiel: <em>He's a teacher.</em> = Er ist Lehrer. / <em>She's at home.</em> = Sie ist zu Hause."
+          }
+        ]
+      },
+      {
+        "heading": "Die vier Grundsatztypen",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": ["Typ", "Struktur", "Beispiel", "Deutsch"],
+            "rows": [
+              ["Aussagesatz", "A + B + C", "She is happy.", "Sie ist glücklich."],
+              ["Fragesatz", "B + A + C (?)", "Is she happy?", "Ist sie glücklich?"],
+              ["Verneinung", "A + B + not + C", "She is not happy.", "Sie ist nicht glücklich."],
+              ["Verneinende Frage", "B + A + not + C (?)", "Is she not happy?", "Ist sie nicht glücklich?"]
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Wortstellung: 1-2-3-System",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Die grundlegende englische Wortstellung:"
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "<strong>1. Position</strong> — Subjekt (A): <em>The child</em>",
+              "<strong>2. Position</strong> — Verb (B): <em>is</em>",
+              "<strong>3. Position</strong> — Ergänzung (C): <em>happy</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Bei Fragen rückt die <strong>2. Position (Verb)</strong> vor die <strong>1. Position</strong>, und am Satzende steht ein <strong>(?)</strong>."
+          },
+          {
+            "type": "mono",
+            "lines": [
+              "Aussage:  [1: She] [2: is] [3: here].",
+              "Frage:    [2: Is] [1: she] [3: here]?"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

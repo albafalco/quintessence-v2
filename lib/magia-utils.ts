@@ -1,5 +1,8 @@
-import { MAGIA_FOKOZATOK } from './magia-data';
+import type { FokozatData } from './i18n-content';
+import magiaStructure from '@/messages/content/magia.hu.json';
 import type { MagiaSection, MagiaProgressRecord, ExerciseStatus } from './magia-types';
+
+const MAGIA_STRUCTURE = magiaStructure as FokozatData[];
 
 // Re-export for backward compatibility
 export type { MagiaProgressRecord } from './magia-types';
@@ -27,7 +30,7 @@ export function buildExerciseKey(
 }
 
 export function getExerciseCount(fokozatId: number, section: MagiaSection): number {
-  const fokozat = MAGIA_FOKOZATOK.find((f) => f.id === fokozatId);
+  const fokozat = MAGIA_STRUCTURE.find((f) => f.id === fokozatId);
   if (!fokozat) return 0;
   return fokozat[section].gyakorlatok.length;
 }
@@ -102,7 +105,7 @@ export function isFokozatMastered(
 ): boolean {
   const sections: MagiaSection[] = ['szellem', 'lelek', 'test'];
   return sections.every((section) => {
-    const fokozat = MAGIA_FOKOZATOK.find((f) => f.id === fokozatId);
+    const fokozat = MAGIA_STRUCTURE.find((f) => f.id === fokozatId);
     if (!fokozat) return false;
     return fokozat[section].gyakorlatok.every((exercise) => {
       const fullKey = buildExerciseKey(section, fokozatId, exercise.key);

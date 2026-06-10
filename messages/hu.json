@@ -23,7 +23,16 @@
     "loading": "Betöltés...",
     "registerError": "A regisztráció sikertelen",
     "welcomeBack": "Üdv újra!",
-    "createAccount": "Fiók létrehozása"
+    "createAccount": "Fiók létrehozása",
+    "errors": {
+      "serverConfig": "Szerver konfigurációs hiba. Lépj kapcsolatba az adminisztrátorral.",
+      "missingFields": "Hiányzó kötelező mezők",
+      "invalidUsername": "Érvénytelen felhasználónév formátum",
+      "passwordTooShort": "A jelszó legalább 8 karakter legyen",
+      "invalidInvite": "Érvénytelen vagy már felhasznált meghívókód",
+      "registrationFailed": "A regisztráció sikertelen",
+      "methodNotAllowed": "Nem engedélyezett metódus. Használd a POST-ot."
+    }
   },
   "dashboard": {
     "welcome": "Üdvözlet, {username}!",
@@ -32,7 +41,11 @@
     "lastActivity": "Legutóbbi aktivitás",
     "noActivity": "Még nincs aktivitás",
     "progress": "Haladás",
-    "fokozat": "Fokozat {level}"
+    "fokozat": "Fokozat {level}",
+    "magiaLabel": "Mágia",
+    "angolLabel": "Angol",
+    "totalLabel": "Össz.",
+    "lesson1Progress": "1. Lecke"
   },
   "modules": {
     "magia": {
@@ -207,7 +220,12 @@
     "maStatsTitle": "Összesített statisztika — 35 nap",
     "maStatsSessions": "munkamenet",
     "maStatsTotalMin": "perc összesen",
-    "maStatsAvgMin": "perc átlag"
+    "maStatsAvgMin": "perc átlag",
+    "journalExport": "Export",
+    "journalExportJson": "JSON",
+    "journalExportMarkdown": "Markdown",
+    "journalExportHeader": "# Mágikus Napló",
+    "calendarDateFormat": "{month}. {day}."
   },
   "angol": {
     "title": "Kreatív Angol",
@@ -265,7 +283,22 @@
     "incorrectButton": "Helytelen ✗",
     "lastScore": "Utolsó eredmény: {score}%",
     "examDesc": "20 véletlenszerű kérdés. Minimum 80% szükséges az átlépéshez.",
-    "sectionNotFound": "Szakasz nem található."
+    "sectionNotFound": "Szakasz nem található.",
+    "eyebrow": "Fókuszált tanulás",
+    "pageDescription": "Kezdő angol nyelvtanulás — szólap, nyelvtan, gyakorlás és vizsga",
+    "backToLessons": "← Leckék",
+    "lesson1Description": "Szólap, magyarázat, nyelvtan és gyakorló szakaszok",
+    "basics": "Alapok",
+    "practiceSections": "Gyakorló szakaszok",
+    "backToSections": "← Szakaszok",
+    "sectionFallback": "Szakasz {id}",
+    "tapToFlip": "Kattints a fordításhoz",
+    "knowIt": "Tudom ✓",
+    "stillPracticing": "Még gyakorolom ✗",
+    "startExamArrow": "Vizsga indítása →",
+    "speechNotSupported": "A diktálás nem támogatott ebben a böngészőben.",
+    "dictate": "Diktálás",
+    "stopDictation": "Leállítás"
   },
   "profile": {
     "title": "Profil",
@@ -312,6 +345,40 @@
     "streakProtectorDesc": "Csak ha aznap még nem gyakoroltál",
     "reengagement": "Visszahívó",
     "reengagementDesc": "3+ nap inaktivitás után, hetente max. 1×",
-    "anglNotificationsTitle": "Angol értesítések"
+    "anglNotificationsTitle": "Angol értesítések",
+    "settingsEyebrow": "Beállítások"
+  },
+  "brand": {
+    "name": "Quintessence",
+    "tagline": "Személyes fejlődés"
+  },
+  "pwa": {
+    "name": "Quintessence",
+    "description": "Személyes fejlődés és tanulás moduláris rendszere"
+  },
+  "locale": {
+    "hu": "Magyar",
+    "en": "Hungarian",
+    "de": "Ungarisch",
+    "es": "Húngaro",
+    "it": "Ungherese"
+  },
+  "push": {
+    "morningTitle": "✦ Mágia — Reggeli gyakorlás",
+    "morningBody": "Kezdd a napot a napi Mágia-gyakorlatoddal!",
+    "eveningTitle": "✦ Mágia — Esti gyakorlás",
+    "eveningBody": "Az esti kör vár rád. Szánd rá a pillanatot!",
+    "streakTitle": "🔥 Sorozatvédő",
+    "streakBody": "Még nem gyakoroltál ma — ne szakítsd meg a sorozatod!",
+    "reengagementTitle": "✦ Mágia vár rád",
+    "reengagementBody": "{days} napja nem gyakoroltál. Nem kell nagy lépés — csak egy kis kezdés.",
+    "angolTitle": "Angol emlékeztető",
+    "angolBody": "Még nem gyakoroltál ma angolul. Ideje egy kis gyakorlás!",
+    "testTitle": "Quintessence",
+    "testBody": "A push értesítések működnek!",
+    "noSubscription": "Nincs feliratkozás",
+    "sendFailed": "Küldés sikertelen",
+    "unlockTitle": "⭐ {id}. fokozat feloldva!",
+    "unlockBody": "Gratulálok! Elérted a(z) \"{title}\" fokozatot. Folytasd az utad!"
   }
 }

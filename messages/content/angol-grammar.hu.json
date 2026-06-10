@@ -1,0 +1,251 @@
+{
+  "szolapMagyarazat": {
+    "title": "Szólap Magyarázat",
+    "intro": "A szólap szavainak használata és jelentésbeli árnyalatai — magyarázat kezdőknek.",
+    "sections": [
+      {
+        "heading": "Névelők és mutatók",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>a / an</strong> — határozatlan névelő: „egy”. Az <em>an</em> magánhangzóval kezdődő szó előtt használjuk (<em>an old flat</em>, <em>an interesting story</em>)."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>the</strong> — határozott névelő: „a, az”. Konkrét, ismert dolgot jelöl (<em>the family</em> = az adott család)."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>this / that</strong> — mutató névmások: <em>this</em> = ez a (közel), <em>that</em> = az a (távol). Főnév előtt névelő nélkül állnak: <em>this house</em>, <em>that car</em>."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>which</strong> — „melyik” kérdő szó: <em>which house?</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>every</strong> — „minden”: <em>every child</em> = minden gyerek."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>whose</strong> — „kinek a”: <em>whose house?</em> = kinek a háza?"
+          }
+        ]
+      },
+      {
+        "heading": "Birtokos névmások",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": ["Magyar", "Angol"],
+            "rows": [
+              ["az én", "my"],
+              ["a te", "your (tegezés)"],
+              ["az ő (hímnem)", "his"],
+              ["az ő (nőnem)", "her"],
+              ["annak a (semleges)", "its"],
+              ["a mi", "our"],
+              ["a ti", "your (többes tegezés)"],
+              ["az ők", "their"]
+            ]
+          },
+          {
+            "type": "note",
+            "paragraphs": [
+              "<strong>your</strong> négy jelentése: 1) tegező <em>your</em>, 2) magázó <em>your</em> (az Ön), 3) többes tegező <em>your</em> (a ti), 4) magázó többes <em>your</em> (az Önök). A kontextus dönti el, melyikről van szó.",
+              "<strong>his / her / its</strong>: <em>his</em> férfi után, <em>her</em> nő után, <em>its</em> tárgy vagy állat után (<em>its house</em>)."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Személyes névmások",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>he / she</strong> — „ő”: <em>he</em> férfi, <em>she</em> nő. Önálló mondatban: <em>He is young.</em> / <em>She is beautiful.</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>it</strong> — „az, ez” tárgyakra, fogalmakra: <em>It is true.</em> = Ez igaz."
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>it vs this/that</strong>: <em>this</em> és <em>that</em> konkrétabb mutatás; <em>it</em> általánosabb, absztrakt (<em>It is possible.</em> = Lehetséges)."
+          }
+        ]
+      },
+      {
+        "heading": "Idő és hely kifejezések",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "<strong>here / there</strong> — itt / ott"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>at home</strong> — otthon (<em>at home</em>, nem <em>in home</em>)"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>near / far</strong> — közel / távol"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>still vs already</strong>: <em>still</em> = még (folytatódik), <em>already</em> = már (megtörtént). <em>He is still here.</em> vs <em>He is already at home.</em>"
+          },
+          {
+            "type": "paragraph",
+            "html": "<strong>enough</strong> — elég. Általában melléknév <strong>után</strong> áll: <em>near enough</em>, <em>good enough</em>."
+          }
+        ]
+      },
+      {
+        "heading": "Melléknevek foka",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Pozitív — komparatív — szuperlatív:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>good</em> → <em>better</em> → <em>the best</em>",
+              "<em>big</em> → <em>bigger</em> → <em>the biggest</em> (szabályos: -er / -est)",
+              "<em>beautiful</em> → <em>more beautiful</em> → <em>the most beautiful</em> (hosszú melléknevek)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nyelvtanI": {
+    "title": "Nyelvtan I.",
+    "intro": "Az angol mondat alapvető szerkezete — névelők, ige, szórend.",
+    "sections": [
+      {
+        "heading": "ABC szerkezetek",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Az angol mondat három fő részből épül fel:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<strong>A</strong> — alany (ki? mi?): <em>the child</em>, <em>Peter</em>, <em>she</em>",
+              "<strong>B</strong> — állítmány / ige: <em>is</em>, <em>was</em>",
+              "<strong>C</strong> — mondatrész (melléknév, hely, stb.): <em>happy</em>, <em>here</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Példa: <em>[A: The child] [B: is] [C: happy].</em> = A gyerek boldog."
+          }
+        ]
+      },
+      {
+        "heading": "Határozatlan névelő: a / an",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Jelentése: „egy” (nem konkrét, először említett)."
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>a</em> — mássalhangzó előtt: <em>a house</em>, <em>a car</em>",
+              "<em>an</em> — magánhangzó előtt: <em>an old flat</em>, <em>an idea</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Hangzás számít, nem írásmód: <em>an hour</em> (óra — néma h), <em>a university</em> (egyetem — /j/ hang)."
+          }
+        ]
+      },
+      {
+        "heading": "Határozott névelő: the",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Jelentése: „a, az” — ismert, konkrét dolog."
+          },
+          {
+            "type": "paragraph",
+            "html": "<em>the family</em> = a (már ismert) család"
+          },
+          {
+            "type": "paragraph",
+            "html": "<em>the best answer</em> = a legjobb válasz (felsőfok előtt mindig <em>the</em>)"
+          }
+        ]
+      },
+      {
+        "heading": "is → he's / she's",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Az <em>is</em> ige összevonható a névmással:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "<em>he is</em> → <em>he's</em>",
+              "<em>she is</em> → <em>she's</em>",
+              "<em>it is</em> → <em>it's</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Példa: <em>He's a teacher.</em> = Ő tanár. / <em>She's at home.</em> = Otthon van."
+          }
+        ]
+      },
+      {
+        "heading": "A mondat négy alaptípusa",
+        "blocks": [
+          {
+            "type": "table",
+            "headers": ["Típus", "Szerkezet", "Példa", "Magyar"],
+            "rows": [
+              ["Állító", "A + B + C", "She is happy.", "Ő boldog."],
+              ["Kérdő", "B + A + C (?)", "Is she happy?", "Boldog ő?"],
+              ["Tagadó", "A + B + not + C", "She is not happy.", "Ő nem boldog."],
+              ["Kérdve-tagadó", "B + A + not + C (?)", "Is she not happy?", "Nem boldog ő?"]
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Szórend: 1-2-3 rendszer",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "html": "Az angol alap szórend:"
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "<strong>1. hely</strong> — alany (A): <em>The child</em>",
+              "<strong>2. hely</strong> — ige (B): <em>is</em>",
+              "<strong>3. hely</strong> — kiegészítő (C): <em>happy</em>"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "html": "Kérdésnél a <strong>2. hely (ige)</strong> kerül az <strong>1. hely elé</strong>, és a mondat végére <strong>(?)</strong> jel kerül."
+          },
+          {
+            "type": "mono",
+            "lines": [
+              "Állító:  [1: She] [2: is] [3: here].",
+              "Kérdő:   [2: Is] [1: she] [3: here]?"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

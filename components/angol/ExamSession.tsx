@@ -3,7 +3,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import type { Mondat } from '@/lib/angol-lecke1';
+import type { MondatPair } from '@/lib/i18n-content';
 import { evaluateAnswer, scoreExam, shuffleArray } from '@/lib/angol-utils';
 import { createClient } from '@/lib/supabase/client';
 import { getNextSectionId } from '@/lib/angol-unlocks';
@@ -16,7 +16,7 @@ interface ExamSessionProps {
   lessonId: number;
   sectionId: number;
   sectionName: string;
-  mondatok: Mondat[];
+  mondatok: MondatPair[];
   locale: string;
   onClose: () => void;
 }
@@ -24,7 +24,7 @@ interface ExamSessionProps {
 type ExamPhase = 'exam' | 'result';
 
 type WrongAnswer = {
-  hu: string;
+  prompt: string;
   userAnswer: string;
   correctEn: string;
   eval: 'partial' | 'incorrect';
@@ -66,7 +66,7 @@ export function ExamSession({
 
   const saveResults = useCallback(async () => {
     const scored = scoreExam(
-      questions.map((q, i) => ({ user: answers[i], correct: q.en }))
+      questions.map((q, i) => ({ user: answers[i], correct: q.answer }))
     );
     setResult(scored);
     const didPass = scored.percent >= PASS_THRESHOLD;
@@ -74,8 +74,8 @@ export function ExamSession({
 
     const wrongs: WrongAnswer[] = questions
       .map((q, i) => {
-        const ev = evaluateAnswer(answers[i], q.en);
-        return { hu: q.hu, userAnswer: answers[i], correctEn: q.en, eval: ev };
+        const ev = evaluateAnswer(answers[i], q.answer);
+        return { prompt: q.prompt, userAnswer: answers[i], correctEn: q.answer, eval: ev };
       })
       .filter((w): w is WrongAnswer => w.eval !== 'correct');
     setWrongAnswers(wrongs);
@@ -182,7 +182,7 @@ export function ExamSession({
                       : 'border-red-500/30 bg-red-900/20'
                   )}
                 >
-                  <p className="text-sm font-medium text-foreground">{w.hu}</p>
+                  <p className="text-sm font-medium text-foreground">{w.prompt}</p>
                   <p className="mt-1 text-sm">
                     <span className="text-muted-foreground">{t('yourAnswer')} </span>
                     <span className={w.eval === 'partial' ? 'text-amber-300' : 'text-red-300'}>
@@ -264,7 +264,7 @@ export function ExamSession({
       <div className="premium-card angol-surface p-8 space-y-5">
         <div>
           <p className="text-sm text-muted-foreground mb-1">{t('hungarianLabel')}</p>
-          <p className="text-xl font-medium">{question.hu}</p>
+          <p className="text-xl font-medium">{question.prompt}</p>
         </div>
 
         <div>
