@@ -1,5 +1,9 @@
 import { Outfit, Cinzel } from 'next/font/google';
-import type { Viewport } from 'next';
+import type { Metadata, Viewport } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Quintessence - Personal Growth',
+};
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
