@@ -235,7 +235,7 @@ export async function GET(request: Request) {
         .from('push_subscriptions')
         .delete()
         .eq('user_id', profile.id)
-        .in('endpoint', [...staleEndpoints]);
+        .in('endpoint', Array.from(staleEndpoints));
       staleRemoved += staleEndpoints.size;
     }
 
