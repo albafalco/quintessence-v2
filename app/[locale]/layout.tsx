@@ -64,6 +64,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="dark">
       <head>
+        {/* Inline background prevents white flash on iOS PWA cold start,
+            before the external stylesheet is loaded and parsed. */}
+        <style>{`html,body{background-color:#0a0812}`}</style>
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.webmanifest" />
