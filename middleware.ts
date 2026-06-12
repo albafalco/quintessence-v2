@@ -57,9 +57,12 @@ export async function middleware(request: NextRequest) {
     }
   );
 
+  // getSession reads from the cookie without a Supabase Auth network round-trip.
+  // getUser() (network call) is used inside page components where token validation matters.
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
+  const user = session?.user ?? null;
 
   // pathnameWithoutLocale is '' for /{locale} (dashboard) — that route is also protected
   if (!user && !isPublic) {

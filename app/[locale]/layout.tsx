@@ -8,7 +8,6 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { locales, type Locale } from '@/i18n';
-import { createClient } from '@/lib/supabase/server';
 import { ConditionalAppShell } from '@/components/layout/ConditionalAppShell';
 import { ServiceWorkerInit } from '@/components/layout/ServiceWorkerInit';
 import '../globals.css';
@@ -50,20 +49,6 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  let username = 'user';
-  if (user) {
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('username')
-      .eq('id', user.id)
-      .single();
-    if (profile?.username) username = profile.username;
-  }
 
   return (
     <html lang={locale} className="dark">
@@ -82,7 +67,7 @@ export default async function LocaleLayout({
       <body className={`${outfit.variable} ${cinzel.variable} font-sans`}>
         <ServiceWorkerInit />
         <NextIntlClientProvider messages={messages}>
-          <ConditionalAppShell username={username}>{children}</ConditionalAppShell>
+          <ConditionalAppShell>{children}</ConditionalAppShell>
         </NextIntlClientProvider>
       </body>
     </html>

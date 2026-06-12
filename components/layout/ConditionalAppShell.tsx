@@ -5,10 +5,9 @@ import { AppShell } from './AppShell';
 
 interface ConditionalAppShellProps {
   children: React.ReactNode;
-  username: string;
 }
 
-export function ConditionalAppShell({ children, username }: ConditionalAppShellProps) {
+export function ConditionalAppShell({ children }: ConditionalAppShellProps) {
   const pathname = usePathname();
   const isAuthPage = pathname.includes('/auth/');
 
@@ -16,5 +15,5 @@ export function ConditionalAppShell({ children, username }: ConditionalAppShellP
     return <>{children}</>;
   }
 
-  return <AppShell username={username}>{children}</AppShell>;
+  return <AppShell>{children}</AppShell>;
 }

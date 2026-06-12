@@ -1,20 +1,34 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { cn } from '@/lib/utils';
+import { createClient } from '@/lib/supabase/client';
 
-interface NavbarProps {
-  username: string;
-}
-
-export function Navbar({ username }: NavbarProps) {
+export function Navbar() {
   const t = useTranslations('nav');
   const tBrand = useTranslations('brand');
   const locale = useLocale();
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      if (!user) return;
+      supabase
+        .from('profiles')
+        .select('username')
+        .eq('id', user.id)
+        .single()
+        .then(({ data }) => {
+          if (data?.username) setUsername(data.username);
+        });
+    });
+  }, []);
 
   return (
     <header className="sticky top-0 z-30 flex h-14 min-w-0 items-center justify-between gap-2 overflow-hidden border-b border-border/40 glass px-3 pt-[env(safe-area-inset-top)] sm:h-16 sm:px-4 md:px-6">
