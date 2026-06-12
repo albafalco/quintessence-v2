@@ -239,9 +239,7 @@ export async function GET(request: Request) {
       staleRemoved += staleEndpoints.size;
     }
 
-    const hasValidSub = subscriptions.some((s) => !staleEndpoints.has(s.endpoint));
     const updates: Record<string, unknown> = { updated_at: new Date().toISOString() };
-    if (!hasValidSub) updates.push_enabled = false;
     if (angolSent) updates.last_angol_push_date = budapestNow.date;
     if (magiaMorningSent) updates.last_magia_push_date = budapestNow.date;
     if (magiaEveningSent) updates.last_magia_evening_push_date = budapestNow.date;
