@@ -6,12 +6,13 @@ export function SplashScreen() {
   useEffect(() => {
     const el = document.getElementById('app-splash');
     if (!el) return;
-    // Small delay so the user sees the branding at least briefly
+    // Wait 800ms after React mounts before fading — ensures splash is visible
+    // even on fast desktop loads, and gives iOS adequate branding time.
     const fadeTimer = setTimeout(() => {
-      el.style.transition = 'opacity 0.5s ease';
+      el.style.transition = 'opacity 0.6s ease';
       el.style.opacity = '0';
-    }, 300);
-    const removeTimer = setTimeout(() => el.remove(), 850);
+    }, 800);
+    const removeTimer = setTimeout(() => el.remove(), 1500);
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(removeTimer);

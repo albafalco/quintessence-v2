@@ -1,14 +1,17 @@
-const CACHE = 'qs-static-v1';
+const STATIC_CACHE = 'qs-static-v1';
+const NAV_CACHE    = 'qs-nav-v1';
+// Serve a cached navigation response if it is younger than this threshold.
+const NAV_TTL_MS   = 10 * 60 * 1000; // 10 minutes
 
 self.addEventListener('install', () => {
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
-  // Remove old cache versions on activate
+  const keep = new Set([STATIC_CACHE, NAV_CACHE]);
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
+      Promise.all(keys.filter((k) => !keep.has(k)).map((k) => caches.delete(k)))
     )
   );
 });
@@ -19,23 +22,59 @@ self.addEventListener('message', (event) => {
   }
 });
 
-// Cache Next.js static bundles (JS/CSS) — cache-first, these have
-// content-hashed URLs so they never go stale between deploys.
 self.addEventListener('fetch', (event) => {
-  const url = new URL(event.request.url);
-  if (
-    event.request.method === 'GET' &&
-    url.pathname.startsWith('/_next/static/')
-  ) {
+  const { request } = event;
+  const url = new URL(request.url);
+
+  // ── Navigation (HTML pages) — stale-while-revalidate ─────────────────────
+  // On second+ opens the cached HTML is served immediately (no Vercel cold-start
+  // wait), while a fresh copy is fetched in the background.
+  if (request.method === 'GET' && request.mode === 'navigate') {
+    event.respondWith((async () => {
+      const cache  = await caches.open(NAV_CACHE);
+      const cached = await cache.match(request);
+
+      if (cached) {
+        const dateHeader = cached.headers.get('date');
+        const ageMs = dateHeader
+          ? Date.now() - new Date(dateHeader).getTime()
+          : Infinity;
+
+        if (ageMs < NAV_TTL_MS) {
+          // Serve the cached response immediately; update in background.
+          fetch(request)
+            .then((fresh) => { if (fresh.ok) cache.put(request, fresh); })
+            .catch(() => {});
+          return cached;
+        }
+      }
+
+      // No fresh cache — go to network.
+      try {
+        const response = await fetch(request);
+        if (response.ok) cache.put(request, response.clone());
+        return response;
+      } catch {
+        // Offline fallback: serve stale if available.
+        return cached ?? Response.error();
+      }
+    })());
+    return;
+  }
+
+  // ── Next.js static bundles (JS/CSS) — cache-first ────────────────────────
+  // Content-hashed URLs never go stale between deploys.
+  if (request.method === 'GET' && url.pathname.startsWith('/_next/static/')) {
     event.respondWith(
-      caches.open(CACHE).then(async (cache) => {
-        const hit = await cache.match(event.request);
+      caches.open(STATIC_CACHE).then(async (cache) => {
+        const hit = await cache.match(request);
         if (hit) return hit;
-        const res = await fetch(event.request);
-        if (res.ok) cache.put(event.request, res.clone());
+        const res = await fetch(request);
+        if (res.ok) cache.put(request, res.clone());
         return res;
       })
     );
+    return;
   }
 });
 
