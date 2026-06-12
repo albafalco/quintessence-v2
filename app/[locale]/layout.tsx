@@ -77,6 +77,7 @@ export default async function LocaleLayout({
         <meta name="theme-color" content="#3B2A6E" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="apple-touch-startup-image" href="/splash.png" />
       </head>
       <body className={`${outfit.variable} ${cinzel.variable} font-sans`}>
         <ServiceWorkerInit />
