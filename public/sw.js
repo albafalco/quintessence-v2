@@ -3,8 +3,16 @@ const NAV_CACHE    = 'qs-nav-v1';
 // Serve a cached navigation response if it is younger than this threshold.
 const NAV_TTL_MS   = 10 * 60 * 1000; // 10 minutes
 
-self.addEventListener('install', () => {
-  self.skipWaiting();
+// Precache the main app shell during install so the NEXT open is instant.
+// start_url is /hu — this is cached so the navigation handler can serve it
+// without waiting for a Vercel cold start.
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(NAV_CACHE)
+      .then((cache) => cache.add('/hu'))
+      .catch(() => {}) // never block install on a precache failure
+      .finally(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', (event) => {
@@ -27,12 +35,16 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
 
   // ── Navigation (HTML pages) — stale-while-revalidate ─────────────────────
-  // On second+ opens the cached HTML is served immediately (no Vercel cold-start
-  // wait), while a fresh copy is fetched in the background.
+  // Cache key is always the FINAL url (after any server redirect) so that
+  // /hu is cached as /hu regardless of what url triggered the navigation.
   if (request.method === 'GET' && request.mode === 'navigate') {
     event.respondWith((async () => {
-      const cache  = await caches.open(NAV_CACHE);
-      const cached = await cache.match(request);
+      const cache = await caches.open(NAV_CACHE);
+
+      // Normalise the key to the canonical app url.
+      // start_url is /hu; middleware may redirect / → /hu.
+      const cacheKey = new Request('/hu');
+      const cached   = await cache.match(cacheKey);
 
       if (cached) {
         const dateHeader = cached.headers.get('date');
@@ -41,21 +53,20 @@ self.addEventListener('fetch', (event) => {
           : Infinity;
 
         if (ageMs < NAV_TTL_MS) {
-          // Serve the cached response immediately; update in background.
+          // Serve immediately; refresh in background.
           fetch(request)
-            .then((fresh) => { if (fresh.ok) cache.put(request, fresh); })
+            .then((fresh) => { if (fresh.ok) cache.put(cacheKey, fresh); })
             .catch(() => {});
           return cached;
         }
       }
 
-      // No fresh cache — go to network.
+      // No fresh cache — go to network and store the result.
       try {
         const response = await fetch(request);
-        if (response.ok) cache.put(request, response.clone());
+        if (response.ok) cache.put(cacheKey, response.clone());
         return response;
       } catch {
-        // Offline fallback: serve stale if available.
         return cached ?? Response.error();
       }
     })());

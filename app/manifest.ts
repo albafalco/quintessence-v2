@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: huMessages.pwa.name,
     short_name: huMessages.pwa.name,
     description: huMessages.pwa.description,
-    start_url: '/',
+    start_url: '/hu',
     scope: '/',
     display: 'standalone',
     background_color: '#0a0812',
