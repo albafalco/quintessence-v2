@@ -10,7 +10,6 @@ import { getMessages } from 'next-intl/server';
 import { locales, type Locale } from '@/i18n';
 import { ConditionalAppShell } from '@/components/layout/ConditionalAppShell';
 import { ServiceWorkerInit } from '@/components/layout/ServiceWorkerInit';
-import { SplashScreen } from '@/components/layout/SplashScreen';
 import '../globals.css';
 
 const outfit = Outfit({
@@ -88,58 +87,6 @@ export default async function LocaleLayout({
           media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
       </head>
       <body className={`${outfit.variable} ${cinzel.variable} font-sans`}>
-        {/*
-          Inline-styled splash overlay — present in the initial HTML before any
-          CSS or JS loads. Uses var(--font-display) = Cinzel (same as login page).
-          SplashScreen (client component) fades it out after React hydrates.
-        */}
-        <div
-          id="app-splash"
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 9999,
-            background: '#0a0812',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '20px',
-            pointerEvents: 'none',
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo-splash.png"
-            alt=""
-            width={80}
-            height={80}
-            style={{ borderRadius: '20%' }}
-          />
-          <div
-            style={{
-              color: '#C9A84C',
-              fontSize: '32px',
-              fontFamily: 'var(--font-display), Georgia, serif',
-              fontWeight: '600',
-              letterSpacing: '0.05em',
-            }}
-          >
-            Quintessence
-          </div>
-          <div
-            style={{
-              color: '#7B7A9A',
-              fontSize: '11px',
-              fontFamily: '-apple-system, sans-serif',
-              letterSpacing: '0.3em',
-              textTransform: 'uppercase',
-            }}
-          >
-            Personal Growth
-          </div>
-        </div>
-        <SplashScreen />
         <ServiceWorkerInit />
         <NextIntlClientProvider messages={messages}>
           <ConditionalAppShell>{children}</ConditionalAppShell>
