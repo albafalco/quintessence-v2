@@ -147,6 +147,7 @@ async function registerServiceWorker() {
 
 export function BootInit() {
   useEffect(() => {
+    (window as Window & { __qsReactMounted?: boolean }).__qsReactMounted = true;
     bootLog('client-mount');
     sessionStorage.removeItem(SW_RELOAD_KEY);
 

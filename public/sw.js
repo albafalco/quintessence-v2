@@ -1,7 +1,9 @@
-const STATIC_CACHE = 'qs-static-v2';
-const NAV_CACHE = 'qs-nav-v2';
+const STATIC_CACHE = 'qs-static-v3';
+const NAV_CACHE = 'qs-nav-v3';
 const OFFLINE_URL = '/offline.html';
-const NAV_NETWORK_TIMEOUT_MS = 6000;
+const NAV_NETWORK_TIMEOUT_MS = 8000;
+const NAV_MAX_ATTEMPTS = 2;
+const STATIC_NETWORK_TIMEOUT_MS = 10000;
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -21,6 +23,11 @@ self.addEventListener('activate', (event) => {
       .then((keys) =>
         Promise.all(keys.filter((k) => !keep.has(k)).map((k) => caches.delete(k)))
       )
+      .then(() => caches.open(NAV_CACHE))
+      .then((cache) =>
+        cache.keys().then((keys) => Promise.all(keys.map((key) => cache.delete(key))))
+      )
+      .then(() => caches.open(NAV_CACHE).then((cache) => cache.add(OFFLINE_URL)))
       .then(() => self.clients.claim())
   );
 });
@@ -41,28 +48,34 @@ async function fetchWithTimeout(request, timeoutMs) {
   }
 }
 
+async function fetchNavigation(request) {
+  let lastError;
+
+  for (let attempt = 0; attempt < NAV_MAX_ATTEMPTS; attempt++) {
+    try {
+      const response = await fetchWithTimeout(request, NAV_NETWORK_TIMEOUT_MS);
+      return response;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw lastError ?? new Error('NAV_FETCH_FAILED');
+}
+
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
+  // Next.js App Router HTML must never be served from cache — only live network.
   if (request.method === 'GET' && request.mode === 'navigate') {
     event.respondWith(
       (async () => {
-        const cache = await caches.open(NAV_CACHE);
-
         try {
-          const response = await fetchWithTimeout(request, NAV_NETWORK_TIMEOUT_MS);
-          if (response.ok) {
-            cache.put(request, response.clone());
-          }
-          return response;
+          return await fetchNavigation(request);
         } catch {
-          const cached = await cache.match(request);
-          if (cached) return cached;
-
-          const offline = await cache.match(OFFLINE_URL);
+          const offline = await caches.match(OFFLINE_URL);
           if (offline) return offline;
-
           return Response.error();
         }
       })()
@@ -75,10 +88,18 @@ self.addEventListener('fetch', (event) => {
       (async () => {
         const cache = await caches.open(STATIC_CACHE);
         const hit = await cache.match(request);
-        if (hit) return hit;
+
+        if (hit) {
+          fetchWithTimeout(request, STATIC_NETWORK_TIMEOUT_MS)
+            .then((fresh) => {
+              if (fresh.ok) cache.put(request, fresh.clone());
+            })
+            .catch(() => {});
+          return hit;
+        }
 
         try {
-          const response = await fetchWithTimeout(request, NAV_NETWORK_TIMEOUT_MS);
+          const response = await fetchWithTimeout(request, STATIC_NETWORK_TIMEOUT_MS);
           if (response.ok) {
             cache.put(request, response.clone());
           }

@@ -8,9 +8,11 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { locales, type Locale } from '@/i18n';
+import { BootFallback } from '@/components/layout/BootFallback';
 import { BootInit } from '@/components/layout/BootInit';
 import { ConditionalAppShell } from '@/components/layout/ConditionalAppShell';
 import { GlobalErrorBoundary } from '@/components/layout/GlobalErrorBoundary';
+import { BOOT_INLINE_SCRIPT } from '@/lib/boot-inline';
 import '../globals.css';
 
 const outfit = Outfit({
@@ -86,8 +88,10 @@ export default async function LocaleLayout({
           media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
         <link rel="apple-touch-startup-image" href="/splash-750x1334.png"
           media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+        <script dangerouslySetInnerHTML={{ __html: BOOT_INLINE_SCRIPT }} />
       </head>
       <body className={`${outfit.variable} ${cinzel.variable} font-sans`}>
+        <BootFallback />
         <div
           id="app-splash"
           style={{
