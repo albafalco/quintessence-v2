@@ -57,9 +57,28 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  let user: { id: string } | null = null;
+  let authTimedOut = false;
+
+  try {
+    const authResult = await Promise.race([
+      supabase.auth.getUser(),
+      new Promise<null>((resolve) => setTimeout(() => resolve(null), 6000)),
+    ]);
+
+    if (authResult === null) {
+      authTimedOut = true;
+    } else {
+      user = authResult.data.user;
+    }
+  } catch {
+    authTimedOut = true;
+  }
+
+  // On iOS PWA cold start the network can hang — never block navigation on auth timeout.
+  if (authTimedOut) {
+    return response;
+  }
 
   // pathnameWithoutLocale is '' for /{locale} (dashboard) — that route is also protected
   if (!user && !isPublic) {

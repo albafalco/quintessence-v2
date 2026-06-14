@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#3B2A6E" />
+    <title>Quintessence — Offline</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 2rem;
+        background: #0a0812;
+        color: #f5f0e6;
+        font-family: system-ui, -apple-system, sans-serif;
+        text-align: center;
+      }
+      img { width: 72px; height: 72px; }
+      h1 { font-size: 1.25rem; font-weight: 600; }
+      p { color: #a89bb8; font-size: 0.95rem; line-height: 1.5; max-width: 20rem; }
+      button {
+        margin-top: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.75rem;
+        background: #3b2a6e;
+        color: #f5f0e6;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="/logo-splash.png" alt="" />
+    <h1>Nincs internetkapcsolat</h1>
+    <p>Ellenőrizd a hálózatot, majd próbáld újra.</p>
+    <button type="button" onclick="location.reload()">Újrapróbálás</button>
+  </body>
+</html>

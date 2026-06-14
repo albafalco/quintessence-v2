@@ -8,8 +8,9 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { locales, type Locale } from '@/i18n';
+import { BootInit } from '@/components/layout/BootInit';
 import { ConditionalAppShell } from '@/components/layout/ConditionalAppShell';
-import { ServiceWorkerInit } from '@/components/layout/ServiceWorkerInit';
+import { GlobalErrorBoundary } from '@/components/layout/GlobalErrorBoundary';
 import '../globals.css';
 
 const outfit = Outfit({
@@ -87,10 +88,28 @@ export default async function LocaleLayout({
           media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
       </head>
       <body className={`${outfit.variable} ${cinzel.variable} font-sans`}>
-        <ServiceWorkerInit />
-        <NextIntlClientProvider messages={messages}>
-          <ConditionalAppShell>{children}</ConditionalAppShell>
-        </NextIntlClientProvider>
+        <div
+          id="app-splash"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 99999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#0a0812',
+            pointerEvents: 'none',
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-splash.png" alt="" width={96} height={96} />
+        </div>
+        <BootInit />
+        <GlobalErrorBoundary>
+          <NextIntlClientProvider messages={messages}>
+            <ConditionalAppShell>{children}</ConditionalAppShell>
+          </NextIntlClientProvider>
+        </GlobalErrorBoundary>
       </body>
     </html>
   );

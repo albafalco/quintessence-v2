@@ -1,16 +1,14 @@
-const STATIC_CACHE = 'qs-static-v1';
-const NAV_CACHE    = 'qs-nav-v1';
-// Serve a cached navigation response if it is younger than this threshold.
-const NAV_TTL_MS   = 10 * 60 * 1000; // 10 minutes
+const STATIC_CACHE = 'qs-static-v2';
+const NAV_CACHE = 'qs-nav-v2';
+const OFFLINE_URL = '/offline.html';
+const NAV_NETWORK_TIMEOUT_MS = 6000;
 
-// Precache the main app shell during install so the NEXT open is instant.
-// start_url is /hu — this is cached so the navigation handler can serve it
-// without waiting for a Vercel cold start.
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(NAV_CACHE)
-      .then((cache) => cache.add('/hu'))
-      .catch(() => {}) // never block install on a precache failure
+    caches
+      .open(NAV_CACHE)
+      .then((cache) => cache.add(OFFLINE_URL))
+      .catch(() => {})
       .finally(() => self.skipWaiting())
   );
 });
@@ -18,9 +16,12 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   const keep = new Set([STATIC_CACHE, NAV_CACHE]);
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => !keep.has(k)).map((k) => caches.delete(k)))
-    )
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(keys.filter((k) => !keep.has(k)).map((k) => caches.delete(k)))
+      )
+      .then(() => self.clients.claim())
   );
 });
 
@@ -30,62 +31,63 @@ self.addEventListener('message', (event) => {
   }
 });
 
+async function fetchWithTimeout(request, timeoutMs) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(request, { signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // ── Navigation (HTML pages) — stale-while-revalidate ─────────────────────
-  // Cache key is always the FINAL url (after any server redirect) so that
-  // /hu is cached as /hu regardless of what url triggered the navigation.
   if (request.method === 'GET' && request.mode === 'navigate') {
-    event.respondWith((async () => {
-      const cache = await caches.open(NAV_CACHE);
+    event.respondWith(
+      (async () => {
+        const cache = await caches.open(NAV_CACHE);
 
-      // Normalise the key to the canonical app url.
-      // start_url is /hu; middleware may redirect / → /hu.
-      const cacheKey = new Request('/hu');
-      const cached   = await cache.match(cacheKey);
+        try {
+          const response = await fetchWithTimeout(request, NAV_NETWORK_TIMEOUT_MS);
+          if (response.ok) {
+            cache.put(request, response.clone());
+          }
+          return response;
+        } catch {
+          const cached = await cache.match(request);
+          if (cached) return cached;
 
-      if (cached) {
-        const dateHeader = cached.headers.get('date');
-        const ageMs = dateHeader
-          ? Date.now() - new Date(dateHeader).getTime()
-          : Infinity;
+          const offline = await cache.match(OFFLINE_URL);
+          if (offline) return offline;
 
-        if (ageMs < NAV_TTL_MS) {
-          // Serve immediately; refresh in background.
-          fetch(request)
-            .then((fresh) => { if (fresh.ok) cache.put(cacheKey, fresh); })
-            .catch(() => {});
-          return cached;
+          return Response.error();
         }
-      }
-
-      // No fresh cache — go to network and store the result.
-      try {
-        const response = await fetch(request);
-        if (response.ok) cache.put(cacheKey, response.clone());
-        return response;
-      } catch {
-        return cached ?? Response.error();
-      }
-    })());
+      })()
+    );
     return;
   }
 
-  // ── Next.js static bundles (JS/CSS) — cache-first ────────────────────────
-  // Content-hashed URLs never go stale between deploys.
   if (request.method === 'GET' && url.pathname.startsWith('/_next/static/')) {
     event.respondWith(
-      caches.open(STATIC_CACHE).then(async (cache) => {
+      (async () => {
+        const cache = await caches.open(STATIC_CACHE);
         const hit = await cache.match(request);
         if (hit) return hit;
-        const res = await fetch(request);
-        if (res.ok) cache.put(request, res.clone());
-        return res;
-      })
+
+        try {
+          const response = await fetchWithTimeout(request, NAV_NETWORK_TIMEOUT_MS);
+          if (response.ok) {
+            cache.put(request, response.clone());
+          }
+          return response;
+        } catch {
+          return hit ?? Response.error();
+        }
+      })()
     );
-    return;
   }
 });
 
