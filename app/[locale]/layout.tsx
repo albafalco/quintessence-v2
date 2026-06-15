@@ -91,6 +91,28 @@ export default async function LocaleLayout({
         <script dangerouslySetInnerHTML={{ __html: BOOT_INLINE_SCRIPT }} />
       </head>
       <body className={`${outfit.variable} ${cinzel.variable} font-sans`}>
+        <pre
+          id="qs-boot-panel"
+          style={{
+            display: 'none',
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            zIndex: 100001,
+            maxHeight: '40dvh',
+            margin: 0,
+            padding: '8px',
+            overflow: 'auto',
+            background: 'rgba(0,0,0,0.85)',
+            color: '#7cfc00',
+            fontSize: '10px',
+            lineHeight: 1.4,
+            whiteSpace: 'pre-wrap',
+            wordBreak: 'break-all',
+            pointerEvents: 'none',
+          }}
+        />
         <BootFallback />
         <div
           id="app-splash"

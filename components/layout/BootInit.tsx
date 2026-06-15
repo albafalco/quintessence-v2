@@ -107,7 +107,10 @@ async function registerServiceWorker() {
   }
 
   bootLog('sw-register-start');
-  const registration = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+  const registration = await navigator.serviceWorker.register('/sw.js', {
+    scope: '/',
+    updateViaCache: 'none',
+  });
   bootLog('sw-registered', { scope: registration.scope, active: !!registration.active });
 
   if (registration.active) {
