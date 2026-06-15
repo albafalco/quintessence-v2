@@ -59,9 +59,6 @@ export default async function LocaleLayout({
         {/* Dark background before stylesheet — prevents white flash on cold start */}
         <style>{`html,body{background-color:#0a0812}`}</style>
 
-        {/* Preload splash logo so it appears instantly in the overlay below */}
-        <link rel="preload" as="image" href="/logo-splash.png" />
-
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.webmanifest" />
@@ -114,22 +111,6 @@ export default async function LocaleLayout({
           }}
         />
         <BootFallback />
-        <div
-          id="app-splash"
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 99999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#0a0812',
-            pointerEvents: 'none',
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-splash.png" alt="" width={96} height={96} />
-        </div>
         <BootInit />
         <GlobalErrorBoundary>
           <NextIntlClientProvider messages={messages}>

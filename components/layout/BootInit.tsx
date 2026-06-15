@@ -2,8 +2,6 @@
 
 import { useEffect } from 'react';
 import { bootLog } from '@/lib/boot-logger';
-import { SplashScreen } from './SplashScreen';
-
 const SW_RELOAD_KEY = 'qs-sw-reloaded';
 const DEBUG_LONG_PRESS_MS = 1200;
 
@@ -169,5 +167,5 @@ export function BootInit() {
     };
   }, []);
 
-  return <SplashScreen />;
+  return null;
 }
