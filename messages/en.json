@@ -347,7 +347,7 @@
     "reengagementDesc": "After 3+ days of inactivity, max. once per week",
     "anglNotificationsTitle": "English notifications",
     "settingsEyebrow": "Settings",
-    "pushErrorFcm": "Chrome's push service could not complete the subscription. Clear site data in browser settings (Settings → Privacy → Clear browsing data), then try again."
+    "pushErrorFcm": "Chrome's push service failed to complete the subscription. Close Chrome completely (all windows), reopen it, and try again. If that doesn't help, try Edge or Firefox."
   },
   "brand": {
     "name": "Quintessence",

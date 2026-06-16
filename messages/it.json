@@ -347,7 +347,7 @@
     "reengagementDesc": "Dopo 3+ giorni di inattività, max 1× a settimana",
     "anglNotificationsTitle": "Notifiche inglese",
     "settingsEyebrow": "Impostazioni",
-    "pushErrorFcm": "Il servizio push di Chrome non ha potuto completare la sottoscrizione. Cancella i dati del sito nelle impostazioni del browser e riprova."
+    "pushErrorFcm": "Il servizio push di Chrome non ha potuto completare la sottoscrizione. Chiudi Chrome completamente (tutte le finestre), riaprilo e riprova. Se non funziona, prova con Edge o Firefox."
   },
   "brand": {
     "name": "Quintessence",

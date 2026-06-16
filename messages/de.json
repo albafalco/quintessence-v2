@@ -347,7 +347,7 @@
     "reengagementDesc": "Nach 3+ Tagen Inaktivität, max. 1× pro Woche",
     "anglNotificationsTitle": "Englisch-Benachrichtigungen",
     "settingsEyebrow": "Einstellungen",
-    "pushErrorFcm": "Der Chrome-Push-Dienst konnte das Abonnement nicht abschließen. Lösche die Website-Daten in den Browsereinstellungen, dann versuche es erneut."
+    "pushErrorFcm": "Der Chrome-Push-Dienst konnte das Abonnement nicht abschließen. Schließe Chrome vollständig (alle Fenster), öffne es erneut und versuche es nochmal. Falls es nicht hilft, versuche es mit Edge oder Firefox."
   },
   "brand": {
     "name": "Quintessence",
