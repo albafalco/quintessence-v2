@@ -317,6 +317,7 @@
     "pushErrorSubscribe": "A feliratkozás sikertelen. Próbáld újra, vagy telepítsd újra az appot a kezdőképernyőre.",
     "pushErrorServiceWorker": "A háttérszolgáltatás nem indult el. Frissítsd az oldalt, majd próbáld újra.",
     "pushErrorGeneric": "A push bekapcsolása sikertelen. Próbáld újra.",
+  "pushErrorFcm": "A Chrome push szolgáltatása nem tudta elvégezni a feliratkozást. Töröld a böngésző site-adatait (Beállítások → Adatvédelem → Webhelyadatok törlése), majd próbáld újra.",
     "pushEnabledButTestFailed": "Feliratkozás sikerült, de a teszt értesítés nem ment ki. Ellenőrizd a Vercel VAPID kulcsokat.",
     "pushIosHint": "iPhone-on a push csak a kezdőképernyőre telepített appban működik (Safari → Megosztás → Kezdőképernyőre).",
     "pushTest": "Teszt értesítés",

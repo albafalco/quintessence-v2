@@ -346,7 +346,8 @@
     "reengagement": "Reactivación",
     "reengagementDesc": "Tras 3+ días de inactividad, máx. 1× por semana",
     "anglNotificationsTitle": "Notificaciones de inglés",
-    "settingsEyebrow": "Ajustes"
+    "settingsEyebrow": "Ajustes",
+    "pushErrorFcm": "El servicio push de Chrome no pudo completar la suscripción. Borra los datos del sitio en la configuración del navegador y vuelve a intentarlo."
   },
   "brand": {
     "name": "Quintessence",

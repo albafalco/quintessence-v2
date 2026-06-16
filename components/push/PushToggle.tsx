@@ -22,12 +22,15 @@ interface PushToggleProps {
 
 function mapPushError(error: unknown, t: (key: string) => string): string {
   const message = error instanceof Error ? error.message : '';
+  const name = error instanceof Error ? error.name : '';
 
   if (message === 'SERVICE_WORKER_UNSUPPORTED') return t('pushErrorServiceWorker');
   if (message === 'SERVICE_WORKER_TIMEOUT') return t('pushErrorServiceWorker');
   if (message === 'VAPID_MISSING') return t('pushErrorVapid');
   if (message === 'INVALID_SUBSCRIPTION') return t('pushErrorSubscribe');
   if (message.includes('Subscribe failed')) return `${t('pushErrorSubscribe')} (${message})`;
+  // Chrome FCM "Registration failed - push service error"
+  if (name === 'AbortError' || message.includes('push service error')) return t('pushErrorFcm');
 
   return t('pushErrorGeneric');
 }
@@ -38,6 +41,8 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
   const [syncing, setSyncing] = useState(true);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [feedbackType, setFeedbackType] = useState<'error' | 'success' | 'info'>('info');
+  // Defer push-support checks to the client to avoid SSR/hydration mismatch (#418)
+  const [mounted, setMounted] = useState(false);
   const supabase = createClient();
 
   useEffect(() => {
@@ -102,6 +107,7 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
       }
     }
 
+    setMounted(true);
     syncExistingSubscription();
 
     return () => {
@@ -203,11 +209,11 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
         />
       </div>
 
-      {!enabled && !isPushSupported() && (
+      {mounted && !enabled && !isPushSupported() && (
         <p className="text-xs text-muted-foreground">{t('pushErrorNotSupported')}</p>
       )}
 
-      {!enabled && isPushSupported() && !isStandalonePwa() && (
+      {mounted && !enabled && isPushSupported() && !isStandalonePwa() && (
         <p className="text-xs text-muted-foreground">{t('pushIosHint')}</p>
       )}
 
