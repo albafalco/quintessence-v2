@@ -76,20 +76,24 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
             onEnabledChange(true);
           }
         } else if (enabled) {
-          // iOS may silently drop the push subscription between sessions.
-          // Try to re-subscribe without a permission dialog (already granted).
-          try {
-            const newSubscription = await subscribeToPush();
-            await persistPushSubscription(supabase, user.id, newSubscription);
-            if (!cancelled) {
-              onEnabledChange(true);
-            }
-          } catch {
-            await clearPushSubscription(supabase, user.id);
-            if (!cancelled) {
-              onEnabledChange(false);
+          // iOS silently drops push subscriptions between sessions — auto-resubscribe there.
+          // On desktop the subscription persists, so clearing the DB flag would be wrong.
+          const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+          if (isIOS) {
+            try {
+              const newSubscription = await subscribeToPush();
+              await persistPushSubscription(supabase, user.id, newSubscription);
+              if (!cancelled) {
+                onEnabledChange(true);
+              }
+            } catch {
+              await clearPushSubscription(supabase, user.id);
+              if (!cancelled) {
+                onEnabledChange(false);
+              }
             }
           }
+          // Desktop: leave the toggle as-is — the user can re-enable manually.
         }
       } catch {
         // sync is best-effort on load
@@ -136,6 +140,20 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
       return;
     }
 
+    // Request permission immediately — must stay close to the user gesture
+    // so Chrome doesn't break the gesture context across async boundaries.
+    const permission =
+      Notification.permission === 'granted'
+        ? 'granted'
+        : await Notification.requestPermission();
+
+    if (permission !== 'granted') {
+      setFeedbackType('error');
+      setFeedback(t('pushErrorPermission'));
+      onEnabledChange(false);
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -145,14 +163,6 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
 
       if (!user) {
         throw new Error('Subscribe failed: not authenticated');
-      }
-
-      const permission = await Notification.requestPermission();
-      if (permission !== 'granted') {
-        setFeedbackType('error');
-        setFeedback(t('pushErrorPermission'));
-        onEnabledChange(false);
-        return;
       }
 
       const subscription = await subscribeToPush();
@@ -172,6 +182,7 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
         setFeedback(t('pushEnabledButTestFailed'));
       }
     } catch (error) {
+      console.error('[push] subscribe failed:', error);
       setFeedbackType('error');
       setFeedback(mapPushError(error, t));
       onEnabledChange(false);
