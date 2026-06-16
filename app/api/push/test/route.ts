@@ -39,7 +39,7 @@ export async function POST() {
 
   const title = await getMessage(locale, 'push.testTitle');
   const body = await getMessage(locale, 'push.testBody');
-  const failures: string[] = [];
+  const failures: Array<{ message: string; statusCode?: number; body?: string }> = [];
 
   for (const sub of subscriptions) {
     try {
@@ -49,13 +49,23 @@ export async function POST() {
         url: `/${locale}/profile`,
       });
     } catch (err) {
-      failures.push(err instanceof Error ? err.message : await getMessage(locale, 'push.sendFailed'));
+      const statusCode = (err as { statusCode?: number }).statusCode;
+      const errBody = (err as { body?: string }).body;
+      const message = err instanceof Error ? err.message : await getMessage(locale, 'push.sendFailed');
+      console.error('[push/test] send failed', { statusCode, body: errBody, message, endpoint: sub.endpoint.slice(0, 60) });
+      failures.push({ message, statusCode, body: errBody });
     }
   }
 
   if (failures.length === subscriptions.length) {
+    const first = failures[0];
     return NextResponse.json(
-      { errorCode: 'SEND_FAILED', error: failures[0] ?? await getMessage(locale, 'push.sendFailed') },
+      {
+        errorCode: 'SEND_FAILED',
+        error: first?.message ?? await getMessage(locale, 'push.sendFailed'),
+        statusCode: first?.statusCode,
+        fcmBody: first?.body,
+      },
       { status: 500 }
     );
   }
