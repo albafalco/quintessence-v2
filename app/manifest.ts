@@ -16,11 +16,12 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: 'any',
     icons: [
       // 'any' purpose required for Chrome/Edge desktop install button
-      { src: '/favicon.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
-      { src: '/favicon.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
-      // 'maskable' for adaptive icons (Android home screen)
-      { src: '/favicon.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
-      { src: '/favicon.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+      { src: '/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+      { src: '/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+      // 'maskable' for adaptive icons (Android home screen): solid background,
+      // logo inside the 80% safe zone so circular masks do not crop it
+      { src: '/icon-maskable-192.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
+      { src: '/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
     ],
   };
 }

@@ -23,7 +23,7 @@ export function ShieldLogo({ size = 40, className, showGlow = false }: ShieldLog
       style={{ width: size, height: size }}
     >
       <Image
-        src="/favicon.png"
+        src="/icon-192.png"
         alt={t('name')}
         width={size}
         height={size}

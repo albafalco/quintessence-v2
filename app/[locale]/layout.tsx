@@ -59,8 +59,8 @@ export default async function LocaleLayout({
         {/* Dark background before stylesheet — prevents white flash on cold start */}
         <style>{`html,body{background-color:#0a0812}`}</style>
 
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="48x48" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <meta name="theme-color" content="#3B2A6E" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

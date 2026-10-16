@@ -31,8 +31,9 @@ self.addEventListener('push', (event) => {
   const title = payload.title || 'Quintessence';
   const options = {
     body: payload.body || '',
-    icon: '/favicon.png',
-    badge: '/favicon.png',
+    icon: '/icon-192.png',
+    // Android renders the badge as a white silhouette (alpha only)
+    badge: '/badge-96.png',
     data: { url: payload.url || '/hu' },
   };
 
