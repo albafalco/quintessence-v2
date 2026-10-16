@@ -36,7 +36,16 @@
       "emailTaken": "Ezzel az e-mail-címmel már van fiók.",
       "usernameTaken": "Ez a felhasználónév már foglalt."
     },
-    "accountDeleted": "A fiókodat és minden adatodat töröltük."
+    "accountDeleted": "A fiókodat és minden adatodat töröltük.",
+    "newPasswordTitle": "Új jelszó beállítása",
+    "newPasswordDesc": "Add meg az új jelszavadat.",
+    "newPassword": "Új jelszó",
+    "confirmNewPassword": "Új jelszó megerősítése",
+    "savePassword": "Jelszó mentése",
+    "passwordsMismatch": "A két jelszó nem egyezik.",
+    "recoveryInvalid": "A link érvénytelen, lejárt vagy már fel lett használva. Kérj újat az adminisztrátortól.",
+    "passwordUpdated": "A jelszavad megváltozott. Átirányítunk…",
+    "passwordUpdateFailed": "Nem sikerült menteni az új jelszót. Próbálj másik jelszót."
   },
   "dashboard": {
     "welcome": "Üdvözlet, {username}!",

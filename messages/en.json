@@ -36,7 +36,16 @@
       "emailTaken": "An account with this email already exists.",
       "usernameTaken": "This username is already taken."
     },
-    "accountDeleted": "Your account and all your data have been deleted."
+    "accountDeleted": "Your account and all your data have been deleted.",
+    "newPasswordTitle": "Set a new password",
+    "newPasswordDesc": "Enter your new password.",
+    "newPassword": "New password",
+    "confirmNewPassword": "Confirm new password",
+    "savePassword": "Save password",
+    "passwordsMismatch": "The two passwords do not match.",
+    "recoveryInvalid": "This link is invalid, expired or already used. Ask the administrator for a new one.",
+    "passwordUpdated": "Your password has been changed. Redirecting…",
+    "passwordUpdateFailed": "Could not save the new password. Try a different one."
   },
   "dashboard": {
     "welcome": "Welcome, {username}!",

@@ -6,7 +6,9 @@ import { cn } from '@/lib/utils';
 
 const ITEMS = [
   { href: '/hu/admin', label: 'Áttekintés' },
-  { href: '/hu/admin/meghivok', label: 'Meghívókódok' },
+  { href: '/hu/admin/felhasznalok', label: 'Felhasználók' },
+  { href: '/hu/admin/meghivok', label: 'Meghívók' },
+  { href: '/hu/admin/push', label: 'Push' },
 ];
 
 export function AdminNav() {

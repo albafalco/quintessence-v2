@@ -36,7 +36,16 @@
       "emailTaken": "Mit dieser E-Mail-Adresse existiert bereits ein Konto.",
       "usernameTaken": "Dieser Benutzername ist bereits vergeben."
     },
-    "accountDeleted": "Dein Konto und alle deine Daten wurden gelöscht."
+    "accountDeleted": "Dein Konto und alle deine Daten wurden gelöscht.",
+    "newPasswordTitle": "Neues Passwort festlegen",
+    "newPasswordDesc": "Gib dein neues Passwort ein.",
+    "newPassword": "Neues Passwort",
+    "confirmNewPassword": "Neues Passwort bestätigen",
+    "savePassword": "Passwort speichern",
+    "passwordsMismatch": "Die beiden Passwörter stimmen nicht überein.",
+    "recoveryInvalid": "Dieser Link ist ungültig, abgelaufen oder wurde bereits verwendet. Bitte den Administrator um einen neuen.",
+    "passwordUpdated": "Dein Passwort wurde geändert. Du wirst weitergeleitet…",
+    "passwordUpdateFailed": "Das neue Passwort konnte nicht gespeichert werden. Versuche ein anderes."
   },
   "dashboard": {
     "welcome": "Willkommen, {username}!",

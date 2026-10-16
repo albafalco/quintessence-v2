@@ -36,7 +36,16 @@
       "emailTaken": "Esiste già un account con questa email.",
       "usernameTaken": "Questo nome utente è già in uso."
     },
-    "accountDeleted": "Il tuo account e tutti i tuoi dati sono stati eliminati."
+    "accountDeleted": "Il tuo account e tutti i tuoi dati sono stati eliminati.",
+    "newPasswordTitle": "Imposta una nuova password",
+    "newPasswordDesc": "Inserisci la tua nuova password.",
+    "newPassword": "Nuova password",
+    "confirmNewPassword": "Conferma nuova password",
+    "savePassword": "Salva password",
+    "passwordsMismatch": "Le due password non coincidono.",
+    "recoveryInvalid": "Questo link non è valido, è scaduto o è già stato usato. Chiedine uno nuovo all'amministratore.",
+    "passwordUpdated": "La tua password è stata cambiata. Reindirizzamento…",
+    "passwordUpdateFailed": "Impossibile salvare la nuova password. Provane un'altra."
   },
   "dashboard": {
     "welcome": "Benvenuto, {username}!",

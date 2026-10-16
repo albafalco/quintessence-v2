@@ -10,6 +10,8 @@ const intlMiddleware = createIntlMiddleware({
 });
 
 const publicPaths = ['/auth/login', '/auth/register'];
+// Reachable with or without a session (password reset link)
+const openPaths = ['/auth/uj-jelszo'];
 
 function isLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
@@ -72,6 +74,10 @@ export async function proxy(request: NextRequest) {
     data: { session },
   } = await supabase.auth.getSession();
   const hasSession = Boolean(session);
+  if (openPaths.some((p) => pathnameWithoutLocale.startsWith(p))) {
+    return response;
+  }
+
   const isPublic = publicPaths.some((p) => pathnameWithoutLocale.startsWith(p));
 
   if (!hasSession && !isPublic) {
