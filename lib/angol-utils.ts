@@ -1,7 +1,22 @@
 export type AnswerResult = 'correct' | 'partial' | 'incorrect';
 
 function normalize(text: string): string {
-  return text.trim().toLowerCase().replace(/\s+/g, ' ');
+  return text
+    .toLowerCase()
+    .replace(/[’‘`]/g, "'")
+    .replace(/[.,!?;:"“”()]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Typo tolerance only for longer answers — on short words one edit turns
+ *  a correct answer into a different word (he/the, is/it, my/me). */
+const MIN_LENGTH_FOR_TYPO_TOLERANCE = 5;
+
+export interface EvaluateOptions {
+  /** Vocabulary cards list synonyms separated by commas ("a, an"); in
+   *  sentences the comma is just punctuation and must not be split on. */
+  commaSeparatedAlternatives?: boolean;
 }
 
 function levenshtein(a: string, b: string): number {
@@ -22,19 +37,40 @@ function levenshtein(a: string, b: string): number {
   return dp[m][n];
 }
 
-export function getAcceptedAnswers(correctEn: string): string[] {
-  return correctEn.split(',').map((part) => normalize(part));
+export function getAcceptedAnswers(correctEn: string, options: EvaluateOptions = {}): string[] {
+  // Alternative full sentences are separated by sentence boundaries:
+  // "He is here, too. He is also here."
+  // Parentheses mark optional words ("sure (of it)", "a little (bit)") or
+  // learner hints ("(ha hölgy mondja)") — accept the answer with and without them.
+  const variants = [correctEn.replace(/\([^)]*\)/g, ' '), correctEn];
+  const parts = variants.flatMap((variant) => {
+    const sentences = variant.split(/(?<=[.!?])\s+/);
+    const pieces = options.commaSeparatedAlternatives
+      ? sentences.flatMap((s) => s.split(','))
+      : sentences;
+    return [variant, ...pieces];
+  });
+  return Array.from(new Set(parts.map((part) => normalize(part)).filter(Boolean)));
 }
 
-export function evaluateAnswer(userAnswer: string, correctEn: string): AnswerResult {
+export function evaluateAnswer(
+  userAnswer: string,
+  correctEn: string,
+  options: EvaluateOptions = {}
+): AnswerResult {
   const normalized = normalize(userAnswer);
   if (!normalized) return 'incorrect';
 
-  const accepted = getAcceptedAnswers(correctEn);
+  const accepted = getAcceptedAnswers(correctEn, options);
 
   for (const answer of accepted) {
     if (normalized === answer) return 'correct';
-    if (levenshtein(normalized, answer) <= 1) return 'correct';
+    if (
+      answer.length >= MIN_LENGTH_FOR_TYPO_TOLERANCE &&
+      levenshtein(normalized, answer) <= 1
+    ) {
+      return 'correct';
+    }
   }
 
   // Partial: answer without article when full answer has article
@@ -47,14 +83,15 @@ export function evaluateAnswer(userAnswer: string, correctEn: string): AnswerRes
 }
 
 export function scoreExam(
-  answers: { user: string; correct: string }[]
+  answers: { user: string; correct: string }[],
+  options: EvaluateOptions = {}
 ): { correct: number; partial: number; incorrect: number; percent: number } {
   let correct = 0;
   let partial = 0;
   let incorrect = 0;
 
   for (const { user, correct: c } of answers) {
-    const result = evaluateAnswer(user, c);
+    const result = evaluateAnswer(user, c, options);
     if (result === 'correct') correct++;
     else if (result === 'partial') partial++;
     else incorrect++;

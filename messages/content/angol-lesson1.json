@@ -3148,7 +3148,7 @@
       "mondatok": [
         {
           "prompt": "Ő szép.",
-          "answer": "She is beautiful. She's be"
+          "answer": "She is beautiful. She's beautiful."
         },
         {
           "prompt": "Ő fiatal.",
@@ -3176,7 +3176,7 @@
         },
         {
           "prompt": "Ő a legjobb.",
-          "answer": "She is the best. He is the"
+          "answer": "She is the best. He is the best."
         },
         {
           "prompt": "Ő fantasztikus.",

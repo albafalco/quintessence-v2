@@ -1,10 +1,12 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { MondatPair } from '@/lib/i18n-content';
 import { TTSButton } from '@/components/angol/TTSButton';
+import { createClient } from '@/lib/supabase/client';
+import { toBudapestDate } from '@/lib/push-reminders';
 import { cn } from '@/lib/utils';
 
 interface PracticeSessionProps {
@@ -27,13 +29,15 @@ export function PracticeSession({
   const t = useTranslations('angol');
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const activityRecordedRef = useRef(false);
 
   const current = mondatok[index];
   const total = mondatok.length;
 
   const englishText = useMemo(() => {
     if (!current) return '';
-    return current.answer.split('.')[0].split(',')[0].trim();
+    // Speak the first full sentence; commas are part of the sentence.
+    return current.answer.split(/(?<=[.!?]) +/)[0].trim();
   }, [current]);
 
   useEffect(() => {
@@ -56,6 +60,29 @@ export function PracticeSession({
     setFlipped(false);
     setIndex((i) => (i + 1) % total);
   }, [total]);
+
+  // Practice has no per-card progress, but it should still count as today's
+  // English activity so the evening reminder is not sent needlessly.
+  const recordActivity = useCallback(async () => {
+    if (activityRecordedRef.current) return;
+    activityRecordedRef.current = true;
+    try {
+      const supabase = createClient();
+      const { data } = await supabase.auth.getSession();
+      if (!data.session) return;
+      await supabase
+        .from('profiles')
+        .update({ last_angol_activity_date: toBudapestDate(new Date()) })
+        .eq('id', data.session.user.id);
+    } catch {
+      activityRecordedRef.current = false;
+    }
+  }, []);
+
+  const handleAnswered = useCallback(() => {
+    void recordActivity();
+    goNext();
+  }, [recordActivity, goNext]);
 
   const goPrev = useCallback(() => {
     setFlipped(false);
@@ -133,14 +160,14 @@ export function PracticeSession({
         <div className="flex justify-center gap-4">
           <button
             type="button"
-            onClick={goNext}
+            onClick={handleAnswered}
             className="rounded-lg bg-green-600/20 px-6 py-2 text-green-400 hover:bg-green-600/30"
           >
             {t('correctButton')}
           </button>
           <button
             type="button"
-            onClick={goNext}
+            onClick={handleAnswered}
             className="rounded-lg bg-red-600/20 px-6 py-2 text-red-400 hover:bg-red-600/30"
           >
             {t('incorrectButton')}

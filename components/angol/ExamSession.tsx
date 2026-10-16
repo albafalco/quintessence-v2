@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import type { MondatPair } from '@/lib/i18n-content';
@@ -52,6 +52,10 @@ export function ExamSession({
   const [passed, setPassed] = useState(false);
   const [saving, setSaving] = useState(false);
   const [unlockedNext, setUnlockedNext] = useState<number | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const submittedRef = useRef(false);
+  // Vocabulary cards list synonyms with commas; practice sentences do not.
+  const evalOptions = useMemo(() => ({ commaSeparatedAlternatives: sectionId === 0 }), [sectionId]);
 
   const question = questions[currentQ];
   const total = questions.length;
@@ -66,7 +70,8 @@ export function ExamSession({
 
   const saveResults = useCallback(async () => {
     const scored = scoreExam(
-      questions.map((q, i) => ({ user: answers[i], correct: q.answer }))
+      questions.map((q, i) => ({ user: answers[i], correct: q.answer })),
+      evalOptions
     );
     setResult(scored);
     const didPass = scored.percent >= PASS_THRESHOLD;
@@ -74,7 +79,7 @@ export function ExamSession({
 
     const wrongs: WrongAnswer[] = questions
       .map((q, i) => {
-        const ev = evaluateAnswer(answers[i], q.answer);
+        const ev = evaluateAnswer(answers[i], q.answer, evalOptions);
         return { prompt: q.prompt, userAnswer: answers[i], correctEn: q.answer, eval: ev };
       })
       .filter((w): w is WrongAnswer => w.eval !== 'correct');
@@ -82,6 +87,7 @@ export function ExamSession({
 
     setPhase('result');
     setSaving(true);
+    setSaveError(null);
 
     try {
       const supabase = createClient();
@@ -90,18 +96,19 @@ export function ExamSession({
       } = await supabase.auth.getUser();
       if (!user) return;
 
-      await supabase.from('angol_exam_results').insert({
+      const { error: resultError } = await supabase.from('angol_exam_results').insert({
         user_id: user.id,
         lesson_id: lessonId,
         section_id: sectionId,
         score: scored.percent,
         passed: didPass,
       });
+      if (resultError) throw resultError;
 
       if (didPass) {
         const nextId = getNextSectionId(sectionId);
         if (nextId !== null) {
-          await supabase.from('angol_section_unlocks').upsert(
+          const { error: unlockError } = await supabase.from('angol_section_unlocks').upsert(
             {
               user_id: user.id,
               lesson_id: lessonId,
@@ -109,18 +116,24 @@ export function ExamSession({
             },
             { onConflict: 'user_id,lesson_id,section_id' }
           );
+          if (unlockError) throw unlockError;
           setUnlockedNext(nextId);
         }
       }
+    } catch (err) {
+      console.error('[angol] saving exam result failed', err);
+      setSaveError(t('savingResultFailed'));
     } finally {
       setSaving(false);
     }
-  }, [answers, lessonId, questions, sectionId]);
+  }, [answers, lessonId, questions, sectionId, evalOptions, t]);
 
   const handleSubmit = () => {
     if (currentQ < total - 1) {
       setCurrentQ((q) => q + 1);
-    } else {
+    } else if (!submittedRef.current) {
+      // Guard against a repeated Enter saving the same result twice.
+      submittedRef.current = true;
       saveResults();
     }
   };
@@ -211,6 +224,7 @@ export function ExamSession({
           <button
             type="button"
             onClick={() => {
+              submittedRef.current = false;
               setPhase('exam');
               setCurrentQ(0);
               setAnswers(questions.map(() => ''));
@@ -233,6 +247,7 @@ export function ExamSession({
         {saving && (
           <p className="text-xs text-muted-foreground">{t('savingResult')}</p>
         )}
+        {saveError && <p className="text-xs text-red-400">{saveError}</p>}
       </div>
     );
   }
