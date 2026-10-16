@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { buildExerciseKey } from '@/lib/magia-utils';
@@ -57,6 +57,9 @@ export function ExerciseItem({
   const [runnerOpen, setRunnerOpen] = useState(false);
   const [masteryOpen, setMasteryOpen] = useState(false);
   const [mirrorOpen, setMirrorOpen] = useState(false);
+  // Last value persisted to the DB, so leaving the notes field without
+  // changes does not trigger another save.
+  const savedNotesRef = useRef(initialNotes);
 
   const TYPE_LABELS: Partial<Record<ExerciseType, string>> = {
     progressive_timed: t('typeLabelProgressiveTimed'),
@@ -77,6 +80,7 @@ export function ExerciseItem({
       setError(null);
 
       const supabase = createClient();
+      const nextNotes = updates.notes ?? notes;
       const { error: dbError } = await supabase.from('magia_progress').upsert(
         {
           user_id: userId,
@@ -86,27 +90,32 @@ export function ExerciseItem({
           completed: updates.completed ?? completed,
           completed_at:
             (updates.completed ?? completed) ? new Date().toISOString() : null,
-          notes: updates.notes ?? notes,
+          notes: nextNotes,
         },
         { onConflict: 'user_id,fokozat,section,exercise_key' }
       );
 
       setSaving(false);
       if (dbError) {
-        setError(dbError.message);
+        console.error('[magia] progress save failed', dbError);
+        setError(t('saveFailed'));
+        return false;
       }
+      savedNotesRef.current = nextNotes;
+      return true;
     },
-    [userId, fokozatId, section, fullKey, completed, notes]
+    [userId, fokozatId, section, fullKey, completed, notes, t]
   );
 
   const handleToggle = async () => {
     const next = !completed;
     setCompleted(next);
-    await saveProgress({ completed: next });
+    const ok = await saveProgress({ completed: next });
+    if (!ok) setCompleted(!next); // revert the checkbox if the save failed
   };
 
   const handleNotesBlur = async () => {
-    if (notes !== initialNotes) {
+    if (notes !== savedNotesRef.current) {
       await saveProgress({ notes });
     }
   };

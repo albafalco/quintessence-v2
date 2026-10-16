@@ -22,6 +22,7 @@ export function FlashCard({ lessonId = 1, vocabulary, onStartExam }: FlashCardPr
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   const current = cards[index];
   const total = cards.length;
@@ -36,21 +37,39 @@ export function FlashCard({ lessonId = 1, vocabulary, onStartExam }: FlashCardPr
       if (!current) return;
       const supabase = createClient();
       const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      if (!user) return;
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (!session) return;
 
+      // Atomic increment (migration 007), so quick taps cannot lose a count.
+      const { error: rpcError } = await supabase.rpc('increment_angol_card', {
+        p_lesson_id: lessonId,
+        p_word_hu: current.prompt,
+        p_word_en: current.answer,
+        p_correct: correct,
+      });
+      if (!rpcError) {
+        setSaveError(null);
+        return;
+      }
+
+      // Function not deployed yet (PGRST202) — fall back to read + upsert.
+      if (rpcError.code !== 'PGRST202') {
+        console.error('[angol] card progress save failed', rpcError);
+        setSaveError(t('savingResultFailed'));
+        return;
+      }
       const { data: existing } = await supabase
         .from('angol_card_progress')
         .select('correct_count, incorrect_count')
-        .eq('user_id', user.id)
+        .eq('user_id', session.user.id)
         .eq('lesson_id', lessonId)
         .eq('word_hu', current.prompt)
         .maybeSingle();
 
-      await supabase.from('angol_card_progress').upsert(
+      const { error: upsertError } = await supabase.from('angol_card_progress').upsert(
         {
-          user_id: user.id,
+          user_id: session.user.id,
           lesson_id: lessonId,
           word_hu: current.prompt,
           word_en: current.answer,
@@ -60,8 +79,14 @@ export function FlashCard({ lessonId = 1, vocabulary, onStartExam }: FlashCardPr
         },
         { onConflict: 'user_id,lesson_id,word_hu' }
       );
+      if (upsertError) {
+        console.error('[angol] card progress save failed', upsertError);
+        setSaveError(t('savingResultFailed'));
+      } else {
+        setSaveError(null);
+      }
     },
-    [current, lessonId]
+    [current, lessonId, t]
   );
 
   const goNext = useCallback(() => {
@@ -203,6 +228,8 @@ export function FlashCard({ lessonId = 1, vocabulary, onStartExam }: FlashCardPr
           </Button>
         </div>
       )}
+
+      {saveError && <p className="text-center text-xs text-red-400">{saveError}</p>}
 
       {onStartExam && (
         <div className="flex justify-center border-t border-border/30 pt-4">

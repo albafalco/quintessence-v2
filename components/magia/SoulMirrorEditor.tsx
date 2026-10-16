@@ -29,6 +29,15 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
   const [showAddForm, setShowAddForm] = useState(false);
   const [newItem, setNewItem] = useState(BLANK_ITEM);
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const reportError = useCallback(
+    (err: unknown) => {
+      console.error('[magia] soul mirror save failed', err);
+      setError(t('saveFailed'));
+    },
+    [t]
+  );
 
   const ELEMENT_LABELS: Record<ElementType, string> = {
     tuz: t('soulMirrorElementFire'),
@@ -47,24 +56,26 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
 
   const fetchItems = useCallback(async () => {
     const supabase = createClient();
-    const { data } = await supabase
+    const { data, error: loadError } = await supabase
       .from('magia_soul_mirror')
       .select('*')
       .eq('user_id', userId)
       .order('created_at', { ascending: true });
+    if (loadError) reportError(loadError);
     setItems((data ?? []) as SoulMirrorItem[]);
     setLoading(false);
-  }, [userId]);
+  }, [userId, reportError]);
 
   useEffect(() => {
     fetchItems();
   }, [fetchItems]);
 
   const handleAdd = async () => {
-    if (!newItem.trait.trim()) return;
+    if (!newItem.trait.trim() || saving) return;
     setSaving(true);
+    setError(null);
     const supabase = createClient();
-    const { data, error } = await supabase
+    const { data, error: insertError } = await supabase
       .from('magia_soul_mirror')
       .insert({
         user_id: userId,
@@ -77,34 +88,40 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
       .single();
 
     setSaving(false);
-    if (!error && data) {
-      setItems((prev) => [...prev, data as SoulMirrorItem]);
-      setNewItem(BLANK_ITEM);
-      setShowAddForm(false);
+    if (insertError || !data) {
+      reportError(insertError);
+      return;
     }
+    setItems((prev) => [...prev, data as SoulMirrorItem]);
+    setNewItem(BLANK_ITEM);
+    setShowAddForm(false);
   };
 
   const toggleResolved = async (item: SoulMirrorItem) => {
+    setError(null);
     const supabase = createClient();
-    const { data } = await supabase
+    const { data, error: updateError } = await supabase
       .from('magia_soul_mirror')
       .update({ resolved: !item.resolved, updated_at: new Date().toISOString() })
       .eq('id', item.id)
       .select()
       .single();
+    if (updateError) reportError(updateError);
     if (data) {
       setItems((prev) => prev.map((i) => (i.id === data.id ? (data as SoulMirrorItem) : i)));
     }
   };
 
   const setWorkMethod = async (item: SoulMirrorItem, method: WorkMethod | null) => {
+    setError(null);
     const supabase = createClient();
-    const { data } = await supabase
+    const { data, error: updateError } = await supabase
       .from('magia_soul_mirror')
       .update({ work_method: method, updated_at: new Date().toISOString() })
       .eq('id', item.id)
       .select()
       .single();
+    if (updateError) reportError(updateError);
     if (data) {
       setItems((prev) => prev.map((i) => (i.id === data.id ? (data as SoulMirrorItem) : i)));
     }
@@ -112,8 +129,13 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
 
   const handleDelete = async (id: string) => {
     if (!confirm(t('soulMirrorDeleteConfirm'))) return;
+    setError(null);
     const supabase = createClient();
-    await supabase.from('magia_soul_mirror').delete().eq('id', id);
+    const { error: deleteError } = await supabase.from('magia_soul_mirror').delete().eq('id', id);
+    if (deleteError) {
+      reportError(deleteError);
+      return;
+    }
     setItems((prev) => prev.filter((i) => i.id !== id));
   };
 
@@ -142,6 +164,10 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
       <p className="text-xs text-muted-foreground">
         {activeTab === 'fekete' ? t('soulMirrorBlackDesc') : t('soulMirrorWhiteDesc')}
       </p>
+
+      {error && (
+        <p className="rounded-xl bg-red-500/10 px-3 py-2 text-xs text-red-400">{error}</p>
+      )}
 
       {/* Tételek listája */}
       {loading ? (
