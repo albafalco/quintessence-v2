@@ -8,11 +8,11 @@ import { SzakaszView } from '@/components/angol/SzakaszView';
 import type { Locale } from '@/i18n';
 
 interface SzakaszPageProps {
-  params: { locale: string; id: string; sid: string };
+  params: Promise<{ locale: string; id: string; sid: string }>;
 }
 
 export default async function SzakaszPage({ params }: SzakaszPageProps) {
-  const { locale, id, sid } = params;
+  const { locale, id, sid } = await params;
   const lessonId = parseInt(id, 10);
   const sectionId = parseInt(sid, 10);
 

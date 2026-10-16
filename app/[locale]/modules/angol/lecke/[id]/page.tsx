@@ -8,11 +8,11 @@ import { getUnlockedSectionIds } from '@/lib/angol-db';
 import type { Locale } from '@/i18n';
 
 interface LeckePageProps {
-  params: { locale: string; id: string };
+  params: Promise<{ locale: string; id: string }>;
 }
 
 export default async function LeckePage({ params }: LeckePageProps) {
-  const { locale, id } = params;
+  const { locale, id } = await params;
   const lessonId = parseInt(id, 10);
 
   if (locale !== 'hu') notFound();

@@ -7,11 +7,11 @@ import { getLessons } from '@/lib/angol-unlocks';
 import type { Locale } from '@/i18n';
 
 interface AngolPageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export default async function AngolPage({ params }: AngolPageProps) {
-  const { locale } = params;
+  const { locale } = await params;
 
   if (locale !== 'hu') {
     notFound();
