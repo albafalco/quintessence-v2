@@ -3,7 +3,7 @@
     "dashboard": "Vezérlőpult",
     "profile": "Profil",
     "modules": "Modulok",
-    "magia": "Mágia",
+    "magia": "Fehér Mágia",
     "angol": "Kreatív Angol",
     "collapse": "Összecsukás",
     "expand": "Kinyitás",
@@ -44,7 +44,7 @@
     "noActivity": "Még nincs aktivitás",
     "progress": "Haladás",
     "fokozat": "Fokozat {level}",
-    "magiaLabel": "Mágia",
+    "magiaLabel": "Fehér Mágia",
     "angolLabel": "Angol",
     "totalLabel": "Össz.",
     "lesson1Progress": "1. Lecke",
@@ -53,7 +53,7 @@
   },
   "modules": {
     "magia": {
-      "title": "Mágia",
+      "title": "Fehér Mágia",
       "subtitle": "Az igazi beavatás útja"
     },
     "angol": {
@@ -67,7 +67,7 @@
     "backHome": "Vissza a vezérlőpultra"
   },
   "magia": {
-    "title": "Mágia",
+    "title": "Fehér Mágia",
     "subtitle": "Az igazi beavatás útja",
     "fokozat": "Fokozat",
     "szellem": "Szellemiskolázás",
@@ -212,7 +212,7 @@
     "pillarSzellem": "Szellem",
     "pillarLelek": "Lélek",
     "pillarTest": "Test",
-    "maBadge": "✦ Mágia — Ma",
+    "maBadge": "✦ Fehér Mágia — Ma",
     "maTitle": "Napi gyakorlás",
     "maBackToAll": "← Összes fokozat",
     "maLevelDetails": "{title} részletek →",
@@ -334,7 +334,7 @@
     "pushTestSent": "Teszt értesítés elküldve!",
     "pushTestFailed": "A teszt értesítés küldése sikertelen.",
     "pushTesting": "Küldés...",
-    "magiaReminder": "Mágia napi emlékeztető",
+    "magiaReminder": "Fehér Mágia napi emlékeztető",
     "angolReminder": "Angol napi emlékeztető",
     "reminderTime": "Emlékeztető időpontja",
     "changePassword": "Jelszó módosítás",
@@ -346,7 +346,7 @@
     "passwordTooShort": "A jelszó legalább 8 karakter legyen",
     "readonly": "Nem módosítható",
     "logoutHint": "Kijelentkezés után újra be kell jelentkezned.",
-    "magiaNotificationsTitle": "Mágia értesítések",
+    "magiaNotificationsTitle": "Fehér Mágia értesítések",
     "morningReminder": "Reggeli emlékeztető",
     "morningReminderDesc": "Napi tervvel a beállított időben",
     "eveningReminder": "Esti emlékeztető",
@@ -367,13 +367,13 @@
     "description": "Személyes fejlődés és tanulás moduláris rendszere"
   },
   "push": {
-    "morningTitle": "✦ Mágia — Reggeli gyakorlás",
-    "morningBody": "Kezdd a napot a napi Mágia-gyakorlatoddal!",
-    "eveningTitle": "✦ Mágia — Esti gyakorlás",
+    "morningTitle": "✦ Fehér Mágia — Reggeli gyakorlás",
+    "morningBody": "Kezdd a napot a napi Fehér Mágia-gyakorlatoddal!",
+    "eveningTitle": "✦ Fehér Mágia — Esti gyakorlás",
     "eveningBody": "Az esti kör vár rád. Szánd rá a pillanatot!",
     "streakTitle": "🔥 Sorozatvédő",
     "streakBody": "Még nem gyakoroltál ma — ne szakítsd meg a sorozatod!",
-    "reengagementTitle": "✦ Mágia vár rád",
+    "reengagementTitle": "✦ A Fehér Mágia vár rád",
     "reengagementBody": "{days} napja nem gyakoroltál. Nem kell nagy lépés — csak egy kis kezdés.",
     "angolTitle": "Angol emlékeztető",
     "angolBody": "Még nem gyakoroltál ma angolul. Ideje egy kis gyakorlás!",

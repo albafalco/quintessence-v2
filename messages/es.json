@@ -3,7 +3,7 @@
     "dashboard": "Panel",
     "profile": "Perfil",
     "modules": "Módulos",
-    "magia": "Magia",
+    "magia": "Magia Blanca",
     "angol": "Inglés Creativo",
     "collapse": "Contraer",
     "expand": "Expandir",
@@ -44,7 +44,7 @@
     "noActivity": "Sin actividad aún",
     "progress": "Progreso",
     "fokozat": "Grado {level}",
-    "magiaLabel": "Magia",
+    "magiaLabel": "Magia Blanca",
     "angolLabel": "Inglés",
     "totalLabel": "Total",
     "lesson1Progress": "Lección I",
@@ -53,7 +53,7 @@
   },
   "modules": {
     "magia": {
-      "title": "Magia",
+      "title": "Magia Blanca",
       "subtitle": "El camino de la verdadera iniciación"
     },
     "angol": {
@@ -67,7 +67,7 @@
     "backHome": "Volver al panel"
   },
   "magia": {
-    "title": "Magia",
+    "title": "Magia Blanca",
     "subtitle": "El camino de la verdadera iniciación",
     "fokozat": "Grado",
     "szellem": "Escuela del espíritu",
@@ -212,7 +212,7 @@
     "pillarSzellem": "Espíritu",
     "pillarLelek": "Alma",
     "pillarTest": "Cuerpo",
-    "maBadge": "✦ Magia — Hoy",
+    "maBadge": "✦ Magia Blanca — Hoy",
     "maTitle": "Práctica diaria",
     "maBackToAll": "← Todos los grados",
     "maLevelDetails": "{title} detalles →",
@@ -333,7 +333,7 @@
     "pushTestSent": "¡Notificación de prueba enviada!",
     "pushTestFailed": "No se pudo enviar la notificación de prueba.",
     "pushTesting": "Enviando...",
-    "magiaReminder": "Recordatorio diario de Magia",
+    "magiaReminder": "Recordatorio diario de Magia Blanca",
     "angolReminder": "Recordatorio diario de inglés",
     "reminderTime": "Hora del recordatorio",
     "changePassword": "Cambiar contraseña",
@@ -345,7 +345,7 @@
     "passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
     "readonly": "No editable",
     "logoutHint": "Tendrás que iniciar sesión de nuevo después de cerrar sesión.",
-    "magiaNotificationsTitle": "Notificaciones de Magia",
+    "magiaNotificationsTitle": "Notificaciones de Magia Blanca",
     "morningReminder": "Recordatorio matutino",
     "morningReminderDesc": "Plan diario a la hora configurada",
     "eveningReminder": "Recordatorio nocturno",
@@ -367,13 +367,13 @@
     "description": "Sistema modular de crecimiento personal y aprendizaje"
   },
   "push": {
-    "morningTitle": "✦ Magia — Práctica matutina",
-    "morningBody": "¡Empieza el día con tu práctica diaria de Magia!",
-    "eveningTitle": "✦ Magia — Práctica nocturna",
+    "morningTitle": "✦ Magia Blanca — Práctica matutina",
+    "morningBody": "¡Empieza el día con tu práctica diaria de Magia Blanca!",
+    "eveningTitle": "✦ Magia Blanca — Práctica nocturna",
     "eveningBody": "Te espera la ronda de la noche. ¡Concéntrate en el momento!",
     "streakTitle": "🔥 Protector de racha",
     "streakBody": "Aún no has practicado hoy — ¡no rompas tu racha!",
-    "reengagementTitle": "✦ Magia te espera",
+    "reengagementTitle": "✦ La Magia Blanca te espera",
     "reengagementBody": "Llevas {days} días sin practicar. No hace falta un gran paso — solo un pequeño comienzo.",
     "angolTitle": "Recordatorio de inglés",
     "angolBody": "Aún no has practicado inglés hoy. ¡Es hora de practicar un poco!",

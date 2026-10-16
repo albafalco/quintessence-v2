@@ -3,7 +3,7 @@
     "dashboard": "Dashboard",
     "profile": "Profile",
     "modules": "Modules",
-    "magia": "Magia",
+    "magia": "White Magic",
     "angol": "Creative English",
     "collapse": "Collapse",
     "expand": "Expand",
@@ -44,7 +44,7 @@
     "noActivity": "No activity yet",
     "progress": "Progress",
     "fokozat": "Grade {level}",
-    "magiaLabel": "Magia",
+    "magiaLabel": "White Magic",
     "angolLabel": "English",
     "totalLabel": "Total",
     "lesson1Progress": "Lesson I",
@@ -53,7 +53,7 @@
   },
   "modules": {
     "magia": {
-      "title": "Magia",
+      "title": "White Magic",
       "subtitle": "The path of true initiation"
     },
     "angol": {
@@ -67,7 +67,7 @@
     "backHome": "Back to dashboard"
   },
   "magia": {
-    "title": "Magia",
+    "title": "White Magic",
     "subtitle": "The path of true initiation",
     "fokozat": "Grade",
     "szellem": "Spirit Training",
@@ -212,7 +212,7 @@
     "pillarSzellem": "Spirit",
     "pillarLelek": "Soul",
     "pillarTest": "Body",
-    "maBadge": "✦ Magia — Today",
+    "maBadge": "✦ White Magic — Today",
     "maTitle": "Daily practice",
     "maBackToAll": "← All grades",
     "maLevelDetails": "{title} details →",
@@ -333,7 +333,7 @@
     "pushTestSent": "Test notification sent!",
     "pushTestFailed": "Failed to send test notification.",
     "pushTesting": "Sending...",
-    "magiaReminder": "Magia daily reminder",
+    "magiaReminder": "White Magic daily reminder",
     "angolReminder": "English daily reminder",
     "reminderTime": "Reminder time",
     "changePassword": "Change password",
@@ -345,7 +345,7 @@
     "passwordTooShort": "Password must be at least 8 characters",
     "readonly": "Not editable",
     "logoutHint": "You will need to sign in again after logging out.",
-    "magiaNotificationsTitle": "Magia notifications",
+    "magiaNotificationsTitle": "White Magic notifications",
     "morningReminder": "Morning reminder",
     "morningReminderDesc": "Daily plan at the set time",
     "eveningReminder": "Evening reminder",
@@ -367,13 +367,13 @@
     "description": "Modular system for personal growth and learning"
   },
   "push": {
-    "morningTitle": "✦ Magia — Morning practice",
-    "morningBody": "Start your day with your daily Magia practice!",
-    "eveningTitle": "✦ Magia — Evening practice",
+    "morningTitle": "✦ White Magic — Morning practice",
+    "morningBody": "Start your day with your daily White Magic practice!",
+    "eveningTitle": "✦ White Magic — Evening practice",
     "eveningBody": "The evening round awaits. Set your intention!",
     "streakTitle": "🔥 Streak protector",
     "streakBody": "You haven't practiced today — don't break your streak!",
-    "reengagementTitle": "✦ Magia awaits you",
+    "reengagementTitle": "✦ White Magic awaits you",
     "reengagementBody": "You haven't practiced for {days} days. No big step needed — just a small start.",
     "angolTitle": "English reminder",
     "angolBody": "You haven't practiced English today. Time for a little practice!",

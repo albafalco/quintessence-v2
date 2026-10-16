@@ -3,7 +3,7 @@
     "dashboard": "Dashboard",
     "profile": "Profil",
     "modules": "Module",
-    "magia": "Magia",
+    "magia": "Weiße Magie",
     "angol": "Kreatives Englisch",
     "collapse": "Einklappen",
     "expand": "Ausklappen",
@@ -44,7 +44,7 @@
     "noActivity": "Noch keine Aktivität",
     "progress": "Fortschritt",
     "fokozat": "Grad {level}",
-    "magiaLabel": "Magia",
+    "magiaLabel": "Weiße Magie",
     "angolLabel": "Englisch",
     "totalLabel": "Ges.",
     "lesson1Progress": "Lektion I",
@@ -53,7 +53,7 @@
   },
   "modules": {
     "magia": {
-      "title": "Magia",
+      "title": "Weiße Magie",
       "subtitle": "Der Weg der wahren Einweihung"
     },
     "angol": {
@@ -67,7 +67,7 @@
     "backHome": "Zurück zum Dashboard"
   },
   "magia": {
-    "title": "Magia",
+    "title": "Weiße Magie",
     "subtitle": "Der Weg der wahren Einweihung",
     "fokozat": "Grad",
     "szellem": "Geistesschulung",
@@ -212,7 +212,7 @@
     "pillarSzellem": "Geist",
     "pillarLelek": "Seele",
     "pillarTest": "Körper",
-    "maBadge": "✦ Magia — Heute",
+    "maBadge": "✦ Weiße Magie — Heute",
     "maTitle": "Tägliche Übung",
     "maBackToAll": "← Alle Grade",
     "maLevelDetails": "{title} Details →",
@@ -333,7 +333,7 @@
     "pushTestSent": "Testbenachrichtigung gesendet!",
     "pushTestFailed": "Testbenachrichtigung konnte nicht gesendet werden.",
     "pushTesting": "Senden...",
-    "magiaReminder": "Magia-Tageserinnerung",
+    "magiaReminder": "Weiße Magie – Tageserinnerung",
     "angolReminder": "Englisch-Tageserinnerung",
     "reminderTime": "Erinnerungszeit",
     "changePassword": "Passwort ändern",
@@ -345,7 +345,7 @@
     "passwordTooShort": "Passwort muss mindestens 8 Zeichen haben",
     "readonly": "Nicht bearbeitbar",
     "logoutHint": "Nach dem Abmelden musst du dich erneut anmelden.",
-    "magiaNotificationsTitle": "Magia-Benachrichtigungen",
+    "magiaNotificationsTitle": "Weiße Magie – Benachrichtigungen",
     "morningReminder": "Morgenerinnerung",
     "morningReminderDesc": "Tagesplan zur eingestellten Zeit",
     "eveningReminder": "Abenderinnerung",
@@ -367,13 +367,13 @@
     "description": "Modulares System für persönliche Entwicklung und Lernen"
   },
   "push": {
-    "morningTitle": "✦ Magia — Morgenübung",
-    "morningBody": "Beginne den Tag mit deiner täglichen Magia-Übung!",
-    "eveningTitle": "✦ Magia — Abendübung",
+    "morningTitle": "✦ Weiße Magie — Morgenübung",
+    "morningBody": "Beginne den Tag mit deiner täglichen Übung in Weißer Magie!",
+    "eveningTitle": "✦ Weiße Magie — Abendübung",
     "eveningBody": "Die Abendrunde wartet. Richte deine Absicht!",
     "streakTitle": "🔥 Serienschutz",
     "streakBody": "Du hast heute noch nicht geübt — unterbrich deine Serie nicht!",
-    "reengagementTitle": "✦ Magia wartet auf dich",
+    "reengagementTitle": "✦ Die Weiße Magie wartet auf dich",
     "reengagementBody": "Du hast seit {days} Tagen nicht geübt. Kein großer Schritt nötig — nur ein kleiner Anfang.",
     "angolTitle": "Englisch-Erinnerung",
     "angolBody": "Du hast heute noch nicht Englisch geübt. Zeit für etwas Übung!",

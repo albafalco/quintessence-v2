@@ -15,6 +15,7 @@ import {
 import { formatDate } from '@/lib/utils';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { FlagIcon } from '@/components/ui/FlagIcon';
+import { ElementsIcon } from '@/components/ui/ElementsIcon';
 import { ModuleCard } from '@/components/dashboard/ModuleCard';
 import { DashboardSkeleton } from '@/components/dashboard/DashboardSkeleton';
 
@@ -232,7 +233,7 @@ export function DashboardContent() {
             progress={magiaStats.fokozatPercent}
             progressLabel={t('fokozat', { level: magiaStats.currentFokozat })}
             lastActivity={formatActivityDate(magiaStats.lastActivity, locale)}
-            icon="🔮"
+            icon={<ElementsIcon className="h-8 w-8" />}
             variant="magia"
           />
 
