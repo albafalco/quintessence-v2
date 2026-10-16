@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-export function RegisterForm() {
+export function RegisterForm({ initialInviteCode = '' }: { initialInviteCode?: string }) {
   const t = useTranslations('auth');
   const locale = useLocale();
   const router = useRouter();
@@ -17,7 +17,7 @@ export function RegisterForm() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [inviteCode, setInviteCode] = useState('');
+  const [inviteCode, setInviteCode] = useState(initialInviteCode);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -50,6 +50,7 @@ export function RegisterForm() {
         INVALID_USERNAME: 'errors.invalidUsername',
         PASSWORD_TOO_SHORT: 'errors.passwordTooShort',
         INVALID_INVITE: 'errors.invalidInvite',
+        INVITE_EMAIL_MISMATCH: 'errors.inviteEmailMismatch',
         REGISTRATION_FAILED: 'errors.registrationFailed',
         EMAIL_TAKEN: 'errors.emailTaken',
         USERNAME_TAKEN: 'errors.usernameTaken',

@@ -7,6 +7,7 @@ const ERROR_CODES = {
   INVALID_USERNAME: 'INVALID_USERNAME',
   PASSWORD_TOO_SHORT: 'PASSWORD_TOO_SHORT',
   INVALID_INVITE: 'INVALID_INVITE',
+  INVITE_EMAIL_MISMATCH: 'INVITE_EMAIL_MISMATCH',
   REGISTRATION_FAILED: 'REGISTRATION_FAILED',
   EMAIL_TAKEN: 'EMAIL_TAKEN',
   USERNAME_TAKEN: 'USERNAME_TAKEN',
@@ -50,13 +51,38 @@ export async function POST(request: Request) {
 
     const supabase = await createServiceClient();
 
+    // Look the code up first; expiry, revocation and the bound e-mail are
+    // checked here (not in a PostgREST filter built from user input).
+    const trimmedCode = String(inviteCode).trim();
+    const { data: candidate, error: lookupError } = await supabase
+      .from('invite_codes')
+      .select('id, email, expires_at, revoked_at')
+      .in('code', [...new Set([trimmedCode, trimmedCode.toUpperCase()])])
+      .eq('is_used', false)
+      .maybeSingle();
+
+    if (lookupError) {
+      console.error('[register] invite_codes lookup failed:', lookupError.message, lookupError.code);
+      return NextResponse.json({ errorCode: ERROR_CODES.SERVER_CONFIG }, { status: 500 });
+    }
+
+    const expired = candidate?.expires_at && new Date(candidate.expires_at).getTime() <= Date.now();
+    if (!candidate || candidate.revoked_at || expired) {
+      return NextResponse.json({ errorCode: ERROR_CODES.INVALID_INVITE }, { status: 400 });
+    }
+
+    if (candidate.email && candidate.email.toLowerCase() !== String(email).trim().toLowerCase()) {
+      return NextResponse.json({ errorCode: ERROR_CODES.INVITE_EMAIL_MISMATCH }, { status: 400 });
+    }
+
     // Claim the invite atomically (conditional update) so two simultaneous
     // registrations cannot both use the same code.
     const { data: invite, error: inviteError } = await supabase
       .from('invite_codes')
       .update({ is_used: true, used_at: new Date().toISOString() })
-      .eq('code', String(inviteCode).trim())
+      .eq('id', candidate.id)
       .eq('is_used', false)
+      .is('revoked_at', null)
       .select('id')
       .maybeSingle();
 

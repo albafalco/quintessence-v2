@@ -30,6 +30,8 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
     redirect(`/${locale}/auth/login`);
   }
 
+  const { data: adminRow } = await supabase.from('admins').select('user_id').eq('user_id', user.id).maybeSingle();
+
   return (
     <div className="mx-auto max-w-2xl space-y-8">
       <header>
@@ -37,6 +39,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
         <h1 className="mt-2 font-display text-4xl font-bold text-gradient-gold">{t('title')}</h1>
       </header>
         <ProfileForm
+          isAdmin={Boolean(adminRow)}
           profile={{
             id: profile.id,
             name: profile.name,

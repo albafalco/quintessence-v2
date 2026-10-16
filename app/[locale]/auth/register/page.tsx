@@ -15,10 +15,15 @@ export async function generateMetadata({
 
 export default async function RegisterPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ code?: string | string[] }>;
 }) {
   const { locale } = await params;
+  // Invite links: /hu/auth/register?code=QX-XXXX-XXXX
+  const { code } = await searchParams;
+  const initialInviteCode = (Array.isArray(code) ? code[0] : code)?.trim().slice(0, 64) ?? '';
   const t = await getTranslations({ locale, namespace: 'auth' });
 
   return (
@@ -28,7 +33,7 @@ export default async function RegisterPage({
         <CardDescription>{t('register')}</CardDescription>
       </CardHeader>
       <CardContent>
-        <RegisterForm />
+        <RegisterForm initialInviteCode={initialInviteCode} />
       </CardContent>
     </Card>
   );

@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { ChevronDown, Info } from 'lucide-react';
+import Link from 'next/link';
+import { ChevronDown, ChevronRight, Info, ShieldCheck } from 'lucide-react';
 import { locales, type Locale } from '@/i18n';
 import { createClient } from '@/lib/supabase/client';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
@@ -98,7 +99,7 @@ function ReminderRow({ label, description, checked, onCheckedChange, time, onTim
   );
 }
 
-export function ProfileForm({ profile }: { profile: ProfileData }) {
+export function ProfileForm({ profile, isAdmin = false }: { profile: ProfileData; isAdmin?: boolean }) {
   const t = useTranslations('profile');
   const router = useRouter();
   const supabase = createClient();
@@ -452,6 +453,18 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
                 <AccountDataCard part="export" userId={profile.id} username={profile.username} email={profile.email} />
               </CardContent>
             </Card>
+
+            {/* Admin area is Hungarian-only; the link is shown to admins only */}
+            {isAdmin && (
+              <Link
+                href="/hu/admin"
+                className="premium-card group flex items-center gap-3 px-6 py-4 transition hover:border-accent/30"
+              >
+                <ShieldCheck className="h-5 w-5 text-accent" />
+                <span className="flex-1 font-display text-lg font-semibold text-gradient-gold">Admin felület</span>
+                <ChevronRight className="h-5 w-5 text-muted-foreground transition group-hover:text-accent" />
+              </Link>
+            )}
 
             <Card className="premium-card">
               <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
