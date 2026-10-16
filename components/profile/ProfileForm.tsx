@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { ChevronDown, Info } from 'lucide-react';
 import { locales, type Locale } from '@/i18n';
 import { createClient } from '@/lib/supabase/client';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
@@ -18,19 +19,11 @@ import {
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { AccountDataCard } from '@/components/profile/AccountDataCard';
 import { BadgesSection } from '@/components/profile/BadgesSection';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
 
 interface ProfileData {
   id: string;
@@ -51,14 +44,66 @@ interface ProfileData {
   push_angol_time: string;
 }
 
+type Tab = 'overview' | 'notifications' | 'account';
+type SaveState = 'idle' | 'saving' | 'saved' | 'error';
+
+/** Time inputs save after the user stops changing them for this long. */
+const TIME_SAVE_DELAY_MS = 700;
+
+// Debounce timers of pending time-field saves (one profile form at a time)
+const pendingSaves = new Map<string, { timer: ReturnType<typeof setTimeout>; run: () => void }>();
+
+interface ReminderRowProps {
+  label: string;
+  description: string;
+  checked: boolean;
+  onCheckedChange: (checked: boolean) => void;
+  time?: string;
+  onTimeChange?: (time: string) => void;
+  /** Fixed schedule shown instead of a time input (e.g. "Sunday 19:00") */
+  fixedTime?: string;
+}
+
+function ReminderRow({ label, description, checked, onCheckedChange, time, onTimeChange, fixedTime }: ReminderRowProps) {
+  const [showInfo, setShowInfo] = useState(false);
+  return (
+    <div className="py-2.5">
+      <div className="flex items-center gap-2">
+        <span className="min-w-0 flex-1 text-sm text-cream">{label}</span>
+        <button
+          type="button"
+          onClick={() => setShowInfo((v) => !v)}
+          aria-label={description}
+          aria-expanded={showInfo}
+          className={cn('rounded-full p-1 text-muted-foreground/60 transition hover:text-accent', showInfo && 'text-accent')}
+        >
+          <Info className="h-3.5 w-3.5" />
+        </button>
+        {fixedTime && <span className="text-xs text-muted-foreground">{fixedTime}</span>}
+        {onTimeChange && (
+          <Input
+            type="time"
+            value={time}
+            onChange={(e) => e.target.value && onTimeChange(e.target.value)}
+            disabled={!checked}
+            className="h-8 w-[5.75rem] px-2 text-sm disabled:opacity-40"
+          />
+        )}
+        <Switch checked={checked} onCheckedChange={onCheckedChange} aria-label={label} />
+      </div>
+      {showInfo && <p className="mt-1.5 pr-12 text-[11px] leading-relaxed text-muted-foreground">{description}</p>}
+    </div>
+  );
+}
+
 export function ProfileForm({ profile }: { profile: ProfileData }) {
   const t = useTranslations('profile');
-  const LOCALES = locales.map((value) => ({
-    value,
-    label: getNativeLocaleLabel(value as Locale),
-  }));
   const router = useRouter();
   const supabase = createClient();
+
+  const [tab, setTab] = useState<Tab>('overview');
+  const [saveState, setSaveState] = useState<SaveState>('idle');
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [language, setLanguage] = useState(profile.preferred_language);
   const [pushEnabled, setPushEnabled] = useState(profile.push_enabled);
@@ -72,84 +117,109 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
   const [weeklyReport, setWeeklyReport] = useState(profile.push_weekly_report);
   const [angolReminder, setAngolReminder] = useState(profile.push_angol_reminders);
   const [angolTime, setAngolTime] = useState(profile.push_angol_time || DEFAULT_ANGOL_PUSH_TIME);
+
+  const [passwordOpen, setPasswordOpen] = useState(false);
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [message, setMessage] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [saving, setSaving] = useState(false);
+  const [passwordSaving, setPasswordSaving] = useState(false);
+  const [passwordMessage, setPasswordMessage] = useState<{ ok: boolean; text: string } | null>(null);
+  const [dangerOpen, setDangerOpen] = useState(false);
+
   const [testingPush, setTestingPush] = useState(false);
   const [pushTestMessage, setPushTestMessage] = useState<string | null>(null);
 
-  const saveProfile = async () => {
-    setSaving(true);
-    setError(null);
-    setMessage(null);
-
-    const baseUpdate = {
-        preferred_language: language,
-        push_magia_reminders: magiaReminder,
-        push_magia_time: magiaTime,
-        push_magia_evening: magiaEvening,
-        push_magia_evening_time: magiaEveningTime,
-        push_magia_streak: magiaStreak,
-        push_magia_streak_time: magiaStreakTime,
-        push_magia_reengagement: magiaReengagement,
-        push_angol_reminders: angolReminder,
-        push_angol_time: angolTime,
-        updated_at: new Date().toISOString(),
+  useEffect(() => {
+    return () => {
+      // Leaving the page: save pending time changes right away instead of dropping them
+      pendingSaves.forEach(({ timer, run }) => {
+        clearTimeout(timer);
+        run();
+      });
+      pendingSaves.clear();
+      if (hideTimer.current) clearTimeout(hideTimer.current);
     };
-    const update = (values: Record<string, unknown>) =>
-      supabase.from('profiles').update(values).eq('id', profile.id);
-    let { error: updateError } = await update({ ...baseUpdate, push_weekly_report: weeklyReport });
-    // push_weekly_report comes from migration 008 — save the rest without it until then
-    if (isMissingColumnError(updateError)) ({ error: updateError } = await update(baseUpdate));
+  }, []);
 
-    if (updateError) {
-      setError(updateError.message);
-      setSaving(false);
+  /** Autosave: writes the changed fields right away and shows "Saved ✓". */
+  const saveFields = useCallback(
+    async (patch: Record<string, unknown>) => {
+      setSaveState('saving');
+      const run = (values: Record<string, unknown>) =>
+        supabase.from('profiles').update({ ...values, updated_at: new Date().toISOString() }).eq('id', profile.id);
+      let { error } = await run(patch);
+      // push_weekly_report needs migration 008; nothing else to save without it
+      if (isMissingColumnError(error) && 'push_weekly_report' in patch) {
+        const { push_weekly_report: _ignored, ...rest } = patch;
+        void _ignored;
+        ({ error } = Object.keys(rest).length > 0 ? await run(rest) : { error: null });
+      }
+      if (error) {
+        console.error('[profile] autosave failed', error);
+        setSaveState('error');
+        return;
+      }
+      setSaveState('saved');
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+      hideTimer.current = setTimeout(() => setSaveState('idle'), 2000);
+    },
+    [supabase, profile.id]
+  );
+
+  const saveLater = (key: string, patch: Record<string, unknown>) => {
+    const previous = pendingSaves.get(key);
+    if (previous) clearTimeout(previous.timer);
+    const run = () => {
+      pendingSaves.delete(key);
+      void saveFields(patch);
+    };
+    pendingSaves.set(key, { timer: setTimeout(run, TIME_SAVE_DELAY_MS), run });
+  };
+
+  const toggle = (setter: (v: boolean) => void, field: string) => (checked: boolean) => {
+    setter(checked);
+    void saveFields({ [field]: checked });
+  };
+
+  const time = (setter: (v: string) => void, field: string) => (value: string) => {
+    setter(value);
+    saveLater(field, { [field]: value });
+  };
+
+  const changeLanguage = async (value: string) => {
+    setLanguage(value);
+    await saveFields({ preferred_language: value });
+    router.refresh();
+  };
+
+  const changePassword = async () => {
+    setPasswordMessage(null);
+    if (newPassword.length < 8) {
+      setPasswordMessage({ ok: false, text: t('passwordTooShort') });
       return;
     }
-
-    if (newPassword) {
-      if (newPassword.length < 8) {
-        setError(t('passwordTooShort'));
-        setSaving(false);
-        return;
-      }
-      if (newPassword !== confirmPassword) {
-        setError(t('passwordMismatch'));
-        setSaving(false);
-        return;
-      }
-      const { error: pwError } = await supabase.auth.updateUser({ password: newPassword });
-      if (pwError) {
-        setError(pwError.message);
-        setSaving(false);
-        return;
-      }
-      setNewPassword('');
-      setConfirmPassword('');
+    if (newPassword !== confirmPassword) {
+      setPasswordMessage({ ok: false, text: t('passwordMismatch') });
+      return;
     }
-
-    setMessage(t('saved'));
-    setSaving(false);
-    router.refresh();
+    setPasswordSaving(true);
+    const { error } = await supabase.auth.updateUser({ password: newPassword });
+    setPasswordSaving(false);
+    if (error) {
+      setPasswordMessage({ ok: false, text: error.message });
+      return;
+    }
+    setNewPassword('');
+    setConfirmPassword('');
+    setPasswordMessage({ ok: true, text: t('passwordChanged') });
   };
 
   const sendTestPush = async () => {
     setTestingPush(true);
     setPushTestMessage(null);
-
     try {
       const res = await fetch('/api/push/test', { method: 'POST', credentials: 'include' });
       const data = await res.json().catch(() => ({}));
-
-      if (!res.ok) {
-        setPushTestMessage(typeof data.error === 'string' ? data.error : t('pushTestFailed'));
-        return;
-      }
-
-      setPushTestMessage(t('pushTestSent'));
+      setPushTestMessage(res.ok ? t('pushTestSent') : typeof data.error === 'string' ? data.error : t('pushTestFailed'));
     } catch {
       setPushTestMessage(t('pushTestFailed'));
     } finally {
@@ -157,227 +227,249 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
     }
   };
 
+  const TABS: { id: Tab; label: string }[] = [
+    { id: 'overview', label: t('tabOverview') },
+    { id: 'notifications', label: t('tabNotifications') },
+    { id: 'account', label: t('tabAccount') },
+  ];
+
   return (
     <div className="mx-auto max-w-2xl space-y-6">
-      <Card className="premium-card">
-        <CardHeader>
-          <CardTitle className="text-gradient-gold">{t('personalData')}</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <Label htmlFor="name">{t('name')}</Label>
-            <Input id="name" value={profile.name} disabled className="opacity-60" />
-            <p className="mt-1 text-xs text-muted-foreground">{t('readonly')}</p>
-          </div>
-          <div>
-            <Label>{t('username')}</Label>
-            <Input value={profile.username} disabled className="opacity-60" />
-            <p className="mt-1 text-xs text-muted-foreground">{t('readonly')}</p>
-          </div>
-          <div>
-            <Label>{t('email')}</Label>
-            <Input value={profile.email} disabled className="opacity-60" />
-            <p className="mt-1 text-xs text-muted-foreground">{t('readonly')}</p>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card className="premium-card">
-        <CardHeader>
-          <CardTitle className="text-gradient-gold">{t('appearance')}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Label>{t('preferredLanguage')}</Label>
-          <Select value={language} onValueChange={setLanguage}>
-            <SelectTrigger className="mt-2">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {LOCALES.map((loc) => (
-                <SelectItem key={loc.value} value={loc.value}>
-                  <span className="flex items-center gap-2">
-                    <FlagIcon locale={loc.value} className="h-3.5 w-5" />
-                    {loc.label}
-                  </span>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </CardContent>
-      </Card>
-
-      <Card className="premium-card">
-        <CardHeader>
-          <CardTitle className="text-gradient-gold">{t('pushNotifications')}</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <PushToggle
-            enabled={pushEnabled}
-            onEnabledChange={setPushEnabled}
-            label={t('pushEnabled')}
-          />
-
-          {pushEnabled && (
-            <>
-              <Separator />
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm text-muted-foreground">{t('pushTestHint')}</p>
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={sendTestPush}
-                  disabled={testingPush}
-                >
-                  {testingPush ? t('pushTesting') : t('pushTest')}
-                </Button>
-              </div>
-              {pushTestMessage && (
-                <p className="text-xs text-accent">{pushTestMessage}</p>
+      <div className="sticky top-[calc(env(safe-area-inset-top)+3.75rem)] z-20 -mx-1 flex items-center gap-2 px-1 sm:top-[calc(env(safe-area-inset-top)+4.25rem)]">
+        <div className="flex flex-1 gap-1 rounded-2xl border border-border/40 bg-background/80 p-1 backdrop-blur" role="tablist">
+          {TABS.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              role="tab"
+              aria-selected={tab === item.id}
+              onClick={() => setTab(item.id)}
+              className={cn(
+                'min-w-0 flex-1 truncate rounded-xl px-2 py-2 text-sm font-medium transition-all',
+                tab === item.id ? 'bg-primary/30 text-accent shadow-sm' : 'text-muted-foreground hover:bg-muted/40 hover:text-cream'
               )}
-              <p className="text-xs font-semibold uppercase tracking-wider text-accent/60">{t('magiaNotificationsTitle')}</p>
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
-              <div className="flex items-center justify-between">
-                <div>
-                  <Label>{t('morningReminder')}</Label>
-                  <p className="text-[11px] text-muted-foreground">{t('morningReminderDesc')}</p>
-                </div>
-                <Switch checked={magiaReminder} onCheckedChange={setMagiaReminder} />
+      <p
+        aria-live="polite"
+        className={cn(
+          'pointer-events-none fixed bottom-[calc(env(safe-area-inset-bottom)+5rem)] left-1/2 z-40 -translate-x-1/2 rounded-full px-4 py-1.5 text-xs font-semibold shadow-lg transition-opacity md:bottom-8',
+          saveState === 'idle' ? 'opacity-0' : 'opacity-100',
+          saveState === 'error' ? 'bg-red-900/90 text-red-200' : 'bg-card/95 text-accent'
+        )}
+      >
+        {saveState === 'saving' ? t('saving') : saveState === 'error' ? t('saveFailed') : t('savedShort')}
+      </p>
+
+      {tab === 'overview' && (
+        <>
+          <Card className="premium-card">
+            <CardContent className="flex items-center gap-4 pt-6">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-cosmic font-display text-xl font-bold text-accent">
+                {profile.name.charAt(0).toUpperCase() || profile.username.charAt(0).toUpperCase()}
               </div>
-              {magiaReminder && (
-                <div>
-                  <Label>{t('reminderTime')}</Label>
-                  <Input
-                    type="time"
-                    value={magiaTime}
-                    onChange={(e) => setMagiaTime(e.target.value)}
-                    className="mt-1 w-40"
+              <div className="min-w-0">
+                <p className="truncate font-display text-lg font-semibold text-cream">{profile.name}</p>
+                <p className="truncate text-sm text-muted-foreground">@{profile.username}</p>
+                <p className="truncate text-xs text-muted-foreground/80">{profile.email}</p>
+              </div>
+            </CardContent>
+          </Card>
+          <BadgesSection userId={profile.id} compact />
+        </>
+      )}
+
+      {tab === 'notifications' && (
+        <Card className="premium-card">
+          <CardContent className="space-y-1 pt-6">
+            <PushToggle enabled={pushEnabled} onEnabledChange={setPushEnabled} label={t('pushEnabled')} />
+
+            {pushEnabled && (
+              <>
+                <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">{t('magiaNotificationsTitle')}</p>
+                <div className="divide-y divide-border/30">
+                  <ReminderRow
+                    label={t('morningReminder')}
+                    description={t('morningReminderDesc')}
+                    checked={magiaReminder}
+                    onCheckedChange={toggle(setMagiaReminder, 'push_magia_reminders')}
+                    time={magiaTime}
+                    onTimeChange={time(setMagiaTime, 'push_magia_time')}
+                  />
+                  <ReminderRow
+                    label={t('eveningReminder')}
+                    description={t('eveningReminderDesc')}
+                    checked={magiaEvening}
+                    onCheckedChange={toggle(setMagiaEvening, 'push_magia_evening')}
+                    time={magiaEveningTime}
+                    onTimeChange={time(setMagiaEveningTime, 'push_magia_evening_time')}
+                  />
+                  <ReminderRow
+                    label={t('streakProtector')}
+                    description={t('streakProtectorDesc')}
+                    checked={magiaStreak}
+                    onCheckedChange={toggle(setMagiaStreak, 'push_magia_streak')}
+                    time={magiaStreakTime}
+                    onTimeChange={time(setMagiaStreakTime, 'push_magia_streak_time')}
+                  />
+                  <ReminderRow
+                    label={t('reengagement')}
+                    description={t('reengagementDesc')}
+                    checked={magiaReengagement}
+                    onCheckedChange={toggle(setMagiaReengagement, 'push_magia_reengagement')}
+                  />
+                  <ReminderRow
+                    label={t('weeklyReport')}
+                    description={t('weeklyReportDesc')}
+                    checked={weeklyReport}
+                    onCheckedChange={toggle(setWeeklyReport, 'push_weekly_report')}
+                    fixedTime={t('weeklyReportTime')}
                   />
                 </div>
-              )}
 
-              <div className="flex items-center justify-between">
-                <div>
-                  <Label>{t('eveningReminder')}</Label>
-                  <p className="text-[11px] text-muted-foreground">{t('eveningReminderDesc')}</p>
-                </div>
-                <Switch checked={magiaEvening} onCheckedChange={setMagiaEvening} />
-              </div>
-              {magiaEvening && (
-                <div>
-                  <Label>{t('reminderTime')}</Label>
-                  <Input
-                    type="time"
-                    value={magiaEveningTime}
-                    onChange={(e) => setMagiaEveningTime(e.target.value)}
-                    className="mt-1 w-40"
-                  />
-                </div>
-              )}
+                {language === 'hu' && (
+                  <>
+                    <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">{t('anglNotificationsTitle')}</p>
+                    <ReminderRow
+                      label={t('angolReminder')}
+                      description={t('angolReminderDesc')}
+                      checked={angolReminder}
+                      onCheckedChange={toggle(setAngolReminder, 'push_angol_reminders')}
+                      time={angolTime}
+                      onTimeChange={time(setAngolTime, 'push_angol_time')}
+                    />
+                  </>
+                )}
 
-              <div className="flex items-center justify-between">
-                <div>
-                  <Label>{t('streakProtector')}</Label>
-                  <p className="text-[11px] text-muted-foreground">{t('streakProtectorDesc')}</p>
+                <div className="flex flex-col items-end gap-1 pt-4">
+                  <button
+                    type="button"
+                    onClick={sendTestPush}
+                    disabled={testingPush}
+                    className="text-xs font-medium text-accent hover:underline disabled:opacity-50"
+                  >
+                    {testingPush ? t('pushTesting') : t('pushTest')}
+                  </button>
+                  {pushTestMessage && <p className="text-xs text-muted-foreground">{pushTestMessage}</p>}
                 </div>
-                <Switch checked={magiaStreak} onCheckedChange={setMagiaStreak} />
-              </div>
-              {magiaStreak && (
-                <div>
-                  <Label>{t('reminderTime')}</Label>
-                  <Input
-                    type="time"
-                    value={magiaStreakTime}
-                    onChange={(e) => setMagiaStreakTime(e.target.value)}
-                    className="mt-1 w-40"
-                  />
-                </div>
-              )}
+              </>
+            )}
+          </CardContent>
+        </Card>
+      )}
 
-              <div className="flex items-center justify-between">
-                <div>
-                  <Label>{t('reengagement')}</Label>
-                  <p className="text-[11px] text-muted-foreground">{t('reengagementDesc')}</p>
-                </div>
-                <Switch checked={magiaReengagement} onCheckedChange={setMagiaReengagement} />
-              </div>
+      {tab === 'account' && (
+        <>
+          <Card className="premium-card">
+            <CardHeader>
+              <CardTitle className="text-gradient-gold">{t('preferredLanguage')}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="mb-3 text-xs text-muted-foreground">{t('preferredLanguageHint')}</p>
+              <Select value={language} onValueChange={(v) => void changeLanguage(v)}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {locales.map((value) => (
+                    <SelectItem key={value} value={value}>
+                      <span className="flex items-center gap-2">
+                        <FlagIcon locale={value} className="h-3.5 w-5" />
+                        {getNativeLocaleLabel(value as Locale)}
+                      </span>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </CardContent>
+          </Card>
 
-              <div className="flex items-center justify-between">
-                <div>
-                  <Label>{t('weeklyReport')}</Label>
-                  <p className="text-[11px] text-muted-foreground">{t('weeklyReportDesc')}</p>
-                </div>
-                <Switch checked={weeklyReport} onCheckedChange={setWeeklyReport} />
-              </div>
-
-              {language === 'hu' && (
-                <>
-                  <Separator />
-                  <p className="text-xs font-semibold uppercase tracking-wider text-accent/60">{t('anglNotificationsTitle')}</p>
-                  <div className="flex items-center justify-between">
-                    <Label>{t('angolReminder')}</Label>
-                    <Switch checked={angolReminder} onCheckedChange={setAngolReminder} />
-                  </div>
-                  {angolReminder && (
-                    <div>
-                      <Label>{t('reminderTime')}</Label>
-                      <Input
-                        type="time"
-                        value={angolTime}
-                        onChange={(e) => setAngolTime(e.target.value)}
-                        className="mt-1 w-40"
-                      />
-                    </div>
+          <Card className="premium-card">
+            <button
+              type="button"
+              onClick={() => setPasswordOpen((v) => !v)}
+              aria-expanded={passwordOpen}
+              className="flex w-full items-center justify-between px-6 py-5 text-left"
+            >
+              <span className="font-display text-lg font-semibold text-gradient-gold">{t('changePassword')}</span>
+              <ChevronDown className={cn('h-5 w-5 text-muted-foreground transition-transform', passwordOpen && 'rotate-180')} />
+            </button>
+            {passwordOpen && (
+              <CardContent className="space-y-3">
+                <Input
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder={t('newPassword')}
+                  aria-label={t('newPassword')}
+                  autoComplete="new-password"
+                />
+                <Input
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder={t('confirmPassword')}
+                  aria-label={t('confirmPassword')}
+                  autoComplete="new-password"
+                />
+                <div className="flex items-center justify-between gap-3">
+                  {passwordMessage ? (
+                    <p className={cn('text-xs', passwordMessage.ok ? 'text-green-400' : 'text-red-400')}>{passwordMessage.text}</p>
+                  ) : (
+                    <span />
                   )}
-                </>
-              )}
-            </>
-          )}
-        </CardContent>
-      </Card>
+                  <button
+                    type="button"
+                    onClick={changePassword}
+                    disabled={passwordSaving || !newPassword}
+                    className="shrink-0 rounded-xl bg-gradient-to-r from-accent-dark via-accent to-accent-light px-4 py-2 text-sm font-semibold text-accent-foreground disabled:opacity-40"
+                  >
+                    {passwordSaving ? t('saving') : t('passwordSave')}
+                  </button>
+                </div>
+              </CardContent>
+            )}
+          </Card>
 
-      <Card className="premium-card">
-        <CardHeader>
-          <CardTitle className="text-gradient-gold">{t('changePassword')}</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <Label htmlFor="newPassword">{t('newPassword')}</Label>
-            <Input
-              id="newPassword"
-              type="password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-            />
-          </div>
-          <div>
-            <Label htmlFor="confirmPassword">{t('confirmPassword')}</Label>
-            <Input
-              id="confirmPassword"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-        </CardContent>
-      </Card>
+          <Card className="premium-card">
+            <CardHeader>
+              <CardTitle className="text-gradient-gold">{t('myDataTitle')}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <AccountDataCard part="export" userId={profile.id} username={profile.username} email={profile.email} />
+            </CardContent>
+          </Card>
 
-      {error && <p className="text-sm text-red-400">{error}</p>}
-      {message && <p className="text-sm text-green-400">{message}</p>}
+          <Card className="premium-card">
+            <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm text-muted-foreground">{t('logoutHint')}</p>
+              <LogoutButton variant="outline" className="w-full sm:w-auto" />
+            </CardContent>
+          </Card>
 
-      <Button variant="gold" onClick={saveProfile} disabled={saving} className="w-full">
-        {saving ? '...' : t('save')}
-      </Button>
-
-      <BadgesSection userId={profile.id} />
-
-      <AccountDataCard userId={profile.id} username={profile.username} email={profile.email} />
-
-      <Card className="premium-card border-red-500/10">
-        <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-muted-foreground">{t('logoutHint')}</p>
-          <LogoutButton variant="outline" className="w-full sm:w-auto" />
-        </CardContent>
-      </Card>
+          <Card className="premium-card border-red-500/15">
+            <button
+              type="button"
+              onClick={() => setDangerOpen((v) => !v)}
+              aria-expanded={dangerOpen}
+              className="flex w-full items-center justify-between px-6 py-4 text-left"
+            >
+              <span className="text-sm font-semibold text-red-300/80">{t('dangerZone')}</span>
+              <ChevronDown className={cn('h-4 w-4 text-red-300/60 transition-transform', dangerOpen && 'rotate-180')} />
+            </button>
+            {dangerOpen && (
+              <CardContent>
+                <AccountDataCard part="delete" userId={profile.id} username={profile.username} email={profile.email} />
+              </CardContent>
+            )}
+          </Card>
+        </>
+      )}
     </div>
   );
 }

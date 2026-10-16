@@ -463,7 +463,19 @@
     "deleteAccountConfirm": "Eliminare l'account? Tutti i tuoi dati (diario, sessioni, progressi) andranno persi per sempre. Non si può annullare. Conviene prima scaricare i tuoi dati.",
     "deleteAccountTypeUsername": "Per confermare, digita il tuo nome utente: {username}",
     "deleteAccountFailed": "L'eliminazione dell'account non è riuscita. Riprova più tardi.",
-    "cancel": "Annulla"
+    "cancel": "Annulla",
+    "tabOverview": "Panoramica",
+    "tabNotifications": "Notifiche",
+    "tabAccount": "Account",
+    "saving": "Salvataggio…",
+    "savedShort": "Salvato ✓",
+    "saveFailed": "Salvataggio non riuscito",
+    "weeklyReportTime": "dom 19:00",
+    "angolReminderDesc": "La sera, se quel giorno non hai ancora fatto pratica d'inglese (schede, esercizi o esame)",
+    "preferredLanguageHint": "Riceverai le notifiche in questa lingua.",
+    "passwordSave": "Salva password",
+    "passwordChanged": "Password modificata.",
+    "dangerZone": "Zona pericolosa"
   },
   "brand": {
     "name": "Quintessence",
@@ -550,6 +562,9 @@
     "all_sections": {
       "title": "Tutte le sezioni sbloccate",
       "desc": "Sblocca tutte le 14 sezioni di pratica della lezione 1"
-    }
+    },
+    "showAll": "Mostra tutti",
+    "showLess": "Mostra meno",
+    "noneYet": "Nessun badge ancora ottenuto."
   }
 }

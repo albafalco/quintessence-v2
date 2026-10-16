@@ -463,7 +463,19 @@
     "deleteAccountConfirm": "¿Eliminar tu cuenta? Todos tus datos (diario, sesiones, progreso) se perderán para siempre. No se puede deshacer. Te conviene descargar tus datos antes.",
     "deleteAccountTypeUsername": "Para confirmar, escribe tu nombre de usuario: {username}",
     "deleteAccountFailed": "No se pudo eliminar la cuenta. Inténtalo más tarde.",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "tabOverview": "Resumen",
+    "tabNotifications": "Notificaciones",
+    "tabAccount": "Cuenta",
+    "saving": "Guardando…",
+    "savedShort": "Guardado ✓",
+    "saveFailed": "No se pudo guardar",
+    "weeklyReportTime": "dom 19:00",
+    "angolReminderDesc": "Por la tarde, si ese día aún no practicaste inglés (tarjetas, práctica o examen)",
+    "preferredLanguageHint": "Recibirás las notificaciones en este idioma.",
+    "passwordSave": "Guardar contraseña",
+    "passwordChanged": "Contraseña cambiada.",
+    "dangerZone": "Zona de peligro"
   },
   "brand": {
     "name": "Quintessence",
@@ -550,6 +562,9 @@
     "all_sections": {
       "title": "Todas las secciones desbloqueadas",
       "desc": "Desbloquea las 14 secciones de práctica de la lección 1"
-    }
+    },
+    "showAll": "Ver todos",
+    "showLess": "Ver menos",
+    "noneYet": "Aún no has conseguido insignias."
   }
 }

@@ -9,10 +9,12 @@ import { BadgeToast } from '@/components/ui/BadgeToast';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
-export function BadgesSection({ userId }: { userId: string }) {
+export function BadgesSection({ userId, compact = false }: { userId: string; compact?: boolean }) {
   const t = useTranslations('badges');
   const locale = useLocale();
   const [state, setState] = useState<BadgeState | null>(null);
+  // Compact mode starts as a one-line summary; the full grid opens on demand
+  const [expanded, setExpanded] = useState(!compact);
 
   useEffect(() => {
     let cancelled = false;
@@ -43,6 +45,26 @@ export function BadgesSection({ userId }: { userId: string }) {
       <CardContent className="space-y-6">
         {!state ? (
           <p className="text-sm text-muted-foreground">{t('loading')}</p>
+        ) : !expanded ? (
+          <div className="flex flex-wrap items-center gap-2">
+            {BADGES.filter((b) => categories.includes(b.category) && b.id in state.earned).map((b) => (
+              <span
+                key={b.id}
+                title={t(`${b.id}.title`)}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-accent-light to-accent-dark text-base shadow-glow-gold"
+              >
+                {b.icon}
+              </span>
+            ))}
+            {earnedCount === 0 && <p className="text-sm text-muted-foreground">{t('noneYet')}</p>}
+            <button
+              type="button"
+              onClick={() => setExpanded(true)}
+              className="ml-auto text-sm font-medium text-accent hover:underline"
+            >
+              {t('showAll')} ▸
+            </button>
+          </div>
         ) : (
           categories.map((category) => (
             <div key={category} className="space-y-3">
@@ -88,6 +110,11 @@ export function BadgesSection({ userId }: { userId: string }) {
               </div>
             </div>
           ))
+        )}
+        {state && compact && expanded && (
+          <button type="button" onClick={() => setExpanded(false)} className="text-sm font-medium text-accent hover:underline">
+            ▴ {t('showLess')}
+          </button>
         )}
       </CardContent>
       {state && state.newlyEarned.length > 0 && <BadgeToast badgeIds={state.newlyEarned} />}

@@ -9,15 +9,16 @@ import { collectUserData, downloadJson } from '@/lib/data-export';
 import { removeCurrentDeviceSubscription } from '@/lib/push-subscription';
 import { toBudapestDate } from '@/lib/push-reminders';
 import { useConfirm } from '@/components/ui/confirm-dialog';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface AccountDataCardProps {
   userId: string;
   username: string;
   email: string;
+  /** Which part to render: data download, or the account deletion */
+  part: 'export' | 'delete';
 }
 
-export function AccountDataCard({ userId, username, email }: AccountDataCardProps) {
+export function AccountDataCard({ userId, username, email, part }: AccountDataCardProps) {
   const t = useTranslations('profile');
   const locale = useLocale();
   const router = useRouter();
@@ -78,12 +79,9 @@ export function AccountDataCard({ userId, username, email }: AccountDataCardProp
     router.refresh();
   };
 
-  return (
-    <Card className="premium-card">
-      <CardHeader>
-        <CardTitle className="text-gradient-gold">{t('myDataTitle')}</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-5">
+  if (part === 'export') {
+    return (
+      <div className="space-y-2">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-muted-foreground">{t('exportHint')}</p>
           <button
@@ -96,23 +94,27 @@ export function AccountDataCard({ userId, username, email }: AccountDataCardProp
             {exporting ? t('exporting') : t('exportButton')}
           </button>
         </div>
-
-        <div className="flex flex-col gap-3 border-t border-border/40 pt-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-muted-foreground">{t('deleteAccountHint')}</p>
-          <button
-            type="button"
-            onClick={handleDelete}
-            disabled={deleting}
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-red-500/30 px-4 py-2.5 text-sm font-semibold text-red-300 transition hover:bg-red-900/20 disabled:opacity-50"
-          >
-            <Trash2 className="h-4 w-4" />
-            {deleting ? t('deleting') : t('deleteAccountButton')}
-          </button>
-        </div>
-
         {error && <p className="text-xs text-red-400">{error}</p>}
-      </CardContent>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-2">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-sm text-muted-foreground">{t('deleteAccountHint')}</p>
+        <button
+          type="button"
+          onClick={handleDelete}
+          disabled={deleting}
+          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-red-500/30 px-4 py-2.5 text-sm font-semibold text-red-300 transition hover:bg-red-900/20 disabled:opacity-50"
+        >
+          <Trash2 className="h-4 w-4" />
+          {deleting ? t('deleting') : t('deleteAccountButton')}
+        </button>
+      </div>
+      {error && <p className="text-xs text-red-400">{error}</p>}
       {confirmDialog}
-    </Card>
+    </div>
   );
 }

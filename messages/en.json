@@ -463,7 +463,19 @@
     "deleteAccountConfirm": "Delete your account? All your data (journal, sessions, progress) will be lost permanently. This cannot be undone. Consider downloading your data first.",
     "deleteAccountTypeUsername": "To confirm, type your username: {username}",
     "deleteAccountFailed": "Deleting the account failed. Please try again later.",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "tabOverview": "Overview",
+    "tabNotifications": "Notifications",
+    "tabAccount": "Account",
+    "saving": "Saving…",
+    "savedShort": "Saved ✓",
+    "saveFailed": "Saving failed",
+    "weeklyReportTime": "Sun 19:00",
+    "angolReminderDesc": "In the evening, if you haven't practised English that day (cards, practice or exam)",
+    "preferredLanguageHint": "Notifications are sent in this language.",
+    "passwordSave": "Save password",
+    "passwordChanged": "Password changed.",
+    "dangerZone": "Danger zone"
   },
   "brand": {
     "name": "Quintessence",
@@ -550,6 +562,9 @@
     "all_sections": {
       "title": "All sections unlocked",
       "desc": "Unlock all 14 practice sections of lesson 1"
-    }
+    },
+    "showAll": "Show all",
+    "showLess": "Show less",
+    "noneYet": "No badges earned yet."
   }
 }

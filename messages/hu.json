@@ -463,7 +463,19 @@
     "deleteAccountConfirm": "Biztosan törlöd a fiókodat? Minden adatod (napló, munkamenetek, haladás) véglegesen elvész. Ezt nem lehet visszavonni. Előtte érdemes letölteni az adataidat.",
     "deleteAccountTypeUsername": "A megerősítéshez írd be a felhasználóneved: {username}",
     "deleteAccountFailed": "A fiók törlése nem sikerült. Próbáld újra később.",
-    "cancel": "Mégse"
+    "cancel": "Mégse",
+    "tabOverview": "Áttekintés",
+    "tabNotifications": "Értesítések",
+    "tabAccount": "Fiók",
+    "saving": "Mentés…",
+    "savedShort": "Mentve ✓",
+    "saveFailed": "A mentés nem sikerült",
+    "weeklyReportTime": "vasárnap 19:00",
+    "angolReminderDesc": "Este, ha aznap még nem gyakoroltál angolul (szókártya, gyakorlás vagy vizsga)",
+    "preferredLanguageHint": "Ezen a nyelven kapod az értesítéseket.",
+    "passwordSave": "Jelszó mentése",
+    "passwordChanged": "A jelszó megváltozott.",
+    "dangerZone": "Veszélyes műveletek"
   },
   "brand": {
     "name": "Quintessence",
@@ -550,6 +562,9 @@
     "all_sections": {
       "title": "Minden szakasz feloldva",
       "desc": "Oldd fel az 1. lecke mind a 14 gyakorló szakaszát"
-    }
+    },
+    "showAll": "Összes megtekintése",
+    "showLess": "Kevesebb",
+    "noneYet": "Még nincs megszerzett jelvény."
   }
 }
