@@ -275,7 +275,6 @@ export function DashboardContent() {
               subtitle={tModules('angol.subtitle')}
               href={`/${locale}/modules/angol`}
               progress={angolStats.progress}
-              note={angolStats.reviewCount ? t('reviewDue', { count: angolStats.reviewCount }) : undefined}
               progressLabel={t('lesson1Progress')}
               lastActivity={formatActivityDate(angolStats.lastActivity, locale)}
               icon={<FlagIcon locale="en" className="h-5 w-7" />}

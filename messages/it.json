@@ -63,7 +63,6 @@
     "lesson1Progress": "Lezione I",
     "loadError": "Impossibile caricare i dati.",
     "retry": "Riprova",
-    "reviewDue": "Ripasso di oggi: {count} schede",
     "todayTitle": "Attività di oggi",
     "todayProgress": "{done} / {total} completate",
     "todayAllDone": "Tutte le attività di oggi sono completate!",

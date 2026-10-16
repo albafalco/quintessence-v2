@@ -63,7 +63,6 @@
     "lesson1Progress": "1. Lecke",
     "loadError": "Nem sikerült betölteni az adatokat.",
     "retry": "Újrapróbálás",
-    "reviewDue": "Mai ismétlés: {count} kártya",
     "todayTitle": "Mai teendők",
     "todayProgress": "{done} / {total} kész",
     "todayAllDone": "Minden mai teendőd kész!",

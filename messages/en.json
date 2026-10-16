@@ -63,7 +63,6 @@
     "lesson1Progress": "Lesson I",
     "loadError": "Could not load your data.",
     "retry": "Try again",
-    "reviewDue": "Today's review: {count} cards",
     "todayTitle": "Today's tasks",
     "todayProgress": "{done} / {total} done",
     "todayAllDone": "All of today's tasks are done!",

@@ -63,7 +63,6 @@
     "lesson1Progress": "Lección I",
     "loadError": "No se pudieron cargar los datos.",
     "retry": "Reintentar",
-    "reviewDue": "Repaso de hoy: {count} tarjetas",
     "todayTitle": "Tareas de hoy",
     "todayProgress": "{done} / {total} hechas",
     "todayAllDone": "¡Todas las tareas de hoy están hechas!",

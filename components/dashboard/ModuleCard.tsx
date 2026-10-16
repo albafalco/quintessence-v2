@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
-import { AppIcon } from '@/components/ui/AppIcon';
 
 interface ModuleCardProps {
   title: string;
@@ -16,8 +15,6 @@ interface ModuleCardProps {
   href: string;
   progress: number;
   progressLabel?: string;
-  /** Extra highlighted line under the label, e.g. today's review count */
-  note?: string;
   lastActivity: string | null;
   /** Emoji or element (flag emojis don't render on Windows — use FlagIcon). */
   icon: React.ReactNode;
@@ -30,7 +27,6 @@ export function ModuleCard({
   href,
   progress,
   progressLabel,
-  note,
   lastActivity,
   icon,
   variant = 'magia',
@@ -72,12 +68,6 @@ export function ModuleCard({
               <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-accent/80">
                 {isMagia && <ElementsNavIcon className="h-3 w-3" />}
                 {progressLabel}
-              </p>
-            )}
-            {note && (
-              <p className="flex items-center gap-1.5 text-sm font-medium text-slate-200">
-                <AppIcon name="repeat" className="h-3.5 w-3.5" />
-                {note}
               </p>
             )}
           </div>
