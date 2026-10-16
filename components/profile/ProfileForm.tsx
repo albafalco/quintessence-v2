@@ -20,6 +20,7 @@ import { LogoutButton } from '@/components/auth/LogoutButton';
 import { AccountDataCard } from '@/components/profile/AccountDataCard';
 import { BadgesSection } from '@/components/profile/BadgesSection';
 import { Collapse } from '@/components/ui/collapse';
+import { InfoTip } from '@/components/ui/info-tip';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -63,38 +64,35 @@ interface ReminderRowProps {
   onTimeChange?: (time: string) => void;
   /** Fixed schedule shown instead of a time input (e.g. "Sunday 19:00") */
   fixedTime?: string;
+  /** The info bubble stays inside this element */
+  boundaryRef: React.RefObject<HTMLElement | null>;
 }
 
-function ReminderRow({ label, description, checked, onCheckedChange, time, onTimeChange, fixedTime }: ReminderRowProps) {
-  const [showInfo, setShowInfo] = useState(false);
+function ReminderRow({ label, description, checked, onCheckedChange, time, onTimeChange, fixedTime, boundaryRef }: ReminderRowProps) {
   return (
-    <div className="py-2.5">
-      <div className="flex items-center gap-2">
-        <span className="min-w-0 flex-1 text-sm text-cream">{label}</span>
-        <button
-          type="button"
-          onClick={() => setShowInfo((v) => !v)}
-          aria-label={description}
-          aria-expanded={showInfo}
-          className={cn('rounded-full p-1 text-muted-foreground/60 transition hover:text-accent', showInfo && 'text-accent')}
-        >
-          <Info className="h-3.5 w-3.5" />
-        </button>
-        {fixedTime && <span className="text-xs text-muted-foreground">{fixedTime}</span>}
-        {onTimeChange && (
-          <Input
-            type="time"
-            value={time}
-            onChange={(e) => e.target.value && onTimeChange(e.target.value)}
-            disabled={!checked}
-            className="h-8 w-[5.75rem] px-2 text-sm disabled:opacity-40"
-          />
-        )}
-        <Switch checked={checked} onCheckedChange={onCheckedChange} aria-label={label} />
-      </div>
-      <Collapse open={showInfo}>
-        <p className="pt-1.5 pr-12 text-[11px] leading-relaxed text-muted-foreground">{description}</p>
-      </Collapse>
+    <div className="flex items-center gap-2 py-2.5">
+      <span className="min-w-0 flex-1 text-sm text-cream">{label}</span>
+      <InfoTip
+        label={description}
+        title={label}
+        description={description}
+        boundaryRef={boundaryRef}
+        className="rounded-full p-1 text-muted-foreground/60 transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+        openClassName="text-accent"
+      >
+        <Info className="h-3.5 w-3.5" />
+      </InfoTip>
+      {fixedTime && <span className="text-xs text-muted-foreground">{fixedTime}</span>}
+      {onTimeChange && (
+        <Input
+          type="time"
+          value={time}
+          onChange={(e) => e.target.value && onTimeChange(e.target.value)}
+          disabled={!checked}
+          className="h-8 w-[5.75rem] px-2 text-sm disabled:opacity-40"
+        />
+      )}
+      <Switch checked={checked} onCheckedChange={onCheckedChange} aria-label={label} />
     </div>
   );
 }
@@ -105,6 +103,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
   const supabase = createClient();
 
   const [tab, setTab] = useState<Tab>('overview');
+  const notificationsRef = useRef<HTMLDivElement>(null);
   const [saveState, setSaveState] = useState<SaveState>('idle');
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -238,7 +237,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
-      <div className="sticky top-[calc(env(safe-area-inset-top)+3.75rem)] z-20 -mx-1 flex items-center gap-2 px-1 sm:top-[calc(env(safe-area-inset-top)+4.25rem)]">
+      <div data-tip-avoid className="sticky top-[calc(env(safe-area-inset-top)+3.75rem)] z-20 -mx-1 flex items-center gap-2 px-1 sm:top-[calc(env(safe-area-inset-top)+4.25rem)]">
         <div className="flex flex-1 gap-1 rounded-2xl border border-border/40 bg-background/80 p-1 backdrop-blur" role="tablist">
           {TABS.map((item) => (
             <button
@@ -290,7 +289,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
 
         {tab === 'notifications' && (
           <Card className="premium-card">
-            <CardContent className="space-y-1 pt-6">
+            <CardContent ref={notificationsRef} className="space-y-1 pt-6">
               <PushToggle enabled={pushEnabled} onEnabledChange={setPushEnabled} label={t('pushEnabled')} />
 
               {pushEnabled && (
@@ -298,6 +297,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
                   <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">{t('magiaNotificationsTitle')}</p>
                   <div className="divide-y divide-border/30">
                     <ReminderRow
+                      boundaryRef={notificationsRef}
                       label={t('morningReminder')}
                       description={t('morningReminderDesc')}
                       checked={magiaReminder}
@@ -306,6 +306,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
                       onTimeChange={time(setMagiaTime, 'push_magia_time')}
                     />
                     <ReminderRow
+                      boundaryRef={notificationsRef}
                       label={t('eveningReminder')}
                       description={t('eveningReminderDesc')}
                       checked={magiaEvening}
@@ -314,6 +315,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
                       onTimeChange={time(setMagiaEveningTime, 'push_magia_evening_time')}
                     />
                     <ReminderRow
+                      boundaryRef={notificationsRef}
                       label={t('streakProtector')}
                       description={t('streakProtectorDesc')}
                       checked={magiaStreak}
@@ -322,12 +324,14 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
                       onTimeChange={time(setMagiaStreakTime, 'push_magia_streak_time')}
                     />
                     <ReminderRow
+                      boundaryRef={notificationsRef}
                       label={t('reengagement')}
                       description={t('reengagementDesc')}
                       checked={magiaReengagement}
                       onCheckedChange={toggle(setMagiaReengagement, 'push_magia_reengagement')}
                     />
                     <ReminderRow
+                      boundaryRef={notificationsRef}
                       label={t('weeklyReport')}
                       description={t('weeklyReportDesc')}
                       checked={weeklyReport}
@@ -340,6 +344,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
                     <>
                       <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">{t('anglNotificationsTitle')}</p>
                       <ReminderRow
+                        boundaryRef={notificationsRef}
                         label={t('angolReminder')}
                         description={t('angolReminderDesc')}
                         checked={angolReminder}
