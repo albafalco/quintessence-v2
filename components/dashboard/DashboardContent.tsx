@@ -12,7 +12,8 @@ import {
   getAngolDashboardStats,
   getMagiaDashboardStats,
 } from '@/lib/dashboard';
-import { cn, formatDate } from '@/lib/utils';
+import { cn } from '@/lib/utils';
+import { addressName } from '@/lib/display-name';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { countReviewQueue, type CardScheduleRow } from '@/lib/angol-srs';
 import { toBudapestDate } from '@/lib/push-reminders';
@@ -40,7 +41,7 @@ function timed<T>(promise: PromiseLike<T>, ms: number, fallback: T): Promise<T> 
 }
 
 interface DashboardData {
-  username: string;
+  greetingName: string;
   showAngol: boolean;
   magiaStats: ReturnType<typeof getMagiaDashboardStats>;
   angolStats: { progress: number; lastActivity: string | null; reviewCount: number | null };
@@ -77,17 +78,17 @@ export function DashboardContent() {
           return;
         }
 
-        const profileResult = await timed(
-          supabase
-            .from('profiles')
-            .select('username')
-            .eq('id', user.id)
-            .single(),
-          FETCH_TIMEOUT_MS,
-          { data: null, error: null } as never
-        );
+        const loadProfile = (columns: string) =>
+          timed(
+            supabase.from('profiles').select(columns).eq('id', user.id).single(),
+            FETCH_TIMEOUT_MS,
+            { data: null, error: null } as never
+          ) as Promise<{ data: { username?: string; display_name?: string | null } | null; error: { code?: string } | null }>;
+        let profileResult = await loadProfile('username, display_name');
+        // display_name needs migration 015
+        if (isMissingColumnError(profileResult.error)) profileResult = await loadProfile('username');
 
-        const username = profileResult.data?.username ?? 'user';
+        const greetingName = addressName(profileResult.data?.display_name, profileResult.data?.username ?? 'user');
         // Same rule as the menus and the middleware: Kreatív Angol is only
         // available on the Hungarian UI.
         const showAngol = locale === 'hu';
@@ -154,7 +155,7 @@ export function DashboardContent() {
         if (cancelled) return;
 
         bootLog('dashboard-fetch-done');
-        setData({ username, showAngol, magiaStats, angolStats, today });
+        setData({ greetingName, showAngol, magiaStats, angolStats, today });
 
         // Milestones are checked in the background; new ones show up in the bell
         syncBadges(supabase, user.id)
@@ -197,8 +198,7 @@ export function DashboardContent() {
     );
   }
 
-  const { username, showAngol, magiaStats, angolStats, today: todayData } = data;
-  const today = formatDate(new Date(), locale);
+  const { greetingName, showAngol, magiaStats, angolStats, today: todayData } = data;
 
   return (
     <div className="space-y-10">
@@ -214,11 +214,8 @@ export function DashboardContent() {
               </p>
             </div>
             <h1 className="font-display text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl">
-              {t('welcome', { username })}
+              {t('welcome', { name: greetingName })}
             </h1>
-            <p className="text-muted-foreground">
-              {t('date')}: {today}
-            </p>
           </div>
           <div className={cn('grid grid-cols-1 gap-3', showAngol && 'min-[400px]:grid-cols-2')}>
             <div className="rounded-xl border border-border/40 bg-background/40 px-4 py-3 backdrop-blur-sm">

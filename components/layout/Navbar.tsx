@@ -4,18 +4,17 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
-import { UserAvatar } from '@/components/ui/UserAvatar';
-import { LogoutButton } from '@/components/auth/LogoutButton';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { NotificationBell } from '@/components/notifications/NotificationBell';
-import { cn } from '@/lib/utils';
+import { UserMenu } from './UserMenu';
 import { createClient } from '@/lib/supabase/client';
 
 export function Navbar() {
-  const t = useTranslations('nav');
   const tBrand = useTranslations('brand');
   const locale = useLocale();
   const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const supabase = createClient();
@@ -23,12 +22,20 @@ export function Navbar() {
       if (!user) return;
       supabase
         .from('profiles')
-        .select('username')
+        .select('username, name')
         .eq('id', user.id)
         .single()
         .then(({ data }) => {
           if (data?.username) setUsername(data.username);
+          if (data?.name) setName(data.name);
         });
+      // Only lists the menu link; the admin area checks access (2FA) itself
+      supabase
+        .from('admins')
+        .select('user_id')
+        .eq('user_id', user.id)
+        .maybeSingle()
+        .then(({ data }) => setIsAdmin(Boolean(data)));
     });
   }, []);
 
@@ -52,21 +59,7 @@ export function Navbar() {
 
           <NotificationBell />
 
-          <LogoutButton variant="icon" showLabel={false} />
-
-          <Link
-            href={`/${locale}/profile`}
-            className={cn(
-              'flex shrink-0 items-center gap-2 rounded-xl border border-border/50 bg-muted/30 p-1.5 sm:gap-2.5 sm:px-3 sm:py-1.5',
-              'transition-all hover:border-accent/30 hover:bg-muted/50'
-            )}
-          >
-            <UserAvatar username={username} className="h-7 w-7 text-xs sm:h-8 sm:w-8" />
-            <div className="hidden text-sm md:block">
-              <span className="text-muted-foreground">{t('greeting')} </span>
-              <span className="font-medium text-cream">@{username}</span>
-            </div>
-          </Link>
+          <UserMenu username={username} name={name} isAdmin={isAdmin} />
         </div>
       </div>
     </header>

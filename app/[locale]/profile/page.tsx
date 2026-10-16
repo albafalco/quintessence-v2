@@ -44,6 +44,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
             id: profile.id,
             name: profile.name,
             username: profile.username,
+            display_name: profile.display_name ?? null,
             email: user.email ?? '',
             preferred_language: profile.preferred_language,
             push_enabled: profile.push_enabled ?? false,

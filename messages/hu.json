@@ -7,7 +7,9 @@
     "angol": "Kreatív Angol",
     "collapse": "Összecsukás",
     "expand": "Kinyitás",
-    "greeting": "Üdv,"
+    "greeting": "Üdv,",
+    "userMenu": "Fiókmenü",
+    "admin": "Admin"
   },
   "auth": {
     "login": "Bejelentkezés",
@@ -50,8 +52,7 @@
     "inviteForEmail": "A meghívó erre a címre szól: {email}"
   },
   "dashboard": {
-    "welcome": "Üdvözlet, {username}!",
-    "date": "Mai dátum",
+    "welcome": "Szia, {name}!",
     "continue": "Folytatás",
     "lastActivity": "Legutóbbi aktivitás",
     "noActivity": "Még nincs aktivitás",
@@ -492,7 +493,10 @@
     "preferredLanguageHint": "Ezen a nyelven kapod az értesítéseket.",
     "passwordSave": "Jelszó mentése",
     "passwordChanged": "A jelszó megváltozott.",
-    "dangerZone": "Veszélyes műveletek"
+    "dangerZone": "Veszélyes műveletek",
+    "displayName": "Megszólítás",
+    "displayNameHint": "Így szólít meg az app a vezérlőpulton. Ha üresen hagyod, ez jelenik meg: @{username}",
+    "displayNamePlaceholder": "pl. Péter"
   },
   "brand": {
     "name": "Quintessence",

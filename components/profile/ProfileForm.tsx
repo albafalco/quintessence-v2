@@ -29,11 +29,14 @@ import { UserAvatar } from '@/components/ui/UserAvatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import { DISPLAY_NAME_MAX, normalizeDisplayName } from '@/lib/display-name';
 
 interface ProfileData {
   id: string;
   name: string;
   username: string;
+  /** Migration 015 */
+  display_name: string | null;
   email: string;
   preferred_language: string;
   push_enabled: boolean;
@@ -110,6 +113,7 @@ export function ProfileForm({ profile, isAdmin = false }: { profile: ProfileData
   const [saveState, setSaveState] = useState<SaveState>('idle');
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const [displayName, setDisplayName] = useState(profile.display_name ?? '');
   const [language, setLanguage] = useState(profile.preferred_language);
   const [pushEnabled, setPushEnabled] = useState(profile.push_enabled);
   const [magiaReminder, setMagiaReminder] = useState(profile.push_magia_reminders);
@@ -377,6 +381,26 @@ export function ProfileForm({ profile, isAdmin = false }: { profile: ProfileData
 
         {tab === 'account' && (
           <>
+            <Card className="premium-card">
+              <CardHeader>
+                <CardTitle className="text-gradient-gold">{t('displayName')}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-3 text-xs text-muted-foreground">{t('displayNameHint', { username: profile.username })}</p>
+                <Input
+                  value={displayName}
+                  onChange={(e) => {
+                    setDisplayName(e.target.value);
+                    saveLater('display_name', { display_name: normalizeDisplayName(e.target.value) });
+                  }}
+                  maxLength={DISPLAY_NAME_MAX}
+                  placeholder={t('displayNamePlaceholder')}
+                  aria-label={t('displayName')}
+                  autoComplete="nickname"
+                />
+              </CardContent>
+            </Card>
+
             <Card className="premium-card">
               <CardHeader>
                 <CardTitle className="text-gradient-gold">{t('preferredLanguage')}</CardTitle>

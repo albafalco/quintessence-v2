@@ -13,9 +13,11 @@ interface LogoutButtonProps {
   variant?: 'default' | 'outline' | 'ghost' | 'icon' | 'nav';
   className?: string;
   showLabel?: boolean;
+  /** e.g. "menuitem" inside the header account menu */
+  role?: string;
 }
 
-export function LogoutButton({ variant = 'outline', className, showLabel = true }: LogoutButtonProps) {
+export function LogoutButton({ variant = 'outline', className, showLabel = true, role }: LogoutButtonProps) {
   const t = useTranslations('auth');
   const locale = useLocale();
   const router = useRouter();
@@ -66,6 +68,7 @@ export function LogoutButton({ variant = 'outline', className, showLabel = true 
     return (
       <button
         type="button"
+        role={role}
         onClick={handleLogout}
         disabled={loading}
         title={t('logout')}

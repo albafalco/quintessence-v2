@@ -7,7 +7,9 @@
     "angol": "Inglese Creativo",
     "collapse": "Comprimi",
     "expand": "Espandi",
-    "greeting": "Ciao,"
+    "greeting": "Ciao,",
+    "userMenu": "Menu account",
+    "admin": "Admin"
   },
   "auth": {
     "login": "Accedi",
@@ -50,8 +52,7 @@
     "inviteForEmail": "L’invito è per: {email}"
   },
   "dashboard": {
-    "welcome": "Benvenuto, {username}!",
-    "date": "Data di oggi",
+    "welcome": "Ciao, {name}!",
     "continue": "Continua",
     "lastActivity": "Ultima attività",
     "noActivity": "Nessuna attività ancora",
@@ -492,7 +493,10 @@
     "preferredLanguageHint": "Riceverai le notifiche in questa lingua.",
     "passwordSave": "Salva password",
     "passwordChanged": "Password modificata.",
-    "dangerZone": "Zona pericolosa"
+    "dangerZone": "Zona pericolosa",
+    "displayName": "Come ti chiamiamo?",
+    "displayNameHint": "Così l'app ti saluta nella dashboard. Se vuoto: @{username}",
+    "displayNamePlaceholder": "es. Pietro"
   },
   "brand": {
     "name": "Quintessence",
