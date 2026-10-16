@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { BookOpen, TrendingUp } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { bootLog } from '@/lib/boot-logger';
 
@@ -12,7 +12,7 @@ import {
   getAngolDashboardStats,
   getMagiaDashboardStats,
 } from '@/lib/dashboard';
-import { formatDate } from '@/lib/utils';
+import { cn, formatDate } from '@/lib/utils';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { countReviewQueue, type CardScheduleRow } from '@/lib/angol-srs';
 import { toBudapestDate } from '@/lib/push-reminders';
@@ -220,7 +220,7 @@ export function DashboardContent() {
               {t('date')}: {today}
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-3 min-[400px]:grid-cols-2 sm:grid-cols-3">
+          <div className={cn('grid grid-cols-1 gap-3', showAngol && 'min-[400px]:grid-cols-2')}>
             <div className="rounded-xl border border-border/40 bg-background/40 px-4 py-3 backdrop-blur-sm">
               <div className="flex items-center gap-2 text-accent">
                 <ElementsNavIcon className="h-4 w-4" />
@@ -249,18 +249,6 @@ export function DashboardContent() {
                 <p className="text-xs text-muted-foreground">{t('lesson1Progress')}</p>
               </div>
             )}
-            <div className="rounded-xl border border-border/40 bg-background/40 px-4 py-3 backdrop-blur-sm">
-              <div className="flex items-center gap-2 text-accent/70">
-                <TrendingUp className="h-4 w-4" />
-                <span className="text-[10px] font-semibold uppercase tracking-wider">
-                  {t('totalLabel')}
-                </span>
-              </div>
-              <p className="mt-2 font-display text-2xl font-bold text-cream">
-                {magiaStats.overallPercent}%
-              </p>
-              <p className="text-xs text-muted-foreground">{t('progress')}</p>
-            </div>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import type { FokozatData } from '@/lib/i18n-content';
 import magiaStructure from '@/messages/content/magia.hu.json';
 import vocabulary from '@/messages/content/angol-vocabulary.json';
+import { ALL_SECTION_IDS, INITIAL_UNLOCKED_SECTIONS } from '@/lib/angol-unlocks';
 import { getFokozatExerciseCount } from '@/lib/i18n-content';
 import { getCurrentFokozatId, getFokozatProgress } from '@/lib/magia-utils';
 import type { MagiaProgressRecord } from '@/lib/magia-types';
@@ -59,7 +60,6 @@ interface AngolUnlockRow {
   unlocked_at: string;
 }
 
-const TOTAL_ANGOL_SECTIONS = 17;
 
 export function getAngolDashboardStats(
   cards: AngolCardRow[],
@@ -68,8 +68,11 @@ export function getAngolDashboardStats(
   const learnedCards = cards.filter((c) => c.correct_count >= 3).length;
   const cardPercent = VOCABULARY.length > 0 ? Math.round((learnedCards / VOCABULARY.length) * 100) : 0;
 
-  const unlockedSections = unlocks.length;
-  const sectionPercent = Math.round((unlockedSections / TOTAL_ANGOL_SECTIONS) * 100);
+  // Only sections opened by passing an exam count — the starting ones are free
+  const initial = INITIAL_UNLOCKED_SECTIONS as readonly number[];
+  const earnedSections = unlocks.filter((u) => !initial.includes(u.section_id)).length;
+  const earnableSections = ALL_SECTION_IDS.length - initial.length;
+  const sectionPercent = Math.round((earnedSections / earnableSections) * 100);
 
   const progress = Math.round((cardPercent + sectionPercent) / 2);
 

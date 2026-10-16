@@ -412,7 +412,10 @@
     "reviewRemaining": "{count} cards left for today",
     "reviewDone": "You're done for today!",
     "reviewDoneCount": "You reviewed {count} cards. More tomorrow.",
-    "reviewNothingDue": "Nothing is due today. Come back tomorrow!"
+    "reviewNothingDue": "Nothing is due today. Come back tomorrow!",
+    "sectionNext": "Continue here",
+    "sectionDone": "Completed",
+    "wordsLearned": "{learned} / {total} words"
   },
   "profile": {
     "title": "Profile",

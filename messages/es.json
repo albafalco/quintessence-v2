@@ -412,7 +412,10 @@
     "reviewRemaining": "Quedan {count} tarjetas hoy",
     "reviewDone": "¡Has terminado por hoy!",
     "reviewDoneCount": "Repasaste {count} tarjetas. Mañana más.",
-    "reviewNothingDue": "Hoy no hay tarjetas pendientes. ¡Vuelve mañana!"
+    "reviewNothingDue": "Hoy no hay tarjetas pendientes. ¡Vuelve mañana!",
+    "sectionNext": "Sigue aquí",
+    "sectionDone": "Completado",
+    "wordsLearned": "{learned} / {total} palabras"
   },
   "profile": {
     "title": "Perfil",

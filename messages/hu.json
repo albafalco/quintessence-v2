@@ -412,7 +412,10 @@
     "reviewRemaining": "Mára még {count} kártya",
     "reviewDone": "Mára kész vagy!",
     "reviewDoneCount": "{count} kártyát ismételtél. Holnap jönnek a következők.",
-    "reviewNothingDue": "Ma nincs esedékes kártya. Nézz vissza holnap!"
+    "reviewNothingDue": "Ma nincs esedékes kártya. Nézz vissza holnap!",
+    "sectionNext": "Itt tartasz",
+    "sectionDone": "Teljesítve",
+    "wordsLearned": "{learned} / {total} szó"
   },
   "profile": {
     "title": "Profil",

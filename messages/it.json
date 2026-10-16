@@ -412,7 +412,10 @@
     "reviewRemaining": "Ancora {count} schede per oggi",
     "reviewDone": "Per oggi hai finito!",
     "reviewDoneCount": "Hai ripassato {count} schede. Domani le prossime.",
-    "reviewNothingDue": "Oggi non c'è nulla da ripassare. Torna domani!"
+    "reviewNothingDue": "Oggi non c'è nulla da ripassare. Torna domani!",
+    "sectionNext": "Continua qui",
+    "sectionDone": "Completato",
+    "wordsLearned": "{learned} / {total} parole"
   },
   "profile": {
     "title": "Profilo",

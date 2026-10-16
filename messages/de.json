@@ -412,7 +412,10 @@
     "reviewRemaining": "Heute noch {count} Karten",
     "reviewDone": "Für heute fertig!",
     "reviewDoneCount": "Du hast {count} Karten wiederholt. Morgen geht es weiter.",
-    "reviewNothingDue": "Heute ist nichts fällig. Schau morgen wieder vorbei!"
+    "reviewNothingDue": "Heute ist nichts fällig. Schau morgen wieder vorbei!",
+    "sectionNext": "Hier weiter",
+    "sectionDone": "Abgeschlossen",
+    "wordsLearned": "{learned} / {total} Wörter"
   },
   "profile": {
     "title": "Profil",
