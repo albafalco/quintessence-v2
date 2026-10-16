@@ -43,6 +43,39 @@
   ::selection {
     @apply bg-primary/40 text-cream;
   }
+
+  /* Thin gold scrollbars everywhere (mobile keeps its own overlay bars).
+     Chromium ignores the ::-webkit-scrollbar rules once scrollbar-color is
+     set, so the standard properties are for browsers without them (Firefox). */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background: hsl(var(--accent) / 0.25);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent) / 0.55);
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--accent) / 0.35) transparent;
+    }
+  }
 }
 
 @layer components {
@@ -136,6 +169,12 @@
 
   .pb-mobile-nav {
     padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  }
+
+  /* Fades the last ~2.5rem of a scroll list: "there is more below". */
+  .scroll-fade-bottom {
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 2.5rem), transparent);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 2.5rem), transparent);
   }
 
   .no-scrollbar {

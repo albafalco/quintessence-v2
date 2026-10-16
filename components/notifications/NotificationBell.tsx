@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
@@ -25,6 +25,8 @@ export function NotificationBell() {
   const [mounted, setMounted] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const [fadeBottom, setFadeBottom] = useState(false);
   const prevUnread = useRef<number | null>(null);
 
   // Portal target only exists in the browser
@@ -82,6 +84,18 @@ export function NotificationBell() {
       document.removeEventListener('keydown', onKey);
     };
   }, [open]);
+
+  // Fade the list bottom while there is more to scroll
+  const updateFade = useCallback(() => {
+    const list = listRef.current;
+    if (list) setFadeBottom(list.scrollHeight - list.scrollTop - list.clientHeight > 4);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const id = requestAnimationFrame(updateFade);
+    return () => cancelAnimationFrame(id);
+  }, [open, items, updateFade]);
 
   if (unavailable) return null;
 
@@ -143,7 +157,11 @@ export function NotificationBell() {
                 </button>
               )}
             </div>
-            <div className="min-h-0 flex-1 divide-y divide-border/30 overflow-y-auto">
+            <div
+              ref={listRef}
+              onScroll={updateFade}
+              className={cn('min-h-0 flex-1 divide-y divide-border/30 overflow-y-auto', fadeBottom && 'scroll-fade-bottom')}
+            >
               {items.length === 0 ? (
                 <p className="px-4 py-8 text-center text-sm text-muted-foreground">{t('empty')}</p>
               ) : (
