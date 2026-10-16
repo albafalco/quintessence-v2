@@ -14,6 +14,7 @@ import {
 } from '@/lib/dashboard';
 import { formatDate } from '@/lib/utils';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
+import { FlagIcon } from '@/components/ui/FlagIcon';
 import { ModuleCard } from '@/components/dashboard/ModuleCard';
 import { DashboardSkeleton } from '@/components/dashboard/DashboardSkeleton';
 
@@ -245,7 +246,7 @@ export function DashboardContent() {
               progress={angolStats.progress}
               progressLabel={t('lesson1Progress')}
               lastActivity={formatActivityDate(angolStats.lastActivity, locale)}
-              icon="🇬🇧"
+              icon={<FlagIcon locale="en" className="h-5 w-7" />}
               variant="angol"
             />
           )}

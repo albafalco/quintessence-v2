@@ -16,7 +16,8 @@ interface ModuleCardProps {
   progress: number;
   progressLabel?: string;
   lastActivity: string | null;
-  icon: string;
+  /** Emoji or element (flag emojis don't render on Windows — use FlagIcon). */
+  icon: React.ReactNode;
   variant?: 'magia' | 'angol';
 }
 
