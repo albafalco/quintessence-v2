@@ -1,3 +1,4 @@
+import { createLucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ElementsIconProps {
@@ -6,7 +7,7 @@ interface ElementsIconProps {
 }
 
 const CENTER = 32;
-const RADIUS = 20;
+const RADIUS = 23;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 const GAP_DEG = 12;
 const SEGMENT = (CIRCUMFERENCE * (90 - GAP_DEG)) / 360;
@@ -56,10 +57,6 @@ export function ElementsIcon({ className, title }: ElementsIconProps) {
         </radialGradient>
       </defs>
 
-      {/* Double gold outer ring */}
-      <circle cx={CENTER} cy={CENTER} r={29.5} fill="none" stroke="#D4AF37" strokeOpacity={0.6} strokeWidth={1} />
-      <circle cx={CENTER} cy={CENTER} r={27} fill="none" stroke="#D4AF37" strokeOpacity={0.25} strokeWidth={0.75} />
-
       {/* Element arcs */}
       {ELEMENTS.map(({ id, startDeg }) => (
         <circle
@@ -69,7 +66,7 @@ export function ElementsIcon({ className, title }: ElementsIconProps) {
           r={RADIUS}
           fill="none"
           stroke={`url(#${id})`}
-          strokeWidth={5.5}
+          strokeWidth={6.5}
           strokeDasharray={`${SEGMENT} ${CIRCUMFERENCE - SEGMENT}`}
           transform={`rotate(${startDeg + GAP_DEG / 2} ${CENTER} ${CENTER})`}
         />
@@ -87,9 +84,21 @@ export function ElementsIcon({ className, title }: ElementsIconProps) {
       ))}
 
       {/* Quintessence: glowing gold star */}
-      <circle cx={CENTER} cy={CENTER} r={13} fill="url(#qs-el-core)" />
-      <path d={starPath(9, 2.6)} fill="#E8C96A" />
-      <path d={starPath(5, 1.5)} fill="#FFF3C4" fillOpacity={0.85} />
+      <circle cx={CENTER} cy={CENTER} r={15} fill="url(#qs-el-core)" />
+      <path d={starPath(10.5, 3)} fill="#E8C96A" />
+      <path d={starPath(6, 1.8)} fill="#FFF3C4" fillOpacity={0.85} />
     </svg>
   );
 }
+
+/**
+ * Monochrome menu version in the lucide line-icon style (same stroke width,
+ * sizing and currentColor as the other navigation icons).
+ */
+export const ElementsNavIcon = createLucideIcon('ElementsNav', [
+  ['path', { d: 'M6.55 4.22A9.5 9.5 0 0 1 17.45 4.22', key: 'fire' }],
+  ['path', { d: 'M19.78 6.55A9.5 9.5 0 0 1 19.78 17.45', key: 'air' }],
+  ['path', { d: 'M17.45 19.78A9.5 9.5 0 0 1 6.55 19.78', key: 'water' }],
+  ['path', { d: 'M4.22 17.45A9.5 9.5 0 0 1 4.22 6.55', key: 'earth' }],
+  ['path', { d: 'M12 7.2 13.06 10.94 16.8 12 13.06 13.06 12 16.8 10.94 13.06 7.2 12 10.94 10.94Z', key: 'star' }],
+]);

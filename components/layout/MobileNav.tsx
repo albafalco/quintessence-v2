@@ -6,10 +6,10 @@ import { useLocale, useTranslations } from 'next-intl';
 import {
   GraduationCap,
   LayoutDashboard,
-  Sparkles,
   User,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
 
 export function MobileNav() {
   const t = useTranslations('nav');
@@ -27,7 +27,7 @@ export function MobileNav() {
     {
       href: `/${locale}/modules/magia`,
       label: t('magia'),
-      icon: Sparkles,
+      icon: ElementsNavIcon,
       match: (path: string) => path.includes('/modules/magia'),
       disabled: false,
     },

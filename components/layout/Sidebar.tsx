@@ -9,10 +9,10 @@ import {
   ChevronRight,
   GraduationCap,
   LayoutDashboard,
-  Sparkles,
   User,
 } from 'lucide-react';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
+import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { cn } from '@/lib/utils';
 
@@ -53,7 +53,7 @@ export function Sidebar() {
     {
       href: `/${locale}/modules/magia`,
       label: t('magia'),
-      icon: Sparkles,
+      icon: ElementsNavIcon,
       match: (path: string) => path.includes('/modules/magia'),
     },
     ...(locale === 'hu'

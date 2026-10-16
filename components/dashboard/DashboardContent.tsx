@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Sparkles, BookOpen, TrendingUp } from 'lucide-react';
+import { BookOpen, TrendingUp } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { bootLog } from '@/lib/boot-logger';
 
@@ -15,7 +15,7 @@ import {
 import { formatDate } from '@/lib/utils';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { FlagIcon } from '@/components/ui/FlagIcon';
-import { ElementsIcon } from '@/components/ui/ElementsIcon';
+import { ElementsIcon, ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { ModuleCard } from '@/components/dashboard/ModuleCard';
 import { DashboardSkeleton } from '@/components/dashboard/DashboardSkeleton';
 
@@ -181,7 +181,7 @@ export function DashboardContent() {
           <div className="grid grid-cols-1 gap-3 min-[400px]:grid-cols-2 sm:grid-cols-3">
             <div className="rounded-xl border border-border/40 bg-background/40 px-4 py-3 backdrop-blur-sm">
               <div className="flex items-center gap-2 text-accent">
-                <Sparkles className="h-4 w-4" />
+                <ElementsNavIcon className="h-4 w-4" />
                 <span className="text-[10px] font-semibold uppercase tracking-wider">
                   {t('magiaLabel')}
                 </span>
