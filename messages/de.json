@@ -234,7 +234,44 @@
     "durationMinSec": "{m} Min. {s} Sek.",
     "durationMin": "{m} Min.",
     "durationSec": "{s} Sek.",
-    "confirmCloseSession": "Trotzdem schließen? Die laufende Sitzung wird nicht gespeichert."
+    "confirmCloseSession": "Trotzdem schließen? Die laufende Sitzung wird nicht gespeichert.",
+    "elementBalanceTitle": "Elementgleichgewicht",
+    "elementBalanceSectionTitle": "Seelenspiegel — Elementgleichgewicht",
+    "elementNoData": "In diesem Spiegel gibt es noch keine offenen, einem Element zugeordneten Eigenschaften.",
+    "elementDominant": "Dominant: {element} ({pct} %)",
+    "elementWeakest": "Am schwächsten: {element} ({pct} %)",
+    "elementUnassigned": "{count} Eintrag/Einträge ohne Element",
+    "elementResolvedTitle": "Bearbeitete Einträge",
+    "elementImbalanceHigh": "Das Element {element} überwiegt. Bardon sieht das Gleichgewicht der Elemente als Ziel.",
+    "elementImbalanceMissing": "Dem Element {element} ist noch keine Eigenschaft zugeordnet. Es lohnt sich, auch diesen Bereich zu betrachten.",
+    "reportButton": "✦ Wochenbericht",
+    "reportBadge": "✦ Weiße Magie — Wochenüberblick",
+    "reportTitle": "Wöchentlicher Einweihungsbericht",
+    "reportPrevWeek": "Vorherige Woche",
+    "reportNextWeek": "Nächste Woche",
+    "reportCurrentWeek": "diese Woche",
+    "reportEmptyWeek": "Diese Woche gab es keine Übung. Auch ein kleiner Anfang zählt! ✦",
+    "reportMinutes": "Minuten Übung",
+    "reportSessions": "Sitzungen",
+    "reportVsPrev": "ggü. Vorwoche",
+    "reportActiveDays": "Aktive Tage",
+    "reportStreak": "Serie am Wochenende: {count} Tage",
+    "reportPillars": "Säulengleichgewicht dieser Woche",
+    "reportBestSession": "Beste Sitzung der Woche",
+    "reportNoRatedSession": "Du hast diese Woche keine Sitzung bewertet.",
+    "reportProgress": "Fortschritt",
+    "reportNoProgress": "Diese Woche gab es keine Sitzung.",
+    "reportMastered": "Gemeistert: {title}",
+    "reportSessionsCount": "+{count} Sitzungen",
+    "reportJournal": "Tagebuch",
+    "reportJournalEntries": "{count} Einträge diese Woche",
+    "reportNextPlans": "Deine nächsten Pläne",
+    "reportNoPlans": "Du hast diese Woche keinen Plan ins Tagebuch geschrieben.",
+    "reportSoulMirror": "Seelenspiegel",
+    "reportNoResolved": "Diese Woche wurde kein Eintrag bearbeitet.",
+    "reportResolved": "{count} bearbeitete Einträge diese Woche",
+    "readyForMastery": "Könnte bereit zur Meisterung sein",
+    "readyForMasteryNote": "{count} Übung(en) könnten bereit zur Meisterung sein"
   },
   "angol": {
     "title": "Kreatives Englisch",
@@ -358,7 +395,9 @@
     "reengagementDesc": "Nach 3+ Tagen Inaktivität, max. 1× pro Woche",
     "anglNotificationsTitle": "Englisch-Benachrichtigungen",
     "settingsEyebrow": "Einstellungen",
-    "pushErrorFcm": "Der Chrome-Push-Dienst konnte das Abonnement nicht abschließen. Schließe Chrome vollständig (alle Fenster), öffne es erneut und versuche es nochmal. Falls es nicht hilft, versuche es mit Edge oder Firefox."
+    "pushErrorFcm": "Der Chrome-Push-Dienst konnte das Abonnement nicht abschließen. Schließe Chrome vollständig (alle Fenster), öffne es erneut und versuche es nochmal. Falls es nicht hilft, versuche es mit Edge oder Firefox.",
+    "weeklyReport": "Wochenbericht",
+    "weeklyReportDesc": "Sonntags um 19:00, wenn du in der Woche geübt hast"
   },
   "brand": {
     "name": "Quintessence",
@@ -384,6 +423,8 @@
     "noSubscription": "Kein Abonnement gefunden",
     "sendFailed": "Senden fehlgeschlagen",
     "unlockTitle": "⭐ Grad {id} freigeschaltet!",
-    "unlockBody": "Glückwunsch! Du hast den Grad „{title}\" erreicht. Setze deinen Weg fort!"
+    "unlockBody": "Glückwunsch! Du hast den Grad „{title}\" erreicht. Setze deinen Weg fort!",
+    "weeklyReportTitle": "✦ Dein wöchentlicher Einweihungsbericht ist fertig",
+    "weeklyReportBody": "{minutes} Minuten Übung, {days} aktive Tage. Sieh dir deinen Fortschritt an!"
   }
 }

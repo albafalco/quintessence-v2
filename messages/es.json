@@ -234,7 +234,44 @@
     "durationMinSec": "{m} min {s} s",
     "durationMin": "{m} min",
     "durationSec": "{s} s",
-    "confirmCloseSession": "¿Cerrar de todos modos? La sesión en curso no se guardará."
+    "confirmCloseSession": "¿Cerrar de todos modos? La sesión en curso no se guardará.",
+    "elementBalanceTitle": "Equilibrio de elementos",
+    "elementBalanceSectionTitle": "Espejo del alma — equilibrio de elementos",
+    "elementNoData": "Aún no hay rasgos pendientes asignados a un elemento en este espejo.",
+    "elementDominant": "Dominante: {element} ({pct} %)",
+    "elementWeakest": "Más débil: {element} ({pct} %)",
+    "elementUnassigned": "{count} elemento(s) sin elemento asignado",
+    "elementResolvedTitle": "Elementos superados",
+    "elementImbalanceHigh": "El elemento {element} predomina. Para Bardon, el objetivo es el equilibrio de los elementos.",
+    "elementImbalanceMissing": "Aún no hay ningún rasgo asignado al elemento {element}. Vale la pena examinar también esta área.",
+    "reportButton": "✦ Informe semanal",
+    "reportBadge": "✦ Magia Blanca — resumen semanal",
+    "reportTitle": "Informe semanal de iniciación",
+    "reportPrevWeek": "Semana anterior",
+    "reportNextWeek": "Semana siguiente",
+    "reportCurrentWeek": "esta semana",
+    "reportEmptyWeek": "No hubo práctica esta semana. ¡Incluso un pequeño comienzo cuenta! ✦",
+    "reportMinutes": "minutos de práctica",
+    "reportSessions": "sesiones",
+    "reportVsPrev": "vs. semana anterior",
+    "reportActiveDays": "Días activos",
+    "reportStreak": "Racha al final de la semana: {count} días",
+    "reportPillars": "Equilibrio de pilares de la semana",
+    "reportBestSession": "Mejor sesión de la semana",
+    "reportNoRatedSession": "No valoraste ninguna sesión esta semana.",
+    "reportProgress": "Progreso",
+    "reportNoProgress": "No hubo sesiones esta semana.",
+    "reportMastered": "Dominado: {title}",
+    "reportSessionsCount": "+{count} sesiones",
+    "reportJournal": "Diario",
+    "reportJournalEntries": "{count} entradas esta semana",
+    "reportNextPlans": "Tus próximos planes",
+    "reportNoPlans": "No escribiste ningún plan en el diario esta semana.",
+    "reportSoulMirror": "Espejo del alma",
+    "reportNoResolved": "No superaste ningún elemento esta semana.",
+    "reportResolved": "{count} elementos superados esta semana",
+    "readyForMastery": "Podría estar listo para dominarlo",
+    "readyForMasteryNote": "{count} ejercicio(s) podrían estar listos para dominarse"
   },
   "angol": {
     "title": "Inglés creativo",
@@ -358,7 +395,9 @@
     "reengagementDesc": "Tras 3+ días de inactividad, máx. 1× por semana",
     "anglNotificationsTitle": "Notificaciones de inglés",
     "settingsEyebrow": "Ajustes",
-    "pushErrorFcm": "El servicio push de Chrome no pudo completar la suscripción. Cierra Chrome completamente (todas las ventanas), ábrelo de nuevo e inténtalo de nuevo. Si no funciona, prueba con Edge o Firefox."
+    "pushErrorFcm": "El servicio push de Chrome no pudo completar la suscripción. Cierra Chrome completamente (todas las ventanas), ábrelo de nuevo e inténtalo de nuevo. Si no funciona, prueba con Edge o Firefox.",
+    "weeklyReport": "Informe semanal",
+    "weeklyReportDesc": "Los domingos a las 19:00, si practicaste esa semana"
   },
   "brand": {
     "name": "Quintessence",
@@ -384,6 +423,8 @@
     "noSubscription": "No se encontró suscripción",
     "sendFailed": "Envío fallido",
     "unlockTitle": "⭐ ¡Grado {id} desbloqueado!",
-    "unlockBody": "¡Felicidades! Alcanzaste el grado \"{title}\". ¡Continúa tu camino!"
+    "unlockBody": "¡Felicidades! Alcanzaste el grado \"{title}\". ¡Continúa tu camino!",
+    "weeklyReportTitle": "✦ Tu informe semanal de iniciación está listo",
+    "weeklyReportBody": "{minutes} minutos de práctica, {days} días activos. ¡Mira cómo has avanzado!"
   }
 }

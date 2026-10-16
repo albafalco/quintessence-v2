@@ -14,6 +14,8 @@ import {
   computeStreak,
   getCurrentFokozatId,
   getExerciseProgress,
+  computeRatingStats,
+  isReadyForMastery,
 } from '@/lib/magia-utils';
 import { getBudapestNow, toBudapestDate } from '@/lib/push-reminders';
 import type { MagiaProgressRecord, SessionRecord } from '@/lib/magia-utils';
@@ -39,7 +41,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   // lightweight query over the past year.
   const streakWindowStart = new Date(Date.now() - 366 * 86400000).toISOString();
 
-  const [{ data: progressData }, { data: sessionsData }, { data: streakData }] = await Promise.all([
+  const [{ data: progressData }, { data: sessionsData }, { data: streakData }, { data: ratedData }] = await Promise.all([
     supabase
       .from('magia_progress')
       .select('fokozat, section, exercise_key, completed, notes, status, mastered_at, session_count')
@@ -56,7 +58,18 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
       .eq('user_id', user.id)
       .eq('completed', true)
       .gte('started_at', streakWindowStart),
+    supabase
+      .from('magia_sessions')
+      .select('exercise_key, rating, started_at')
+      .eq('user_id', user.id)
+      .not('rating', 'is', null)
+      .order('started_at', { ascending: false })
+      .limit(1000),
   ]);
+
+  const ratingStats = computeRatingStats(
+    (ratedData ?? []) as { exercise_key: string; rating: number | null; started_at: string }[]
+  );
 
   const allProgress = (progressData ?? []) as MagiaProgressRecord[];
   const recentSessions = (sessionsData ?? []) as SessionRecord[];
@@ -101,6 +114,23 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
     }
   }
 
+  // Exercises of today's plan that look ready to be marked as mastered
+  const readyTitles = Array.from(
+    new Set(
+      planExercises
+        .filter((item) =>
+          Boolean(item.exercise.successCriteria) &&
+          isReadyForMastery({
+            status: item.progress.status,
+            sessionCount: item.progress.sessionCount,
+            minSessions: item.exercise.minSessions ?? 10,
+            rating: ratingStats[buildExerciseKey(item.section, currentFokozatId, item.exercise.key)],
+          })
+        )
+        .map((item) => item.exercise.cim)
+    )
+  );
+
   const pillarEmoji = { szellem: '🧠', lelek: '💎', test: '⚡' } as const;
   const sectionLabel = { szellem: t('szellem'), lelek: t('lelek'), test: t('test') } as const;
 
@@ -144,8 +174,21 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
           >
             {t('maLevelDetails', { title: fokozat.rovidcim })}
           </Link>
+          <Link
+            href={`/${locale}/modules/magia/jelentes`}
+            className="text-xs text-muted-foreground transition hover:text-accent"
+          >
+            {t('reportButton')}
+          </Link>
         </div>
       </header>
+
+      {readyTitles.length > 0 && (
+        <div className="rounded-2xl border border-accent/30 bg-accent/5 p-4 text-sm text-cream/90">
+          <p className="font-semibold text-accent">✦ {t('readyForMasteryNote', { count: readyTitles.length })}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{readyTitles.join(' · ')}</p>
+        </div>
+      )}
 
       {/* Napi terv */}
       <section className="space-y-4">
@@ -192,6 +235,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
                     initialNotes={item.progress.notes}
                     initialStatus={item.progress.status}
                     initialSessionCount={item.progress.sessionCount}
+                    recentRating={ratingStats[buildExerciseKey(item.section, currentFokozatId, item.exercise.key)]}
                     userId={user.id}
                   />
                 </div>

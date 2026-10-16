@@ -246,3 +246,54 @@ export function computePillarBalance(
 
   return { szellem, lelek, test, totalSec: szellem + lelek + test };
 }
+
+// ── Mastery readiness ────────────────────────────────────────────────────────
+
+export const READINESS_RATED_SESSIONS = 5;
+export const READINESS_MIN_AVG_RATING = 4;
+
+export interface RatingStats {
+  /** Average of the most recent (up to 5) rated sessions */
+  avg: number;
+  count: number;
+}
+
+/** Per exercise_key: average rating of the latest rated sessions. */
+export function computeRatingStats(
+  sessions: { exercise_key: string; rating: number | null; started_at: string }[]
+): Record<string, RatingStats> {
+  const byKey = new Map<string, number[]>();
+  const sorted = [...sessions]
+    .filter((s) => s.rating != null)
+    .sort((a, b) => b.started_at.localeCompare(a.started_at));
+  for (const s of sorted) {
+    const list = byKey.get(s.exercise_key) ?? [];
+    if (list.length < READINESS_RATED_SESSIONS) list.push(s.rating!);
+    byKey.set(s.exercise_key, list);
+  }
+  const result: Record<string, RatingStats> = {};
+  byKey.forEach((ratings, key) => {
+    result[key] = { avg: ratings.reduce((a, b) => a + b, 0) / ratings.length, count: ratings.length };
+  });
+  return result;
+}
+
+/**
+ * Suggest marking an exercise as mastered when the minimum session count is
+ * reached and the latest rated sessions average at least 4/5. The user still
+ * decides in the mastery dialog whether the success criterion is met.
+ */
+export function isReadyForMastery(input: {
+  status: ExerciseStatus;
+  sessionCount: number;
+  minSessions: number;
+  rating?: RatingStats;
+}): boolean {
+  if (input.status === 'mastered' || !input.rating) return false;
+  const neededRatings = Math.min(READINESS_RATED_SESSIONS, input.minSessions);
+  return (
+    input.sessionCount >= input.minSessions &&
+    input.rating.count >= neededRatings &&
+    input.rating.avg >= READINESS_MIN_AVG_RATING
+  );
+}

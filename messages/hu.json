@@ -234,7 +234,44 @@
     "durationMinSec": "{m} perc {s} mp",
     "durationMin": "{m} perc",
     "durationSec": "{s} mp",
-    "confirmCloseSession": "Biztosan bezárod? A folyamatban lévő munkamenet nem kerül mentésre."
+    "confirmCloseSession": "Biztosan bezárod? A folyamatban lévő munkamenet nem kerül mentésre.",
+    "elementBalanceTitle": "Elemegyensúly",
+    "elementBalanceSectionTitle": "Lelki tükör — elemegyensúly",
+    "elementNoData": "Ebben a tükörben még nincs elemhez rendelt, feldolgozatlan tulajdonság.",
+    "elementDominant": "Domináns: {element} ({pct}%)",
+    "elementWeakest": "Leggyengébb: {element} ({pct}%)",
+    "elementUnassigned": "{count} tétel nincs elemhez rendelve",
+    "elementResolvedTitle": "Feldolgozott tételek",
+    "elementImbalanceHigh": "A {element} elem túlsúlyban van. Bardon az elemek egyensúlyát tartja célnak.",
+    "elementImbalanceMissing": "A {element} elemhez még nem rendeltél tulajdonságot. Érdemes ezt a területet is megvizsgálni.",
+    "reportButton": "✦ Heti jelentés",
+    "reportBadge": "✦ Fehér Mágia — heti áttekintés",
+    "reportTitle": "Heti beavatási jelentés",
+    "reportPrevWeek": "Előző hét",
+    "reportNextWeek": "Következő hét",
+    "reportCurrentWeek": "ez a hét",
+    "reportEmptyWeek": "Ezen a héten nem volt gyakorlás. Egy kis kezdés is számít! ✦",
+    "reportMinutes": "perc gyakorlás",
+    "reportSessions": "munkamenet",
+    "reportVsPrev": "az előző héthez képest",
+    "reportActiveDays": "Aktív napok",
+    "reportStreak": "Sorozat a hét végén: {count} nap",
+    "reportPillars": "Pillér-egyensúly a héten",
+    "reportBestSession": "A hét legjobb munkamenete",
+    "reportNoRatedSession": "Ezen a héten nem értékeltél munkamenetet.",
+    "reportProgress": "Fejlődés",
+    "reportNoProgress": "Ezen a héten nem volt munkamenet.",
+    "reportMastered": "Uralva: {title}",
+    "reportSessionsCount": "+{count} munkamenet",
+    "reportJournal": "Napló",
+    "reportJournalEntries": "{count} bejegyzés a héten",
+    "reportNextPlans": "Következő terveid",
+    "reportNoPlans": "Ezen a héten nem írtál tervet a naplóba.",
+    "reportSoulMirror": "Lelki tükör",
+    "reportNoResolved": "Ezen a héten nem dolgoztál fel tételt.",
+    "reportResolved": "{count} feldolgozott tétel a héten",
+    "readyForMastery": "Kész lehet az uraltságra",
+    "readyForMasteryNote": "{count} gyakorlat készen állhat az uraltságra"
   },
   "angol": {
     "title": "Kreatív Angol",
@@ -358,7 +395,9 @@
     "reengagement": "Visszahívó",
     "reengagementDesc": "3+ nap inaktivitás után, hetente max. 1×",
     "anglNotificationsTitle": "Angol értesítések",
-    "settingsEyebrow": "Beállítások"
+    "settingsEyebrow": "Beállítások",
+    "weeklyReport": "Heti jelentés",
+    "weeklyReportDesc": "Vasárnap 19:00-kor, ha a héten volt gyakorlás"
   },
   "brand": {
     "name": "Quintessence",
@@ -384,6 +423,8 @@
     "noSubscription": "Nincs feliratkozás",
     "sendFailed": "Küldés sikertelen",
     "unlockTitle": "⭐ {id}. fokozat feloldva!",
-    "unlockBody": "Gratulálok! Elérted a(z) \"{title}\" fokozatot. Folytasd az utad!"
+    "unlockBody": "Gratulálok! Elérted a(z) \"{title}\" fokozatot. Folytasd az utad!",
+    "weeklyReportTitle": "✦ Elkészült a heti beavatási jelentésed",
+    "weeklyReportBody": "{minutes} perc gyakorlás, {days} aktív nap. Nézd meg, hogyan haladtál!"
   }
 }

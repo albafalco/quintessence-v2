@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { locales, type Locale } from '@/i18n';
 import { createClient } from '@/lib/supabase/client';
+import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { PushToggle } from '@/components/push/PushToggle';
 import { FlagIcon } from '@/components/ui/FlagIcon';
 import {
@@ -43,6 +44,7 @@ interface ProfileData {
   push_magia_streak: boolean;
   push_magia_streak_time: string;
   push_magia_reengagement: boolean;
+  push_weekly_report: boolean;
   push_angol_reminders: boolean;
   push_angol_time: string;
 }
@@ -65,6 +67,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
   const [magiaStreak, setMagiaStreak] = useState(profile.push_magia_streak);
   const [magiaStreakTime, setMagiaStreakTime] = useState(profile.push_magia_streak_time || DEFAULT_MAGIA_STREAK_PUSH_TIME);
   const [magiaReengagement, setMagiaReengagement] = useState(profile.push_magia_reengagement);
+  const [weeklyReport, setWeeklyReport] = useState(profile.push_weekly_report);
   const [angolReminder, setAngolReminder] = useState(profile.push_angol_reminders);
   const [angolTime, setAngolTime] = useState(profile.push_angol_time || DEFAULT_ANGOL_PUSH_TIME);
   const [newPassword, setNewPassword] = useState('');
@@ -80,9 +83,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
     setError(null);
     setMessage(null);
 
-    const { error: updateError } = await supabase
-      .from('profiles')
-      .update({
+    const baseUpdate = {
         preferred_language: language,
         push_magia_reminders: magiaReminder,
         push_magia_time: magiaTime,
@@ -94,8 +95,12 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
         push_angol_reminders: angolReminder,
         push_angol_time: angolTime,
         updated_at: new Date().toISOString(),
-      })
-      .eq('id', profile.id);
+    };
+    const update = (values: Record<string, unknown>) =>
+      supabase.from('profiles').update(values).eq('id', profile.id);
+    let { error: updateError } = await update({ ...baseUpdate, push_weekly_report: weeklyReport });
+    // push_weekly_report comes from migration 008 — save the rest without it until then
+    if (isMissingColumnError(updateError)) ({ error: updateError } = await update(baseUpdate));
 
     if (updateError) {
       setError(updateError.message);
@@ -292,6 +297,14 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
                   <p className="text-[11px] text-muted-foreground">{t('reengagementDesc')}</p>
                 </div>
                 <Switch checked={magiaReengagement} onCheckedChange={setMagiaReengagement} />
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div>
+                  <Label>{t('weeklyReport')}</Label>
+                  <p className="text-[11px] text-muted-foreground">{t('weeklyReportDesc')}</p>
+                </div>
+                <Switch checked={weeklyReport} onCheckedChange={setWeeklyReport} />
               </div>
 
               {language === 'hu' && (

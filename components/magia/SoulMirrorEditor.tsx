@@ -4,6 +4,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { useConfirm } from '@/components/ui/confirm-dialog';
+import { isMissingColumnError } from '@/lib/supabase/missing-column';
+import { ElementBalance } from './ElementBalance';
 import type { SoulMirrorItem, SoulMirrorType, ElementType, WorkMethod } from '@/lib/magia-types';
 
 interface SoulMirrorEditorProps {
@@ -102,12 +104,22 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
   const toggleResolved = async (item: SoulMirrorItem) => {
     setError(null);
     const supabase = createClient();
-    const { data, error: updateError } = await supabase
-      .from('magia_soul_mirror')
-      .update({ resolved: !item.resolved, updated_at: new Date().toISOString() })
-      .eq('id', item.id)
-      .select()
-      .single();
+    const now = new Date().toISOString();
+    const resolved = !item.resolved;
+    const run = (withResolvedAt: boolean) =>
+      supabase
+        .from('magia_soul_mirror')
+        .update({
+          resolved,
+          updated_at: now,
+          // resolved_at needs migration 008; retried without it until then
+          ...(withResolvedAt ? { resolved_at: resolved ? now : null } : {}),
+        })
+        .eq('id', item.id)
+        .select()
+        .single();
+    let { data, error: updateError } = await run(true);
+    if (isMissingColumnError(updateError)) ({ data, error: updateError } = await run(false));
     if (updateError) reportError(updateError);
     if (data) {
       setItems((prev) => prev.map((i) => (i.id === data.id ? (data as SoulMirrorItem) : i)));
@@ -172,6 +184,8 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
       <p className="text-xs text-muted-foreground">
         {activeTab === 'fekete' ? t('soulMirrorBlackDesc') : t('soulMirrorWhiteDesc')}
       </p>
+
+      {!loading && <ElementBalance items={items} mirror={activeTab} />}
 
       {error && (
         <p className="rounded-xl bg-red-500/10 px-3 py-2 text-xs text-red-400">{error}</p>

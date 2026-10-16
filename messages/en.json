@@ -234,7 +234,44 @@
     "durationMinSec": "{m} min {s} s",
     "durationMin": "{m} min",
     "durationSec": "{s} s",
-    "confirmCloseSession": "Close anyway? The session in progress will not be saved."
+    "confirmCloseSession": "Close anyway? The session in progress will not be saved.",
+    "elementBalanceTitle": "Element balance",
+    "elementBalanceSectionTitle": "Soul mirror — element balance",
+    "elementNoData": "No open traits assigned to an element in this mirror yet.",
+    "elementDominant": "Dominant: {element} ({pct}%)",
+    "elementWeakest": "Weakest: {element} ({pct}%)",
+    "elementUnassigned": "{count} item(s) without an element",
+    "elementResolvedTitle": "Resolved items",
+    "elementImbalanceHigh": "The {element} element is predominant. Bardon considers the balance of the elements the goal.",
+    "elementImbalanceMissing": "No trait is assigned to the {element} element yet. It is worth examining this area too.",
+    "reportButton": "✦ Weekly report",
+    "reportBadge": "✦ White Magic — weekly overview",
+    "reportTitle": "Weekly initiation report",
+    "reportPrevWeek": "Previous week",
+    "reportNextWeek": "Next week",
+    "reportCurrentWeek": "this week",
+    "reportEmptyWeek": "No practice this week. Even a small start counts! ✦",
+    "reportMinutes": "minutes of practice",
+    "reportSessions": "sessions",
+    "reportVsPrev": "vs. previous week",
+    "reportActiveDays": "Active days",
+    "reportStreak": "Streak at the end of the week: {count} days",
+    "reportPillars": "Pillar balance this week",
+    "reportBestSession": "Best session of the week",
+    "reportNoRatedSession": "You did not rate any session this week.",
+    "reportProgress": "Progress",
+    "reportNoProgress": "No sessions this week.",
+    "reportMastered": "Mastered: {title}",
+    "reportSessionsCount": "+{count} sessions",
+    "reportJournal": "Journal",
+    "reportJournalEntries": "{count} entries this week",
+    "reportNextPlans": "Your next plans",
+    "reportNoPlans": "You did not write any plan in the journal this week.",
+    "reportSoulMirror": "Soul mirror",
+    "reportNoResolved": "No items were resolved this week.",
+    "reportResolved": "{count} items resolved this week",
+    "readyForMastery": "May be ready to master",
+    "readyForMasteryNote": "{count} exercise(s) may be ready to be mastered"
   },
   "angol": {
     "title": "Creative English",
@@ -358,7 +395,9 @@
     "reengagementDesc": "After 3+ days of inactivity, max. once per week",
     "anglNotificationsTitle": "English notifications",
     "settingsEyebrow": "Settings",
-    "pushErrorFcm": "Chrome's push service failed to complete the subscription. Close Chrome completely (all windows), reopen it, and try again. If that doesn't help, try Edge or Firefox."
+    "pushErrorFcm": "Chrome's push service failed to complete the subscription. Close Chrome completely (all windows), reopen it, and try again. If that doesn't help, try Edge or Firefox.",
+    "weeklyReport": "Weekly report",
+    "weeklyReportDesc": "Sundays at 19:00, if you practiced that week"
   },
   "brand": {
     "name": "Quintessence",
@@ -384,6 +423,8 @@
     "noSubscription": "No subscription found",
     "sendFailed": "Send failed",
     "unlockTitle": "⭐ Grade {id} unlocked!",
-    "unlockBody": "Congratulations! You reached the \"{title}\" grade. Continue your path!"
+    "unlockBody": "Congratulations! You reached the \"{title}\" grade. Continue your path!",
+    "weeklyReportTitle": "✦ Your weekly initiation report is ready",
+    "weeklyReportBody": "{minutes} minutes of practice, {days} active days. See how you progressed!"
   }
 }

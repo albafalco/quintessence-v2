@@ -13,9 +13,14 @@ import {
   hasMagiaActivityToday,
   getMagiaInactiveDays,
   isReminderDue,
+  toBudapestDate,
 } from '@/lib/push-reminders';
 import { getMessage, resolveLocale } from '@/lib/i18n-messages';
 import type { Locale } from '@/i18n';
+import { isMissingColumnError } from '@/lib/supabase/missing-column';
+import { isSunday, weekBounds, weekStartOf } from '@/lib/weekly-report';
+
+const WEEKLY_REPORT_TIME = '19:00';
 
 interface ProfileRow {
   id: string;
@@ -36,6 +41,9 @@ interface ProfileRow {
   push_angol_time: string | null;
   preferred_language: string;
   last_angol_push_date: string | null;
+  // Only present after migration 008
+  push_weekly_report?: boolean | null;
+  last_weekly_report_date?: string | null;
 }
 
 type NotificationType =
@@ -43,7 +51,8 @@ type NotificationType =
   | 'magia_evening'
   | 'magia_streak'
   | 'magia_reengagement'
-  | 'angol';
+  | 'angol'
+  | 'magia_weekly';
 
 interface PushPayload {
   type: NotificationType;
@@ -136,6 +145,36 @@ async function buildPushNotifications(
     }
   }
 
+  // Weekly initiation report: Sunday evening, only after an active week.
+  // Requires the migration 008 columns (otherwise dedup could not be stored).
+  if (
+    'push_weekly_report' in profile &&
+    profile.push_weekly_report !== false &&
+    profile.last_weekly_report_date !== budapestNow.date &&
+    isSunday(budapestNow.date) &&
+    isReminderDue(budapestNow.totalMinutes, WEEKLY_REPORT_TIME)
+  ) {
+    const monday = weekStartOf(budapestNow.date);
+    const { start, end } = weekBounds(monday);
+    const { data: weekSessions } = await supabase
+      .from('magia_sessions')
+      .select('started_at, duration_sec, completed')
+      .eq('user_id', profile.id)
+      .gte('started_at', start)
+      .lte('started_at', end);
+    const rows = (weekSessions ?? []) as { started_at: string; duration_sec: number | null; completed: boolean }[];
+    if (rows.length > 0) {
+      const minutes = Math.round(rows.reduce((sum, r) => sum + (r.duration_sec ?? 0), 0) / 60);
+      const days = new Set(rows.filter((r) => r.completed).map((r) => toBudapestDate(r.started_at))).size;
+      notifications.push({
+        type: 'magia_weekly',
+        title: await getMessage(locale, 'push.weeklyReportTitle'),
+        body: await getMessage(locale, 'push.weeklyReportBody', { minutes, days }),
+        url: `/${locale}/modules/magia/jelentes`,
+      });
+    }
+  }
+
   const angolTime = profile.push_angol_time || DEFAULT_ANGOL_PUSH_TIME;
   const angolDue =
     profile.push_angol_reminders &&
@@ -171,12 +210,15 @@ export async function GET(request: Request) {
   const supabase = await createServiceClient();
   const budapestNow = getBudapestNow();
 
-  const { data: profiles, error } = await supabase
-    .from('profiles')
-    .select(
-      'id, push_enabled, push_magia_reminders, push_magia_time, push_magia_evening, push_magia_evening_time, push_magia_streak, push_magia_streak_time, push_magia_reengagement, last_magia_push_date, last_magia_evening_push_date, last_magia_streak_push_date, last_magia_reengagement_date, last_magia_activity_date, push_angol_reminders, push_angol_time, preferred_language, last_angol_push_date'
-    )
-    .eq('push_enabled', true);
+  const baseColumns =
+    'id, push_enabled, push_magia_reminders, push_magia_time, push_magia_evening, push_magia_evening_time, push_magia_streak, push_magia_streak_time, push_magia_reengagement, last_magia_push_date, last_magia_evening_push_date, last_magia_streak_push_date, last_magia_reengagement_date, last_magia_activity_date, push_angol_reminders, push_angol_time, preferred_language, last_angol_push_date';
+  const selectProfiles = (columns: string) =>
+    supabase.from('profiles').select(columns).eq('push_enabled', true);
+
+  // The weekly-report columns come from migration 008; keep the other
+  // reminders working if it has not been run yet.
+  let { data: profiles, error } = await selectProfiles(`${baseColumns}, push_weekly_report, last_weekly_report_date`);
+  if (isMissingColumnError(error)) ({ data: profiles, error } = await selectProfiles(baseColumns));
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -189,7 +231,7 @@ export async function GET(request: Request) {
   let sent = 0;
   let staleRemoved = 0;
 
-  for (const profile of profiles as ProfileRow[]) {
+  for (const profile of profiles as unknown as ProfileRow[]) {
     const { data: subscriptions } = await supabase
       .from('push_subscriptions')
       .select('endpoint, p256dh, auth')
@@ -205,6 +247,7 @@ export async function GET(request: Request) {
     let magiaEveningSent = false;
     let magiaStreakSent = false;
     let magiaReengagementSent = false;
+    let weeklySent = false;
     const staleEndpoints = new Set<string>();
 
     for (const sub of subscriptions) {
@@ -215,6 +258,7 @@ export async function GET(request: Request) {
           await sendPushNotification(sub, notif);
           sent++;
           if (notif.type === 'angol') angolSent = true;
+          if (notif.type === 'magia_weekly') weeklySent = true;
           if (notif.type === 'magia_morning') magiaMorningSent = true;
           if (notif.type === 'magia_evening') magiaEveningSent = true;
           if (notif.type === 'magia_streak') magiaStreakSent = true;
@@ -252,6 +296,7 @@ export async function GET(request: Request) {
     if (magiaEveningSent) updates.last_magia_evening_push_date = budapestNow.date;
     if (magiaStreakSent) updates.last_magia_streak_push_date = budapestNow.date;
     if (magiaReengagementSent) updates.last_magia_reengagement_date = budapestNow.date;
+    if (weeklySent) updates.last_weekly_report_date = budapestNow.date;
 
     if (Object.keys(updates).length > 1) {
       await supabase.from('profiles').update(updates).eq('id', profile.id);

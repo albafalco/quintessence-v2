@@ -7,8 +7,10 @@ import { BookOpen } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { ExerciseItem } from './ExerciseItem';
 import {
+  buildExerciseKey,
   getExerciseProgress,
   type MagiaProgressRecord,
+  type RatingStats,
 } from '@/lib/magia-utils';
 import { cn } from '@/lib/utils';
 import type { MagiaSection, Exercise } from '@/lib/magia-types';
@@ -26,6 +28,8 @@ interface FokozatTabsProps {
   lelek: SectionData;
   test: SectionData;
   progress: MagiaProgressRecord[];
+  /** Latest rated sessions per full exercise key (mastery-readiness hint) */
+  ratingStats?: Record<string, RatingStats>;
   userId: string;
   onMasteryChange?: () => void;
 }
@@ -39,6 +43,7 @@ export function FokozatTabs({
   lelek,
   test,
   progress,
+  ratingStats,
   userId,
   onMasteryChange,
 }: FokozatTabsProps) {
@@ -159,6 +164,7 @@ export function FokozatTabs({
                 initialNotes={exerciseProgress.notes}
                 initialStatus={exerciseProgress.status}
                 initialSessionCount={exerciseProgress.sessionCount}
+                recentRating={ratingStats?.[buildExerciseKey(activeTab, fokozatId, exercise.key)]}
                 userId={userId}
                 onMasteryChange={handleMasteryChange}
               />

@@ -68,6 +68,8 @@ export interface SoulMirrorItem {
   intensity: 1 | 2 | 3;
   work_method: WorkMethod | null;
   resolved: boolean;
+  /** When the item was resolved (migration 008); null/absent before that. */
+  resolved_at?: string | null;
   created_at: string;
   updated_at: string;
 }

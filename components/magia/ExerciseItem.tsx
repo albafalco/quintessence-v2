@@ -3,7 +3,7 @@
 import { useCallback, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
-import { buildExerciseKey } from '@/lib/magia-utils';
+import { buildExerciseKey, isReadyForMastery, type RatingStats } from '@/lib/magia-utils';
 import { Textarea } from '@/components/ui/textarea';
 import { ExerciseRunner } from './ExerciseRunner';
 import { MagiaModal } from './MagiaModal';
@@ -28,6 +28,8 @@ interface ExerciseItemProps {
   initialSessionCount?: number;
   userId: string;
   onMasteryChange?: () => void;
+  /** Latest rated sessions of this exercise (for the mastery-readiness hint) */
+  recentRating?: RatingStats;
 }
 
 export function ExerciseItem({
@@ -46,6 +48,7 @@ export function ExerciseItem({
   initialSessionCount = 0,
   userId,
   onMasteryChange,
+  recentRating,
 }: ExerciseItemProps) {
   const t = useTranslations('magia');
   const [completed, setCompleted] = useState(initialCompleted);
@@ -73,6 +76,9 @@ export function ExerciseItem({
 
   const fullKey = buildExerciseKey(section, fokozatId, exerciseKey);
   const isMastered = status === 'mastered';
+  const readyForMastery =
+    Boolean(successCriteria) &&
+    isReadyForMastery({ status, sessionCount, minSessions, rating: recentRating });
 
   const saveProgress = useCallback(
     async (updates: { completed?: boolean; notes?: string }) => {
@@ -188,6 +194,16 @@ export function ExerciseItem({
               <p className="mt-2 text-[11px] text-accent/60">
                 {t('sessionCountDisplay', { count: sessionCount })}
               </p>
+            )}
+
+            {readyForMastery && (
+              <button
+                type="button"
+                onClick={() => setMasteryOpen(true)}
+                className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 text-[11px] font-semibold text-accent shadow-glow-gold transition hover:bg-accent/20"
+              >
+                ✦ {t('readyForMastery')}
+              </button>
             )}
 
             {/* Indítás + Uraltság gombok */}

@@ -5,9 +5,11 @@ import type { PillarBalance } from '@/lib/magia-utils';
 
 interface PillarBalanceProps {
   balance: PillarBalance;
+  /** Overrides the default heading (e.g. for a specific week). */
+  title?: string;
 }
 
-export function PillarBalanceChart({ balance }: PillarBalanceProps) {
+export function PillarBalanceChart({ balance, title }: PillarBalanceProps) {
   const t = useTranslations('magia');
   const formatMin = (sec: number) => t('durationMin', { m: Math.floor(sec / 60) });
   const total = balance.totalSec;
@@ -22,7 +24,7 @@ export function PillarBalanceChart({ balance }: PillarBalanceProps) {
     return (
       <div className="rounded-2xl border border-border/40 bg-card/20 p-5">
         <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-accent/70">
-          {t('pillarTitle')}
+          {title ?? t('pillarTitle')}
         </h3>
         <p className="text-sm text-muted-foreground text-center py-4">
           {t('pillarNoData')}
@@ -42,7 +44,7 @@ export function PillarBalanceChart({ balance }: PillarBalanceProps) {
   return (
     <div className="rounded-2xl border border-border/40 bg-card/20 p-5 space-y-4">
       <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-accent/70">
-        {t('pillarTitleRecent')}
+        {title ?? t('pillarTitleRecent')}
       </h3>
 
       <div className="space-y-3">

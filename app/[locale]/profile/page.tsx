@@ -51,6 +51,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
             push_magia_streak: profile.push_magia_streak ?? true,
             push_magia_streak_time: profile.push_magia_streak_time ?? '20:30',
             push_magia_reengagement: profile.push_magia_reengagement ?? true,
+            push_weekly_report: profile.push_weekly_report ?? true,
             push_angol_reminders: profile.push_angol_reminders ?? true,
             push_angol_time: profile.push_angol_time ?? '20:00',
           }}

@@ -7,7 +7,7 @@ import type { Locale } from '@/i18n';
 import { FokozatTabs } from '@/components/magia/FokozatTabs';
 import { JournalSection } from '@/components/magia/JournalSection';
 import { ProgressRing } from '@/components/magia/ProgressRing';
-import { ROMAN_NUMERALS, getFokozatProgress, isFokozatUnlocked } from '@/lib/magia-utils';
+import { ROMAN_NUMERALS, computeRatingStats, getFokozatProgress, isFokozatUnlocked } from '@/lib/magia-utils';
 import type { JournalEntryData } from '@/components/magia/JournalEntry';
 import type { MagiaProgressRecord } from '@/lib/magia-utils';
 
@@ -37,7 +37,7 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
   if (!user) notFound();
 
   // Minden progress kell az unlock-ellenőrzéshez
-  const [{ data: allProgressData }, { data: journalData }] = await Promise.all([
+  const [{ data: allProgressData }, { data: journalData }, { data: ratedData }] = await Promise.all([
     supabase
       .from('magia_progress')
       .select('fokozat, section, exercise_key, completed, notes, status, mastered_at, session_count')
@@ -50,7 +50,18 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
       .eq('user_id', user.id)
       .eq('fokozat', fokozatId)
       .order('entry_date', { ascending: false }),
+    supabase
+      .from('magia_sessions')
+      .select('exercise_key, rating, started_at')
+      .eq('user_id', user.id)
+      .not('rating', 'is', null)
+      .order('started_at', { ascending: false })
+      .eq('fokozat', fokozatId)
+      .limit(1000),
   ]);
+  const ratingStats = computeRatingStats(
+    (ratedData ?? []) as { exercise_key: string; rating: number | null; started_at: string }[]
+  );
 
   const allProgress = (allProgressData ?? []) as MagiaProgressRecord[];
   const progress = allProgress.filter((p) => p.fokozat === fokozatId);
@@ -108,6 +119,7 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
           lelek={fokozat.lelek}
           test={fokozat.test}
           progress={progress}
+          ratingStats={ratingStats}
           userId={user.id}
         />
 

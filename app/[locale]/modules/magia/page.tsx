@@ -5,6 +5,8 @@ import { loadMagiaFokozatok } from '@/lib/magia-data';
 import type { Locale } from '@/i18n';
 import { FokozatCard } from '@/components/magia/FokozatCard';
 import type { MagiaProgressRecord } from '@/lib/magia-utils';
+import type { SoulMirrorItem } from '@/lib/magia-types';
+import { ElementBalance } from '@/components/magia/ElementBalance';
 
 interface MagiaPageProps {
   params: Promise<{ locale: string }>;
@@ -21,6 +23,7 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
   } = await supabase.auth.getUser();
 
   let progress: MagiaProgressRecord[] = [];
+  let mirrorItems: Pick<SoulMirrorItem, 'mirror' | 'element' | 'intensity' | 'resolved'>[] = [];
 
   if (user) {
     const { data } = await supabase
@@ -29,6 +32,12 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
       .eq('user_id', user.id);
 
     progress = (data ?? []) as MagiaProgressRecord[];
+
+    const { data: mirrorData } = await supabase
+      .from('magia_soul_mirror')
+      .select('mirror, element, intensity, resolved')
+      .eq('user_id', user.id);
+    mirrorItems = (mirrorData ?? []) as typeof mirrorItems;
   }
 
   return (
@@ -40,16 +49,38 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
         </h1>
         <p className="mt-3 max-w-xl text-muted-foreground leading-relaxed">{t('subtitle')}</p>
         {user && (
-          <div className="mt-4">
+          <div className="mt-4 flex flex-wrap gap-2">
             <Link
               href={`/${locale}/modules/magia/ma`}
               className="inline-flex items-center gap-2 rounded-xl bg-accent/20 px-4 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold"
             >
               {t('dailyPracticeButton')}
             </Link>
+            <Link
+              href={`/${locale}/modules/magia/jelentes`}
+              className="inline-flex items-center gap-2 rounded-xl border border-accent/30 px-4 py-2.5 text-sm font-semibold text-accent/90 transition hover:bg-accent/10"
+            >
+              {t('reportButton')}
+            </Link>
           </div>
         )}
       </header>
+
+      {mirrorItems.some((i) => i.element) && (
+        <section className="space-y-3">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-accent/70">{t('elementBalanceSectionTitle')}</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <p className="mb-2 text-sm font-semibold text-cream">{t('soulMirrorBlack')}</p>
+              <ElementBalance items={mirrorItems} mirror="fekete" />
+            </div>
+            <div>
+              <p className="mb-2 text-sm font-semibold text-cream">{t('soulMirrorWhite')}</p>
+              <ElementBalance items={mirrorItems} mirror="feher" />
+            </div>
+          </div>
+        </section>
+      )}
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {fokozatok.map((fokozat) => (
