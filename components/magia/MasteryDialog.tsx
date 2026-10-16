@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client';
 import { buildExerciseKey } from '@/lib/magia-utils';
 import { MagiaModal } from './MagiaModal';
 import type { MagiaSection, ExerciseStatus } from '@/lib/magia-types';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface MasteryDialogProps {
   fokozatId: number;
@@ -103,7 +104,7 @@ export function MasteryDialog({
             ? 'border-green-500/20 bg-green-500/5'
             : 'border-amber-500/20 bg-amber-500/5'
         }`}>
-          <span className="text-xl">{meetsMinSessions ? '✓' : '⚠'}</span>
+          <AppIcon name={meetsMinSessions ? 'check' : 'alert'} className={meetsMinSessions ? 'h-5 w-5 text-green-400' : 'h-5 w-5 text-amber-400'} />
           <div>
             <p className="text-xs font-semibold text-cream">
               {t('masteryDialogSessions', { count: sessionCount, min: minSessions })}

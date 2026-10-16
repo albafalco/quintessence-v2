@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import type { PillarBalance } from '@/lib/magia-utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface PillarBalanceProps {
   balance: PillarBalance;
@@ -15,9 +16,9 @@ export function PillarBalanceChart({ balance, title }: PillarBalanceProps) {
   const total = balance.totalSec;
 
   const PILLAR_CONFIG = [
-    { key: 'szellem' as const, label: t('pillarSzellem'), color: '#818cf8', emoji: '🧠' },
-    { key: 'lelek' as const, label: t('pillarLelek'), color: '#f9a8d4', emoji: '💎' },
-    { key: 'test' as const, label: t('pillarTest'), color: '#4ade80', emoji: '⚡' },
+    { key: 'szellem' as const, label: t('pillarSzellem'), color: '#818cf8', icon: 'brain' },
+    { key: 'lelek' as const, label: t('pillarLelek'), color: '#f9a8d4', icon: 'gem' },
+    { key: 'test' as const, label: t('pillarTest'), color: '#4ade80', icon: 'zap' },
   ];
 
   if (total === 0) {
@@ -52,7 +53,7 @@ export function PillarBalanceChart({ balance, title }: PillarBalanceProps) {
           <div key={p.key} className="space-y-1.5">
             <div className="flex items-center justify-between text-xs">
               <span className="flex items-center gap-1.5 font-medium text-cream">
-                <span>{p.emoji}</span>
+                <AppIcon name={p.icon} className="h-3.5 w-3.5" />
                 {p.label}
               </span>
               <span className="text-muted-foreground">
@@ -76,7 +77,8 @@ export function PillarBalanceChart({ balance, title }: PillarBalanceProps) {
       {neglected.length > 0 && (
         <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 px-3 py-2.5">
           <p className="text-xs text-amber-400">
-            ⚠ {t('pillarNeglectedWarning', { names: neglected.map((p) => p.label).join(', ') })}
+            <AppIcon name="alert" className="mr-1 h-3.5 w-3.5 align-[-3px] text-current" />
+            {t('pillarNeglectedWarning', { names: neglected.map((p) => p.label).join(', ') })}
           </p>
         </div>
       )}

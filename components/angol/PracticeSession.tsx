@@ -7,6 +7,7 @@ import type { MondatPair } from '@/lib/i18n-content';
 import { TTSButton } from '@/components/angol/TTSButton';
 import { recordAngolActivity } from '@/lib/angol-activity';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface PracticeSessionProps {
   sectionId: number;
@@ -173,7 +174,11 @@ export function PracticeSession({
           {lastExamScore != null && (
             <p className="text-sm">
               {t('lastScore', { score: lastExamScore })}{' '}
-              {lastExamPassed ? '✅' : '❌'}
+              {lastExamPassed ? (
+                <AppIcon name="check" className="h-4 w-4 align-[-3px] text-green-400" />
+              ) : (
+                <AppIcon name="cross" className="h-4 w-4 align-[-3px] text-red-400" />
+              )}
             </p>
           )}
           <button

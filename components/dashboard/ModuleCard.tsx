@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface ModuleCardProps {
   title: string;
@@ -73,7 +74,12 @@ export function ModuleCard({
                 {progressLabel}
               </p>
             )}
-            {note && <p className="text-sm font-medium text-slate-200">🔁 {note}</p>}
+            {note && (
+              <p className="flex items-center gap-1.5 text-sm font-medium text-slate-200">
+                <AppIcon name="repeat" className="h-3.5 w-3.5" />
+                {note}
+              </p>
+            )}
           </div>
         </div>
       </CardHeader>

@@ -6,6 +6,7 @@ import { Check, ChevronRight } from 'lucide-react';
 import type { TodayData } from '@/lib/today';
 import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 const MAX_MAGIA_ROWS = 5;
 
@@ -58,7 +59,10 @@ export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps
           <p className="text-xs text-muted-foreground">{t('todayProgress', { done, total })}</p>
         </div>
         {today.streak > 0 && (
-          <span className="rounded-xl bg-accent/10 px-3 py-1 text-sm font-bold text-accent shadow-glow-gold">🔥 {today.streak}</span>
+          <span className="inline-flex items-center gap-1 rounded-xl bg-accent/10 px-3 py-1 text-sm font-bold text-accent shadow-glow-gold">
+            <AppIcon name="flame" className="h-4 w-4" />
+            {today.streak}
+          </span>
         )}
       </div>
       <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-muted/60">
@@ -106,7 +110,8 @@ export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps
           <ul>
             {hasAngolTask && (
               <TaskRow href={`/${locale}/modules/angol/lecke/1/szakasz/0`} done={angolReviewCount === 0}>
-                🔁 {t('todayReview', { count: angolReviewCount ?? 0 })}
+                <AppIcon name="repeat" className="mr-1.5 h-3.5 w-3.5 align-[-2px]" />
+                {t('todayReview', { count: angolReviewCount ?? 0 })}
               </TaskRow>
             )}
             {today.hardCount > 0 && (
@@ -115,7 +120,9 @@ export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps
                   href={`/${locale}/modules/angol/lecke/1/nehez`}
                   className="flex items-center gap-3 rounded-xl px-2 py-2 text-sm text-amber-200/90 transition hover:bg-muted/30"
                 >
-                  <span className="w-5 text-center">⚠</span>
+                  <span className="flex w-5 justify-center">
+                    <AppIcon name="alert" className="h-4 w-4" />
+                  </span>
                   <span className="flex-1">{t('todayHard', { count: today.hardCount })}</span>
                   <ChevronRight className="h-4 w-4 text-muted-foreground/50" />
                 </Link>

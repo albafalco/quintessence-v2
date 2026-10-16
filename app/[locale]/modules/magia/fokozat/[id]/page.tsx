@@ -10,6 +10,7 @@ import { ProgressRing } from '@/components/magia/ProgressRing';
 import { ROMAN_NUMERALS, computeRatingStats, getFokozatProgress, isFokozatUnlocked } from '@/lib/magia-utils';
 import type { JournalEntryData } from '@/components/magia/JournalEntry';
 import type { MagiaProgressRecord } from '@/lib/magia-utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface FokozatPageProps {
   params: Promise<{ locale: string; id: string }>;
@@ -87,7 +88,7 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
           className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-4xl"
           style={{ background: `${fokozat.szin}18`, border: `1px solid ${fokozat.szin}33` }}
         >
-          {fokozat.icon}
+          <AppIcon name={fokozat.icon} className="h-8 w-8" />
         </div>
         <div className="flex-1">
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">

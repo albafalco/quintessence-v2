@@ -5,10 +5,12 @@ import type { ElementType, SoulMirrorItem, SoulMirrorType } from '@/lib/magia-ty
 import { cn } from '@/lib/utils';
 import {
   ELEMENT_COLORS,
+  ELEMENT_ICONS,
   ELEMENT_LABEL_KEYS as LABEL_KEYS,
   ELEMENT_ORDER as ORDER,
   plainElementName as plainName,
 } from '@/lib/elements';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 
 export interface ElementStats {
@@ -118,7 +120,7 @@ export function ElementBalance({ items, mirror, className }: ElementBalanceProps
           <ul className="min-w-0 flex-1 space-y-1.5">
             {ORDER.map((el) => (
               <li key={el} className="flex items-center gap-2 text-xs">
-                <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: ELEMENT_COLORS[el] }} />
+                <AppIcon name={ELEMENT_ICONS[el]} className="h-3.5 w-3.5" style={{ color: ELEMENT_COLORS[el] }} />
                 <span className="flex-1 truncate text-cream/90">{name(el)}</span>
                 <span className="tabular-nums text-cream">{pct(el)}%</span>
                 {stats.resolved[el] > 0 && (

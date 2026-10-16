@@ -11,6 +11,7 @@ import {
 } from '@/lib/magia-utils';
 import { cn } from '@/lib/utils';
 import type { MagiaSection } from '@/lib/magia-types';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface FokozatData {
   id: number;
@@ -92,7 +93,7 @@ export function FokozatCard({ fokozat, locale, progress }: FokozatCardProps) {
               className="flex h-14 w-14 items-center justify-center rounded-2xl text-2xl"
               style={{ background: `${fokozat.szin}12`, border: `1px solid ${fokozat.szin}22` }}
             >
-              🔒
+              <AppIcon name="lock" className="h-6 w-6 text-accent/50" />
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/50">
@@ -127,7 +128,7 @@ export function FokozatCard({ fokozat, locale, progress }: FokozatCardProps) {
             className="flex h-14 w-14 items-center justify-center rounded-2xl text-3xl shadow-glow-gold"
             style={{ background: `${fokozat.szin}18`, border: `1px solid ${fokozat.szin}33` }}
           >
-            {fokozat.icon}
+            <AppIcon name={fokozat.icon} className="h-7 w-7" />
           </div>
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">

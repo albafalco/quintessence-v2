@@ -10,6 +10,14 @@ export const ELEMENT_COLORS: Record<ElementType, string> = {
   fold: '#E3B23C', // earth
 };
 
+/** AppIcon name of each element */
+export const ELEMENT_ICONS: Record<ElementType, string> = {
+  tuz: 'flame',
+  levego: 'wind',
+  viz: 'droplet',
+  fold: 'mountain',
+};
+
 /** messages key (magia namespace) of each element's label */
 export const ELEMENT_LABEL_KEYS: Record<ElementType, string> = {
   tuz: 'soulMirrorElementFire',
@@ -18,5 +26,5 @@ export const ELEMENT_LABEL_KEYS: Record<ElementType, string> = {
   fold: 'soulMirrorElementEarth',
 };
 
-/** "🔥 Tűz" → "Tűz", for use inside sentences. */
+/** Strips any leading symbol from an element label, for use inside sentences. */
 export const plainElementName = (label: string) => label.replace(/^[^\p{L}]+/u, '');

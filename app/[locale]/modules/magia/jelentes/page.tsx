@@ -11,6 +11,7 @@ import { PillarBalanceChart } from '@/components/magia/PillarBalance';
 import { ELEMENT_COLORS, ELEMENT_LABEL_KEYS, plainElementName } from '@/lib/elements';
 import type { ElementType } from '@/lib/magia-types';
 import type { Locale } from '@/i18n';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface ReportPageProps {
   params: Promise<{ locale: string }>;
@@ -84,7 +85,7 @@ export default async function WeeklyReportPage({ params, searchParams }: ReportP
         </div>
         <div className="mt-3 flex gap-3">
           <Link href={`/${locale}/modules/magia`} className="text-xs text-muted-foreground transition hover:text-accent">{t('maBackToAll')}</Link>
-          <Link href={`/${locale}/modules/magia/ma`} className="text-xs text-muted-foreground transition hover:text-accent">{t('dailyPracticeButton')}</Link>
+          <Link href={`/${locale}/modules/magia/ma`} className="text-xs text-muted-foreground transition hover:text-accent"><AppIcon name="play" className="mr-1 h-3 w-3 align-[-2px] text-current" />{t('dailyPracticeButton')}</Link>
         </div>
       </header>
 
@@ -123,8 +124,9 @@ export default async function WeeklyReportPage({ params, searchParams }: ReportP
             </div>
           ))}
         </div>
-        <p className="mt-4 text-sm text-cream/90">
-          🔥 {t('reportStreak', { count: report.streak })}
+        <p className="mt-4 flex items-center gap-1.5 text-sm text-cream/90">
+          <AppIcon name="flame" className="h-4 w-4" />
+          {t('reportStreak', { count: report.streak })}
         </p>
       </Card>
 

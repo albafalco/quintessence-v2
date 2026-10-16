@@ -11,6 +11,7 @@ import { speakEnglish, speakableEnglish } from '@/lib/tts';
 import { FlashCard } from '@/components/angol/FlashCard';
 import { TTSButton } from '@/components/angol/TTSButton';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface VocabularyTrainerProps {
   lessonId: number;
@@ -68,7 +69,8 @@ export function VocabularyTrainer({ lessonId, vocabulary, onStartExam }: Vocabul
               activeTab === 'review' ? 'border-accent/50 bg-accent/15 text-accent' : 'border-border/50 text-muted-foreground hover:text-cream'
             )}
           >
-            🔁 {t('reviewToday')}
+            <AppIcon name="repeat" className="mr-1.5 h-4 w-4 align-[-3px] text-current" />
+            {t('reviewToday')}
             {schedule.status === 'ready' && ` (${reviewCount})`}
           </button>
           <button

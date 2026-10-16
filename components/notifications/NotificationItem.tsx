@@ -6,12 +6,13 @@ import { Check, ChevronRight } from 'lucide-react';
 import { relativeTime, stripRichText, type ResolvedNotification } from '@/lib/notifications';
 import { RichText } from '@/components/notifications/RichText';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 const ICON_STYLE: Record<ResolvedNotification['category'], string> = {
   news: 'bg-accent/15 text-accent',
   content: 'bg-primary/30 text-accent-light',
   system: 'bg-amber-400/15 text-amber-200',
-  personal: 'bg-gradient-to-br from-accent-light to-accent-dark text-accent-foreground',
+  personal: 'border border-accent/40 bg-accent/10 text-accent',
 };
 
 /** Height of the collapsed text (~3 lines of text-sm leading-relaxed). */
@@ -32,8 +33,8 @@ interface NotificationItemProps {
 
 function Icon({ item }: { item: ResolvedNotification }) {
   return (
-    <span className={cn('flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-base', ICON_STYLE[item.category])}>
-      {item.icon}
+    <span className={cn('flex h-9 w-9 shrink-0 items-center justify-center rounded-full', ICON_STYLE[item.category])}>
+      <AppIcon name={item.icon} className="h-4 w-4 text-current" />
     </span>
   );
 }

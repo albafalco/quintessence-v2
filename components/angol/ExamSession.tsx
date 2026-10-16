@@ -10,6 +10,7 @@ import { getNextSectionId } from '@/lib/angol-unlocks';
 import { recordHardItems } from '@/lib/angol-hard';
 import { SpeechInput } from '@/components/angol/SpeechInput';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 const PASS_THRESHOLD = 80;
 
@@ -163,6 +164,10 @@ export function ExamSession({
           </p>
           <p className="mt-3 font-display text-4xl font-semibold text-gradient-gold">{result.percent}%</p>
           <p className="mt-6 text-lg font-medium">
+            <AppIcon
+              name={passed ? 'check' : 'cross'}
+              className={passed ? 'mr-2 h-5 w-5 align-[-4px] text-green-400' : 'mr-2 h-5 w-5 align-[-4px] text-red-400'}
+            />
             {passed ? t('passedResult') : t('failedResult')}
           </p>
           {!passed && (

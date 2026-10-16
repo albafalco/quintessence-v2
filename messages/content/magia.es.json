@@ -3,7 +3,7 @@
     "id": 1,
     "cim": "Primer Grado",
     "rovidcim": "Grado I",
-    "icon": "🌱",
+    "icon": "sprout",
     "szin": "#4ade80",
     "szellem": {
       "cim": "Formación Mágica del Espíritu (I) — Control, disciplina y dominio del pensamiento",
@@ -146,7 +146,7 @@
     "id": 2,
     "cim": "Segundo Grado",
     "rovidcim": "Grado II",
-    "icon": "🌿",
+    "icon": "leaf",
     "szin": "#34d399",
     "szellem": {
       "cim": "Formación Mágica del Espíritu (II) — Autosugestión y ejercicios de concentración",
@@ -296,7 +296,7 @@
     "id": 3,
     "cim": "Tercer Grado",
     "rovidcim": "Grado III",
-    "icon": "🔥",
+    "icon": "flame",
     "szin": "#fb923c",
     "szellem": {
       "cim": "Formación Mágica del Espíritu (III) — Concentración del pensamiento con dos y tres sentidos",
@@ -438,7 +438,7 @@
     "id": 4,
     "cim": "Cuarto Grado",
     "rovidcim": "Grado IV",
-    "icon": "🌊",
+    "icon": "waves",
     "szin": "#38bdf8",
     "szellem": {
       "cim": "Formación Mágica del Espíritu (IV) — Proyección de la conciencia en objetos, animales y personas",
@@ -555,7 +555,7 @@
     "id": 5,
     "cim": "Quinto Grado",
     "rovidcim": "Grado V",
-    "icon": "⭐",
+    "icon": "star",
     "szin": "#facc15",
     "szellem": {
       "cim": "Formación Mágica del Espíritu (V) — Magia del espacio",
@@ -669,7 +669,7 @@
     "id": 6,
     "cim": "Sexto Grado",
     "rovidcim": "Grado VI",
-    "icon": "🌀",
+    "icon": "orbit",
     "szin": "#818cf8",
     "szellem": {
       "cim": "Formación Mágica del Espíritu (VI) — Concentración en el propio espíritu, conciencia de los sentidos",
@@ -780,7 +780,7 @@
     "id": 7,
     "cim": "Séptimo Grado",
     "rovidcim": "Grado VII",
-    "icon": "👁️",
+    "icon": "eye",
     "szin": "#a78bfa",
     "szellem": {
       "cim": "Formación Mágica del Espíritu (VII) — Análisis del espíritu en relación con la práctica",
@@ -855,7 +855,7 @@
     "id": 8,
     "cim": "Octavo Grado",
     "rovidcim": "Grado VIII",
-    "icon": "🌙",
+    "icon": "moon",
     "szin": "#64748b",
     "szellem": {
       "cim": "Formación Mágica del Espíritu (VIII) — Vagabundeo mental",
@@ -998,7 +998,7 @@
     "id": 9,
     "cim": "Noveno Grado",
     "rovidcim": "Grado IX",
-    "icon": "🪞",
+    "icon": "mirror",
     "szin": "#f9a8d4",
     "szellem": {
       "cim": "Formación Mágica del Espíritu (IX) — Clarividencia con espejos mágicos",
@@ -1105,7 +1105,7 @@
     "id": 10,
     "cim": "Décimo Grado",
     "rovidcim": "Grado X",
-    "icon": "✨",
+    "icon": "sparkles",
     "szin": "#fbbf24",
     "szellem": {
       "cim": "Formación Mágica del Espíritu (X) — Elevación del espíritu a los planos superiores",

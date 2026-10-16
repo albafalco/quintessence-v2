@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import type { DailyHeatmapEntry } from '@/lib/magia-utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface StreakCalendarProps {
   data: DailyHeatmapEntry[];
@@ -57,7 +58,8 @@ export function StreakCalendar({ data, streak }: StreakCalendarProps) {
         </h3>
         {streak > 0 && (
           <div className="flex items-center gap-1.5 rounded-xl bg-accent/10 px-3 py-1 text-sm font-bold text-accent shadow-glow-gold">
-            🔥 {streak} {t('calendarStreak')}
+            <AppIcon name="flame" className="h-4 w-4" />
+            {streak} {t('calendarStreak')}
           </div>
         )}
       </div>

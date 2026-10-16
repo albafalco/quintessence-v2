@@ -3,7 +3,7 @@
     "id": 1,
     "cim": "Erste Stufe",
     "rovidcim": "Stufe I",
-    "icon": "🌱",
+    "icon": "sprout",
     "szin": "#4ade80",
     "szellem": {
       "cim": "Magische Geistesschulung (I) — Gedankenkontrolle, -disziplin und -beherrschung",
@@ -146,7 +146,7 @@
     "id": 2,
     "cim": "Zweite Stufe",
     "rovidcim": "Stufe II",
-    "icon": "🌿",
+    "icon": "leaf",
     "szin": "#34d399",
     "szellem": {
       "cim": "Magische Geistesschulung (II) — Autosuggestion und Konzentrationsübungen",
@@ -296,7 +296,7 @@
     "id": 3,
     "cim": "Dritte Stufe",
     "rovidcim": "Stufe III",
-    "icon": "🔥",
+    "icon": "flame",
     "szin": "#fb923c",
     "szellem": {
       "cim": "Magische Geistesschulung (III) — Gedankenkonzentration mit zwei und drei Sinnen",
@@ -438,7 +438,7 @@
     "id": 4,
     "cim": "Vierte Stufe",
     "rovidcim": "Stufe IV",
-    "icon": "🌊",
+    "icon": "waves",
     "szin": "#38bdf8",
     "szellem": {
       "cim": "Magische Geistesschulung (IV) — Bewusstseinsprojektion in Gegenstände, Tiere und Menschen",
@@ -555,7 +555,7 @@
     "id": 5,
     "cim": "Fünfte Stufe",
     "rovidcim": "Stufe V",
-    "icon": "⭐",
+    "icon": "star",
     "szin": "#facc15",
     "szellem": {
       "cim": "Magische Geistesschulung (V) — Raummagie",
@@ -669,7 +669,7 @@
     "id": 6,
     "cim": "Sechste Stufe",
     "rovidcim": "Stufe VI",
-    "icon": "🌀",
+    "icon": "orbit",
     "szin": "#818cf8",
     "szellem": {
       "cim": "Magische Geistesschulung (VI) — Konzentration auf den eigenen Geist, Bewusstsein der Sinne",
@@ -780,7 +780,7 @@
     "id": 7,
     "cim": "Siebte Stufe",
     "rovidcim": "Stufe VII",
-    "icon": "👁️",
+    "icon": "eye",
     "szin": "#a78bfa",
     "szellem": {
       "cim": "Magische Geistesschulung (VII) — Analyse des Geistes in Bezug auf die Praxis",
@@ -855,7 +855,7 @@
     "id": 8,
     "cim": "Achte Stufe",
     "rovidcim": "Stufe VIII",
-    "icon": "🌙",
+    "icon": "moon",
     "szin": "#64748b",
     "szellem": {
       "cim": "Magische Geistesschulung (VIII) — Mentales Wandern",
@@ -998,7 +998,7 @@
     "id": 9,
     "cim": "Neunte Stufe",
     "rovidcim": "Stufe IX",
-    "icon": "🪞",
+    "icon": "mirror",
     "szin": "#f9a8d4",
     "szellem": {
       "cim": "Magische Geistesschulung (IX) — Hellsehen mit magischen Spiegeln",
@@ -1105,7 +1105,7 @@
     "id": 10,
     "cim": "Zehnte Stufe",
     "rovidcim": "Stufe X",
-    "icon": "✨",
+    "icon": "sparkles",
     "szin": "#fbbf24",
     "szellem": {
       "cim": "Magische Geistesschulung (X) — Erhebung des Geistes auf höhere Ebenen",

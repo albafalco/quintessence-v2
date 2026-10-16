@@ -8,6 +8,7 @@ import { PrimaryButton } from '@/components/admin/ui';
 import { useConfirm } from '@/components/ui/confirm-dialog';
 import { formatAdminDate, inviteLink, type InviteCodeRow, type InviteStatus } from '@/lib/invite-codes';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 type Expiry = 'none' | '7' | '30' | 'date';
 type Tab = 'available' | 'used' | 'closed';
@@ -191,7 +192,7 @@ export function InviteManager({ codes, usernames }: { codes: InviteWithStatus[];
                   {c.note && <span className="text-sm text-cream">{c.note}</span>}
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  {c.email && <>✉ {c.email} · </>}
+                  {c.email && <><AppIcon name="mail" className="mr-1 h-3 w-3 align-[-2px]" />{c.email} · </>}
                   Létrehozva: {formatAdminDate(c.created_at, false)}
                   {c.created_by && usernames[c.created_by] && <> · Készítette: @{usernames[c.created_by]}</>}
                   {c.status === 'available' && <> · Lejár: {c.expires_at ? formatAdminDate(c.expires_at, false) : 'soha'}</>}

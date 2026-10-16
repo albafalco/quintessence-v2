@@ -7,6 +7,7 @@ import { FokozatCard } from '@/components/magia/FokozatCard';
 import type { MagiaProgressRecord } from '@/lib/magia-utils';
 import type { SoulMirrorItem } from '@/lib/magia-types';
 import { ElementBalance } from '@/components/magia/ElementBalance';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface MagiaPageProps {
   params: Promise<{ locale: string }>;
@@ -54,6 +55,7 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
               href={`/${locale}/modules/magia/ma`}
               className="inline-flex items-center gap-2 rounded-xl bg-accent/20 px-4 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold"
             >
+              <AppIcon name="play" className="h-4 w-4 text-current" />
               {t('dailyPracticeButton')}
             </Link>
             <Link
@@ -71,11 +73,17 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-accent/70">{t('elementBalanceSectionTitle')}</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <p className="mb-2 text-sm font-semibold text-cream">{t('soulMirrorBlack')}</p>
+              <p className="mb-2 flex items-center gap-1.5 text-sm font-semibold text-cream">
+                <AppIcon name="heart" filled className="h-4 w-4" />
+                {t('soulMirrorBlack')}
+              </p>
               <ElementBalance items={mirrorItems} mirror="fekete" />
             </div>
             <div>
-              <p className="mb-2 text-sm font-semibold text-cream">{t('soulMirrorWhite')}</p>
+              <p className="mb-2 flex items-center gap-1.5 text-sm font-semibold text-cream">
+                <AppIcon name="heart" className="h-4 w-4" />
+                {t('soulMirrorWhite')}
+              </p>
               <ElementBalance items={mirrorItems} mirror="feher" />
             </div>
           </div>

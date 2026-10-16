@@ -10,6 +10,7 @@ import { Collapse } from '@/components/ui/collapse';
 import { InfoTip } from '@/components/ui/info-tip';
 import { emitNotificationsChanged } from '@/lib/notifications';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 export function BadgesSection({ userId, compact = false }: { userId: string; compact?: boolean }) {
   const t = useTranslations('badges');
@@ -63,10 +64,10 @@ export function BadgesSection({ userId, compact = false }: { userId: string; com
                       description={t(`${b.id}.desc`)}
                       footer={state.earned[b.id] ? t('earnedOn', { date: formatDate(state.earned[b.id]!) }) : t('earned')}
                       boundaryRef={contentRef}
-                      className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-accent-light to-accent-dark text-base shadow-glow-gold transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border border-accent/50 bg-accent/10 shadow-glow-gold transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
                       openClassName="scale-110"
                     >
-                      {b.icon}
+                      <AppIcon name={b.icon} className="h-4 w-4" />
                     </InfoTip>
                   ))}
                   {earnedCount === 0 && <p className="text-sm text-muted-foreground">{t('noneYet')}</p>}
@@ -104,11 +105,11 @@ export function BadgesSection({ userId, compact = false }: { userId: string; com
                         >
                           <span
                             className={cn(
-                              'flex h-12 w-12 items-center justify-center rounded-full text-xl',
-                              earned ? 'bg-gradient-to-br from-accent-light to-accent-dark' : 'bg-muted/40 opacity-40 grayscale'
+                              'flex h-12 w-12 items-center justify-center rounded-full border',
+                              earned ? 'border-accent/50 bg-accent/10' : 'border-border/40 bg-muted/40 opacity-40 grayscale'
                             )}
                           >
-                            {badge.icon}
+                            <AppIcon name={badge.icon} className="h-5 w-5" />
                           </span>
                           <p className={cn('mt-2 text-xs font-semibold', earned ? 'text-cream' : 'text-muted-foreground')}>
                             {t(`${badge.id}.title`)}

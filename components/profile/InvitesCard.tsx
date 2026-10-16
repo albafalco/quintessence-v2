@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Collapse } from '@/components/ui/collapse';
 import { useConfirm } from '@/components/ui/confirm-dialog';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface InviteStatus {
   balance: number;
@@ -224,11 +225,23 @@ export function InvitesCard() {
                           {invite.email}
                         </p>
                         <p className="text-xs text-muted-foreground">
-                          {state === 'pending' && `⏳ ${t('statusPending', { date: formatDate(invite.expires_at ?? invite.created_at) })}`}
-                          {state === 'accepted' && (
-                            <span className="text-green-400">✅ {t('statusAccepted', { username: invite.used_username ?? '—' })}</span>
+                          {state === 'pending' && (
+                            <>
+                              <AppIcon name="hourglass" className="mr-1 h-3 w-3 align-[-2px]" />
+                              {t('statusPending', { date: formatDate(invite.expires_at ?? invite.created_at) })}
+                            </>
                           )}
-                          {state === 'expired' && `⌛ ${t('statusExpired')}`}
+                          {state === 'accepted' && (
+                            <span className="text-green-400">
+                              <AppIcon name="check" className="mr-1 h-3 w-3 align-[-2px] text-current" />
+                              {t('statusAccepted', { username: invite.used_username ?? '—' })}</span>
+                          )}
+                          {state === 'expired' && (
+                            <>
+                              <AppIcon name="hourglass" className="mr-1 h-3 w-3 align-[-2px] text-muted-foreground" />
+                              {t('statusExpired')}
+                            </>
+                          )}
                           {state === 'revoked' && t('statusRevoked')}
                         </p>
                       </div>

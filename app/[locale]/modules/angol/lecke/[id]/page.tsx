@@ -8,6 +8,7 @@ import { getHardItemCount, getLearnedWordCount, getPassedSectionIds, getUnlocked
 import vocabulary from '@/messages/content/angol-vocabulary.json';
 import { cn } from '@/lib/utils';
 import type { Locale } from '@/i18n';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 const VOCABULARY_SIZE = (vocabulary as unknown[]).length;
 
@@ -72,7 +73,7 @@ export default async function LeckePage({ params }: LeckePageProps) {
           href={`/${locale}/modules/angol/lecke/${lessonId}/nehez`}
           className="group flex items-center gap-3 rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 transition-colors hover:border-amber-400/50 hover:bg-amber-500/10"
         >
-          <span className="text-lg">⚠</span>
+          <AppIcon name="alert" className="h-5 w-5 text-amber-300" />
           <div className="min-w-0 flex-1">
             <p className="font-medium text-amber-200">{t('hardTitle')} ({hardCount})</p>
             <p className="text-xs text-muted-foreground">{t('hardTileHint')}</p>

@@ -10,6 +10,7 @@ import { recordAngolActivity } from '@/lib/angol-activity';
 import { speakEnglish, speakableEnglish } from '@/lib/tts';
 import { SpeechInput } from '@/components/angol/SpeechInput';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface HardItemsSessionProps {
   initialItems: HardItem[];
@@ -181,7 +182,7 @@ export function HardItemsSession({ initialItems, backHref }: HardItemsSessionPro
                 className="shrink-0 rounded-full bg-slate-700/50 px-2 py-1 text-xs"
                 aria-label={t('listen')}
               >
-                🔊
+                <AppIcon name="volume" className="h-3.5 w-3.5 align-[-2px] text-current" />
               </button>
             </div>
             <p className="mt-2 text-xs text-muted-foreground">

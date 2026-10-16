@@ -3,7 +3,7 @@
     "id": 1,
     "cim": "Első Fokozat",
     "rovidcim": "I. Fokozat",
-    "icon": "🌱",
+    "icon": "sprout",
     "szin": "#4ade80",
     "szellem": {
       "cim": "Mágikus Szellemiskolázás (I.) — Gondolatellenőrzés, -fegyelmezés, -uralás",
@@ -146,7 +146,7 @@
     "id": 2,
     "cim": "Második Fokozat",
     "rovidcim": "II. Fokozat",
-    "icon": "🌿",
+    "icon": "leaf",
     "szin": "#34d399",
     "szellem": {
       "cim": "Mágikus Szellemiskolázás (II.) — Autoszuggesztió és Koncentrációs Gyakorlatok",
@@ -296,7 +296,7 @@
     "id": 3,
     "cim": "Harmadik Fokozat",
     "rovidcim": "III. Fokozat",
-    "icon": "🔥",
+    "icon": "flame",
     "szin": "#fb923c",
     "szellem": {
       "cim": "Mágikus Szellemiskolázás (III.) — Gondolatkoncentráció kettős és hármas érzékkel",
@@ -438,7 +438,7 @@
     "id": 4,
     "cim": "Negyedik Fokozat",
     "rovidcim": "IV. Fokozat",
-    "icon": "🌊",
+    "icon": "waves",
     "szin": "#38bdf8",
     "szellem": {
       "cim": "Mágikus Szellemiskolázás (IV.) — Tudatkihelyezés tárgyakba, állatokba, emberekbe",
@@ -555,7 +555,7 @@
     "id": 5,
     "cim": "Ötödik Fokozat",
     "rovidcim": "V. Fokozat",
-    "icon": "⭐",
+    "icon": "star",
     "szin": "#facc15",
     "szellem": {
       "cim": "Mágikus Szellemiskolázás (V.) — Térmágia",
@@ -669,7 +669,7 @@
     "id": 6,
     "cim": "Hatodik Fokozat",
     "rovidcim": "VI. Fokozat",
-    "icon": "🌀",
+    "icon": "orbit",
     "szin": "#818cf8",
     "szellem": {
       "cim": "Mágikus Szellemiskolázás (VI.) — Saját Szellemre Összpontosítás, Érzékek Tudatosítása",
@@ -780,7 +780,7 @@
     "id": 7,
     "cim": "Hetedik Fokozat",
     "rovidcim": "VII. Fokozat",
-    "icon": "👁️",
+    "icon": "eye",
     "szin": "#a78bfa",
     "szellem": {
       "cim": "Mágikus Szellemiskolázás (VII.) — A Szellem Elemzése a Gyakorlatra Vonatkozóan",
@@ -855,7 +855,7 @@
     "id": 8,
     "cim": "Nyolcadik Fokozat",
     "rovidcim": "VIII. Fokozat",
-    "icon": "🌙",
+    "icon": "moon",
     "szin": "#64748b",
     "szellem": {
       "cim": "Mágikus Szellemiskolázás (VIII.) — Mentális Vándorlás",
@@ -998,7 +998,7 @@
     "id": 9,
     "cim": "Kilencedik Fokozat",
     "rovidcim": "IX. Fokozat",
-    "icon": "🪞",
+    "icon": "mirror",
     "szin": "#f9a8d4",
     "szellem": {
       "cim": "Mágikus Szellemiskolázás (IX.) — Tisztánlátás Mágikus Tükrökkel",
@@ -1105,7 +1105,7 @@
     "id": 10,
     "cim": "Tizedik Fokozat",
     "rovidcim": "X. Fokozat",
-    "icon": "✨",
+    "icon": "sparkles",
     "szin": "#fbbf24",
     "szellem": {
       "cim": "Mágikus Szellemiskolázás (X.) — A Szellem Felemelése a Magasabb Síkokra",

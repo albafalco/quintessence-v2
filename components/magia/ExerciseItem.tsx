@@ -11,6 +11,7 @@ import { MasteryDialog } from './MasteryDialog';
 import { SoulMirrorEditor } from './SoulMirrorEditor';
 import { cn } from '@/lib/utils';
 import type { MagiaSection, ExerciseType, ExerciseParams, ExerciseStatus } from '@/lib/magia-types';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface ExerciseItemProps {
   fokozatId: number;
@@ -72,6 +73,16 @@ export function ExerciseItem({
     journal: t('typeLabelJournal'),
     instructional: t('typeLabelInstructional'),
     worksheet: t('typeLabelWorksheet'),
+  };
+
+  const TYPE_ICONS: Partial<Record<ExerciseType, string>> = {
+    progressive_timed: 'timer',
+    timed: 'timer',
+    habit: 'check',
+    practice: 'target',
+    journal: 'pen',
+    instructional: 'book',
+    worksheet: 'pencil',
   };
 
   const fullKey = buildExerciseKey(section, fokozatId, exerciseKey);
@@ -176,7 +187,8 @@ export function ExerciseItem({
                 {title}
               </h4>
               {TYPE_LABELS[type] && (
-                <span className="rounded-md bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-accent/70">
+                <span className="inline-flex items-center gap-1 rounded-md bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-accent/70">
+                  {TYPE_ICONS[type] && <AppIcon name={TYPE_ICONS[type]} className="h-3 w-3 text-current" />}
                   {TYPE_LABELS[type]}
                 </span>
               )}
@@ -214,6 +226,7 @@ export function ExerciseItem({
                   onClick={() => setMirrorOpen(true)}
                   className="inline-flex items-center gap-1.5 rounded-xl bg-accent/15 px-3 py-1.5 text-xs font-semibold text-accent transition hover:bg-accent/25 hover:shadow-glow-gold"
                 >
+                  <AppIcon name="pencil" className="h-3.5 w-3.5 text-current" />
                   {t('soulMirrorEditorButton')}
                 </button>
               ) : (
@@ -222,6 +235,7 @@ export function ExerciseItem({
                   onClick={() => setRunnerOpen(true)}
                   className="inline-flex items-center gap-1.5 rounded-xl bg-accent/15 px-3 py-1.5 text-xs font-semibold text-accent transition hover:bg-accent/25 hover:shadow-glow-gold"
                 >
+                  <AppIcon name="play" className="h-3.5 w-3.5 text-current" />
                   {t('startButton')}
                 </button>
               )}

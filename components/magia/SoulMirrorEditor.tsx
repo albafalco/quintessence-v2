@@ -6,7 +6,9 @@ import { createClient } from '@/lib/supabase/client';
 import { useConfirm } from '@/components/ui/confirm-dialog';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { ElementBalance } from './ElementBalance';
+import { ELEMENT_ICONS } from '@/lib/elements';
 import type { SoulMirrorItem, SoulMirrorType, ElementType, WorkMethod } from '@/lib/magia-types';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface SoulMirrorEditorProps {
   userId: string;
@@ -176,6 +178,7 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
                 : 'text-muted-foreground hover:text-cream'
             }`}
           >
+            <AppIcon name="heart" filled={tab === 'fekete'} className="mr-1.5 h-4 w-4 align-[-3px] text-current" />
             {tab === 'fekete' ? t('soulMirrorBlack') : t('soulMirrorWhite')}
           </button>
         ))}
@@ -232,6 +235,7 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
                         className="rounded-md px-1.5 py-0.5 text-[10px] font-bold"
                         style={{ color: ELEMENT_COLORS[item.element], background: `${ELEMENT_COLORS[item.element]}18` }}
                       >
+                        <AppIcon name={ELEMENT_ICONS[item.element]} className="mr-0.5 h-2.5 w-2.5 align-[-1px] text-current" />
                         {ELEMENT_LABELS[item.element]}
                       </span>
                     )}
@@ -301,6 +305,7 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
                 }`}
                 style={newItem.element === el ? { color: ELEMENT_COLORS[el] } : {}}
               >
+                <AppIcon name={ELEMENT_ICONS[el]} className="mr-1 h-3.5 w-3.5 align-[-2px] text-current" />
                 {ELEMENT_LABELS[el]}
               </button>
             ))}

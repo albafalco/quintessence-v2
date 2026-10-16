@@ -7,6 +7,7 @@ import { scorePronunciation, shuffleArray, type PronunciationScore } from '@/lib
 import { speakEnglish, speakableEnglish, stopSpeaking } from '@/lib/tts';
 import { recordAngolActivity } from '@/lib/angol-activity';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 const ROUND_SIZE = 10;
 const GOOD_SCORE = 80;
@@ -127,7 +128,8 @@ export function PronunciationSession({ items, kind }: PronunciationSessionProps)
       <div className="mx-auto max-w-xl space-y-5 text-center">
         <p className="text-sm text-muted-foreground">{t('pronunciationIntro', { count: Math.min(ROUND_SIZE, items.length) })}</p>
         <button type="button" onClick={start} className="rounded-xl bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90">
-          ▶ {t('listeningStart')}
+          <AppIcon name="play" className="mr-1.5 h-4 w-4 align-[-3px] text-current" />
+          {t('listeningStart')}
         </button>
       </div>
     );
@@ -182,7 +184,8 @@ export function PronunciationSession({ items, kind }: PronunciationSessionProps)
 
         <div className="flex flex-wrap justify-center gap-3">
           <button type="button" onClick={() => speakEnglish(target)} className="rounded-xl bg-slate-700/50 px-4 py-2.5 text-sm font-medium text-slate-100 hover:bg-slate-600/60">
-            🔊 {t('pronunciationListen')}
+            <AppIcon name="volume" className="mr-1.5 h-4 w-4 align-[-3px] text-current" />
+            {t('pronunciationListen')}
           </button>
           {listening ? (
             <button type="button" onClick={stop} className="rounded-xl bg-red-500/20 px-5 py-2.5 text-sm font-semibold text-red-300 hover:bg-red-500/30">
@@ -190,7 +193,8 @@ export function PronunciationSession({ items, kind }: PronunciationSessionProps)
             </button>
           ) : (
             <button type="button" onClick={record} className="rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
-              🎤 {score ? t('pronunciationTryAgain') : t('pronunciationSpeak')}
+              <AppIcon name="mic" className="mr-1.5 h-4 w-4 align-[-3px] text-current" />
+              {score ? t('pronunciationTryAgain') : t('pronunciationSpeak')}
             </button>
           )}
         </div>

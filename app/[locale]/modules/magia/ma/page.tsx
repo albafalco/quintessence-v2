@@ -19,6 +19,7 @@ import {
 import { getBudapestNow, toBudapestDate } from '@/lib/push-reminders';
 import { buildDailyPlan } from '@/lib/magia-plan';
 import type { MagiaProgressRecord, SessionRecord } from '@/lib/magia-utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface MaMagiaPageProps {
   params: Promise<{ locale: string }>;
@@ -105,7 +106,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
     )
   );
 
-  const pillarEmoji = { szellem: '🧠', lelek: '💎', test: '⚡' } as const;
+  const pillarIcon = { szellem: 'brain', lelek: 'gem', test: 'zap' } as const;
   const sectionLabel = { szellem: t('szellem'), lelek: t('lelek'), test: t('test') } as const;
 
   const formattedDate = new Intl.DateTimeFormat(locale, { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(todayDate));
@@ -129,7 +130,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
           </div>
           {streak > 0 && (
             <div className="flex flex-col items-center gap-1 rounded-2xl bg-accent/10 px-4 py-3 shadow-glow-gold">
-              <span className="text-2xl">🔥</span>
+              <AppIcon name="flame" className="h-6 w-6" />
               <span className="font-display text-xl font-bold text-accent">{streak}</span>
               <span className="text-[9px] font-semibold uppercase tracking-wider text-accent/70">{t('maStreak')}</span>
             </div>
@@ -174,7 +175,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
 
         {planExercises.length === 0 ? (
           <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6 text-center">
-            <p className="text-2xl mb-2">🎉</p>
+            <AppIcon name="party" className="mb-2 h-7 w-7" />
             <p className="font-display text-lg font-semibold text-cream">
               {t('maAllMastered')}
             </p>
@@ -186,12 +187,13 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
           <div className="space-y-3">
             {planExercises.map((item, idx) => {
               const label = item.slot !== undefined
-                ? `${pillarEmoji[item.section]} ${sectionLabel[item.section]} — ${item.slot === 0 ? t('morning') : t('evening')}`
-                : `${pillarEmoji[item.section]} ${sectionLabel[item.section]}`;
+                ? `${sectionLabel[item.section]} — ${item.slot === 0 ? t('morning') : t('evening')}`
+                : sectionLabel[item.section];
 
               return (
                 <div key={`${item.exercise.key}-${idx}`} className={item.doneToday ? 'opacity-50' : ''}>
-                  <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60">
+                  <p className="mb-2 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60">
+                    <AppIcon name={pillarIcon[item.section]} className="h-3 w-3" />
                     {label}
                     {item.doneToday && <span className="ml-2 text-accent/60">{t('maCompletedToday')}</span>}
                   </p>

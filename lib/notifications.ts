@@ -22,6 +22,7 @@ export type NotificationCategory = 'news' | 'content' | 'system' | 'personal';
 export interface ResolvedNotification {
   row: FeedRow;
   category: NotificationCategory;
+  /** AppIcon name */
   icon: string;
   title: string;
   body: string;
@@ -41,7 +42,8 @@ export function emitNotificationsChanged() {
   if (typeof window !== 'undefined') window.dispatchEvent(new Event(NOTIFICATIONS_CHANGED_EVENT));
 }
 
-const ANNOUNCEMENT_ICONS: Record<string, string> = { news: '✦', content: '📖', system: '⚠' };
+/** AppIcon names */
+const ANNOUNCEMENT_ICONS: Record<string, string> = { news: 'sparkles', content: 'book', system: 'alert' };
 
 type Translator = (key: string, values?: Record<string, string | number>) => string;
 
@@ -65,7 +67,7 @@ export function resolveNotification(
     return {
       row,
       category: (['news', 'content', 'system'].includes(row.kind) ? row.kind : 'news') as NotificationCategory,
-      icon: ANNOUNCEMENT_ICONS[row.kind] ?? '✦',
+      icon: ANNOUNCEMENT_ICONS[row.kind] ?? 'sparkles',
       title: tr?.title || row.title || '',
       body: tr?.body || row.body || '',
       href: localizeHref(row.link_url, locale),
@@ -101,25 +103,25 @@ export function resolveNotification(
       const section = String(data.section ?? '');
       const fokozat = Number(data.fokozat ?? 0);
       return personal(
-        '★',
+        'star',
         t.notifications('masteredTitle'),
         t.notifications('masteredBody', { fokozat, section: ['szellem', 'lelek', 'test'].includes(section) ? t.magia(section) : section }),
         fokozat ? `/${locale}/modules/magia/fokozat/${fokozat}` : null
       );
     }
     case 'invite_granted':
-      return personal('🎟', t.notifications('inviteTitle', { count: Number(data.amount ?? 1) }), t.notifications('inviteBody'), `/${locale}/profile`);
+      return personal('ticket', t.notifications('inviteTitle', { count: Number(data.amount ?? 1) }), t.notifications('inviteBody'), `/${locale}/profile`);
     case 'invite_accepted':
-      return personal('🎉', t.notifications('inviteAcceptedTitle', { username: String(data.username ?? '—') }), t.notifications('inviteAcceptedBody'), `/${locale}/profile`);
+      return personal('party', t.notifications('inviteAcceptedTitle', { username: String(data.username ?? '—') }), t.notifications('inviteAcceptedBody'), `/${locale}/profile`);
     case 'invite_returned':
       return personal(
-        '🎟',
+        'ticket',
         t.notifications('inviteReturnedTitle'),
         t.notifications(data.reason === 'revoked' ? 'inviteRevokedBody' : 'inviteExpiredBody', { email: String(data.email ?? '') }),
         `/${locale}/profile`
       );
     case 'weekly_report':
-      return personal('📊', t.notifications('weeklyTitle'), t.notifications('weeklyBody'), `/${locale}/modules/magia/jelentes`);
+      return personal('chart', t.notifications('weeklyTitle'), t.notifications('weeklyBody'), `/${locale}/modules/magia/jelentes`);
     default:
       return null;
   }

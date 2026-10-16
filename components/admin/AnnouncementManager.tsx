@@ -19,13 +19,14 @@ import {
 import { formatAdminDate } from '@/lib/invite-codes';
 import { localizeHref, type ResolvedNotification } from '@/lib/notifications';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 type AnnouncementWithStatus = AnnouncementRow & { status: AnnouncementStatus };
 
 const KINDS: { id: AnnouncementKind; icon: string; label: string }[] = [
-  { id: 'news', icon: '✦', label: 'Hír' },
-  { id: 'content', icon: '📖', label: 'Új tartalom' },
-  { id: 'system', icon: '⚠', label: 'Rendszerüzenet' },
+  { id: 'news', icon: 'sparkles', label: 'Hír' },
+  { id: 'content', icon: 'book', label: 'Új tartalom' },
+  { id: 'system', icon: 'alert', label: 'Rendszerüzenet' },
 ];
 
 const STATUS_META: Record<AnnouncementStatus, { label: string; className: string }> = {
@@ -261,11 +262,12 @@ export function AnnouncementManager({ announcements }: { announcements: Announce
                   type="button"
                   onClick={() => set('kind', k.id)}
                   className={cn(
-                    'rounded-full border px-3 py-1.5 text-xs font-medium transition',
+                    'inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-medium transition',
                     form.kind === k.id ? 'border-accent/50 bg-accent/10 text-accent' : 'border-border/50 text-muted-foreground hover:text-cream'
                   )}
                 >
-                  {k.icon} {k.label}
+                  <AppIcon name={k.icon} className="mr-1.5 h-3.5 w-3.5" />
+                  {k.label}
                 </button>
               ))}
             </div>
@@ -406,7 +408,7 @@ export function AnnouncementManager({ announcements }: { announcements: Announce
           announcements.map((a) => (
             <article key={a.id} className="premium-card p-4">
               <div className="flex items-start gap-3">
-                <span className="mt-0.5 text-lg">{KINDS.find((k) => k.id === a.kind)?.icon}</span>
+                <AppIcon name={KINDS.find((k) => k.id === a.kind)?.icon ?? 'sparkles'} className="mt-1 h-5 w-5" />
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="font-semibold text-cream">{a.title}</p>

@@ -9,6 +9,7 @@ import { recordHardItems } from '@/lib/angol-hard';
 import { recordAngolActivity } from '@/lib/angol-activity';
 import { SpeechInput } from '@/components/angol/SpeechInput';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 const ROUND_SIZE = 10;
 
@@ -91,7 +92,8 @@ export function ListeningSession({ lessonId, sectionId, items, kind }: Listening
           onClick={start}
           className="rounded-xl bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90"
         >
-          ▶ {t('listeningStart')}
+          <AppIcon name="play" className="mr-1.5 h-4 w-4 align-[-3px] text-current" />
+          {t('listeningStart')}
         </button>
       </div>
     );
@@ -131,10 +133,12 @@ export function ListeningSession({ lessonId, sectionId, items, kind }: Listening
       <div className="premium-card angol-surface space-y-5 p-6 sm:p-8">
         <div className="flex flex-wrap justify-center gap-3">
           <button type="button" onClick={() => play()} className="rounded-xl bg-slate-700/50 px-4 py-2.5 text-sm font-medium text-slate-100 hover:bg-slate-600/60">
-            🔊 {t('listeningReplay')}
+            <AppIcon name="volume" className="mr-1.5 h-4 w-4 align-[-3px] text-current" />
+            {t('listeningReplay')}
           </button>
           <button type="button" onClick={() => play(TTS_RATE_SLOW)} className="rounded-xl bg-slate-700/30 px-4 py-2.5 text-sm font-medium text-slate-200 hover:bg-slate-600/50">
-            🐢 {t('listeningSlower')}
+            <AppIcon name="turtle" className="mr-1.5 h-4 w-4 align-[-3px] text-current" />
+            {t('listeningSlower')}
           </button>
         </div>
 

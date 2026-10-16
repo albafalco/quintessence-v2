@@ -3,7 +3,7 @@
     "id": 1,
     "cim": "First Grade",
     "rovidcim": "Grade I",
-    "icon": "🌱",
+    "icon": "sprout",
     "szin": "#4ade80",
     "szellem": {
       "cim": "Magical Spirit Training (I) — Thought Control, Discipline, and Mastery",
@@ -146,7 +146,7 @@
     "id": 2,
     "cim": "Second Grade",
     "rovidcim": "Grade II",
-    "icon": "🌿",
+    "icon": "leaf",
     "szin": "#34d399",
     "szellem": {
       "cim": "Magical Spirit Training (II) — Autosuggestion and Concentration Exercises",
@@ -296,7 +296,7 @@
     "id": 3,
     "cim": "Third Grade",
     "rovidcim": "Grade III",
-    "icon": "🔥",
+    "icon": "flame",
     "szin": "#fb923c",
     "szellem": {
       "cim": "Magical Spirit Training (III) — Thought Concentration with Two and Three Senses",
@@ -438,7 +438,7 @@
     "id": 4,
     "cim": "Fourth Grade",
     "rovidcim": "Grade IV",
-    "icon": "🌊",
+    "icon": "waves",
     "szin": "#38bdf8",
     "szellem": {
       "cim": "Magical Spirit Training (IV) — Consciousness Projection into Objects, Animals, and People",
@@ -555,7 +555,7 @@
     "id": 5,
     "cim": "Fifth Grade",
     "rovidcim": "Grade V",
-    "icon": "⭐",
+    "icon": "star",
     "szin": "#facc15",
     "szellem": {
       "cim": "Magical Spirit Training (V) — Space Magic",
@@ -669,7 +669,7 @@
     "id": 6,
     "cim": "Sixth Grade",
     "rovidcim": "Grade VI",
-    "icon": "🌀",
+    "icon": "orbit",
     "szin": "#818cf8",
     "szellem": {
       "cim": "Magical Spirit Training (VI) — Focus on One's Own Spirit, Consciousness of the Senses",
@@ -780,7 +780,7 @@
     "id": 7,
     "cim": "Seventh Grade",
     "rovidcim": "Grade VII",
-    "icon": "👁️",
+    "icon": "eye",
     "szin": "#a78bfa",
     "szellem": {
       "cim": "Magical Spirit Training (VII) — Analysis of the Spirit in Relation to Practice",
@@ -855,7 +855,7 @@
     "id": 8,
     "cim": "Eighth Grade",
     "rovidcim": "Grade VIII",
-    "icon": "🌙",
+    "icon": "moon",
     "szin": "#64748b",
     "szellem": {
       "cim": "Magical Spirit Training (VIII) — Mental Wandering",
@@ -998,7 +998,7 @@
     "id": 9,
     "cim": "Ninth Grade",
     "rovidcim": "Grade IX",
-    "icon": "🪞",
+    "icon": "mirror",
     "szin": "#f9a8d4",
     "szellem": {
       "cim": "Magical Spirit Training (IX) — Clairvoyance with Magic Mirrors",
@@ -1105,7 +1105,7 @@
     "id": 10,
     "cim": "Tenth Grade",
     "rovidcim": "Grade X",
-    "icon": "✨",
+    "icon": "sparkles",
     "szin": "#fbbf24",
     "szellem": {
       "cim": "Magical Spirit Training (X) — Raising the Spirit to the Higher Planes",

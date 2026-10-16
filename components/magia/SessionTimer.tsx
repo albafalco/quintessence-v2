@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface SessionTimerProps {
   targetSec: number;
@@ -252,7 +253,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0, on
         onClick={handleStart}
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition-all hover:bg-accent/30 hover:shadow-glow-gold"
       >
-        <span className="text-base">▶</span>
+        <AppIcon name="play" className="h-4 w-4 text-current" />
         {t('timerStartButton')}
       </button>
     );
@@ -310,6 +311,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0, on
             onClick={handlePause}
             className="rounded-xl border border-border/50 bg-muted/30 px-4 py-2.5 text-sm font-medium text-cream transition hover:bg-muted/50"
           >
+            <AppIcon name="pause" className="mr-1.5 h-4 w-4 align-[-3px] text-current" />
             {t('timerPause')}
           </button>
         )}
@@ -319,6 +321,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0, on
             onClick={handleResume}
             className="rounded-xl bg-accent/20 px-4 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30"
           >
+            <AppIcon name="play" className="mr-1.5 h-4 w-4 align-[-3px] text-current" />
             {t('timerResume')}
           </button>
         )}

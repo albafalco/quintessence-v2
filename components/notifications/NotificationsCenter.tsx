@@ -14,6 +14,7 @@ import {
 import { NotificationItem } from '@/components/notifications/NotificationItem';
 import { useNotifications } from '@/components/notifications/useNotifications';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 const FEED_LIMIT = 300;
 type Filter = 'all' | NotificationCategory;
@@ -21,10 +22,10 @@ type Group = 'today' | 'thisWeek' | 'earlier';
 
 const FILTERS: { id: Filter; icon: string; key: string }[] = [
   { id: 'all', icon: '', key: 'filterAll' },
-  { id: 'news', icon: '✦', key: 'kindNews' },
-  { id: 'content', icon: '📖', key: 'kindContent' },
-  { id: 'system', icon: '⚠', key: 'kindSystem' },
-  { id: 'personal', icon: '🏅', key: 'kindPersonal' },
+  { id: 'news', icon: 'sparkles', key: 'kindNews' },
+  { id: 'content', icon: 'book', key: 'kindContent' },
+  { id: 'system', icon: 'alert', key: 'kindSystem' },
+  { id: 'personal', icon: 'award', key: 'kindPersonal' },
 ];
 
 function groupOf(iso: string, todayStart: number): Group {
@@ -88,11 +89,11 @@ export function NotificationsCenter() {
               onClick={() => setFilter(f.id)}
               aria-pressed={filter === f.id}
               className={cn(
-                'shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium transition',
+                'inline-flex shrink-0 items-center rounded-full border px-3 py-1.5 text-xs font-medium transition',
                 filter === f.id ? 'border-accent/50 bg-accent/10 text-accent' : 'border-border/50 text-muted-foreground hover:text-cream'
               )}
             >
-              {f.icon && <span className="mr-1">{f.icon}</span>}
+              {f.icon && <AppIcon name={f.icon} className="mr-1.5 h-3.5 w-3.5" />}
               {t(f.key)}
             </button>
           ))}

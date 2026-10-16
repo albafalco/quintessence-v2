@@ -10,6 +10,7 @@ import { ExamSession } from '@/components/angol/ExamSession';
 import { ListeningSession } from '@/components/angol/ListeningSession';
 import { PronunciationSession } from '@/components/angol/PronunciationSession';
 import { cn } from '@/lib/utils';
+import { AppIcon } from '@/components/ui/AppIcon';
 
 interface SzakaszViewProps {
   lessonId: number;
@@ -56,10 +57,10 @@ export function SzakaszView({
   const kind = isVocabulary ? ('word' as const) : ('sentence' as const);
   const title = isVocabulary ? t('vocabulary') : sectionName;
 
-  const MODES: { id: Mode; label: string }[] = [
+  const MODES: { id: Mode; label: string; icon?: string }[] = [
     { id: 'cards', label: t('modeCards') },
-    { id: 'listening', label: `🎧 ${t('modeListening')}` },
-    { id: 'speaking', label: `🎤 ${t('modeSpeaking')}` },
+    { id: 'listening', label: t('modeListening'), icon: 'headphones' },
+    { id: 'speaking', label: t('modeSpeaking'), icon: 'mic' },
     { id: 'exam', label: t('exam') },
   ];
 
@@ -78,6 +79,7 @@ export function SzakaszView({
               mode === m.id ? 'bg-primary/30 text-slate-100 shadow-sm' : 'text-muted-foreground hover:bg-muted/40 hover:text-cream'
             )}
           >
+            {m.icon && <AppIcon name={m.icon} className="mr-1 h-3.5 w-3.5 align-[-2px] text-current" />}
             {m.label}
           </button>
         ))}
