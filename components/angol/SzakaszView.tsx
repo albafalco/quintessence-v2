@@ -4,9 +4,12 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import type { AngolGrammarContent, AngolSzakasz, MondatPair } from '@/lib/i18n-content';
 import { GrammarContent } from '@/components/angol/GrammarRenderer';
-import { FlashCard } from '@/components/angol/FlashCard';
+import { VocabularyTrainer } from '@/components/angol/VocabularyTrainer';
 import { PracticeSession } from '@/components/angol/PracticeSession';
 import { ExamSession } from '@/components/angol/ExamSession';
+import { ListeningSession } from '@/components/angol/ListeningSession';
+import { PronunciationSession } from '@/components/angol/PronunciationSession';
+import { cn } from '@/lib/utils';
 
 interface SzakaszViewProps {
   lessonId: number;
@@ -20,6 +23,8 @@ interface SzakaszViewProps {
   lastExamPassed?: boolean;
 }
 
+type Mode = 'cards' | 'listening' | 'speaking' | 'exam';
+
 export function SzakaszView({
   lessonId,
   sectionId,
@@ -32,29 +37,7 @@ export function SzakaszView({
   lastExamPassed,
 }: SzakaszViewProps) {
   const t = useTranslations('angol');
-  const [examMode, setExamMode] = useState(false);
-
-  if (sectionId === 0) {
-    if (examMode) {
-      return (
-        <ExamSession
-          lessonId={lessonId}
-          sectionId={0}
-          sectionName={t('vocabulary')}
-          mondatok={vocabulary}
-          locale={locale}
-          onClose={() => setExamMode(false)}
-        />
-      );
-    }
-    return (
-      <FlashCard
-        lessonId={lessonId}
-        vocabulary={vocabulary}
-        onStartExam={() => setExamMode(true)}
-      />
-    );
-  }
+  const [mode, setMode] = useState<Mode>('cards');
 
   if (sectionId === 1 || sectionId === 2) {
     return (
@@ -64,31 +47,70 @@ export function SzakaszView({
     );
   }
 
-  if (!szakasz) {
+  const isVocabulary = sectionId === 0;
+  if (!isVocabulary && !szakasz) {
     return <p className="text-muted-foreground">{t('sectionNotFound')}</p>;
   }
 
-  if (examMode) {
-    return (
-      <ExamSession
-        lessonId={lessonId}
-        sectionId={sectionId}
-        sectionName={sectionName}
-        mondatok={szakasz.mondatok}
-        locale={locale}
-        onClose={() => setExamMode(false)}
-      />
-    );
-  }
+  const items = isVocabulary ? vocabulary : szakasz!.mondatok;
+  const kind = isVocabulary ? ('word' as const) : ('sentence' as const);
+  const title = isVocabulary ? t('vocabulary') : sectionName;
+
+  const MODES: { id: Mode; label: string }[] = [
+    { id: 'cards', label: t('modeCards') },
+    { id: 'listening', label: `🎧 ${t('modeListening')}` },
+    { id: 'speaking', label: `🎤 ${t('modeSpeaking')}` },
+    { id: 'exam', label: t('exam') },
+  ];
 
   return (
-    <PracticeSession
-      sectionId={sectionId}
-      sectionName={sectionName}
-      mondatok={szakasz.mondatok}
-      onStartExam={() => setExamMode(true)}
-      lastExamScore={lastExamScore}
-      lastExamPassed={lastExamPassed}
-    />
+    <div className="space-y-6">
+      <div className="mx-auto flex max-w-xl gap-1 rounded-2xl border border-border/40 bg-muted/20 p-1" role="tablist">
+        {MODES.map((m) => (
+          <button
+            key={m.id}
+            type="button"
+            role="tab"
+            aria-selected={mode === m.id}
+            onClick={() => setMode(m.id)}
+            className={cn(
+              'min-w-0 flex-1 truncate rounded-xl px-2 py-2 text-xs font-medium transition-all sm:text-sm',
+              mode === m.id ? 'bg-primary/30 text-slate-100 shadow-sm' : 'text-muted-foreground hover:bg-muted/40 hover:text-cream'
+            )}
+          >
+            {m.label}
+          </button>
+        ))}
+      </div>
+
+      {mode === 'exam' && (
+        <ExamSession
+          lessonId={lessonId}
+          sectionId={sectionId}
+          sectionName={title}
+          mondatok={items}
+          locale={locale}
+          onClose={() => setMode('cards')}
+        />
+      )}
+
+      {mode === 'listening' && <ListeningSession lessonId={lessonId} sectionId={sectionId} items={items} kind={kind} />}
+
+      {mode === 'speaking' && <PronunciationSession items={items} kind={kind} />}
+
+      {mode === 'cards' &&
+        (isVocabulary ? (
+          <VocabularyTrainer lessonId={lessonId} vocabulary={vocabulary} onStartExam={() => setMode('exam')} />
+        ) : (
+          <PracticeSession
+            sectionId={sectionId}
+            sectionName={sectionName}
+            mondatok={szakasz!.mondatok}
+            onStartExam={() => setMode('exam')}
+            lastExamScore={lastExamScore}
+            lastExamPassed={lastExamPassed}
+          />
+        ))}
+    </div>
   );
 }

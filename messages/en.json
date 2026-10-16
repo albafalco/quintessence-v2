@@ -49,7 +49,8 @@
     "totalLabel": "Total",
     "lesson1Progress": "Lesson I",
     "loadError": "Could not load your data.",
-    "retry": "Try again"
+    "retry": "Try again",
+    "reviewDue": "Today's review: {count} cards"
   },
   "modules": {
     "magia": {
@@ -346,7 +347,53 @@
     "dictate": "Dictate",
     "stopDictation": "Stop",
     "savingResultFailed": "Could not save the result. Check your connection.",
-    "speechNotAllowed": "Dictation is not available here (e.g. in the installed home-screen app or with the microphone blocked). Please type your answer."
+    "speechNotAllowed": "Dictation is not available here (e.g. in the installed home-screen app or with the microphone blocked). Please type your answer.",
+    "modeCards": "Cards",
+    "modeListening": "Listening",
+    "modeSpeaking": "Speaking",
+    "checkAnswer": "Check",
+    "feedbackCorrect": "Correct!",
+    "feedbackPartial": "Almost",
+    "feedbackIncorrect": "Not quite — the correct answer:",
+    "listeningIntro": "You will hear {count} English sentences. Type what you hear!",
+    "listeningStart": "Start",
+    "listeningReplay": "Replay",
+    "listeningSlower": "Slower",
+    "listeningTypeWhatYouHear": "Type what you hear:",
+    "listeningResultTitle": "Listening practice — result",
+    "listeningPartial": "{count} of them almost right",
+    "listeningWrongSaved": "The wrong sentences were added to \"Difficult sentences\".",
+    "listeningAgain": "New round",
+    "pronunciationIntro": "Read {count} sentences aloud. Listen first if you like, then speak — the app tells you how clear it was.",
+    "pronunciationListen": "Listen",
+    "pronunciationSpeak": "Speak",
+    "pronunciationTryAgain": "Try again",
+    "pronunciationListening": "Listening… speak now",
+    "pronunciationGood": "Excellent",
+    "pronunciationClose": "Almost — focus on the words in red",
+    "pronunciationRetry": "Try again, slower and more clearly",
+    "pronunciationHeard": "Heard:",
+    "pronunciationResultTitle": "Pronunciation practice — result",
+    "pronunciationAverage": "average clarity over {count} sentences",
+    "hardTitle": "Difficult sentences",
+    "hardDescription": "Sentences and words you got wrong in exams and listening practice end up here. Answer an item correctly 3 times in a row and it leaves the list.",
+    "hardTileHint": "Practise the ones you found hard",
+    "hardWrongCount": "wrong {count}×",
+    "hardWordBadge": "word",
+    "hardStreak": "Correct in a row: {streak} / {total}",
+    "hardCleared": "Learned — removed from the list!",
+    "hardMarkKnown": "I know it",
+    "hardRoundDone": "Round complete",
+    "hardAllCleared": "No difficult sentences left — well done!",
+    "hardLearnedNow": "You learned {count} item(s) this round",
+    "hardRemaining": "{count} remaining",
+    "reviewToday": "Today's review",
+    "allCards": "All cards",
+    "reviewLoading": "Loading review…",
+    "reviewRemaining": "{count} cards left for today",
+    "reviewDone": "You're done for today!",
+    "reviewDoneCount": "You reviewed {count} cards. More tomorrow.",
+    "reviewNothingDue": "Nothing is due today. Come back tomorrow!"
   },
   "profile": {
     "title": "Profile",
@@ -425,6 +472,7 @@
     "unlockTitle": "⭐ Grade {id} unlocked!",
     "unlockBody": "Congratulations! You reached the \"{title}\" grade. Continue your path!",
     "weeklyReportTitle": "✦ Your weekly initiation report is ready",
-    "weeklyReportBody": "{minutes} minutes of practice, {days} active days. See how you progressed!"
+    "weeklyReportBody": "{minutes} minutes of practice, {days} active days. See how you progressed!",
+    "angolReviewBody": "{count} cards are waiting for review. A few minutes and today's English is done!"
   }
 }

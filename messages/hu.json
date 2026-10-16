@@ -49,7 +49,8 @@
     "totalLabel": "Össz.",
     "lesson1Progress": "1. Lecke",
     "loadError": "Nem sikerült betölteni az adatokat.",
-    "retry": "Újrapróbálás"
+    "retry": "Újrapróbálás",
+    "reviewDue": "Mai ismétlés: {count} kártya"
   },
   "modules": {
     "magia": {
@@ -346,7 +347,53 @@
     "dictate": "Diktálás",
     "stopDictation": "Leállítás",
     "savingResultFailed": "Az eredményt nem sikerült elmenteni. Ellenőrizd a kapcsolatot.",
-    "speechNotAllowed": "A diktálás itt nem érhető el (pl. a kezdőképernyőre telepített appban vagy letiltott mikrofonnál). Gépeld be a választ."
+    "speechNotAllowed": "A diktálás itt nem érhető el (pl. a kezdőképernyőre telepített appban vagy letiltott mikrofonnál). Gépeld be a választ.",
+    "modeCards": "Kártyák",
+    "modeListening": "Hallás után",
+    "modeSpeaking": "Kiejtés",
+    "checkAnswer": "Ellenőrzés",
+    "feedbackCorrect": "Helyes!",
+    "feedbackPartial": "Majdnem jó",
+    "feedbackIncorrect": "Nem egészen — a helyes válasz:",
+    "listeningIntro": "A gép felolvas {count} angol mondatot. Írd le, amit hallasz!",
+    "listeningStart": "Kezdés",
+    "listeningReplay": "Újra",
+    "listeningSlower": "Lassabban",
+    "listeningTypeWhatYouHear": "Írd le, amit hallasz:",
+    "listeningResultTitle": "Hallás utáni gyakorlás — eredmény",
+    "listeningPartial": "ebből {count} majdnem jó",
+    "listeningWrongSaved": "A hibás mondatok bekerültek a „Nehéz mondatok” közé.",
+    "listeningAgain": "Új kör",
+    "pronunciationIntro": "{count} mondatot kell felolvasnod. Előbb meghallgathatod, aztán mondd ki — a gép megmondja, mennyire volt érthető.",
+    "pronunciationListen": "Meghallgatom",
+    "pronunciationSpeak": "Mondd ki",
+    "pronunciationTryAgain": "Újra",
+    "pronunciationListening": "Figyelek… beszélj most",
+    "pronunciationGood": "Kiváló",
+    "pronunciationClose": "Majdnem — a pirossal jelölt szavakra figyelj",
+    "pronunciationRetry": "Próbáld újra, lassabban és tagoltabban",
+    "pronunciationHeard": "A gép ezt hallotta:",
+    "pronunciationResultTitle": "Kiejtésgyakorlás — eredmény",
+    "pronunciationAverage": "átlagos érthetőség {count} mondat alapján",
+    "hardTitle": "Nehéz mondatok",
+    "hardDescription": "Ide kerülnek a vizsgán és a hallás utáni gyakorlásban elrontott mondatok és szavak. Ha egy tételt 3-szor egymás után eltalálsz, kikerül a listából.",
+    "hardTileHint": "Gyakorold azokat, amelyek eddig nehezen mentek",
+    "hardWrongCount": "{count}× hibás",
+    "hardWordBadge": "szó",
+    "hardStreak": "Egymás után helyes: {streak} / {total}",
+    "hardCleared": "Megtanultad — kikerült a listából!",
+    "hardMarkKnown": "Már tudom",
+    "hardRoundDone": "A kör végére értél",
+    "hardAllCleared": "Nincs több nehéz mondat — szép munka!",
+    "hardLearnedNow": "{count} tételt megtanultál ebben a körben",
+    "hardRemaining": "Még {count} van hátra",
+    "reviewToday": "Mai ismétlés",
+    "allCards": "Összes kártya",
+    "reviewLoading": "Ismétlés betöltése…",
+    "reviewRemaining": "Mára még {count} kártya",
+    "reviewDone": "Mára kész vagy!",
+    "reviewDoneCount": "{count} kártyát ismételtél. Holnap jönnek a következők.",
+    "reviewNothingDue": "Ma nincs esedékes kártya. Nézz vissza holnap!"
   },
   "profile": {
     "title": "Profil",
@@ -425,6 +472,7 @@
     "unlockTitle": "⭐ {id}. fokozat feloldva!",
     "unlockBody": "Gratulálok! Elérted a(z) \"{title}\" fokozatot. Folytasd az utad!",
     "weeklyReportTitle": "✦ Elkészült a heti beavatási jelentésed",
-    "weeklyReportBody": "{minutes} perc gyakorlás, {days} aktív nap. Nézd meg, hogyan haladtál!"
+    "weeklyReportBody": "{minutes} perc gyakorlás, {days} aktív nap. Nézd meg, hogyan haladtál!",
+    "angolReviewBody": "{count} kártya vár ismétlésre. Pár perc, és megvan a mai angol!"
   }
 }

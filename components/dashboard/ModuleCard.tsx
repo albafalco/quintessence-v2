@@ -15,6 +15,8 @@ interface ModuleCardProps {
   href: string;
   progress: number;
   progressLabel?: string;
+  /** Extra highlighted line under the label, e.g. today's review count */
+  note?: string;
   lastActivity: string | null;
   /** Emoji or element (flag emojis don't render on Windows — use FlagIcon). */
   icon: React.ReactNode;
@@ -27,6 +29,7 @@ export function ModuleCard({
   href,
   progress,
   progressLabel,
+  note,
   lastActivity,
   icon,
   variant = 'magia',
@@ -70,6 +73,7 @@ export function ModuleCard({
                 {progressLabel}
               </p>
             )}
+            {note && <p className="text-sm font-medium text-slate-200">🔁 {note}</p>}
           </div>
         </div>
       </CardHeader>

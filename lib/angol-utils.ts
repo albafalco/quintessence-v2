@@ -110,3 +110,69 @@ export function shuffleArray<T>(arr: T[]): T[] {
   }
   return copy;
 }
+
+// ── Pronunciation scoring ────────────────────────────────────────────────────
+
+const CONTRACTIONS: [RegExp, string][] = [
+  [/n't\b/g, ' not'],
+  [/'re\b/g, ' are'],
+  [/'m\b/g, ' am'],
+  [/'ll\b/g, ' will'],
+  [/'ve\b/g, ' have'],
+  [/'d\b/g, ' would'],
+  [/'s\b/g, ' is'],
+];
+
+/** Lowercase tokens with contractions expanded ("He's" → ["he", "is"]). */
+function pronunciationTokens(text: string): string[] {
+  let s = text.toLowerCase().replace(/[’‘`]/g, "'");
+  s = s
+    .replace(/\bcan't\b/g, 'can not')
+    .replace(/\bcannot\b/g, 'can not')
+    .replace(/\bwon't\b/g, 'will not');
+  for (const [re, rep] of CONTRACTIONS) s = s.replace(re, rep);
+  return s.replace(/[^a-z0-9' ]+/g, ' ').split(/\s+/).filter(Boolean);
+}
+
+export interface PronunciationScore {
+  /** 0–100: share of the target's words recognised, in order */
+  score: number;
+  /** Target words as written, with whether each was recognised */
+  words: { text: string; matched: boolean }[];
+}
+
+export function scorePronunciation(target: string, heard: string): PronunciationScore {
+  const original = target.replace(/\([^)]*\)/g, ' ').split(/\s+/).filter(Boolean);
+  const targetTokens: { token: string; word: number }[] = [];
+  original.forEach((word, i) => pronunciationTokens(word).forEach((token) => targetTokens.push({ token, word: i })));
+  const heardTokens = pronunciationTokens(heard);
+
+  // Longest common subsequence → which target tokens were heard in order
+  const n = targetTokens.length;
+  const m = heardTokens.length;
+  const dp: number[][] = Array.from({ length: n + 1 }, () => Array(m + 1).fill(0));
+  for (let i = n - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) {
+      dp[i][j] = targetTokens[i].token === heardTokens[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+    }
+  }
+  const matched = new Set<number>();
+  for (let i = 0, j = 0; i < n && j < m; ) {
+    if (targetTokens[i].token === heardTokens[j]) {
+      matched.add(i);
+      i++;
+      j++;
+    } else if (dp[i + 1][j] >= dp[i][j + 1]) i++;
+    else j++;
+  }
+
+  const words = original
+    .map((text, i) => {
+      const indices = targetTokens.map((t, k) => (t.word === i ? k : -1)).filter((k) => k >= 0);
+      return { text, matched: indices.length > 0 && indices.every((k) => matched.has(k)), hasTokens: indices.length > 0 };
+    })
+    .filter((w) => w.hasTokens)
+    .map(({ text, matched: ok }) => ({ text, matched: ok }));
+
+  return { score: n === 0 ? 0 : Math.round((matched.size / n) * 100), words };
+}

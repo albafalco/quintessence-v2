@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { loadAngolLesson1 } from '@/lib/angol-lecke1';
 import { ALL_SECTION_IDS, getSectionLabels, isSectionUnlocked } from '@/lib/angol-unlocks';
-import { getUnlockedSectionIds } from '@/lib/angol-db';
+import { getHardItemCount, getUnlockedSectionIds } from '@/lib/angol-db';
 import type { Locale } from '@/i18n';
 
 interface LeckePageProps {
@@ -23,6 +23,7 @@ export default async function LeckePage({ params }: LeckePageProps) {
   const sectionLabels = getSectionLabels(lessonContent);
   const lesson = lessonContent.lessons.find((l) => l.id === lessonId);
   const unlockedIds = await getUnlockedSectionIds(lessonId);
+  const hardCount = await getHardItemCount(lessonId);
   const practiceSections = lessonContent.practice.map((s) => s.id);
 
   return (
@@ -41,6 +42,20 @@ export default async function LeckePage({ params }: LeckePageProps) {
           {t('lesson1Description')}
         </p>
       </header>
+
+      {hardCount > 0 && (
+        <Link
+          href={`/${locale}/modules/angol/lecke/${lessonId}/nehez`}
+          className="group flex items-center gap-3 rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 transition-colors hover:border-amber-400/50 hover:bg-amber-500/10"
+        >
+          <span className="text-lg">⚠</span>
+          <div className="min-w-0 flex-1">
+            <p className="font-medium text-amber-200">{t('hardTitle')} ({hardCount})</p>
+            <p className="text-xs text-muted-foreground">{t('hardTileHint')}</p>
+          </div>
+          <ChevronRight size={18} className="shrink-0 text-amber-300/70" />
+        </Link>
+      )}
 
       <div className="space-y-3">
         <h2 className="text-sm font-medium uppercase tracking-wide text-muted-foreground">

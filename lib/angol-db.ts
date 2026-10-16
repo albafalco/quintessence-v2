@@ -45,3 +45,18 @@ export async function getLastExamResult(
   if (!data) return null;
   return { score: Number(data.score), passed: data.passed };
 }
+/** Number of items in the "Nehéz mondatok" list (0 before migration 009). */
+export async function getHardItemCount(lessonId: number): Promise<number> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return 0;
+
+  const { count, error } = await supabase
+    .from('angol_hard_items')
+    .select('id', { count: 'exact', head: true })
+    .eq('user_id', user.id)
+    .eq('lesson_id', lessonId);
+  return error ? 0 : (count ?? 0);
+}

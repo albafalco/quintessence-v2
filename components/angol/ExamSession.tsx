@@ -7,6 +7,7 @@ import type { MondatPair } from '@/lib/i18n-content';
 import { evaluateAnswer, scoreExam, shuffleArray } from '@/lib/angol-utils';
 import { createClient } from '@/lib/supabase/client';
 import { getNextSectionId } from '@/lib/angol-unlocks';
+import { recordHardItems } from '@/lib/angol-hard';
 import { SpeechInput } from '@/components/angol/SpeechInput';
 import { cn } from '@/lib/utils';
 
@@ -81,6 +82,16 @@ export function ExamSession({
       })
       .filter((w): w is WrongAnswer => w.eval !== 'correct');
     setWrongAnswers(wrongs);
+    // Wrong / partial answers go to the "Nehéz mondatok" list
+    void recordHardItems(
+      wrongs.map((w) => ({
+        lessonId,
+        sectionId,
+        kind: sectionId === 0 ? ('word' as const) : ('sentence' as const),
+        prompt: w.prompt,
+        answer: w.correctEn,
+      }))
+    );
 
     setPhase('result');
     setSaving(true);

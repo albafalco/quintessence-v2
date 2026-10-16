@@ -13,6 +13,12 @@ import {
   getMagiaDashboardStats,
 } from '@/lib/dashboard';
 import { formatDate } from '@/lib/utils';
+import { isMissingColumnError } from '@/lib/supabase/missing-column';
+import { countReviewQueue, type CardScheduleRow } from '@/lib/angol-srs';
+import { toBudapestDate } from '@/lib/push-reminders';
+import vocabulary from '@/messages/content/angol-vocabulary.json';
+
+const VOCABULARY_SIZE = (vocabulary as unknown[]).length;
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { FlagIcon } from '@/components/ui/FlagIcon';
 import { ElementsIcon, ElementsNavIcon } from '@/components/ui/ElementsIcon';
@@ -32,7 +38,7 @@ interface DashboardData {
   username: string;
   showAngol: boolean;
   magiaStats: ReturnType<typeof getMagiaDashboardStats>;
-  angolStats: { progress: number; lastActivity: string | null };
+  angolStats: { progress: number; lastActivity: string | null; reviewCount: number | null };
 }
 
 export function DashboardContent() {
@@ -91,13 +97,13 @@ export function DashboardContent() {
 
         const magiaStats = getMagiaDashboardStats(magiaResult.data ?? []);
 
-        let angolStats = { progress: 0, lastActivity: null as string | null };
+        let angolStats = { progress: 0, lastActivity: null as string | null, reviewCount: null as number | null };
         if (showAngol) {
           const [cardResult, unlockResult] = await Promise.all([
             timed(
               supabase
                 .from('angol_card_progress')
-                .select('correct_count, last_seen')
+                .select('correct_count, last_seen, word_hu, due_on, introduced_on')
                 .eq('user_id', user.id),
               FETCH_TIMEOUT_MS,
               { data: [], error: null } as never
@@ -112,10 +118,23 @@ export function DashboardContent() {
               { data: [], error: null } as never
             ),
           ]);
-          angolStats = getAngolDashboardStats(
-            cardResult.data ?? [],
-            unlockResult.data ?? []
-          );
+          let cards = cardResult.data;
+          // due_on / introduced_on come from migration 009 — retry without them before that
+          let hasSchedule = true;
+          if (isMissingColumnError(cardResult.error)) {
+            hasSchedule = false;
+            const fallback = await supabase
+              .from('angol_card_progress')
+              .select('correct_count, last_seen')
+              .eq('user_id', user.id);
+            cards = fallback.data as typeof cards;
+          }
+          angolStats = {
+            ...getAngolDashboardStats(cards ?? [], unlockResult.data ?? []),
+            reviewCount: hasSchedule
+              ? countReviewQueue(VOCABULARY_SIZE, (cards ?? []) as CardScheduleRow[], toBudapestDate(new Date()))
+              : null,
+          };
         }
 
         if (cancelled) return;
@@ -245,6 +264,7 @@ export function DashboardContent() {
               subtitle={tModules('angol.subtitle')}
               href={`/${locale}/modules/angol`}
               progress={angolStats.progress}
+              note={angolStats.reviewCount ? t('reviewDue', { count: angolStats.reviewCount }) : undefined}
               progressLabel={t('lesson1Progress')}
               lastActivity={formatActivityDate(angolStats.lastActivity, locale)}
               icon={<FlagIcon locale="en" className="h-5 w-7" />}

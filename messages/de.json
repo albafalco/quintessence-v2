@@ -49,7 +49,8 @@
     "totalLabel": "Ges.",
     "lesson1Progress": "Lektion I",
     "loadError": "Daten konnten nicht geladen werden.",
-    "retry": "Erneut versuchen"
+    "retry": "Erneut versuchen",
+    "reviewDue": "Heutige Wiederholung: {count} Karten"
   },
   "modules": {
     "magia": {
@@ -346,7 +347,53 @@
     "dictate": "Diktieren",
     "stopDictation": "Stopp",
     "savingResultFailed": "Ergebnis konnte nicht gespeichert werden. Prüfe deine Verbindung.",
-    "speechNotAllowed": "Diktieren ist hier nicht verfügbar (z. B. in der installierten App oder bei blockiertem Mikrofon). Bitte tippe deine Antwort."
+    "speechNotAllowed": "Diktieren ist hier nicht verfügbar (z. B. in der installierten App oder bei blockiertem Mikrofon). Bitte tippe deine Antwort.",
+    "modeCards": "Karten",
+    "modeListening": "Hören",
+    "modeSpeaking": "Aussprache",
+    "checkAnswer": "Prüfen",
+    "feedbackCorrect": "Richtig!",
+    "feedbackPartial": "Fast richtig",
+    "feedbackIncorrect": "Nicht ganz — die richtige Antwort:",
+    "listeningIntro": "Du hörst {count} englische Sätze. Schreib auf, was du hörst!",
+    "listeningStart": "Start",
+    "listeningReplay": "Nochmal",
+    "listeningSlower": "Langsamer",
+    "listeningTypeWhatYouHear": "Schreib, was du hörst:",
+    "listeningResultTitle": "Hörübung — Ergebnis",
+    "listeningPartial": "davon {count} fast richtig",
+    "listeningWrongSaved": "Die falschen Sätze wurden zu „Schwierige Sätze“ hinzugefügt.",
+    "listeningAgain": "Neue Runde",
+    "pronunciationIntro": "Lies {count} Sätze laut vor. Hör sie dir zuerst an, dann sprich — die App sagt dir, wie verständlich es war.",
+    "pronunciationListen": "Anhören",
+    "pronunciationSpeak": "Sprich",
+    "pronunciationTryAgain": "Nochmal",
+    "pronunciationListening": "Ich höre zu… sprich jetzt",
+    "pronunciationGood": "Ausgezeichnet",
+    "pronunciationClose": "Fast — achte auf die rot markierten Wörter",
+    "pronunciationRetry": "Versuch es nochmal, langsamer und deutlicher",
+    "pronunciationHeard": "Gehört:",
+    "pronunciationResultTitle": "Ausspracheübung — Ergebnis",
+    "pronunciationAverage": "durchschnittliche Verständlichkeit über {count} Sätze",
+    "hardTitle": "Schwierige Sätze",
+    "hardDescription": "Hier landen Sätze und Wörter, die du in Prüfungen und Hörübungen falsch hattest. Beantwortest du einen Eintrag 3-mal hintereinander richtig, verlässt er die Liste.",
+    "hardTileHint": "Übe die, die dir schwerfielen",
+    "hardWrongCount": "{count}× falsch",
+    "hardWordBadge": "Wort",
+    "hardStreak": "Richtig in Folge: {streak} / {total}",
+    "hardCleared": "Gelernt — von der Liste entfernt!",
+    "hardMarkKnown": "Kann ich schon",
+    "hardRoundDone": "Runde beendet",
+    "hardAllCleared": "Keine schwierigen Sätze mehr — gut gemacht!",
+    "hardLearnedNow": "Du hast in dieser Runde {count} Einträge gelernt",
+    "hardRemaining": "Noch {count} übrig",
+    "reviewToday": "Heutige Wiederholung",
+    "allCards": "Alle Karten",
+    "reviewLoading": "Wiederholung wird geladen…",
+    "reviewRemaining": "Heute noch {count} Karten",
+    "reviewDone": "Für heute fertig!",
+    "reviewDoneCount": "Du hast {count} Karten wiederholt. Morgen geht es weiter.",
+    "reviewNothingDue": "Heute ist nichts fällig. Schau morgen wieder vorbei!"
   },
   "profile": {
     "title": "Profil",
@@ -425,6 +472,7 @@
     "unlockTitle": "⭐ Grad {id} freigeschaltet!",
     "unlockBody": "Glückwunsch! Du hast den Grad „{title}\" erreicht. Setze deinen Weg fort!",
     "weeklyReportTitle": "✦ Dein wöchentlicher Einweihungsbericht ist fertig",
-    "weeklyReportBody": "{minutes} Minuten Übung, {days} aktive Tage. Sieh dir deinen Fortschritt an!"
+    "weeklyReportBody": "{minutes} Minuten Übung, {days} aktive Tage. Sieh dir deinen Fortschritt an!",
+    "angolReviewBody": "{count} Karten warten auf Wiederholung. Ein paar Minuten, und dein Englisch für heute ist erledigt!"
   }
 }

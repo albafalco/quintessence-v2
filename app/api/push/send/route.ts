@@ -19,8 +19,11 @@ import { getMessage, resolveLocale } from '@/lib/i18n-messages';
 import type { Locale } from '@/i18n';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { isSunday, weekBounds, weekStartOf } from '@/lib/weekly-report';
+import { countReviewQueue, type CardScheduleRow } from '@/lib/angol-srs';
+import vocabulary from '@/messages/content/angol-vocabulary.json';
 
 const WEEKLY_REPORT_TIME = '19:00';
+const VOCABULARY_SIZE = (vocabulary as unknown[]).length;
 
 interface ProfileRow {
   id: string;
@@ -185,10 +188,21 @@ async function buildPushNotifications(
   if (angolDue && !alreadySentAngolToday) {
     const completedToday = await hasAngolActivityToday(supabase, profile.id, budapestNow.date);
     if (!completedToday) {
+      // Mention today's vocabulary review when the schedule (migration 009) exists
+      const { data: cardRows, error: cardError } = await supabase
+        .from('angol_card_progress')
+        .select('word_hu, due_on, introduced_on')
+        .eq('user_id', profile.id);
+      const reviewCount = cardError
+        ? 0
+        : countReviewQueue(VOCABULARY_SIZE, (cardRows ?? []) as CardScheduleRow[], budapestNow.date);
       notifications.push({
         type: 'angol',
         title: await getMessage(locale as Locale, 'push.angolTitle'),
-        body: await getMessage(locale as Locale, 'push.angolBody'),
+        body:
+          reviewCount > 0
+            ? await getMessage(locale as Locale, 'push.angolReviewBody', { count: reviewCount })
+            : await getMessage(locale as Locale, 'push.angolBody'),
         url: `/${locale}/modules/angol`,
       });
     }

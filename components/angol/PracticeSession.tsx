@@ -5,8 +5,7 @@ import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { MondatPair } from '@/lib/i18n-content';
 import { TTSButton } from '@/components/angol/TTSButton';
-import { createClient } from '@/lib/supabase/client';
-import { toBudapestDate } from '@/lib/push-reminders';
+import { recordAngolActivity } from '@/lib/angol-activity';
 import { cn } from '@/lib/utils';
 
 interface PracticeSessionProps {
@@ -66,17 +65,7 @@ export function PracticeSession({
   const recordActivity = useCallback(async () => {
     if (activityRecordedRef.current) return;
     activityRecordedRef.current = true;
-    try {
-      const supabase = createClient();
-      const { data } = await supabase.auth.getSession();
-      if (!data.session) return;
-      await supabase
-        .from('profiles')
-        .update({ last_angol_activity_date: toBudapestDate(new Date()) })
-        .eq('id', data.session.user.id);
-    } catch {
-      activityRecordedRef.current = false;
-    }
+    await recordAngolActivity();
   }, []);
 
   const handleAnswered = useCallback(() => {

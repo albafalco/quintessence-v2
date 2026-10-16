@@ -49,7 +49,8 @@
     "totalLabel": "Tot.",
     "lesson1Progress": "Lezione I",
     "loadError": "Impossibile caricare i dati.",
-    "retry": "Riprova"
+    "retry": "Riprova",
+    "reviewDue": "Ripasso di oggi: {count} schede"
   },
   "modules": {
     "magia": {
@@ -346,7 +347,53 @@
     "dictate": "Detta",
     "stopDictation": "Stop",
     "savingResultFailed": "Impossibile salvare il risultato. Controlla la connessione.",
-    "speechNotAllowed": "La dettatura non è disponibile qui (ad es. nell'app installata o con il microfono bloccato). Digita la risposta."
+    "speechNotAllowed": "La dettatura non è disponibile qui (ad es. nell'app installata o con il microfono bloccato). Digita la risposta.",
+    "modeCards": "Schede",
+    "modeListening": "Ascolto",
+    "modeSpeaking": "Pronuncia",
+    "checkAnswer": "Verifica",
+    "feedbackCorrect": "Corretto!",
+    "feedbackPartial": "Quasi",
+    "feedbackIncorrect": "Non proprio — la risposta corretta:",
+    "listeningIntro": "Ascolterai {count} frasi in inglese. Scrivi ciò che senti!",
+    "listeningStart": "Inizia",
+    "listeningReplay": "Ripeti",
+    "listeningSlower": "Più lento",
+    "listeningTypeWhatYouHear": "Scrivi ciò che senti:",
+    "listeningResultTitle": "Esercizio di ascolto — risultato",
+    "listeningPartial": "{count} quasi giuste",
+    "listeningWrongSaved": "Le frasi sbagliate sono state aggiunte a «Frasi difficili».",
+    "listeningAgain": "Nuovo giro",
+    "pronunciationIntro": "Leggi ad alta voce {count} frasi. Ascoltale prima se vuoi, poi parla: l'app ti dirà quanto eri chiaro.",
+    "pronunciationListen": "Ascolta",
+    "pronunciationSpeak": "Parla",
+    "pronunciationTryAgain": "Riprova",
+    "pronunciationListening": "In ascolto… parla ora",
+    "pronunciationGood": "Eccellente",
+    "pronunciationClose": "Quasi: fai attenzione alle parole in rosso",
+    "pronunciationRetry": "Riprova, più lentamente e chiaramente",
+    "pronunciationHeard": "Sentito:",
+    "pronunciationResultTitle": "Esercizio di pronuncia — risultato",
+    "pronunciationAverage": "chiarezza media su {count} frasi",
+    "hardTitle": "Frasi difficili",
+    "hardDescription": "Qui finiscono le frasi e le parole sbagliate negli esami e nell'ascolto. Se rispondi correttamente 3 volte di fila, la voce esce dalla lista.",
+    "hardTileHint": "Esercitati su quelle difficili",
+    "hardWrongCount": "sbagliata {count}×",
+    "hardWordBadge": "parola",
+    "hardStreak": "Corrette di fila: {streak} / {total}",
+    "hardCleared": "Imparata: rimossa dalla lista!",
+    "hardMarkKnown": "La so già",
+    "hardRoundDone": "Giro completato",
+    "hardAllCleared": "Nessuna frase difficile rimasta: ottimo lavoro!",
+    "hardLearnedNow": "Hai imparato {count} voce/i in questo giro",
+    "hardRemaining": "Ne restano {count}",
+    "reviewToday": "Ripasso di oggi",
+    "allCards": "Tutte le schede",
+    "reviewLoading": "Caricamento ripasso…",
+    "reviewRemaining": "Ancora {count} schede per oggi",
+    "reviewDone": "Per oggi hai finito!",
+    "reviewDoneCount": "Hai ripassato {count} schede. Domani le prossime.",
+    "reviewNothingDue": "Oggi non c'è nulla da ripassare. Torna domani!"
   },
   "profile": {
     "title": "Profilo",
@@ -425,6 +472,7 @@
     "unlockTitle": "⭐ Grado {id} sbloccato!",
     "unlockBody": "Congratulazioni! Hai raggiunto il grado \"{title}\". Continua il tuo percorso!",
     "weeklyReportTitle": "✦ Il tuo rapporto settimanale di iniziazione è pronto",
-    "weeklyReportBody": "{minutes} minuti di pratica, {days} giorni attivi. Guarda i tuoi progressi!"
+    "weeklyReportBody": "{minutes} minuti di pratica, {days} giorni attivi. Guarda i tuoi progressi!",
+    "angolReviewBody": "{count} schede aspettano il ripasso. Pochi minuti e l'inglese di oggi è fatto!"
   }
 }
