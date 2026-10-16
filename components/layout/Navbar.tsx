@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
-import { LanguageSwitcher } from './LanguageSwitcher';
 import { NotificationBell } from '@/components/notifications/NotificationBell';
 import { UserMenu } from './UserMenu';
 import { createClient } from '@/lib/supabase/client';
@@ -55,8 +54,6 @@ export function Navbar() {
         <div className="hidden min-w-0 md:block" />
 
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
-          <LanguageSwitcher />
-
           <NotificationBell />
 
           <UserMenu username={username} name={name} isAdmin={isAdmin} />

@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { Bell, ChevronDown, ShieldCheck, User } from 'lucide-react';
 import { UserAvatar } from '@/components/ui/UserAvatar';
 import { LogoutButton } from '@/components/auth/LogoutButton';
+import { InlineLanguageMenu } from './LanguageMenu';
 import { cn } from '@/lib/utils';
 
 interface UserMenuProps {
@@ -15,7 +16,7 @@ interface UserMenuProps {
   isAdmin: boolean;
 }
 
-/** Header account button: "Üdv, @username" opening Profil / Értesítések / Admin / Kijelentkezés. */
+/** Header account button: "Üdv, @username" opening Profil / Értesítések / Admin / (mobile) Nyelv / Kijelentkezés. */
 export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
   const t = useTranslations('nav');
   const tNotifications = useTranslations('notifications');
@@ -45,7 +46,7 @@ export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
     panel.querySelector<HTMLElement>('[role="menuitem"]')?.focus();
     window.addEventListener('resize', place);
     return () => window.removeEventListener('resize', place);
-  }, [open]);
+  }, [open, mounted]);
 
   useEffect(() => {
     if (!open) return;
@@ -131,6 +132,10 @@ export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
                   {t('admin')}
                 </Link>
               )}
+              {/* Desktop/tablet: the language lives in the sidebar */}
+              <div className="md:hidden">
+                <InlineLanguageMenu itemClassName={itemClass} onPicked={close} />
+              </div>
             </div>
             <div className="border-t border-border/40 p-1.5">
               <LogoutButton variant="nav" role="menuitem" className="rounded-lg px-3 py-2 [&>svg]:h-4 [&>svg]:w-4" />

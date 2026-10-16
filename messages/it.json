@@ -9,7 +9,8 @@
     "expand": "Espandi",
     "greeting": "Ciao,",
     "userMenu": "Menu account",
-    "admin": "Admin"
+    "admin": "Admin",
+    "language": "Lingua"
   },
   "auth": {
     "login": "Accedi",
@@ -424,7 +425,7 @@
     "username": "Nome utente",
     "email": "Email",
     "appearance": "Aspetto",
-    "preferredLanguage": "Lingua preferita",
+    "preferredLanguage": "Lingua",
     "pushNotifications": "Notifiche push",
     "pushEnabled": "Notifiche push su questo dispositivo",
     "pushDeviceCount": "Notifiche attive su {count, plural, one {# dispositivo} other {# dispositivi}}",
@@ -490,7 +491,7 @@
     "saveFailed": "Salvataggio non riuscito",
     "weeklyReportTime": "dom 19:00",
     "angolReminderDesc": "La sera, se quel giorno non hai ancora fatto pratica d'inglese (schede, esercizi o esame)",
-    "preferredLanguageHint": "Riceverai le notifiche in questa lingua.",
+    "preferredLanguageHint": "La lingua dell'app e delle notifiche.",
     "passwordSave": "Salva password",
     "passwordChanged": "Password modificata.",
     "dangerZone": "Zona pericolosa",

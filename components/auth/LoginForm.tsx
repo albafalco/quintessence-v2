@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
+import { locales } from '@/i18n';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -24,19 +25,28 @@ export function LoginForm() {
     setLoading(true);
 
     const supabase = createClient();
-    const { error: signInError } = await supabase.auth.signInWithPassword({
+    const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
-    setLoading(false);
-
     if (signInError) {
+      setLoading(false);
       setError(signInError.message);
       return;
     }
 
-    router.push(`/${locale}`);
+    // Continue in the user's own language (set in the sidebar / account menu)
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('preferred_language')
+      .eq('id', signInData.user.id)
+      .maybeSingle();
+    const preferred = profile?.preferred_language;
+    const target = preferred && (locales as readonly string[]).includes(preferred) ? preferred : locale;
+
+    setLoading(false);
+    router.push(`/${target}`);
     router.refresh();
   };
 

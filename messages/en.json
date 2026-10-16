@@ -9,7 +9,8 @@
     "expand": "Expand",
     "greeting": "Hello,",
     "userMenu": "Account menu",
-    "admin": "Admin"
+    "admin": "Admin",
+    "language": "Language"
   },
   "auth": {
     "login": "Sign in",
@@ -424,7 +425,7 @@
     "username": "Username",
     "email": "Email",
     "appearance": "Appearance",
-    "preferredLanguage": "Preferred language",
+    "preferredLanguage": "Language",
     "pushNotifications": "Push notifications",
     "pushEnabled": "Push notifications on this device",
     "pushDeviceCount": "Notifications active on {count, plural, one {# device} other {# devices}}",
@@ -490,7 +491,7 @@
     "saveFailed": "Saving failed",
     "weeklyReportTime": "Sun 19:00",
     "angolReminderDesc": "In the evening, if you haven't practised English that day (cards, practice or exam)",
-    "preferredLanguageHint": "Notifications are sent in this language.",
+    "preferredLanguageHint": "The language of the app and your notifications.",
     "passwordSave": "Save password",
     "passwordChanged": "Password changed.",
     "dangerZone": "Danger zone",

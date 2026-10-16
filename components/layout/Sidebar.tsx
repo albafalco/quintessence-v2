@@ -14,6 +14,7 @@ import {
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { LogoutButton } from '@/components/auth/LogoutButton';
+import { SidebarLanguageMenu } from './LanguageMenu';
 import { cn } from '@/lib/utils';
 
 const STORAGE_KEY = 'quintessence-sidebar-collapsed';
@@ -155,7 +156,8 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="border-t border-border/40 p-3">
+      <div className="space-y-1 border-t border-border/40 p-3">
+        <SidebarLanguageMenu collapsed={collapsed} />
         <LogoutButton variant="nav" showLabel={!collapsed} />
       </div>
     </aside>

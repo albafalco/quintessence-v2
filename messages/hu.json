@@ -9,7 +9,8 @@
     "expand": "Kinyitás",
     "greeting": "Üdv,",
     "userMenu": "Fiókmenü",
-    "admin": "Admin"
+    "admin": "Admin",
+    "language": "Nyelv"
   },
   "auth": {
     "login": "Bejelentkezés",
@@ -424,7 +425,7 @@
     "username": "Felhasználónév",
     "email": "Email",
     "appearance": "Megjelenítés",
-    "preferredLanguage": "Preferált nyelv",
+    "preferredLanguage": "Nyelv",
     "pushNotifications": "Push értesítések",
     "pushEnabled": "Push értesítések ezen az eszközön",
     "pushDeviceCount": "Értesítések {count} eszközön aktívak",
@@ -490,7 +491,7 @@
     "saveFailed": "A mentés nem sikerült",
     "weeklyReportTime": "vasárnap 19:00",
     "angolReminderDesc": "Este, ha aznap még nem gyakoroltál angolul (szókártya, gyakorlás vagy vizsga)",
-    "preferredLanguageHint": "Ezen a nyelven kapod az értesítéseket.",
+    "preferredLanguageHint": "Az app és az értesítések nyelve.",
     "passwordSave": "Jelszó mentése",
     "passwordChanged": "A jelszó megváltozott.",
     "dangerZone": "Veszélyes műveletek",

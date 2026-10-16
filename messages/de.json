@@ -9,7 +9,8 @@
     "expand": "Ausklappen",
     "greeting": "Hallo,",
     "userMenu": "Kontomenü",
-    "admin": "Admin"
+    "admin": "Admin",
+    "language": "Sprache"
   },
   "auth": {
     "login": "Anmelden",
@@ -424,7 +425,7 @@
     "username": "Benutzername",
     "email": "E-Mail",
     "appearance": "Darstellung",
-    "preferredLanguage": "Bevorzugte Sprache",
+    "preferredLanguage": "Sprache",
     "pushNotifications": "Push-Benachrichtigungen",
     "pushEnabled": "Push-Benachrichtigungen auf diesem Gerät",
     "pushDeviceCount": "Benachrichtigungen auf {count, plural, one {# Gerät} other {# Geräten}} aktiv",
@@ -490,7 +491,7 @@
     "saveFailed": "Speichern fehlgeschlagen",
     "weeklyReportTime": "So 19:00",
     "angolReminderDesc": "Abends, wenn du an dem Tag noch kein Englisch geübt hast (Karten, Übung oder Prüfung)",
-    "preferredLanguageHint": "Benachrichtigungen erhältst du in dieser Sprache.",
+    "preferredLanguageHint": "Die Sprache der App und deiner Benachrichtigungen.",
     "passwordSave": "Passwort speichern",
     "passwordChanged": "Passwort geändert.",
     "dangerZone": "Gefahrenbereich",

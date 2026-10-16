@@ -29,6 +29,7 @@ import { UserAvatar } from '@/components/ui/UserAvatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import { useSwitchLocale } from '@/components/layout/useSwitchLocale';
 import { DISPLAY_NAME_MAX, normalizeDisplayName } from '@/lib/display-name';
 
 interface ProfileData {
@@ -106,6 +107,7 @@ function ReminderRow({ label, description, checked, onCheckedChange, time, onTim
 export function ProfileForm({ profile, isAdmin = false }: { profile: ProfileData; isAdmin?: boolean }) {
   const t = useTranslations('profile');
   const router = useRouter();
+  const switchLocale = useSwitchLocale();
   const supabase = createClient();
 
   const [tab, setTab] = useState<Tab>('overview');
@@ -194,10 +196,10 @@ export function ProfileForm({ profile, isAdmin = false }: { profile: ProfileData
     saveLater(field, { [field]: value });
   };
 
-  const changeLanguage = async (value: string) => {
+  // Same as the sidebar / account menu: switches the UI and the notification language
+  const changeLanguage = (value: string) => {
     setLanguage(value);
-    await saveFields({ preferred_language: value });
-    router.refresh();
+    void switchLocale(value as Locale);
   };
 
   const changePassword = async () => {
@@ -407,7 +409,7 @@ export function ProfileForm({ profile, isAdmin = false }: { profile: ProfileData
               </CardHeader>
               <CardContent>
                 <p className="mb-3 text-xs text-muted-foreground">{t('preferredLanguageHint')}</p>
-                <Select value={language} onValueChange={(v) => void changeLanguage(v)}>
+                <Select value={language} onValueChange={changeLanguage}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
