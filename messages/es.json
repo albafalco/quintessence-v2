@@ -34,7 +34,8 @@
       "methodNotAllowed": "Método no permitido. Usa POST.",
       "emailTaken": "Ya existe una cuenta con este correo electrónico.",
       "usernameTaken": "Este nombre de usuario ya está en uso."
-    }
+    },
+    "accountDeleted": "Tu cuenta y todos tus datos han sido eliminados."
   },
   "dashboard": {
     "welcome": "¡Bienvenido, {username}!",
@@ -50,7 +51,13 @@
     "lesson1Progress": "Lección I",
     "loadError": "No se pudieron cargar los datos.",
     "retry": "Reintentar",
-    "reviewDue": "Repaso de hoy: {count} tarjetas"
+    "reviewDue": "Repaso de hoy: {count} tarjetas",
+    "todayTitle": "Tareas de hoy",
+    "todayProgress": "{done} / {total} hechas",
+    "todayAllDone": "¡Todas las tareas de hoy están hechas!",
+    "todayMore": "+{count} más",
+    "todayReview": "Repaso de vocabulario: {count} tarjetas",
+    "todayHard": "Frases difíciles: {count}"
   },
   "modules": {
     "magia": {
@@ -444,7 +451,19 @@
     "settingsEyebrow": "Ajustes",
     "pushErrorFcm": "El servicio push de Chrome no pudo completar la suscripción. Cierra Chrome completamente (todas las ventanas), ábrelo de nuevo e inténtalo de nuevo. Si no funciona, prueba con Edge o Firefox.",
     "weeklyReport": "Informe semanal",
-    "weeklyReportDesc": "Los domingos a las 19:00, si practicaste esa semana"
+    "weeklyReportDesc": "Los domingos a las 19:00, si practicaste esa semana",
+    "myDataTitle": "Mis datos",
+    "exportHint": "Descarga todos tus datos en un archivo (diario, sesiones, progreso, insignias).",
+    "exportButton": "Descargar mis datos",
+    "exporting": "Recopilando…",
+    "exportFailed": "La descarga ha fallado. Inténtalo de nuevo.",
+    "deleteAccountHint": "Eliminar la cuenta de forma permanente borra todos tus datos de manera irreversible.",
+    "deleteAccountButton": "Eliminar cuenta definitivamente",
+    "deleting": "Eliminando…",
+    "deleteAccountConfirm": "¿Eliminar tu cuenta? Todos tus datos (diario, sesiones, progreso) se perderán para siempre. No se puede deshacer. Te conviene descargar tus datos antes.",
+    "deleteAccountTypeUsername": "Para confirmar, escribe tu nombre de usuario: {username}",
+    "deleteAccountFailed": "No se pudo eliminar la cuenta. Inténtalo más tarde.",
+    "cancel": "Cancelar"
   },
   "brand": {
     "name": "Quintessence",
@@ -474,5 +493,63 @@
     "weeklyReportTitle": "✦ Tu informe semanal de iniciación está listo",
     "weeklyReportBody": "{minutes} minutos de práctica, {days} días activos. ¡Mira cómo has avanzado!",
     "angolReviewBody": "{count} tarjetas esperan repaso. ¡Unos minutos y listo el inglés de hoy!"
+  },
+  "badges": {
+    "sectionTitle": "Hitos",
+    "loading": "Cargando hitos…",
+    "earned": "Conseguido",
+    "earnedOn": "Conseguido: {date}",
+    "newBadge": "✦ Nuevo hito",
+    "newBadges": "✦ {count} nuevos hitos",
+    "category_magia": "Magia Blanca",
+    "category_angol": "Inglés creativo",
+    "first_session": {
+      "title": "Primera sesión",
+      "desc": "Completa un ejercicio"
+    },
+    "streak_7": {
+      "title": "Racha de 7 días",
+      "desc": "Practica 7 días seguidos"
+    },
+    "streak_30": {
+      "title": "Racha de 30 días",
+      "desc": "Practica 30 días seguidos"
+    },
+    "streak_100": {
+      "title": "Racha de 100 días",
+      "desc": "Practica 100 días seguidos"
+    },
+    "practice_10h": {
+      "title": "10 horas de práctica",
+      "desc": "Acumula 10 horas de práctica"
+    },
+    "first_mastered": {
+      "title": "Primer ejercicio dominado",
+      "desc": "Marca un ejercicio como dominado"
+    },
+    "first_fokozat": {
+      "title": "Primer grado dominado",
+      "desc": "Domina todos los ejercicios de un grado"
+    },
+    "soul_mirror_10": {
+      "title": "10 rasgos trabajados",
+      "desc": "Supera 10 elementos de tu espejo del alma"
+    },
+    "words_50": {
+      "title": "50 palabras aprendidas",
+      "desc": "Domina 50 palabras (al menos 3 aciertos)"
+    },
+    "words_all": {
+      "title": "Toda la lista de palabras",
+      "desc": "Aprende todas las palabras de la lista"
+    },
+    "first_exam": {
+      "title": "Primer examen aprobado",
+      "desc": "Aprueba un examen con al menos un 80 %"
+    },
+    "all_sections": {
+      "title": "Todas las secciones desbloqueadas",
+      "desc": "Desbloquea las 14 secciones de práctica de la lección 1"
+    }
   }
 }

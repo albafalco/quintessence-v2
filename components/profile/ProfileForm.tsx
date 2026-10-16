@@ -16,6 +16,8 @@ import {
   getNativeLocaleLabel,
 } from '@/lib/locale-meta';
 import { LogoutButton } from '@/components/auth/LogoutButton';
+import { AccountDataCard } from '@/components/profile/AccountDataCard';
+import { BadgesSection } from '@/components/profile/BadgesSection';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -365,6 +367,10 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
       <Button variant="gold" onClick={saveProfile} disabled={saving} className="w-full">
         {saving ? '...' : t('save')}
       </Button>
+
+      <BadgesSection userId={profile.id} />
+
+      <AccountDataCard userId={profile.id} username={profile.username} email={profile.email} />
 
       <Card className="premium-card border-red-500/10">
         <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">

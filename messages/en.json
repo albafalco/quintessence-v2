@@ -34,7 +34,8 @@
       "methodNotAllowed": "Method not allowed. Use POST.",
       "emailTaken": "An account with this email already exists.",
       "usernameTaken": "This username is already taken."
-    }
+    },
+    "accountDeleted": "Your account and all your data have been deleted."
   },
   "dashboard": {
     "welcome": "Welcome, {username}!",
@@ -50,7 +51,13 @@
     "lesson1Progress": "Lesson I",
     "loadError": "Could not load your data.",
     "retry": "Try again",
-    "reviewDue": "Today's review: {count} cards"
+    "reviewDue": "Today's review: {count} cards",
+    "todayTitle": "Today's tasks",
+    "todayProgress": "{done} / {total} done",
+    "todayAllDone": "All of today's tasks are done!",
+    "todayMore": "+{count} more",
+    "todayReview": "Vocabulary review: {count} cards",
+    "todayHard": "Difficult sentences: {count}"
   },
   "modules": {
     "magia": {
@@ -444,7 +451,19 @@
     "settingsEyebrow": "Settings",
     "pushErrorFcm": "Chrome's push service failed to complete the subscription. Close Chrome completely (all windows), reopen it, and try again. If that doesn't help, try Edge or Firefox.",
     "weeklyReport": "Weekly report",
-    "weeklyReportDesc": "Sundays at 19:00, if you practiced that week"
+    "weeklyReportDesc": "Sundays at 19:00, if you practiced that week",
+    "myDataTitle": "My data",
+    "exportHint": "Download all your data in one file (journal, sessions, progress, badges).",
+    "exportButton": "Download my data",
+    "exporting": "Collecting…",
+    "exportFailed": "The download failed. Please try again.",
+    "deleteAccountHint": "Permanently deleting your account removes all your data irreversibly.",
+    "deleteAccountButton": "Delete account permanently",
+    "deleting": "Deleting…",
+    "deleteAccountConfirm": "Delete your account? All your data (journal, sessions, progress) will be lost permanently. This cannot be undone. Consider downloading your data first.",
+    "deleteAccountTypeUsername": "To confirm, type your username: {username}",
+    "deleteAccountFailed": "Deleting the account failed. Please try again later.",
+    "cancel": "Cancel"
   },
   "brand": {
     "name": "Quintessence",
@@ -474,5 +493,63 @@
     "weeklyReportTitle": "✦ Your weekly initiation report is ready",
     "weeklyReportBody": "{minutes} minutes of practice, {days} active days. See how you progressed!",
     "angolReviewBody": "{count} cards are waiting for review. A few minutes and today's English is done!"
+  },
+  "badges": {
+    "sectionTitle": "Milestones",
+    "loading": "Loading milestones…",
+    "earned": "Earned",
+    "earnedOn": "Earned: {date}",
+    "newBadge": "✦ New milestone",
+    "newBadges": "✦ {count} new milestones",
+    "category_magia": "White Magic",
+    "category_angol": "Creative English",
+    "first_session": {
+      "title": "First session",
+      "desc": "Complete one exercise"
+    },
+    "streak_7": {
+      "title": "7-day streak",
+      "desc": "Practise 7 days in a row"
+    },
+    "streak_30": {
+      "title": "30-day streak",
+      "desc": "Practise 30 days in a row"
+    },
+    "streak_100": {
+      "title": "100-day streak",
+      "desc": "Practise 100 days in a row"
+    },
+    "practice_10h": {
+      "title": "10 hours of practice",
+      "desc": "Reach 10 hours of practice time"
+    },
+    "first_mastered": {
+      "title": "First mastered exercise",
+      "desc": "Mark an exercise as mastered"
+    },
+    "first_fokozat": {
+      "title": "First mastered level",
+      "desc": "Master every exercise of a level"
+    },
+    "soul_mirror_10": {
+      "title": "10 traits worked through",
+      "desc": "Resolve 10 items in your soul mirror"
+    },
+    "words_50": {
+      "title": "50 words learned",
+      "desc": "Know 50 words (at least 3 correct answers)"
+    },
+    "words_all": {
+      "title": "The whole word list",
+      "desc": "Learn every word of the list"
+    },
+    "first_exam": {
+      "title": "First exam passed",
+      "desc": "Pass an exam with at least 80%"
+    },
+    "all_sections": {
+      "title": "All sections unlocked",
+      "desc": "Unlock all 14 practice sections of lesson 1"
+    }
   }
 }

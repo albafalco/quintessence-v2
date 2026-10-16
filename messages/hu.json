@@ -34,7 +34,8 @@
       "methodNotAllowed": "Nem engedélyezett metódus. Használd a POST-ot.",
       "emailTaken": "Ezzel az e-mail-címmel már van fiók.",
       "usernameTaken": "Ez a felhasználónév már foglalt."
-    }
+    },
+    "accountDeleted": "A fiókodat és minden adatodat töröltük."
   },
   "dashboard": {
     "welcome": "Üdvözlet, {username}!",
@@ -50,7 +51,13 @@
     "lesson1Progress": "1. Lecke",
     "loadError": "Nem sikerült betölteni az adatokat.",
     "retry": "Újrapróbálás",
-    "reviewDue": "Mai ismétlés: {count} kártya"
+    "reviewDue": "Mai ismétlés: {count} kártya",
+    "todayTitle": "Mai teendők",
+    "todayProgress": "{done} / {total} kész",
+    "todayAllDone": "Minden mai teendőd kész!",
+    "todayMore": "+{count} további",
+    "todayReview": "Szókártya-ismétlés: {count} kártya",
+    "todayHard": "Nehéz mondatok: {count}"
   },
   "modules": {
     "magia": {
@@ -444,7 +451,19 @@
     "anglNotificationsTitle": "Angol értesítések",
     "settingsEyebrow": "Beállítások",
     "weeklyReport": "Heti jelentés",
-    "weeklyReportDesc": "Vasárnap 19:00-kor, ha a héten volt gyakorlás"
+    "weeklyReportDesc": "Vasárnap 19:00-kor, ha a héten volt gyakorlás",
+    "myDataTitle": "Adataim",
+    "exportHint": "Minden adatodat letöltheted egy fájlban (napló, munkamenetek, haladás, jelvények).",
+    "exportButton": "Adataim letöltése",
+    "exporting": "Összegyűjtés…",
+    "exportFailed": "A letöltés nem sikerült. Próbáld újra.",
+    "deleteAccountHint": "A fiók végleges törlése minden adatodat visszavonhatatlanul eltávolítja.",
+    "deleteAccountButton": "Fiók végleges törlése",
+    "deleting": "Törlés…",
+    "deleteAccountConfirm": "Biztosan törlöd a fiókodat? Minden adatod (napló, munkamenetek, haladás) véglegesen elvész. Ezt nem lehet visszavonni. Előtte érdemes letölteni az adataidat.",
+    "deleteAccountTypeUsername": "A megerősítéshez írd be a felhasználóneved: {username}",
+    "deleteAccountFailed": "A fiók törlése nem sikerült. Próbáld újra később.",
+    "cancel": "Mégse"
   },
   "brand": {
     "name": "Quintessence",
@@ -474,5 +493,63 @@
     "weeklyReportTitle": "✦ Elkészült a heti beavatási jelentésed",
     "weeklyReportBody": "{minutes} perc gyakorlás, {days} aktív nap. Nézd meg, hogyan haladtál!",
     "angolReviewBody": "{count} kártya vár ismétlésre. Pár perc, és megvan a mai angol!"
+  },
+  "badges": {
+    "sectionTitle": "Mérföldkövek",
+    "loading": "Mérföldkövek betöltése…",
+    "earned": "Megszerezve",
+    "earnedOn": "Megszerezve: {date}",
+    "newBadge": "✦ Új mérföldkő",
+    "newBadges": "✦ {count} új mérföldkő",
+    "category_magia": "Fehér Mágia",
+    "category_angol": "Kreatív Angol",
+    "first_session": {
+      "title": "Első munkamenet",
+      "desc": "Végezz el egy gyakorlatot"
+    },
+    "streak_7": {
+      "title": "7 napos sorozat",
+      "desc": "Gyakorolj 7 napig egymás után"
+    },
+    "streak_30": {
+      "title": "30 napos sorozat",
+      "desc": "Gyakorolj 30 napig egymás után"
+    },
+    "streak_100": {
+      "title": "100 napos sorozat",
+      "desc": "Gyakorolj 100 napig egymás után"
+    },
+    "practice_10h": {
+      "title": "10 óra gyakorlás",
+      "desc": "Gyűjts össze 10 óra gyakorlási időt"
+    },
+    "first_mastered": {
+      "title": "Első uralt gyakorlat",
+      "desc": "Jelölj meg egy gyakorlatot uraltként"
+    },
+    "first_fokozat": {
+      "title": "Első uralt fokozat",
+      "desc": "Urald egy fokozat minden gyakorlatát"
+    },
+    "soul_mirror_10": {
+      "title": "10 feldolgozott tulajdonság",
+      "desc": "Dolgozz fel 10 tételt a lelki tükrödben"
+    },
+    "words_50": {
+      "title": "50 megtanult szó",
+      "desc": "Tudj 50 szót (legalább 3 helyes válasz)"
+    },
+    "words_all": {
+      "title": "A teljes szólap",
+      "desc": "Tanuld meg a szólap összes szavát"
+    },
+    "first_exam": {
+      "title": "Első sikeres vizsga",
+      "desc": "Teljesíts egy vizsgát legalább 80%-kal"
+    },
+    "all_sections": {
+      "title": "Minden szakasz feloldva",
+      "desc": "Oldd fel az 1. lecke mind a 14 gyakorló szakaszát"
+    }
   }
 }

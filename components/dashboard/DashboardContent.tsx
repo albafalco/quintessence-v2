@@ -24,6 +24,11 @@ import { FlagIcon } from '@/components/ui/FlagIcon';
 import { ElementsIcon, ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { ModuleCard } from '@/components/dashboard/ModuleCard';
 import { DashboardSkeleton } from '@/components/dashboard/DashboardSkeleton';
+import { TodayCard } from '@/components/dashboard/TodayCard';
+import { BadgeToast } from '@/components/ui/BadgeToast';
+import { loadTodayData, type TodayData } from '@/lib/today';
+import { syncBadges } from '@/lib/badges-sync';
+import type { Locale } from '@/i18n';
 
 const FETCH_TIMEOUT_MS = 8000;
 
@@ -39,6 +44,7 @@ interface DashboardData {
   showAngol: boolean;
   magiaStats: ReturnType<typeof getMagiaDashboardStats>;
   angolStats: { progress: number; lastActivity: string | null; reviewCount: number | null };
+  today: TodayData | null;
 }
 
 export function DashboardContent() {
@@ -50,6 +56,7 @@ export function DashboardContent() {
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [newBadges, setNewBadges] = useState<string[]>([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -89,13 +96,20 @@ export function DashboardContent() {
         const magiaResult = await timed(
           supabase
             .from('magia_progress')
-            .select('fokozat, section, exercise_key, completed, completed_at, notes, status, mastered_at')
+            .select('fokozat, section, exercise_key, completed, completed_at, notes, status, mastered_at, session_count')
             .eq('user_id', user.id),
           FETCH_TIMEOUT_MS,
           { data: [], error: null } as never
         );
 
         const magiaStats = getMagiaDashboardStats(magiaResult.data ?? []);
+        // Not critical: the card is simply left out if this fails
+        const todayPromise = loadTodayData(supabase, user.id, locale as Locale, magiaResult.data ?? [], showAngol).catch(
+          (err) => {
+            bootLog('dashboard-today-failed', { error: String(err) });
+            return null;
+          }
+        );
 
         let angolStats = { progress: 0, lastActivity: null as string | null, reviewCount: null as number | null };
         if (showAngol) {
@@ -137,10 +151,18 @@ export function DashboardContent() {
           };
         }
 
+        const today = await todayPromise;
         if (cancelled) return;
 
         bootLog('dashboard-fetch-done');
-        setData({ username, showAngol, magiaStats, angolStats });
+        setData({ username, showAngol, magiaStats, angolStats, today });
+
+        // Milestones are checked in the background; new ones get a toast
+        syncBadges(supabase, user.id)
+          .then((state) => {
+            if (!cancelled && state.newlyEarned.length > 0) setNewBadges(state.newlyEarned);
+          })
+          .catch((err) => bootLog('badges-sync-failed', { error: String(err) }));
         setLoading(false);
       } catch (err) {
         bootLog('dashboard-fetch-failed', { error: String(err) });
@@ -176,7 +198,7 @@ export function DashboardContent() {
     );
   }
 
-  const { username, showAngol, magiaStats, angolStats } = data;
+  const { username, showAngol, magiaStats, angolStats, today: todayData } = data;
   const today = formatDate(new Date(), locale);
 
   return (
@@ -244,6 +266,8 @@ export function DashboardContent() {
         </div>
       </section>
 
+      {todayData && <TodayCard today={todayData} angolReviewCount={showAngol ? angolStats.reviewCount : null} showAngol={showAngol} />}
+
       <section>
         <h2 className="mb-5 font-display text-xl font-semibold text-cream">{t('continue')}</h2>
         <div className="grid gap-6 sm:grid-cols-2">
@@ -273,6 +297,7 @@ export function DashboardContent() {
           )}
         </div>
       </section>
+      {newBadges.length > 0 && <BadgeToast badgeIds={newBadges} />}
     </div>
   );
 }

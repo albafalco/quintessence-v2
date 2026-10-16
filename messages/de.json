@@ -34,7 +34,8 @@
       "methodNotAllowed": "Methode nicht erlaubt. POST verwenden.",
       "emailTaken": "Mit dieser E-Mail-Adresse existiert bereits ein Konto.",
       "usernameTaken": "Dieser Benutzername ist bereits vergeben."
-    }
+    },
+    "accountDeleted": "Dein Konto und alle deine Daten wurden gelöscht."
   },
   "dashboard": {
     "welcome": "Willkommen, {username}!",
@@ -50,7 +51,13 @@
     "lesson1Progress": "Lektion I",
     "loadError": "Daten konnten nicht geladen werden.",
     "retry": "Erneut versuchen",
-    "reviewDue": "Heutige Wiederholung: {count} Karten"
+    "reviewDue": "Heutige Wiederholung: {count} Karten",
+    "todayTitle": "Heutige Aufgaben",
+    "todayProgress": "{done} / {total} erledigt",
+    "todayAllDone": "Alle heutigen Aufgaben sind erledigt!",
+    "todayMore": "+{count} weitere",
+    "todayReview": "Vokabelwiederholung: {count} Karten",
+    "todayHard": "Schwierige Sätze: {count}"
   },
   "modules": {
     "magia": {
@@ -444,7 +451,19 @@
     "settingsEyebrow": "Einstellungen",
     "pushErrorFcm": "Der Chrome-Push-Dienst konnte das Abonnement nicht abschließen. Schließe Chrome vollständig (alle Fenster), öffne es erneut und versuche es nochmal. Falls es nicht hilft, versuche es mit Edge oder Firefox.",
     "weeklyReport": "Wochenbericht",
-    "weeklyReportDesc": "Sonntags um 19:00, wenn du in der Woche geübt hast"
+    "weeklyReportDesc": "Sonntags um 19:00, wenn du in der Woche geübt hast",
+    "myDataTitle": "Meine Daten",
+    "exportHint": "Lade alle deine Daten in einer Datei herunter (Tagebuch, Sitzungen, Fortschritt, Abzeichen).",
+    "exportButton": "Meine Daten herunterladen",
+    "exporting": "Wird gesammelt…",
+    "exportFailed": "Der Download ist fehlgeschlagen. Bitte versuche es erneut.",
+    "deleteAccountHint": "Das endgültige Löschen des Kontos entfernt alle deine Daten unwiderruflich.",
+    "deleteAccountButton": "Konto endgültig löschen",
+    "deleting": "Wird gelöscht…",
+    "deleteAccountConfirm": "Konto wirklich löschen? Alle deine Daten (Tagebuch, Sitzungen, Fortschritt) gehen endgültig verloren. Das kann nicht rückgängig gemacht werden. Lade deine Daten vorher herunter.",
+    "deleteAccountTypeUsername": "Gib zur Bestätigung deinen Benutzernamen ein: {username}",
+    "deleteAccountFailed": "Das Löschen des Kontos ist fehlgeschlagen. Bitte versuche es später erneut.",
+    "cancel": "Abbrechen"
   },
   "brand": {
     "name": "Quintessence",
@@ -474,5 +493,63 @@
     "weeklyReportTitle": "✦ Dein wöchentlicher Einweihungsbericht ist fertig",
     "weeklyReportBody": "{minutes} Minuten Übung, {days} aktive Tage. Sieh dir deinen Fortschritt an!",
     "angolReviewBody": "{count} Karten warten auf Wiederholung. Ein paar Minuten, und dein Englisch für heute ist erledigt!"
+  },
+  "badges": {
+    "sectionTitle": "Meilensteine",
+    "loading": "Meilensteine werden geladen…",
+    "earned": "Erreicht",
+    "earnedOn": "Erreicht: {date}",
+    "newBadge": "✦ Neuer Meilenstein",
+    "newBadges": "✦ {count} neue Meilensteine",
+    "category_magia": "Weiße Magie",
+    "category_angol": "Kreatives Englisch",
+    "first_session": {
+      "title": "Erste Sitzung",
+      "desc": "Schließe eine Übung ab"
+    },
+    "streak_7": {
+      "title": "7-Tage-Serie",
+      "desc": "Übe 7 Tage am Stück"
+    },
+    "streak_30": {
+      "title": "30-Tage-Serie",
+      "desc": "Übe 30 Tage am Stück"
+    },
+    "streak_100": {
+      "title": "100-Tage-Serie",
+      "desc": "Übe 100 Tage am Stück"
+    },
+    "practice_10h": {
+      "title": "10 Stunden Übung",
+      "desc": "Sammle 10 Stunden Übungszeit"
+    },
+    "first_mastered": {
+      "title": "Erste gemeisterte Übung",
+      "desc": "Markiere eine Übung als gemeistert"
+    },
+    "first_fokozat": {
+      "title": "Erste gemeisterte Stufe",
+      "desc": "Meistere alle Übungen einer Stufe"
+    },
+    "soul_mirror_10": {
+      "title": "10 bearbeitete Eigenschaften",
+      "desc": "Bearbeite 10 Einträge in deinem Seelenspiegel"
+    },
+    "words_50": {
+      "title": "50 gelernte Wörter",
+      "desc": "Kenne 50 Wörter (mind. 3 richtige Antworten)"
+    },
+    "words_all": {
+      "title": "Die ganze Wortliste",
+      "desc": "Lerne alle Wörter der Liste"
+    },
+    "first_exam": {
+      "title": "Erste bestandene Prüfung",
+      "desc": "Bestehe eine Prüfung mit mindestens 80 %"
+    },
+    "all_sections": {
+      "title": "Alle Abschnitte freigeschaltet",
+      "desc": "Schalte alle 14 Übungsabschnitte der Lektion 1 frei"
+    }
   }
 }

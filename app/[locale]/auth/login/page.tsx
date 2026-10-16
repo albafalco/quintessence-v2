@@ -15,10 +15,13 @@ export async function generateMetadata({
 
 export default async function LoginPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ deleted?: string }>;
 }) {
   const { locale } = await params;
+  const { deleted } = await searchParams;
   const t = await getTranslations({ locale, namespace: 'auth' });
 
   return (
@@ -28,6 +31,11 @@ export default async function LoginPage({
         <CardDescription>{t('login')}</CardDescription>
       </CardHeader>
       <CardContent>
+        {deleted === '1' && (
+          <p className="mb-4 rounded-xl border border-accent/25 bg-accent/5 px-3 py-2.5 text-center text-sm text-cream/90">
+            {t('accountDeleted')}
+          </p>
+        )}
         <LoginForm />
       </CardContent>
     </Card>

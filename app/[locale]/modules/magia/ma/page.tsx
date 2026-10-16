@@ -13,11 +13,11 @@ import {
   computePillarBalance,
   computeStreak,
   getCurrentFokozatId,
-  getExerciseProgress,
   computeRatingStats,
   isReadyForMastery,
 } from '@/lib/magia-utils';
 import { getBudapestNow, toBudapestDate } from '@/lib/push-reminders';
+import { buildDailyPlan } from '@/lib/magia-plan';
 import type { MagiaProgressRecord, SessionRecord } from '@/lib/magia-utils';
 
 interface MaMagiaPageProps {
@@ -82,37 +82,11 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   const pillarBalance = computePillarBalance(recentSessions);
 
   const todaySessions = recentSessions.filter((s) => toBudapestDate(s.started_at) === todayDate);
-  const todayExerciseKeys = new Set(todaySessions.map((s) => s.exercise_key));
-
-  const sections = ['szellem', 'lelek', 'test'] as const;
-  type PlanExercise = {
-    section: 'szellem' | 'lelek' | 'test';
-    exercise: typeof fokozat.szellem.gyakorlatok[number];
-    progress: ReturnType<typeof getExerciseProgress>;
-    doneToday: boolean;
-    /** For twice-daily exercises: 0 = morning, 1 = evening. */
-    slot?: 0 | 1;
-  };
-
-  const planExercises: PlanExercise[] = [];
-
-  for (const section of sections) {
-    for (const exercise of fokozat[section].gyakorlatok) {
-      const ep = getExerciseProgress(currentFokozatId, section, exercise.key, allProgress);
-      if (ep.status === 'mastered') continue;
-
-      const fullKey = buildExerciseKey(section, currentFokozatId, exercise.key);
-      const doneToday = todayExerciseKeys.has(fullKey);
-
-      if (exercise.params?.frequency === 'twice_daily') {
-        const todayCount = todaySessions.filter((s) => s.exercise_key === fullKey).length;
-        planExercises.push({ section, exercise, progress: ep, doneToday: todayCount >= 1, slot: 0 });
-        planExercises.push({ section, exercise, progress: ep, doneToday: todayCount >= 2, slot: 1 });
-      } else {
-        planExercises.push({ section, exercise, progress: ep, doneToday });
-      }
-    }
-  }
+  const planExercises = buildDailyPlan(
+    fokozat,
+    allProgress,
+    todaySessions.map((s) => s.exercise_key)
+  );
 
   // Exercises of today's plan that look ready to be marked as mastered
   const readyTitles = Array.from(

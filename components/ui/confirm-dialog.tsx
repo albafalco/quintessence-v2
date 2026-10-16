@@ -10,6 +10,9 @@ interface ConfirmOptions {
   cancelLabel: string;
   /** Red confirm button for irreversible actions (e.g. delete). */
   destructive?: boolean;
+  /** The user must type exactly this text before confirming (e.g. their username). */
+  requireText?: string;
+  requireTextLabel?: string;
 }
 
 interface PendingConfirm extends ConfirmOptions {
@@ -48,6 +51,8 @@ export function useConfirm() {
       confirmLabel={pending.confirmLabel}
       cancelLabel={pending.cancelLabel}
       destructive={pending.destructive}
+      requireText={pending.requireText}
+      requireTextLabel={pending.requireTextLabel}
       onConfirm={() => close(true)}
       onCancel={() => close(false)}
     />
@@ -61,14 +66,26 @@ interface ConfirmDialogProps extends ConfirmOptions {
   onCancel: () => void;
 }
 
-function ConfirmDialog({ message, confirmLabel, cancelLabel, destructive, onConfirm, onCancel }: ConfirmDialogProps) {
+function ConfirmDialog({
+  message,
+  confirmLabel,
+  cancelLabel,
+  destructive,
+  requireText,
+  requireTextLabel,
+  onConfirm,
+  onCancel,
+}: ConfirmDialogProps) {
   const cancelRef = useRef<HTMLButtonElement>(null);
   const confirmRef = useRef<HTMLButtonElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [typed, setTyped] = useState('');
+  const canConfirm = !requireText || typed.trim() === requireText;
 
   useEffect(() => {
     const previouslyFocused = document.activeElement as HTMLElement | null;
-    // Safe default: focus the cancel button.
-    cancelRef.current?.focus();
+    // Safe default: focus the text field if one is required, otherwise cancel.
+    (inputRef.current ?? cancelRef.current)?.focus();
 
     // Capture phase + stopPropagation: the dialog underneath (MagiaModal)
     // must not also react to Escape / Tab while this one is open.
@@ -80,8 +97,12 @@ function ConfirmDialog({ message, confirmLabel, cancelLabel, destructive, onConf
       } else if (e.key === 'Tab') {
         e.preventDefault();
         e.stopPropagation();
-        const next = document.activeElement === cancelRef.current ? confirmRef.current : cancelRef.current;
-        next?.focus();
+        const order = [inputRef.current, cancelRef.current, confirmRef.current].filter(
+          (el): el is HTMLInputElement | HTMLButtonElement => Boolean(el) && !(el as HTMLButtonElement).disabled
+        );
+        const i = order.indexOf(document.activeElement as HTMLInputElement | HTMLButtonElement);
+        const nextIndex = e.shiftKey ? (i <= 0 ? order.length - 1 : i - 1) : (i + 1) % order.length;
+        order[nextIndex]?.focus();
       }
     };
     document.addEventListener('keydown', onKeyDown, true);
@@ -107,6 +128,21 @@ function ConfirmDialog({ message, confirmLabel, cancelLabel, destructive, onConf
         <p id="confirm-dialog-message" className="text-center text-[15px] leading-relaxed text-cream">
           {message}
         </p>
+        {requireText && (
+          <div className="mt-4">
+            {requireTextLabel && <label className="mb-1.5 block text-xs text-muted-foreground">{requireTextLabel}</label>}
+            <input
+              ref={inputRef}
+              type="text"
+              value={typed}
+              onChange={(e) => setTyped(e.target.value)}
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck={false}
+              className="w-full rounded-xl border border-border/60 bg-background px-3 py-2.5 text-center text-sm text-cream focus:border-accent/50 focus:outline-none"
+            />
+          </div>
+        )}
         <div className="mt-6 flex gap-3">
           <button
             ref={cancelRef}
@@ -120,8 +156,9 @@ function ConfirmDialog({ message, confirmLabel, cancelLabel, destructive, onConf
             ref={confirmRef}
             type="button"
             onClick={onConfirm}
+            disabled={!canConfirm}
             className={cn(
-              'flex-1 rounded-xl py-3 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60',
+              'flex-1 rounded-xl py-3 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 disabled:cursor-not-allowed disabled:opacity-40',
               destructive
                 ? 'border border-red-500/40 bg-red-500/15 text-red-300 hover:bg-red-500/25'
                 : 'bg-gradient-to-r from-accent-dark via-accent to-accent-light text-accent-foreground shadow-glow-gold hover:brightness-110'
