@@ -1,6 +1,9 @@
 'use client';
 
-export function BootFallback() {
+import { getBootTexts } from '@/lib/boot-texts';
+
+export function BootFallback({ locale }: { locale: string }) {
+  const texts = getBootTexts(locale);
   return (
     <div
       id="boot-fallback"
@@ -23,7 +26,7 @@ export function BootFallback() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/logo-splash.png" alt="" width={64} height={64} />
       <p style={{ color: '#a89bb8', fontSize: '0.95rem', maxWidth: '20rem' }}>
-        Az alkalmazás nem indult el. Próbáld újra.
+        {texts.notStarted}
       </p>
       <button
         type="button"
@@ -39,7 +42,7 @@ export function BootFallback() {
           cursor: 'pointer',
         }}
       >
-        Újratöltés
+        {texts.reload}
       </button>
     </div>
   );

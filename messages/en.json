@@ -233,7 +233,8 @@
     "saveFailed": "Saving failed. Check your connection and try again.",
     "durationMinSec": "{m} min {s} s",
     "durationMin": "{m} min",
-    "durationSec": "{s} s"
+    "durationSec": "{s} s",
+    "confirmCloseSession": "Close anyway? The session in progress will not be saved."
   },
   "angol": {
     "title": "Creative English",
@@ -307,7 +308,8 @@
     "speechNotSupported": "Dictation is not supported in this browser.",
     "dictate": "Dictate",
     "stopDictation": "Stop",
-    "savingResultFailed": "Could not save the result. Check your connection."
+    "savingResultFailed": "Could not save the result. Check your connection.",
+    "speechNotAllowed": "Dictation is not available here (e.g. in the installed home-screen app or with the microphone blocked). Please type your answer."
   },
   "profile": {
     "title": "Profile",

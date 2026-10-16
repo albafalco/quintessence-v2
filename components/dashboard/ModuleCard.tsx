@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -65,7 +66,7 @@ export function ModuleCard({
             <CardDescription className="max-w-[220px]">{subtitle}</CardDescription>
             {progressLabel && (
               <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-accent/80">
-                {isMagia && <Sparkles className="h-3 w-3" />}
+                {isMagia && <ElementsNavIcon className="h-3 w-3" />}
                 {progressLabel}
               </p>
             )}

@@ -15,6 +15,7 @@ export function SpeechInput({ onResult, className, disabled }: SpeechInputProps)
   const t = useTranslations('angol');
   const [listening, setListening] = useState(false);
   const [supported, setSupported] = useState(true);
+  const [blocked, setBlocked] = useState(false);
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const onResultRef = useRef(onResult);
 
@@ -48,7 +49,12 @@ export function SpeechInput({ onResult, className, disabled }: SpeechInputProps)
     };
 
     recognition.onend = () => setListening(false);
-    recognition.onerror = () => setListening(false);
+    recognition.onerror = (event: Event) => {
+      setListening(false);
+      // e.g. iOS home-screen apps, or microphone permission denied
+      const code = (event as Event & { error?: string }).error;
+      if (code === 'not-allowed' || code === 'service-not-allowed') setBlocked(true);
+    };
 
     recognitionRef.current = recognition;
 
@@ -73,6 +79,14 @@ export function SpeechInput({ onResult, className, disabled }: SpeechInputProps)
       }
     }
   }, [listening]);
+
+  if (blocked) {
+    return (
+      <span className="text-xs text-muted-foreground">
+        {t('speechNotAllowed')}
+      </span>
+    );
+  }
 
   if (!supported) {
     return (

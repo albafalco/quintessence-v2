@@ -22,6 +22,21 @@ export interface JournalEntryData {
   updated_at: string;
 }
 
+const EDITABLE_FIELDS = ['successes', 'failures', 'disturbances', 'self_criticism', 'next_plan', 'content'] as const;
+type EditableField = (typeof EDITABLE_FIELDS)[number];
+type EditForm = Record<EditableField, string>;
+
+function toForm(entry: JournalEntryData): EditForm {
+  return {
+    successes: entry.successes ?? '',
+    failures: entry.failures ?? '',
+    disturbances: entry.disturbances ?? '',
+    self_criticism: entry.self_criticism ?? '',
+    next_plan: entry.next_plan ?? '',
+    content: entry.content ?? '',
+  };
+}
+
 interface JournalEntryProps {
   entry: JournalEntryData;
   onUpdate: (entry: JournalEntryData) => void;
@@ -33,9 +48,26 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
   const formatDuration = (sec: number) => formatDurationLabel(sec, t);
   const locale = useLocale();
   const [editing, setEditing] = useState(false);
-  const [editContent, setEditContent] = useState(entry.content ?? '');
+  const [form, setForm] = useState<EditForm>(() => toForm(entry));
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const FIELD_LABELS: Record<EditableField, string> = {
+    successes: t('journalFieldSuccesses'),
+    failures: t('journalFieldFailures'),
+    disturbances: t('journalFieldDisturbances'),
+    self_criticism: t('journalFieldSelfCriticism'),
+    next_plan: t('journalFieldNextPlan'),
+    content: t('journalFieldContent'),
+  };
+  const isFormEmpty = EDITABLE_FIELDS.every((k) => !form[k].trim());
+
+  const startEditing = () => {
+    setForm(toForm(entry));
+    setError(null);
+    setEditing(true);
+  };
 
   const STRUCTURED_FIELDS: { key: keyof JournalEntryData; label: string }[] = [
     { key: 'successes', label: t('journalFieldSuccessesShort') },
@@ -58,34 +90,55 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
   );
 
   const handleSave = async () => {
-    if (editContent.trim() === (entry.content ?? '')) {
+    const original = toForm(entry);
+    const changed = EDITABLE_FIELDS.some((k) => form[k].trim() !== original[k].trim());
+    if (!changed) {
       setEditing(false);
       return;
     }
 
     setSaving(true);
+    setError(null);
     const supabase = createClient();
-    const { data, error } = await supabase
+    const { data, error: updateError } = await supabase
       .from('magia_journal')
-      .update({ content: editContent.trim(), updated_at: new Date().toISOString() })
+      .update({
+        // content is NOT NULL in the schema; the other fields are optional
+        content: form.content.trim(),
+        successes: form.successes.trim() || null,
+        failures: form.failures.trim() || null,
+        disturbances: form.disturbances.trim() || null,
+        self_criticism: form.self_criticism.trim() || null,
+        next_plan: form.next_plan.trim() || null,
+        updated_at: new Date().toISOString(),
+      })
       .eq('id', entry.id)
       .select()
       .single();
 
     setSaving(false);
-    if (!error && data) {
-      onUpdate(data as JournalEntryData);
-      setEditing(false);
+    if (updateError || !data) {
+      console.error('[magia] journal update failed', updateError);
+      setError(t('saveFailed'));
+      return;
     }
+    onUpdate(data as JournalEntryData);
+    setEditing(false);
   };
 
   const handleDelete = async () => {
     if (!confirm(t('deleteConfirm'))) return;
     setDeleting(true);
+    setError(null);
     const supabase = createClient();
-    const { error } = await supabase.from('magia_journal').delete().eq('id', entry.id);
+    const { error: deleteError } = await supabase.from('magia_journal').delete().eq('id', entry.id);
     setDeleting(false);
-    if (!error) onDelete(entry.id);
+    if (deleteError) {
+      console.error('[magia] journal delete failed', deleteError);
+      setError(t('saveFailed'));
+      return;
+    }
+    onDelete(entry.id);
   };
 
   return (
@@ -102,7 +155,7 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
             <>
               <button
                 type="button"
-                onClick={() => setEditing(true)}
+                onClick={startEditing}
                 className="text-xs font-medium text-muted-foreground transition-colors hover:text-accent"
               >
                 {t('edit')}
@@ -121,14 +174,14 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
               <button
                 type="button"
                 onClick={handleSave}
-                disabled={saving || !editContent.trim()}
+                disabled={saving || isFormEmpty}
                 className="text-xs font-medium text-accent transition-colors hover:text-accent-light disabled:opacity-50"
               >
                 {saving ? t('saving') : t('save')}
               </button>
               <button
                 type="button"
-                onClick={() => { setEditContent(entry.content ?? ''); setEditing(false); }}
+                onClick={() => { setError(null); setEditing(false); }}
                 disabled={saving}
                 className="text-xs font-medium text-muted-foreground transition-colors hover:text-cream"
               >
@@ -161,12 +214,22 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
 
       {/* Szabad szöveg / szerkesztő */}
       {editing ? (
-        <Textarea
-          value={editContent}
-          onChange={(e) => setEditContent(e.target.value)}
-          rows={5}
-          className="border-border/40 bg-background/30"
-        />
+        <div className="space-y-3">
+          {EDITABLE_FIELDS.map((key) => (
+            <div key={key}>
+              <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/70">
+                {FIELD_LABELS[key]}
+                <span className="ml-1 normal-case text-muted-foreground/40">{t('optional')}</span>
+              </label>
+              <Textarea
+                value={form[key]}
+                onChange={(e) => setForm((prev) => ({ ...prev, [key]: e.target.value }))}
+                rows={key === 'content' ? 4 : 2}
+                className="border-border/40 bg-background/30 text-sm"
+              />
+            </div>
+          ))}
+        </div>
       ) : (
         entry.content && (
           <p className="whitespace-pre-wrap text-sm leading-relaxed text-cream/85">
@@ -174,6 +237,8 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
           </p>
         )
       )}
+
+      {error && <p className="mt-3 text-xs text-red-400">{error}</p>}
 
       {!hasStructured && !entry.content && !editing && (
         <p className="text-sm text-muted-foreground italic">{t('journalNoContent')}</p>

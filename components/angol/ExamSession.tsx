@@ -39,10 +39,7 @@ export function ExamSession({
   onClose,
 }: ExamSessionProps) {
   const t = useTranslations('angol');
-  const questions = useMemo(
-    () => shuffleArray(mondatok),
-    [mondatok]
-  );
+  const [questions, setQuestions] = useState(() => shuffleArray(mondatok));
 
   const [phase, setPhase] = useState<ExamPhase>('exam');
   const [currentQ, setCurrentQ] = useState(0);
@@ -227,7 +224,10 @@ export function ExamSession({
               submittedRef.current = false;
               setPhase('exam');
               setCurrentQ(0);
-              setAnswers(questions.map(() => ''));
+              // New random order for each retry
+              const reshuffled = shuffleArray(mondatok);
+              setQuestions(reshuffled);
+              setAnswers(reshuffled.map(() => ''));
               setResult(null);
               setWrongAnswers([]);
             }}

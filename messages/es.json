@@ -233,7 +233,8 @@
     "saveFailed": "No se pudo guardar. Comprueba tu conexión e inténtalo de nuevo.",
     "durationMinSec": "{m} min {s} s",
     "durationMin": "{m} min",
-    "durationSec": "{s} s"
+    "durationSec": "{s} s",
+    "confirmCloseSession": "¿Cerrar de todos modos? La sesión en curso no se guardará."
   },
   "angol": {
     "title": "Inglés creativo",
@@ -307,7 +308,8 @@
     "speechNotSupported": "El dictado no es compatible con este navegador.",
     "dictate": "Dictar",
     "stopDictation": "Detener",
-    "savingResultFailed": "No se pudo guardar el resultado. Comprueba tu conexión."
+    "savingResultFailed": "No se pudo guardar el resultado. Comprueba tu conexión.",
+    "speechNotAllowed": "El dictado no está disponible aquí (p. ej., en la app instalada o con el micrófono bloqueado). Escribe tu respuesta."
   },
   "profile": {
     "title": "Perfil",

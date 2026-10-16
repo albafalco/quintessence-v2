@@ -58,7 +58,7 @@ function exportJSON(entries: JournalEntryData[]) {
   a.href = url;
   a.download = `magia-naplo-${new Date().toISOString().split('T')[0]}.json`;
   a.click();
-  URL.revokeObjectURL(url);
+  setTimeout(() => URL.revokeObjectURL(url), 1000); // Safari cancels the download if revoked immediately
 }
 
 export function JournalSection({
@@ -183,7 +183,7 @@ export function JournalSection({
                       a.href = url;
                       a.download = `magia-naplo-${new Date().toISOString().split('T')[0]}.md`;
                       a.click();
-                      URL.revokeObjectURL(url);
+                      setTimeout(() => URL.revokeObjectURL(url), 1000); // Safari cancels the download if revoked immediately
                       setShowExportMenu(false);
                     }}
                     className="block w-full px-4 py-2.5 text-left text-sm text-cream hover:bg-muted/40"

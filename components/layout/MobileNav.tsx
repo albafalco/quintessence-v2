@@ -22,49 +22,38 @@ export function MobileNav() {
       label: t('dashboard'),
       icon: LayoutDashboard,
       match: (path: string) => path === `/${locale}` || path === `/${locale}/`,
-      disabled: false,
     },
     {
       href: `/${locale}/modules/magia`,
       label: t('magia'),
       icon: ElementsNavIcon,
       match: (path: string) => path.includes('/modules/magia'),
-      disabled: false,
     },
-    {
-      href: `/${locale}/modules/angol`,
-      label: t('angol'),
-      icon: GraduationCap,
-      match: (path: string) => path.includes('/modules/angol'),
-      disabled: locale !== 'hu',
-    },
+    // Kreatív Angol is only available on the Hungarian UI (same rule as the
+    // sidebar and the middleware) — hidden elsewhere.
+    ...(locale === 'hu'
+      ? [
+          {
+            href: `/${locale}/modules/angol`,
+            label: t('angol'),
+            icon: GraduationCap,
+            match: (path: string) => path.includes('/modules/angol'),
+          },
+        ]
+      : []),
     {
       href: `/${locale}/profile`,
       label: t('profile'),
       icon: User,
       match: (path: string) => path.includes('/profile'),
-      disabled: false,
     },
   ];
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/50 glass-strong pb-nav-safe md:hidden">
       <div className="mx-auto flex w-full max-w-lg items-center justify-around px-1 pb-1 pt-1.5">
-        {items.map(({ href, label, icon: Icon, match, disabled }) => {
-          const active = !disabled && match(pathname);
-
-          if (disabled) {
-            return (
-              <div
-                key={label}
-                className="flex flex-col items-center gap-0.5 px-3 py-1 text-muted-foreground/25"
-                aria-hidden
-              >
-                <Icon className="h-5 w-5" />
-                <span className="text-[9px] font-medium">{label}</span>
-              </div>
-            );
-          }
+        {items.map(({ href, label, icon: Icon, match }) => {
+          const active = match(pathname);
 
           return (
             <Link

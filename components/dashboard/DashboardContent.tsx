@@ -68,7 +68,7 @@ export function DashboardContent() {
         const profileResult = await timed(
           supabase
             .from('profiles')
-            .select('username, preferred_language')
+            .select('username')
             .eq('id', user.id)
             .single(),
           FETCH_TIMEOUT_MS,
@@ -76,7 +76,9 @@ export function DashboardContent() {
         );
 
         const username = profileResult.data?.username ?? 'user';
-        const showAngol = profileResult.data?.preferred_language === 'hu';
+        // Same rule as the menus and the middleware: Kreatív Angol is only
+        // available on the Hungarian UI.
+        const showAngol = locale === 'hu';
 
         const magiaResult = await timed(
           supabase

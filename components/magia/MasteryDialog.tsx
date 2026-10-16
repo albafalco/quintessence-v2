@@ -71,7 +71,7 @@ export function MasteryDialog({
   };
 
   return (
-    <MagiaModal onClose={onClose} className="max-w-md">
+    <MagiaModal onClose={onClose} className="max-w-md" ariaLabel={title}>
         {/* Fejléc */}
         <div className="mb-5 flex items-start justify-between gap-3">
           <div>

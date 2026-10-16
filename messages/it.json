@@ -233,7 +233,8 @@
     "saveFailed": "Salvataggio non riuscito. Controlla la connessione e riprova.",
     "durationMinSec": "{m} min {s} s",
     "durationMin": "{m} min",
-    "durationSec": "{s} s"
+    "durationSec": "{s} s",
+    "confirmCloseSession": "Chiudere comunque? La sessione in corso non verrà salvata."
   },
   "angol": {
     "title": "Inglese creativo",
@@ -307,7 +308,8 @@
     "speechNotSupported": "La dettatura non è supportata in questo browser.",
     "dictate": "Detta",
     "stopDictation": "Stop",
-    "savingResultFailed": "Impossibile salvare il risultato. Controlla la connessione."
+    "savingResultFailed": "Impossibile salvare il risultato. Controlla la connessione.",
+    "speechNotAllowed": "La dettatura non è disponibile qui (ad es. nell'app installata o con il microfono bloccato). Digita la risposta."
   },
   "profile": {
     "title": "Profilo",

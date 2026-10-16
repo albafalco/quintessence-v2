@@ -233,7 +233,8 @@
     "saveFailed": "A mentés nem sikerült. Ellenőrizd a kapcsolatot, és próbáld újra.",
     "durationMinSec": "{m} perc {s} mp",
     "durationMin": "{m} perc",
-    "durationSec": "{s} mp"
+    "durationSec": "{s} mp",
+    "confirmCloseSession": "Biztosan bezárod? A folyamatban lévő munkamenet nem kerül mentésre."
   },
   "angol": {
     "title": "Kreatív Angol",
@@ -307,7 +308,8 @@
     "speechNotSupported": "A diktálás nem támogatott ebben a böngészőben.",
     "dictate": "Diktálás",
     "stopDictation": "Leállítás",
-    "savingResultFailed": "Az eredményt nem sikerült elmenteni. Ellenőrizd a kapcsolatot."
+    "savingResultFailed": "Az eredményt nem sikerült elmenteni. Ellenőrizd a kapcsolatot.",
+    "speechNotAllowed": "A diktálás itt nem érhető el (pl. a kezdőképernyőre telepített appban vagy letiltott mikrofonnál). Gépeld be a választ."
   },
   "profile": {
     "title": "Profil",

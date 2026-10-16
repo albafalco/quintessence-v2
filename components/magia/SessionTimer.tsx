@@ -8,6 +8,8 @@ interface SessionTimerProps {
   onComplete: (durationSec: number) => void;
   onStop: (durationSec: number) => void;
   silenceSec?: number;
+  /** Called with true while a session is in progress (silence, running or paused). */
+  onActiveChange?: (active: boolean) => void;
 }
 
 type TimerState = 'idle' | 'silence' | 'running' | 'paused' | 'completed';
@@ -18,21 +20,28 @@ function formatTime(sec: number): string {
   return `${m}:${s.toString().padStart(2, '0')}`;
 }
 
-function playGong(ctx: AudioContext, volume = 0.4) {
+interface ScheduledGong {
+  osc: OscillatorNode;
+  at: number;
+}
+
+/** Plays the gong at `at` (AudioContext time); defaults to now. */
+function playGong(ctx: AudioContext, volume = 0.4, at = ctx.currentTime): ScheduledGong {
   const osc = ctx.createOscillator();
   const gain = ctx.createGain();
   osc.connect(gain);
   gain.connect(ctx.destination);
   osc.type = 'sine';
-  osc.frequency.setValueAtTime(432, ctx.currentTime);
-  osc.frequency.exponentialRampToValueAtTime(216, ctx.currentTime + 2);
-  gain.gain.setValueAtTime(volume, ctx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 3);
-  osc.start(ctx.currentTime);
-  osc.stop(ctx.currentTime + 3);
+  osc.frequency.setValueAtTime(432, at);
+  osc.frequency.exponentialRampToValueAtTime(216, at + 2);
+  gain.gain.setValueAtTime(volume, at);
+  gain.gain.exponentialRampToValueAtTime(0.001, at + 3);
+  osc.start(at);
+  osc.stop(at + 3);
+  return { osc, at };
 }
 
-export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: SessionTimerProps) {
+export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0, onActiveChange }: SessionTimerProps) {
   const t = useTranslations('magia');
   const [state, setState] = useState<TimerState>('idle');
   const [displaySec, setDisplaySec] = useState(0);
@@ -44,6 +53,9 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
   const rafRef = useRef<number | null>(null);
   const audioCtxRef = useRef<AudioContext | null>(null);
   const completedRef = useRef(false);
+  // Gong scheduled in advance on the audio clock, so it can sound at the
+  // target time even while rendering (requestAnimationFrame) is paused.
+  const scheduledGongRef = useRef<ScheduledGong | null>(null);
 
   const getAudioCtx = useCallback(() => {
     if (!audioCtxRef.current) {
@@ -67,6 +79,32 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
     wakeLockRef.current = null;
   }, []);
 
+  const cancelGong = useCallback(() => {
+    const gong = scheduledGongRef.current;
+    scheduledGongRef.current = null;
+    if (!gong) return;
+    try {
+      gong.osc.stop();
+      gong.osc.disconnect();
+    } catch {
+      // already stopped
+    }
+  }, []);
+
+  const scheduleGong = useCallback(
+    (remainingSec: number) => {
+      cancelGong();
+      if (remainingSec <= 0) return;
+      try {
+        const ctx = getAudioCtx();
+        scheduledGongRef.current = playGong(ctx, 0.4, ctx.currentTime + remainingSec);
+      } catch {
+        // Web Audio nem elérhető, nem kritikus
+      }
+    },
+    [cancelGong, getAudioCtx]
+  );
+
   const stopRaf = useCallback(() => {
     if (rafRef.current !== null) {
       cancelAnimationFrame(rafRef.current);
@@ -81,7 +119,17 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
 
     if (!completedRef.current && elapsed >= targetSec) {
       completedRef.current = true;
-      try { playGong(getAudioCtx()); } catch {}
+      // If the pre-scheduled gong has already sounded (or is sounding), do not
+      // play it twice; otherwise (e.g. the audio clock was suspended while the
+      // screen was locked) play it now.
+      const gong = scheduledGongRef.current;
+      const ctx = audioCtxRef.current;
+      const alreadyPlayed = gong && ctx && ctx.state === 'running' && ctx.currentTime >= gong.at - 0.25;
+      if (!alreadyPlayed) {
+        cancelGong();
+        try { playGong(getAudioCtx()); } catch {}
+      }
+      scheduledGongRef.current = null;
       if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
       setState('completed');
       releaseWakeLock();
@@ -89,7 +137,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
     }
 
     rafRef.current = requestAnimationFrame(tick);
-  }, [targetSec, getAudioCtx, releaseWakeLock]);
+  }, [targetSec, getAudioCtx, releaseWakeLock, cancelGong]);
 
   // iOS only lets an AudioContext produce sound if it is created/resumed inside
   // a user gesture — unlock it on tap so the end-of-session gong is audible.
@@ -111,10 +159,11 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
       startTsRef.current = Date.now();
       accumulatedRef.current = 0;
       setState('running');
+      scheduleGong(targetSec);
       await requestWakeLock();
       rafRef.current = requestAnimationFrame(tick);
     }
-  }, [silenceSec, requestWakeLock, tick, unlockAudio]);
+  }, [silenceSec, requestWakeLock, tick, unlockAudio, scheduleGong, targetSec]);
 
   const handlePause = useCallback(() => {
     if (startTsRef.current !== null) {
@@ -123,25 +172,28 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
     }
     stopRaf();
     releaseWakeLock();
+    cancelGong();
     setState('paused');
-  }, [stopRaf, releaseWakeLock]);
+  }, [stopRaf, releaseWakeLock, cancelGong]);
 
   const handleResume = useCallback(async () => {
     unlockAudio();
     startTsRef.current = Date.now();
     setState('running');
+    scheduleGong(targetSec - accumulatedRef.current);
     await requestWakeLock();
     rafRef.current = requestAnimationFrame(tick);
-  }, [requestWakeLock, tick, unlockAudio]);
+  }, [requestWakeLock, tick, unlockAudio, scheduleGong, targetSec]);
 
   const handleStop = useCallback(() => {
     stopRaf();
     releaseWakeLock();
+    cancelGong();
     const elapsed = startTsRef.current !== null
       ? accumulatedRef.current + Math.floor((Date.now() - startTsRef.current) / 1000)
       : accumulatedRef.current;
     onStop(elapsed);
-  }, [stopRaf, releaseWakeLock, onStop]);
+  }, [stopRaf, releaseWakeLock, cancelGong, onStop]);
 
   const handleComplete = useCallback(() => {
     onComplete(displaySec);
@@ -154,21 +206,40 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
       startTsRef.current = Date.now();
       accumulatedRef.current = 0;
       setState('running');
+      scheduleGong(targetSec);
       requestWakeLock();
       rafRef.current = requestAnimationFrame(tick);
       return;
     }
     const id = setTimeout(() => setSilenceCountdown((c) => c - 1), 1000);
     return () => clearTimeout(id);
-  }, [state, silenceCountdown, requestWakeLock, tick]);
+  }, [state, silenceCountdown, requestWakeLock, tick, scheduleGong, targetSec]);
+
+  // The browser releases the wake lock when the page is hidden (app switch,
+  // screen lock); take it again when the user returns to a running session.
+  useEffect(() => {
+    if (state !== 'running') return;
+    const onVisibilityChange = () => {
+      if (document.visibilityState !== 'visible') return;
+      void requestWakeLock();
+      void audioCtxRef.current?.resume().catch(() => {});
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', onVisibilityChange);
+  }, [state, requestWakeLock]);
+
+  useEffect(() => {
+    onActiveChange?.(state === 'silence' || state === 'running' || state === 'paused');
+  }, [state, onActiveChange]);
 
   // Cleanup
   useEffect(() => {
     return () => {
       stopRaf();
       releaseWakeLock();
+      cancelGong();
     };
-  }, [stopRaf, releaseWakeLock]);
+  }, [stopRaf, releaseWakeLock, cancelGong]);
 
   const remaining = Math.max(0, targetSec - displaySec);
   const progressPct = Math.min(100, (displaySec / targetSec) * 100);

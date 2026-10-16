@@ -73,7 +73,7 @@ function renderBlock(block: GrammarBlock, key: number) {
 
 function GrammarPage({ page }: { page: AngolGrammarContent['szolapMagyarazat'] }) {
   return (
-    <article className="prose prose-invert max-w-none space-y-8 text-foreground">
+    <article className="max-w-none space-y-8 text-foreground">
       <header>
         <h1 className="font-display text-3xl font-bold text-primary">{page.title}</h1>
         <p className="text-muted-foreground">{page.intro}</p>

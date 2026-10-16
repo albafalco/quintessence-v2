@@ -1,9 +1,11 @@
 'use client';
 
 import { Component, type ErrorInfo, type ReactNode } from 'react';
+import { getBootTexts } from '@/lib/boot-texts';
 
 interface Props {
   children: ReactNode;
+  locale: string;
 }
 
 interface State {
@@ -23,6 +25,7 @@ export class GlobalErrorBoundary extends Component<Props, State> {
 
   render() {
     if (this.state.error) {
+      const texts = getBootTexts(this.props.locale);
       return (
         <div
           style={{
@@ -41,9 +44,9 @@ export class GlobalErrorBoundary extends Component<Props, State> {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo-splash.png" alt="" width={64} height={64} />
-          <h1 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Valami hiba történt</h1>
+          <h1 style={{ fontSize: '1.25rem', fontWeight: 600 }}>{texts.errorTitle}</h1>
           <p style={{ color: '#a89bb8', fontSize: '0.9rem', maxWidth: '22rem' }}>
-            {this.state.error.message || 'Ismeretlen hiba az alkalmazás betöltésekor.'}
+            {this.state.error.message || texts.errorUnknown}
           </p>
           <button
             type="button"
@@ -60,7 +63,7 @@ export class GlobalErrorBoundary extends Component<Props, State> {
               cursor: 'pointer',
             }}
           >
-            Újratöltés
+            {texts.reload}
           </button>
         </div>
       );

@@ -248,7 +248,7 @@ export function ExerciseItem({
 
       {/* Lelki tükör modal */}
       {mirrorOpen && (
-        <MagiaModal onClose={() => setMirrorOpen(false)}>
+        <MagiaModal onClose={() => setMirrorOpen(false)} ariaLabel={title}>
             <div className="mb-4 flex items-start justify-between gap-3">
               <h3 className="font-display text-xl font-semibold text-cream">{title}</h3>
               <button

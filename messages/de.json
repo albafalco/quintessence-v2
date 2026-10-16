@@ -233,7 +233,8 @@
     "saveFailed": "Speichern fehlgeschlagen. Prüfe deine Verbindung und versuche es erneut.",
     "durationMinSec": "{m} Min. {s} Sek.",
     "durationMin": "{m} Min.",
-    "durationSec": "{s} Sek."
+    "durationSec": "{s} Sek.",
+    "confirmCloseSession": "Trotzdem schließen? Die laufende Sitzung wird nicht gespeichert."
   },
   "angol": {
     "title": "Kreatives Englisch",
@@ -307,7 +308,8 @@
     "speechNotSupported": "Diktieren wird in diesem Browser nicht unterstützt.",
     "dictate": "Diktieren",
     "stopDictation": "Stopp",
-    "savingResultFailed": "Ergebnis konnte nicht gespeichert werden. Prüfe deine Verbindung."
+    "savingResultFailed": "Ergebnis konnte nicht gespeichert werden. Prüfe deine Verbindung.",
+    "speechNotAllowed": "Diktieren ist hier nicht verfügbar (z. B. in der installierten App oder bei blockiertem Mikrofon). Bitte tippe deine Antwort."
   },
   "profile": {
     "title": "Profil",

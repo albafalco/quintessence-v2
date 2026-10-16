@@ -69,6 +69,12 @@ export default async function LocaleLayout({
         {/* iOS PWA launch images — each entry must have EXACT pixel dimensions for its device */}
         <link rel="apple-touch-startup-image" href="/splash-1320x2868.png"
           media="screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+        <link rel="apple-touch-startup-image" href="/splash-1260x2736.png"
+          media="screen and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+        <link rel="apple-touch-startup-image" href="/splash-1242x2688.png"
+          media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+        <link rel="apple-touch-startup-image" href="/splash-1242x2208.png"
+          media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
         <link rel="apple-touch-startup-image" href="/splash-1206x2622.png"
           media="screen and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
         <link rel="apple-touch-startup-image" href="/splash.png"
@@ -110,9 +116,9 @@ export default async function LocaleLayout({
             pointerEvents: 'none',
           }}
         />
-        <BootFallback />
+        <BootFallback locale={locale} />
         <BootInit />
-        <GlobalErrorBoundary>
+        <GlobalErrorBoundary locale={locale}>
           <NextIntlClientProvider messages={messages}>
             <ConditionalAppShell>{children}</ConditionalAppShell>
           </NextIntlClientProvider>

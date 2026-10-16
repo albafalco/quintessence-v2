@@ -55,6 +55,7 @@ export function ExerciseRunner({
   const [step, setStep] = useState<RunnerStep>('ready');
   const [error, setError] = useState<string | null>(null);
   const [savedCount, setSavedCount] = useState<number | null>(null);
+  const [timerActive, setTimerActive] = useState(false);
   const [completedDurationSec, setCompletedDurationSec] = useState(0);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [startedAt] = useState(() => new Date().toISOString());
@@ -228,9 +229,15 @@ export function ExerciseRunner({
     [saveSession, updateProgress, runSafely]
   );
 
+  // Closing during a running timer or before logging would lose the session.
+  const requestClose = useCallback(() => {
+    if ((timerActive || step === 'logging') && !window.confirm(t('confirmCloseSession'))) return;
+    onClose();
+  }, [timerActive, step, onClose, t]);
+
   return (
     // No backdrop dismiss: an accidental tap outside must not lose a running session.
-    <MagiaModal onClose={onClose} closeOnBackdrop={false}>
+    <MagiaModal onClose={requestClose} closeOnBackdrop={false} ariaLabel={title}>
         {/* Fejléc */}
         <div className="mb-5 flex items-start justify-between gap-3">
           <div className="flex-1">
@@ -244,7 +251,8 @@ export function ExerciseRunner({
           </div>
           <button
             type="button"
-            onClick={onClose}
+            onClick={requestClose}
+            aria-label={t('closing')}
             className="shrink-0 rounded-lg p-1.5 text-muted-foreground transition hover:text-cream"
           >
             ✕
@@ -267,6 +275,7 @@ export function ExerciseRunner({
                 onComplete={handleTimerComplete}
                 onStop={handleTimerStop}
                 silenceSec={30}
+                onActiveChange={setTimerActive}
               />
             ) : (
               <button
