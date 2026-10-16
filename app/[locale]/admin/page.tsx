@@ -19,6 +19,10 @@ const ACTION_LABELS: Record<string, string> = {
   'user.unsuspend': 'Felfüggesztés feloldva',
   'user.push': 'Értesítés küldve',
   'user.delete': 'Fiók törölve',
+  'announcement.create': 'Közlemény létrehozva',
+  'announcement.update': 'Közlemény módosítva',
+  'announcement.unpublish': 'Közlemény visszavonva',
+  'announcement.delete': 'Közlemény törölve',
 };
 
 const STATUS_LABELS: Record<InviteStatus, string> = {

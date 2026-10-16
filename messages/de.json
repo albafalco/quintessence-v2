@@ -524,8 +524,6 @@
     "loading": "Meilensteine werden geladen…",
     "earned": "Erreicht",
     "earnedOn": "Erreicht: {date}",
-    "newBadge": "✦ Neuer Meilenstein",
-    "newBadges": "✦ {count} neue Meilensteine",
     "category_magia": "Weiße Magie",
     "category_angol": "Kreatives Englisch",
     "first_session": {
@@ -579,5 +577,34 @@
     "showAll": "Alle anzeigen",
     "showLess": "Weniger anzeigen",
     "noneYet": "Noch keine Abzeichen erreicht."
+  },
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "pageEyebrow": "Neuigkeiten und Nachrichten",
+    "bellLabelUnread": "Benachrichtigungen, {count} ungelesen",
+    "markAllRead": "Alle gelesen",
+    "viewAll": "Alle Benachrichtigungen",
+    "empty": "Noch keine Benachrichtigungen.",
+    "emptyFilter": "Keine Benachrichtigungen in dieser Kategorie.",
+    "filterAll": "Alle",
+    "kindNews": "Neuigkeit",
+    "kindContent": "Neuer Inhalt",
+    "kindSystem": "Systemmeldung",
+    "kindPersonal": "Persönlich",
+    "today": "Heute",
+    "thisWeek": "Diese Woche",
+    "earlier": "Früher",
+    "markRead": "Als gelesen markieren",
+    "markUnread": "Als ungelesen markieren",
+    "unread": "Ungelesen",
+    "expired": "abgelaufen",
+    "open": "Öffnen",
+    "badgeTitle": "Neuer Meilenstein: {title}",
+    "masteredTitle": "Du hast eine Übung gemeistert!",
+    "masteredBody": "Stufe {fokozat} · {section}",
+    "inviteTitle": "{count, plural, one {Du hast eine Einladung erhalten} other {Du hast # Einladungen erhalten}}",
+    "inviteBody": "Damit kannst du jemanden zu Quintessence einladen.",
+    "weeklyTitle": "Dein wöchentlicher Einweihungsbericht ist fertig",
+    "weeklyBody": "Sieh dir an, wie du diese Woche vorangekommen bist."
   }
 }

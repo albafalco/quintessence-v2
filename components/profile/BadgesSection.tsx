@@ -5,10 +5,10 @@ import { useLocale, useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { BADGES, type BadgeCategory } from '@/lib/badges';
 import { syncBadges, type BadgeState } from '@/lib/badges-sync';
-import { BadgeToast } from '@/components/ui/BadgeToast';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Collapse } from '@/components/ui/collapse';
 import { InfoTip } from '@/components/ui/info-tip';
+import { emitNotificationsChanged } from '@/lib/notifications';
 import { cn } from '@/lib/utils';
 
 export function BadgesSection({ userId, compact = false }: { userId: string; compact?: boolean }) {
@@ -24,6 +24,8 @@ export function BadgesSection({ userId, compact = false }: { userId: string; com
     syncBadges(createClient(), userId)
       .then((s) => {
         if (!cancelled) setState(s);
+        // New milestones arrive in the notification bell
+        if (s.newlyEarned.length > 0) emitNotificationsChanged();
       })
       .catch((err) => console.error('[badges] sync failed', err));
     return () => {
@@ -142,7 +144,6 @@ export function BadgesSection({ userId, compact = false }: { userId: string; com
           </>
         )}
       </CardContent>
-      {state && state.newlyEarned.length > 0 && <BadgeToast badgeIds={state.newlyEarned} />}
     </Card>
   );
 }

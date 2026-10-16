@@ -13,6 +13,7 @@ import {
   hasMagiaActivityToday,
   getMagiaInactiveDays,
   isReminderDue,
+  parseTimeToMinutes,
   toBudapestDate,
 } from '@/lib/push-reminders';
 import { getMessage, resolveLocale } from '@/lib/i18n-messages';
@@ -20,6 +21,7 @@ import type { Locale } from '@/i18n';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { isSunday, weekBounds, weekStartOf } from '@/lib/weekly-report';
 import { countReviewQueue, type CardScheduleRow } from '@/lib/angol-srs';
+import { sendDueAnnouncementPushes } from '@/lib/announcement-push';
 import vocabulary from '@/messages/content/angol-vocabulary.json';
 
 const WEEKLY_REPORT_TIME = '19:00';
@@ -224,6 +226,27 @@ export async function GET(request: Request) {
   const supabase = await createServiceClient();
   const budapestNow = getBudapestNow();
 
+  // Announcements whose scheduled publish time has come (migration 013)
+  let announcementsSent = 0;
+  try {
+    announcementsSent = await sendDueAnnouncementPushes(supabase);
+  } catch (err) {
+    console.error('[push/send] announcement push failed:', err);
+  }
+
+  // "Weekly report ready" bell notifications, for every user active this week
+  // (independent of push settings; deduplicated, so repeated runs are no-ops)
+  if (isSunday(budapestNow.date) && budapestNow.totalMinutes >= parseTimeToMinutes(WEEKLY_REPORT_TIME)) {
+    const monday = weekStartOf(budapestNow.date);
+    const { start, end } = weekBounds(monday);
+    const { error: weeklyError } = await supabase.rpc('create_weekly_report_notifications', {
+      p_week_start: monday,
+      p_start: start,
+      p_end: end,
+    });
+    if (weeklyError) console.error('[push/send] weekly notifications failed:', weeklyError.message);
+  }
+
   const baseColumns =
     'id, push_enabled, push_magia_reminders, push_magia_time, push_magia_evening, push_magia_evening_time, push_magia_streak, push_magia_streak_time, push_magia_reengagement, last_magia_push_date, last_magia_evening_push_date, last_magia_streak_push_date, last_magia_reengagement_date, last_magia_activity_date, push_angol_reminders, push_angol_time, preferred_language, last_angol_push_date';
   const selectProfiles = (columns: string) =>
@@ -239,7 +262,7 @@ export async function GET(request: Request) {
   }
 
   if (!profiles?.length) {
-    return NextResponse.json({ sent: 0, checked: 0, budapest: budapestNow });
+    return NextResponse.json({ sent: 0, checked: 0, announcementsSent, budapest: budapestNow });
   }
 
   let sent = 0;
@@ -321,6 +344,7 @@ export async function GET(request: Request) {
     sent,
     checked: profiles.length,
     staleRemoved,
+    announcementsSent,
     budapest: budapestNow,
   });
 }

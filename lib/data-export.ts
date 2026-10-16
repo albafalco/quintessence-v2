@@ -11,6 +11,8 @@ const USER_TABLES = [
   'angol_exam_results',
   'angol_hard_items',
   'user_badges',
+  'user_notifications',
+  'announcement_reads',
 ] as const;
 
 /** Collects all of the user's data into one JSON-serialisable object. */

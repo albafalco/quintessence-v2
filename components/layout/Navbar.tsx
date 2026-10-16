@@ -7,6 +7,7 @@ import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { UserAvatar } from '@/components/ui/UserAvatar';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { NotificationBell } from '@/components/notifications/NotificationBell';
 import { cn } from '@/lib/utils';
 import { createClient } from '@/lib/supabase/client';
 
@@ -48,6 +49,8 @@ export function Navbar() {
 
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
           <LanguageSwitcher />
+
+          <NotificationBell />
 
           <LogoutButton variant="icon" showLabel={false} />
 

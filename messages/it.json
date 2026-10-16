@@ -524,8 +524,6 @@
     "loading": "Caricamento traguardi…",
     "earned": "Ottenuto",
     "earnedOn": "Ottenuto: {date}",
-    "newBadge": "✦ Nuovo traguardo",
-    "newBadges": "✦ {count} nuovi traguardi",
     "category_magia": "Magia Bianca",
     "category_angol": "Inglese creativo",
     "first_session": {
@@ -579,5 +577,34 @@
     "showAll": "Mostra tutti",
     "showLess": "Mostra meno",
     "noneYet": "Nessun badge ancora ottenuto."
+  },
+  "notifications": {
+    "title": "Notifiche",
+    "pageEyebrow": "Novità e messaggi",
+    "bellLabelUnread": "Notifiche, {count} non lette",
+    "markAllRead": "Segna tutte come lette",
+    "viewAll": "Tutte le notifiche",
+    "empty": "Ancora nessuna notifica.",
+    "emptyFilter": "Nessuna notifica in questa categoria.",
+    "filterAll": "Tutte",
+    "kindNews": "Novità",
+    "kindContent": "Nuovo contenuto",
+    "kindSystem": "Messaggio di sistema",
+    "kindPersonal": "Personale",
+    "today": "Oggi",
+    "thisWeek": "Questa settimana",
+    "earlier": "Prima",
+    "markRead": "Segna come letta",
+    "markUnread": "Segna come non letta",
+    "unread": "Non letta",
+    "expired": "scaduta",
+    "open": "Apri",
+    "badgeTitle": "Nuovo traguardo: {title}",
+    "masteredTitle": "Hai padroneggiato un esercizio!",
+    "masteredBody": "Livello {fokozat} · {section}",
+    "inviteTitle": "{count, plural, one {Hai ricevuto un invito} other {Hai ricevuto # inviti}}",
+    "inviteBody": "Con esso puoi invitare qualcuno su Quintessence.",
+    "weeklyTitle": "Il tuo resoconto settimanale di iniziazione è pronto",
+    "weeklyBody": "Guarda come sei andato avanti questa settimana."
   }
 }

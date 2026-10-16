@@ -72,6 +72,7 @@ const config: Config = {
         'flip-in': 'flipIn 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
         'fade-up': 'fadeUp 0.3s ease-out backwards',
         'pop-in': 'popIn 0.18s ease-out backwards',
+        'bell-ring': 'bellRing 0.9s ease-in-out',
       },
       keyframes: {
         fadeIn: {
@@ -97,6 +98,14 @@ const config: Config = {
         popIn: {
           '0%': { opacity: '0', transform: 'translateY(4px) scale(0.95)' },
           '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
+        bellRing: {
+          '0%, 100%': { transform: 'rotate(0)' },
+          '15%': { transform: 'rotate(14deg)' },
+          '30%': { transform: 'rotate(-12deg)' },
+          '45%': { transform: 'rotate(9deg)' },
+          '60%': { transform: 'rotate(-6deg)' },
+          '75%': { transform: 'rotate(3deg)' },
         },
         flipIn: {
           '0%': { transform: 'rotateY(-90deg)', opacity: '0' },

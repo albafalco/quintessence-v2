@@ -524,8 +524,6 @@
     "loading": "Loading milestones…",
     "earned": "Earned",
     "earnedOn": "Earned: {date}",
-    "newBadge": "✦ New milestone",
-    "newBadges": "✦ {count} new milestones",
     "category_magia": "White Magic",
     "category_angol": "Creative English",
     "first_session": {
@@ -579,5 +577,34 @@
     "showAll": "Show all",
     "showLess": "Show less",
     "noneYet": "No badges earned yet."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "pageEyebrow": "News and messages",
+    "bellLabelUnread": "Notifications, {count} unread",
+    "markAllRead": "Mark all read",
+    "viewAll": "All notifications",
+    "empty": "No notifications yet.",
+    "emptyFilter": "No notifications in this category.",
+    "filterAll": "All",
+    "kindNews": "News",
+    "kindContent": "New content",
+    "kindSystem": "System message",
+    "kindPersonal": "Personal",
+    "today": "Today",
+    "thisWeek": "This week",
+    "earlier": "Earlier",
+    "markRead": "Mark as read",
+    "markUnread": "Mark as unread",
+    "unread": "Unread",
+    "expired": "expired",
+    "open": "Open",
+    "badgeTitle": "New milestone: {title}",
+    "masteredTitle": "You mastered an exercise!",
+    "masteredBody": "Level {fokozat} · {section}",
+    "inviteTitle": "{count, plural, one {You received an invite} other {You received # invites}}",
+    "inviteBody": "You can invite someone to Quintessence with it.",
+    "weeklyTitle": "Your weekly initiation report is ready",
+    "weeklyBody": "See how you progressed this week."
   }
 }

@@ -25,9 +25,9 @@ import { ElementsIcon, ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { ModuleCard } from '@/components/dashboard/ModuleCard';
 import { DashboardSkeleton } from '@/components/dashboard/DashboardSkeleton';
 import { TodayCard } from '@/components/dashboard/TodayCard';
-import { BadgeToast } from '@/components/ui/BadgeToast';
 import { loadTodayData, type TodayData } from '@/lib/today';
 import { syncBadges } from '@/lib/badges-sync';
+import { emitNotificationsChanged } from '@/lib/notifications';
 import type { Locale } from '@/i18n';
 
 const FETCH_TIMEOUT_MS = 8000;
@@ -56,7 +56,6 @@ export function DashboardContent() {
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [newBadges, setNewBadges] = useState<string[]>([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -157,10 +156,10 @@ export function DashboardContent() {
         bootLog('dashboard-fetch-done');
         setData({ username, showAngol, magiaStats, angolStats, today });
 
-        // Milestones are checked in the background; new ones get a toast
+        // Milestones are checked in the background; new ones show up in the bell
         syncBadges(supabase, user.id)
           .then((state) => {
-            if (!cancelled && state.newlyEarned.length > 0) setNewBadges(state.newlyEarned);
+            if (state.newlyEarned.length > 0) emitNotificationsChanged();
           })
           .catch((err) => bootLog('badges-sync-failed', { error: String(err) }));
         setLoading(false);
@@ -297,7 +296,6 @@ export function DashboardContent() {
           )}
         </div>
       </section>
-      {newBadges.length > 0 && <BadgeToast badgeIds={newBadges} />}
     </div>
   );
 }

@@ -524,8 +524,6 @@
     "loading": "Mérföldkövek betöltése…",
     "earned": "Megszerezve",
     "earnedOn": "Megszerezve: {date}",
-    "newBadge": "✦ Új mérföldkő",
-    "newBadges": "✦ {count} új mérföldkő",
     "category_magia": "Fehér Mágia",
     "category_angol": "Kreatív Angol",
     "first_session": {
@@ -579,5 +577,34 @@
     "showAll": "Összes megtekintése",
     "showLess": "Kevesebb",
     "noneYet": "Még nincs megszerzett jelvény."
+  },
+  "notifications": {
+    "title": "Értesítések",
+    "pageEyebrow": "Hírek és üzenetek",
+    "bellLabelUnread": "Értesítések, {count} olvasatlan",
+    "markAllRead": "Mind olvasott",
+    "viewAll": "Összes értesítés",
+    "empty": "Még nincs értesítésed.",
+    "emptyFilter": "Ebben a kategóriában nincs értesítés.",
+    "filterAll": "Mind",
+    "kindNews": "Hír",
+    "kindContent": "Új tartalom",
+    "kindSystem": "Rendszerüzenet",
+    "kindPersonal": "Személyes",
+    "today": "Ma",
+    "thisWeek": "Ezen a héten",
+    "earlier": "Korábban",
+    "markRead": "Olvasottnak jelöl",
+    "markUnread": "Olvasatlannak jelöl",
+    "unread": "Olvasatlan",
+    "expired": "lejárt",
+    "open": "Megnyitás",
+    "badgeTitle": "Új mérföldkő: {title}",
+    "masteredTitle": "Uraltál egy gyakorlatot!",
+    "masteredBody": "{fokozat}. fokozat · {section}",
+    "inviteTitle": "Kaptál {count} meghívót",
+    "inviteBody": "Meghívhatsz vele valakit a Quintessence-be.",
+    "weeklyTitle": "Elkészült a heti beavatási jelentésed",
+    "weeklyBody": "Nézd meg, hogyan haladtál ezen a héten."
   }
 }
