@@ -45,7 +45,9 @@
     "passwordsMismatch": "Die beiden Passwörter stimmen nicht überein.",
     "recoveryInvalid": "Dieser Link ist ungültig, abgelaufen oder wurde bereits verwendet. Bitte den Administrator um einen neuen.",
     "passwordUpdated": "Dein Passwort wurde geändert. Du wirst weitergeleitet…",
-    "passwordUpdateFailed": "Das neue Passwort konnte nicht gespeichert werden. Versuche ein anderes."
+    "passwordUpdateFailed": "Das neue Passwort konnte nicht gespeichert werden. Versuche ein anderes.",
+    "invitedBy": "<b>{name}</b> hat dich zu Quintessence eingeladen",
+    "inviteForEmail": "Die Einladung gilt für: {email}"
   },
   "dashboard": {
     "welcome": "Willkommen, {username}!",
@@ -606,6 +608,43 @@
     "inviteTitle": "{count, plural, one {Du hast eine Einladung erhalten} other {Du hast # Einladungen erhalten}}",
     "inviteBody": "Damit kannst du jemanden zu Quintessence einladen.",
     "weeklyTitle": "Dein wöchentlicher Einweihungsbericht ist fertig",
-    "weeklyBody": "Sieh dir an, wie du diese Woche vorangekommen bist."
+    "weeklyBody": "Sieh dir an, wie du diese Woche vorangekommen bist.",
+    "inviteAcceptedTitle": "@{username} hat deine Einladung angenommen",
+    "inviteAcceptedBody": "Ist Quintessence beigetreten. Danke für die Einladung!",
+    "inviteReturnedTitle": "Du hast eine Einladung zurückerhalten",
+    "inviteExpiredBody": "Deine Einladung an {email} ist abgelaufen, du kannst sie erneut verwenden.",
+    "inviteRevokedBody": "Der Administrator hat deine Einladung an {email} widerrufen, du kannst sie erneut verwenden."
+  },
+  "invites": {
+    "title": "Einladungen",
+    "balance": "{count, plural, one {# Einladung} other {# Einladungen}} verfügbar",
+    "monthLeft": "Diesen Monat kannst du noch {count, plural, one {# Einladung} other {# Einladungen}} senden",
+    "monthLimitReached": "Du hast das Einladungslimit für diesen Monat erreicht",
+    "validity": "Eine Einladung gilt 14 Tage und kann nur mit der angegebenen E-Mail-Adresse verwendet werden.",
+    "email": "E-Mail-Adresse",
+    "emailPlaceholder": "Wen lädst du ein? (E-Mail)",
+    "message": "Persönliche Nachricht",
+    "messagePlaceholder": "Persönliche Nachricht (optional)",
+    "create": "Einladung erstellen",
+    "creating": "Wird erstellt…",
+    "created": "Die Einladung ist fertig! Sende den Link an {email}.",
+    "share": "Teilen",
+    "copyLink": "Link kopieren",
+    "copied": "Kopiert",
+    "shareText": "Ich lade dich zu Quintessence ein! Registriere dich mit diesem Link:",
+    "sent": "Gesendete Einladungen",
+    "statusPending": "Ausstehend · läuft ab am {date}",
+    "statusAccepted": "Angenommen von @{username}",
+    "statusExpired": "Abgelaufen — die Einladung wurde deinem Guthaben gutgeschrieben",
+    "statusRevoked": "Widerrufen",
+    "revoke": "Widerrufen",
+    "revokeConfirm": "Einladung an {email} widerrufen? Sie wird deinem Guthaben gutgeschrieben.",
+    "cancel": "Abbrechen",
+    "err_invalid_email": "Ungültige E-Mail-Adresse.",
+    "err_no_balance": "Du hast derzeit keine verfügbaren Einladungen.",
+    "err_monthly_limit": "Du hast diesen Monat bereits die maximale Anzahl an Einladungen gesendet.",
+    "err_email_registered": "Mit dieser E-Mail-Adresse gibt es bereits ein Quintessence-Konto.",
+    "err_email_pending": "Für diese E-Mail-Adresse gibt es bereits eine gültige Einladung.",
+    "err_generic": "Die Einladung konnte nicht erstellt werden. Bitte versuche es erneut."
   }
 }

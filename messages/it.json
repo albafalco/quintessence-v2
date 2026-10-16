@@ -45,7 +45,9 @@
     "passwordsMismatch": "Le due password non coincidono.",
     "recoveryInvalid": "Questo link non è valido, è scaduto o è già stato usato. Chiedine uno nuovo all'amministratore.",
     "passwordUpdated": "La tua password è stata cambiata. Reindirizzamento…",
-    "passwordUpdateFailed": "Impossibile salvare la nuova password. Provane un'altra."
+    "passwordUpdateFailed": "Impossibile salvare la nuova password. Provane un'altra.",
+    "invitedBy": "<b>{name}</b> ti ha invitato su Quintessence",
+    "inviteForEmail": "L’invito è per: {email}"
   },
   "dashboard": {
     "welcome": "Benvenuto, {username}!",
@@ -606,6 +608,43 @@
     "inviteTitle": "{count, plural, one {Hai ricevuto un invito} other {Hai ricevuto # inviti}}",
     "inviteBody": "Con esso puoi invitare qualcuno su Quintessence.",
     "weeklyTitle": "Il tuo resoconto settimanale di iniziazione è pronto",
-    "weeklyBody": "Guarda come sei andato avanti questa settimana."
+    "weeklyBody": "Guarda come sei andato avanti questa settimana.",
+    "inviteAcceptedTitle": "@{username} ha accettato il tuo invito",
+    "inviteAcceptedBody": "Si è unito a Quintessence. Grazie per averlo invitato!",
+    "inviteReturnedTitle": "Ti è stato restituito un invito",
+    "inviteExpiredBody": "Il tuo invito per {email} è scaduto, quindi puoi usarlo di nuovo.",
+    "inviteRevokedBody": "L’amministratore ha revocato il tuo invito per {email}, quindi puoi usarlo di nuovo."
+  },
+  "invites": {
+    "title": "Inviti",
+    "balance": "{count, plural, one {# invito disponibile} other {# inviti disponibili}}",
+    "monthLeft": "Questo mese puoi ancora inviare {count, plural, one {# invito} other {# inviti}}",
+    "monthLimitReached": "Hai raggiunto il limite di inviti di questo mese",
+    "validity": "L’invito vale 14 giorni e si può usare solo con l’indirizzo e-mail indicato.",
+    "email": "Indirizzo e-mail",
+    "emailPlaceholder": "Chi inviti? (e-mail)",
+    "message": "Messaggio personale",
+    "messagePlaceholder": "Messaggio personale (facoltativo)",
+    "create": "Crea invito",
+    "creating": "Creazione…",
+    "created": "L’invito è pronto! Invia il link a {email}.",
+    "share": "Condividi",
+    "copyLink": "Copia link",
+    "copied": "Copiato",
+    "shareText": "Ti invito su Quintessence! Registrati con questo link:",
+    "sent": "Inviti inviati",
+    "statusPending": "In attesa · scade il {date}",
+    "statusAccepted": "Accettato da @{username}",
+    "statusExpired": "Scaduto — l’invito è tornato nel tuo saldo",
+    "statusRevoked": "Revocato",
+    "revoke": "Revoca",
+    "revokeConfirm": "Revocare l’invito per {email}? Tornerà nel tuo saldo.",
+    "cancel": "Annulla",
+    "err_invalid_email": "Indirizzo e-mail non valido.",
+    "err_no_balance": "Al momento non hai inviti disponibili.",
+    "err_monthly_limit": "Questo mese hai già inviato il numero massimo di inviti.",
+    "err_email_registered": "Esiste già un account Quintessence con questo indirizzo e-mail.",
+    "err_email_pending": "Esiste già un invito valido per questo indirizzo e-mail.",
+    "err_generic": "Impossibile creare l’invito. Riprova."
   }
 }

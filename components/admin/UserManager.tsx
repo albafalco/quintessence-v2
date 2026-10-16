@@ -161,7 +161,10 @@ function UserCard({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
             {user.is_admin && <span className="rounded-md bg-accent/15 px-1.5 py-0.5 text-[10px] font-semibold text-accent">Admin</span>}
             {user.suspended && <span className="rounded-md bg-red-500/15 px-1.5 py-0.5 text-[10px] font-semibold text-red-300">Felfüggesztve</span>}
           </div>
-          <p className="truncate text-xs text-muted-foreground">{user.email}</p>
+          <p className="truncate text-xs text-muted-foreground">
+            {user.email}
+            {user.invited_by_username && <> · Meghívta: @{user.invited_by_username}</>}
+          </p>
         </div>
         <div ref={menuRef} className="relative">
           <button
@@ -206,7 +209,15 @@ function UserCard({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
             {user.push_enabled ? 'be' : 'ki'} · {user.push_devices} eszköz
           </span>
         </Fact>
-        <Fact label="Meghívó">{user.is_admin ? '∞' : user.invite_balance}</Fact>
+        <Fact label="Meghívó">
+          {user.is_admin ? '∞' : user.invite_balance}
+          {!user.is_admin && (user.invites_sent ?? 0) > 0 && (
+            <span className="text-muted-foreground">
+              {' '}
+              · {user.invites_accepted ?? 0}/{user.invites_sent} elfogadva
+            </span>
+          )}
+        </Fact>
       </div>
 
       {notice && (

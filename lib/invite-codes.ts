@@ -9,6 +9,9 @@ export interface InviteCodeRow {
   note: string | null;
   expires_at: string | null;
   revoked_at: string | null;
+  /** Migration 011 / 014 */
+  created_by?: string | null;
+  message?: string | null;
 }
 
 export type InviteStatus = 'available' | 'used' | 'expired' | 'revoked';

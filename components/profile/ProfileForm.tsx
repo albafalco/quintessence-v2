@@ -20,6 +20,7 @@ import {
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { AccountDataCard } from '@/components/profile/AccountDataCard';
 import { BadgesSection } from '@/components/profile/BadgesSection';
+import { InvitesCard } from '@/components/profile/InvitesCard';
 import { Collapse } from '@/components/ui/collapse';
 import { InfoTip } from '@/components/ui/info-tip';
 import { Input } from '@/components/ui/input';
@@ -284,6 +285,8 @@ export function ProfileForm({ profile, isAdmin = false }: { profile: ProfileData
               </CardContent>
             </Card>
             <BadgesSection userId={profile.id} compact />
+              {/* Admins invite from the admin area */}
+              {!isAdmin && <InvitesCard />}
           </>
         )}
 

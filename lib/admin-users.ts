@@ -11,6 +11,10 @@ export interface AdminUserRow {
   push_devices: number;
   invite_balance: number;
   is_admin: boolean;
+  /** Migration 014 */
+  invited_by_username?: string | null;
+  invites_sent?: number;
+  invites_accepted?: number;
 }
 
 export interface InviteGrantRow {

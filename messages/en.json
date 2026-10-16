@@ -45,7 +45,9 @@
     "passwordsMismatch": "The two passwords do not match.",
     "recoveryInvalid": "This link is invalid, expired or already used. Ask the administrator for a new one.",
     "passwordUpdated": "Your password has been changed. Redirecting…",
-    "passwordUpdateFailed": "Could not save the new password. Try a different one."
+    "passwordUpdateFailed": "Could not save the new password. Try a different one.",
+    "invitedBy": "<b>{name}</b> invited you to Quintessence",
+    "inviteForEmail": "This invite is for: {email}"
   },
   "dashboard": {
     "welcome": "Welcome, {username}!",
@@ -606,6 +608,43 @@
     "inviteTitle": "{count, plural, one {You received an invite} other {You received # invites}}",
     "inviteBody": "You can invite someone to Quintessence with it.",
     "weeklyTitle": "Your weekly initiation report is ready",
-    "weeklyBody": "See how you progressed this week."
+    "weeklyBody": "See how you progressed this week.",
+    "inviteAcceptedTitle": "@{username} accepted your invite",
+    "inviteAcceptedBody": "They joined Quintessence. Thank you for inviting them!",
+    "inviteReturnedTitle": "An invite was returned to you",
+    "inviteExpiredBody": "Your invite to {email} expired, so you can use it again.",
+    "inviteRevokedBody": "The administrator revoked your invite to {email}, so you can use it again."
+  },
+  "invites": {
+    "title": "Invitations",
+    "balance": "{count, plural, one {# invite} other {# invites}} available",
+    "monthLeft": "You can send {count, plural, one {# more invite} other {# more invites}} this month",
+    "monthLimitReached": "You have reached this month’s invitation limit",
+    "validity": "An invite is valid for 14 days and can only be used with the given e-mail address.",
+    "email": "E-mail address",
+    "emailPlaceholder": "Who are you inviting? (e-mail)",
+    "message": "Personal message",
+    "messagePlaceholder": "Personal message (optional)",
+    "create": "Create invite",
+    "creating": "Creating…",
+    "created": "Your invite is ready! Send the link to {email}.",
+    "share": "Share",
+    "copyLink": "Copy link",
+    "copied": "Copied",
+    "shareText": "I’m inviting you to Quintessence! Sign up with this link:",
+    "sent": "Sent invitations",
+    "statusPending": "Pending · expires {date}",
+    "statusAccepted": "Accepted by @{username}",
+    "statusExpired": "Expired — the invite was returned to your balance",
+    "statusRevoked": "Revoked",
+    "revoke": "Revoke",
+    "revokeConfirm": "Revoke the invite for {email}? It will be returned to your balance.",
+    "cancel": "Cancel",
+    "err_invalid_email": "Invalid e-mail address.",
+    "err_no_balance": "You have no invites available right now.",
+    "err_monthly_limit": "You have already sent the maximum number of invites this month.",
+    "err_email_registered": "There is already a Quintessence account with this e-mail address.",
+    "err_email_pending": "There is already a valid invite for this e-mail address.",
+    "err_generic": "Could not create the invite. Please try again."
   }
 }

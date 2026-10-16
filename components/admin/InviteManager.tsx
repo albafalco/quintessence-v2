@@ -193,6 +193,7 @@ export function InviteManager({ codes, usernames }: { codes: InviteWithStatus[];
                 <p className="text-xs text-muted-foreground">
                   {c.email && <>✉ {c.email} · </>}
                   Létrehozva: {formatAdminDate(c.created_at, false)}
+                  {c.created_by && usernames[c.created_by] && <> · Készítette: @{usernames[c.created_by]}</>}
                   {c.status === 'available' && <> · Lejár: {c.expires_at ? formatAdminDate(c.expires_at, false) : 'soha'}</>}
                   {c.status === 'used' && (
                     <>
@@ -202,6 +203,7 @@ export function InviteManager({ codes, usernames }: { codes: InviteWithStatus[];
                     </>
                   )}
                 </p>
+                {c.message && <p className="text-xs italic text-muted-foreground">„{c.message}”</p>}
                 {c.status === 'available' && (
                   <div className="flex flex-wrap gap-2 pt-1">
                     <CopyButton text={c.code} label="Kód" icon={Copy} />

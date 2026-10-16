@@ -109,6 +109,15 @@ export function resolveNotification(
     }
     case 'invite_granted':
       return personal('🎟', t.notifications('inviteTitle', { count: Number(data.amount ?? 1) }), t.notifications('inviteBody'), `/${locale}/profile`);
+    case 'invite_accepted':
+      return personal('🎉', t.notifications('inviteAcceptedTitle', { username: String(data.username ?? '—') }), t.notifications('inviteAcceptedBody'), `/${locale}/profile`);
+    case 'invite_returned':
+      return personal(
+        '🎟',
+        t.notifications('inviteReturnedTitle'),
+        t.notifications(data.reason === 'revoked' ? 'inviteRevokedBody' : 'inviteExpiredBody', { email: String(data.email ?? '') }),
+        `/${locale}/profile`
+      );
     case 'weekly_report':
       return personal('📊', t.notifications('weeklyTitle'), t.notifications('weeklyBody'), `/${locale}/modules/magia/jelentes`);
     default:

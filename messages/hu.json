@@ -45,7 +45,9 @@
     "passwordsMismatch": "A két jelszó nem egyezik.",
     "recoveryInvalid": "A link érvénytelen, lejárt vagy már fel lett használva. Kérj újat az adminisztrátortól.",
     "passwordUpdated": "A jelszavad megváltozott. Átirányítunk…",
-    "passwordUpdateFailed": "Nem sikerült menteni az új jelszót. Próbálj másik jelszót."
+    "passwordUpdateFailed": "Nem sikerült menteni az új jelszót. Próbálj másik jelszót.",
+    "invitedBy": "<b>{name}</b> meghívott a Quintessence-be",
+    "inviteForEmail": "A meghívó erre a címre szól: {email}"
   },
   "dashboard": {
     "welcome": "Üdvözlet, {username}!",
@@ -606,6 +608,43 @@
     "inviteTitle": "Kaptál {count} meghívót",
     "inviteBody": "Meghívhatsz vele valakit a Quintessence-be.",
     "weeklyTitle": "Elkészült a heti beavatási jelentésed",
-    "weeklyBody": "Nézd meg, hogyan haladtál ezen a héten."
+    "weeklyBody": "Nézd meg, hogyan haladtál ezen a héten.",
+    "inviteAcceptedTitle": "@{username} elfogadta a meghívódat",
+    "inviteAcceptedBody": "Regisztrált a Quintessence-be. Köszönjük, hogy meghívtad!",
+    "inviteReturnedTitle": "Visszakaptál egy meghívót",
+    "inviteExpiredBody": "A(z) {email} címre küldött meghívód lejárt, így újra felhasználhatod.",
+    "inviteRevokedBody": "A(z) {email} címre küldött meghívódat az adminisztrátor visszavonta, így újra felhasználhatod."
+  },
+  "invites": {
+    "title": "Meghívások",
+    "balance": "{count} meghívód van",
+    "monthLeft": "Ebben a hónapban még {count} meghívót küldhetsz",
+    "monthLimitReached": "Ebben a hónapban elérted a meghívási keretet",
+    "validity": "A meghívó 14 napig érvényes, és csak a megadott e-mail-címmel lehet vele regisztrálni.",
+    "email": "E-mail-cím",
+    "emailPlaceholder": "Kit hívsz meg? (e-mail-cím)",
+    "message": "Személyes üzenet",
+    "messagePlaceholder": "Személyes üzenet (nem kötelező)",
+    "create": "Meghívó készítése",
+    "creating": "Készül…",
+    "created": "Kész a meghívó! Küldd el a linket {email} részére.",
+    "share": "Megosztás",
+    "copyLink": "Link másolása",
+    "copied": "Másolva",
+    "shareText": "Meghívlak a Quintessence-be! Regisztrálj ezzel a linkkel:",
+    "sent": "Elküldött meghívások",
+    "statusPending": "Függőben · lejár: {date}",
+    "statusAccepted": "Elfogadta: @{username}",
+    "statusExpired": "Lejárt — a meghívó visszakerült az egyenlegedre",
+    "statusRevoked": "Visszavonva",
+    "revoke": "Visszavonás",
+    "revokeConfirm": "Visszavonod a(z) {email} címre szóló meghívót? A meghívó visszakerül az egyenlegedre.",
+    "cancel": "Mégse",
+    "err_invalid_email": "Érvénytelen e-mail-cím.",
+    "err_no_balance": "Jelenleg nincs felhasználható meghívód.",
+    "err_monthly_limit": "Ebben a hónapban már elküldted a maximális számú meghívót.",
+    "err_email_registered": "Ezzel az e-mail-címmel már van fiók a Quintessence-ben.",
+    "err_email_pending": "Erre az e-mail-címre már van érvényes meghívó.",
+    "err_generic": "Nem sikerült elkészíteni a meghívót. Próbáld újra."
   }
 }
