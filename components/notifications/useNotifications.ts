@@ -1,9 +1,13 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { NOTIFICATIONS_CHANGED_EVENT, resolveNotification, type FeedRow, type ResolvedNotification } from '@/lib/notifications';
+
+/** Background re-check while the app is visible (scheduled announcements have no other trigger). */
+const POLL_INTERVAL_MS = 60_000;
 
 interface NotificationsState {
   items: ResolvedNotification[];
@@ -28,12 +32,17 @@ async function fetchFeed(limit: number) {
   };
 }
 
-/** Feed + unread count; re-fetches when the app regains focus or something marks notifications. */
+/**
+ * Feed + unread count. Re-fetches on page navigation, every minute while the
+ * app is visible, when it regains focus, when a push arrives (service worker
+ * message) and when something marks notifications.
+ */
 export function useNotifications(limit: number): NotificationsState {
   const locale = useLocale();
   const tNotifications = useTranslations('notifications');
   const tBadges = useTranslations('badges');
   const tMagia = useTranslations('magia');
+  const pathname = usePathname();
   const [rows, setRows] = useState<FeedRow[]>([]);
   const [unread, setUnread] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -63,14 +72,29 @@ export function useNotifications(limit: number): NotificationsState {
       .finally(() => !cancelled && setLoaded(true));
 
     const onVisible = () => document.visibilityState === 'visible' && reload();
+    const onSwMessage = (e: MessageEvent) => e.data?.type === 'PUSH_RECEIVED' && reload();
+    const poll = setInterval(() => document.visibilityState === 'visible' && reload(), POLL_INTERVAL_MS);
     window.addEventListener(NOTIFICATIONS_CHANGED_EVENT, reload);
     document.addEventListener('visibilitychange', onVisible);
+    navigator.serviceWorker?.addEventListener('message', onSwMessage);
     return () => {
       cancelled = true;
+      clearInterval(poll);
       window.removeEventListener(NOTIFICATIONS_CHANGED_EVENT, reload);
       document.removeEventListener('visibilitychange', onVisible);
+      navigator.serviceWorker?.removeEventListener('message', onSwMessage);
     };
   }, [limit, reload]);
+
+  // The bell lives in the persistent header: re-check on every page change
+  const firstPath = useRef(true);
+  useEffect(() => {
+    if (firstPath.current) {
+      firstPath.current = false;
+      return;
+    }
+    reload();
+  }, [pathname, reload]);
 
   const items = useMemo(
     () =>

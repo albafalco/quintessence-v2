@@ -37,7 +37,15 @@ self.addEventListener('push', (event) => {
     data: { url: payload.url || '/hu' },
   };
 
-  event.waitUntil(self.registration.showNotification(title, options));
+  event.waitUntil(
+    Promise.all([
+      self.registration.showNotification(title, options),
+      // An open app refreshes its notification bell right away
+      clients
+        .matchAll({ type: 'window', includeUncontrolled: true })
+        .then((clientList) => clientList.forEach((client) => client.postMessage({ type: 'PUSH_RECEIVED' }))),
+    ])
+  );
 });
 
 self.addEventListener('notificationclick', (event) => {

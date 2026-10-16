@@ -4,7 +4,13 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { CheckCheck } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
-import { markAllNotificationsRead, setNotificationRead, type NotificationCategory, type ResolvedNotification } from '@/lib/notifications';
+import {
+  NOTIFICATION_FOCUS_EVENT,
+  markAllNotificationsRead,
+  setNotificationRead,
+  type NotificationCategory,
+  type ResolvedNotification,
+} from '@/lib/notifications';
 import { NotificationItem } from '@/components/notifications/NotificationItem';
 import { useNotifications } from '@/components/notifications/useNotifications';
 import { cn } from '@/lib/utils';
@@ -33,21 +39,36 @@ export function NotificationsCenter() {
   const { items, unread, loaded, unavailable } = useNotifications(FEED_LIMIT);
   const [filter, setFilter] = useState<Filter>('all');
   const [todayStart, setTodayStart] = useState<number | null>(null);
+  // Item opened from the bell or a push (#n-<id>): shown expanded and highlighted
+  const [focusId, setFocusId] = useState<string | null>(null);
 
-  // Local midnight is only known in the browser; also scroll to a linked item (#n-<id>)
+  // Local midnight and the URL hash are only known in the browser
   useEffect(() => {
+    const readHash = () => window.location.hash.startsWith('#n-') && setFocusId(window.location.hash.slice(3));
     const id = requestAnimationFrame(() => {
       const d = new Date();
       d.setHours(0, 0, 0, 0);
       setTodayStart(d.getTime());
+      readHash();
     });
-    return () => cancelAnimationFrame(id);
+    // Same-page navigation from the bell does not fire hashchange (router push)
+    const onFocus = (e: Event) => setFocusId((e as CustomEvent<string>).detail);
+    window.addEventListener('hashchange', readHash);
+    window.addEventListener(NOTIFICATION_FOCUS_EVENT, onFocus);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener('hashchange', readHash);
+      window.removeEventListener(NOTIFICATION_FOCUS_EVENT, onFocus);
+    };
   }, []);
 
   useEffect(() => {
-    if (!loaded || !window.location.hash.startsWith('#n-')) return;
-    document.getElementById(window.location.hash.slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, [loaded]);
+    if (!loaded || todayStart === null || !focusId) return;
+    const id = requestAnimationFrame(() =>
+      document.getElementById(`n-${focusId}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    );
+    return () => cancelAnimationFrame(id);
+  }, [loaded, todayStart, focusId]);
 
   if (unavailable) return <p className="premium-card p-6 text-center text-sm text-muted-foreground">{t('empty')}</p>;
 
@@ -55,8 +76,6 @@ export function NotificationsCenter() {
   const groups: { id: Group; items: ResolvedNotification[] }[] = (['today', 'thisWeek', 'earlier'] as Group[])
     .map((g) => ({ id: g, items: todayStart === null ? [] : visible.filter((i) => groupOf(i.row.created_at, todayStart) === g) }))
     .filter((g) => g.items.length > 0);
-
-  const toggleRead = (item: ResolvedNotification) => void setNotificationRead(createClient(), item.row, !item.row.is_read);
 
   return (
     <div className="space-y-5">
@@ -103,11 +122,13 @@ export function NotificationsCenter() {
             <div key={filter} className="animate-fade-up space-y-2 motion-reduce:animate-none">
               {g.items.map((item) => (
                 <NotificationItem
-                  key={item.row.id}
+                  // Re-mount when focused, so it opens expanded
+                  key={item.row.id === focusId ? `${item.row.id}-focus` : item.row.id}
                   item={item}
                   variant="full"
+                  highlight={item.row.id === focusId}
                   onOpen={() => !item.row.is_read && void setNotificationRead(createClient(), item.row, true)}
-                  onToggleRead={() => toggleRead(item)}
+                  onRead={() => void setNotificationRead(createClient(), item.row, true)}
                 />
               ))}
             </div>

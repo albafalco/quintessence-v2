@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { Bell, CheckCheck } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
-import { markAllNotificationsRead, setNotificationRead, type ResolvedNotification } from '@/lib/notifications';
+import { NOTIFICATION_FOCUS_EVENT, markAllNotificationsRead, setNotificationRead, type ResolvedNotification } from '@/lib/notifications';
 import { NotificationItem } from '@/components/notifications/NotificationItem';
 import { useNotifications } from '@/components/notifications/useNotifications';
 import { cn } from '@/lib/utils';
@@ -89,7 +89,12 @@ export function NotificationBell() {
     setOpen(false);
     if (!item.row.is_read) void setNotificationRead(createClient(), item.row, true);
     if (item.href && /^https?:/i.test(item.href)) window.open(item.href, '_blank', 'noopener');
-    else router.push(item.href ?? `/${locale}/ertesitesek#n-${item.row.id}`);
+    else if (item.href) router.push(item.href);
+    else {
+      router.push(`/${locale}/ertesitesek#n-${item.row.id}`);
+      // Already on the page: the router does not fire hashchange
+      window.dispatchEvent(new CustomEvent(NOTIFICATION_FOCUS_EVENT, { detail: item.row.id }));
+    }
   };
 
   const badge = unread > 9 ? '9+' : String(unread);

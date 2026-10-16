@@ -34,6 +34,9 @@ export interface ResolvedNotification {
 /** Fired after anything that may change the unread count (bell + page re-fetch). */
 export const NOTIFICATIONS_CHANGED_EVENT = 'quintessence:notifications-changed';
 
+/** Asks an open notifications page to show (expand + highlight) one item; detail = id. */
+export const NOTIFICATION_FOCUS_EVENT = 'quintessence:notification-focus';
+
 export function emitNotificationsChanged() {
   if (typeof window !== 'undefined') window.dispatchEvent(new Event(NOTIFICATIONS_CHANGED_EVENT));
 }
