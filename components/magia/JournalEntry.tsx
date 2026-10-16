@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { Textarea } from '@/components/ui/textarea';
 import { cn } from '@/lib/utils';
+import { formatDurationLabel } from '@/lib/magia-utils';
 
 export interface JournalEntryData {
   id: string;
@@ -27,14 +28,9 @@ interface JournalEntryProps {
   onDelete: (id: string) => void;
 }
 
-function formatDuration(sec: number): string {
-  const m = Math.floor(sec / 60);
-  const s = sec % 60;
-  return m > 0 ? `${m} perc${s > 0 ? ` ${s} mp` : ''}` : `${s} mp`;
-}
-
 export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
   const t = useTranslations('magia');
+  const formatDuration = (sec: number) => formatDurationLabel(sec, t);
   const locale = useLocale();
   const [editing, setEditing] = useState(false);
   const [editContent, setEditContent] = useState(entry.content ?? '');
@@ -71,7 +67,7 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
     const supabase = createClient();
     const { data, error } = await supabase
       .from('magia_journal')
-      .update({ content: editContent.trim() || null, updated_at: new Date().toISOString() })
+      .update({ content: editContent.trim(), updated_at: new Date().toISOString() })
       .eq('id', entry.id)
       .select()
       .single();

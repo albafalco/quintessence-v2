@@ -15,7 +15,7 @@ import {
   getCurrentFokozatId,
   getExerciseProgress,
 } from '@/lib/magia-utils';
-import { getBudapestNow } from '@/lib/push-reminders';
+import { getBudapestNow, toBudapestDate } from '@/lib/push-reminders';
 import type { MagiaProgressRecord, SessionRecord } from '@/lib/magia-utils';
 
 interface MaMagiaPageProps {
@@ -34,9 +34,12 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   const budapestNow = getBudapestNow();
   const todayDate = budapestNow.date;
 
-  const thirtyDaysAgo = new Date(Date.now() - 35 * 86400000).toISOString();
+  const statsWindowStart = new Date(Date.now() - 35 * 86400000).toISOString();
+  // The streak can be longer than the 35-day stats window, so it gets its own
+  // lightweight query over the past year.
+  const streakWindowStart = new Date(Date.now() - 366 * 86400000).toISOString();
 
-  const [{ data: progressData }, { data: sessionsData }] = await Promise.all([
+  const [{ data: progressData }, { data: sessionsData }, { data: streakData }] = await Promise.all([
     supabase
       .from('magia_progress')
       .select('fokozat, section, exercise_key, completed, notes, status, mastered_at, session_count')
@@ -45,8 +48,14 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
       .from('magia_sessions')
       .select('id, fokozat, section, exercise_key, started_at, duration_sec, completed')
       .eq('user_id', user.id)
-      .gte('started_at', thirtyDaysAgo)
+      .gte('started_at', statsWindowStart)
       .order('started_at', { ascending: false }),
+    supabase
+      .from('magia_sessions')
+      .select('started_at, completed')
+      .eq('user_id', user.id)
+      .eq('completed', true)
+      .gte('started_at', streakWindowStart),
   ]);
 
   const allProgress = (progressData ?? []) as MagiaProgressRecord[];
@@ -55,11 +64,11 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   const currentFokozatId = getCurrentFokozatId(allProgress);
   const fokozat = fokozatok.find((f) => f.id === currentFokozatId)!;
 
-  const streak = computeStreak(recentSessions, todayDate);
-  const heatmapData = computeHeatmap(recentSessions, 35);
+  const streak = computeStreak((streakData ?? []) as Pick<SessionRecord, 'started_at' | 'completed'>[], todayDate);
+  const heatmapData = computeHeatmap(recentSessions, todayDate, 35);
   const pillarBalance = computePillarBalance(recentSessions);
 
-  const todaySessions = recentSessions.filter((s) => s.started_at.startsWith(todayDate));
+  const todaySessions = recentSessions.filter((s) => toBudapestDate(s.started_at) === todayDate);
   const todayExerciseKeys = new Set(todaySessions.map((s) => s.exercise_key));
 
   const sections = ['szellem', 'lelek', 'test'] as const;
@@ -68,6 +77,8 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
     exercise: typeof fokozat.szellem.gyakorlatok[number];
     progress: ReturnType<typeof getExerciseProgress>;
     doneToday: boolean;
+    /** For twice-daily exercises: 0 = morning, 1 = evening. */
+    slot?: 0 | 1;
   };
 
   const planExercises: PlanExercise[] = [];
@@ -82,8 +93,8 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
 
       if (exercise.params?.frequency === 'twice_daily') {
         const todayCount = todaySessions.filter((s) => s.exercise_key === fullKey).length;
-        planExercises.push({ section, exercise, progress: ep, doneToday: todayCount >= 1 });
-        planExercises.push({ section, exercise, progress: ep, doneToday: todayCount >= 2 });
+        planExercises.push({ section, exercise, progress: ep, doneToday: todayCount >= 1, slot: 0 });
+        planExercises.push({ section, exercise, progress: ep, doneToday: todayCount >= 2, slot: 1 });
       } else {
         planExercises.push({ section, exercise, progress: ep, doneToday });
       }
@@ -93,7 +104,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   const pillarEmoji = { szellem: '🧠', lelek: '💎', test: '⚡' } as const;
   const sectionLabel = { szellem: t('szellem'), lelek: t('lelek'), test: t('test') } as const;
 
-  const formattedDate = new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(new Date(todayDate));
+  const formattedDate = new Intl.DateTimeFormat(locale, { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(todayDate));
 
   return (
     <div className="mx-auto max-w-2xl space-y-10">
@@ -157,9 +168,8 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
         ) : (
           <div className="space-y-3">
             {planExercises.map((item, idx) => {
-              const isTwiceDaily = item.exercise.params?.frequency === 'twice_daily';
-              const label = isTwiceDaily
-                ? `${pillarEmoji[item.section]} ${sectionLabel[item.section]} — ${idx % 2 === 0 ? t('morning') : t('evening')}`
+              const label = item.slot !== undefined
+                ? `${pillarEmoji[item.section]} ${sectionLabel[item.section]} — ${item.slot === 0 ? t('morning') : t('evening')}`
                 : `${pillarEmoji[item.section]} ${sectionLabel[item.section]}`;
 
               return (

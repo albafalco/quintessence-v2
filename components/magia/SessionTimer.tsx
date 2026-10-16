@@ -91,7 +91,18 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
     rafRef.current = requestAnimationFrame(tick);
   }, [targetSec, getAudioCtx, releaseWakeLock]);
 
+  // iOS only lets an AudioContext produce sound if it is created/resumed inside
+  // a user gesture — unlock it on tap so the end-of-session gong is audible.
+  const unlockAudio = useCallback(() => {
+    try {
+      void getAudioCtx().resume();
+    } catch {
+      // Web Audio nem elérhető, nem kritikus
+    }
+  }, [getAudioCtx]);
+
   const handleStart = useCallback(async () => {
+    unlockAudio();
     completedRef.current = false;
     if (silenceSec > 0) {
       setState('silence');
@@ -103,7 +114,7 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
       await requestWakeLock();
       rafRef.current = requestAnimationFrame(tick);
     }
-  }, [silenceSec, requestWakeLock, tick]);
+  }, [silenceSec, requestWakeLock, tick, unlockAudio]);
 
   const handlePause = useCallback(() => {
     if (startTsRef.current !== null) {
@@ -116,11 +127,12 @@ export function SessionTimer({ targetSec, onComplete, onStop, silenceSec = 0 }: 
   }, [stopRaf, releaseWakeLock]);
 
   const handleResume = useCallback(async () => {
+    unlockAudio();
     startTsRef.current = Date.now();
     setState('running');
     await requestWakeLock();
     rafRef.current = requestAnimationFrame(tick);
-  }, [requestWakeLock, tick]);
+  }, [requestWakeLock, tick, unlockAudio]);
 
   const handleStop = useCallback(() => {
     stopRaf();

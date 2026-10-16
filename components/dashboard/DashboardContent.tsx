@@ -50,14 +50,13 @@ export function DashboardContent() {
     async function load() {
       try {
         const supabase = createClient();
-        const authResult = await Promise.race([
-          supabase.auth.getUser(),
-          new Promise<{ data: { user: null } }>((resolve) =>
-            setTimeout(() => resolve({ data: { user: null } }), FETCH_TIMEOUT_MS)
-          ),
-        ]);
+        // getSession() reads the (middleware-refreshed) cookie locally — no network
+        // round trip on cold start. Data access is still enforced by RLS.
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
 
-        const user = authResult.data.user;
+        const user = session?.user;
         if (!user) {
           bootLog('dashboard-no-user-redirect');
           router.replace(`/${locale}/auth/login`);
@@ -80,7 +79,7 @@ export function DashboardContent() {
         const magiaResult = await timed(
           supabase
             .from('magia_progress')
-            .select('fokozat, completed, completed_at')
+            .select('fokozat, section, exercise_key, completed, completed_at, notes, status, mastered_at')
             .eq('user_id', user.id),
           FETCH_TIMEOUT_MS,
           { data: [], error: null } as never
@@ -142,13 +141,13 @@ export function DashboardContent() {
   if (error || !data) {
     return (
       <div className="flex min-h-[40dvh] flex-col items-center justify-center gap-4 text-center">
-        <p className="text-muted-foreground">Nem sikerült betölteni az adatokat.</p>
+        <p className="text-muted-foreground">{t('loadError')}</p>
         <button
           type="button"
           onClick={() => window.location.reload()}
           className="rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
         >
-          Újrapróbálás
+          {t('retry')}
         </button>
       </div>
     );

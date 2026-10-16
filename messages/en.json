@@ -31,7 +31,9 @@
       "passwordTooShort": "Password must be at least 8 characters",
       "invalidInvite": "Invalid or used invite code",
       "registrationFailed": "Registration failed",
-      "methodNotAllowed": "Method not allowed. Use POST."
+      "methodNotAllowed": "Method not allowed. Use POST.",
+      "emailTaken": "An account with this email already exists.",
+      "usernameTaken": "This username is already taken."
     }
   },
   "dashboard": {
@@ -45,7 +47,9 @@
     "magiaLabel": "Magia",
     "angolLabel": "English",
     "totalLabel": "Total",
-    "lesson1Progress": "Lesson I"
+    "lesson1Progress": "Lesson I",
+    "loadError": "Could not load your data.",
+    "retry": "Try again"
   },
   "modules": {
     "magia": {
@@ -225,7 +229,11 @@
     "journalExportJson": "JSON",
     "journalExportMarkdown": "Markdown",
     "journalExportHeader": "# Magic Journal",
-    "calendarDateFormat": "{month}/{day}"
+    "calendarDateFormat": "{month}/{day}",
+    "saveFailed": "Saving failed. Check your connection and try again.",
+    "durationMinSec": "{m} min {s} s",
+    "durationMin": "{m} min",
+    "durationSec": "{s} s"
   },
   "angol": {
     "title": "Creative English",
@@ -298,7 +306,8 @@
     "startExamArrow": "Start exam →",
     "speechNotSupported": "Dictation is not supported in this browser.",
     "dictate": "Dictate",
-    "stopDictation": "Stop"
+    "stopDictation": "Stop",
+    "savingResultFailed": "Could not save the result. Check your connection."
   },
   "profile": {
     "title": "Profile",

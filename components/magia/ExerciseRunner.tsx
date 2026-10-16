@@ -4,10 +4,11 @@ import { useCallback, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { buildExerciseKey, getNextDailyTargetSec } from '@/lib/magia-utils';
+import { toBudapestDate } from '@/lib/push-reminders';
 import { MagiaModal } from './MagiaModal';
 import { SessionTimer } from './SessionTimer';
 import { PostSessionLog } from './PostSessionLog';
-import type { MagiaSection, ExerciseType, ExerciseParams } from '@/lib/magia-types';
+import type { MagiaSection, ExerciseType, ExerciseParams, ExerciseStatus } from '@/lib/magia-types';
 
 interface ExerciseRunnerProps {
   fokozatId: number;
@@ -18,12 +19,13 @@ interface ExerciseRunnerProps {
   type: ExerciseType;
   params?: ExerciseParams;
   sessionCount: number;
+  currentStatus: ExerciseStatus;
   userId: string;
   onClose: () => void;
   onSessionSaved: () => void;
 }
 
-type RunnerStep = 'ready' | 'timing' | 'logging' | 'done';
+type RunnerStep = 'ready' | 'logging' | 'done';
 
 function getTargetSec(type: ExerciseType, params?: ExerciseParams, sessionCount = 0): number {
   if (type === 'progressive_timed' && params?.startSec && params?.stepSec && params?.maxSec) {
@@ -44,12 +46,15 @@ export function ExerciseRunner({
   type,
   params,
   sessionCount,
+  currentStatus,
   userId,
   onClose,
   onSessionSaved,
 }: ExerciseRunnerProps) {
   const t = useTranslations('magia');
   const [step, setStep] = useState<RunnerStep>('ready');
+  const [error, setError] = useState<string | null>(null);
+  const [savedCount, setSavedCount] = useState<number | null>(null);
   const [completedDurationSec, setCompletedDurationSec] = useState(0);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [startedAt] = useState(() => new Date().toISOString());
@@ -77,10 +82,23 @@ export function ExerciseRunner({
     ? t('shortLelek')
     : t('shortTest');
 
+  const runSafely = useCallback(
+    async (action: () => Promise<void>) => {
+      setError(null);
+      try {
+        await action();
+      } catch (err) {
+        console.error('[magia] session save failed', err);
+        setError(t('saveFailed'));
+      }
+    },
+    [t]
+  );
+
   const saveSession = useCallback(
     async (durationSec: number, completed: boolean) => {
       const supabase = createClient();
-      const { data } = await supabase
+      const { data, error: dbError } = await supabase
         .from('magia_sessions')
         .insert({
           user_id: userId,
@@ -95,110 +113,124 @@ export function ExerciseRunner({
         })
         .select('id')
         .single();
+      if (dbError) throw dbError;
       return data?.id ?? null;
     },
     [userId, fokozatId, section, fullKey, startedAt, hasTimer, targetSec]
   );
 
-  const updateProgress = useCallback(
-    async (sid: string | null, durationSec: number) => {
-      const supabase = createClient();
+  const updateProgress = useCallback(async () => {
+    const supabase = createClient();
+    const nextCount = sessionCount + 1;
 
-      await supabase.from('magia_progress').upsert(
-        {
-          user_id: userId,
-          fokozat: fokozatId,
-          section,
-          exercise_key: fullKey,
-          completed: true,
-          completed_at: new Date().toISOString(),
-          status: 'in_progress',
-          session_count: sessionCount + 1,
-        },
-        { onConflict: 'user_id,fokozat,section,exercise_key' }
-      );
+    const { error: progressError } = await supabase.from('magia_progress').upsert(
+      {
+        user_id: userId,
+        fokozat: fokozatId,
+        section,
+        exercise_key: fullKey,
+        completed: true,
+        completed_at: new Date().toISOString(),
+        // A new session must never revoke an already mastered exercise.
+        status: currentStatus === 'mastered' ? 'mastered' : 'in_progress',
+        session_count: nextCount,
+      },
+      { onConflict: 'user_id,fokozat,section,exercise_key' }
+    );
+    if (progressError) throw progressError;
 
-      await supabase
-        .from('profiles')
-        .update({ last_magia_activity_date: new Date().toISOString().split('T')[0] })
-        .eq('id', userId);
+    await supabase
+      .from('profiles')
+      .update({ last_magia_activity_date: toBudapestDate(new Date()) })
+      .eq('id', userId);
 
-      if (sid) {
-        onSessionSaved();
-      }
-    },
-    [userId, fokozatId, section, fullKey, sessionCount, onSessionSaved]
-  );
+    setSavedCount(nextCount);
+    onSessionSaved();
+  }, [userId, fokozatId, section, fullKey, sessionCount, currentStatus, onSessionSaved]);
 
   const handleTimerComplete = useCallback(
-    async (durationSec: number) => {
-      setCompletedDurationSec(durationSec);
-      const sid = await saveSession(durationSec, true);
-      setSessionId(sid);
-      setStep('logging');
-    },
-    [saveSession]
+    (durationSec: number) =>
+      runSafely(async () => {
+        setCompletedDurationSec(durationSec);
+        const sid = await saveSession(durationSec, true);
+        setSessionId(sid);
+        setStep('logging');
+      }),
+    [saveSession, runSafely]
   );
 
   const handleTimerStop = useCallback(
-    async (durationSec: number) => {
-      setCompletedDurationSec(durationSec);
-      const sid = await saveSession(durationSec, false);
-      setSessionId(sid);
-      setStep('logging');
-    },
-    [saveSession]
+    (durationSec: number) =>
+      runSafely(async () => {
+        setCompletedDurationSec(durationSec);
+        const sid = await saveSession(durationSec, false);
+        setSessionId(sid);
+        setStep('logging');
+      }),
+    [saveSession, runSafely]
   );
 
   const handleLogSave = useCallback(
-    async (data: { rating: number | null; disturbances: string; note: string }) => {
-      const supabase = createClient();
+    (data: { rating: number | null; disturbances: string; note: string }) =>
+      runSafely(async () => {
+        const supabase = createClient();
 
-      if (sessionId) {
-        await supabase
-          .from('magia_sessions')
-          .update({
-            rating: data.rating,
+        if (sessionId) {
+          const { error: sessionError } = await supabase
+            .from('magia_sessions')
+            .update({
+              rating: data.rating,
+              disturbances: data.disturbances || null,
+              note: data.note || null,
+            })
+            .eq('id', sessionId);
+          if (sessionError) throw sessionError;
+        }
+
+        if (data.note.trim()) {
+          const { error: journalError } = await supabase.from('magia_journal').insert({
+            user_id: userId,
+            fokozat: fokozatId,
+            section,
+            exercise_key: fullKey,
+            session_id: sessionId,
+            entry_date: toBudapestDate(new Date()),
+            content: data.note.trim(),
+            duration_sec: completedDurationSec,
             disturbances: data.disturbances || null,
-            note: data.note || null,
-          })
-          .eq('id', sessionId);
-      }
+          });
+          if (journalError) throw journalError;
+        }
 
-      if (data.note.trim()) {
-        await supabase.from('magia_journal').insert({
-          user_id: userId,
-          fokozat: fokozatId,
-          section,
-          exercise_key: fullKey,
-          session_id: sessionId,
-          entry_date: new Date().toISOString().split('T')[0],
-          content: data.note.trim(),
-          duration_sec: completedDurationSec,
-          disturbances: data.disturbances || null,
-        });
-      }
-
-      await updateProgress(sessionId, completedDurationSec);
-      setStep('done');
-    },
-    [sessionId, userId, fokozatId, section, fullKey, completedDurationSec, updateProgress]
+        await updateProgress();
+        setStep('done');
+      }),
+    [sessionId, userId, fokozatId, section, fullKey, completedDurationSec, updateProgress, runSafely]
   );
 
-  const handleLogSkip = useCallback(async () => {
-    await updateProgress(sessionId, completedDurationSec);
-    setStep('done');
-  }, [sessionId, completedDurationSec, updateProgress]);
+  const handleLogSkip = useCallback(
+    () =>
+      runSafely(async () => {
+        await updateProgress();
+        setStep('done');
+      }),
+    [updateProgress, runSafely]
+  );
 
-  const handleMarkDone = useCallback(async () => {
-    const sid = await saveSession(0, true);
-    setSessionId(sid);
-    await updateProgress(sid, 0);
-    setStep('done');
-  }, [saveSession, updateProgress]);
+  const handleMarkDone = useCallback(
+    () =>
+      runSafely(async () => {
+        const sid = await saveSession(0, true);
+        setSessionId(sid);
+        await updateProgress();
+        setStep('done');
+      }),
+    [saveSession, updateProgress, runSafely]
+  );
 
   return (
-    <MagiaModal onClose={onClose}>
+    // No backdrop dismiss: an accidental tap outside must not lose a running session.
+    <MagiaModal onClose={onClose} closeOnBackdrop={false}>
         {/* Fejléc */}
         <div className="mb-5 flex items-start justify-between gap-3">
           <div className="flex-1">
@@ -218,6 +250,10 @@ export function ExerciseRunner({
             ✕
           </button>
         </div>
+
+        {error && (
+          <p className="mb-4 rounded-xl bg-red-500/10 px-3 py-2 text-xs text-red-400">{error}</p>
+        )}
 
         {step === 'ready' && (
           <div className="space-y-5">
@@ -244,14 +280,6 @@ export function ExerciseRunner({
           </div>
         )}
 
-        {step === 'timing' && (
-          <SessionTimer
-            targetSec={targetSec}
-            onComplete={handleTimerComplete}
-            onStop={handleTimerStop}
-          />
-        )}
-
         {step === 'logging' && (
           <PostSessionLog
             durationSec={completedDurationSec}
@@ -267,11 +295,11 @@ export function ExerciseRunner({
             </div>
             <p className="font-display text-lg font-semibold text-cream">{t('runnerSessionSaved')}</p>
             <p className="text-sm text-muted-foreground">
-              {t('runnerTotalSessions', { count: sessionCount + 1 })}
+              {t('runnerTotalSessions', { count: savedCount ?? sessionCount })}
             </p>
             <button
               type="button"
-              onClick={() => { onSessionSaved(); onClose(); }}
+              onClick={onClose}
               className="rounded-xl bg-accent/20 px-6 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/30"
             >
               {t('closing')}

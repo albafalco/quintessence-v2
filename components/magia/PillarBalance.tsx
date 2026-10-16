@@ -7,13 +7,9 @@ interface PillarBalanceProps {
   balance: PillarBalance;
 }
 
-function formatMin(sec: number): string {
-  const m = Math.floor(sec / 60);
-  return `${m} perc`;
-}
-
 export function PillarBalanceChart({ balance }: PillarBalanceProps) {
   const t = useTranslations('magia');
+  const formatMin = (sec: number) => t('durationMin', { m: Math.floor(sec / 60) });
   const total = balance.totalSec;
 
   const PILLAR_CONFIG = [

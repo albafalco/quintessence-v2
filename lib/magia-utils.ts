@@ -1,6 +1,7 @@
 import type { FokozatData } from './i18n-content';
 import magiaStructure from '@/messages/content/magia.hu.json';
 import type { MagiaSection, MagiaProgressRecord, ExerciseStatus } from './magia-types';
+import { toBudapestDate } from './push-reminders';
 
 const MAGIA_STRUCTURE = magiaStructure as FokozatData[];
 
@@ -125,6 +126,18 @@ export function isFokozatUnlocked(
   return isFokozatMastered(fokozatId - 1, progress);
 }
 
+/** Localized "X min Y s" label; `t` is the `magia` namespace translator. */
+export function formatDurationLabel(
+  sec: number,
+  t: (key: string, values?: Record<string, number>) => string
+): string {
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  if (m > 0 && s > 0) return t('durationMinSec', { m, s });
+  if (m > 0) return t('durationMin', { m });
+  return t('durationSec', { s });
+}
+
 export function getNextDailyTargetSec(
   startSec: number,
   stepSec: number,
@@ -171,7 +184,7 @@ export function computeStreak(
   if (!sessions.length) return 0;
 
   const activeDates = new Set(
-    sessions.filter((s) => s.completed).map((s) => s.started_at.split('T')[0])
+    sessions.filter((s) => s.completed).map((s) => toBudapestDate(s.started_at))
   );
 
   let streak = 0;
@@ -192,12 +205,13 @@ export function computeStreak(
 
 export function computeHeatmap(
   sessions: Pick<SessionRecord, 'started_at' | 'duration_sec'>[],
+  todayDate: string,
   days = 35
 ): DailyHeatmapEntry[] {
   const map = new Map<string, DailyHeatmapEntry>();
 
   for (const s of sessions) {
-    const date = s.started_at.split('T')[0];
+    const date = toBudapestDate(s.started_at);
     const existing = map.get(date) ?? { date, totalSec: 0, sessionCount: 0 };
     map.set(date, {
       date,
@@ -207,9 +221,9 @@ export function computeHeatmap(
   }
 
   const result: DailyHeatmapEntry[] = [];
-  const now = new Date();
+  const today = new Date(todayDate + 'T00:00:00Z');
   for (let i = days - 1; i >= 0; i--) {
-    const d = new Date(now.getTime() - i * 86400000);
+    const d = new Date(today.getTime() - i * 86400000);
     const dateStr = d.toISOString().split('T')[0];
     result.push(map.get(dateStr) ?? { date: dateStr, totalSec: 0, sessionCount: 0 });
   }

@@ -2,6 +2,8 @@ import type { FokozatData } from '@/lib/i18n-content';
 import magiaStructure from '@/messages/content/magia.hu.json';
 import vocabulary from '@/messages/content/angol-vocabulary.json';
 import { getFokozatExerciseCount } from '@/lib/i18n-content';
+import { getCurrentFokozatId, getFokozatProgress } from '@/lib/magia-utils';
+import type { MagiaProgressRecord } from '@/lib/magia-types';
 
 const MAGIA_STRUCTURE = magiaStructure as FokozatData[];
 const VOCABULARY = vocabulary as { prompt: string; answer: string }[];
@@ -16,30 +18,26 @@ export function getTotalMagiaExercisesFromStructure(): number {
   return MAGIA_STRUCTURE.reduce((sum, f) => sum + getFokozatExerciseCount(f), 0);
 }
 
-interface MagiaProgressRow {
-  fokozat: number;
-  completed: boolean;
+interface MagiaProgressRow extends MagiaProgressRecord {
   completed_at: string | null;
 }
 
+/** Same "mastered"-based progress model as the Mágia module itself. */
 export function getMagiaDashboardStats(progress: MagiaProgressRow[]) {
-  const completedRows = progress.filter((p) => p.completed);
-  const currentFokozat =
-    completedRows.length > 0
-      ? Math.max(...completedRows.map((p) => p.fokozat))
-      : 1;
-
-  const fokozatTotal = getFokozatExerciseCountFromStructure(currentFokozat);
-  const fokozatCompleted = completedRows.filter((p) => p.fokozat === currentFokozat).length;
-  const fokozatPercent = fokozatTotal > 0 ? Math.round((fokozatCompleted / fokozatTotal) * 100) : 0;
+  const currentFokozat = getCurrentFokozatId(progress);
+  const fokozatPercent = getFokozatProgress(currentFokozat, progress).percent;
 
   const overallTotal = getTotalMagiaExercisesFromStructure();
+  const overallMastered = MAGIA_STRUCTURE.reduce(
+    (sum, f) => sum + getFokozatProgress(f.id, progress).mastered,
+    0
+  );
   const overallPercent =
-    overallTotal > 0 ? Math.round((completedRows.length / overallTotal) * 100) : 0;
+    overallTotal > 0 ? Math.round((overallMastered / overallTotal) * 100) : 0;
 
-  const lastActivity = completedRows
-    .map((p) => p.completed_at)
-    .filter(Boolean)
+  const lastActivity = progress
+    .flatMap((p) => [p.completed_at, p.mastered_at ?? null])
+    .filter((d): d is string => Boolean(d))
     .sort()
     .reverse()[0] ?? null;
 

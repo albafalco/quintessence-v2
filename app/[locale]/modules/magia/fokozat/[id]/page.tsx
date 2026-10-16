@@ -44,7 +44,9 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
       .eq('user_id', user.id),
     supabase
       .from('magia_journal')
-      .select('id, fokozat, entry_date, content, created_at, updated_at')
+      .select(
+        'id, fokozat, entry_date, content, successes, failures, duration_sec, disturbances, self_criticism, next_plan, created_at, updated_at'
+      )
       .eq('user_id', user.id)
       .eq('fokozat', fokozatId)
       .order('entry_date', { ascending: false }),

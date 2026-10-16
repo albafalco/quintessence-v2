@@ -31,7 +31,9 @@
       "passwordTooShort": "La password deve avere almeno 8 caratteri",
       "invalidInvite": "Codice invito non valido o già usato",
       "registrationFailed": "Registrazione fallita",
-      "methodNotAllowed": "Metodo non consentito. Usa POST."
+      "methodNotAllowed": "Metodo non consentito. Usa POST.",
+      "emailTaken": "Esiste già un account con questa email.",
+      "usernameTaken": "Questo nome utente è già in uso."
     }
   },
   "dashboard": {
@@ -45,7 +47,9 @@
     "magiaLabel": "Magia",
     "angolLabel": "Inglese",
     "totalLabel": "Tot.",
-    "lesson1Progress": "Lezione I"
+    "lesson1Progress": "Lezione I",
+    "loadError": "Impossibile caricare i dati.",
+    "retry": "Riprova"
   },
   "modules": {
     "magia": {
@@ -225,7 +229,11 @@
     "journalExportJson": "JSON",
     "journalExportMarkdown": "Markdown",
     "journalExportHeader": "# Diario magico",
-    "calendarDateFormat": "{day}/{month}"
+    "calendarDateFormat": "{day}/{month}",
+    "saveFailed": "Salvataggio non riuscito. Controlla la connessione e riprova.",
+    "durationMinSec": "{m} min {s} s",
+    "durationMin": "{m} min",
+    "durationSec": "{s} s"
   },
   "angol": {
     "title": "Inglese creativo",
@@ -298,7 +306,8 @@
     "startExamArrow": "Inizia esame →",
     "speechNotSupported": "La dettatura non è supportata in questo browser.",
     "dictate": "Detta",
-    "stopDictation": "Stop"
+    "stopDictation": "Stop",
+    "savingResultFailed": "Impossibile salvare il risultato. Controlla la connessione."
   },
   "profile": {
     "title": "Profilo",

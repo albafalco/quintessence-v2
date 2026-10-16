@@ -123,7 +123,7 @@ export function ExerciseItem({
         className={cn(
           'rounded-2xl border border-border/50 bg-card/40 p-5 transition-all duration-300',
           isMastered && 'border-accent/40 bg-accent/5 shadow-glow-gold',
-          completed && !isMastered && 'border-accent/15 bg-accent/3'
+          completed && !isMastered && 'border-accent/15 bg-accent/5'
         )}
       >
         <div className="flex items-start gap-4">
@@ -289,6 +289,7 @@ export function ExerciseItem({
           type={type}
           params={params}
           sessionCount={sessionCount}
+          currentStatus={status}
           userId={userId}
           onClose={() => setRunnerOpen(false)}
           onSessionSaved={handleSessionSaved}

@@ -31,7 +31,9 @@
       "passwordTooShort": "A jelszó legalább 8 karakter legyen",
       "invalidInvite": "Érvénytelen vagy már felhasznált meghívókód",
       "registrationFailed": "A regisztráció sikertelen",
-      "methodNotAllowed": "Nem engedélyezett metódus. Használd a POST-ot."
+      "methodNotAllowed": "Nem engedélyezett metódus. Használd a POST-ot.",
+      "emailTaken": "Ezzel az e-mail-címmel már van fiók.",
+      "usernameTaken": "Ez a felhasználónév már foglalt."
     }
   },
   "dashboard": {
@@ -45,7 +47,9 @@
     "magiaLabel": "Mágia",
     "angolLabel": "Angol",
     "totalLabel": "Össz.",
-    "lesson1Progress": "1. Lecke"
+    "lesson1Progress": "1. Lecke",
+    "loadError": "Nem sikerült betölteni az adatokat.",
+    "retry": "Újrapróbálás"
   },
   "modules": {
     "magia": {
@@ -225,7 +229,11 @@
     "journalExportJson": "JSON",
     "journalExportMarkdown": "Markdown",
     "journalExportHeader": "# Mágikus Napló",
-    "calendarDateFormat": "{month}. {day}."
+    "calendarDateFormat": "{month}. {day}.",
+    "saveFailed": "A mentés nem sikerült. Ellenőrizd a kapcsolatot, és próbáld újra.",
+    "durationMinSec": "{m} perc {s} mp",
+    "durationMin": "{m} perc",
+    "durationSec": "{s} mp"
   },
   "angol": {
     "title": "Kreatív Angol",
@@ -298,7 +306,8 @@
     "startExamArrow": "Vizsga indítása →",
     "speechNotSupported": "A diktálás nem támogatott ebben a böngészőben.",
     "dictate": "Diktálás",
-    "stopDictation": "Leállítás"
+    "stopDictation": "Leállítás",
+    "savingResultFailed": "Az eredményt nem sikerült elmenteni. Ellenőrizd a kapcsolatot."
   },
   "profile": {
     "title": "Profil",
@@ -317,7 +326,7 @@
     "pushErrorSubscribe": "A feliratkozás sikertelen. Próbáld újra, vagy telepítsd újra az appot a kezdőképernyőre.",
     "pushErrorServiceWorker": "A háttérszolgáltatás nem indult el. Frissítsd az oldalt, majd próbáld újra.",
     "pushErrorGeneric": "A push bekapcsolása sikertelen. Próbáld újra.",
-  "pushErrorFcm": "A Chrome push szolgáltatása nem tudta elvégezni a feliratkozást. Zárd be teljesen a Chrome-ot (minden ablakot), nyisd meg újra, majd próbáld újra. Ha nem segít, próbáld Edge vagy Firefox böngészőből.",
+    "pushErrorFcm": "A Chrome push szolgáltatása nem tudta elvégezni a feliratkozást. Zárd be teljesen a Chrome-ot (minden ablakot), nyisd meg újra, majd próbáld újra. Ha nem segít, próbáld Edge vagy Firefox böngészőből.",
     "pushEnabledButTestFailed": "Feliratkozás sikerült, de a teszt értesítés nem ment ki. Ellenőrizd a Vercel VAPID kulcsokat.",
     "pushIosHint": "iPhone-on a push csak a kezdőképernyőre telepített appban működik (Safari → Megosztás → Kezdőképernyőre).",
     "pushTest": "Teszt értesítés",

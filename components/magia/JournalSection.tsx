@@ -7,6 +7,7 @@ import { createClient } from '@/lib/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { JournalEntry, type JournalEntryData } from './JournalEntry';
+import { toBudapestDate } from '@/lib/push-reminders';
 
 interface JournalSectionProps {
   fokozatId: number;
@@ -72,6 +73,7 @@ export function JournalSection({
   const [showForm, setShowForm] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showExportMenu, setShowExportMenu] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   const FIELD_META: Record<FieldKey, { label: string; placeholder: string }> = {
     successes: { label: t('journalFieldSuccesses'), placeholder: t('journalPlaceholderSuccesses') },
@@ -106,14 +108,17 @@ export function JournalSection({
     if (isFormEmpty) return;
 
     setAdding(true);
+    setSaveError(null);
     const supabase = createClient();
     const { data, error } = await supabase
       .from('magia_journal')
       .insert({
         user_id: userId,
         fokozat: fokozatId,
-        entry_date: new Date().toISOString().split('T')[0],
-        content: form.content.trim() || null,
+        entry_date: toBudapestDate(new Date()),
+        // `content` is NOT NULL in the schema — store an empty string when only
+        // the structured fields are filled in.
+        content: form.content.trim(),
         successes: form.successes.trim() || null,
         failures: form.failures.trim() || null,
         disturbances: form.disturbances.trim() || null,
@@ -124,11 +129,14 @@ export function JournalSection({
       .single();
 
     setAdding(false);
-    if (!error && data) {
-      setEntries((prev) => [data as JournalEntryData, ...prev]);
-      setForm(EMPTY_FORM);
-      setShowForm(false);
+    if (error || !data) {
+      console.error('[magia] journal insert failed', error);
+      setSaveError(t('saveFailed'));
+      return;
     }
+    setEntries((prev) => [data as JournalEntryData, ...prev]);
+    setForm(EMPTY_FORM);
+    setShowForm(false);
   };
 
   const handleUpdate = (updated: JournalEntryData) => {
@@ -230,6 +238,7 @@ export function JournalSection({
               />
             </div>
           ))}
+          {saveError && <p className="text-xs text-red-400">{saveError}</p>}
           <div className="flex gap-2">
             <Button variant="gold" onClick={handleAdd} disabled={adding || isFormEmpty}>
               {adding ? t('saving') : t('save')}

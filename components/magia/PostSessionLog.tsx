@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { formatDurationLabel } from '@/lib/magia-utils';
 
 interface PostSessionLogProps {
   durationSec: number;
@@ -13,14 +14,9 @@ interface PostSessionLogProps {
   onSkip: () => void;
 }
 
-function formatDuration(sec: number): string {
-  const m = Math.floor(sec / 60);
-  const s = sec % 60;
-  return m > 0 ? `${m} perc ${s > 0 ? `${s} mp` : ''}`.trim() : `${s} mp`;
-}
-
 export function PostSessionLog({ durationSec, onSave, onSkip }: PostSessionLogProps) {
   const t = useTranslations('magia');
+  const formatDuration = (sec: number) => formatDurationLabel(sec, t);
   const [rating, setRating] = useState<number | null>(null);
   const [disturbances, setDisturbances] = useState('');
   const [note, setNote] = useState('');

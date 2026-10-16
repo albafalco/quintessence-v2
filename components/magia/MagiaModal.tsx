@@ -8,9 +8,11 @@ interface MagiaModalProps {
   children: ReactNode;
   onClose?: () => void;
   className?: string;
+  /** Close when the dimmed backdrop is tapped. */
+  closeOnBackdrop?: boolean;
 }
 
-export function MagiaModal({ children, onClose, className }: MagiaModalProps) {
+export function MagiaModal({ children, onClose, className, closeOnBackdrop = true }: MagiaModalProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export function MagiaModal({ children, onClose, className }: MagiaModalProps) {
   return createPortal(
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm sm:p-4"
-      onClick={onClose}
+      onClick={closeOnBackdrop ? onClose : undefined}
       role="presentation"
     >
       <div
