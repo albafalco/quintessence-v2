@@ -1,1 +1,0 @@
-export { GrammarContent as getStaticContent } from '@/components/angol/GrammarRenderer';

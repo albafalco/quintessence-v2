@@ -16,7 +16,7 @@ export function AuthLayoutShell({ children }: { children: React.ReactNode }) {
         {!isLogin && (
           <>
             <div className="absolute left-1/2 top-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-primary/15 blur-[100px]" />
-            <div className="absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-accent/8 blur-[80px]" />
+            <div className="absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-accent/10 blur-[80px]" />
           </>
         )}
       </div>

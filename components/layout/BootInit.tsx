@@ -115,8 +115,16 @@ async function registerServiceWorker() {
     bootLog('sw-active');
   }
 
+  // Only reload when an existing worker is replaced by an update. On the very
+  // first install clients.claim() also fires controllerchange, and reloading
+  // then would wipe whatever a new visitor is typing (e.g. the login form).
+  let hadController = Boolean(navigator.serviceWorker.controller);
   let reloading = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!hadController) {
+      hadController = true;
+      return;
+    }
     if (reloading || sessionStorage.getItem(SW_RELOAD_KEY)) return;
     reloading = true;
     sessionStorage.setItem(SW_RELOAD_KEY, '1');
