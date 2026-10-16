@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client';
 import { Textarea } from '@/components/ui/textarea';
 import { cn } from '@/lib/utils';
 import { formatDurationLabel } from '@/lib/magia-utils';
+import { useConfirm } from '@/components/ui/confirm-dialog';
 
 export interface JournalEntryData {
   id: string;
@@ -52,6 +53,7 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { confirm, confirmDialog } = useConfirm();
 
   const FIELD_LABELS: Record<EditableField, string> = {
     successes: t('journalFieldSuccesses'),
@@ -127,7 +129,13 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
   };
 
   const handleDelete = async () => {
-    if (!confirm(t('deleteConfirm'))) return;
+    const ok = await confirm({
+      message: t('deleteConfirm'),
+      confirmLabel: t('delete'),
+      cancelLabel: t('cancel'),
+      destructive: true,
+    });
+    if (!ok) return;
     setDeleting(true);
     setError(null);
     const supabase = createClient();
@@ -243,6 +251,7 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
       {!hasStructured && !entry.content && !editing && (
         <p className="text-sm text-muted-foreground italic">{t('journalNoContent')}</p>
       )}
+      {confirmDialog}
     </article>
   );
 }

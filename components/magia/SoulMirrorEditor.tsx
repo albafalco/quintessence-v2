@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
+import { useConfirm } from '@/components/ui/confirm-dialog';
 import type { SoulMirrorItem, SoulMirrorType, ElementType, WorkMethod } from '@/lib/magia-types';
 
 interface SoulMirrorEditorProps {
@@ -30,6 +31,7 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
   const [newItem, setNewItem] = useState(BLANK_ITEM);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { confirm, confirmDialog } = useConfirm();
 
   const reportError = useCallback(
     (err: unknown) => {
@@ -128,7 +130,13 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm(t('soulMirrorDeleteConfirm'))) return;
+    const ok = await confirm({
+      message: t('soulMirrorDeleteConfirm'),
+      confirmLabel: t('delete'),
+      cancelLabel: t('cancel'),
+      destructive: true,
+    });
+    if (!ok) return;
     setError(null);
     const supabase = createClient();
     const { error: deleteError } = await supabase.from('magia_soul_mirror').delete().eq('id', id);
@@ -326,6 +334,8 @@ export function SoulMirrorEditor({ userId, showWorkMethods = false }: SoulMirror
           {t('soulMirrorAddItem')}
         </button>
       )}
+
+      {confirmDialog}
     </div>
   );
 }

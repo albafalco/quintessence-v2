@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import { buildExerciseKey, getNextDailyTargetSec } from '@/lib/magia-utils';
 import { toBudapestDate } from '@/lib/push-reminders';
+import { useConfirm } from '@/components/ui/confirm-dialog';
 import { MagiaModal } from './MagiaModal';
 import { SessionTimer } from './SessionTimer';
 import { PostSessionLog } from './PostSessionLog';
@@ -56,6 +57,7 @@ export function ExerciseRunner({
   const [error, setError] = useState<string | null>(null);
   const [savedCount, setSavedCount] = useState<number | null>(null);
   const [timerActive, setTimerActive] = useState(false);
+  const { confirm, confirmDialog } = useConfirm();
   const [completedDurationSec, setCompletedDurationSec] = useState(0);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [startedAt] = useState(() => new Date().toISOString());
@@ -230,10 +232,18 @@ export function ExerciseRunner({
   );
 
   // Closing during a running timer or before logging would lose the session.
-  const requestClose = useCallback(() => {
-    if ((timerActive || step === 'logging') && !window.confirm(t('confirmCloseSession'))) return;
+  const requestClose = useCallback(async () => {
+    if (timerActive || step === 'logging') {
+      const ok = await confirm({
+        message: t('confirmCloseSession'),
+        confirmLabel: t('closing'),
+        cancelLabel: t('cancel'),
+        destructive: true,
+      });
+      if (!ok) return;
+    }
     onClose();
-  }, [timerActive, step, onClose, t]);
+  }, [timerActive, step, onClose, t, confirm]);
 
   return (
     // No backdrop dismiss: an accidental tap outside must not lose a running session.
@@ -315,6 +325,7 @@ export function ExerciseRunner({
             </button>
           </div>
         )}
+      {confirmDialog}
     </MagiaModal>
   );
 }
