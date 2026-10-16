@@ -48,8 +48,8 @@ export function MobileNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/50 glass-strong pb-safe md:hidden">
-      <div className="mx-auto flex w-full max-w-lg items-center justify-around px-1 py-2">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/50 glass-strong pb-nav-safe md:hidden">
+      <div className="mx-auto flex w-full max-w-lg items-center justify-around px-1 pb-1 pt-1.5">
         {items.map(({ href, label, icon: Icon, match, disabled }) => {
           const active = !disabled && match(pathname);
 
@@ -79,7 +79,7 @@ export function MobileNav() {
             >
               <div
                 className={cn(
-                  'flex h-8 w-8 items-center justify-center rounded-xl transition-all',
+                  'flex h-7 w-7 items-center justify-center rounded-xl transition-all',
                   active && 'bg-primary/25 shadow-glow-gold'
                 )}
               >

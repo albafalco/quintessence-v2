@@ -128,8 +128,14 @@
     padding-bottom: max(0.625rem, env(safe-area-inset-bottom));
   }
 
+  /* Bottom tab bar: tuck the labels slightly into the home-indicator area
+     (iOS keeps ~34px there) so the bar is not overly tall. */
+  .pb-nav-safe {
+    padding-bottom: max(0.25rem, calc(env(safe-area-inset-bottom) - 0.75rem));
+  }
+
   .pb-mobile-nav {
-    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
   }
 
   .no-scrollbar {
