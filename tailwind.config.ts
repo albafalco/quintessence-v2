@@ -70,6 +70,8 @@ const config: Config = {
         shimmer: 'shimmer 2.5s infinite',
         'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
         'flip-in': 'flipIn 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+        'fade-up': 'fadeUp 0.3s ease-out backwards',
+        'pop-in': 'popIn 0.18s ease-out backwards',
       },
       keyframes: {
         fadeIn: {
@@ -87,6 +89,14 @@ const config: Config = {
         pulseGlow: {
           '0%, 100%': { opacity: '0.4' },
           '50%': { opacity: '0.8' },
+        },
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(6px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        popIn: {
+          '0%': { opacity: '0', transform: 'translateY(4px) scale(0.95)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
         },
         flipIn: {
           '0%': { transform: 'rotateY(-90deg)', opacity: '0' },

@@ -19,6 +19,7 @@ import {
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { AccountDataCard } from '@/components/profile/AccountDataCard';
 import { BadgesSection } from '@/components/profile/BadgesSection';
+import { Collapse } from '@/components/ui/collapse';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -91,7 +92,9 @@ function ReminderRow({ label, description, checked, onCheckedChange, time, onTim
         )}
         <Switch checked={checked} onCheckedChange={onCheckedChange} aria-label={label} />
       </div>
-      {showInfo && <p className="mt-1.5 pr-12 text-[11px] leading-relaxed text-muted-foreground">{description}</p>}
+      <Collapse open={showInfo}>
+        <p className="pt-1.5 pr-12 text-[11px] leading-relaxed text-muted-foreground">{description}</p>
+      </Collapse>
     </div>
   );
 }
@@ -266,210 +269,212 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
         {saveState === 'saving' ? t('saving') : saveState === 'error' ? t('saveFailed') : t('savedShort')}
       </p>
 
-      {tab === 'overview' && (
-        <>
-          <Card className="premium-card">
-            <CardContent className="flex items-center gap-4 pt-6">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-cosmic font-display text-xl font-bold text-accent">
-                {profile.name.charAt(0).toUpperCase() || profile.username.charAt(0).toUpperCase()}
-              </div>
-              <div className="min-w-0">
-                <p className="truncate font-display text-lg font-semibold text-cream">{profile.name}</p>
-                <p className="truncate text-sm text-muted-foreground">@{profile.username}</p>
-                <p className="truncate text-xs text-muted-foreground/80">{profile.email}</p>
-              </div>
-            </CardContent>
-          </Card>
-          <BadgesSection userId={profile.id} compact />
-        </>
-      )}
-
-      {tab === 'notifications' && (
-        <Card className="premium-card">
-          <CardContent className="space-y-1 pt-6">
-            <PushToggle enabled={pushEnabled} onEnabledChange={setPushEnabled} label={t('pushEnabled')} />
-
-            {pushEnabled && (
-              <>
-                <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">{t('magiaNotificationsTitle')}</p>
-                <div className="divide-y divide-border/30">
-                  <ReminderRow
-                    label={t('morningReminder')}
-                    description={t('morningReminderDesc')}
-                    checked={magiaReminder}
-                    onCheckedChange={toggle(setMagiaReminder, 'push_magia_reminders')}
-                    time={magiaTime}
-                    onTimeChange={time(setMagiaTime, 'push_magia_time')}
-                  />
-                  <ReminderRow
-                    label={t('eveningReminder')}
-                    description={t('eveningReminderDesc')}
-                    checked={magiaEvening}
-                    onCheckedChange={toggle(setMagiaEvening, 'push_magia_evening')}
-                    time={magiaEveningTime}
-                    onTimeChange={time(setMagiaEveningTime, 'push_magia_evening_time')}
-                  />
-                  <ReminderRow
-                    label={t('streakProtector')}
-                    description={t('streakProtectorDesc')}
-                    checked={magiaStreak}
-                    onCheckedChange={toggle(setMagiaStreak, 'push_magia_streak')}
-                    time={magiaStreakTime}
-                    onTimeChange={time(setMagiaStreakTime, 'push_magia_streak_time')}
-                  />
-                  <ReminderRow
-                    label={t('reengagement')}
-                    description={t('reengagementDesc')}
-                    checked={magiaReengagement}
-                    onCheckedChange={toggle(setMagiaReengagement, 'push_magia_reengagement')}
-                  />
-                  <ReminderRow
-                    label={t('weeklyReport')}
-                    description={t('weeklyReportDesc')}
-                    checked={weeklyReport}
-                    onCheckedChange={toggle(setWeeklyReport, 'push_weekly_report')}
-                    fixedTime={t('weeklyReportTime')}
-                  />
+      <div key={tab} className="animate-fade-up space-y-6 motion-reduce:animate-none">
+        {tab === 'overview' && (
+          <>
+            <Card className="premium-card">
+              <CardContent className="flex items-center gap-4 pt-6">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-cosmic font-display text-xl font-bold text-accent">
+                  {profile.name.charAt(0).toUpperCase() || profile.username.charAt(0).toUpperCase()}
                 </div>
+                <div className="min-w-0">
+                  <p className="truncate font-display text-lg font-semibold text-cream">{profile.name}</p>
+                  <p className="truncate text-sm text-muted-foreground">@{profile.username}</p>
+                  <p className="truncate text-xs text-muted-foreground/80">{profile.email}</p>
+                </div>
+              </CardContent>
+            </Card>
+            <BadgesSection userId={profile.id} compact />
+          </>
+        )}
 
-                {language === 'hu' && (
-                  <>
-                    <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">{t('anglNotificationsTitle')}</p>
+        {tab === 'notifications' && (
+          <Card className="premium-card">
+            <CardContent className="space-y-1 pt-6">
+              <PushToggle enabled={pushEnabled} onEnabledChange={setPushEnabled} label={t('pushEnabled')} />
+
+              {pushEnabled && (
+                <>
+                  <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">{t('magiaNotificationsTitle')}</p>
+                  <div className="divide-y divide-border/30">
                     <ReminderRow
-                      label={t('angolReminder')}
-                      description={t('angolReminderDesc')}
-                      checked={angolReminder}
-                      onCheckedChange={toggle(setAngolReminder, 'push_angol_reminders')}
-                      time={angolTime}
-                      onTimeChange={time(setAngolTime, 'push_angol_time')}
+                      label={t('morningReminder')}
+                      description={t('morningReminderDesc')}
+                      checked={magiaReminder}
+                      onCheckedChange={toggle(setMagiaReminder, 'push_magia_reminders')}
+                      time={magiaTime}
+                      onTimeChange={time(setMagiaTime, 'push_magia_time')}
                     />
-                  </>
-                )}
+                    <ReminderRow
+                      label={t('eveningReminder')}
+                      description={t('eveningReminderDesc')}
+                      checked={magiaEvening}
+                      onCheckedChange={toggle(setMagiaEvening, 'push_magia_evening')}
+                      time={magiaEveningTime}
+                      onTimeChange={time(setMagiaEveningTime, 'push_magia_evening_time')}
+                    />
+                    <ReminderRow
+                      label={t('streakProtector')}
+                      description={t('streakProtectorDesc')}
+                      checked={magiaStreak}
+                      onCheckedChange={toggle(setMagiaStreak, 'push_magia_streak')}
+                      time={magiaStreakTime}
+                      onTimeChange={time(setMagiaStreakTime, 'push_magia_streak_time')}
+                    />
+                    <ReminderRow
+                      label={t('reengagement')}
+                      description={t('reengagementDesc')}
+                      checked={magiaReengagement}
+                      onCheckedChange={toggle(setMagiaReengagement, 'push_magia_reengagement')}
+                    />
+                    <ReminderRow
+                      label={t('weeklyReport')}
+                      description={t('weeklyReportDesc')}
+                      checked={weeklyReport}
+                      onCheckedChange={toggle(setWeeklyReport, 'push_weekly_report')}
+                      fixedTime={t('weeklyReportTime')}
+                    />
+                  </div>
 
-                <div className="flex flex-col items-end gap-1 pt-4">
-                  <button
-                    type="button"
-                    onClick={sendTestPush}
-                    disabled={testingPush}
-                    className="text-xs font-medium text-accent hover:underline disabled:opacity-50"
-                  >
-                    {testingPush ? t('pushTesting') : t('pushTest')}
-                  </button>
-                  {pushTestMessage && <p className="text-xs text-muted-foreground">{pushTestMessage}</p>}
-                </div>
-              </>
-            )}
-          </CardContent>
-        </Card>
-      )}
-
-      {tab === 'account' && (
-        <>
-          <Card className="premium-card">
-            <CardHeader>
-              <CardTitle className="text-gradient-gold">{t('preferredLanguage')}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="mb-3 text-xs text-muted-foreground">{t('preferredLanguageHint')}</p>
-              <Select value={language} onValueChange={(v) => void changeLanguage(v)}>
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {locales.map((value) => (
-                    <SelectItem key={value} value={value}>
-                      <span className="flex items-center gap-2">
-                        <FlagIcon locale={value} className="h-3.5 w-5" />
-                        {getNativeLocaleLabel(value as Locale)}
-                      </span>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </CardContent>
-          </Card>
-
-          <Card className="premium-card">
-            <button
-              type="button"
-              onClick={() => setPasswordOpen((v) => !v)}
-              aria-expanded={passwordOpen}
-              className="flex w-full items-center justify-between px-6 py-5 text-left"
-            >
-              <span className="font-display text-lg font-semibold text-gradient-gold">{t('changePassword')}</span>
-              <ChevronDown className={cn('h-5 w-5 text-muted-foreground transition-transform', passwordOpen && 'rotate-180')} />
-            </button>
-            {passwordOpen && (
-              <CardContent className="space-y-3">
-                <Input
-                  type="password"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder={t('newPassword')}
-                  aria-label={t('newPassword')}
-                  autoComplete="new-password"
-                />
-                <Input
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder={t('confirmPassword')}
-                  aria-label={t('confirmPassword')}
-                  autoComplete="new-password"
-                />
-                <div className="flex items-center justify-between gap-3">
-                  {passwordMessage ? (
-                    <p className={cn('text-xs', passwordMessage.ok ? 'text-green-400' : 'text-red-400')}>{passwordMessage.text}</p>
-                  ) : (
-                    <span />
+                  {language === 'hu' && (
+                    <>
+                      <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">{t('anglNotificationsTitle')}</p>
+                      <ReminderRow
+                        label={t('angolReminder')}
+                        description={t('angolReminderDesc')}
+                        checked={angolReminder}
+                        onCheckedChange={toggle(setAngolReminder, 'push_angol_reminders')}
+                        time={angolTime}
+                        onTimeChange={time(setAngolTime, 'push_angol_time')}
+                      />
+                    </>
                   )}
-                  <button
-                    type="button"
-                    onClick={changePassword}
-                    disabled={passwordSaving || !newPassword}
-                    className="shrink-0 rounded-xl bg-gradient-to-r from-accent-dark via-accent to-accent-light px-4 py-2 text-sm font-semibold text-accent-foreground disabled:opacity-40"
-                  >
-                    {passwordSaving ? t('saving') : t('passwordSave')}
-                  </button>
-                </div>
-              </CardContent>
-            )}
-          </Card>
 
-          <Card className="premium-card">
-            <CardHeader>
-              <CardTitle className="text-gradient-gold">{t('myDataTitle')}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <AccountDataCard part="export" userId={profile.id} username={profile.username} email={profile.email} />
+                  <div className="flex flex-col items-end gap-1 pt-4">
+                    <button
+                      type="button"
+                      onClick={sendTestPush}
+                      disabled={testingPush}
+                      className="text-xs font-medium text-accent hover:underline disabled:opacity-50"
+                    >
+                      {testingPush ? t('pushTesting') : t('pushTest')}
+                    </button>
+                    {pushTestMessage && <p className="text-xs text-muted-foreground">{pushTestMessage}</p>}
+                  </div>
+                </>
+              )}
             </CardContent>
           </Card>
+        )}
 
-          <Card className="premium-card">
-            <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-muted-foreground">{t('logoutHint')}</p>
-              <LogoutButton variant="outline" className="w-full sm:w-auto" />
-            </CardContent>
-          </Card>
-
-          <Card className="premium-card border-red-500/15">
-            <button
-              type="button"
-              onClick={() => setDangerOpen((v) => !v)}
-              aria-expanded={dangerOpen}
-              className="flex w-full items-center justify-between px-6 py-4 text-left"
-            >
-              <span className="text-sm font-semibold text-red-300/80">{t('dangerZone')}</span>
-              <ChevronDown className={cn('h-4 w-4 text-red-300/60 transition-transform', dangerOpen && 'rotate-180')} />
-            </button>
-            {dangerOpen && (
+        {tab === 'account' && (
+          <>
+            <Card className="premium-card">
+              <CardHeader>
+                <CardTitle className="text-gradient-gold">{t('preferredLanguage')}</CardTitle>
+              </CardHeader>
               <CardContent>
-                <AccountDataCard part="delete" userId={profile.id} username={profile.username} email={profile.email} />
+                <p className="mb-3 text-xs text-muted-foreground">{t('preferredLanguageHint')}</p>
+                <Select value={language} onValueChange={(v) => void changeLanguage(v)}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {locales.map((value) => (
+                      <SelectItem key={value} value={value}>
+                        <span className="flex items-center gap-2">
+                          <FlagIcon locale={value} className="h-3.5 w-5" />
+                          {getNativeLocaleLabel(value as Locale)}
+                        </span>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </CardContent>
-            )}
-          </Card>
-        </>
-      )}
+            </Card>
+
+            <Card className="premium-card">
+              <button
+                type="button"
+                onClick={() => setPasswordOpen((v) => !v)}
+                aria-expanded={passwordOpen}
+                className="flex w-full items-center justify-between px-6 py-5 text-left"
+              >
+                <span className="font-display text-lg font-semibold text-gradient-gold">{t('changePassword')}</span>
+                <ChevronDown className={cn('h-5 w-5 text-muted-foreground transition-transform duration-300', passwordOpen && 'rotate-180')} />
+              </button>
+              <Collapse open={passwordOpen}>
+                <CardContent className="space-y-3">
+                  <Input
+                    type="password"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    placeholder={t('newPassword')}
+                    aria-label={t('newPassword')}
+                    autoComplete="new-password"
+                  />
+                  <Input
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder={t('confirmPassword')}
+                    aria-label={t('confirmPassword')}
+                    autoComplete="new-password"
+                  />
+                  <div className="flex items-center justify-between gap-3">
+                    {passwordMessage ? (
+                      <p className={cn('text-xs', passwordMessage.ok ? 'text-green-400' : 'text-red-400')}>{passwordMessage.text}</p>
+                    ) : (
+                      <span />
+                    )}
+                    <button
+                      type="button"
+                      onClick={changePassword}
+                      disabled={passwordSaving || !newPassword}
+                      className="shrink-0 rounded-xl bg-gradient-to-r from-accent-dark via-accent to-accent-light px-4 py-2 text-sm font-semibold text-accent-foreground disabled:opacity-40"
+                    >
+                      {passwordSaving ? t('saving') : t('passwordSave')}
+                    </button>
+                  </div>
+                </CardContent>
+              </Collapse>
+            </Card>
+
+            <Card className="premium-card">
+              <CardHeader>
+                <CardTitle className="text-gradient-gold">{t('myDataTitle')}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <AccountDataCard part="export" userId={profile.id} username={profile.username} email={profile.email} />
+              </CardContent>
+            </Card>
+
+            <Card className="premium-card">
+              <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-sm text-muted-foreground">{t('logoutHint')}</p>
+                <LogoutButton variant="outline" className="w-full sm:w-auto" />
+              </CardContent>
+            </Card>
+
+            <Card className="premium-card border-red-500/15">
+              <button
+                type="button"
+                onClick={() => setDangerOpen((v) => !v)}
+                aria-expanded={dangerOpen}
+                className="flex w-full items-center justify-between px-6 py-4 text-left"
+              >
+                <span className="text-sm font-semibold text-red-300/80">{t('dangerZone')}</span>
+                <ChevronDown className={cn('h-4 w-4 text-red-300/60 transition-transform duration-300', dangerOpen && 'rotate-180')} />
+              </button>
+              <Collapse open={dangerOpen}>
+                <CardContent>
+                  <AccountDataCard part="delete" userId={profile.id} username={profile.username} email={profile.email} />
+                </CardContent>
+              </Collapse>
+            </Card>
+          </>
+        )}
+      </div>
     </div>
   );
 }
