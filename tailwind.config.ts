@@ -48,10 +48,6 @@ const config: Config = {
         xl: '1.125rem',
         '2xl': '1.375rem',
       },
-      // Used by ShieldLogo (`drop-shadow-glow-gold`) — follows the logo's shape.
-      dropShadow: {
-        'glow-gold': '0 0 12px rgba(212, 175, 55, 0.35)',
-      },
       boxShadow: {
         glow: '0 0 40px -8px rgba(76, 29, 149, 0.5)',
         'glow-gold': '0 0 32px -6px rgba(212, 175, 55, 0.35)',
