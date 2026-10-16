@@ -12,7 +12,6 @@ interface ModuleCardProps {
   title: string;
   subtitle: string;
   href: string;
-  progressType: 'ring' | 'bar';
   progress: number;
   progressLabel?: string;
   lastActivity: string | null;
@@ -21,51 +20,10 @@ interface ModuleCardProps {
   variant?: 'magia' | 'angol';
 }
 
-function ProgressRing({ progress, size = 72, variant = 'magia' }: { progress: number; size?: number; variant?: 'magia' | 'angol' }) {
-  const stroke = 5;
-  const radius = (size - stroke) / 2;
-  const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (progress / 100) * circumference;
-  const color = variant === 'magia' ? '#D4AF37' : '#94a3b8';
-
-  return (
-    <div className="relative" style={{ width: size, height: size }}>
-      <svg width={size} height={size} className="-rotate-90">
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={stroke}
-          className="text-muted/60"
-        />
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          fill="none"
-          stroke={color}
-          strokeWidth={stroke}
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
-          strokeLinecap="round"
-          className="transition-all duration-700 ease-out"
-          style={{ filter: variant === 'magia' ? 'drop-shadow(0 0 6px rgba(212,175,55,0.4))' : undefined }}
-        />
-      </svg>
-      <span className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-cream">
-        {Math.round(progress)}%
-      </span>
-    </div>
-  );
-}
-
 export function ModuleCard({
   title,
   subtitle,
   href,
-  progressType,
   progress,
   progressLabel,
   lastActivity,
@@ -112,20 +70,17 @@ export function ModuleCard({
               </p>
             )}
           </div>
-          {progressType === 'ring' && <ProgressRing progress={progress} variant={variant} />}
         </div>
       </CardHeader>
 
       <CardContent className="relative flex-1 space-y-5">
-        {progressType === 'bar' && (
-          <div className="space-y-2.5">
+        <div className="space-y-2.5">
             <div className="flex justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground">
               <span>{t('progress')}</span>
               <span className="text-cream">{Math.round(progress)}%</span>
             </div>
-            <Progress value={progress} variant="angol" className="h-2" />
+            <Progress value={progress} variant={isMagia ? 'gold' : 'angol'} className="h-2" />
           </div>
-        )}
 
         <div className="rounded-xl border border-border/40 bg-background/30 px-4 py-3">
           <p className="text-xs uppercase tracking-wider text-muted-foreground">{t('lastActivity')}</p>
@@ -136,7 +91,7 @@ export function ModuleCard({
       </CardContent>
 
       <CardFooter className="relative">
-        <Button asChild variant={isMagia ? 'gold' : 'secondary'} className="w-full group-hover:shadow-glow-gold">
+        <Button asChild variant="gold" className="w-full group-hover:shadow-glow-gold">
           <Link href={href}>
             {t('continue')}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

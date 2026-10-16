@@ -229,7 +229,6 @@ export function DashboardContent() {
             title={tModules('magia.title')}
             subtitle={tModules('magia.subtitle')}
             href={`/${locale}/modules/magia`}
-            progressType="ring"
             progress={magiaStats.fokozatPercent}
             progressLabel={t('fokozat', { level: magiaStats.currentFokozat })}
             lastActivity={formatActivityDate(magiaStats.lastActivity, locale)}
@@ -242,7 +241,6 @@ export function DashboardContent() {
               title={tModules('angol.title')}
               subtitle={tModules('angol.subtitle')}
               href={`/${locale}/modules/angol`}
-              progressType="bar"
               progress={angolStats.progress}
               progressLabel={t('lesson1Progress')}
               lastActivity={formatActivityDate(angolStats.lastActivity, locale)}
