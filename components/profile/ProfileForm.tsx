@@ -23,6 +23,7 @@ import { Collapse } from '@/components/ui/collapse';
 import { InfoTip } from '@/components/ui/info-tip';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
+import { UserAvatar } from '@/components/ui/UserAvatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
@@ -273,9 +274,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
           <>
             <Card className="premium-card">
               <CardContent className="flex items-center gap-4 pt-6">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-cosmic font-display text-xl font-bold text-accent">
-                  {profile.name.charAt(0).toUpperCase() || profile.username.charAt(0).toUpperCase()}
-                </div>
+                <UserAvatar username={profile.username} name={profile.name} className="h-14 w-14 text-xl" />
                 <div className="min-w-0">
                   <p className="truncate font-display text-lg font-semibold text-cream">{profile.name}</p>
                   <p className="truncate text-sm text-muted-foreground">@{profile.username}</p>

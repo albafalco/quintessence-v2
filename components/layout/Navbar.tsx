@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
+import { UserAvatar } from '@/components/ui/UserAvatar';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { cn } from '@/lib/utils';
@@ -57,9 +58,7 @@ export function Navbar() {
               'transition-all hover:border-accent/30 hover:bg-muted/50'
             )}
           >
-            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-primary to-cosmic text-xs font-bold text-accent sm:h-8 sm:w-8">
-              {username.charAt(0).toUpperCase()}
-            </div>
+            <UserAvatar username={username} className="h-7 w-7 text-xs sm:h-8 sm:w-8" />
             <div className="hidden text-sm md:block">
               <span className="text-muted-foreground">{t('greeting')} </span>
               <span className="font-medium text-cream">@{username}</span>
