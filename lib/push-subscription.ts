@@ -54,6 +54,33 @@ export async function removeCurrentDeviceSubscription(supabase: SupabaseClient, 
   await subscription.unsubscribe();
 }
 
+/** Number of devices subscribed to the user's push notifications. */
+export async function countPushSubscriptions(supabase: SupabaseClient, userId: string): Promise<number> {
+  const { count, error } = await supabase
+    .from('push_subscriptions')
+    .select('id', { count: 'exact', head: true })
+    .eq('user_id', userId);
+  if (error) throw new Error(error.message);
+  return count ?? 0;
+}
+
+/**
+ * Turns push off on this device only. The account-wide flag is cleared only
+ * when no other device stays subscribed. Returns the remaining device count.
+ */
+export async function disableCurrentDevicePush(supabase: SupabaseClient, userId: string): Promise<number> {
+  await removeCurrentDeviceSubscription(supabase, userId);
+  const remaining = await countPushSubscriptions(supabase, userId);
+  if (remaining === 0) {
+    await supabase
+      .from('profiles')
+      .update({ push_enabled: false, updated_at: new Date().toISOString() })
+      .eq('id', userId);
+  }
+  return remaining;
+}
+
+/** Turns push off on every device of the user. */
 export async function clearPushSubscription(supabase: SupabaseClient, userId: string) {
   await supabase.from('push_subscriptions').delete().eq('user_id', userId);
   await supabase
