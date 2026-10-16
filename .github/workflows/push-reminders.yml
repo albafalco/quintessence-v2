@@ -1,9 +1,8 @@
 name: Push reminders
 
 on:
-  schedule:
-    # Hobby Vercel csak napi cront enged — 5 percenként GitHub Actions hívja az API-t
-    - cron: '*/5 * * * *'
+  # Az ütemezést a Supabase pg_cron végzi (supabase/migrations/006_*.sql).
+  # Ez a workflow csak kézi indításra / hibakeresésre maradt meg.
   workflow_dispatch:
 
 jobs:

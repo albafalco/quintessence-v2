@@ -20,8 +20,8 @@ export async function sendPushNotification(
     },
     JSON.stringify(payload),
     // TTL=0 (default) drops the notification if the device is offline at send
-    // time — common for iOS when the screen is off.  43200 s (12 h) tells
-    // APNs / FCM to hold and redeliver within the same day.
-    { TTL: 43200 }
+    // time — common for iOS when the screen is off.  3 h lets APNs / FCM
+    // redeliver later without a morning reminder showing up in the evening.
+    { TTL: 10800 }
   );
 }

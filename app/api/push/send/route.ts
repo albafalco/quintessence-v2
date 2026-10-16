@@ -109,8 +109,11 @@ async function buildPushNotifications(
     }
   }
 
+  // Re-engagement only makes sense for users who have practiced before;
+  // without a last activity date the "inactive days" count would be bogus.
   if (
     profile.push_magia_reengagement &&
+    profile.last_magia_activity_date &&
     isReminderDue(budapestNow.totalMinutes, '10:00')
   ) {
     const inactiveDays = await getMagiaInactiveDays(
@@ -156,15 +159,13 @@ async function buildPushNotifications(
 }
 
 export async function GET(request: Request) {
-  const authHeader = request.headers.get('authorization');
-  if (
-    process.env.CRON_SECRET &&
-    authHeader !== `Bearer ${process.env.CRON_SECRET}`
-  ) {
-    const isVercelCron = request.headers.get('x-vercel-cron') === '1';
-    if (!isVercelCron) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+  const cronSecret = process.env.CRON_SECRET;
+  if (!cronSecret) {
+    console.error('[push/send] CRON_SECRET is not configured');
+    return NextResponse.json({ error: 'Server misconfigured' }, { status: 500 });
+  }
+  if (request.headers.get('authorization') !== `Bearer ${cronSecret}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const supabase = await createServiceClient();
@@ -226,6 +227,12 @@ export async function GET(request: Request) {
             staleEndpoints.add(sub.endpoint);
             break;
           }
+          console.error('[push/send] send failed', {
+            type: notif.type,
+            statusCode,
+            body: (err as { body?: string }).body,
+            endpoint: sub.endpoint.slice(0, 60),
+          });
         }
       }
     }

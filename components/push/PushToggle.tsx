@@ -75,15 +75,21 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
         const registration = await waitForServiceWorker();
         const subscription = await registration.pushManager.getSubscription();
 
+        if (!enabled) {
+          // The user turned push off (possibly on another device) — respect it.
+          return;
+        }
+
         if (subscription) {
+          // Refresh this device's row (keys may rotate); other devices are untouched.
           await persistPushSubscription(supabase, user.id, subscription);
-          if (!cancelled) {
-            onEnabledChange(true);
-          }
-        } else if (enabled) {
+        } else {
           // iOS silently drops push subscriptions between sessions — auto-resubscribe there.
           // On desktop the subscription persists, so clearing the DB flag would be wrong.
-          const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+          // iPadOS reports a Mac user agent, so detect it via touch support.
+          const isIOS =
+            /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
           if (isIOS) {
             try {
               const newSubscription = await subscribeToPush();
@@ -92,10 +98,8 @@ export function PushToggle({ enabled, onEnabledChange, label }: PushToggleProps)
                 onEnabledChange(true);
               }
             } catch {
-              await clearPushSubscription(supabase, user.id);
-              if (!cancelled) {
-                onEnabledChange(false);
-              }
+              // Leave the account-wide setting alone: the user's other devices
+              // may still be subscribed. Re-toggling fixes this device.
             }
           }
           // Desktop: leave the toggle as-is — the user can re-enable manually.

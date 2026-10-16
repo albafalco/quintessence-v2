@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { LogOut } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
+import { removeCurrentDeviceSubscription } from '@/lib/push-subscription';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -23,6 +24,15 @@ export function LogoutButton({ variant = 'outline', className, showLabel = true 
   const handleLogout = async () => {
     setLoading(true);
     const supabase = createClient();
+    try {
+      // Stop this device from receiving the logged-out user's notifications.
+      const { data } = await supabase.auth.getSession();
+      if (data.session) {
+        await removeCurrentDeviceSubscription(supabase, data.session.user.id);
+      }
+    } catch {
+      // best-effort — logout must not be blocked by push cleanup
+    }
     await supabase.auth.signOut();
     router.push(`/${locale}/auth/login`);
     router.refresh();

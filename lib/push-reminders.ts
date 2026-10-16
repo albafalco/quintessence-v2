@@ -1,10 +1,11 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 const BUDAPEST_TZ = 'Europe/Budapest';
-// GitHub Actions cron delays can be 5–15 min; use a 30-min window so any
-// cron run in that range still catches the target time.  Per-day dedup in
-// the send route prevents duplicate sends within the wider window.
-export const PUSH_CRON_WINDOW_MINUTES = 30;
+// Catch-up window: a reminder is sent on the first cron run after its target
+// time, as long as that run happens within this many minutes.  Scheduler runs
+// can be delayed or skipped; the per-day dedup columns in the send route
+// guarantee that each reminder goes out at most once per day.
+export const PUSH_CRON_WINDOW_MINUTES = 180;
 
 export interface BudapestNow {
   date: string;
@@ -41,6 +42,11 @@ export function getBudapestNow(date = new Date()): BudapestNow {
   };
 }
 
+/** Calendar date (YYYY-MM-DD) of an ISO timestamp in Budapest time. */
+export function toBudapestDate(iso: string | Date): string {
+  return getBudapestNow(typeof iso === 'string' ? new Date(iso) : iso).date;
+}
+
 export function parseTimeToMinutes(time: string): number {
   const [hours, minutes] = time.split(':').map((value) => parseInt(value, 10));
   return hours * 60 + minutes;
@@ -52,6 +58,7 @@ export function isReminderDue(
   windowMinutes = PUSH_CRON_WINDOW_MINUTES
 ): boolean {
   const targetMinutes = parseTimeToMinutes(targetTime);
+  if (Number.isNaN(targetMinutes)) return false;
   return nowMinutes >= targetMinutes && nowMinutes < targetMinutes + windowMinutes;
 }
 
@@ -136,6 +143,13 @@ export async function hasAngolActivityToday(
   budapestDate: string
 ): Promise<boolean> {
   const { start, end } = getBudapestDayBounds(budapestDate);
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('last_angol_activity_date')
+    .eq('id', userId)
+    .maybeSingle();
+  if (profile?.last_angol_activity_date === budapestDate) return true;
 
   const [{ data: cards }, { data: exams }] = await Promise.all([
     supabase
