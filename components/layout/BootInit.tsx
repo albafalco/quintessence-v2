@@ -3,82 +3,6 @@
 import { useEffect } from 'react';
 import { bootLog } from '@/lib/boot-logger';
 const SW_RELOAD_KEY = 'qs-sw-reloaded';
-const DEBUG_LONG_PRESS_MS = 1200;
-
-function isDebugEnabled(): boolean {
-  if (typeof window === 'undefined') return false;
-  const params = new URLSearchParams(window.location.search);
-  return params.has('debug') || localStorage.getItem('qs-debug') === '1';
-}
-
-async function loadDebugConsole() {
-  if (typeof window === 'undefined' || (window as Window & { eruda?: { init: () => void } }).eruda) {
-    return;
-  }
-
-  await new Promise<void>((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/eruda@3.4.1/eruda.min.js';
-    script.async = true;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error('eruda load failed'));
-    document.head.appendChild(script);
-  });
-
-  const eruda = (window as Window & { eruda?: { init: () => void } }).eruda;
-  eruda?.init();
-  bootLog('debug-console-ready');
-}
-
-function setupDebugTriggers() {
-  if (isDebugEnabled()) {
-    void loadDebugConsole().catch((err) => bootLog('debug-console-failed', { error: String(err) }));
-    return;
-  }
-
-  let pressTimer: ReturnType<typeof setTimeout> | undefined;
-  let startX = 0;
-  let startY = 0;
-
-  const onTouchStart = (e: TouchEvent) => {
-    const touch = e.touches[0];
-    if (!touch || touch.clientX > 48 || touch.clientY > 48) return;
-    startX = touch.clientX;
-    startY = touch.clientY;
-    pressTimer = setTimeout(() => {
-      localStorage.setItem('qs-debug', '1');
-      void loadDebugConsole().catch((err) => bootLog('debug-console-failed', { error: String(err) }));
-    }, DEBUG_LONG_PRESS_MS);
-  };
-
-  const onTouchEnd = () => {
-    if (pressTimer) clearTimeout(pressTimer);
-  };
-
-  const onTouchMove = (e: TouchEvent) => {
-    const touch = e.touches[0];
-    if (!touch || !pressTimer) return;
-    const dx = Math.abs(touch.clientX - startX);
-    const dy = Math.abs(touch.clientY - startY);
-    if (dx > 12 || dy > 12) {
-      clearTimeout(pressTimer);
-      pressTimer = undefined;
-    }
-  };
-
-  document.addEventListener('touchstart', onTouchStart, { passive: true });
-  document.addEventListener('touchend', onTouchEnd, { passive: true });
-  document.addEventListener('touchmove', onTouchMove, { passive: true });
-  document.addEventListener('touchcancel', onTouchEnd, { passive: true });
-
-  return () => {
-    if (pressTimer) clearTimeout(pressTimer);
-    document.removeEventListener('touchstart', onTouchStart);
-    document.removeEventListener('touchend', onTouchEnd);
-    document.removeEventListener('touchmove', onTouchMove);
-    document.removeEventListener('touchcancel', onTouchEnd);
-  };
-}
 
 function setupGlobalErrorHandlers() {
   const onError = (event: ErrorEvent) => {
@@ -160,7 +84,6 @@ export function BootInit() {
     bootLog('client-mount');
     sessionStorage.removeItem(SW_RELOAD_KEY);
 
-    const cleanupDebug = setupDebugTriggers();
     const cleanupErrors = setupGlobalErrorHandlers();
 
     void registerServiceWorker()
@@ -170,7 +93,6 @@ export function BootInit() {
     bootLog('first-render-effect');
 
     return () => {
-      cleanupDebug?.();
       cleanupErrors();
     };
   }, []);
