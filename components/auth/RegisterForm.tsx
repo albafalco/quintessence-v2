@@ -26,13 +26,20 @@ export function RegisterForm() {
     setError(null);
     setLoading(true);
 
-    const res = await fetch('/api/auth/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, username, email, password, inviteCode }),
-    });
-
-    const data = await res.json();
+    let res: Response;
+    let data: { errorCode?: string; error?: string };
+    try {
+      res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, username, email, password, inviteCode }),
+      });
+      data = await res.json().catch(() => ({}));
+    } catch {
+      setLoading(false);
+      setError(t('registerError'));
+      return;
+    }
     setLoading(false);
 
     if (!res.ok) {
@@ -44,6 +51,8 @@ export function RegisterForm() {
         PASSWORD_TOO_SHORT: 'errors.passwordTooShort',
         INVALID_INVITE: 'errors.invalidInvite',
         REGISTRATION_FAILED: 'errors.registrationFailed',
+        EMAIL_TAKEN: 'errors.emailTaken',
+        USERNAME_TAKEN: 'errors.usernameTaken',
         METHOD_NOT_ALLOWED: 'errors.methodNotAllowed',
       };
       setError(

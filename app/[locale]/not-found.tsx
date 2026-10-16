@@ -1,14 +1,11 @@
 import Link from 'next/link';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { Button } from '@/components/ui/button';
 
-export default async function NotFound({
-  params,
-}: {
-  params?: Promise<{ locale: string }>;
-}) {
-  const locale = params ? (await params).locale : 'hu';
+// not-found.tsx receives no params, so the locale comes from next-intl.
+export default async function NotFound() {
+  const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: 'notFound' });
 
   return (

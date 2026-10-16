@@ -8,6 +8,8 @@ const ERROR_CODES = {
   PASSWORD_TOO_SHORT: 'PASSWORD_TOO_SHORT',
   INVALID_INVITE: 'INVALID_INVITE',
   REGISTRATION_FAILED: 'REGISTRATION_FAILED',
+  EMAIL_TAKEN: 'EMAIL_TAKEN',
+  USERNAME_TAKEN: 'USERNAME_TAKEN',
   METHOD_NOT_ALLOWED: 'METHOD_NOT_ALLOWED',
 } as const;
 
@@ -48,26 +50,30 @@ export async function POST(request: Request) {
 
     const supabase = await createServiceClient();
 
+    // Claim the invite atomically (conditional update) so two simultaneous
+    // registrations cannot both use the same code.
     const { data: invite, error: inviteError } = await supabase
       .from('invite_codes')
-      .select('id, is_used')
-      .eq('code', inviteCode.trim())
-      .single();
+      .update({ is_used: true, used_at: new Date().toISOString() })
+      .eq('code', String(inviteCode).trim())
+      .eq('is_used', false)
+      .select('id')
+      .maybeSingle();
 
     if (inviteError) {
-      console.error('[register] invite_codes query failed:', inviteError.message, inviteError.code);
-      if (inviteError.message?.includes('API key')) {
-        return NextResponse.json(
-          { errorCode: ERROR_CODES.SERVER_CONFIG },
-          { status: 500 }
-        );
-      }
+      console.error('[register] invite_codes claim failed:', inviteError.message, inviteError.code);
+      return NextResponse.json({ errorCode: ERROR_CODES.SERVER_CONFIG }, { status: 500 });
+    }
+
+    if (!invite) {
       return NextResponse.json({ errorCode: ERROR_CODES.INVALID_INVITE }, { status: 400 });
     }
 
-    if (!invite || invite.is_used) {
-      return NextResponse.json({ errorCode: ERROR_CODES.INVALID_INVITE }, { status: 400 });
-    }
+    const releaseInvite = () =>
+      supabase
+        .from('invite_codes')
+        .update({ is_used: false, used_at: null, used_by: null })
+        .eq('id', invite.id);
 
     const { data: authData, error: signUpError } = await supabase.auth.admin.createUser({
       email,
@@ -77,8 +83,10 @@ export async function POST(request: Request) {
 
     if (signUpError || !authData.user) {
       console.error('[register] createUser failed:', signUpError?.message);
+      await releaseInvite();
+      const emailTaken = /already (been )?registered|already exists/i.test(signUpError?.message ?? '');
       return NextResponse.json(
-        { errorCode: ERROR_CODES.REGISTRATION_FAILED, error: signUpError?.message },
+        { errorCode: emailTaken ? ERROR_CODES.EMAIL_TAKEN : ERROR_CODES.REGISTRATION_FAILED },
         { status: 400 }
       );
     }
@@ -95,15 +103,21 @@ export async function POST(request: Request) {
     if (profileError) {
       console.error('[register] profiles insert failed:', profileError.message);
       await supabase.auth.admin.deleteUser(userId);
+      await releaseInvite();
       return NextResponse.json(
-        { errorCode: ERROR_CODES.REGISTRATION_FAILED, error: profileError.message },
+        {
+          errorCode:
+            profileError.code === '23505'
+              ? ERROR_CODES.USERNAME_TAKEN
+              : ERROR_CODES.REGISTRATION_FAILED,
+        },
         { status: 400 }
       );
     }
 
     const { error: inviteUpdateError } = await supabase
       .from('invite_codes')
-      .update({ is_used: true, used_by: userId, used_at: new Date().toISOString() })
+      .update({ used_by: userId })
       .eq('id', invite.id);
 
     if (inviteUpdateError) {
