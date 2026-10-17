@@ -71,7 +71,11 @@
     "todayMore": "+{count} weitere",
     "todayReview": "Vokabelwiederholung: {count} Karten",
     "todayHard": "Schwierige Sätze: {count}",
-    "momentumLabel": "Serie: {streak} Tage · Heutige Übung: {done}/{total}"
+    "momentumLabel": "Serie: {streak} Tage · Heutige Übung: {done}/{total}",
+    "momentumStreak": "Serie",
+    "momentumStreakValue": "{count, plural, one {# Tag} other {# Tage}}",
+    "momentumToday": "Heutige Übung",
+    "momentumHint": "Klicke für deine tägliche Übung"
   },
   "modules": {
     "magia": {

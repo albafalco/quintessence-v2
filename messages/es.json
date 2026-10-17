@@ -71,7 +71,11 @@
     "todayMore": "+{count} más",
     "todayReview": "Repaso de vocabulario: {count} tarjetas",
     "todayHard": "Frases difíciles: {count}",
-    "momentumLabel": "Racha: {streak} días · Práctica de hoy: {done}/{total}"
+    "momentumLabel": "Racha: {streak} días · Práctica de hoy: {done}/{total}",
+    "momentumStreak": "Racha",
+    "momentumStreakValue": "{count, plural, one {# día} other {# días}}",
+    "momentumToday": "Práctica de hoy",
+    "momentumHint": "Haz clic para tu práctica diaria"
   },
   "modules": {
     "magia": {

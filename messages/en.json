@@ -71,7 +71,11 @@
     "todayMore": "+{count} more",
     "todayReview": "Vocabulary review: {count} cards",
     "todayHard": "Difficult sentences: {count}",
-    "momentumLabel": "Streak: {streak} days · Today's practice: {done}/{total}"
+    "momentumLabel": "Streak: {streak} days · Today's practice: {done}/{total}",
+    "momentumStreak": "Streak",
+    "momentumStreakValue": "{count, plural, one {# day} other {# days}}",
+    "momentumToday": "Today's practice",
+    "momentumHint": "Click for your daily practice"
   },
   "modules": {
     "magia": {

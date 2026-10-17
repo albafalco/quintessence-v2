@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
@@ -18,6 +19,8 @@ interface Momentum {
 
 const RING_R = 7;
 const RING_C = 2 * Math.PI * RING_R;
+/** Gap between the tooltip and the screen edge (px) */
+const EDGE_GAP = 8;
 
 /**
  * Desktop header: streak + today's Fehér Mágia plan, linking to the "Ma" page.
@@ -27,6 +30,25 @@ export function MomentumChip() {
   const locale = useLocale();
   const pathname = usePathname();
   const [momentum, setMomentum] = useState<Momentum | null>(null);
+  const [tipOpen, setTipOpen] = useState(false);
+  const linkRef = useRef<HTMLAnchorElement>(null);
+  const tipRef = useRef<HTMLDivElement>(null);
+  const arrowRef = useRef<HTMLSpanElement>(null);
+  const tipId = useId();
+
+  // Under the chip, kept on screen (fixed: the header's overflow would clip it)
+  useLayoutEffect(() => {
+    const tip = tipRef.current;
+    const link = linkRef.current;
+    const arrow = arrowRef.current;
+    if (!tipOpen || !tip || !link || !arrow) return;
+    const rect = link.getBoundingClientRect();
+    const center = rect.left + rect.width / 2;
+    const left = Math.min(Math.max(EDGE_GAP, center - tip.offsetWidth / 2), window.innerWidth - EDGE_GAP - tip.offsetWidth);
+    tip.style.top = `${rect.bottom + 10}px`;
+    tip.style.left = `${left}px`;
+    arrow.style.left = `${center - left - 5}px`;
+  }, [tipOpen]);
 
   // Re-read on every page change, so a finished session shows up right away
   useEffect(() => {
@@ -58,9 +80,15 @@ export function MomentumChip() {
 
   return (
     <Link
+      ref={linkRef}
       href={`/${locale}/modules/magia/ma`}
-      title={label}
       aria-label={label}
+      aria-describedby={tipOpen ? tipId : undefined}
+      onPointerEnter={(e) => e.pointerType === 'mouse' && setTipOpen(true)}
+      onPointerLeave={() => setTipOpen(false)}
+      onFocus={(e) => e.currentTarget.matches(':focus-visible') && setTipOpen(true)}
+      onBlur={() => setTipOpen(false)}
+      onClick={() => setTipOpen(false)}
       className="hidden h-9 shrink-0 items-center gap-2.5 rounded-xl border border-border/50 bg-muted/30 px-3 text-sm font-semibold transition-all hover:border-accent/30 hover:bg-muted/50 md:flex"
     >
       <span className={cn('flex items-center gap-1', streak > 0 ? 'text-accent' : 'text-muted-foreground')}>
@@ -93,6 +121,35 @@ export function MomentumChip() {
           </span>
         </>
       )}
+      {tipOpen &&
+        createPortal(
+          <div
+            ref={tipRef}
+            id={tipId}
+            role="tooltip"
+            className="pointer-events-none fixed z-50 w-56 animate-pop-in rounded-xl border border-accent/30 bg-card-elevated/95 px-3 py-2.5 text-left shadow-card backdrop-blur motion-reduce:animate-none"
+          >
+            <span
+              ref={arrowRef}
+              aria-hidden
+              className="absolute bottom-full block h-2.5 w-2.5 translate-y-1/2 rotate-45 border-l border-t border-accent/30 bg-card-elevated"
+            />
+            <dl className="space-y-1 text-xs">
+              <div className="flex items-center justify-between gap-3">
+                <dt className="text-muted-foreground">{t('momentumStreak')}</dt>
+                <dd className="font-semibold text-cream">{t('momentumStreakValue', { count: streak })}</dd>
+              </div>
+              <div className="flex items-center justify-between gap-3">
+                <dt className="text-muted-foreground">{t('momentumToday')}</dt>
+                <dd className="font-semibold tabular-nums text-cream">
+                  {done} / {total}
+                </dd>
+              </div>
+            </dl>
+            <p className="mt-2 text-[11px] font-medium text-accent">✦ {t('momentumHint')}</p>
+          </div>,
+          document.body
+        )}
     </Link>
   );
 }

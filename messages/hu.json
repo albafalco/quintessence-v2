@@ -71,7 +71,11 @@
     "todayMore": "+{count} további",
     "todayReview": "Szókártya-ismétlés: {count} kártya",
     "todayHard": "Nehéz mondatok: {count}",
-    "momentumLabel": "Sorozat: {streak} nap · Mai gyakorlás: {done}/{total}"
+    "momentumLabel": "Sorozat: {streak} nap · Mai gyakorlás: {done}/{total}",
+    "momentumStreak": "Sorozat",
+    "momentumStreakValue": "{count} nap",
+    "momentumToday": "Mai gyakorlás",
+    "momentumHint": "Kattints a napi gyakorláshoz"
   },
   "modules": {
     "magia": {
