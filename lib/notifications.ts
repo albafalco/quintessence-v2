@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { BADGES } from '@/lib/badges';
+import { locales, toIntlLocale } from '@/i18n';
 
 /** One row of notifications_feed() (migration 013). */
 export interface FeedRow {
@@ -52,7 +53,7 @@ export function localizeHref(url: string | null, locale: string): string | null 
   if (!url) return null;
   if (/^https?:\/\//i.test(url)) return url;
   if (!url.startsWith('/')) return null;
-  if (/^\/(hu|en|de|es|it)(\/|$)/.test(url)) return url;
+  if ((locales as readonly string[]).includes(url.split('/')[1] ?? '')) return url;
   return `/${locale}${url}`;
 }
 
@@ -158,11 +159,11 @@ export function stripRichText(text: string) {
 /** "2 órája", "tegnap", … in the given locale. */
 export function relativeTime(iso: string, locale: string, now = Date.now()) {
   const diffSec = Math.round((new Date(iso).getTime() - now) / 1000);
-  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
+  const rtf = new Intl.RelativeTimeFormat(toIntlLocale(locale), { numeric: 'auto' });
   const abs = Math.abs(diffSec);
   if (abs < 60) return rtf.format(0, 'second');
   if (abs < 3600) return rtf.format(Math.round(diffSec / 60), 'minute');
   if (abs < 86_400) return rtf.format(Math.round(diffSec / 3600), 'hour');
   if (abs < 7 * 86_400) return rtf.format(Math.round(diffSec / 86_400), 'day');
-  return new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(iso));
+  return new Intl.DateTimeFormat(toIntlLocale(locale), { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(iso));
 }

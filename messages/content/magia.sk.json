@@ -1,0 +1,1163 @@
+[
+  {
+    "id": 1,
+    "cim": "Prvý stupeň",
+    "rovidcim": "I. stupeň",
+    "icon": "sprout",
+    "szin": "#4ade80",
+    "szellem": {
+      "cim": "Magický výcvik ducha (I) — Kontrola, disciplína a ovládnutie myšlienok",
+      "leiras": "Prvý krok: pohodlne sa posaď alebo ľahni, uvoľni telo, zavri oči a 5 minút pozoruj tok svojich myšlienok ako pasívny pozorovateľ. Každý deň predĺž o 1 minútu, kým nevydržíš 10 minút. Cvičí sa ráno a večer. Cieľ: úplná prázdnota myšlienok počas 10 minút.",
+      "gyakorlatok": [
+        {
+          "key": "gondolatellenorzes",
+          "cim": "Kontrola myšlienok",
+          "leiras": "Dvakrát denne 5–10 minút: pozoruj tok svojich myšlienok ako pasívny pozorovateľ, bez toho, aby si ich posudzoval/a.",
+          "type": "progressive_timed",
+          "params": {
+            "startSec": 300,
+            "stepSec": 60,
+            "maxSec": 600,
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Dokážeš pasívne pozorovať svoje myšlienky 10 minút bez najmenšieho posudzovania, dvakrát denne za sebou?",
+          "minSessions": 10
+        },
+        {
+          "key": "gondolatfegyelmezés",
+          "cim": "Disciplína myšlienok",
+          "leiras": "Vedome odháňaj určité myšlienky; udrž jednu myšlienku podľa vlastného výberu; pestuj prázdnotu myšlienok.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš udržať jednu zvolenú myšlienku bez prerušenia 10 minút?",
+          "minSessions": 10
+        },
+        {
+          "key": "gondolaturales",
+          "cim": "Ovládnutie myšlienok + magický denník",
+          "leiras": "Veď si magický denník: zapisuj každý úspech, neúspech a trvanie cvičení. Sebakritika a plánovanie na ďalší deň/týždeň.",
+          "type": "journal",
+          "successCriteria": "Vedieš si pravidelne magický denník a každý deň objektívne hodnotíš svoj pokrok?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magický výcvik duše (I) — Introspekcia alebo sebapoznanie",
+      "leiras": "Sebapoznanie je predpokladom každej zasväcovacej metódy. Zapíš si do denníka všetky temné stránky svojej duše: chyby, zvyky a vášne. Buď k sebe prísny/a. Každú chybu priraď k jednému zo štyroch živlov (Oheň, Voda, Vzduch, Zem) v troch stupňoch sily.",
+      "gyakorlatok": [
+        {
+          "key": "introspekcio",
+          "cim": "Introspekcia — sebapoznanie",
+          "leiras": "Venuj ráno a večer niekoľko minút sebakritike: objavuj chyby, zvyky a slabosti svojej duše. Zapisuj si ich.",
+          "type": "journal",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Rozpoznávaš na sebe denne nové vzorce a vlastnosti vďaka reflexii sebapoznania?",
+          "minSessions": 10
+        },
+        {
+          "key": "fekete_tukor",
+          "cim": "Čierne zrkadlo duše (chyby)",
+          "leiras": "Priraď svoje chyby k štyrom živlom v troch stupňoch sily. OHEŇ: podráždenosť, žiarlivosť, hnev. VZDUCH: ľahkomyseľnosť, márnivosť, klebetnosť. VODA: ľahostajnosť, nedbanlivosť, tvrdohlavosť. ZEM: urážlivosť, lenivosť, ťažkopádnosť.",
+          "type": "worksheet",
+          "successCriteria": "Dokončil/a si čierne zrkadlo: zapísal/a si všetky známe chyby, priradil/a ich k živlom a zoradil/a do troch stupňov sily?",
+          "minSessions": 1
+        },
+        {
+          "key": "feher_tukor",
+          "cim": "Biele zrkadlo duše (cnosti)",
+          "leiras": "Priraď k živlom aj svoje dobré vlastnosti. OHEŇ: iniciatíva, nadšenie, odvaha. VZDUCH: usilovnosť, radosť, láskavosť. VODA: skromnosť, pokoj, miernosť. ZEM: vytrvalosť, presnosť, zmysel pre zodpovednosť.",
+          "type": "worksheet",
+          "successCriteria": "Dokončil/a si biele zrkadlo: zapísal/a si svoje cnosti a priradil/a ich k živlom?",
+          "minSessions": 1
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magický výcvik tela (I) — Hmotné telo, dýchanie, stravovanie, voda",
+      "leiras": "Telo, dušu a ducha treba cvičiť súčasne. Ranná starostlivosť o telo, ranné cvičenie, vedomé dýchanie, vedomé stravovanie, mágia vody.",
+      "gyakorlatok": [
+        {
+          "key": "reggeli_testapolas",
+          "cim": "Ranná starostlivosť o telo",
+          "leiras": "Každé ráno si prekefuj celé telo mäkkou kefou (pokožka má mierne zružovieť). Potom sa opláchni studenou vodou a vytri do sucha. Celoživotný denný návyk.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Robíš rannú starostlivosť o telo (kefovanie + studená voda) denne bez prerušenia?",
+          "minSessions": 21
+        },
+        {
+          "key": "reggeli_torna",
+          "cim": "Ranné cvičenie",
+          "leiras": "Denne niekoľko minút ranného cvičenia; cieľ: pružné, ohybné telo.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Cvičíš denne ranné cvičenie?",
+          "minSessions": 21
+        },
+        {
+          "key": "tudatos_legzes",
+          "cim": "Vedomé dýchanie",
+          "leiras": "Pri dýchaní si živo predstavuj, ako zdravie, pokoj a úspech prúdia do každej časti tvojho tela. Začni so 7 nádychmi ráno a večer a každý deň pridaj 1. Nikdy neprekroč pol hodiny.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300,
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Cvičíš denne ráno a večer vedomé dýchanie a živo cítiš prúdenie energie?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudatos_etkezes",
+          "cim": "Vedomé stravovanie (tajomstvo Eucharistie)",
+          "leiras": "Sústreď svoje želanie na jedlo alebo nápoj, akoby sa už splnilo. Jedz pomaly a vedome; nečítaj a nenechaj sa rozptyľovať. Pri dýchaní aj jedení používaj vždy to isté želanie.",
+          "type": "habit",
+          "params": {
+            "frequency": "per_meal"
+          },
+          "successCriteria": "Sústreďuješ sa pri každom jedle vedome na svoje želanie a ješ pomaly a pozorne?",
+          "minSessions": 21
+        },
+        {
+          "key": "viz_magiaja",
+          "cim": "Mágia vody",
+          "leiras": "Zakaždým, keď si umývaš ruky, predstav si, že spolu s fyzickou špinou sa zmývajú aj tvoje duchovné bremená, neúspechy a nepokoj. Špinavú vodu hneď vylej. Naopak: vodu na kúpeľ môžeš nabiť želaním, aby jej sila prešla do tvojho tela.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Uplatňuješ mágiu vody vedome pri každom umývaní rúk a kúpaní?",
+          "minSessions": 21
+        }
+      ]
+    },
+    "idotartam": "2 týždne – 1 mesiac",
+    "osszefoglalo": "Kontrola a ovládnutie myšlienok, dokončenie zrkadla duše (čierneho a bieleho), denná starostlivosť o telo a zvládnutie vedomého dýchania + stravovania + mágie vody."
+  },
+  {
+    "id": 2,
+    "cim": "Druhý stupeň",
+    "rovidcim": "II. stupeň",
+    "icon": "leaf",
+    "szin": "#34d399",
+    "szellem": {
+      "cim": "Magický výcvik ducha (II) — Autosugescia a koncentračné cvičenia",
+      "leiras": "Poznanie tajomstva podvedomia a zvládnutie autosugescie. Koncentračné cvičenia pre päť zmyslov.",
+      "gyakorlatok": [
+        {
+          "key": "autoszuggesztio",
+          "cim": "Autosugescia — tajomstvo podvedomia",
+          "leiras": "V okamihu pred zaspaním (keď je brána do podvedomia otvorená) si uchovaj svoje najsilnejšie želanie a najkrajšie myšlienky a vezmi ich so sebou do spánku.",
+          "type": "habit",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Uplatňuješ dôsledne zvolené želanie/formulu pred spaním a po prebudení?",
+          "minSessions": 21
+        },
+        {
+          "key": "konc_keppel",
+          "cim": "Koncentrácia s obrazom",
+          "leiras": "Predstav si predmet, osobu alebo krajinu čo najpodrobnejšie. Udrž obraz 10 minút.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Dokážeš nerušene udržať zrakový obraz vo vnútornom zraku 5 minút?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_hanggal",
+          "cim": "Koncentrácia so zvukom",
+          "leiras": "Vybav si vnútorným sluchom zvuk, hudbu alebo slovo. Udrž ho bez vonkajšieho rozptýlenia.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Dokážeš si vnútorným sluchom nerušene vybaviť zvuk 5 minút?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_erzekkel",
+          "cim": "Koncentrácia s pocitom (hmat/teplota)",
+          "leiras": "Predstav si presný pocit dotyku predmetu alebo materiálu. Napr. drevo, kov, teplo/chlad vody.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Dokážeš si nerušene vybaviť hmatový alebo teplotný pocit 5 minút?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_illattal",
+          "cim": "Koncentrácia s vôňou",
+          "leiras": "Vybav si vnútorným čuchom presný vnem vône (kvet, tráva, chlieb a pod.).",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Dokážeš si vnútorným čuchom nerušene vybaviť vôňu 5 minút?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_izzal",
+          "cim": "Koncentrácia s chuťou",
+          "leiras": "Vybav si vnútornou chuťou presný vnem chuti (sladká, kyslá, slaná, horká).",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Dokážeš si vnútornou chuťou nerušene vybaviť chuť 5 minút?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magický výcvik duše (II) — Astrálno-magická rovnováha a zušľachťovanie charakteru",
+      "leiras": "Obnovenie rovnováhy medzi živlami: prekonávanie chýb, sebasugescia, transmutácia.",
+      "gyakorlatok": [
+        {
+          "key": "jellemnemesites_lekuzdes",
+          "cim": "Zušľachťovanie charakteru — prekonanie/ovládnutie",
+          "leiras": "Z čierneho zrkadla prvého stupňa si vyber svoje najsilnejšie chyby. Každý deň pracuj na ich krotení silnou vôľou.",
+          "type": "practice",
+          "successCriteria": "Pracuješ dôsledne na prekonávaní najsilnejších chýb z čierneho zrkadla a zažívaš merateľné zlepšenie v každodennom správaní?",
+          "minSessions": 10
+        },
+        {
+          "key": "jellemnemesites_szuggesztio",
+          "cim": "Zušľachťovanie charakteru — sebasugescia",
+          "leiras": "Vsugeruj si cnostnú vlastnosť opačnú k chybe, pred spaním a po prebudení.",
+          "type": "habit",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Vsugerovávaš si dôsledne opačnú cnostnú vlastnosť pred spaním a po prebudení?",
+          "minSessions": 21
+        },
+        {
+          "key": "jellemnemesites_transmutacio",
+          "cim": "Zušľachťovanie charakteru — transmutácia",
+          "leiras": "Premeň chybu na opačnú vlastnosť: napr. podráždenosť na energiu, urážlivosť na porozumenie.",
+          "type": "practice",
+          "successCriteria": "Dokážeš v bežnom živote okamžite obrátiť negatívny impulz pozitívnym smerom?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magický výcvik tela (II) — Vedomé dýchanie pórmi, držanie tela",
+      "leiras": "Vedomé dýchanie pokožkou a denné rozvíjanie ovládania tela.",
+      "gyakorlatok": [
+        {
+          "key": "poruszlegzes",
+          "cim": "Vedomé dýchanie pórmi",
+          "leiras": "Predstav si, že vdychuješ životnú energiu z kozmu nielen pľúcami, ale celým povrchom pokožky. Cíť, ako sa táto energia šíri celým telom.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš vyvolať živý a skutočný pocit dýchania celým povrchom pokožky?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudatos_testtartas",
+          "cim": "Vedomé držanie tela",
+          "leiras": "Každý deň si všímaj stav svojho tela; seď, stoj a choď disciplinovane a vzpriamene.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Sleduješ denne svoje držanie tela a vedome ho opravuješ?",
+          "minSessions": 21
+        },
+        {
+          "key": "test_uralasa",
+          "cim": "Ovládanie tela v bežnom živote",
+          "leiras": "Rozvíjaj schopnosť riadiť telo podľa vôle; vedome ovplyvňuj únavu, pocit chladu a pohyby svalov.",
+          "type": "practice",
+          "successCriteria": "Dokážeš vedome ovplyvniť a zmierniť únavu, pocit chladu alebo svalové napätie?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "idotartam": "2 týždne – 1 mesiac",
+    "osszefoglalo": "Autosugescia, koncentračné cvičenia pre päť zmyslov, zušľachťovanie charakteru (prekonanie, sebasugescia, transmutácia), vedomé dýchanie pórmi a držanie tela."
+  },
+  {
+    "id": 3,
+    "cim": "Tretí stupeň",
+    "rovidcim": "III. stupeň",
+    "icon": "flame",
+    "szin": "#fb923c",
+    "szellem": {
+      "cim": "Magický výcvik ducha (III) — Koncentrácia myšlienok s dvoma a tromi zmyslami",
+      "leiras": "Koncentrácia s dvoma alebo tromi zmyslami súčasne, potom na predmety, krajiny, zvieratá a osoby.",
+      "gyakorlatok": [
+        {
+          "key": "konc_2_erzek",
+          "cim": "Koncentrácia s 2–3 zmyslami naraz",
+          "leiras": "Spoj napríklad predstavený zážitok zraku a sluchu alebo zrak + sluch + hmat súčasne.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš vo vnútornej koncentrácii udržať súčasne dva alebo tri spojené zmyslové zážitky?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_targyakra",
+          "cim": "Koncentrácia myšlienok na predmety, krajiny, miestnosti",
+          "leiras": "Vybav si známy predmet, miestnosť alebo miesto čo najpodrobnejšie všetkými zmyslami.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš si podrobne a stabilne vybaviť predmet, miestnosť alebo miesto všetkými zmyslami?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_allatokra",
+          "cim": "Koncentrácia myšlienok na zvieratá a ľudí",
+          "leiras": "Vybav si zviera alebo osobu v celej ich bytosti; ich pohyby, zvuky a podstatu.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš si vybaviť zviera alebo osobu v celej ich bytosti, s ich pohybom a podstatou?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magický výcvik duše (III) — Dýchanie živlov celým telom",
+      "leiras": "Vedomé vdychovanie štyroch živlov do celého tela spolu s vlastnosťou každého živlu.",
+      "gyakorlatok": [
+        {
+          "key": "elemlegzes_tuz",
+          "cim": "Dýchanie živlu OHEŇ (teplý)",
+          "leiras": "Pri dýchaní si predstav, že vdychuješ živel OHEŇ; teplá, žiariaca energia napĺňa celé tvoje telo. Chráni, zahrieva a aktivuje telo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Dokážeš pri dýchaní vyvolať v celom tele skutočný pocit tepla živlu OHEŇ?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_levego",
+          "cim": "Dýchanie živlu VZDUCH (ľahký)",
+          "leiras": "Pri dýchaní si predstav, že vdychuješ živel VZDUCH; ľahkosť a pocit slobody napĺňajú telo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Dokážeš pri dýchaní vyvolať v celom tele pocit ľahkosti živlu VZDUCH?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_viz",
+          "cim": "Dýchanie živlu VODA (chladný)",
+          "leiras": "Pri dýchaní si predstav, že vdychuješ živel VODA; chladná, plynúca energia napĺňa telo a prináša pokoj.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Dokážeš pri dýchaní vyvolať v celom tele chladivý, plynúci pocit živlu VODA?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_fold",
+          "cim": "Dýchanie živlu ZEM (ťažký)",
+          "leiras": "Pri dýchaní si predstav, že vdychuješ živel ZEM; ťažoba, pevnosť a stabilita ťa napĺňajú.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Dokážeš pri dýchaní vyvolať v celom tele pocit ťažoby a pevnosti živlu ZEM?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magický výcvik tela (III) — Hromadenie životnej sily, impregnácia priestoru, biomagnetizmus",
+      "leiras": "Vedomé zhromažďovanie životnej sily v tele, nabíjanie priestoru, magnetizmus.",
+      "gyakorlatok": [
+        {
+          "key": "eleterotorlaszolas_test",
+          "cim": "Hromadenie životnej sily v celom tele",
+          "leiras": "Hromaď životnú energiu v celom tele pľúcnym dýchaním a dýchaním pórmi. Cíť jej teplo a hustotu.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš zhromaždiť životnú energiu v celom tele a živo cítiť jej teplo a hustotu?",
+          "minSessions": 10
+        },
+        {
+          "key": "eleterotorlaszolas_reszek",
+          "cim": "Hromadenie životnej sily v jednotlivých častiach tela",
+          "leiras": "Sústreď a nahromaď životnú energiu napríklad v ruke, hlave alebo okolo srdca.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš vedome sústrediť životnú energiu do jednotlivých častí tela a cítiť tam teplo alebo mravčenie?",
+          "minSessions": 10
+        },
+        {
+          "key": "terimpregnalás",
+          "cim": "Impregnácia priestoru (dodatok)",
+          "leiras": "Naplň celú miestnosť pozitívnym želaním (zdravie, úspech, pokoj) pozornosťou obrátenou k princípu akáše.",
+          "type": "practice",
+          "successCriteria": "Vykonal/a si cvičenie impregnácie priestoru a pocítil/a energetickú zmenu v miestnosti?",
+          "minSessions": 5
+        },
+        {
+          "key": "biomagnetizmus",
+          "cim": "Biomagnetizmus (dodatok)",
+          "leiras": "Používaj magnetickú silu prúdiacu z tvojej ruky na liečenie a nabíjanie ľudí a predmetov.",
+          "type": "instructional",
+          "successCriteria": "Pochopil/a si princíp biomagnetizmu a robil/a si pokusy s vedomým uplatnením sily prúdiacej z ruky?",
+          "minSessions": 3
+        }
+      ]
+    },
+    "idotartam": "2 týždne – 1 mesiac",
+    "osszefoglalo": "Koncentrácia myšlienok viacerými zmyslami, dýchanie živlov (Oheň/Voda/Vzduch/Zem celým telom), hromadenie životnej sily, impregnácia priestoru, biomagnetizmus."
+  },
+  {
+    "id": 4,
+    "cim": "Štvrtý stupeň",
+    "rovidcim": "IV. stupeň",
+    "icon": "waves",
+    "szin": "#38bdf8",
+    "szellem": {
+      "cim": "Magický výcvik ducha (IV) — Prenášanie vedomia do predmetov, zvierat a ľudí",
+      "leiras": "Zámerné prenesenie vedomia do iných bytostí/predmetov pre vnútornú perspektívu.",
+      "gyakorlatok": [
+        {
+          "key": "tudat_targyakba",
+          "cim": "Prenášanie vedomia do predmetov",
+          "leiras": "Prenes svoje vedomie do známeho predmetu (napr. stolička, stôl); vnímaj zvnútra jeho štruktúru a váhu.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš preniesť vedomie do predmetu a vnímať zvnútra jeho štruktúru a váhu?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudat_allatokba",
+          "cim": "Prenášanie vedomia do zvierat",
+          "leiras": "Prenes svoje vedomie do tela zvieraťa; cíť jeho pohyby a fungovanie jeho zmyslov.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš preniesť vedomie do tela zvieraťa a cítiť zvnútra jeho pohyby a zmyslové zážitky?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudat_emberekbe",
+          "cim": "Prenášanie vedomia do ľudí",
+          "leiras": "Prenes svoje vedomie do tela/mysle človeka; rozvíja to hlbokú empatiu a intuíciu.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš preniesť vedomie do mysle/tela človeka a empaticky vnímať jeho vnútorný stav?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magický výcvik duše (IV) — Hromadenie živlov a harmónia živlov",
+      "leiras": "Hromadenie živlov v celom tele a v oblastiach tela, potom obnovenie harmónie živlov.",
+      "gyakorlatok": [
+        {
+          "key": "elemtorlaszolas_test",
+          "cim": "Hromadenie živlov v celom tele",
+          "leiras": "Nahromaď jeden živel v celom tele, potom ho rozpusti. Každý živel zvlášť.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš nahromadiť ktorýkoľvek živel v celom tele a potom ho úplne rozpustiť?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemtorlaszolas_reszek",
+          "cim": "Hromadenie živlov v jednotlivých častiach tela",
+          "leiras": "Nahromaď živel v určitej časti tela (napr. OHEŇ → do hlavy), potom ho rozpusti. Dvoma spôsobmi: pľúcami a dýchaním pórmi.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš nahromadiť živel v určitej časti tela (napr. OHEŇ v hlave) oboma spôsobmi a potom ho úplne rozpustiť?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemharmonia",
+          "cim": "Obnovenie harmónie živlov v oblastiach tela",
+          "leiras": "OHEŇ → hlava, VZDUCH → hruď, VODA → brucho, ZEM → kostrč/nohy. Každý živel má svoju oblasť tela.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš nasmerovať každý živel do zodpovedajúcej oblasti tela a vedome obnoviť harmóniu živlov?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magický výcvik tela (IV) — Rituály a gestá",
+      "leiras": "Gestá, postoje a polohy prstov ako rituálne nástroje.",
+      "gyakorlatok": [
+        {
+          "key": "gesztusok",
+          "cim": "Gestikulácia (gesto)",
+          "leiras": "Nauč sa symbolické gestá, ktorými môžeš posilniť živly, vôľu a zámer.",
+          "type": "instructional",
+          "successCriteria": "Ovládaš niekoľko základných symbolických gest a vedome ich používaš na posilnenie svojej magickej práce?",
+          "minSessions": 3
+        },
+        {
+          "key": "ritualis_testtartas",
+          "cim": "Rituálny postoj",
+          "leiras": "Ako môžu určité postoje (napr. sed, stoj, ľah) posilniť magickú prácu.",
+          "type": "practice",
+          "successCriteria": "Vykonával/a si magickú prácu v rôznych postojoch a zažil/a ich rozdielne účinky?",
+          "minSessions": 5
+        },
+        {
+          "key": "ujjallitas",
+          "cim": "Polohy prstov (podobné mudrám)",
+          "leiras": "Určité polohy prstov posilňujú elektrické/magnetické prúdy v spojení s konkrétnymi živlami.",
+          "type": "practice",
+          "successCriteria": "Cvičíš rôzne polohy prstov a cítiš ich účinok na prúdenie energie?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "1–2 mesiace",
+    "osszefoglalo": "Prenášanie vedomia do predmetov/zvierat/ľudí, hromadenie živlov a harmónia živlov v oblastiach tela, rituály a gestá."
+  },
+  {
+    "id": 5,
+    "cim": "Piaty stupeň",
+    "rovidcim": "V. stupeň",
+    "icon": "star",
+    "szin": "#facc15",
+    "szellem": {
+      "cim": "Magický výcvik ducha (V) — Mágia priestoru",
+      "leiras": "Prenesenie vedomia do stredu akejkoľvek formy, od atómu po nekonečno. Zažitie štvrtej dimenzie — bezpriestorovosti a bezčasovosti.",
+      "gyakorlatok": [
+        {
+          "key": "termagia_pont",
+          "cim": "Prenesenie vedomia do stredu predmetov",
+          "leiras": "Vyber si predmet a predstav si, že prenášaš vedomie do jeho geometrického stredu. Odtiaľ pozoruj jeho rovnováhu.",
+          "type": "timed",
+          "params": {
+            "targetSec": 900
+          },
+          "successCriteria": "Dokážeš preniesť vedomie do geometrického stredu predmetu a pozorovať ho odtiaľ?",
+          "minSessions": 10
+        },
+        {
+          "key": "termagia_bővítés",
+          "cim": "Rozšírenie vedomia do nekonečna a jeho zúženie na atóm",
+          "leiras": "Rozšír svoje vedomie do nekonečna, potom ho zúž na bod veľkosti atómu. Pokračuj, kým sa to nestane prirodzeným.",
+          "type": "timed",
+          "params": {
+            "targetSec": 900
+          },
+          "successCriteria": "Dokážeš rozšíriť vedomie do nekonečna a potom ho zúžiť do jediného bodu, so stabilným a opakovateľným zážitkom?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magický výcvik duše (V) — Premietanie živlov navonok",
+      "leiras": "Energiu zhromaždenú dýchaním živlov možno premietnuť navonok z tela a neskôr aj bez tela.",
+      "gyakorlatok": [
+        {
+          "key": "elemkiaraszt_plexus",
+          "cim": "Premietanie živlov navonok — cez solárny plexus",
+          "leiras": "Vyveď živel nahromadený v tele navonok do vzduchu cez čakru solárneho plexu.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš vyviesť živel navonok cez solárny plexus a cítiť účinok premietnutej energie?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemkiaraszt_kez",
+          "cim": "Premietanie živlov z ruky/prstov",
+          "leiras": "Vyveď živel zhromaždený v ruke navonok cez končeky prstov so zvláštnou dynamikou.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš vyviesť živel navonok z ruky/prstov a nasmerovať jeho účinok na vonkajší predmet alebo osobu?",
+          "minSessions": 10
+        },
+        {
+          "key": "kulso_kiaraszt",
+          "cim": "Vonkajšie premietanie bez tela",
+          "leiras": "Priamo zo vzduchu, bez sprostredkovania telom, nabi priestor želaným živlom.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Dokážeš premietnuť živel priamo do vzduchu bez priamej účasti tela?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magický výcvik tela (V) — Pasívny kontakt s neviditeľným",
+      "leiras": "Príprava a uskutočnenie: kontakt s vlastným strážnym duchom a so zosnulými.",
+      "gyakorlatok": [
+        {
+          "key": "kez_szabadda",
+          "cim": "Uvoľnenie vlastnej ruky",
+          "leiras": "Zneutralizuj ruku, najmä prsty, od všetkých vonkajších vplyvov, aby vnímali iba duchovné podnety.",
+          "type": "practice",
+          "successCriteria": "Stala sa tvoja ruka neutrálnou voči každodenným vplyvom a vníma jemné duchovné impulzy?",
+          "minSessions": 5
+        },
+        {
+          "key": "inga_ceruza",
+          "cim": "Príprava prstov kyvadlom, ceruzkou a kruhovou doskou",
+          "leiras": "Pomocou kyvadla a ceruzky rozvíjaj citlivosť prstov na duchovné impulzy.",
+          "type": "practice",
+          "successCriteria": "Pohybuje sa kyvadlo alebo ceruzka v tvojej ruke spoľahlivo pod vplyvom tvojej vôle a vnútorných impulzov?",
+          "minSessions": 5
+        },
+        {
+          "key": "passiv_vedoszellem",
+          "cim": "Pasívny kontakt s vlastným strážnym duchom",
+          "leiras": "V meditatívnom stave prijímaj znamenia a posolstvá od svojho vnútorného strážneho ducha/Vyššieho Ja.",
+          "type": "practice",
+          "successCriteria": "Podarilo sa ti v meditatívnom stave spojiť so svojím vnútorným strážnym duchom/Vyšším Ja a prijať znamenia a posolstvá?",
+          "minSessions": 5
+        },
+        {
+          "key": "passiv_elhunytak",
+          "cim": "Pasívny kontakt so zosnulými a inými bytosťami",
+          "leiras": "Rozvíjaj pasívnu, mediálnu citlivosť; pomocou pohybu kyvadla alebo ceruzky.",
+          "type": "practice",
+          "successCriteria": "Prijal/a si v pasívnom, mediálnom stave vnímateľné signály a zažívaš ich za kontrolovaných podmienok?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "1–2 mesiace",
+    "osszefoglalo": "Mágia priestoru (prenášanie vedomia), premietanie živlov navonok, pasívny kontakt s neviditeľným (strážny duch, zosnulí)."
+  },
+  {
+    "id": 6,
+    "cim": "Šiesty stupeň",
+    "rovidcim": "VI. stupeň",
+    "icon": "orbit",
+    "szin": "#818cf8",
+    "szellem": {
+      "cim": "Magický výcvik ducha (VI) — Sústredenie na vlastného ducha, uvedomovanie si zmyslov",
+      "leiras": "Uvedomovanie si ducha (mentálneho tela) a pozdvihnutie zmyslov na duchovnú úroveň.",
+      "gyakorlatok": [
+        {
+          "key": "sajat_szellem",
+          "cim": "Sústredenie na vlastného ducha",
+          "leiras": "Medituj o vlastnom duchu ako o súhre štyroch živlov: OHEŇ→vôľa, VODA→cit, VZDUCH→intelekt, ZEM→vedomie.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Dokážeš vedome rozlíšiť štyri živly vlastného ducha (vôľa/cit/intelekt/vedomie) a nazerať ich ako jednotu?",
+          "minSessions": 10
+        },
+        {
+          "key": "erzekek_szellemi",
+          "cim": "Uvedomovanie si zmyslov na duchovnej úrovni",
+          "leiras": "Pozdvihni každý zmyslový orgán (zrak, sluch atď.) na duchovnú úroveň; vnímaj aj duchovne, nielen fyzicky.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Dokážeš vedome pozdvihnúť všetky zmyslové orgány na duchovnú úroveň, nad rámec fyzického vnímania?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magický výcvik duše (VI) — Ovládnutie princípu akáše",
+      "leiras": "Poznanie a uplatnenie piateho živlu, princípu akáše: stav tranzu a ovládanie živlov.",
+      "gyakorlatok": [
+        {
+          "key": "akasha_elokeszit",
+          "cim": "Príprava na ovládnutie princípu akáše",
+          "leiras": "Hlboká meditácia o princípe akáše: príčine všetkých vecí, prapôvodnom princípe bezpriestorovosti a bezčasovosti.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Dokážeš meditatívne zažiť podstatu princípu akáše (bezpriestorovosť/bezčasovosť, príčina všetkých vecí)?",
+          "minSessions": 10
+        },
+        {
+          "key": "akasha_transz",
+          "cim": "Vedomé navodenie tranzu prostredníctvom akáše",
+          "leiras": "Pomocou princípu akáše vstúp do hlbokého tranzu pri zachovaní plného sebauvedomenia.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Dokážeš pomocou princípu akáše vedome vstúpiť do hlbokého tranzu a zachovať si plné sebauvedomenie?",
+          "minSessions": 10
+        },
+        {
+          "key": "akasha_elem_ritual",
+          "cim": "Ovládnutie živlu individuálnym rituálom z akáše",
+          "leiras": "Z neutrálneho stavu akáše vyvolaj ktorýkoľvek živel s rituálnym zámerom.",
+          "type": "practice",
+          "successCriteria": "Dokážeš z neutrálneho stavu akáše rituálne vyvolať a ovládnuť ktorýkoľvek živel?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magický výcvik tela (VI) — Elementály, larvy, schémy, fantómy",
+      "leiras": "Vedomé vytváranie duchovných bytostí a foriem.",
+      "gyakorlatok": [
+        {
+          "key": "elemental_teremtes",
+          "cim": "Vedomé vytváranie elementálov",
+          "leiras": "Vytvor so zámerom elementárne bytosti (elementály ohňa, vody, vzduchu a zeme), daj im úlohu a potom ich rozpusti.",
+          "type": "practice",
+          "successCriteria": "Vytvoril/a si elementály, dal/a si im úlohy a po splnení práce si ich úspešne rozpustil/a?",
+          "minSessions": 5
+        },
+        {
+          "key": "larvak",
+          "cim": "Vytváranie lariev",
+          "leiras": "Vytvor myšlienkové bytosti, ktoré plnia určený účel a pracujú automaticky, a potom ich po vykonaní práce rozpusti.",
+          "type": "practice",
+          "successCriteria": "Vytvoril/a si a úspešne rozpustil/a myšlienkové bytosti (larvy)?",
+          "minSessions": 5
+        },
+        {
+          "key": "semak",
+          "cim": "Vytváranie schém",
+          "leiras": "Vytvor na astrálnej rovine magické jednotky, ktoré vykonávajú naprogramovanú činnosť.",
+          "type": "practice",
+          "successCriteria": "Vytvoril/a si a uviedol/a do činnosti astrálne schémy?",
+          "minSessions": 5
+        },
+        {
+          "key": "fantomok",
+          "cim": "Vytváranie fantómov",
+          "leiras": "Vytvor z akáše magické bytosti obdarené iskrou života, ktoré môžu nadobudnúť aj hmotnú podobu.",
+          "type": "practice",
+          "successCriteria": "Úspešne si z akáše vytvoril/a fantómy a za kontrolovaných podmienok zažil/a ich hmotnú podobu?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–3 mesiace",
+    "osszefoglalo": "Uvedomenie si vlastného ducha, ovládnutie princípu akáše (stav tranzu, rituál živlov), vytváranie elementálov/lariev/schém/fantómov."
+  },
+  {
+    "id": 7,
+    "cim": "Siedmy stupeň",
+    "rovidcim": "VII. stupeň",
+    "icon": "eye",
+    "szin": "#a78bfa",
+    "szellem": {
+      "cim": "Magický výcvik ducha (VII) — Analýza ducha vo vzťahu k praxi",
+      "leiras": "Podrobná analýza a uplatnenie štyroch živlov ducha vrátane vzájomnej premeny svetla a živlu OHEŇ.",
+      "gyakorlatok": [
+        {
+          "key": "szellem_elemzes",
+          "cim": "Analýza živlov ducha",
+          "leiras": "Prehĺb rolu každého živlu (OHEŇ/VZDUCH/VODA/ZEM) v duchu: vôľa, intelekt, cit, vedomie.",
+          "type": "journal",
+          "successCriteria": "Podrobne si analyzoval/a a opísal/a rolu každého živlu vo vlastnom duchu a tieto poznatky prehlbujú tvoju magickú prax?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magický výcvik duše (VII) — Rozvoj astrálnych zmyslov",
+      "leiras": "Rozvoj astrálneho jasnovidectva, jasnopočutia a jasnocítenia pomocou živlov a fluidných kondenzátorov.",
+      "gyakorlatok": [
+        {
+          "key": "asztralis_latás",
+          "cim": "Rozvoj astrálneho jasnovidectva",
+          "leiras": "Pomocou fluidného kondenzátora rozvíjaj astrálny zrak; najprv vnímaj statické obrazy, potom pohyb.",
+          "type": "practice",
+          "successCriteria": "Vnímaš pravidelne a spoľahlivo astrálne obrazy, pohyb a energie vo vnútornom zraku?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralis_halles",
+          "cim": "Rozvoj astrálneho jasnopočutia",
+          "leiras": "Astrálny sluch: vnímanie zvukov a slov bez fyzického zdroja, za kontrolovaných podmienok.",
+          "type": "practice",
+          "successCriteria": "Vnímaš pravidelne za kontrolovaných podmienok astrálne zvuky a slová bez fyzického zdroja?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralis_erzes",
+          "cim": "Rozvoj astrálneho jasnocítenia",
+          "leiras": "Astrálny hmat a vnímanie: empatické zachytenie citov a fyzického stavu iných.",
+          "type": "practice",
+          "successCriteria": "Dokážeš empaticky a spoľahlivo vnímať city a fyzický stav iných na astrálnej rovine?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magický výcvik tela (VII) — Štyri spôsoby vytvárania elementálov, magické oživenie obrazov",
+      "leiras": "Pokročilé tvorivé techniky pre elementály a oživovanie obrazov.",
+      "gyakorlatok": [
+        {
+          "key": "elemental_4modszer",
+          "cim": "Štyri základné spôsoby elementálov",
+          "leiras": "1. Vytvorenie myšlienkou. 2. Formovanie astrálnej látky. 3. Vytvorenie z elektrického/magnetického fluida. 4. Priame vytvorenie z princípu akáše.",
+          "type": "practice",
+          "successCriteria": "Vytvoril/a si elementály všetkými štyrmi spôsobmi a zažil/a ich rozdielne vlastnosti?",
+          "minSessions": 10
+        },
+        {
+          "key": "kep_eletrekelt",
+          "cim": "Magické oživenie obrazov",
+          "leiras": "Nabi maľbu, sochu alebo mentálny obraz životom do takej miery, aby bol schopný samostatne pôsobiť.",
+          "type": "practice",
+          "successCriteria": "Úspešne si oživil/a obraz alebo sochu a pozoroval/a samostatnú, pozorovateľnú činnosť?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–4 mesiace",
+    "osszefoglalo": "Analýza ducha, astrálne jasnovidectvo/jasnopočutie/jasnocítenie, elementály štyrmi spôsobmi, oživenie obrazov."
+  },
+  {
+    "id": 8,
+    "cim": "Ôsmy stupeň",
+    "rovidcim": "VIII. stupeň",
+    "icon": "moon",
+    "szin": "#64748b",
+    "szellem": {
+      "cim": "Magický výcvik ducha (VIII) — Mentálne putovanie",
+      "leiras": "Oddelenie mentálneho tela od hmotného tela a vedomé mentálne putovanie na rôzne miesta.",
+      "gyakorlatok": [
+        {
+          "key": "mentalis_elokeszit",
+          "cim": "Prípravy na mentálne putovanie",
+          "leiras": "Uvoľnenie, dýchanie a postupné rozvíjanie pocitu oddeľovania vedomia.",
+          "type": "practice",
+          "successCriteria": "Dosahuješ pravidelne prípravný stav hlbokého uvoľnenia a oddelenia vedomia?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_szoba",
+          "cim": "Mentálne putovanie: v miestnosti",
+          "leiras": "Najprv mentálne putuj vo vlastnej miestnosti; pozoruj seba zvonku aj známe predmety.",
+          "type": "practice",
+          "successCriteria": "Úspešne si mentálne putoval/a vo vlastnej miestnosti a pozoroval/a seba a predmety zvonku?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_rovid",
+          "cim": "Mentálne putovanie: krátka trasa",
+          "leiras": "Rozšír mentálne putovanie na krátke známe trasy a ulice.",
+          "type": "practice",
+          "successCriteria": "Úspešne si mentálne putoval/a po známych trasách a čiastočne overil/a svoje pozorovania?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_ismerosok",
+          "cim": "Mentálne návštevy u známych a príbuzných",
+          "leiras": "Navštív mentálne známe osoby a over svoje pozorovania aj fyzicky.",
+          "type": "practice",
+          "successCriteria": "Úspešne si fyzicky overil/a časť pozorovaní získaných pri mentálnych návštevách?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magický výcvik duše (VIII) — Veľké „TERAZ”, ovládanie fluíd",
+      "leiras": "Zažívanie bezčasovosti podobnej akáši, ovládanie elektrického a magnetického fluida.",
+      "gyakorlatok": [
+        {
+          "key": "nagy_most",
+          "cim": "Veľké „TERAZ” — zažívanie bezčasovosti",
+          "leiras": "Ponor sa úplne do prítomného okamihu; minulosť a budúcnosť miznú, existuje len „teraz”.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Zažívaš denne chvíle bezčasovosti a stala sa prítomnosť v „teraz” prirodzenou?",
+          "minSessions": 21
+        },
+        {
+          "key": "ne_ragaszkodj",
+          "cim": "Nelipnime na minulosti",
+          "leiras": "Vedome uvoľni minulé udalosti a krivdy; mág nenosí zbytočné bremená.",
+          "type": "journal",
+          "successCriteria": "Vykonávaš pravidelne prax uvoľnenia a cítiš vnútorné oslobodenie od bremien minulosti?",
+          "minSessions": 5
+        },
+        {
+          "key": "elektromos_fluidum",
+          "cim": "Ovládnutie elektrického fluida (induktívna a deduktívna metóda)",
+          "leiras": "Elektrické fluidum: aktívna, rozpínavá stránka živlu OHEŇ. Indukcia: zhromaždenie zvonku. Dedukcia: premietnutie z vlastného tela.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Ovládaš oboma metódami (induktívnou aj deduktívnou) úspešne elektrické fluidum a skúšaš jeho účinok na iné bytosti?",
+          "minSessions": 10
+        },
+        {
+          "key": "magnetikus_fluidum",
+          "cim": "Ovládnutie magnetického fluida (induktívna a deduktívna metóda)",
+          "leiras": "Magnetické fluidum: pasívna, priťahujúca stránka živlu VODA. Využiteľné pri liečení a priťahovaní.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Ovládaš oboma metódami úspešne magnetické fluidum a skúšaš jeho liečivé/priťahujúce využitie?",
+          "minSessions": 10
+        },
+        {
+          "key": "elektromagnetikus_fluidum",
+          "cim": "Ovládnutie elektromagnetického fluida",
+          "leiras": "Spojenie oboch fluíd: základná sila stvorenia vo vesmíre. Najsilnejší magický nástroj.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Úspešne si spojil/a obe fluidá do elektromagnetickej jednoty a vedome uplatňuješ jej tvorivú silu?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magický výcvik tela (VIII) — Ovplyvňovanie živlami, fluidné kondenzátory, magické zrkadlo",
+      "leiras": "Zhotovovanie magických predmetov a ovplyvňujúca sila živlov.",
+      "gyakorlatok": [
+        {
+          "key": "elemek_befolyasolás",
+          "cim": "Magické ovplyvňovanie živlami (Oheň/Vzduch/Voda/Zem)",
+          "leiras": "Oheň: spaľovanie (ničenie negatívnych vplyvov). Vzduch: vyparovanie. Voda: miešanie. Zem: hnitie — všetko magické metódy na rozpustenie problémov.",
+          "type": "practice",
+          "successCriteria": "Vykonal/a si všetky štyri metódy (spaľovanie, vyparovanie, miešanie, hnitie) a zažil/a ich účinky?",
+          "minSessions": 5
+        },
+        {
+          "key": "egyszerű_kondenzt",
+          "cim": "Príprava jednoduchého fluidného kondenzátora",
+          "leiras": "Príprava bylinného nálevu (napr. z harmančeka) ako fluidného kondenzátora, ktorý uchováva elektromagnetickú silu.",
+          "type": "instructional",
+          "successCriteria": "Pripravil/a si jednoduchý fluidný kondenzátor a pochopil/a a uplatnil/a princíp elektromagnetického nabíjania?",
+          "minSessions": 3
+        },
+        {
+          "key": "osszetett_kondenzt",
+          "cim": "Príprava zloženého fluidného kondenzátora",
+          "leiras": "Príprava zloženého kondenzátora obsahujúceho zlato a striebro.",
+          "type": "instructional",
+          "successCriteria": "Pripravil/a si zložený fluidný kondenzátor s použitím zlata a striebra?",
+          "minSessions": 3
+        },
+        {
+          "key": "magikus_tukor_keszit",
+          "cim": "Zhotovenie magického zrkadla s fluidným kondenzátorom",
+          "leiras": "Nabitie sklenej dosky alebo zrkadla fluidným kondenzátorom a vlastným elektromagnetickým fluidom.",
+          "type": "practice",
+          "successCriteria": "Zhotovil/a si magické zrkadlo, nabil/a ho kondenzátorom a vlastným fluidom a začal/a cítiť jeho pôsobenie?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–4 mesiace",
+    "osszefoglalo": "Mentálne putovanie, veľké „TERAZ”, ovládnutie elektromagnetických fluíd, ovplyvňovanie živlami, fluidné kondenzátory a zhotovenie magického zrkadla."
+  },
+  {
+    "id": 9,
+    "cim": "Deviaty stupeň",
+    "rovidcim": "IX. stupeň",
+    "icon": "mirror",
+    "szin": "#f9a8d4",
+    "szellem": {
+      "cim": "Magický výcvik ducha (IX) — Jasnovidectvo pomocou magických zrkadiel",
+      "leiras": "Magické zrkadlo ako hlavný nástroj na rozšírenie zmyslov naprieč časom a priestorom.",
+      "gyakorlatok": [
+        {
+          "key": "tukortöltés",
+          "cim": "Nabíjanie magického zrkadla",
+          "leiras": "Nabi magické zrkadlo elektromagnetickým fluidom a vlastnou astrálnou energiou; daj mu zámer a účel.",
+          "type": "practice",
+          "successCriteria": "Nabíjaš svoje zrkadlo pravidelne a účinne a reaguje vnímateľne na tvoju vôľu?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukorbetegkez",
+          "cim": "Magické zrkadlo ako nástroj videnia na diaľku (priestor/čas)",
+          "leiras": "Cez zrkadlo hľaď do diaľky, skúmaj minulosť/prítomnosť/budúcnosť.",
+          "type": "practice",
+          "successCriteria": "Vidíš v zrkadle spoľahlivo vzdialené, minulé a budúce obrazy, ktoré dokážeš čiastočne overiť?",
+          "minSessions": 10
+        },
+        {
+          "key": "tukorbefoly",
+          "cim": "Magické zrkadlo ako nástroj ovplyvňovania",
+          "leiras": "Cez zrkadlo vyžaruj pozitívnu energiu a silu na chorých a do situácií.",
+          "type": "practice",
+          "successCriteria": "Uplatňuješ úspešne zrkadlo na vyžarovanie pozitívnych energií a zažívaš merateľné účinky?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukortavolhat",
+          "cim": "Magické zrkadlo ako vysielač-prijímač (komunikácia)",
+          "leiras": "Komunikácia so žijúcimi osobami a inými bytosťami prostredníctvom zrkadla.",
+          "type": "practice",
+          "successCriteria": "Úspešne si komunikoval/a cez zrkadlo a dokázal/a si časť posolstiev overiť z vonkajšieho zdroja?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukorvedo",
+          "cim": "Magické zrkadlo ako ochranný nástroj",
+          "leiras": "Odraz zrkadlom škodlivé a nežiaduce vplyvy.",
+          "type": "practice",
+          "successCriteria": "Uplatňuješ úspešne zrkadlo na ochranu a zažívaš odrazenie nežiaducich účinkov?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magický výcvik duše (IX) — Oddelenie astrálneho tela, božské prvotné vlastnosti",
+      "leiras": "Vedomé oddelenie astrálneho tela od fyzického tela a jeho nabitie štyrmi božskými prvotnými vlastnosťami.",
+      "gyakorlatok": [
+        {
+          "key": "asztralist_elvalaszt",
+          "cim": "Vedomé oddelenie astrálneho tela od hmotného tela",
+          "leiras": "Astrálne telo — telesný obal duše — opúšťa fyzické telo s plným sebauvedomením a z vôle, a vracia sa.",
+          "type": "practice",
+          "successCriteria": "Dokážeš vedome a z vlastnej vôle oddeliť astrálne telo a vrátiť ho späť, s plným sebauvedomením?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralist_istenialap",
+          "cim": "Nabitie astrálneho tela štyrmi božskými prvotnými vlastnosťami",
+          "leiras": "Prenikni astrálne telo božskou Láskou, Múdrosťou, Vôľou/Mocou a Vedomím.",
+          "type": "practice",
+          "successCriteria": "Úspešne si nabil/a astrálne telo všetkými štyrmi božskými prvotnými vlastnosťami a udržiavaš to neustále?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magický výcvik tela (IX) — Liečenie, talizmany, plnenie želaní",
+      "leiras": "Liečenie elektromagnetickým fluidom, nabíjanie talizmanov a amuletov, plnenie želaní v akáši.",
+      "gyakorlatok": [
+        {
+          "key": "betegkez_fluidum",
+          "cim": "Liečenie elektromagnetickým fluidom",
+          "leiras": "Liečenie chorých osôb prikladaním rúk alebo na diaľku vedením elektromagnetického fluida.",
+          "type": "practice",
+          "successCriteria": "Úspešne si ošetroval/a osoby elektromagnetickým fluidom a zaznamenal/a merateľné zlepšenie?",
+          "minSessions": 5
+        },
+        {
+          "key": "talizmantoltes",
+          "cim": "Magické nabíjanie talizmanov, amuletov a drahokamov (10 metód)",
+          "leiras": "10 rôznych metód nabíjania predmetov elektromagnetickou/astrálnou energiou s určeným zámerom.",
+          "type": "practice",
+          "successCriteria": "Vykonal/a si nabíjanie talizmanov všetkými 10 metódami a je účinok nabitých predmetov vnímateľný?",
+          "minSessions": 10
+        },
+        {
+          "key": "kivanság_akasha",
+          "cim": "Plnenie želaní v akáši elektromagnetickým nabitím („voltovanie”)",
+          "leiras": "Želanie uzavreté v elektromagnetickej guli umiestniš do roviny akáše, kde samočinne smeruje k splneniu.",
+          "type": "practice",
+          "successCriteria": "Vykonal/a si techniku voltovania a plnia sa želania bez toho, aby si na ne aktívne myslel/a?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "3–6 mesiacov",
+    "osszefoglalo": "Jasnovidectvo pomocou magických zrkadiel, oddelenie astrálneho tela, liečenie fluidom, nabíjanie talizmanov 10 metódami, plnenie želaní v akáši."
+  },
+  {
+    "id": 10,
+    "cim": "Desiaty stupeň",
+    "rovidcim": "X. stupeň",
+    "icon": "sparkles",
+    "szin": "#fbbf24",
+    "szellem": {
+      "cim": "Magický výcvik ducha (X) — Povznesenie ducha do vyšších rovín",
+      "leiras": "Vedomé povznesenie mentálneho tela do mentálnych rovín nad fyzickou a astrálnou rovinou a potom ešte vyššie.",
+      "gyakorlatok": [
+        {
+          "key": "szellem_emelese",
+          "cim": "Povznesenie ducha do vyšších rovín",
+          "leiras": "Zámerné prenesenie vedomia do mentálnej roviny a potom do rovín za ňou. Fyzický svet dočasne úplne zmizne.",
+          "type": "practice",
+          "successCriteria": "Povznášaš vedome svojho ducha do mentálnej roviny a odtiaľ do vyšších rovín, pričom fyzický svet úplne zmizne?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magický výcvik duše (X) — Spojenie s osobným Bohom a božstvami",
+      "leiras": "Najvyššia úroveň duševného spojenia: vedomé spoločenstvo s vlastným osobným božstvom a inými duchovnými hierarchiami.",
+      "gyakorlatok": [
+        {
+          "key": "sajat_isten",
+          "cim": "Vedomé spojenie s vlastným osobným Bohom",
+          "leiras": "Vedomá, priama, obojsmerná komunikácia s vlastnou vnútornou božskou iskrou a Vyšším Ja.",
+          "type": "practice",
+          "successCriteria": "Komunikuješ pravidelne a spoľahlivo obojsmerne so svojou vnútornou božskou iskrou/Vyšším Ja?",
+          "minSessions": 10
+        },
+        {
+          "key": "istenségek",
+          "cim": "Spojenie s božstvami a duchovnými hierarchiami",
+          "leiras": "Mág je schopný v rovine akáše komunikovať a spolupracovať s božstvami, archanjelmi a inými duchovnými bytosťami.",
+          "type": "practice",
+          "successCriteria": "Úspešne si sa v rovine akáše spojil/a s božstvami alebo duchovnými hierarchiami a je spolupráca plodná?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magický výcvik tela (X) — Rôzne metódy magických schopností",
+      "leiras": "Syntéza všetkých predchádzajúcich stupňov; mág je schopný podľa univerzálnych zákonov vyvolať všetky opísané javy.",
+      "gyakorlatok": [
+        {
+          "key": "magikus_kepessegek",
+          "cim": "Rôzne metódy na dosiahnutie magických schopností",
+          "leiras": "Ovplyvňovanie počasia, liečenie, harmonizácia životného priestoru, komunikácia so zosnulými a ďalšie vyššie magické diela.",
+          "type": "instructional",
+          "successCriteria": "Si ako syntéza všetkých predchádzajúcich stupňov schopný/á zámerne vyvolať magické javy opísané v knihe?",
+          "minSessions": 1
+        }
+      ]
+    },
+    "idotartam": "Individuálne — tu sa kurz končí",
+    "osszefoglalo": "Povznesenie ducha do vyšších rovín, vedomé spojenie s osobným Bohom a božstvami, syntéza všetkých magických schopností."
+  }
+]

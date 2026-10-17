@@ -12,6 +12,7 @@ import { ELEMENT_COLORS, ELEMENT_LABEL_KEYS, plainElementName } from '@/lib/elem
 import type { ElementType } from '@/lib/magia-types';
 import type { Locale } from '@/i18n';
 import { AppIcon } from '@/components/ui/AppIcon';
+import { toIntlLocale } from '@/i18n';
 
 interface ReportPageProps {
   params: Promise<{ locale: string }>;
@@ -46,7 +47,7 @@ export default async function WeeklyReportPage({ params, searchParams }: ReportP
   const fokozatok = await loadMagiaFokozatok(locale as Locale);
   const report = await loadWeeklyReport(supabase, user.id, monday, today, buildExerciseTitles(fokozatok));
 
-  const range = new Intl.DateTimeFormat(locale, { month: 'long', day: 'numeric', timeZone: 'UTC' }).formatRange(
+  const range = new Intl.DateTimeFormat(toIntlLocale(locale), { month: 'long', day: 'numeric', timeZone: 'UTC' }).formatRange(
     new Date(report.monday + 'T00:00:00Z'),
     new Date(report.sunday + 'T00:00:00Z')
   );
@@ -55,7 +56,7 @@ export default async function WeeklyReportPage({ params, searchParams }: ReportP
   const isCurrentWeek = monday === currentMonday;
   const isEmpty = report.sessionCount === 0;
   const formatPlanDate = (date: string) =>
-    new Intl.DateTimeFormat(locale, { month: 'short', day: 'numeric', timeZone: 'UTC' }).format(new Date(date + 'T00:00:00Z'));
+    new Intl.DateTimeFormat(toIntlLocale(locale), { month: 'short', day: 'numeric', timeZone: 'UTC' }).format(new Date(date + 'T00:00:00Z'));
   const plainElement = (el: ElementType) => plainElementName(t(ELEMENT_LABEL_KEYS[el]));
 
   const navClass = 'flex h-10 w-10 items-center justify-center rounded-xl border border-border/50 bg-muted/30 transition hover:border-accent/40 hover:text-accent';

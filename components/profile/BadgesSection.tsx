@@ -12,6 +12,7 @@ import { emitNotificationsChanged } from '@/lib/notifications';
 import { cn } from '@/lib/utils';
 import { useAngolAccess } from '@/components/layout/ModuleAccessProvider';
 import { AppIcon } from '@/components/ui/AppIcon';
+import { toIntlLocale } from '@/i18n';
 
 export function BadgesSection({ userId, compact = false }: { userId: string; compact?: boolean }) {
   const t = useTranslations('badges');
@@ -40,7 +41,7 @@ export function BadgesSection({ userId, compact = false }: { userId: string; com
 
   // Kreatív Angol is a locked module (Hungarian UI + access)
   const categories: BadgeCategory[] = angolAccess ? ['magia', 'angol'] : ['magia'];
-  const formatDate = (iso: string) => new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(iso));
+  const formatDate = (iso: string) => new Intl.DateTimeFormat(toIntlLocale(locale), { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(iso));
   const earnedCount = state ? BADGES.filter((b) => categories.includes(b.category) && b.id in state.earned).length : 0;
   const totalCount = BADGES.filter((b) => categories.includes(b.category)).length;
 

@@ -1,4 +1,4 @@
-import type { Locale } from '@/i18n';
+import { fallbackLocale, type Locale } from '@/i18n';
 import type { Exercise, MagiaSection } from '@/lib/magia-types';
 
 export interface FokozatSection {
@@ -80,7 +80,7 @@ export async function loadMagiaFokozatok(locale: Locale): Promise<FokozatData[]>
     cache.set(key, data);
     return data;
   } catch {
-    const data = await importContent<FokozatData[]>('hu', 'magia');
+    const data = await importContent<FokozatData[]>(fallbackLocale, 'magia');
     cache.set(key, data);
     return data;
   }

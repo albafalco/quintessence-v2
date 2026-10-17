@@ -1,9 +1,16 @@
-import { fallbackLocale, type Locale } from '@/i18n';
+import { fallbackLocale, toIntlLocale, type Locale } from '@/i18n';
 import flagHu from 'flag-icons/flags/4x3/hu.svg';
 import flagGb from 'flag-icons/flags/4x3/gb.svg';
 import flagDe from 'flag-icons/flags/4x3/de.svg';
-import flagEs from 'flag-icons/flags/4x3/es.svg';
 import flagIt from 'flag-icons/flags/4x3/it.svg';
+import flagBr from 'flag-icons/flags/4x3/br.svg';
+import flagRo from 'flag-icons/flags/4x3/ro.svg';
+import flagSk from 'flag-icons/flags/4x3/sk.svg';
+
+// Spain and Serbia: the plain civil flag (public/flags) — the full coats of arms
+// weigh 80–180 KB for a 16 px badge
+const flagEs = { src: '/flags/es.svg' };
+const flagRs = { src: '/flags/rs.svg' };
 
 /**
  * The one list of UI languages. Adding a language: add its code to `locales`
@@ -26,6 +33,12 @@ export const LANGUAGES: Record<Locale, LanguageInfo> = {
   de: { code: 'de', nativeName: 'Deutsch', flag: flagDe, dir: 'ltr', status: 'ready' },
   es: { code: 'es', nativeName: 'Español', flag: flagEs, dir: 'ltr', status: 'ready' },
   it: { code: 'it', nativeName: 'Italiano', flag: flagIt, dir: 'ltr', status: 'ready' },
+  // Brazilian Portuguese
+  pt: { code: 'pt', nativeName: 'Português', flag: flagBr, dir: 'ltr', status: 'ready' },
+  ro: { code: 'ro', nativeName: 'Română', flag: flagRo, dir: 'ltr', status: 'ready' },
+  sk: { code: 'sk', nativeName: 'Slovenčina', flag: flagSk, dir: 'ltr', status: 'ready' },
+  // Serbian in Latin script
+  sr: { code: 'sr', nativeName: 'Srpski', flag: flagRs, dir: 'ltr', status: 'ready' },
 };
 
 /** Missing translations are taken from this language (set in i18n.ts). */
@@ -41,7 +54,7 @@ export function getLanguage(code: string): LanguageInfo | undefined {
 /** Language name in the UI language ("német" on the Hungarian UI); null if the browser can't tell. */
 export function localizedLanguageName(code: string, uiLocale: string): string | null {
   try {
-    return new Intl.DisplayNames([uiLocale], { type: 'language' }).of(code) ?? null;
+    return new Intl.DisplayNames([toIntlLocale(uiLocale)], { type: 'language' }).of(code) ?? null;
   } catch {
     return null;
   }

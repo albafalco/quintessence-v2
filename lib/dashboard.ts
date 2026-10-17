@@ -5,6 +5,7 @@ import { ALL_SECTION_IDS, INITIAL_UNLOCKED_SECTIONS } from '@/lib/angol-unlocks'
 import { getFokozatExerciseCount } from '@/lib/i18n-content';
 import { getCurrentFokozatId, getFokozatProgress } from '@/lib/magia-utils';
 import type { MagiaProgressRecord } from '@/lib/magia-types';
+import { toIntlLocale } from '@/i18n';
 
 const MAGIA_STRUCTURE = magiaStructure as FokozatData[];
 const VOCABULARY = vocabulary as { prompt: string; answer: string }[];
@@ -98,7 +99,7 @@ export function getAngolDashboardStats(
 
 export function formatActivityDate(dateStr: string | null, locale: string): string | null {
   if (!dateStr) return null;
-  return new Intl.DateTimeFormat(locale, {
+  return new Intl.DateTimeFormat(toIntlLocale(locale), {
     year: 'numeric',
     month: 'short',
     day: 'numeric',

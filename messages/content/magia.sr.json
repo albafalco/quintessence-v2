@@ -1,0 +1,1163 @@
+[
+  {
+    "id": 1,
+    "cim": "Prvi stepen",
+    "rovidcim": "I. stepen",
+    "icon": "sprout",
+    "szin": "#4ade80",
+    "szellem": {
+      "cim": "Magijsko školovanje duha (I) — Kontrola, disciplina i ovladavanje mislima",
+      "leiras": "Prvi korak: udobno sedi ili lezi, opusti telo, zatvori oči i 5 minuta posmatraj tok svojih misli kao pasivan posmatrač. Svakog dana produži za 1 minut, dok ne izdržiš 10 minuta. Vežba se radi ujutru i uveče. Cilj: potpuna praznina misli tokom 10 minuta.",
+      "gyakorlatok": [
+        {
+          "key": "gondolatellenorzes",
+          "cim": "Kontrola misli",
+          "leiras": "Dvaput dnevno po 5–10 minuta: posmatraj tok svojih misli kao pasivan posmatrač, bez procenjivanja.",
+          "type": "progressive_timed",
+          "params": {
+            "startSec": 300,
+            "stepSec": 60,
+            "maxSec": 600,
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Možeš li pasivno da posmatraš svoje misli 10 minuta bez i najmanjeg procenjivanja, dvaput dnevno zaredom?",
+          "minSessions": 10
+        },
+        {
+          "key": "gondolatfegyelmezés",
+          "cim": "Disciplina misli",
+          "leiras": "Svesno odbaci određene misli; zadrži jednu misao po svom izboru; neguj prazninu misli.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da zadržiš jednu izabranu misao bez prekida 10 minuta?",
+          "minSessions": 10
+        },
+        {
+          "key": "gondolaturales",
+          "cim": "Ovladavanje mislima + magijski dnevnik",
+          "leiras": "Vodi magijski dnevnik: zapisuj svaki uspeh, svaki neuspeh i trajanje vežbi. Samokritika i planiranje za sledeći dan/nedelju.",
+          "type": "journal",
+          "successCriteria": "Da li redovno vodiš magijski dnevnik i svakog dana objektivno procenjuješ svoj napredak?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magijsko školovanje duše (I) — Introspekcija ili samospoznaja",
+      "leiras": "Samospoznaja je preduslov svake inicijacijske metode. Zapiši u dnevnik sve tamne strane svoje duše: mane, navike i strasti. Budi strog/a prema sebi. Svaku manu dodeli jednom od četiri elementa (Vatra, Voda, Vazduh, Zemlja), u tri stepena jačine.",
+      "gyakorlatok": [
+        {
+          "key": "introspekcio",
+          "cim": "Introspekcija — samospoznaja",
+          "leiras": "Ujutru i uveče posveti nekoliko minuta samokritici: otkrivaj mane, navike i slabosti svoje duše. Zapisuj ih.",
+          "type": "journal",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Da li svakodnevno, kroz razmišljanje o sebi, prepoznaješ u sebi nove obrasce i osobine?",
+          "minSessions": 10
+        },
+        {
+          "key": "fekete_tukor",
+          "cim": "Crno ogledalo duše (mane)",
+          "leiras": "Dodeli svoje mane četirima elementima, u tri stepena jačine. VATRA: razdražljivost, ljubomora, bes. VAZDUH: lakomislenost, sujeta, ogovaranje. VODA: ravnodušnost, nemarnost, tvrdoglavost. ZEMLJA: preosetljivost, lenjost, tromost.",
+          "type": "worksheet",
+          "successCriteria": "Da li si dovršio/la crno ogledalo: zapisao/la sve poznate mane, dodelio/la ih elementima i rasporedio/la u tri stepena jačine?",
+          "minSessions": 1
+        },
+        {
+          "key": "feher_tukor",
+          "cim": "Belo ogledalo duše (vrline)",
+          "leiras": "Dodeli elementima i svoje dobre osobine. VATRA: inicijativa, oduševljenje, hrabrost. VAZDUH: marljivost, radost, ljubaznost. VODA: skromnost, smirenost, blagost. ZEMLJA: istrajnost, tačnost, osećaj odgovornosti.",
+          "type": "worksheet",
+          "successCriteria": "Da li si dovršio/la belo ogledalo: zapisao/la svoje vrline i dodelio/la ih elementima?",
+          "minSessions": 1
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magijsko školovanje tela (I) — Materijalno telo, disanje, ishrana, voda",
+      "leiras": "Telo, dušu i duh treba školovati istovremeno. Jutarnja nega tela, jutarnja gimnastika, svesno disanje, svesna ishrana, magija vode.",
+      "gyakorlatok": [
+        {
+          "key": "reggeli_testapolas",
+          "cim": "Jutarnja nega tela",
+          "leiras": "Svakog jutra izčetkaj celo telo mekom četkom (koža treba da postane blago ružičasta). Zatim se isperi hladnom vodom i istrljaj do suva. Doživotna dnevna navika.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Da li svakog dana bez prekida obavljaš jutarnju negu tela (četkanje + hladna voda)?",
+          "minSessions": 21
+        },
+        {
+          "key": "reggeli_torna",
+          "cim": "Jutarnja gimnastika",
+          "leiras": "Svakog dana nekoliko minuta jutarnje gimnastike; cilj: gipko, savitljivo telo.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Da li svakog dana radiš jutarnju gimnastiku?",
+          "minSessions": 21
+        },
+        {
+          "key": "tudatos_legzes",
+          "cim": "Svesno disanje",
+          "leiras": "Dok dišeš, živo zamišljaj kako zdravlje, mir i uspeh ulaze u svaki deo tvog tela. Počni sa 7 udisaja ujutru i uveče, a svakog dana dodaj po 1. Nikad ne prelazi pola sata.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300,
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Da li svakog dana, ujutru i uveče, radiš vežbu svesnog disanja i živo osećaš strujanje energije?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudatos_etkezes",
+          "cim": "Svesna ishrana (tajna Evharistije)",
+          "leiras": "Usredsredi svoju želju na hranu ili piće kao da se već ispunila. Jedi polako i svesno; ne čitaj i ne dozvoli da te nešto ometa. Za disanje i za ishranu koristi uvek istu želju.",
+          "type": "habit",
+          "params": {
+            "frequency": "per_meal"
+          },
+          "successCriteria": "Da li se pri svakom obroku svesno usredsređuješ na svoju želju i jedeš polako i pažljivo?",
+          "minSessions": 21
+        },
+        {
+          "key": "viz_magiaja",
+          "cim": "Magija vode",
+          "leiras": "Svaki put kad pereš ruke, zamisli da se sa fizičkom prljavštinom spiraju i tvoji duhovni tereti, neuspesi i nemir. Prljavu vodu odmah prospi. Obrnuto: vodu za kupanje možeš da napuniš željom, da njena snaga pređe u tvoje telo.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Da li svesno primenjuješ magiju vode pri svakom pranju ruku i kupanju?",
+          "minSessions": 21
+        }
+      ]
+    },
+    "idotartam": "2 nedelje – 1 mesec",
+    "osszefoglalo": "Kontrola i ovladavanje mislima, dovršavanje ogledala duše (crnog i belog), svakodnevna nega tela i ovladavanje svesnim disanjem + ishranom + magijom vode."
+  },
+  {
+    "id": 2,
+    "cim": "Drugi stepen",
+    "rovidcim": "II. stepen",
+    "icon": "leaf",
+    "szin": "#34d399",
+    "szellem": {
+      "cim": "Magijsko školovanje duha (II) — Autosugestija i vežbe koncentracije",
+      "leiras": "Upoznavanje tajne podsvesti i ovladavanje autosugestijom. Vežbe koncentracije za pet čula.",
+      "gyakorlatok": [
+        {
+          "key": "autoszuggesztio",
+          "cim": "Autosugestija — tajna podsvesti",
+          "leiras": "U trenutku pre nego što zaspiš (kada su vrata podsvesti otvorena) sačuvaj svoju najjaču želju i najlepše misli i ponesi ih u san.",
+          "type": "habit",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Da li dosledno primenjuješ izabranu želju/formulu pre spavanja i po buđenju?",
+          "minSessions": 21
+        },
+        {
+          "key": "konc_keppel",
+          "cim": "Koncentracija sa slikom",
+          "leiras": "Predstavi sebi predmet, osobu ili predeo što detaljnije. Zadrži sliku 10 minuta.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Možeš li neometano da zadržiš vizuelnu sliku u unutrašnjem vidu 5 minuta?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_hanggal",
+          "cim": "Koncentracija sa zvukom",
+          "leiras": "Prizovi unutrašnjim sluhom zvuk, muziku ili reč. Zadrži ga bez spoljnog ometanja.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Možeš li unutrašnjim sluhom neometano da prizoveš zvuk 5 minuta?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_erzekkel",
+          "cim": "Koncentracija sa osećajem (dodir/temperatura)",
+          "leiras": "Zamisli tačan osećaj dodira predmeta ili materijala. Npr. drvo, metal, toplota/hladnoća vode.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Možeš li neometano da prizoveš osećaj dodira ili temperature 5 minuta?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_illattal",
+          "cim": "Koncentracija sa mirisom",
+          "leiras": "Prizovi unutrašnjim čulom mirisa tačan osećaj nekog mirisa (cvet, trava, hleb itd.).",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Možeš li unutrašnjim čulom mirisa neometano da prizoveš miris 5 minuta?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_izzal",
+          "cim": "Koncentracija sa ukusom",
+          "leiras": "Prizovi unutrašnjim čulom ukusa tačan osećaj nekog ukusa (slatko, kiselo, slano, gorko).",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Možeš li unutrašnjim čulom ukusa neometano da prizoveš ukus 5 minuta?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magijsko školovanje duše (II) — Astralno-magijska ravnoteža i oplemenjivanje karaktera",
+      "leiras": "Uspostavljanje ravnoteže među elementima: savladavanje mana, samosugestija, transmutacija.",
+      "gyakorlatok": [
+        {
+          "key": "jellemnemesites_lekuzdes",
+          "cim": "Oplemenjivanje karaktera — savladavanje/ovladavanje",
+          "leiras": "Iz crnog ogledala prvog stepena izaberi svoje najjače mane. Svakog dana radi na njihovom obuzdavanju snažnom voljom.",
+          "type": "practice",
+          "successCriteria": "Da li dosledno radiš na savladavanju najjačih mana iz crnog ogledala i doživljavaš merljivo poboljšanje u svakodnevnom ponašanju?",
+          "minSessions": 10
+        },
+        {
+          "key": "jellemnemesites_szuggesztio",
+          "cim": "Oplemenjivanje karaktera — samosugestija",
+          "leiras": "Sugeriši sebi vrlinu suprotnu mani, pre spavanja i po buđenju.",
+          "type": "habit",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Da li sebi dosledno sugerišeš suprotnu vrlinu pre spavanja i po buđenju?",
+          "minSessions": 21
+        },
+        {
+          "key": "jellemnemesites_transmutacio",
+          "cim": "Oplemenjivanje karaktera — transmutacija",
+          "leiras": "Preobrazi manu u suprotnu osobinu: npr. razdražljivost u energiju, preosetljivost u razumevanje.",
+          "type": "practice",
+          "successCriteria": "Možeš li u svakodnevnom životu odmah da okreneš negativan poriv u pozitivnom smeru?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magijsko školovanje tela (II) — Svesno disanje kroz pore, držanje tela",
+      "leiras": "Svesno disanje kroz kožu i svakodnevno razvijanje vladanja telom.",
+      "gyakorlatok": [
+        {
+          "key": "poruszlegzes",
+          "cim": "Svesno disanje kroz pore",
+          "leiras": "Zamisli da životnu energiju iz kosmosa udišeš ne samo plućima, već celom površinom kože. Oseti kako se ta energija širi celim telom.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da izazoveš živ i stvaran osećaj disanja celom površinom kože?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudatos_testtartas",
+          "cim": "Svesno držanje tela",
+          "leiras": "Svakog dana obraćaj pažnju na stanje svog tela; sedi, stoj i hodaj disciplinovano i uspravno.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Da li svakodnevno pratiš svoje držanje i svesno ga ispravljaš?",
+          "minSessions": 21
+        },
+        {
+          "key": "test_uralasa",
+          "cim": "Vladanje telom u svakodnevnom životu",
+          "leiras": "Razvijaj sposobnost da telo usmeravaš po volji; svesno utiči na umor, osećaj hladnoće i pokrete mišića.",
+          "type": "practice",
+          "successCriteria": "Možeš li svesno da utičeš na umor, osećaj hladnoće ili napetost mišića i da ih smanjiš?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "idotartam": "2 nedelje – 1 mesec",
+    "osszefoglalo": "Autosugestija, vežbe koncentracije za pet čula, oplemenjivanje karaktera (savladavanje, samosugestija, transmutacija), svesno disanje kroz pore i držanje tela."
+  },
+  {
+    "id": 3,
+    "cim": "Treći stepen",
+    "rovidcim": "III. stepen",
+    "icon": "flame",
+    "szin": "#fb923c",
+    "szellem": {
+      "cim": "Magijsko školovanje duha (III) — Koncentracija misli sa dva i tri čula",
+      "leiras": "Koncentracija sa dva ili tri čula istovremeno, zatim na predmete, predele, životinje i osobe.",
+      "gyakorlatok": [
+        {
+          "key": "konc_2_erzek",
+          "cim": "Koncentracija sa 2–3 čula odjednom",
+          "leiras": "Spoji, na primer, zamišljeni doživljaj vida i sluha, ili vid + sluh + dodir istovremeno.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li u unutrašnjoj koncentraciji istovremeno da zadržiš dva ili tri spojena čulna doživljaja?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_targyakra",
+          "cim": "Koncentracija misli na predmete, predele, prostorije",
+          "leiras": "Prizovi poznati predmet, prostoriju ili mesto što detaljnije, svim čulima.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li detaljno i stabilno da prizoveš predmet, prostoriju ili mesto svim čulima?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_allatokra",
+          "cim": "Koncentracija misli na životinje i ljude",
+          "leiras": "Prizovi životinju ili osobu u celom njenom biću; njene pokrete, zvukove i suštinu.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da prizoveš životinju ili osobu u celom njenom biću, sa njenim pokretom i suštinom?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magijsko školovanje duše (III) — Disanje elemenata celim telom",
+      "leiras": "Svesno udisanje četiri elementa u celo telo, zajedno sa osobinom svakog elementa.",
+      "gyakorlatok": [
+        {
+          "key": "elemlegzes_tuz",
+          "cim": "Disanje elementa VATRA (toplo)",
+          "leiras": "Dok dišeš, zamisli da udišeš element VATRA; topla, užarena energija ispunjava celo tvoje telo. Štiti, greje i aktivira telo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Možeš li dok dišeš da izazoveš u celom telu stvaran osećaj toplote elementa VATRA?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_levego",
+          "cim": "Disanje elementa VAZDUH (lako)",
+          "leiras": "Dok dišeš, zamisli da udišeš element VAZDUH; lakoća i osećaj slobode ispunjavaju telo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Možeš li dok dišeš da izazoveš u celom telu osećaj lakoće elementa VAZDUH?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_viz",
+          "cim": "Disanje elementa VODA (hladno)",
+          "leiras": "Dok dišeš, zamisli da udišeš element VODA; hladna, tekuća energija ispunjava telo i donosi mir.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Možeš li dok dišeš da izazoveš u celom telu rashlađujući, tekući osećaj elementa VODA?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_fold",
+          "cim": "Disanje elementa ZEMLJA (teško)",
+          "leiras": "Dok dišeš, zamisli da udišeš element ZEMLJA; težina, čvrstina i stabilnost te ispunjavaju.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Možeš li dok dišeš da izazoveš u celom telu osećaj težine i čvrstine elementa ZEMLJA?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magijsko školovanje tela (III) — Nagomilavanje životne snage, impregnacija prostora, biomagnetizam",
+      "leiras": "Svesno skupljanje životne snage u telu, punjenje prostora, magnetizam.",
+      "gyakorlatok": [
+        {
+          "key": "eleterotorlaszolas_test",
+          "cim": "Nagomilavanje životne snage u celom telu",
+          "leiras": "Nagomilaj životnu energiju u celom telu disanjem plućima i kroz pore. Oseti njenu toplotu i gustinu.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da skupiš životnu energiju u celom telu i živo osetiš njenu toplotu i gustinu?",
+          "minSessions": 10
+        },
+        {
+          "key": "eleterotorlaszolas_reszek",
+          "cim": "Nagomilavanje životne snage u pojedinim delovima tela",
+          "leiras": "Usredsredi i nagomilaj životnu energiju, npr. u ruci, glavi ili oko srca.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li svesno da usredsrediš životnu energiju u pojedine delove tela i tamo osetiš toplotu ili trnce?",
+          "minSessions": 10
+        },
+        {
+          "key": "terimpregnalás",
+          "cim": "Impregnacija prostora (dodatak)",
+          "leiras": "Ispuni celu prostoriju pozitivnom željom (zdravlje, uspeh, mir) pažnjom usmerenom ka principu akaše.",
+          "type": "practice",
+          "successCriteria": "Da li si uradio/la vežbu impregnacije prostora i osetio/la energetsku promenu u prostoriji?",
+          "minSessions": 5
+        },
+        {
+          "key": "biomagnetizmus",
+          "cim": "Biomagnetizam (dodatak)",
+          "leiras": "Koristi magnetnu silu koja teče iz tvoje ruke za lečenje i punjenje ljudi i predmeta.",
+          "type": "instructional",
+          "successCriteria": "Da li si razumeo/la princip biomagnetizma i izvodio/la oglede sa svesnom primenom sile koja teče iz ruke?",
+          "minSessions": 3
+        }
+      ]
+    },
+    "idotartam": "2 nedelje – 1 mesec",
+    "osszefoglalo": "Koncentracija misli sa više čula, disanje elemenata (Vatra/Voda/Vazduh/Zemlja celim telom), nagomilavanje životne snage, impregnacija prostora, biomagnetizam."
+  },
+  {
+    "id": 4,
+    "cim": "Četvrti stepen",
+    "rovidcim": "IV. stepen",
+    "icon": "waves",
+    "szin": "#38bdf8",
+    "szellem": {
+      "cim": "Magijsko školovanje duha (IV) — Prenošenje svesti u predmete, životinje i ljude",
+      "leiras": "Namerno prenošenje svesti u druga bića/predmete, radi unutrašnje perspektive.",
+      "gyakorlatok": [
+        {
+          "key": "tudat_targyakba",
+          "cim": "Prenošenje svesti u predmete",
+          "leiras": "Smesti svoju svest u poznati predmet (npr. stolicu, sto); opažaj iznutra njegovu strukturu i težinu.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da smestiš svest u predmet i iznutra opažaš njegovu strukturu i težinu?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudat_allatokba",
+          "cim": "Prenošenje svesti u životinje",
+          "leiras": "Smesti svoju svest u telo životinje; oseti njene pokrete i rad njenih čula.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da smestiš svest u telo životinje i iznutra osetiš njene pokrete i čulne doživljaje?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudat_emberekbe",
+          "cim": "Prenošenje svesti u ljude",
+          "leiras": "Smesti svoju svest u telo/um neke osobe; to razvija duboku empatiju i intuiciju.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da smestiš svest u um/telo osobe i empatično opažaš njeno unutrašnje stanje?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magijsko školovanje duše (IV) — Nagomilavanje elemenata i harmonija elemenata",
+      "leiras": "Nagomilavanje elemenata u celom telu i u predelima tela, a zatim uspostavljanje harmonije elemenata.",
+      "gyakorlatok": [
+        {
+          "key": "elemtorlaszolas_test",
+          "cim": "Nagomilavanje elemenata u celom telu",
+          "leiras": "Nagomilaj jedan element u celom telu, a zatim ga rastvori. Svaki element posebno.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da nagomilaš bilo koji element u celom telu i zatim ga potpuno rastvoriš?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemtorlaszolas_reszek",
+          "cim": "Nagomilavanje elemenata u pojedinim delovima tela",
+          "leiras": "Nagomilaj element u određenom delu tela (npr. VATRU → u glavu), a zatim ga rastvori. Na dva načina: plućima i disanjem kroz pore.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da nagomilaš element u određenom delu tela (npr. VATRU u glavi) na oba načina, a zatim ga potpuno rastvoriš?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemharmonia",
+          "cim": "Uspostavljanje harmonije elemenata u predelima tela",
+          "leiras": "VATRA → glava, VAZDUH → grudi, VODA → stomak, ZEMLJA → trtica/noge. Svaki element ima svoj predeo tela.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da usmeriš svaki element u odgovarajući predeo tela i svesno uspostaviš harmoniju elemenata?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magijsko školovanje tela (IV) — Rituali i gestovi",
+      "leiras": "Gestovi, položaji tela i položaji prstiju kao ritualna sredstva.",
+      "gyakorlatok": [
+        {
+          "key": "gesztusok",
+          "cim": "Gestikulacija (gest)",
+          "leiras": "Nauči simbolične gestove kojima možeš da pojačaš elemente, volju i nameru.",
+          "type": "instructional",
+          "successCriteria": "Da li vladaš sa nekoliko osnovnih simboličnih gestova i svesno ih primenjuješ da pojačaš svoj magijski rad?",
+          "minSessions": 3
+        },
+        {
+          "key": "ritualis_testtartas",
+          "cim": "Ritualni položaj tela",
+          "leiras": "Kako određeni položaji (npr. sedeći, stojeći, ležeći) mogu da ojačaju magijski rad.",
+          "type": "practice",
+          "successCriteria": "Da li si izvodio/la magijski rad u različitim položajima i doživeo/la njihova različita dejstva?",
+          "minSessions": 5
+        },
+        {
+          "key": "ujjallitas",
+          "cim": "Položaji prstiju (slični mudrama)",
+          "leiras": "Određeni položaji prstiju jačaju električne/magnetne struje u vezi sa određenim elementima.",
+          "type": "practice",
+          "successCriteria": "Da li vežbaš različite položaje prstiju i osećaš njihovo dejstvo na strujanje energije?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "1–2 meseca",
+    "osszefoglalo": "Prenošenje svesti u predmete/životinje/ljude, nagomilavanje elemenata i harmonija elemenata u predelima tela, rituali i gestovi."
+  },
+  {
+    "id": 5,
+    "cim": "Peti stepen",
+    "rovidcim": "V. stepen",
+    "icon": "star",
+    "szin": "#facc15",
+    "szellem": {
+      "cim": "Magijsko školovanje duha (V) — Magija prostora",
+      "leiras": "Prenošenje svesti u središte bilo kog oblika, od atoma do beskonačnosti. Doživljaj četvrte dimenzije — bezprostornosti i bezvremenosti.",
+      "gyakorlatok": [
+        {
+          "key": "termagia_pont",
+          "cim": "Prenošenje svesti u središte predmeta",
+          "leiras": "Izaberi predmet, pa zamisli da svoju svest smeštaš u njegovo geometrijsko središte. Odatle posmatraj njegovu ravnotežu.",
+          "type": "timed",
+          "params": {
+            "targetSec": 900
+          },
+          "successCriteria": "Možeš li da smestiš svest u geometrijsko središte predmeta i odatle ga posmatraš?",
+          "minSessions": 10
+        },
+        {
+          "key": "termagia_bővítés",
+          "cim": "Širenje svesti u beskonačnost i sažimanje u atom",
+          "leiras": "Proširi svoju svest u beskonačnost, pa je sažmi u tačku veličine atoma. Nastavi dok to ne postane prirodno.",
+          "type": "timed",
+          "params": {
+            "targetSec": 900
+          },
+          "successCriteria": "Možeš li da proširiš svest u beskonačnost, pa je sažmeš u jednu tačku, sa stabilnim i ponovljivim doživljajem?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magijsko školovanje duše (V) — Projektovanje elemenata napolje",
+      "leiras": "Energija skupljena disanjem elemenata može se projektovati napolje iz tela, a kasnije i bez tela.",
+      "gyakorlatok": [
+        {
+          "key": "elemkiaraszt_plexus",
+          "cim": "Projektovanje elemenata napolje — kroz solarni pleksus",
+          "leiras": "Izvedi element nagomilan u telu napolje, u vazduh, kroz čakru solarnog pleksusa.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da izvedeš element napolje kroz solarni pleksus i osetiš dejstvo projektovane energije?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemkiaraszt_kez",
+          "cim": "Projektovanje elemenata iz ruke/prstiju",
+          "leiras": "Izvedi element skupljen u ruci napolje kroz vrhove prstiju, sa posebnom dinamikom.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da izvedeš element napolje iz ruke/prstiju i usmeriš njegovo dejstvo na spoljni predmet ili osobu?",
+          "minSessions": 10
+        },
+        {
+          "key": "kulso_kiaraszt",
+          "cim": "Spoljno projektovanje bez tela",
+          "leiras": "Direktno iz vazduha, bez posredovanja tela, napuni prostor željenim elementom.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Možeš li da projektuješ element direktno u vazduh, bez neposrednog učešća tela?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magijsko školovanje tela (V) — Pasivni kontakt sa nevidljivim",
+      "leiras": "Priprema i ostvarenje: kontakt sa sopstvenim duhom zaštitnikom i sa preminulima.",
+      "gyakorlatok": [
+        {
+          "key": "kez_szabadda",
+          "cim": "Oslobađanje sopstvene ruke",
+          "leiras": "Neutrališi ruku, naročito prste, od svih spoljnih uticaja, da bi opažali samo duhovne podsticaje.",
+          "type": "practice",
+          "successCriteria": "Da li je tvoja ruka postala neutralna prema svakodnevnim uticajima i da li opaža fine duhovne impulse?",
+          "minSessions": 5
+        },
+        {
+          "key": "inga_ceruza",
+          "cim": "Priprema prstiju klatnom, olovkom i kružnom tablom",
+          "leiras": "Uz pomoć klatna i olovke razvijaj osetljivost prstiju na duhovne impulse.",
+          "type": "practice",
+          "successCriteria": "Da li se klatno ili olovka pouzdano pomera u tvojoj ruci pod uticajem tvoje volje i unutrašnjih impulsa?",
+          "minSessions": 5
+        },
+        {
+          "key": "passiv_vedoszellem",
+          "cim": "Pasivni kontakt sa sopstvenim duhom zaštitnikom",
+          "leiras": "U meditativnom stanju primaj znake i poruke od svog unutrašnjeg duha zaštitnika/Višeg Ja.",
+          "type": "practice",
+          "successCriteria": "Da li si u meditativnom stanju uspešno stupio/la u kontakt sa svojim unutrašnjim duhom zaštitnikom/Višim Ja i primio/la znake i poruke?",
+          "minSessions": 5
+        },
+        {
+          "key": "passiv_elhunytak",
+          "cim": "Pasivni kontakt sa preminulima i drugim bićima",
+          "leiras": "Razvijaj pasivnu, medijumsku osetljivost; kroz pokret klatna ili olovke.",
+          "type": "practice",
+          "successCriteria": "Da li si u pasivnom, medijumskom stanju primio/la opažljive signale i da li ih doživljavaš u kontrolisanim uslovima?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "1–2 meseca",
+    "osszefoglalo": "Magija prostora (prenošenje svesti), projektovanje elemenata napolje, pasivni kontakt sa nevidljivim (duh zaštitnik, preminuli)."
+  },
+  {
+    "id": 6,
+    "cim": "Šesti stepen",
+    "rovidcim": "VI. stepen",
+    "icon": "orbit",
+    "szin": "#818cf8",
+    "szellem": {
+      "cim": "Magijsko školovanje duha (VI) — Usredsređenje na sopstveni duh, svest o čulima",
+      "leiras": "Svest o duhu (mentalnom telu) i uzdizanje čula na duhovni nivo.",
+      "gyakorlatok": [
+        {
+          "key": "sajat_szellem",
+          "cim": "Usredsređenje na sopstveni duh",
+          "leiras": "Meditiraj o sopstvenom duhu kao o igri četiri elementa: VATRA→volja, VODA→osećanje, VAZDUH→intelekt, ZEMLJA→svest.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Možeš li svesno da razlikuješ četiri elementa sopstvenog duha (volja/osećanje/intelekt/svest) i da ih sagledaš kao jedinstvo?",
+          "minSessions": 10
+        },
+        {
+          "key": "erzekek_szellemi",
+          "cim": "Svest o čulima na duhovnom nivou",
+          "leiras": "Uzdigni svaki čulni organ (vid, sluh itd.) na duhovni nivo; opažaj i duhovno, ne samo fizički.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Možeš li svesno da uzdigneš sve čulne organe na duhovni nivo, izvan fizičkog opažanja?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magijsko školovanje duše (VI) — Ovladavanje principom akaše",
+      "leiras": "Upoznavanje i primena petog elementa, principa akaše: stanje transa i ovladavanje elementima.",
+      "gyakorlatok": [
+        {
+          "key": "akasha_elokeszit",
+          "cim": "Priprema za ovladavanje principom akaše",
+          "leiras": "Duboka meditacija o principu akaše: uzroku svih stvari, praprincipu bezprostornosti i bezvremenosti.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Možeš li meditativno da doživiš suštinu principa akaše (bezprostornost/bezvremenost, uzrok svih stvari)?",
+          "minSessions": 10
+        },
+        {
+          "key": "akasha_transz",
+          "cim": "Svesno izazivanje transa pomoću akaše",
+          "leiras": "Uz pomoć principa akaše uđi u dubok trans, zadržavajući punu svest o sebi.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Možeš li uz pomoć principa akaše svesno da uđeš u dubok trans i zadržiš punu svest o sebi?",
+          "minSessions": 10
+        },
+        {
+          "key": "akasha_elem_ritual",
+          "cim": "Ovladavanje elementom pojedinačnim ritualom iz akaše",
+          "leiras": "Iz neutralnog stanja akaše prizovi bilo koji element ritualnom namerom.",
+          "type": "practice",
+          "successCriteria": "Možeš li iz neutralnog stanja akaše ritualno da prizoveš bilo koji element i ovladaš njime?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magijsko školovanje tela (VI) — Elementali, larve, šeme, fantomi",
+      "leiras": "Svesno stvaranje duhovnih bića i oblika.",
+      "gyakorlatok": [
+        {
+          "key": "elemental_teremtes",
+          "cim": "Svesno stvaranje elementala",
+          "leiras": "Stvori sa namerom elementalna bića (elementale vatre, vode, vazduha i zemlje), daj im zadatak, a zatim ih rastvori.",
+          "type": "practice",
+          "successCriteria": "Da li si stvorio/la elementale, dao/la im zadatke i uspešno ih rastvorio/la kad su završili posao?",
+          "minSessions": 5
+        },
+        {
+          "key": "larvak",
+          "cim": "Stvaranje larvi",
+          "leiras": "Stvori misaona bića koja ispunjavaju određenu svrhu i rade automatski, pa ih rastvori kad obave svoj posao.",
+          "type": "practice",
+          "successCriteria": "Da li si stvorio/la i uspešno rastvorio/la misaona bića (larve)?",
+          "minSessions": 5
+        },
+        {
+          "key": "semak",
+          "cim": "Stvaranje šema",
+          "leiras": "Stvori na astralnom planu magijske jedinice koje izvode programiranu radnju.",
+          "type": "practice",
+          "successCriteria": "Da li si stvorio/la i pokrenuo/la astralne šeme?",
+          "minSessions": 5
+        },
+        {
+          "key": "fantomok",
+          "cim": "Stvaranje fantoma",
+          "leiras": "Stvori iz akaše magijska bića obdarena iskrom života, koja mogu da poprime i materijalni izgled.",
+          "type": "practice",
+          "successCriteria": "Da li si uspešno stvorio/la fantome iz akaše i u kontrolisanim uslovima doživeo/la njihov materijalni izgled?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–3 meseca",
+    "osszefoglalo": "Svest o sopstvenom duhu, ovladavanje principom akaše (stanje transa, ritual elemenata), stvaranje elementala/larvi/šema/fantoma."
+  },
+  {
+    "id": 7,
+    "cim": "Sedmi stepen",
+    "rovidcim": "VII. stepen",
+    "icon": "eye",
+    "szin": "#a78bfa",
+    "szellem": {
+      "cim": "Magijsko školovanje duha (VII) — Analiza duha u odnosu na praksu",
+      "leiras": "Detaljna analiza i primena četiri elementa duha, uključujući uzajamno pretvaranje svetlosti i elementa VATRA.",
+      "gyakorlatok": [
+        {
+          "key": "szellem_elemzes",
+          "cim": "Analiza elemenata duha",
+          "leiras": "Produbi ulogu svakog elementa (VATRA/VAZDUH/VODA/ZEMLJA) u duhu: volja, intelekt, osećanje, svest.",
+          "type": "journal",
+          "successCriteria": "Da li si detaljno analizirao/la i opisao/la ulogu svakog elementa u sopstvenom duhu, i da li ti ti uvidi produbljuju magijsku praksu?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magijsko školovanje duše (VII) — Razvoj astralnih čula",
+      "leiras": "Razvoj astralne vidovitosti, jasnoslušanja i jasnoosećanja uz pomoć elemenata i fluidnih kondenzatora.",
+      "gyakorlatok": [
+        {
+          "key": "asztralis_latás",
+          "cim": "Razvoj astralne vidovitosti",
+          "leiras": "Uz pomoć fluidnog kondenzatora razvijaj astralni vid; prvo opažaj statične slike, zatim pokret.",
+          "type": "practice",
+          "successCriteria": "Da li redovno i pouzdano opažaš astralne slike, pokrete i energije u unutrašnjem vidu?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralis_halles",
+          "cim": "Razvoj astralnog jasnoslušanja",
+          "leiras": "Astralni sluh: opažanje zvukova i reči bez fizičkog izvora, u kontrolisanim uslovima.",
+          "type": "practice",
+          "successCriteria": "Da li u kontrolisanim uslovima redovno opažaš astralne zvukove i reči bez fizičkog izvora?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralis_erzes",
+          "cim": "Razvoj astralnog jasnoosećanja",
+          "leiras": "Astralni dodir i opažanje: empatično zapažanje tuđih osećanja i fizičkog stanja.",
+          "type": "practice",
+          "successCriteria": "Možeš li empatično i pouzdano da opažaš tuđa osećanja i fizičko stanje na astralnom planu?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magijsko školovanje tela (VII) — Četiri načina stvaranja elementala, magijsko oživljavanje slika",
+      "leiras": "Napredne stvaralačke tehnike za elementale i oživljavanje slika.",
+      "gyakorlatok": [
+        {
+          "key": "elemental_4modszer",
+          "cim": "Četiri osnovna načina stvaranja elementala",
+          "leiras": "1. Stvaranje mišlju. 2. Oblikovanje astralne materije. 3. Stvaranje iz električnog/magnetnog fluida. 4. Neposredno stvaranje iz principa akaše.",
+          "type": "practice",
+          "successCriteria": "Da li si stvorio/la elementale na sva četiri načina i doživeo/la njihove različite osobine?",
+          "minSessions": 10
+        },
+        {
+          "key": "kep_eletrekelt",
+          "cim": "Magijsko oživljavanje slika",
+          "leiras": "Napuni sliku, kip ili mentalnu predstavu životom do te mere da postane sposobna da deluje samostalno.",
+          "type": "practice",
+          "successCriteria": "Da li si uspešno oživeo/la sliku ili kip i posmatrao/la samostalnu, opažljivu aktivnost?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–4 meseca",
+    "osszefoglalo": "Analiza duha, astralna vidovitost/jasnoslušanje/jasnoosećanje, elementali na četiri načina, oživljavanje slika."
+  },
+  {
+    "id": 8,
+    "cim": "Osmi stepen",
+    "rovidcim": "VIII. stepen",
+    "icon": "moon",
+    "szin": "#64748b",
+    "szellem": {
+      "cim": "Magijsko školovanje duha (VIII) — Mentalno putovanje",
+      "leiras": "Odvajanje mentalnog tela od materijalnog tela i svesno mentalno putovanje na različita mesta.",
+      "gyakorlatok": [
+        {
+          "key": "mentalis_elokeszit",
+          "cim": "Pripreme za mentalno putovanje",
+          "leiras": "Opuštanje, disanje i postepeno razvijanje osećaja odvajanja svesti.",
+          "type": "practice",
+          "successCriteria": "Da li redovno dostižeš pripremno stanje dubokog opuštanja i odvajanja svesti?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_szoba",
+          "cim": "Mentalno putovanje: u prostoriji",
+          "leiras": "Prvo mentalno putuj po sopstvenoj prostoriji; posmatraj sebe spolja i poznate predmete.",
+          "type": "practice",
+          "successCriteria": "Da li si uspešno mentalno putovao/la po sopstvenoj prostoriji i posmatrao/la sebe i predmete spolja?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_rovid",
+          "cim": "Mentalno putovanje: kratka ruta",
+          "leiras": "Proširi mentalno putovanje na kratke poznate rute i ulice.",
+          "type": "practice",
+          "successCriteria": "Da li si uspešno mentalno putovao/la poznatim rutama i delimično proverio/la svoja zapažanja?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_ismerosok",
+          "cim": "Mentalne posete poznanicima i rođacima",
+          "leiras": "Mentalno poseti poznate osobe i proveri svoja zapažanja i fizički.",
+          "type": "practice",
+          "successCriteria": "Da li si uspešno fizički proverio/la deo zapažanja stečenih tokom mentalnih poseta?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magijsko školovanje duše (VIII) — Veliko „SADA”, ovladavanje fluidima",
+      "leiras": "Doživljaj bezvremenosti nalik akaši, ovladavanje električnim i magnetnim fluidom.",
+      "gyakorlatok": [
+        {
+          "key": "nagy_most",
+          "cim": "Veliko „SADA” — doživljaj bezvremenosti",
+          "leiras": "Potpuno uroni u sadašnji trenutak; prošlost i budućnost nestaju, postoji samo „sada”.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Da li svakodnevno doživljavaš trenutke bezvremenosti i da li je prisutnost u „sada” postala prirodna?",
+          "minSessions": 21
+        },
+        {
+          "key": "ne_ragaszkodj",
+          "cim": "Ne vežimo se za prošlost",
+          "leiras": "Svesno otpusti prošle događaje i uvrede; mag ne nosi nepotrebne terete.",
+          "type": "journal",
+          "successCriteria": "Da li redovno praktikuješ otpuštanje i osećaš unutrašnje oslobođenje od tereta prošlosti?",
+          "minSessions": 5
+        },
+        {
+          "key": "elektromos_fluidum",
+          "cim": "Ovladavanje električnim fluidom (induktivna i deduktivna metoda)",
+          "leiras": "Električni fluid: aktivni, ekspanzivni vid elementa VATRA. Indukcija: skupljanje spolja. Dedukcija: projektovanje iz sopstvenog tela.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Da li obema metodama (induktivnom i deduktivnom) uspešno vladaš električnim fluidom i proveravaš njegovo dejstvo na druga bića?",
+          "minSessions": 10
+        },
+        {
+          "key": "magnetikus_fluidum",
+          "cim": "Ovladavanje magnetnim fluidom (induktivna i deduktivna metoda)",
+          "leiras": "Magnetni fluid: pasivni, privlačni vid elementa VODA. Primenljiv u lečenju i privlačenju.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Da li obema metodama uspešno vladaš magnetnim fluidom i isprobavaš njegovu lekovitu/privlačnu primenu?",
+          "minSessions": 10
+        },
+        {
+          "key": "elektromagnetikus_fluidum",
+          "cim": "Ovladavanje elektromagnetnim fluidom",
+          "leiras": "Spajanje dva fluida: osnovna sila stvaranja u vasioni. Najjače magijsko sredstvo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Da li si uspešno spojio/la dva fluida u elektromagnetno jedinstvo i da li svesno primenjuješ njegovu stvaralačku moć?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magijsko školovanje tela (VIII) — Uticaj pomoću elemenata, fluidni kondenzatori, magijsko ogledalo",
+      "leiras": "Izrada magijskih predmeta i uticajna moć elemenata.",
+      "gyakorlatok": [
+        {
+          "key": "elemek_befolyasolás",
+          "cim": "Magijski uticaj pomoću elemenata (Vatra/Vazduh/Voda/Zemlja)",
+          "leiras": "Vatra: spaljivanje (uništavanje negativnih uticaja). Vazduh: isparavanje. Voda: mešanje. Zemlja: truljenje — sve magijske metode za razrešavanje problema.",
+          "type": "practice",
+          "successCriteria": "Da li si izveo/la sve četiri metode (spaljivanje, isparavanje, mešanje, truljenje) i doživeo/la njihova dejstva?",
+          "minSessions": 5
+        },
+        {
+          "key": "egyszerű_kondenzt",
+          "cim": "Priprema jednostavnog fluidnog kondenzatora",
+          "leiras": "Priprema biljnog čaja (npr. od kamilice) kao fluidnog kondenzatora koji čuva elektromagnetnu silu.",
+          "type": "instructional",
+          "successCriteria": "Da li si pripremio/la jednostavan fluidni kondenzator i razumeo/la i primenio/la princip elektromagnetnog punjenja?",
+          "minSessions": 3
+        },
+        {
+          "key": "osszetett_kondenzt",
+          "cim": "Priprema složenog fluidnog kondenzatora",
+          "leiras": "Priprema složenog kondenzatora koji sadrži zlato i srebro.",
+          "type": "instructional",
+          "successCriteria": "Da li si pripremio/la složeni fluidni kondenzator koristeći zlato i srebro?",
+          "minSessions": 3
+        },
+        {
+          "key": "magikus_tukor_keszit",
+          "cim": "Izrada magijskog ogledala sa fluidnim kondenzatorom",
+          "leiras": "Punjenje staklene ploče ili ogledala fluidnim kondenzatorom i sopstvenim elektromagnetnim fluidom.",
+          "type": "practice",
+          "successCriteria": "Da li si izradio/la magijsko ogledalo, napunio/la ga kondenzatorom i sopstvenim fluidom i počeo/la da osećaš njegovo delovanje?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–4 meseca",
+    "osszefoglalo": "Mentalno putovanje, veliko „SADA”, ovladavanje elektromagnetnim fluidima, uticaj pomoću elemenata, fluidni kondenzatori i izrada magijskog ogledala."
+  },
+  {
+    "id": 9,
+    "cim": "Deveti stepen",
+    "rovidcim": "IX. stepen",
+    "icon": "mirror",
+    "szin": "#f9a8d4",
+    "szellem": {
+      "cim": "Magijsko školovanje duha (IX) — Vidovitost pomoću magijskih ogledala",
+      "leiras": "Magijsko ogledalo kao glavno sredstvo za proširenje čula kroz vreme i prostor.",
+      "gyakorlatok": [
+        {
+          "key": "tukortöltés",
+          "cim": "Punjenje magijskog ogledala",
+          "leiras": "Napuni magijsko ogledalo elektromagnetnim fluidom i sopstvenom astralnom energijom; daj mu nameru i svrhu.",
+          "type": "practice",
+          "successCriteria": "Da li svoje ogledalo redovno i delotvorno puniš i da li ono opažljivo odgovara tvojoj volji?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukorbetegkez",
+          "cim": "Magijsko ogledalo kao sredstvo za gledanje na daljinu (prostor/vreme)",
+          "leiras": "Kroz ogledalo gledaj u daljinu, istražuj prošlost/sadašnjost/budućnost.",
+          "type": "practice",
+          "successCriteria": "Da li u ogledalu pouzdano vidiš udaljene, prošle i buduće slike koje možeš delimično da proveriš?",
+          "minSessions": 10
+        },
+        {
+          "key": "tukorbefoly",
+          "cim": "Magijsko ogledalo kao sredstvo uticaja",
+          "leiras": "Kroz ogledalo zrači pozitivnu energiju i snagu na bolesne i u situacije.",
+          "type": "practice",
+          "successCriteria": "Da li uspešno primenjuješ ogledalo za zračenje pozitivnih energija i doživljavaš merljiva dejstva?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukortavolhat",
+          "cim": "Magijsko ogledalo kao predajnik-prijemnik (komunikacija)",
+          "leiras": "Komunikacija sa živim osobama i drugim bićima kroz ogledalo.",
+          "type": "practice",
+          "successCriteria": "Da li si uspešno komunicirao/la kroz ogledalo i mogao/la da deo poruka proveriš iz spoljnog izvora?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukorvedo",
+          "cim": "Magijsko ogledalo kao zaštitno sredstvo",
+          "leiras": "Odbij ogledalom štetne i neželjene uticaje.",
+          "type": "practice",
+          "successCriteria": "Da li uspešno primenjuješ ogledalo za zaštitu i doživljavaš odbijanje neželjenih dejstava?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magijsko školovanje duše (IX) — Odvajanje astralnog tela, božanske praosobine",
+      "leiras": "Svesno odvajanje astralnog tela od fizičkog tela i njegovo punjenje četirima božanskim praosobinama.",
+      "gyakorlatok": [
+        {
+          "key": "asztralist_elvalaszt",
+          "cim": "Svesno odvajanje astralnog tela od materijalnog tela",
+          "leiras": "Astralno telo — telesni omotač duše — napušta fizičko telo sa punom svešću o sebi i po volji, i vraća se.",
+          "type": "practice",
+          "successCriteria": "Možeš li svesno i voljno da odvojiš astralno telo i vratiš ga, sa punom svešću o sebi?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralist_istenialap",
+          "cim": "Punjenje astralnog tela četirima božanskim praosobinama",
+          "leiras": "Prožmi astralno telo božanskom Ljubavlju, Mudrošću, Voljom/Moći i Svešću.",
+          "type": "practice",
+          "successCriteria": "Da li si uspešno napunio/la astralno telo sa sve četiri božanske praosobine i da li to stalno održavaš?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magijsko školovanje tela (IX) — Lečenje, talismani, ispunjenje želja",
+      "leiras": "Lečenje elektromagnetnim fluidom, punjenje talismana i amajlija, ispunjenje želja u akaši.",
+      "gyakorlatok": [
+        {
+          "key": "betegkez_fluidum",
+          "cim": "Lečenje elektromagnetnim fluidom",
+          "leiras": "Lečenje bolesnih osoba polaganjem ruku ili na daljinu, sprovođenjem elektromagnetnog fluida.",
+          "type": "practice",
+          "successCriteria": "Da li si uspešno tretirao/la osobe elektromagnetnim fluidom i zabeležio/la merljivo poboljšanje?",
+          "minSessions": 5
+        },
+        {
+          "key": "talizmantoltes",
+          "cim": "Magijsko punjenje talismana, amajlija i dragog kamenja (10 metoda)",
+          "leiras": "10 različitih metoda za punjenje predmeta elektromagnetnom/astralnom energijom sa određenom namerom.",
+          "type": "practice",
+          "successCriteria": "Da li si izveo/la punjenje talismana svih 10 metoda i da li je dejstvo napunjenih predmeta opažljivo?",
+          "minSessions": 10
+        },
+        {
+          "key": "kivanság_akasha",
+          "cim": "Ispunjenje želja u akaši elektromagnetnim punjenjem („voltizacija”)",
+          "leiras": "Želju zatvorenu u elektromagnetnu kuglu smeštaš na plan akaše, gde ona sama teži ispunjenju.",
+          "type": "practice",
+          "successCriteria": "Da li si izveo/la tehniku voltizacije i da li se želje ispunjavaju a da na njih aktivno ne misliš?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "3–6 meseci",
+    "osszefoglalo": "Vidovitost pomoću magijskih ogledala, odvajanje astralnog tela, lečenje fluidom, punjenje talismana sa 10 metoda, ispunjenje želja u akaši."
+  },
+  {
+    "id": 10,
+    "cim": "Deseti stepen",
+    "rovidcim": "X. stepen",
+    "icon": "sparkles",
+    "szin": "#fbbf24",
+    "szellem": {
+      "cim": "Magijsko školovanje duha (X) — Uzdizanje duha na više planove",
+      "leiras": "Svesno uzdizanje mentalnog tela na mentalne planove iznad fizičkog i astralnog plana, a zatim i više.",
+      "gyakorlatok": [
+        {
+          "key": "szellem_emelese",
+          "cim": "Uzdizanje duha na više planove",
+          "leiras": "Namerno prenošenje svesti na mentalni plan, a zatim na planove iza njega. Fizički svet privremeno potpuno nestaje.",
+          "type": "practice",
+          "successCriteria": "Da li svesno uzdižeš duh na mentalni plan i odatle na više planove, dok fizički svet potpuno nestaje?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Magijsko školovanje duše (X) — Veza sa ličnim Bogom i božanstvima",
+      "leiras": "Najviši nivo duševne veze: svesno zajedništvo sa sopstvenim ličnim božanstvom i drugim duhovnim hijerarhijama.",
+      "gyakorlatok": [
+        {
+          "key": "sajat_isten",
+          "cim": "Svesna veza sa sopstvenim ličnim Bogom",
+          "leiras": "Svesna, neposredna, dvosmerna komunikacija sa sopstvenom unutrašnjom božanskom iskrom i Višim Ja.",
+          "type": "practice",
+          "successCriteria": "Da li redovno i pouzdano komuniciraš dvosmerno sa svojom unutrašnjom božanskom iskrom/Višim Ja?",
+          "minSessions": 10
+        },
+        {
+          "key": "istenségek",
+          "cim": "Veza sa božanstvima i duhovnim hijerarhijama",
+          "leiras": "Mag je sposoban da na planu akaše komunicira i sarađuje sa božanstvima, arhanđelima i drugim duhovnim bićima.",
+          "type": "practice",
+          "successCriteria": "Da li si na planu akaše uspešno stupio/la u vezu sa božanstvima ili duhovnim hijerarhijama i da li je saradnja plodna?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Magijsko školovanje tela (X) — Različite metode magijskih sposobnosti",
+      "leiras": "Sinteza svih prethodnih stepena; mag je sposoban da po univerzalnim zakonima izazove sve opisane pojave.",
+      "gyakorlatok": [
+        {
+          "key": "magikus_kepessegek",
+          "cim": "Različite metode za sticanje magijskih sposobnosti",
+          "leiras": "Uticaj na vreme, lečenje, usklađivanje životnog prostora, komunikacija sa mrtvima i druga viša magijska dela.",
+          "type": "instructional",
+          "successCriteria": "Da li si, kao sintezu svih prethodnih stepena, sposoban/a da namerno izazoveš magijske pojave opisane u knjizi?",
+          "minSessions": 1
+        }
+      ]
+    },
+    "idotartam": "Individualno — ovde se kurs završava",
+    "osszefoglalo": "Uzdizanje duha na više planove, svesna veza sa ličnim Bogom i božanstvima, sinteza svih magijskih sposobnosti."
+  }
+]

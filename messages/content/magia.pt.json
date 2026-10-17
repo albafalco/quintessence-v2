@@ -1,0 +1,1163 @@
+[
+  {
+    "id": 1,
+    "cim": "Primeiro Grau",
+    "rovidcim": "Grau I",
+    "icon": "sprout",
+    "szin": "#4ade80",
+    "szellem": {
+      "cim": "Treino mágico do espírito (I) — Controle, disciplina e domínio do pensamento",
+      "leiras": "O primeiro passo: sente-se confortavelmente ou deite-se, relaxe o corpo, feche os olhos e, por 5 minutos, observe o fluxo dos seus pensamentos como um observador passivo. A cada dia, aumente 1 minuto até conseguir manter 10 minutos. Isso deve ser feito de manhã e à noite. O objetivo: vazio completo de pensamentos por 10 minutos.",
+      "gyakorlatok": [
+        {
+          "key": "gondolatellenorzes",
+          "cim": "Controle do pensamento",
+          "leiras": "Duas vezes ao dia, por 5–10 minutos: observe o fluxo dos seus pensamentos como um observador passivo, sem julgá-los.",
+          "type": "progressive_timed",
+          "params": {
+            "startSec": 300,
+            "stepSec": 60,
+            "maxSec": 600,
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Você consegue observar passivamente seus pensamentos por 10 minutos, sem o menor julgamento, duas vezes ao dia seguidas?",
+          "minSessions": 10
+        },
+        {
+          "key": "gondolatfegyelmezés",
+          "cim": "Disciplina do pensamento",
+          "leiras": "Afaste conscientemente certos pensamentos; mantenha um pensamento escolhido por você; cultive o vazio de pensamentos.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue manter um único pensamento escolhido, sem interrupção, por 10 minutos?",
+          "minSessions": 10
+        },
+        {
+          "key": "gondolaturales",
+          "cim": "Domínio do pensamento + diário mágico",
+          "leiras": "Mantenha um diário mágico: registre cada sucesso, cada fracasso e a duração das suas práticas. Autocrítica e planejamento para o próximo dia/semana.",
+          "type": "journal",
+          "successCriteria": "Você mantém regularmente seu diário mágico e avalia objetivamente seu progresso todos os dias?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Treino mágico da alma (I) — Introspecção ou autoconhecimento",
+      "leiras": "O autoconhecimento é pré-requisito de todo método iniciático. Registre no seu diário todos os lados sombrios da sua alma: seus defeitos, hábitos e paixões. Seja rigoroso consigo mesmo. Atribua cada defeito a um dos quatro elementos (Fogo, Água, Ar, Terra), em três graus de intensidade.",
+      "gyakorlatok": [
+        {
+          "key": "introspekcio",
+          "cim": "Introspecção — autoconhecimento",
+          "leiras": "Dedique alguns minutos, de manhã e à noite, à autocrítica: descubra os defeitos, hábitos e fraquezas da sua alma. Anote-os.",
+          "type": "journal",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Você reconhece diariamente novos padrões e traços em si mesmo por meio da reflexão de autoconhecimento?",
+          "minSessions": 10
+        },
+        {
+          "key": "fekete_tukor",
+          "cim": "Espelho negro da alma (defeitos)",
+          "leiras": "Atribua seus defeitos aos quatro elementos, em três graus de intensidade. FOGO: irritabilidade, ciúme, raiva. AR: leviandade, vaidade, fofoca. ÁGUA: indiferença, negligência, teimosia. TERRA: suscetibilidade, preguiça, peso.",
+          "type": "worksheet",
+          "successCriteria": "Você completou o espelho negro: registrou todos os defeitos conhecidos, atribuiu-os aos elementos e os classificou em três graus de intensidade?",
+          "minSessions": 1
+        },
+        {
+          "key": "feher_tukor",
+          "cim": "Espelho branco da alma (virtudes)",
+          "leiras": "Atribua também suas boas qualidades aos elementos. FOGO: iniciativa, entusiasmo, coragem. AR: diligência, alegria, gentileza. ÁGUA: modéstia, calma, brandura. TERRA: perseverança, precisão, senso de responsabilidade.",
+          "type": "worksheet",
+          "successCriteria": "Você completou o espelho branco: registrou suas virtudes e as atribuiu aos elementos?",
+          "minSessions": 1
+        }
+      ]
+    },
+    "test": {
+      "cim": "Treino mágico do corpo (I) — O corpo material, respiração, alimentação, água",
+      "leiras": "Corpo, alma e espírito devem ser treinados ao mesmo tempo. Cuidados matinais com o corpo, exercício matinal, respiração consciente, alimentação consciente, a magia da água.",
+      "gyakorlatok": [
+        {
+          "key": "reggeli_testapolas",
+          "cim": "Cuidados matinais com o corpo",
+          "leiras": "Todas as manhãs, escove o corpo inteiro com uma escova macia (a pele deve ficar levemente rosada). Depois enxágue com água fria e seque esfregando. Um hábito diário para a vida toda.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Você faz os cuidados matinais com o corpo (escovação + água fria) todos os dias, sem interrupção?",
+          "minSessions": 21
+        },
+        {
+          "key": "reggeli_torna",
+          "cim": "Exercício matinal",
+          "leiras": "Alguns minutos de exercício matinal todos os dias; objetivo: um corpo ágil e flexível.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Você faz o exercício matinal todos os dias?",
+          "minSessions": 21
+        },
+        {
+          "key": "tudatos_legzes",
+          "cim": "Respiração consciente",
+          "leiras": "Ao respirar, imagine vividamente saúde, calma e sucesso fluindo para cada parte do seu corpo. Comece com 7 respirações de manhã e à noite, aumentando 1 por dia. Nunca ultrapasse meia hora.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300,
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Você faz o exercício de respiração consciente de manhã e à noite, todos os dias, e sente vividamente o fluxo de energia?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudatos_etkezes",
+          "cim": "Alimentação consciente (o mistério da Eucaristia)",
+          "leiras": "Concentre seu desejo sobre a comida ou a bebida como se ele já tivesse sido realizado. Coma devagar e com consciência; não leia nem se distraia. Use sempre o mesmo desejo tanto na respiração quanto na alimentação.",
+          "type": "habit",
+          "params": {
+            "frequency": "per_meal"
+          },
+          "successCriteria": "Em cada refeição você se concentra conscientemente no seu desejo e come devagar e com atenção?",
+          "minSessions": 21
+        },
+        {
+          "key": "viz_magiaja",
+          "cim": "A magia da água",
+          "leiras": "Toda vez que lavar as mãos, imagine que, junto com a sujeira física, seus fardos espirituais, fracassos e inquietações também são lavados. Despeje a água suja imediatamente. Ao contrário: você pode carregar a água do banho com um desejo para que sua força passe para o seu corpo.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Você aplica conscientemente a magia da água a cada lavagem de mãos e a cada banho?",
+          "minSessions": 21
+        }
+      ]
+    },
+    "idotartam": "2 semanas – 1 mês",
+    "osszefoglalo": "Controle e domínio do pensamento, conclusão do espelho da alma (negro e branco), cuidados diários com o corpo e domínio da respiração consciente + alimentação consciente + magia da água."
+  },
+  {
+    "id": 2,
+    "cim": "Segundo Grau",
+    "rovidcim": "Grau II",
+    "icon": "leaf",
+    "szin": "#34d399",
+    "szellem": {
+      "cim": "Treino mágico do espírito (II) — Autossugestão e exercícios de concentração",
+      "leiras": "Aprender o segredo do subconsciente e dominar a autossugestão. Exercícios de concentração para os cinco sentidos.",
+      "gyakorlatok": [
+        {
+          "key": "autoszuggesztio",
+          "cim": "Autossugestão — o segredo do subconsciente",
+          "leiras": "No momento antes de adormecer (quando a porta do subconsciente está aberta), preserve seu desejo mais forte e seus melhores pensamentos e leve-os para o sono.",
+          "type": "habit",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Você aplica com constância o desejo/fórmula escolhido antes de dormir e ao acordar?",
+          "minSessions": 21
+        },
+        {
+          "key": "konc_keppel",
+          "cim": "Concentração com imagem",
+          "leiras": "Visualize um objeto, uma pessoa ou uma paisagem com o máximo de detalhes possível. Mantenha a imagem por 10 minutos.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Você consegue manter uma imagem visual sem perturbação por 5 minutos na sua visão interior?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_hanggal",
+          "cim": "Concentração com som",
+          "leiras": "Evoque um som, uma música ou uma palavra pela audição interior. Mantenha-o sem distração externa.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Você consegue evocar um som sem perturbação por 5 minutos pela audição interior?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_erzekkel",
+          "cim": "Concentração com sensação (tato/temperatura)",
+          "leiras": "Imagine a sensação exata de tocar um objeto ou material. Ex.: madeira, metal, o calor/frio da água.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Você consegue evocar uma sensação tátil ou de temperatura sem perturbação por 5 minutos?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_illattal",
+          "cim": "Concentração com aroma",
+          "leiras": "Evoque a sensação exata de um aroma pelo olfato interior (flor, grama, pão etc.).",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Você consegue evocar um aroma sem perturbação por 5 minutos pelo olfato interior?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_izzal",
+          "cim": "Concentração com sabor",
+          "leiras": "Evoque a sensação exata de um sabor pelo paladar interior (doce, azedo, salgado, amargo).",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Você consegue evocar um sabor sem perturbação por 5 minutos pelo paladar interior?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Treino mágico da alma (II) — Equilíbrio mágico-astral e enobrecimento do caráter",
+      "leiras": "Restabelecer o equilíbrio entre os elementos: superação dos defeitos, autossugestão, transmutação.",
+      "gyakorlatok": [
+        {
+          "key": "jellemnemesites_lekuzdes",
+          "cim": "Enobrecimento do caráter — superação/domínio",
+          "leiras": "Do espelho negro do primeiro grau, escolha seus defeitos mais fortes. Todos os dias trabalhe para contê-los com vontade firme.",
+          "type": "practice",
+          "successCriteria": "Você trabalha com constância para superar os defeitos mais fortes do espelho negro e percebe uma melhora mensurável no seu comportamento diário?",
+          "minSessions": 10
+        },
+        {
+          "key": "jellemnemesites_szuggesztio",
+          "cim": "Enobrecimento do caráter — autossugestão",
+          "leiras": "Sugira a si mesmo a qualidade virtuosa oposta ao defeito, antes de dormir e ao acordar.",
+          "type": "habit",
+          "params": {
+            "frequency": "twice_daily"
+          },
+          "successCriteria": "Você sugere a si mesmo, com constância, a qualidade virtuosa oposta antes de dormir e ao acordar?",
+          "minSessions": 21
+        },
+        {
+          "key": "jellemnemesites_transmutacio",
+          "cim": "Enobrecimento do caráter — transmutação",
+          "leiras": "Transforme o defeito na qualidade oposta: ex.: irritabilidade em energia, suscetibilidade em compreensão.",
+          "type": "practice",
+          "successCriteria": "Você consegue, no dia a dia, virar imediatamente um impulso negativo para uma direção positiva?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Treino mágico do corpo (II) — Respiração consciente pelos poros, postura",
+      "leiras": "Respiração consciente pela pele e desenvolvimento diário do domínio sobre o corpo.",
+      "gyakorlatok": [
+        {
+          "key": "poruszlegzes",
+          "cim": "Respiração consciente pelos poros",
+          "leiras": "Imagine que você inspira energia vital do cosmos não só pelos pulmões, mas por toda a superfície da pele. Sinta como essa energia se espalha pelo seu corpo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue evocar uma sensação vívida e real de respirar por toda a superfície da pele?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudatos_testtartas",
+          "cim": "Postura consciente",
+          "leiras": "Todos os dias preste atenção ao seu estado corporal; sente-se, fique em pé e caminhe com disciplina e postura ereta.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Você observa diariamente sua postura e a corrige conscientemente?",
+          "minSessions": 21
+        },
+        {
+          "key": "test_uralasa",
+          "cim": "Domínio do corpo no dia a dia",
+          "leiras": "Desenvolva a capacidade de dirigir o corpo à vontade; influencie conscientemente o cansaço, a sensação de frio e os movimentos musculares.",
+          "type": "practice",
+          "successCriteria": "Você consegue influenciar e reduzir conscientemente o cansaço, a sensação de frio ou a tensão muscular?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "idotartam": "2 semanas – 1 mês",
+    "osszefoglalo": "Autossugestão, exercícios de concentração para os cinco sentidos, enobrecimento do caráter (superação, autossugestão, transmutação), respiração consciente pelos poros e postura."
+  },
+  {
+    "id": 3,
+    "cim": "Terceiro Grau",
+    "rovidcim": "Grau III",
+    "icon": "flame",
+    "szin": "#fb923c",
+    "szellem": {
+      "cim": "Treino mágico do espírito (III) — Concentração do pensamento com dois e três sentidos",
+      "leiras": "Concentração com dois ou três sentidos ao mesmo tempo; depois em objetos, paisagens, animais e pessoas.",
+      "gyakorlatok": [
+        {
+          "key": "konc_2_erzek",
+          "cim": "Concentração com 2–3 sentidos ao mesmo tempo",
+          "leiras": "Combine, por exemplo, a experiência imaginada da visão e da audição, ou visão + audição + tato ao mesmo tempo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue manter duas ou três experiências sensoriais combinadas ao mesmo tempo na concentração interior?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_targyakra",
+          "cim": "Concentração do pensamento em objetos, paisagens, cômodos",
+          "leiras": "Evoque um objeto, cômodo ou lugar conhecido com o máximo de detalhes possível, com todos os sentidos.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue evocar um objeto, cômodo ou lugar com detalhes e de forma estável, com todos os sentidos?",
+          "minSessions": 10
+        },
+        {
+          "key": "konc_allatokra",
+          "cim": "Concentração do pensamento em animais e pessoas",
+          "leiras": "Evoque um animal ou uma pessoa em todo o seu ser; seus movimentos, sons e essência.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue evocar um animal ou uma pessoa em todo o seu ser, com seu movimento e sua essência?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Treino mágico da alma (III) — Respiração dos elementos no corpo inteiro",
+      "leiras": "Inspiração consciente dos quatro elementos no corpo inteiro, junto com a qualidade de cada elemento.",
+      "gyakorlatok": [
+        {
+          "key": "elemlegzes_tuz",
+          "cim": "Respiração do elemento FOGO (quente)",
+          "leiras": "Ao respirar, imagine que inspira o elemento FOGO; uma energia quente e incandescente preenche todo o seu corpo. Protege, aquece e ativa o corpo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Você consegue evocar a sensação genuína de calor do elemento FOGO em todo o corpo ao respirar?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_levego",
+          "cim": "Respiração do elemento AR (leve)",
+          "leiras": "Ao respirar, imagine que inspira o elemento AR; leveza e uma sensação de liberdade preenchem o corpo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Você consegue evocar a sensação de leveza do elemento AR em todo o corpo ao respirar?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_viz",
+          "cim": "Respiração do elemento ÁGUA (fresca)",
+          "leiras": "Ao respirar, imagine que inspira o elemento ÁGUA; uma energia fresca e fluida preenche seu corpo e traz calma.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Você consegue evocar a sensação refrescante e fluida do elemento ÁGUA em todo o corpo ao respirar?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemlegzes_fold",
+          "cim": "Respiração do elemento TERRA (pesada)",
+          "leiras": "Ao respirar, imagine que inspira o elemento TERRA; peso, solidez e estabilidade preenchem você.",
+          "type": "timed",
+          "params": {
+            "targetSec": 300
+          },
+          "successCriteria": "Você consegue evocar a sensação de peso e solidez do elemento TERRA em todo o corpo ao respirar?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Treino mágico do corpo (III) — Acúmulo de energia vital, impregnação do espaço, biomagnetismo",
+      "leiras": "Reunião consciente de energia vital no corpo, carregamento de um espaço, magnetismo.",
+      "gyakorlatok": [
+        {
+          "key": "eleterotorlaszolas_test",
+          "cim": "Acúmulo de energia vital no corpo inteiro",
+          "leiras": "Acumule energia vital em todo o corpo por meio da respiração pulmonar e pelos poros. Sinta seu calor e sua densidade.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue reunir energia vital em todo o corpo e sentir vividamente seu calor e densidade?",
+          "minSessions": 10
+        },
+        {
+          "key": "eleterotorlaszolas_reszek",
+          "cim": "Acúmulo de energia vital em partes do corpo",
+          "leiras": "Concentre e acumule energia vital, por exemplo, na mão, na cabeça ou em torno do coração.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue concentrar conscientemente energia vital em partes do corpo e sentir ali calor ou formigamento?",
+          "minSessions": 10
+        },
+        {
+          "key": "terimpregnalás",
+          "cim": "Impregnação do espaço (apêndice)",
+          "leiras": "Preencha um cômodo inteiro com um desejo positivo (saúde, sucesso, paz) por meio da atenção voltada ao princípio do Akasha.",
+          "type": "practice",
+          "successCriteria": "Você fez o exercício de impregnação do espaço e sentiu a mudança energética no cômodo?",
+          "minSessions": 5
+        },
+        {
+          "key": "biomagnetizmus",
+          "cim": "Biomagnetismo (apêndice)",
+          "leiras": "Use a força magnética que flui da sua mão para curar e carregar pessoas e objetos.",
+          "type": "instructional",
+          "successCriteria": "Você compreendeu o princípio do biomagnetismo e fez experiências com a aplicação consciente da força que flui da sua mão?",
+          "minSessions": 3
+        }
+      ]
+    },
+    "idotartam": "2 semanas – 1 mês",
+    "osszefoglalo": "Concentração do pensamento com vários sentidos, respiração dos elementos (Fogo/Água/Ar/Terra no corpo inteiro), acúmulo de energia vital, impregnação do espaço, biomagnetismo."
+  },
+  {
+    "id": 4,
+    "cim": "Quarto Grau",
+    "rovidcim": "Grau IV",
+    "icon": "waves",
+    "szin": "#38bdf8",
+    "szellem": {
+      "cim": "Treino mágico do espírito (IV) — Transposição da consciência para objetos, animais e pessoas",
+      "leiras": "A transferência deliberada da consciência para outros seres/objetos, para uma perspectiva interior.",
+      "gyakorlatok": [
+        {
+          "key": "tudat_targyakba",
+          "cim": "Transposição da consciência para objetos",
+          "leiras": "Coloque sua consciência em um objeto conhecido (ex.: cadeira, mesa); perceba de dentro sua estrutura e seu peso.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue colocar sua consciência em um objeto e perceber de dentro sua estrutura e seu peso?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudat_allatokba",
+          "cim": "Transposição da consciência para animais",
+          "leiras": "Coloque sua consciência no corpo de um animal; sinta seus movimentos e o funcionamento dos seus sentidos.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue colocar sua consciência no corpo de um animal e sentir de dentro seus movimentos e experiências sensoriais?",
+          "minSessions": 10
+        },
+        {
+          "key": "tudat_emberekbe",
+          "cim": "Transposição da consciência para pessoas",
+          "leiras": "Coloque sua consciência no corpo/mente de uma pessoa; isso desenvolve profunda empatia e intuição.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue colocar sua consciência na mente/corpo de uma pessoa e perceber com empatia seu estado interior?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Treino mágico da alma (IV) — Acúmulo dos elementos e harmonia dos elementos",
+      "leiras": "Acumular os elementos no corpo inteiro e em regiões do corpo e, depois, restabelecer a harmonia dos elementos.",
+      "gyakorlatok": [
+        {
+          "key": "elemtorlaszolas_test",
+          "cim": "Acúmulo dos elementos no corpo inteiro",
+          "leiras": "Acumule um único elemento no corpo inteiro e depois dissolva-o. Cada elemento separadamente.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue acumular qualquer elemento no corpo inteiro e depois dissolvê-lo completamente?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemtorlaszolas_reszek",
+          "cim": "Acúmulo dos elementos em partes do corpo",
+          "leiras": "Acumule um elemento em uma parte específica do corpo (ex.: FOGO → na cabeça) e depois dissolva-o. Por dois métodos: pelos pulmões e pela respiração pelos poros.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue acumular um elemento em uma parte específica do corpo (ex.: FOGO na cabeça) pelos dois métodos e depois dissolvê-lo completamente?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemharmonia",
+          "cim": "Restabelecer a harmonia dos elementos nas regiões do corpo",
+          "leiras": "FOGO → cabeça, AR → peito, ÁGUA → abdômen, TERRA → cóccix/pernas. Cada elemento tem sua própria região do corpo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue dirigir cada elemento para a região do corpo correspondente e restabelecer conscientemente a harmonia dos elementos?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Treino mágico do corpo (IV) — Rituais e gestos",
+      "leiras": "Gestos, posturas e posições dos dedos como ferramentas rituais.",
+      "gyakorlatok": [
+        {
+          "key": "gesztusok",
+          "cim": "Gesticulação (gesto)",
+          "leiras": "Aprenda gestos simbólicos que você pode usar para reforçar os elementos, a vontade e a intenção.",
+          "type": "instructional",
+          "successCriteria": "Você domina vários gestos simbólicos básicos e os aplica conscientemente para reforçar seu trabalho mágico?",
+          "minSessions": 3
+        },
+        {
+          "key": "ritualis_testtartas",
+          "cim": "Postura ritual",
+          "leiras": "Como certas posturas (ex.: sentado, em pé, deitado) podem fortalecer o trabalho mágico.",
+          "type": "practice",
+          "successCriteria": "Você fez trabalho mágico em diferentes posturas e vivenciou seus efeitos distintos?",
+          "minSessions": 5
+        },
+        {
+          "key": "ujjallitas",
+          "cim": "Posições dos dedos (tipo mudra)",
+          "leiras": "Certas posições dos dedos fortalecem as correntes elétricas/magnéticas em ligação com elementos específicos.",
+          "type": "practice",
+          "successCriteria": "Você pratica diferentes posições dos dedos e sente seu efeito no fluxo de energia?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "1–2 meses",
+    "osszefoglalo": "Transposição da consciência para objetos/animais/pessoas, acúmulo dos elementos e harmonia dos elementos nas regiões do corpo, rituais e gestos."
+  },
+  {
+    "id": 5,
+    "cim": "Quinto Grau",
+    "rovidcim": "Grau V",
+    "icon": "star",
+    "szin": "#facc15",
+    "szellem": {
+      "cim": "Treino mágico do espírito (V) — Magia do espaço",
+      "leiras": "Transferir a consciência para o centro de qualquer forma, do átomo ao infinito. Vivenciar a quarta dimensão — ausência de espaço e de tempo.",
+      "gyakorlatok": [
+        {
+          "key": "termagia_pont",
+          "cim": "Transferir a consciência para o centro de objetos",
+          "leiras": "Escolha um objeto e imagine colocar sua consciência no seu centro geométrico. A partir dali observe seu equilíbrio.",
+          "type": "timed",
+          "params": {
+            "targetSec": 900
+          },
+          "successCriteria": "Você consegue colocar sua consciência no centro geométrico de um objeto e observá-lo dali?",
+          "minSessions": 10
+        },
+        {
+          "key": "termagia_bővítés",
+          "cim": "Expandir a consciência ao infinito e contraí-la a um átomo",
+          "leiras": "Expanda sua consciência ao infinito e depois contraia-a a um ponto do tamanho de um átomo. Continue até que isso se torne natural.",
+          "type": "timed",
+          "params": {
+            "targetSec": 900
+          },
+          "successCriteria": "Você consegue expandir sua consciência ao infinito e depois contraí-la a um único ponto, com a experiência estável e repetível?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Treino mágico da alma (V) — Projeção dos elementos para fora",
+      "leiras": "A energia reunida pela respiração dos elementos pode ser projetada para fora do corpo e, mais tarde, também sem o corpo.",
+      "gyakorlatok": [
+        {
+          "key": "elemkiaraszt_plexus",
+          "cim": "Projeção dos elementos para fora — pelo plexo solar",
+          "leiras": "Conduza o elemento acumulado no corpo para fora, no ar, pelo chakra do plexo solar.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue conduzir um elemento para fora pelo plexo solar e sentir o efeito da energia projetada?",
+          "minSessions": 10
+        },
+        {
+          "key": "elemkiaraszt_kez",
+          "cim": "Projeção dos elementos pela mão/dedos",
+          "leiras": "Conduza o elemento reunido na mão para fora pelas pontas dos dedos, com uma dinâmica especial.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue conduzir o elemento para fora pela mão/dedos e dirigir seu efeito a um objeto ou pessoa externa?",
+          "minSessions": 10
+        },
+        {
+          "key": "kulso_kiaraszt",
+          "cim": "Projeção externa sem o corpo",
+          "leiras": "Diretamente do ar, sem mediação do corpo, carregue um espaço com o elemento desejado.",
+          "type": "timed",
+          "params": {
+            "targetSec": 600
+          },
+          "successCriteria": "Você consegue projetar o elemento diretamente no ar, sem participação direta do corpo?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Treino mágico do corpo (V) — Contato passivo com o invisível",
+      "leiras": "Preparação e realização: contato com o próprio espírito protetor e com os falecidos.",
+      "gyakorlatok": [
+        {
+          "key": "kez_szabadda",
+          "cim": "Libertar a própria mão",
+          "leiras": "Neutralize a mão, especialmente os dedos, de todas as influências externas, para que percebam apenas estímulos espirituais.",
+          "type": "practice",
+          "successCriteria": "Sua mão se tornou neutra às influências cotidianas e percebe impulsos espirituais sutis?",
+          "minSessions": 5
+        },
+        {
+          "key": "inga_ceruza",
+          "cim": "Preparar os dedos com pêndulo, lápis e tábua circular",
+          "leiras": "Com a ajuda de um pêndulo e de um lápis, desenvolva a sensibilidade dos dedos aos impulsos espirituais.",
+          "type": "practice",
+          "successCriteria": "O pêndulo ou o lápis se move na sua mão, de forma confiável, sob a influência da sua vontade e dos impulsos interiores?",
+          "minSessions": 5
+        },
+        {
+          "key": "passiv_vedoszellem",
+          "cim": "Contato passivo com o próprio espírito protetor",
+          "leiras": "Em estado meditativo, receba sinais e mensagens do seu espírito protetor interior/Eu Superior.",
+          "type": "practice",
+          "successCriteria": "Em estado meditativo, você conseguiu contatar seu espírito protetor interior/Eu Superior e receber sinais e mensagens?",
+          "minSessions": 5
+        },
+        {
+          "key": "passiv_elhunytak",
+          "cim": "Contato passivo com falecidos e outros seres",
+          "leiras": "Desenvolva uma sensibilidade passiva, semelhante à mediúnica; por meio do movimento do pêndulo ou do lápis.",
+          "type": "practice",
+          "successCriteria": "Em estado passivo semelhante ao mediúnico, você recebeu sinais perceptíveis e os vivencia em condições controladas?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "1–2 meses",
+    "osszefoglalo": "Magia do espaço (transferência da consciência), projeção dos elementos para fora, contato passivo com o invisível (espírito protetor, falecidos)."
+  },
+  {
+    "id": 6,
+    "cim": "Sexto Grau",
+    "rovidcim": "Grau VI",
+    "icon": "orbit",
+    "szin": "#818cf8",
+    "szellem": {
+      "cim": "Treino mágico do espírito (VI) — Foco no próprio espírito, consciência dos sentidos",
+      "leiras": "Consciência do espírito (corpo mental) e elevação dos sentidos ao nível espiritual.",
+      "gyakorlatok": [
+        {
+          "key": "sajat_szellem",
+          "cim": "Foco no próprio espírito",
+          "leiras": "Medite sobre o seu espírito como a interação dos quatro elementos: FOGO→vontade, ÁGUA→sentimento, AR→intelecto, TERRA→consciência.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Você consegue distinguir conscientemente os quatro elementos do seu espírito (vontade/sentimento/intelecto/consciência) e contemplá-los como uma unidade?",
+          "minSessions": 10
+        },
+        {
+          "key": "erzekek_szellemi",
+          "cim": "Consciência dos sentidos no nível espiritual",
+          "leiras": "Eleve cada órgão dos sentidos (visão, audição etc.) ao nível espiritual; perceba também espiritualmente, não só fisicamente.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Você consegue elevar conscientemente todos os seus órgãos dos sentidos ao nível espiritual, além da percepção física?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Treino mágico da alma (VI) — Domínio do princípio do Akasha",
+      "leiras": "Aprender e aplicar o quinto elemento, o princípio do Akasha: estado de transe e domínio dos elementos.",
+      "gyakorlatok": [
+        {
+          "key": "akasha_elokeszit",
+          "cim": "Preparação para o domínio do princípio do Akasha",
+          "leiras": "Meditação profunda sobre o princípio do Akasha: a causa de todas as coisas, o princípio primordial da ausência de espaço e de tempo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Você consegue vivenciar meditativamente a essência do princípio do Akasha (ausência de espaço/tempo, causa de todas as coisas)?",
+          "minSessions": 10
+        },
+        {
+          "key": "akasha_transz",
+          "cim": "Induzir conscientemente o transe pelo Akasha",
+          "leiras": "Com a ajuda do princípio do Akasha, entre em transe profundo mantendo plena consciência de si.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Você consegue entrar conscientemente em transe profundo com a ajuda do princípio do Akasha e manter plena consciência de si?",
+          "minSessions": 10
+        },
+        {
+          "key": "akasha_elem_ritual",
+          "cim": "Domínio de um elemento por ritual individual a partir do Akasha",
+          "leiras": "A partir do estado neutro do Akasha, evoque qualquer elemento com intenção ritual.",
+          "type": "practice",
+          "successCriteria": "A partir do estado neutro do Akasha, você consegue evocar ritualmente e dominar qualquer elemento?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Treino mágico do corpo (VI) — Elementais, larvas, esquemas, fantasmas",
+      "leiras": "Criação consciente de seres e formas espirituais.",
+      "gyakorlatok": [
+        {
+          "key": "elemental_teremtes",
+          "cim": "Criação consciente de elementais",
+          "leiras": "Crie seres elementais (elementais de fogo, água, ar e terra) com intenção, dê-lhes uma tarefa e depois dissolva-os.",
+          "type": "practice",
+          "successCriteria": "Você criou elementais, atribuiu-lhes tarefas e os dissolveu com sucesso quando o trabalho terminou?",
+          "minSessions": 5
+        },
+        {
+          "key": "larvak",
+          "cim": "Criação de larvas",
+          "leiras": "Crie seres de pensamento que cumprem um propósito definido e atuam automaticamente; depois dissolva-os quando tiverem feito seu trabalho.",
+          "type": "practice",
+          "successCriteria": "Você criou e dissolveu com sucesso seres de pensamento (larvas)?",
+          "minSessions": 5
+        },
+        {
+          "key": "semak",
+          "cim": "Criação de esquemas",
+          "leiras": "Crie unidades mágicas no plano astral que executam uma ação programada.",
+          "type": "practice",
+          "successCriteria": "Você criou e operou esquemas astrais?",
+          "minSessions": 5
+        },
+        {
+          "key": "fantomok",
+          "cim": "Criação de fantasmas",
+          "leiras": "A partir do Akasha, crie seres mágicos dotados de uma centelha de vida, que também podem assumir aparência material.",
+          "type": "practice",
+          "successCriteria": "Você criou com sucesso fantasmas a partir do Akasha e vivenciou sua aparência material em condições controladas?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–3 meses",
+    "osszefoglalo": "Consciência do próprio espírito, domínio do princípio do Akasha (estado de transe, ritual dos elementos), criação de elementais/larvas/esquemas/fantasmas."
+  },
+  {
+    "id": 7,
+    "cim": "Sétimo Grau",
+    "rovidcim": "Grau VII",
+    "icon": "eye",
+    "szin": "#a78bfa",
+    "szellem": {
+      "cim": "Treino mágico do espírito (VII) — Análise do espírito em relação à prática",
+      "leiras": "Análise detalhada e aplicação dos quatro elementos do espírito, incluindo a transformação mútua da luz e do elemento FOGO.",
+      "gyakorlatok": [
+        {
+          "key": "szellem_elemzes",
+          "cim": "Análise dos elementos do espírito",
+          "leiras": "Aprofunde o papel de cada elemento (FOGO/AR/ÁGUA/TERRA) no espírito: vontade, intelecto, sentimento, consciência.",
+          "type": "journal",
+          "successCriteria": "Você analisou e descreveu em detalhe o papel de cada elemento no seu próprio espírito, e essas percepções aprofundam sua prática mágica?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Treino mágico da alma (VII) — Desenvolvimento dos sentidos astrais",
+      "leiras": "Desenvolvimento da clarividência, clariaudiência e clarissenciência astrais com a ajuda dos elementos e dos condensadores fluídicos.",
+      "gyakorlatok": [
+        {
+          "key": "asztralis_latás",
+          "cim": "Desenvolvimento da clarividência astral",
+          "leiras": "Com a ajuda de um condensador fluídico, desenvolva a visão astral; primeiro perceba imagens estáticas, depois movimento.",
+          "type": "practice",
+          "successCriteria": "Você percebe com regularidade e de forma confiável imagens, movimentos e energias astrais na sua visão interior?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralis_halles",
+          "cim": "Desenvolvimento da clariaudiência astral",
+          "leiras": "Audição astral: perceber sons e palavras sem fonte física, em condições controladas.",
+          "type": "practice",
+          "successCriteria": "Em condições controladas, você percebe com regularidade sons e palavras astrais sem fonte física?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralis_erzes",
+          "cim": "Desenvolvimento da clarissenciência astral",
+          "leiras": "Tato e percepção astrais: detecção empática dos sentimentos e do estado físico dos outros.",
+          "type": "practice",
+          "successCriteria": "Você consegue perceber, com empatia e de forma confiável, os sentimentos e o estado físico dos outros no plano astral?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Treino mágico do corpo (VII) — Quatro métodos de criação de elementais, animação mágica de imagens",
+      "leiras": "Técnicas criativas avançadas para elementais e para animar imagens.",
+      "gyakorlatok": [
+        {
+          "key": "elemental_4modszer",
+          "cim": "Quatro métodos básicos dos elementais",
+          "leiras": "1. Criação pelo pensamento. 2. Modelagem da matéria astral. 3. Criação a partir do fluido elétrico/magnético. 4. Criação direta a partir do princípio do Akasha.",
+          "type": "practice",
+          "successCriteria": "Você criou elementais pelos quatro métodos e vivenciou suas qualidades distintas?",
+          "minSessions": 10
+        },
+        {
+          "key": "kep_eletrekelt",
+          "cim": "Animação mágica de imagens",
+          "leiras": "Carregue uma pintura, estátua ou imagem mental com vida a tal ponto que ela seja capaz de agir de forma independente.",
+          "type": "practice",
+          "successCriteria": "Você animou com sucesso uma imagem ou estátua e observou uma atividade independente e observável?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–4 meses",
+    "osszefoglalo": "Análise do espírito, clarividência/clariaudiência/clarissenciência astrais, elementais pelos quatro métodos, animação de imagens."
+  },
+  {
+    "id": 8,
+    "cim": "Oitavo Grau",
+    "rovidcim": "Grau VIII",
+    "icon": "moon",
+    "szin": "#64748b",
+    "szellem": {
+      "cim": "Treino mágico do espírito (VIII) — Viagem mental",
+      "leiras": "Separação do corpo mental do corpo material e viagem mental consciente a diversos lugares.",
+      "gyakorlatok": [
+        {
+          "key": "mentalis_elokeszit",
+          "cim": "Preparação para a viagem mental",
+          "leiras": "Relaxamento, respiração e desenvolvimento gradual da sensação de separação da consciência.",
+          "type": "practice",
+          "successCriteria": "Você alcança com regularidade o estado preparatório de relaxamento profundo e separação da consciência?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_szoba",
+          "cim": "Viagem mental: no cômodo",
+          "leiras": "Primeiro viaje mentalmente no seu próprio cômodo; observe-se de fora e observe os objetos conhecidos.",
+          "type": "practice",
+          "successCriteria": "Você viajou mentalmente com sucesso no seu próprio cômodo e se observou de fora, junto com os objetos?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_rovid",
+          "cim": "Viagem mental: percurso curto",
+          "leiras": "Estenda a viagem mental a percursos e ruas curtas e conhecidas.",
+          "type": "practice",
+          "successCriteria": "Você viajou mentalmente com sucesso por percursos conhecidos e verificou parcialmente suas observações?",
+          "minSessions": 10
+        },
+        {
+          "key": "mentalis_ismerosok",
+          "cim": "Visitas mentais a conhecidos e parentes",
+          "leiras": "Visite mentalmente pessoas conhecidas e verifique também fisicamente suas observações.",
+          "type": "practice",
+          "successCriteria": "Você verificou fisicamente, com sucesso, parte das observações obtidas nas visitas mentais?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Treino mágico da alma (VIII) — O grande 'AGORA', domínio dos fluidos",
+      "leiras": "Vivenciar a atemporalidade semelhante ao Akasha, domínio do fluido elétrico e do magnético.",
+      "gyakorlatok": [
+        {
+          "key": "nagy_most",
+          "cim": "O grande 'AGORA' — vivenciar a atemporalidade",
+          "leiras": "Mergulhe completamente no momento presente; passado e futuro desaparecem, só existe o 'agora'.",
+          "type": "habit",
+          "params": {
+            "frequency": "daily"
+          },
+          "successCriteria": "Você vivencia diariamente momentos de atemporalidade, e a presença no 'agora' se tornou natural?",
+          "minSessions": 21
+        },
+        {
+          "key": "ne_ragaszkodj",
+          "cim": "Não nos apeguemos ao passado",
+          "leiras": "Solte conscientemente acontecimentos e mágoas do passado; o mago não carrega fardos desnecessários.",
+          "type": "journal",
+          "successCriteria": "Você faz regularmente a prática do desapego e sente uma libertação interior dos fardos do passado?",
+          "minSessions": 5
+        },
+        {
+          "key": "elektromos_fluidum",
+          "cim": "Domínio do fluido elétrico (método indutivo e dedutivo)",
+          "leiras": "Fluido elétrico: o aspecto ativo e expansivo do elemento FOGO. Indução: reunir de fora. Dedução: projetar a partir do próprio corpo.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Pelos dois métodos (indutivo e dedutivo) você domina com sucesso o fluido elétrico e testa seu efeito em outros seres?",
+          "minSessions": 10
+        },
+        {
+          "key": "magnetikus_fluidum",
+          "cim": "Domínio do fluido magnético (método indutivo e dedutivo)",
+          "leiras": "Fluido magnético: o aspecto passivo e atrativo do elemento ÁGUA. Aplicável na cura e na atração.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Pelos dois métodos você domina com sucesso o fluido magnético e experimenta suas aplicações de cura/atração?",
+          "minSessions": 10
+        },
+        {
+          "key": "elektromagnetikus_fluidum",
+          "cim": "Domínio do fluido eletromagnético",
+          "leiras": "Combinação dos dois fluidos: a força fundamental da criação no universo. A ferramenta mágica mais poderosa.",
+          "type": "timed",
+          "params": {
+            "targetSec": 1200
+          },
+          "successCriteria": "Você combinou com sucesso os dois fluidos em uma unidade eletromagnética e aplica conscientemente seu poder criador?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Treino mágico do corpo (VIII) — Influência pelos elementos, condensadores fluídicos, espelho mágico",
+      "leiras": "Confecção de objetos mágicos e o poder de influência dos elementos.",
+      "gyakorlatok": [
+        {
+          "key": "elemek_befolyasolás",
+          "cim": "Influência mágica pelos elementos (Fogo/Ar/Água/Terra)",
+          "leiras": "Fogo: queima (destruição de efeitos negativos). Ar: evaporação. Água: mistura. Terra: apodrecimento — todos métodos mágicos para dissolver problemas.",
+          "type": "practice",
+          "successCriteria": "Você realizou os quatro métodos (queima, evaporação, mistura, apodrecimento) e vivenciou seus efeitos?",
+          "minSessions": 5
+        },
+        {
+          "key": "egyszerű_kondenzt",
+          "cim": "Preparação de um condensador fluídico simples",
+          "leiras": "Preparação de uma infusão de planta (ex.: camomila) como condensador fluídico que armazena força eletromagnética.",
+          "type": "instructional",
+          "successCriteria": "Você preparou o condensador fluídico simples e compreendeu e aplicou o princípio do carregamento eletromagnético?",
+          "minSessions": 3
+        },
+        {
+          "key": "osszetett_kondenzt",
+          "cim": "Preparação de um condensador fluídico composto",
+          "leiras": "Preparação de um condensador composto que contém ouro e prata.",
+          "type": "instructional",
+          "successCriteria": "Você preparou o condensador fluídico composto usando ouro e prata?",
+          "minSessions": 3
+        },
+        {
+          "key": "magikus_tukor_keszit",
+          "cim": "Confecção de um espelho mágico com condensador fluídico",
+          "leiras": "Carregar um disco de vidro ou um espelho com condensador fluídico e com o próprio fluido eletromagnético.",
+          "type": "practice",
+          "successCriteria": "Você confeccionou o espelho mágico, carregou-o com o condensador e com seu próprio fluido e começou a sentir sua atividade?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "2–4 meses",
+    "osszefoglalo": "Viagem mental, o grande 'AGORA', domínio dos fluidos eletromagnéticos, influência pelos elementos, condensadores fluídicos e confecção de um espelho mágico."
+  },
+  {
+    "id": 9,
+    "cim": "Nono Grau",
+    "rovidcim": "Grau IX",
+    "icon": "mirror",
+    "szin": "#f9a8d4",
+    "szellem": {
+      "cim": "Treino mágico do espírito (IX) — Clarividência com espelhos mágicos",
+      "leiras": "O espelho mágico como principal ferramenta para estender os sentidos através do tempo e do espaço.",
+      "gyakorlatok": [
+        {
+          "key": "tukortöltés",
+          "cim": "Carregar o espelho mágico",
+          "leiras": "Carregue o espelho mágico com fluido eletromagnético e com sua própria energia astral; dê-lhe intenção e propósito.",
+          "type": "practice",
+          "successCriteria": "Você carrega seu espelho com regularidade e eficácia, e ele responde perceptivelmente à sua vontade?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukorbetegkez",
+          "cim": "Espelho mágico como ferramenta de visão à distância (espaço/tempo)",
+          "leiras": "Pelo espelho, enxergue à distância, explore passado/presente/futuro.",
+          "type": "practice",
+          "successCriteria": "No espelho você vê de forma confiável imagens distantes, passadas e futuras que consegue verificar parcialmente?",
+          "minSessions": 10
+        },
+        {
+          "key": "tukorbefoly",
+          "cim": "Espelho mágico como ferramenta de influência",
+          "leiras": "Pelo espelho, irradie energia e força positivas sobre doentes e situações.",
+          "type": "practice",
+          "successCriteria": "Você aplica com sucesso o espelho para irradiar energias positivas e vivencia efeitos mensuráveis?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukortavolhat",
+          "cim": "Espelho mágico como transmissor-receptor (comunicação)",
+          "leiras": "Comunicação com pessoas vivas e outros seres por meio do espelho.",
+          "type": "practice",
+          "successCriteria": "Você se comunicou com sucesso pelo espelho e conseguiu verificar parte das mensagens por uma fonte externa?",
+          "minSessions": 5
+        },
+        {
+          "key": "tukorvedo",
+          "cim": "Espelho mágico como ferramenta de proteção",
+          "leiras": "Rebata com o espelho influências nocivas e indesejadas.",
+          "type": "practice",
+          "successCriteria": "Você aplica com sucesso o espelho para proteção e vivencia a reversão de efeitos indesejados?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Treino mágico da alma (IX) — Separação do corpo astral, qualidades divinas primordiais",
+      "leiras": "Separação consciente do corpo astral do corpo físico e seu carregamento com quatro qualidades divinas primordiais.",
+      "gyakorlatok": [
+        {
+          "key": "asztralist_elvalaszt",
+          "cim": "Separação consciente do corpo astral do corpo material",
+          "leiras": "O corpo astral — o envoltório corporal da alma — deixa o corpo físico com plena consciência de si e por vontade própria, e retorna.",
+          "type": "practice",
+          "successCriteria": "Você consegue separar consciente e voluntariamente seu corpo astral e fazê-lo retornar, com plena consciência de si?",
+          "minSessions": 10
+        },
+        {
+          "key": "asztralist_istenialap",
+          "cim": "Carregar o corpo astral com quatro qualidades divinas primordiais",
+          "leiras": "Impregne o corpo astral com o Amor, a Sabedoria, a Vontade/Poder e a Consciência divinos.",
+          "type": "practice",
+          "successCriteria": "Você carregou com sucesso seu corpo astral com as quatro qualidades divinas primordiais e mantém isso constantemente?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Treino mágico do corpo (IX) — Cura, talismãs, realização de desejos",
+      "leiras": "Cura com fluido eletromagnético, carregamento de talismãs e amuletos, realização de desejos no Akasha.",
+      "gyakorlatok": [
+        {
+          "key": "betegkez_fluidum",
+          "cim": "Cura com fluido eletromagnético",
+          "leiras": "Curar pessoas doentes pela imposição das mãos ou à distância, conduzindo fluido eletromagnético.",
+          "type": "practice",
+          "successCriteria": "Você tratou pessoas com sucesso usando fluido eletromagnético e vivenciou uma melhora mensurável?",
+          "minSessions": 5
+        },
+        {
+          "key": "talizmantoltes",
+          "cim": "Carregamento mágico de talismãs, amuletos e pedras preciosas (10 métodos)",
+          "leiras": "10 métodos diferentes para carregar objetos com energia eletromagnética/astral com uma intenção definida.",
+          "type": "practice",
+          "successCriteria": "Você realizou o carregamento de talismãs pelos 10 métodos, e o efeito dos objetos carregados é perceptível?",
+          "minSessions": 10
+        },
+        {
+          "key": "kivanság_akasha",
+          "cim": "Realização de desejos no Akasha com carregamento eletromagnético ('voltização')",
+          "leiras": "Você coloca o desejo, envolto em uma esfera eletromagnética, no plano do Akasha, onde ele tende automaticamente à realização.",
+          "type": "practice",
+          "successCriteria": "Você realizou a técnica de voltização, e os desejos se realizam sem que você pense ativamente neles?",
+          "minSessions": 5
+        }
+      ]
+    },
+    "idotartam": "3–6 meses",
+    "osszefoglalo": "Clarividência com espelhos mágicos, separação do corpo astral, cura com fluido, carregamento de talismãs por 10 métodos, realização de desejos no Akasha."
+  },
+  {
+    "id": 10,
+    "cim": "Décimo Grau",
+    "rovidcim": "Grau X",
+    "icon": "sparkles",
+    "szin": "#fbbf24",
+    "szellem": {
+      "cim": "Treino mágico do espírito (X) — Elevação do espírito aos planos superiores",
+      "leiras": "Elevação consciente do corpo mental aos planos mentais acima dos planos físico e astral e, depois, ainda mais alto.",
+      "gyakorlatok": [
+        {
+          "key": "szellem_emelese",
+          "cim": "Elevação do espírito aos planos superiores",
+          "leiras": "Transferência deliberada da consciência ao plano mental e depois aos planos além dele. O mundo físico desaparece temporariamente por completo.",
+          "type": "practice",
+          "successCriteria": "Você eleva conscientemente seu espírito ao plano mental e dali aos planos superiores, com o mundo físico desaparecendo por completo?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "lelek": {
+      "cim": "Treino mágico da alma (X) — Contato com o Deus pessoal e com divindades",
+      "leiras": "O nível mais alto de contato da alma: comunhão consciente com a própria divindade pessoal e com outras hierarquias espirituais.",
+      "gyakorlatok": [
+        {
+          "key": "sajat_isten",
+          "cim": "Contato consciente com o próprio Deus pessoal",
+          "leiras": "Comunicação consciente, direta e de mão dupla com a própria centelha divina interior e o Eu Superior.",
+          "type": "practice",
+          "successCriteria": "Você se comunica regularmente e de forma confiável, nos dois sentidos, com sua centelha divina interior/Eu Superior?",
+          "minSessions": 10
+        },
+        {
+          "key": "istenségek",
+          "cim": "Contato com divindades e hierarquias espirituais",
+          "leiras": "O mago é capaz, no plano do Akasha, de se comunicar e cooperar com divindades, arcanjos e outros seres espirituais.",
+          "type": "practice",
+          "successCriteria": "No plano do Akasha você contatou com sucesso divindades ou hierarquias espirituais, e a cooperação é frutífera?",
+          "minSessions": 10
+        }
+      ]
+    },
+    "test": {
+      "cim": "Treino mágico do corpo (X) — Diversos métodos de faculdades mágicas",
+      "leiras": "Síntese de todos os graus anteriores; o mago é capaz de evocar todos os fenômenos descritos segundo leis universais.",
+      "gyakorlatok": [
+        {
+          "key": "magikus_kepessegek",
+          "cim": "Diversos métodos para alcançar faculdades mágicas",
+          "leiras": "Influenciar o clima, curar, harmonizar o espaço de vida, comunicar-se com os mortos e outras obras mágicas superiores.",
+          "type": "instructional",
+          "successCriteria": "Como síntese de todos os graus anteriores, você é capaz de evocar deliberadamente os fenômenos mágicos descritos no livro?",
+          "minSessions": 1
+        }
+      ]
+    },
+    "idotartam": "Individual — aqui termina o curso",
+    "osszefoglalo": "Elevação do espírito aos planos superiores, contato consciente com o Deus pessoal e com divindades, síntese de todas as faculdades mágicas."
+  }
+]

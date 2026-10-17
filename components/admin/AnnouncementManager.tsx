@@ -20,6 +20,7 @@ import { formatAdminDate } from '@/lib/invite-codes';
 import { localizeHref, type ResolvedNotification } from '@/lib/notifications';
 import { cn } from '@/lib/utils';
 import { AppIcon } from '@/components/ui/AppIcon';
+import { LANGUAGES } from '@/lib/languages';
 
 type AnnouncementWithStatus = AnnouncementRow & { status: AnnouncementStatus };
 
@@ -35,8 +36,6 @@ const STATUS_META: Record<AnnouncementStatus, { label: string; className: string
   published: { label: 'Megjelent', className: 'bg-green-500/10 text-green-300' },
   expired: { label: 'Lejárt', className: 'bg-muted/40 text-muted-foreground' },
 };
-
-const LOCALE_NAMES: Record<TranslationLocale, string> = { en: 'English', de: 'Deutsch', es: 'Español', it: 'Italiano' };
 
 const fieldClass =
   'w-full rounded-xl border border-border/60 bg-background/60 px-3 text-sm text-cream placeholder:text-muted-foreground/50 focus:border-accent/60 focus:outline-none';
@@ -366,7 +365,7 @@ export function AnnouncementManager({ announcements }: { announcements: Announce
                 <div className="mt-3 space-y-4">
                   {TRANSLATION_LOCALES.map((l) => (
                     <div key={l} className="space-y-2 rounded-xl border border-border/40 p-3">
-                      <p className="text-xs font-semibold text-accent/80">{LOCALE_NAMES[l]}</p>
+                      <p className="text-xs font-semibold text-accent/80">{LANGUAGES[l].nativeName}</p>
                       <input value={form.translations[l].title} onChange={(e) => setTr(l, 'title', e.target.value)} maxLength={ANNOUNCEMENT_LIMITS.title} placeholder="Cím" className={cn(fieldClass, 'h-9')} />
                       <textarea value={form.translations[l].body} onChange={(e) => setTr(l, 'body', e.target.value)} maxLength={ANNOUNCEMENT_LIMITS.body} rows={3} placeholder="Szöveg" className={cn(fieldClass, 'resize-y py-2')} />
                       {form.linkUrl && (

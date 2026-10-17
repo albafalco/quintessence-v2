@@ -10,6 +10,7 @@ import { Collapse } from '@/components/ui/collapse';
 import { useConfirm } from '@/components/ui/confirm-dialog';
 import { cn } from '@/lib/utils';
 import { AppIcon } from '@/components/ui/AppIcon';
+import { toIntlLocale } from '@/i18n';
 
 interface InviteStatus {
   balance: number;
@@ -120,7 +121,7 @@ export function InvitesCard() {
   const monthLeft = Math.max(0, status.month_limit - status.month_used);
   const canCreate = status.balance > 0 && monthLeft > 0;
   const linkFor = (code: string) => `${origin}/${locale}/auth/register?code=${encodeURIComponent(code)}`;
-  const formatDate = (iso: string) => new Intl.DateTimeFormat(locale, { month: 'short', day: 'numeric' }).format(new Date(iso));
+  const formatDate = (iso: string) => new Intl.DateTimeFormat(toIntlLocale(locale), { month: 'short', day: 'numeric' }).format(new Date(iso));
 
   const create = async () => {
     setBusy(true);

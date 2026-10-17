@@ -20,6 +20,7 @@ import { getBudapestNow, toBudapestDate } from '@/lib/push-reminders';
 import { buildDailyPlan } from '@/lib/magia-plan';
 import type { MagiaProgressRecord, SessionRecord } from '@/lib/magia-utils';
 import { AppIcon } from '@/components/ui/AppIcon';
+import { toIntlLocale } from '@/i18n';
 
 interface MaMagiaPageProps {
   params: Promise<{ locale: string }>;
@@ -109,7 +110,7 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   const pillarIcon = { szellem: 'brain', lelek: 'gem', test: 'zap' } as const;
   const sectionLabel = { szellem: t('szellem'), lelek: t('lelek'), test: t('test') } as const;
 
-  const formattedDate = new Intl.DateTimeFormat(locale, { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(todayDate));
+  const formattedDate = new Intl.DateTimeFormat(toIntlLocale(locale), { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(todayDate));
 
   return (
     <div className="mx-auto max-w-2xl space-y-10">

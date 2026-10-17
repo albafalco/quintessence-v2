@@ -1,9 +1,11 @@
+import { locales, type Locale } from '@/i18n';
 export type AnnouncementKind = 'news' | 'content' | 'system';
 export type AnnouncementAudience = 'all' | 'hu';
 export type AnnouncementStatus = 'draft' | 'scheduled' | 'published' | 'expired';
 
-export const TRANSLATION_LOCALES = ['en', 'de', 'es', 'it'] as const;
-export type TranslationLocale = (typeof TRANSLATION_LOCALES)[number];
+/** Every UI language besides Hungarian (the announcement's base text) */
+export type TranslationLocale = Exclude<Locale, 'hu'>;
+export const TRANSLATION_LOCALES = locales.filter((l): l is TranslationLocale => l !== 'hu');
 export type AnnouncementTranslations = Partial<Record<TranslationLocale, { title?: string; body?: string; link_label?: string }>>;
 
 export interface AnnouncementRow {

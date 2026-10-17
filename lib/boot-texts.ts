@@ -36,6 +36,30 @@ const BOOT_TEXTS: Record<Locale, { notStarted: string; errorTitle: string; error
     errorUnknown: "Errore sconosciuto durante il caricamento dell'app.",
     reload: 'Ricarica',
   },
+  pt: {
+    notStarted: 'O app não iniciou. Tente novamente.',
+    errorTitle: 'Algo deu errado',
+    errorUnknown: 'Erro desconhecido ao carregar o app.',
+    reload: 'Recarregar',
+  },
+  ro: {
+    notStarted: 'Aplicația nu a pornit. Încearcă din nou.',
+    errorTitle: 'Ceva nu a mers bine',
+    errorUnknown: 'Eroare necunoscută la încărcarea aplicației.',
+    reload: 'Reîncarcă',
+  },
+  sk: {
+    notStarted: 'Aplikácia sa nespustila. Skús to znova.',
+    errorTitle: 'Niečo sa pokazilo',
+    errorUnknown: 'Neznáma chyba pri načítaní aplikácie.',
+    reload: 'Načítať znova',
+  },
+  sr: {
+    notStarted: 'Aplikacija se nije pokrenula. Pokušaj ponovo.',
+    errorTitle: 'Nešto nije u redu',
+    errorUnknown: 'Nepoznata greška pri učitavanju aplikacije.',
+    reload: 'Učitaj ponovo',
+  },
 };
 
 export function getBootTexts(locale: string) {

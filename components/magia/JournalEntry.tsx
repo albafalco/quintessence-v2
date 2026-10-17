@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { cn } from '@/lib/utils';
 import { formatDurationLabel } from '@/lib/magia-utils';
 import { useConfirm } from '@/components/ui/confirm-dialog';
+import { toIntlLocale } from '@/i18n';
 
 export interface JournalEntryData {
   id: string;
@@ -81,7 +82,7 @@ export function JournalEntry({ entry, onUpdate, onDelete }: JournalEntryProps) {
     { key: 'content', label: t('journalFieldContentShort') },
   ];
 
-  const formattedDate = new Intl.DateTimeFormat(locale, {
+  const formattedDate = new Intl.DateTimeFormat(toIntlLocale(locale), {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
