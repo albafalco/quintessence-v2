@@ -10,8 +10,7 @@
     "greeting": "Hallo,",
     "userMenu": "Kontomenü",
     "admin": "Admin",
-    "language": "Sprache",
-    "breadcrumb": "Brotkrümelnavigation"
+    "language": "Sprache"
   },
   "auth": {
     "login": "Anmelden",

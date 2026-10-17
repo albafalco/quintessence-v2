@@ -10,8 +10,7 @@
     "greeting": "Ciao,",
     "userMenu": "Menu account",
     "admin": "Admin",
-    "language": "Lingua",
-    "breadcrumb": "Percorso"
+    "language": "Lingua"
   },
   "auth": {
     "login": "Accedi",

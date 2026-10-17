@@ -10,8 +10,7 @@
     "greeting": "Üdv,",
     "userMenu": "Fiókmenü",
     "admin": "Admin",
-    "language": "Nyelv",
-    "breadcrumb": "Morzsamenü"
+    "language": "Nyelv"
   },
   "auth": {
     "login": "Bejelentkezés",

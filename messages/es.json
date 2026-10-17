@@ -10,8 +10,7 @@
     "greeting": "Hola,",
     "userMenu": "Menú de la cuenta",
     "admin": "Admin",
-    "language": "Idioma",
-    "breadcrumb": "Ruta de navegación"
+    "language": "Idioma"
   },
   "auth": {
     "login": "Iniciar sesión",

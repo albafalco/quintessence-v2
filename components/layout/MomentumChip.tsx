@@ -21,18 +21,15 @@ const RING_C = 2 * Math.PI * RING_R;
 
 /**
  * Desktop header: streak + today's Fehér Mágia plan, linking to the "Ma" page.
- * Hidden on the dashboard, where the Today card shows the same.
  */
 export function MomentumChip() {
   const t = useTranslations('dashboard');
   const locale = useLocale();
   const pathname = usePathname();
   const [momentum, setMomentum] = useState<Momentum | null>(null);
-  const onDashboard = pathname === `/${locale}` || pathname === `/${locale}/`;
 
   // Re-read on every page change, so a finished session shows up right away
   useEffect(() => {
-    if (onDashboard) return;
     let cancelled = false;
     (async () => {
       const supabase = createClient();
@@ -51,9 +48,9 @@ export function MomentumChip() {
     return () => {
       cancelled = true;
     };
-  }, [pathname, locale, onDashboard]);
+  }, [pathname, locale]);
 
-  if (onDashboard || !momentum) return null;
+  if (!momentum) return null;
 
   const { streak, done, total } = momentum;
   const allDone = total > 0 && done === total;
