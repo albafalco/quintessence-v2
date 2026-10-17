@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { ProfileForm } from '@/components/profile/ProfileForm';
+import { hasModuleAccess } from '@/lib/module-access';
 
 interface ProfilePageProps {
   params: Promise<{ locale: string }>;
@@ -31,6 +32,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   }
 
   const { data: adminRow } = await supabase.from('admins').select('user_id').eq('user_id', user.id).maybeSingle();
+  const angolAccess = await hasModuleAccess(supabase, 'angol');
 
   return (
     <div className="mx-auto max-w-2xl space-y-8">
@@ -40,6 +42,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
       </header>
         <ProfileForm
           isAdmin={Boolean(adminRow)}
+          angolAccess={angolAccess}
           profile={{
             id: profile.id,
             name: profile.name,

@@ -14,6 +14,7 @@ import {
 } from '@/lib/dashboard';
 import { cn } from '@/lib/utils';
 import { addressName } from '@/lib/display-name';
+import { canUseAngol } from '@/lib/module-access';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { countReviewQueue, type CardScheduleRow } from '@/lib/angol-srs';
 import { toBudapestDate } from '@/lib/push-reminders';
@@ -89,9 +90,8 @@ export function DashboardContent() {
         if (isMissingColumnError(profileResult.error)) profileResult = await loadProfile('username');
 
         const greetingName = addressName(profileResult.data?.display_name, profileResult.data?.username ?? 'user');
-        // Same rule as the menus and the middleware: Kreatív Angol is only
-        // available on the Hungarian UI.
-        const showAngol = locale === 'hu';
+        // Locked module: Hungarian UI + access granted by the admin
+        const showAngol = await canUseAngol(supabase, locale);
 
         const magiaResult = await timed(
           supabase
@@ -158,7 +158,7 @@ export function DashboardContent() {
         setData({ greetingName, showAngol, magiaStats, angolStats, today });
 
         // Milestones are checked in the background; new ones show up in the bell
-        syncBadges(supabase, user.id)
+        syncBadges(supabase, user.id, { angol: showAngol })
           .then((state) => {
             if (state.newlyEarned.length > 0) emitNotificationsChanged();
           })

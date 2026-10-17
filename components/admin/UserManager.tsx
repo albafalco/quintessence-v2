@@ -2,16 +2,19 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Bell, BellOff, Check, Copy, KeyRound, MoreHorizontal, PauseCircle, PlayCircle, Search, Send, Ticket, Trash2 } from 'lucide-react';
-import { createRecoveryLink, deleteUserAccount, grantInvites, sendUserPush, setSuspended } from '@/app/[locale]/admin/felhasznalok/actions';
+import { Bell, BellOff, Check, Copy, GraduationCap, KeyRound, MoreHorizontal, PauseCircle, PlayCircle, Search, Send, Ticket, Trash2 } from 'lucide-react';
+import { createRecoveryLink, deleteUserAccount, grantInvites, sendUserPush, setAngolAccess, setSuspended } from '@/app/[locale]/admin/felhasznalok/actions';
 import { PrimaryButton } from '@/components/admin/ui';
 import { Collapse } from '@/components/ui/collapse';
+import { Switch } from '@/components/ui/switch';
 import { useConfirm } from '@/components/ui/confirm-dialog';
 import type { AdminUser } from '@/lib/admin-users';
 import { formatAdminDate } from '@/lib/invite-codes';
 import { cn } from '@/lib/utils';
 
 type Sort = 'activity' | 'created' | 'name';
+/** Kreatív Angol (locked module) filter */
+type AngolFilter = 'all' | 'access' | 'progress';
 type Panel = 'invites' | 'push' | 'recovery';
 
 const fieldClass =
@@ -27,10 +30,16 @@ function activityKey(u: AdminUser) {
 export function UserManager({ users, currentUserId }: { users: AdminUser[]; currentUserId: string }) {
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState<Sort>('activity');
+  const [angolFilter, setAngolFilter] = useState<AngolFilter>('all');
 
   const q = query.trim().toLowerCase();
   const visible = users
     .filter((u) => !q || [u.name, u.username, u.email].some((v) => v?.toLowerCase().includes(q)))
+    .filter((u) => {
+      if (angolFilter === 'access') return u.is_admin || u.angol_access;
+      if (angolFilter === 'progress') return !u.is_admin && !u.angol_access && u.angol_has_progress;
+      return true;
+    })
     .sort((a, b) => {
       if (sort === 'name') return a.name.localeCompare(b.name, 'hu');
       if (sort === 'created') return b.created_at.localeCompare(a.created_at);
@@ -54,6 +63,16 @@ export function UserManager({ users, currentUserId }: { users: AdminUser[]; curr
           <option value="activity">Utolsó aktivitás</option>
           <option value="created">Regisztráció</option>
           <option value="name">Név</option>
+        </select>
+        <select
+          value={angolFilter}
+          onChange={(e) => setAngolFilter(e.target.value as AngolFilter)}
+          aria-label="Kreatív Angol szűrő"
+          className={cn(fieldClass, 'w-auto')}
+        >
+          <option value="all">Mindenki</option>
+          <option value="access">Kreatív Angol: van hozzáférése</option>
+          <option value="progress">Angol haladás, hozzáférés nélkül</option>
         </select>
       </div>
       <p className="px-1 text-xs text-muted-foreground">
@@ -108,6 +127,15 @@ function UserCard({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
     if (result.ok) router.refresh();
   };
 
+  const [angolBusy, setAngolBusy] = useState(false);
+  const toggleAngol = async (enabled: boolean) => {
+    setNotice(null);
+    setAngolBusy(true);
+    const result = await setAngolAccess(user.id, enabled);
+    setAngolBusy(false);
+    report(result, enabled ? 'Kreatív Angol hozzáférés megadva (értesítést kapott).' : 'Kreatív Angol hozzáférés elvéve.');
+  };
+
   const openPanel = (p: Panel) => {
     setMenuOpen(false);
     setNotice(null);
@@ -160,6 +188,9 @@ function UserCard({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
             <span className="text-sm text-muted-foreground">@{user.username}</span>
             {user.is_admin && <span className="rounded-md bg-accent/15 px-1.5 py-0.5 text-[10px] font-semibold text-accent">Admin</span>}
             {user.suspended && <span className="rounded-md bg-red-500/15 px-1.5 py-0.5 text-[10px] font-semibold text-red-300">Felfüggesztve</span>}
+            {!user.is_admin && user.angol_access && (
+              <span className="rounded-md bg-slate-500/20 px-1.5 py-0.5 text-[10px] font-semibold text-slate-200">Angol</span>
+            )}
           </div>
           <p className="truncate text-xs text-muted-foreground">
             {user.email}
@@ -218,6 +249,30 @@ function UserCard({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
             </span>
           )}
         </Fact>
+      </div>
+
+      <div className="mt-3 flex items-center gap-3 rounded-xl border border-border/40 bg-background/30 px-3 py-2">
+        <GraduationCap className="h-4 w-4 shrink-0 text-accent" />
+        <div className="min-w-0 flex-1">
+          <p className="text-xs font-medium text-cream">Kreatív Angol</p>
+          <p className="truncate text-[11px] text-muted-foreground">
+            {user.is_admin
+              ? 'Adminként mindig hozzáfér'
+              : user.angol_access
+                ? 'Hozzáfér'
+                : user.angol_has_progress
+                  ? 'Nincs hozzáférése · van korábbi angol haladása'
+                  : 'Nincs hozzáférése'}
+          </p>
+        </div>
+        {!user.is_admin && (
+          <Switch
+            checked={Boolean(user.angol_access)}
+            disabled={angolBusy || user.angol_access === undefined}
+            onCheckedChange={(v) => void toggleAngol(v)}
+            aria-label={`Kreatív Angol hozzáférés: @${user.username}`}
+          />
+        )}
       </div>
 
       {notice && (

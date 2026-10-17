@@ -60,6 +60,8 @@ export function resolveNotification(
   row: FeedRow,
   locale: string,
   t: { notifications: Translator; badges: Translator; magia: Translator },
+  /** Kreatív Angol unlocked for this user; its personal notifications are hidden otherwise */
+  angol: boolean,
   now = Date.now()
 ): ResolvedNotification | null {
   if (row.source === 'announcement') {
@@ -91,7 +93,7 @@ export function resolveNotification(
   switch (row.kind) {
     case 'badge': {
       const badge = BADGES.find((b) => b.id === data.badge_id);
-      if (!badge) return null;
+      if (!badge || (badge.category === 'angol' && !angol)) return null;
       return personal(
         badge.icon,
         t.notifications('badgeTitle', { title: t.badges(`${badge.id}.title`) }),
@@ -120,6 +122,9 @@ export function resolveNotification(
         t.notifications(data.reason === 'revoked' ? 'inviteRevokedBody' : 'inviteExpiredBody', { email: String(data.email ?? '') }),
         `/${locale}/profile`
       );
+    case 'module_granted':
+      if (data.module !== 'angol' || !angol) return null;
+      return personal('graduation', t.notifications('moduleGrantedTitle'), t.notifications('moduleGrantedBody'), `/${locale}/modules/angol`);
     case 'weekly_report':
       return personal('chart', t.notifications('weeklyTitle'), t.notifications('weeklyBody'), `/${locale}/modules/magia/jelentes`);
     default:

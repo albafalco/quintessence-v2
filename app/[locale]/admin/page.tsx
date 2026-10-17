@@ -23,6 +23,8 @@ const ACTION_LABELS: Record<string, string> = {
   'announcement.update': 'Közlemény módosítva',
   'announcement.unpublish': 'Közlemény visszavonva',
   'announcement.delete': 'Közlemény törölve',
+  'module.grant': 'Kreatív Angol hozzáférés adva',
+  'module.revoke': 'Kreatív Angol hozzáférés elvéve',
 };
 
 const STATUS_LABELS: Record<InviteStatus, string> = {

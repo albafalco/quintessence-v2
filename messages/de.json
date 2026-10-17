@@ -531,7 +531,9 @@
     "unlockBody": "Glückwunsch! Du hast den Grad „{title}\" erreicht. Setze deinen Weg fort!",
     "weeklyReportTitle": "✦ Dein wöchentlicher Einweihungsbericht ist fertig",
     "weeklyReportBody": "{minutes} Minuten Übung, {days} aktive Tage. Sieh dir deinen Fortschritt an!",
-    "angolReviewBody": "{count} Karten warten auf Wiederholung. Ein paar Minuten, und dein Englisch für heute ist erledigt!"
+    "angolReviewBody": "{count} Karten warten auf Wiederholung. Ein paar Minuten, und dein Englisch für heute ist erledigt!",
+    "moduleGrantedTitle": "✦ Kreatív Angol ist jetzt freigeschaltet",
+    "moduleGrantedBody": "Starte deine erste Lektion!"
   },
   "badges": {
     "sectionTitle": "Meilensteine",
@@ -625,7 +627,9 @@
     "inviteAcceptedBody": "Ist Quintessence beigetreten. Danke für die Einladung!",
     "inviteReturnedTitle": "Du hast eine Einladung zurückerhalten",
     "inviteExpiredBody": "Deine Einladung an {email} ist abgelaufen, du kannst sie erneut verwenden.",
-    "inviteRevokedBody": "Der Administrator hat deine Einladung an {email} widerrufen, du kannst sie erneut verwenden."
+    "inviteRevokedBody": "Der Administrator hat deine Einladung an {email} widerrufen, du kannst sie erneut verwenden.",
+    "moduleGrantedTitle": "Kreatív Angol ist jetzt für dich freigeschaltet",
+    "moduleGrantedBody": "Du findest es im Menü. Viel Freude beim Lernen!"
   },
   "invites": {
     "title": "Einladungen",

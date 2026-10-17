@@ -15,6 +15,9 @@ export interface AdminUserRow {
   invited_by_username?: string | null;
   invites_sent?: number;
   invites_accepted?: number;
+  /** Migration 016 */
+  angol_access?: boolean;
+  angol_has_progress?: boolean;
 }
 
 export interface InviteGrantRow {

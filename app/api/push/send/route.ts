@@ -69,7 +69,9 @@ interface PushPayload {
 async function buildPushNotifications(
   profile: ProfileRow,
   budapestNow: ReturnType<typeof getBudapestNow>,
-  supabase: Awaited<ReturnType<typeof createServiceClient>>
+  supabase: Awaited<ReturnType<typeof createServiceClient>>,
+  /** Users with Kreatív Angol access (locked module) */
+  angolUsers: Set<string>
 ): Promise<PushPayload[]> {
   const locale = resolveLocale(profile.preferred_language);
   const notifications: PushPayload[] = [];
@@ -184,6 +186,7 @@ async function buildPushNotifications(
   const angolDue =
     profile.push_angol_reminders &&
     profile.preferred_language === 'hu' &&
+    angolUsers.has(profile.id) &&
     isReminderDue(budapestNow.totalMinutes, angolTime);
   const alreadySentAngolToday = profile.last_angol_push_date === budapestNow.date;
 
@@ -265,6 +268,16 @@ export async function GET(request: Request) {
     return NextResponse.json({ sent: 0, checked: 0, announcementsSent, budapest: budapestNow });
   }
 
+  // Kreatív Angol is locked: reminders only for users with access and admins
+  // (migration 016; no reminders at all until it has been run)
+  const [accessRows, adminRows] = await Promise.all([
+    supabase.from('module_access').select('user_id').eq('module', 'angol'),
+    supabase.from('admins').select('user_id'),
+  ]);
+  const angolUsers = new Set<string>(
+    accessRows.error ? [] : [...(accessRows.data ?? []), ...(adminRows.data ?? [])].map((r) => (r as { user_id: string }).user_id)
+  );
+
   let sent = 0;
   let staleRemoved = 0;
 
@@ -276,7 +289,7 @@ export async function GET(request: Request) {
 
     if (!subscriptions?.length) continue;
 
-    const notifications = await buildPushNotifications(profile, budapestNow, supabase);
+    const notifications = await buildPushNotifications(profile, budapestNow, supabase, angolUsers);
     if (!notifications.length) continue;
 
     let angolSent = false;

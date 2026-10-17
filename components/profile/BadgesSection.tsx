@@ -10,6 +10,7 @@ import { Collapse } from '@/components/ui/collapse';
 import { InfoTip } from '@/components/ui/info-tip';
 import { emitNotificationsChanged } from '@/lib/notifications';
 import { cn } from '@/lib/utils';
+import { useAngolAccess } from '@/components/layout/ModuleAccessProvider';
 import { AppIcon } from '@/components/ui/AppIcon';
 
 export function BadgesSection({ userId, compact = false }: { userId: string; compact?: boolean }) {
@@ -19,10 +20,13 @@ export function BadgesSection({ userId, compact = false }: { userId: string; com
   const [state, setState] = useState<BadgeState | null>(null);
   // Compact mode starts as a one-line summary; the full grid opens on demand
   const [expanded, setExpanded] = useState(!compact);
+  const angolAccess = useAngolAccess();
 
   useEffect(() => {
+    // Wait for the access check: locked-module badges must not be awarded
+    if (angolAccess === null) return;
     let cancelled = false;
-    syncBadges(createClient(), userId)
+    syncBadges(createClient(), userId, { angol: angolAccess })
       .then((s) => {
         if (!cancelled) setState(s);
         // New milestones arrive in the notification bell
@@ -32,10 +36,10 @@ export function BadgesSection({ userId, compact = false }: { userId: string; com
     return () => {
       cancelled = true;
     };
-  }, [userId]);
+  }, [userId, angolAccess]);
 
-  // Kreatív Angol is only available on the Hungarian UI
-  const categories: BadgeCategory[] = locale === 'hu' ? ['magia', 'angol'] : ['magia'];
+  // Kreatív Angol is a locked module (Hungarian UI + access)
+  const categories: BadgeCategory[] = angolAccess ? ['magia', 'angol'] : ['magia'];
   const formatDate = (iso: string) => new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(iso));
   const earnedCount = state ? BADGES.filter((b) => categories.includes(b.category) && b.id in state.earned).length : 0;
   const totalCount = BADGES.filter((b) => categories.includes(b.category)).length;

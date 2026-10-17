@@ -15,6 +15,7 @@ import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { SidebarLanguageMenu } from './LanguageMenu';
+import { useAngolAccess } from './ModuleAccessProvider';
 import { cn } from '@/lib/utils';
 
 const STORAGE_KEY = 'quintessence-sidebar-collapsed';
@@ -25,6 +26,7 @@ export function Sidebar() {
   const locale = useLocale();
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
+  const angolAccess = useAngolAccess();
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -57,7 +59,8 @@ export function Sidebar() {
       icon: ElementsNavIcon,
       match: (path: string) => path.includes('/modules/magia'),
     },
-    ...(locale === 'hu'
+    // Locked module: only for users the admin picked (and Hungarian UI)
+    ...(angolAccess
       ? [
           {
             href: `/${locale}/modules/angol`,

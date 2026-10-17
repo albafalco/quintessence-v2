@@ -104,7 +104,16 @@ function ReminderRow({ label, description, checked, onCheckedChange, time, onTim
   );
 }
 
-export function ProfileForm({ profile, isAdmin = false }: { profile: ProfileData; isAdmin?: boolean }) {
+export function ProfileForm({
+  profile,
+  isAdmin = false,
+  angolAccess = false,
+}: {
+  profile: ProfileData;
+  isAdmin?: boolean;
+  /** Kreatív Angol unlocked by the admin (it also needs the Hungarian UI) */
+  angolAccess?: boolean;
+}) {
   const t = useTranslations('profile');
   const router = useRouter();
   const switchLocale = useSwitchLocale();
@@ -349,7 +358,7 @@ export function ProfileForm({ profile, isAdmin = false }: { profile: ProfileData
                     />
                   </div>
 
-                  {language === 'hu' && (
+                  {language === 'hu' && angolAccess && (
                     <>
                       <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">{t('anglNotificationsTitle')}</p>
                       <ReminderRow

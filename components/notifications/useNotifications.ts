@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
+import { useAngolAccess } from '@/components/layout/ModuleAccessProvider';
 import { NOTIFICATIONS_CHANGED_EVENT, resolveNotification, type FeedRow, type ResolvedNotification } from '@/lib/notifications';
 
 /** Background re-check while the app is visible (scheduled announcements have no other trigger). */
@@ -43,6 +44,7 @@ export function useNotifications(limit: number): NotificationsState {
   const tBadges = useTranslations('badges');
   const tMagia = useTranslations('magia');
   const pathname = usePathname();
+  const angol = useAngolAccess() === true;
   const [rows, setRows] = useState<FeedRow[]>([]);
   const [unread, setUnread] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -104,11 +106,14 @@ export function useNotifications(limit: number): NotificationsState {
             notifications: tNotifications as never,
             badges: tBadges as never,
             magia: tMagia as never,
-          })
+          }, angol)
         )
         .filter((n): n is ResolvedNotification => n !== null),
-    [rows, locale, tNotifications, tBadges, tMagia]
+    [rows, locale, tNotifications, tBadges, tMagia, angol]
   );
 
-  return { items, unread, loaded, unavailable, reload };
+  // Hidden (locked-module) rows must not count as unread either
+  const hiddenUnread = rows.filter((r) => !r.is_read).length - items.filter((i) => !i.row.is_read).length;
+
+  return { items, unread: Math.max(0, unread - hiddenUnread), loaded, unavailable, reload };
 }

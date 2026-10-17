@@ -531,7 +531,9 @@
     "unlockBody": "¡Felicidades! Alcanzaste el grado \"{title}\". ¡Continúa tu camino!",
     "weeklyReportTitle": "✦ Tu informe semanal de iniciación está listo",
     "weeklyReportBody": "{minutes} minutos de práctica, {days} días activos. ¡Mira cómo has avanzado!",
-    "angolReviewBody": "{count} tarjetas esperan repaso. ¡Unos minutos y listo el inglés de hoy!"
+    "angolReviewBody": "{count} tarjetas esperan repaso. ¡Unos minutos y listo el inglés de hoy!",
+    "moduleGrantedTitle": "✦ Kreatív Angol ya está disponible",
+    "moduleGrantedBody": "¡Empieza tu primera lección!"
   },
   "badges": {
     "sectionTitle": "Hitos",
@@ -625,7 +627,9 @@
     "inviteAcceptedBody": "Se ha unido a Quintessence. ¡Gracias por invitarle!",
     "inviteReturnedTitle": "Has recuperado una invitación",
     "inviteExpiredBody": "Tu invitación para {email} caducó, así que puedes volver a usarla.",
-    "inviteRevokedBody": "El administrador revocó tu invitación para {email}, así que puedes volver a usarla."
+    "inviteRevokedBody": "El administrador revocó tu invitación para {email}, así que puedes volver a usarla.",
+    "moduleGrantedTitle": "Kreatív Angol ya está disponible para ti",
+    "moduleGrantedBody": "Lo encontrarás en el menú. ¡Disfruta aprendiendo!"
   },
   "invites": {
     "title": "Invitaciones",

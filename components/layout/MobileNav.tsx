@@ -10,11 +10,13 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
+import { useAngolAccess } from './ModuleAccessProvider';
 
 export function MobileNav() {
   const t = useTranslations('nav');
   const locale = useLocale();
   const pathname = usePathname();
+  const angolAccess = useAngolAccess();
 
   const items = [
     {
@@ -29,9 +31,8 @@ export function MobileNav() {
       icon: ElementsNavIcon,
       match: (path: string) => path.includes('/modules/magia'),
     },
-    // Kreatív Angol is only available on the Hungarian UI (same rule as the
-    // sidebar and the middleware) — hidden elsewhere.
-    ...(locale === 'hu'
+    // Locked module: only for users the admin picked (and Hungarian UI)
+    ...(angolAccess
       ? [
           {
             href: `/${locale}/modules/angol`,

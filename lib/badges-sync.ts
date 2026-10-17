@@ -48,9 +48,10 @@ export async function loadBadgeStats(supabase: SupabaseClient, userId: string): 
  * Computes the badges and stores newly earned ones (keeping the first
  * earned date). Works read-only before migration 010 (no dates, no toasts).
  */
-export async function syncBadges(supabase: SupabaseClient, userId: string): Promise<BadgeState> {
+/** `angol: false` — Kreatív Angol is locked for this user: its badges are not awarded. */
+export async function syncBadges(supabase: SupabaseClient, userId: string, { angol }: { angol: boolean }): Promise<BadgeState> {
   const stats = await loadBadgeStats(supabase, userId);
-  const earnedIds = BADGES.filter((b) => isEarned(b, stats)).map((b) => b.id);
+  const earnedIds = BADGES.filter((b) => (angol || b.category !== 'angol') && isEarned(b, stats)).map((b) => b.id);
 
   const { data: stored, error } = await supabase.from('user_badges').select('badge_id, earned_at').eq('user_id', userId);
   if (error) {

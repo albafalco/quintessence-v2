@@ -531,7 +531,9 @@
     "unlockBody": "Gratulálok! Elérted a(z) \"{title}\" fokozatot. Folytasd az utad!",
     "weeklyReportTitle": "✦ Elkészült a heti beavatási jelentésed",
     "weeklyReportBody": "{minutes} perc gyakorlás, {days} aktív nap. Nézd meg, hogyan haladtál!",
-    "angolReviewBody": "{count} kártya vár ismétlésre. Pár perc, és megvan a mai angol!"
+    "angolReviewBody": "{count} kártya vár ismétlésre. Pár perc, és megvan a mai angol!",
+    "moduleGrantedTitle": "✦ Megnyílt számodra a Kreatív Angol",
+    "moduleGrantedBody": "Kezdd el az első leckét!"
   },
   "badges": {
     "sectionTitle": "Mérföldkövek",
@@ -625,7 +627,9 @@
     "inviteAcceptedBody": "Regisztrált a Quintessence-be. Köszönjük, hogy meghívtad!",
     "inviteReturnedTitle": "Visszakaptál egy meghívót",
     "inviteExpiredBody": "A(z) {email} címre küldött meghívód lejárt, így újra felhasználhatod.",
-    "inviteRevokedBody": "A(z) {email} címre küldött meghívódat az adminisztrátor visszavonta, így újra felhasználhatod."
+    "inviteRevokedBody": "A(z) {email} címre küldött meghívódat az adminisztrátor visszavonta, így újra felhasználhatod.",
+    "moduleGrantedTitle": "Megnyílt számodra a Kreatív Angol",
+    "moduleGrantedBody": "Mostantól elérhető a menüben. Jó tanulást!"
   },
   "invites": {
     "title": "Meghívások",
