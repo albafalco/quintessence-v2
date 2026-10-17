@@ -6,6 +6,8 @@ import { useLocale, useTranslations } from 'next-intl';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { NotificationBell } from '@/components/notifications/NotificationBell';
 import { UserMenu } from './UserMenu';
+import { Breadcrumbs } from './Breadcrumbs';
+import { MomentumChip } from './MomentumChip';
 import { createClient } from '@/lib/supabase/client';
 
 export function Navbar() {
@@ -51,9 +53,11 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden min-w-0 md:block" />
+        <Breadcrumbs />
 
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+          <MomentumChip />
+
           <NotificationBell />
 
           <UserMenu username={username} name={name} isAdmin={isAdmin} />

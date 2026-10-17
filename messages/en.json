@@ -10,7 +10,8 @@
     "greeting": "Hello,",
     "userMenu": "Account menu",
     "admin": "Admin",
-    "language": "Language"
+    "language": "Language",
+    "breadcrumb": "Breadcrumb"
   },
   "auth": {
     "login": "Sign in",
@@ -70,7 +71,8 @@
     "todayAllDone": "All of today's tasks are done!",
     "todayMore": "+{count} more",
     "todayReview": "Vocabulary review: {count} cards",
-    "todayHard": "Difficult sentences: {count}"
+    "todayHard": "Difficult sentences: {count}",
+    "momentumLabel": "Streak: {streak} days · Today's practice: {done}/{total}"
   },
   "modules": {
     "magia": {

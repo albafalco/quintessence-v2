@@ -10,7 +10,8 @@
     "greeting": "Hallo,",
     "userMenu": "Kontomenü",
     "admin": "Admin",
-    "language": "Sprache"
+    "language": "Sprache",
+    "breadcrumb": "Brotkrümelnavigation"
   },
   "auth": {
     "login": "Anmelden",
@@ -70,7 +71,8 @@
     "todayAllDone": "Alle heutigen Aufgaben sind erledigt!",
     "todayMore": "+{count} weitere",
     "todayReview": "Vokabelwiederholung: {count} Karten",
-    "todayHard": "Schwierige Sätze: {count}"
+    "todayHard": "Schwierige Sätze: {count}",
+    "momentumLabel": "Serie: {streak} Tage · Heutige Übung: {done}/{total}"
   },
   "modules": {
     "magia": {

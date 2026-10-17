@@ -10,7 +10,8 @@
     "greeting": "Üdv,",
     "userMenu": "Fiókmenü",
     "admin": "Admin",
-    "language": "Nyelv"
+    "language": "Nyelv",
+    "breadcrumb": "Morzsamenü"
   },
   "auth": {
     "login": "Bejelentkezés",
@@ -70,7 +71,8 @@
     "todayAllDone": "Minden mai teendőd kész!",
     "todayMore": "+{count} további",
     "todayReview": "Szókártya-ismétlés: {count} kártya",
-    "todayHard": "Nehéz mondatok: {count}"
+    "todayHard": "Nehéz mondatok: {count}",
+    "momentumLabel": "Sorozat: {streak} nap · Mai gyakorlás: {done}/{total}"
   },
   "modules": {
     "magia": {

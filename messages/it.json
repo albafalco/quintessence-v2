@@ -10,7 +10,8 @@
     "greeting": "Ciao,",
     "userMenu": "Menu account",
     "admin": "Admin",
-    "language": "Lingua"
+    "language": "Lingua",
+    "breadcrumb": "Percorso"
   },
   "auth": {
     "login": "Accedi",
@@ -70,7 +71,8 @@
     "todayAllDone": "Tutte le attività di oggi sono completate!",
     "todayMore": "+{count} altre",
     "todayReview": "Ripasso vocaboli: {count} schede",
-    "todayHard": "Frasi difficili: {count}"
+    "todayHard": "Frasi difficili: {count}",
+    "momentumLabel": "Serie: {streak} giorni · Pratica di oggi: {done}/{total}"
   },
   "modules": {
     "magia": {
