@@ -10,7 +10,13 @@
     "greeting": "Hallo,",
     "userMenu": "Kontomenü",
     "admin": "Admin",
-    "language": "Sprache"
+    "language": "Sprache",
+    "languageSearch": "Sprache suchen…",
+    "languageSuggested": "Vorgeschlagen",
+    "languageAll": "Alle Sprachen",
+    "languageNoMatch": "Keine passende Sprache.",
+    "languageBack": "Zurück zum Menü",
+    "languageBeta": "Beta"
   },
   "auth": {
     "login": "Anmelden",

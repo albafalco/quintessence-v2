@@ -10,7 +10,13 @@
     "greeting": "Üdv,",
     "userMenu": "Fiókmenü",
     "admin": "Admin",
-    "language": "Nyelv"
+    "language": "Nyelv",
+    "languageSearch": "Nyelv keresése…",
+    "languageSuggested": "Javasolt",
+    "languageAll": "Összes nyelv",
+    "languageNoMatch": "Nincs ilyen nyelv.",
+    "languageBack": "Vissza a menübe",
+    "languageBeta": "béta"
   },
   "auth": {
     "login": "Bejelentkezés",

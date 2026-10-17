@@ -1,4 +1,5 @@
-import type { Locale } from '@/i18n';
+import { fallbackLocale, locales, type Locale } from '@/i18n';
+import { mergeMessages } from '@/lib/merge-messages';
 
 type Messages = Record<string, unknown>;
 
@@ -8,7 +9,11 @@ export async function loadMessages(locale: Locale): Promise<Messages> {
   if (cache.has(locale)) return cache.get(locale)!;
 
   const mod = await import(`@/messages/${locale}.json`);
-  const messages = mod.default as Messages;
+  // Missing texts fall back to English
+  const messages =
+    locale === fallbackLocale
+      ? (mod.default as Messages)
+      : mergeMessages(await loadMessages(fallbackLocale), mod.default as Messages);
   cache.set(locale, messages);
   return messages;
 }
@@ -38,7 +43,6 @@ export async function getMessage(
 }
 
 export function resolveLocale(value: string | null | undefined): Locale {
-  const locales = ['hu', 'en', 'de', 'es', 'it'] as const;
-  if (value && locales.includes(value as Locale)) return value as Locale;
+  if (value && (locales as readonly string[]).includes(value)) return value as Locale;
   return 'hu';
 }

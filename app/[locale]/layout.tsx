@@ -8,6 +8,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { locales, type Locale } from '@/i18n';
+import { LANGUAGES } from '@/lib/languages';
 import { BootFallback } from '@/components/layout/BootFallback';
 import { BootInit } from '@/components/layout/BootInit';
 import { ConditionalAppShell } from '@/components/layout/ConditionalAppShell';
@@ -54,7 +55,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="dark">
+    <html lang={locale} dir={LANGUAGES[locale as Locale].dir} className="dark">
       <head>
         {/* Dark background before stylesheet — prevents white flash on cold start */}
         <style>{`html,body{background-color:#0a0812}`}</style>

@@ -14,7 +14,6 @@ import {
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { LogoutButton } from '@/components/auth/LogoutButton';
-import { SidebarLanguageMenu } from './LanguageMenu';
 import { useAngolAccess } from './ModuleAccessProvider';
 import { cn } from '@/lib/utils';
 
@@ -159,8 +158,7 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="space-y-1 border-t border-border/40 p-3">
-        <SidebarLanguageMenu collapsed={collapsed} />
+      <div className="border-t border-border/40 p-3">
         <LogoutButton variant="nav" showLabel={!collapsed} />
       </div>
     </aside>

@@ -9,13 +9,13 @@ import { locales, type Locale } from '@/i18n';
 import { createClient } from '@/lib/supabase/client';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { PushToggle } from '@/components/push/PushToggle';
-import { FlagIcon } from '@/components/ui/FlagIcon';
+import { LanguageBadge } from '@/components/layout/LanguagePicker';
+import { LANGUAGES } from '@/lib/languages';
 import {
   DEFAULT_ANGOL_PUSH_TIME,
   DEFAULT_MAGIA_PUSH_TIME,
   DEFAULT_MAGIA_EVENING_PUSH_TIME,
   DEFAULT_MAGIA_STREAK_PUSH_TIME,
-  getNativeLocaleLabel,
 } from '@/lib/locale-meta';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { AccountDataCard } from '@/components/profile/AccountDataCard';
@@ -423,14 +423,16 @@ export function ProfileForm({
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    {locales.map((value) => (
-                      <SelectItem key={value} value={value}>
-                        <span className="flex items-center gap-2">
-                          <FlagIcon locale={value} className="h-3.5 w-5" />
-                          {getNativeLocaleLabel(value as Locale)}
-                        </span>
-                      </SelectItem>
-                    ))}
+                    {[...locales]
+                      .sort((a, b) => LANGUAGES[a].nativeName.localeCompare(LANGUAGES[b].nativeName, language))
+                      .map((value) => (
+                        <SelectItem key={value} value={value}>
+                          <span className="flex items-center gap-2">
+                            <LanguageBadge code={value} />
+                            {LANGUAGES[value].nativeName}
+                          </span>
+                        </SelectItem>
+                      ))}
                   </SelectContent>
                 </Select>
               </CardContent>

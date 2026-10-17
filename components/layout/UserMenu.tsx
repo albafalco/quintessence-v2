@@ -4,10 +4,13 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { Bell, ChevronDown, ShieldCheck, User } from 'lucide-react';
+import { Bell, ChevronDown, ChevronLeft, ChevronRight, Languages, ShieldCheck, User } from 'lucide-react';
 import { UserAvatar } from '@/components/ui/UserAvatar';
 import { LogoutButton } from '@/components/auth/LogoutButton';
-import { InlineLanguageMenu } from './LanguageMenu';
+import { LanguageBadge, LanguageList } from './LanguagePicker';
+import { useSwitchLocale } from './useSwitchLocale';
+import { getLanguage } from '@/lib/languages';
+import type { Locale } from '@/i18n';
 import { cn } from '@/lib/utils';
 
 interface UserMenuProps {
@@ -16,12 +19,21 @@ interface UserMenuProps {
   isAdmin: boolean;
 }
 
-/** Header account button: "Üdv, @username" opening Profil / Értesítések / Admin / (mobile) Nyelv / Kijelentkezés. */
+type View = 'main' | 'language';
+
+const ITEM_SELECTOR = '[role="menuitem"], [role="menuitemradio"], input';
+
+/**
+ * Header account button: "Üdv, @username" opening Profil / Értesítések / Admin /
+ * Nyelv / Kijelentkezés. "Nyelv" switches the panel to the language list.
+ */
 export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
   const t = useTranslations('nav');
   const tNotifications = useTranslations('notifications');
   const locale = useLocale();
+  const switchLocale = useSwitchLocale();
   const [open, setOpen] = useState(false);
+  const [view, setView] = useState<View>('main');
   const [mounted, setMounted] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -43,25 +55,41 @@ export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
       panel.style.left = `${Math.max(8, Math.min(rect.right, window.innerWidth - 8) - panel.offsetWidth)}px`;
     };
     place();
-    panel.querySelector<HTMLElement>('[role="menuitem"]')?.focus();
     window.addEventListener('resize', place);
     return () => window.removeEventListener('resize', place);
   }, [open, mounted]);
+
+  // First item of the current view gets the focus (keyboard users land in the list)
+  useLayoutEffect(() => {
+    if (open) panelRef.current?.querySelector<HTMLElement>(ITEM_SELECTOR)?.focus();
+  }, [open, view, mounted]);
+
+  const close = () => {
+    setOpen(false);
+    setView('main');
+  };
 
   useEffect(() => {
     if (!open) return;
     const onPointerDown = (e: PointerEvent) => {
       const target = e.target as Node;
-      if (!panelRef.current?.contains(target) && !buttonRef.current?.contains(target)) setOpen(false);
+      if (!panelRef.current?.contains(target) && !buttonRef.current?.contains(target)) {
+        setOpen(false);
+        setView('main');
+      }
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setOpen(false);
-        buttonRef.current?.focus();
+        // In the language list Esc steps back first
+        if (view === 'language') setView('main');
+        else {
+          setOpen(false);
+          buttonRef.current?.focus();
+        }
         return;
       }
       if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
-      const items = [...(panelRef.current?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? [])];
+      const items = [...(panelRef.current?.querySelectorAll<HTMLElement>(ITEM_SELECTOR) ?? [])];
       if (items.length === 0) return;
       e.preventDefault();
       const current = items.indexOf(document.activeElement as HTMLElement);
@@ -74,18 +102,22 @@ export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
       document.removeEventListener('pointerdown', onPointerDown);
       document.removeEventListener('keydown', onKey);
     };
-  }, [open]);
+  }, [open, view]);
 
-  const close = () => setOpen(false);
+  const pickLanguage = (code: Locale) => {
+    close();
+    if (code !== locale) void switchLocale(code);
+  };
+
   const itemClass =
-    'flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-cream/90 transition hover:bg-muted/40 hover:text-cream focus-visible:bg-muted/40 focus-visible:outline-none';
+    'flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm text-cream/90 transition hover:bg-muted/40 hover:text-cream focus-visible:bg-muted/40 focus-visible:outline-none';
 
   return (
     <>
       <button
         ref={buttonRef}
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => (open ? close() : setOpen(true))}
         aria-label={t('userMenu')}
         aria-haspopup="menu"
         aria-expanded={open}
@@ -109,37 +141,62 @@ export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
           <div
             ref={panelRef}
             role="menu"
-            aria-label={t('userMenu')}
-            className="fixed z-50 w-60 animate-pop-in overflow-hidden rounded-2xl border border-border/60 bg-card-elevated/95 shadow-card backdrop-blur-xl motion-reduce:animate-none"
+            aria-label={view === 'language' ? t('language') : t('userMenu')}
+            className="fixed z-50 w-64 animate-pop-in overflow-hidden rounded-2xl border border-border/60 bg-card-elevated/95 shadow-card backdrop-blur-xl motion-reduce:animate-none"
           >
-            <div className="border-b border-border/40 px-4 py-3">
-              {name && <p className="truncate text-sm font-semibold text-cream">{name}</p>}
-              <p className="truncate text-xs text-muted-foreground">@{username}</p>
-            </div>
-            <div className="p-1.5">
-              <Link role="menuitem" href={`/${locale}/profile`} onClick={close} className={itemClass}>
-                <User className="h-4 w-4 shrink-0 text-accent" />
-                {t('profile')}
-              </Link>
-              <Link role="menuitem" href={`/${locale}/ertesitesek`} onClick={close} className={itemClass}>
-                <Bell className="h-4 w-4 shrink-0 text-accent" />
-                {tNotifications('title')}
-              </Link>
-              {isAdmin && (
-                // The admin area is Hungarian-only
-                <Link role="menuitem" href="/hu/admin" onClick={close} className={itemClass}>
-                  <ShieldCheck className="h-4 w-4 shrink-0 text-accent" />
-                  {t('admin')}
-                </Link>
-              )}
-              {/* Desktop/tablet: the language lives in the sidebar */}
-              <div className="md:hidden">
-                <InlineLanguageMenu itemClassName={itemClass} onPicked={close} />
+            {view === 'main' ? (
+              <div key="main" className="animate-fade-in motion-reduce:animate-none">
+                <div className="border-b border-border/40 px-4 py-3">
+                  {name && <p className="truncate text-sm font-semibold text-cream">{name}</p>}
+                  <p className="truncate text-xs text-muted-foreground">@{username}</p>
+                </div>
+                <div className="p-1.5">
+                  <Link role="menuitem" href={`/${locale}/profile`} onClick={close} className={itemClass}>
+                    <User className="h-4 w-4 shrink-0 text-accent" />
+                    {t('profile')}
+                  </Link>
+                  <Link role="menuitem" href={`/${locale}/ertesitesek`} onClick={close} className={itemClass}>
+                    <Bell className="h-4 w-4 shrink-0 text-accent" />
+                    {tNotifications('title')}
+                  </Link>
+                  {isAdmin && (
+                    // The admin area is Hungarian-only
+                    <Link role="menuitem" href="/hu/admin" onClick={close} className={itemClass}>
+                      <ShieldCheck className="h-4 w-4 shrink-0 text-accent" />
+                      {t('admin')}
+                    </Link>
+                  )}
+                  <button type="button" role="menuitem" aria-haspopup="menu" onClick={() => setView('language')} className={itemClass}>
+                    <Languages className="h-4 w-4 shrink-0 text-accent" />
+                    <span className="flex-1">{t('language')}</span>
+                    <LanguageBadge code={locale} />
+                    <span className="sr-only">{getLanguage(locale)?.nativeName}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                  </button>
+                </div>
+                <div className="border-t border-border/40 p-1.5">
+                  <LogoutButton variant="nav" role="menuitem" className="rounded-lg px-3 py-2 [&>svg]:h-4 [&>svg]:w-4" />
+                </div>
               </div>
-            </div>
-            <div className="border-t border-border/40 p-1.5">
-              <LogoutButton variant="nav" role="menuitem" className="rounded-lg px-3 py-2 [&>svg]:h-4 [&>svg]:w-4" />
-            </div>
+            ) : (
+              <div key="language" className="animate-fade-in motion-reduce:animate-none">
+                <div className="flex items-center gap-1 border-b border-border/40 px-1.5 py-1.5">
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => setView('main')}
+                    aria-label={t('languageBack')}
+                    className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-muted/40 hover:text-cream focus-visible:bg-muted/40 focus-visible:outline-none"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <p className="font-display text-sm font-semibold text-gradient-gold">{t('language')}</p>
+                </div>
+                <div className="max-h-[min(22rem,60dvh)] overflow-y-auto p-1.5">
+                  <LanguageList onPick={pickLanguage} itemRole="menuitemradio" />
+                </div>
+              </div>
+            )}
           </div>,
           document.body
         )}

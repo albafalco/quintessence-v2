@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { AuthBranding } from '@/components/auth/AuthBranding';
 import { AuthBackgroundVideo } from '@/components/auth/AuthBackgroundVideo';
+import { AuthLanguageButton } from '@/components/auth/AuthLanguageButton';
 
 export function AuthLayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -11,6 +12,7 @@ export function AuthLayoutShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="cosmic-bg relative flex min-h-[100dvh] w-full flex-col items-center justify-center overflow-x-hidden p-4 pb-safe">
       {isLogin && <AuthBackgroundVideo />}
+      <AuthLanguageButton />
 
       <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
         {!isLogin && (

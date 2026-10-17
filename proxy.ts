@@ -27,8 +27,10 @@ function redirectWithCookies(url: URL, from: NextResponse) {
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // "/": next-intl picks the remembered language (cookie) or the browser's
+  // (Accept-Language), falling back to the default
   if (pathname === '/') {
-    return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url));
+    return intlMiddleware(request);
   }
 
   // Paths without a valid locale prefix (e.g. "/profile") are handed to

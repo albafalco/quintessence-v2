@@ -32,7 +32,7 @@ export function RegisterForm({ initialInviteCode = '' }: { initialInviteCode?: s
       res = await fetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, username, email, password, inviteCode }),
+        body: JSON.stringify({ name, username, email, password, inviteCode, locale }),
       });
       data = await res.json().catch(() => ({}));
     } catch {

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getSupabaseConfig } from '@/lib/supabase/server';
+import { resolveLocale } from '@/lib/i18n-messages';
 
 const ERROR_CODES = {
   SERVER_CONFIG: 'SERVER_CONFIG',
@@ -35,7 +36,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, username, email, password, inviteCode } = await request.json();
+    const { name, username, email, password, inviteCode, locale } = await request.json();
 
     if (!name || !username || !email || !password || !inviteCode) {
       return NextResponse.json({ errorCode: ERROR_CODES.MISSING_FIELDS }, { status: 400 });
@@ -123,7 +124,8 @@ export async function POST(request: Request) {
       id: userId,
       name,
       username,
-      preferred_language: 'hu',
+      // The UI language of the registration (notifications follow it)
+      preferred_language: resolveLocale(locale),
     });
 
     if (profileError) {
