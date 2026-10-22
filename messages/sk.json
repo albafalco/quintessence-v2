@@ -16,7 +16,8 @@
     "languageAll": "Všetky jazyky",
     "languageNoMatch": "Žiadny zodpovedajúci jazyk.",
     "languageBack": "Späť do menu",
-    "languageBeta": "beta"
+    "languageBeta": "beta",
+    "practice": "Cvičenie"
   },
   "auth": {
     "login": "Prihlásiť sa",
@@ -343,7 +344,6 @@
     "passwordMismatch": "Heslá sa nezhodujú",
     "passwordTooShort": "Heslo musí mať aspoň 8 znakov",
     "readonly": "Nedá sa upraviť",
-    "logoutHint": "Po odhlásení sa budeš musieť znova prihlásiť.",
     "magiaNotificationsTitle": "Notifikácie Bielej mágie",
     "morningReminder": "Ranná pripomienka",
     "morningReminderDesc": "Denný plán v nastavenom čase",
@@ -371,7 +371,7 @@
     "deleteAccountFailed": "Vymazanie účtu zlyhalo. Skús to neskôr znova.",
     "cancel": "Zrušiť",
     "tabOverview": "Prehľad",
-    "tabNotifications": "Notifikácie",
+    "tabNotifications": "Pripomienky",
     "tabAccount": "Účet",
     "saving": "Ukladá sa…",
     "savedShort": "Uložené ✓",

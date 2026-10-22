@@ -9,11 +9,9 @@ import {
   ChevronRight,
   GraduationCap,
   LayoutDashboard,
-  User,
 } from 'lucide-react';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
-import { LogoutButton } from '@/components/auth/LogoutButton';
 import { useAngolAccess } from './ModuleAccessProvider';
 import { cn } from '@/lib/utils';
 
@@ -45,13 +43,15 @@ export function Sidebar() {
     document.documentElement.style.setProperty('--sidebar-width', collapsed ? '4.5rem' : '16rem');
   }, [collapsed]);
 
-  const links = [
-    {
-      href: `/${locale}`,
-      label: t('dashboard'),
-      icon: LayoutDashboard,
-      match: (path: string) => path === `/${locale}` || path === `/${locale}/`,
-    },
+  const home = {
+    href: `/${locale}`,
+    label: t('dashboard'),
+    icon: LayoutDashboard,
+    match: (path: string) => path === `/${locale}` || path === `/${locale}/`,
+  };
+
+  // Profile, language and sign-out live in the header account menu
+  const modules = [
     {
       href: `/${locale}/modules/magia`,
       label: t('magia'),
@@ -69,13 +69,33 @@ export function Sidebar() {
           },
         ]
       : []),
-    {
-      href: `/${locale}/profile`,
-      label: t('profile'),
-      icon: User,
-      match: (path: string) => path.includes('/profile'),
-    },
   ];
+
+  const renderLink = ({ href, label, icon: Icon, match }: typeof home) => {
+    const active = match(pathname);
+    return (
+      <Link
+        key={href}
+        href={href}
+        className={cn(
+          'group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200',
+          active
+            ? 'nav-item-active'
+            : 'text-muted-foreground hover:bg-muted/40 hover:text-cream',
+          collapsed && 'justify-center px-2'
+        )}
+        title={collapsed ? label : undefined}
+      >
+        <Icon
+          className={cn(
+            'h-5 w-5 shrink-0 transition-colors',
+            active ? 'text-accent' : 'group-hover:text-accent/80'
+          )}
+        />
+        {!collapsed && <span>{label}</span>}
+      </Link>
+    );
+  };
 
   return (
     <aside
@@ -126,41 +146,17 @@ export function Sidebar() {
       </div>
 
       <nav className="flex flex-1 flex-col gap-1.5 p-3">
-        {!collapsed && (
-          <p className="mb-1 px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent/70">
+        {renderLink(home)}
+        {collapsed ? (
+          <div className="mx-2 my-1.5 h-px bg-border/40" />
+        ) : (
+          <p className="mb-1 mt-3 px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent/70">
             {t('modules')}
           </p>
         )}
-        {links.map(({ href, label, icon: Icon, match }) => {
-          const active = match(pathname);
-          return (
-            <Link
-              key={href}
-              href={href}
-              className={cn(
-                'group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200',
-                active
-                  ? 'nav-item-active'
-                  : 'text-muted-foreground hover:bg-muted/40 hover:text-cream',
-                collapsed && 'justify-center px-2'
-              )}
-              title={collapsed ? label : undefined}
-            >
-              <Icon
-                className={cn(
-                  'h-5 w-5 shrink-0 transition-colors',
-                  active ? 'text-accent' : 'group-hover:text-accent/80'
-                )}
-              />
-              {!collapsed && <span>{label}</span>}
-            </Link>
-          );
-        })}
+        {modules.map(renderLink)}
       </nav>
 
-      <div className="border-t border-border/40 p-3">
-        <LogoutButton variant="nav" showLabel={!collapsed} />
-      </div>
     </aside>
   );
 }

@@ -17,7 +17,6 @@ import {
   DEFAULT_MAGIA_EVENING_PUSH_TIME,
   DEFAULT_MAGIA_STREAK_PUSH_TIME,
 } from '@/lib/locale-meta';
-import { LogoutButton } from '@/components/auth/LogoutButton';
 import { AccountDataCard } from '@/components/profile/AccountDataCard';
 import { BadgesSection } from '@/components/profile/BadgesSection';
 import { InvitesCard } from '@/components/profile/InvitesCard';
@@ -491,25 +490,6 @@ export function ProfileForm({
               </CardHeader>
               <CardContent>
                 <AccountDataCard part="export" userId={profile.id} username={profile.username} email={profile.email} />
-              </CardContent>
-            </Card>
-
-            {/* Admin area is Hungarian-only; the link is shown to admins only */}
-            {isAdmin && (
-              <Link
-                href="/hu/admin"
-                className="premium-card group flex items-center gap-3 px-6 py-4 transition hover:border-accent/30"
-              >
-                <ShieldCheck className="h-5 w-5 text-accent" />
-                <span className="flex-1 font-display text-lg font-semibold text-gradient-gold">Admin felület</span>
-                <ChevronRight className="h-5 w-5 text-muted-foreground transition group-hover:text-accent" />
-              </Link>
-            )}
-
-            <Card className="premium-card">
-              <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm text-muted-foreground">{t('logoutHint')}</p>
-                <LogoutButton variant="outline" className="w-full sm:w-auto" />
               </CardContent>
             </Card>
 

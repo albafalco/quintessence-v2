@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import {
   GraduationCap,
   LayoutDashboard,
-  User,
+  Play,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
@@ -29,7 +29,14 @@ export function MobileNav() {
       href: `/${locale}/modules/magia`,
       label: t('magia'),
       icon: ElementsNavIcon,
-      match: (path: string) => path.includes('/modules/magia'),
+      // The daily practice has its own tab
+      match: (path: string) => path.includes('/modules/magia') && !path.includes('/modules/magia/ma'),
+    },
+    {
+      href: `/${locale}/modules/magia/ma`,
+      label: t('practice'),
+      icon: Play,
+      match: (path: string) => path.includes('/modules/magia/ma'),
     },
     // Locked module: only for users the admin picked (and Hungarian UI)
     ...(angolAccess
@@ -42,12 +49,6 @@ export function MobileNav() {
           },
         ]
       : []),
-    {
-      href: `/${locale}/profile`,
-      label: t('profile'),
-      icon: User,
-      match: (path: string) => path.includes('/profile'),
-    },
   ];
 
   return (

@@ -16,7 +16,8 @@
     "languageAll": "All languages",
     "languageNoMatch": "No matching language.",
     "languageBack": "Back to the menu",
-    "languageBeta": "beta"
+    "languageBeta": "beta",
+    "practice": "Practice"
   },
   "auth": {
     "login": "Sign in",
@@ -467,7 +468,6 @@
     "passwordMismatch": "Passwords do not match",
     "passwordTooShort": "Password must be at least 8 characters",
     "readonly": "Not editable",
-    "logoutHint": "You will need to sign in again after logging out.",
     "magiaNotificationsTitle": "White Magic notifications",
     "morningReminder": "Morning reminder",
     "morningReminderDesc": "Daily plan at the set time",
@@ -495,7 +495,7 @@
     "deleteAccountFailed": "Deleting the account failed. Please try again later.",
     "cancel": "Cancel",
     "tabOverview": "Overview",
-    "tabNotifications": "Notifications",
+    "tabNotifications": "Reminders",
     "tabAccount": "Account",
     "saving": "Saving…",
     "savedShort": "Saved ✓",

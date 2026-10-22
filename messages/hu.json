@@ -16,7 +16,8 @@
     "languageAll": "Összes nyelv",
     "languageNoMatch": "Nincs ilyen nyelv.",
     "languageBack": "Vissza a menübe",
-    "languageBeta": "béta"
+    "languageBeta": "béta",
+    "practice": "Gyakorlás"
   },
   "auth": {
     "login": "Bejelentkezés",
@@ -468,7 +469,6 @@
     "passwordMismatch": "A jelszavak nem egyeznek",
     "passwordTooShort": "A jelszó legalább 8 karakter legyen",
     "readonly": "Nem módosítható",
-    "logoutHint": "Kijelentkezés után újra be kell jelentkezned.",
     "magiaNotificationsTitle": "Fehér Mágia értesítések",
     "morningReminder": "Reggeli emlékeztető",
     "morningReminderDesc": "Napi tervvel a beállított időben",
@@ -495,7 +495,7 @@
     "deleteAccountFailed": "A fiók törlése nem sikerült. Próbáld újra később.",
     "cancel": "Mégse",
     "tabOverview": "Áttekintés",
-    "tabNotifications": "Értesítések",
+    "tabNotifications": "Emlékeztetők",
     "tabAccount": "Fiók",
     "saving": "Mentés…",
     "savedShort": "Mentve ✓",

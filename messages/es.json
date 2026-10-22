@@ -16,7 +16,8 @@
     "languageAll": "Todos los idiomas",
     "languageNoMatch": "Ningún idioma coincide.",
     "languageBack": "Volver al menú",
-    "languageBeta": "beta"
+    "languageBeta": "beta",
+    "practice": "Práctica"
   },
   "auth": {
     "login": "Iniciar sesión",
@@ -467,7 +468,6 @@
     "passwordMismatch": "Las contraseñas no coinciden",
     "passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
     "readonly": "No editable",
-    "logoutHint": "Tendrás que iniciar sesión de nuevo después de cerrar sesión.",
     "magiaNotificationsTitle": "Notificaciones de Magia Blanca",
     "morningReminder": "Recordatorio matutino",
     "morningReminderDesc": "Plan diario a la hora configurada",
@@ -495,7 +495,7 @@
     "deleteAccountFailed": "No se pudo eliminar la cuenta. Inténtalo más tarde.",
     "cancel": "Cancelar",
     "tabOverview": "Resumen",
-    "tabNotifications": "Notificaciones",
+    "tabNotifications": "Recordatorios",
     "tabAccount": "Cuenta",
     "saving": "Guardando…",
     "savedShort": "Guardado ✓",

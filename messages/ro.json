@@ -16,7 +16,8 @@
     "languageAll": "Toate limbile",
     "languageNoMatch": "Nicio limbă găsită.",
     "languageBack": "Înapoi la meniu",
-    "languageBeta": "beta"
+    "languageBeta": "beta",
+    "practice": "Practică"
   },
   "auth": {
     "login": "Autentificare",
@@ -343,7 +344,6 @@
     "passwordMismatch": "Parolele nu coincid",
     "passwordTooShort": "Parola trebuie să aibă cel puțin 8 caractere",
     "readonly": "Nu se poate edita",
-    "logoutHint": "După deconectare va trebui să te autentifici din nou.",
     "magiaNotificationsTitle": "Notificări Magia Albă",
     "morningReminder": "Memento de dimineață",
     "morningReminderDesc": "Planul zilnic la ora setată",
@@ -371,7 +371,7 @@
     "deleteAccountFailed": "Ștergerea contului a eșuat. Încearcă din nou mai târziu.",
     "cancel": "Anulează",
     "tabOverview": "Prezentare",
-    "tabNotifications": "Notificări",
+    "tabNotifications": "Mementouri",
     "tabAccount": "Cont",
     "saving": "Se salvează…",
     "savedShort": "Salvat ✓",

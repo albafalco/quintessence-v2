@@ -16,7 +16,8 @@
     "languageAll": "Alle Sprachen",
     "languageNoMatch": "Keine passende Sprache.",
     "languageBack": "Zurück zum Menü",
-    "languageBeta": "Beta"
+    "languageBeta": "Beta",
+    "practice": "Übung"
   },
   "auth": {
     "login": "Anmelden",
@@ -467,7 +468,6 @@
     "passwordMismatch": "Passwörter stimmen nicht überein",
     "passwordTooShort": "Passwort muss mindestens 8 Zeichen haben",
     "readonly": "Nicht bearbeitbar",
-    "logoutHint": "Nach dem Abmelden musst du dich erneut anmelden.",
     "magiaNotificationsTitle": "Weiße Magie – Benachrichtigungen",
     "morningReminder": "Morgenerinnerung",
     "morningReminderDesc": "Tagesplan zur eingestellten Zeit",
@@ -495,7 +495,7 @@
     "deleteAccountFailed": "Das Löschen des Kontos ist fehlgeschlagen. Bitte versuche es später erneut.",
     "cancel": "Abbrechen",
     "tabOverview": "Übersicht",
-    "tabNotifications": "Benachrichtigungen",
+    "tabNotifications": "Erinnerungen",
     "tabAccount": "Konto",
     "saving": "Wird gespeichert…",
     "savedShort": "Gespeichert ✓",

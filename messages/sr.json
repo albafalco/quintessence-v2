@@ -16,7 +16,8 @@
     "languageAll": "Svi jezici",
     "languageNoMatch": "Nema odgovarajućeg jezika.",
     "languageBack": "Nazad u meni",
-    "languageBeta": "beta"
+    "languageBeta": "beta",
+    "practice": "Vežba"
   },
   "auth": {
     "login": "Prijava",
@@ -343,7 +344,6 @@
     "passwordMismatch": "Lozinke se ne podudaraju",
     "passwordTooShort": "Lozinka mora imati najmanje 8 znakova",
     "readonly": "Ne može se menjati",
-    "logoutHint": "Posle odjave moraćeš ponovo da se prijaviš.",
     "magiaNotificationsTitle": "Obaveštenja Bele magije",
     "morningReminder": "Jutarnji podsetnik",
     "morningReminderDesc": "Dnevni plan u podešeno vreme",
@@ -371,7 +371,7 @@
     "deleteAccountFailed": "Brisanje naloga nije uspelo. Pokušaj ponovo kasnije.",
     "cancel": "Otkaži",
     "tabOverview": "Pregled",
-    "tabNotifications": "Obaveštenja",
+    "tabNotifications": "Podsetnici",
     "tabAccount": "Nalog",
     "saving": "Čuvanje…",
     "savedShort": "Sačuvano ✓",
