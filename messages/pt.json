@@ -25,7 +25,10 @@
     "themeSystem": "Automático",
     "themeQuintessenceDesc": "Escuro e cósmico — o original",
     "themeHajnalDesc": "Claro, pergaminho quente",
-    "themeSystemDesc": "Segue a configuração do dispositivo"
+    "themeSystemDesc": "Segue a configuração do dispositivo",
+    "themeQuintessenceShort": "escuro",
+    "themeHajnalShort": "claro",
+    "themeSystemShort": "segue o sistema"
   },
   "auth": {
     "login": "Entrar",

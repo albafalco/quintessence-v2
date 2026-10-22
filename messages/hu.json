@@ -25,7 +25,10 @@
     "themeSystem": "Automatikus",
     "themeQuintessenceDesc": "Sötét, kozmikus — az alap",
     "themeHajnalDesc": "Világos, meleg pergamen",
-    "themeSystemDesc": "A készülék beállítását követi"
+    "themeSystemDesc": "A készülék beállítását követi",
+    "themeQuintessenceShort": "sötét",
+    "themeHajnalShort": "világos",
+    "themeSystemShort": "rendszer szerint"
   },
   "auth": {
     "login": "Bejelentkezés",

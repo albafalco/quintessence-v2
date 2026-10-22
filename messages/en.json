@@ -25,7 +25,10 @@
     "themeSystem": "Automatic",
     "themeQuintessenceDesc": "Dark and cosmic — the original",
     "themeHajnalDesc": "Light, warm parchment",
-    "themeSystemDesc": "Follows your device setting"
+    "themeSystemDesc": "Follows your device setting",
+    "themeQuintessenceShort": "dark",
+    "themeHajnalShort": "light",
+    "themeSystemShort": "follows system"
   },
   "auth": {
     "login": "Sign in",

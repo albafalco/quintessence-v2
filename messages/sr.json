@@ -25,7 +25,10 @@
     "themeSystem": "Automatski",
     "themeQuintessenceDesc": "Tamno i kosmičko — original",
     "themeHajnalDesc": "Svetlo, topli pergament",
-    "themeSystemDesc": "Prati podešavanje uređaja"
+    "themeSystemDesc": "Prati podešavanje uređaja",
+    "themeQuintessenceShort": "tamno",
+    "themeHajnalShort": "svetlo",
+    "themeSystemShort": "prema sistemu"
   },
   "auth": {
     "login": "Prijava",

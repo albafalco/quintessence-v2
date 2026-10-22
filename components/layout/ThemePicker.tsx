@@ -6,6 +6,13 @@ import { THEME_PREFERENCES, type ThemePreference } from '@/lib/theme';
 import { useTheme } from './ThemeProvider';
 import { cn } from '@/lib/utils';
 
+/** Short hint next to the name in the account menu ("sötét", "világos") */
+const HINT_KEYS: Record<ThemePreference, string> = {
+  quintessence: 'themeQuintessenceShort',
+  hajnal: 'themeHajnalShort',
+  system: 'themeSystemShort',
+};
+
 const NAME_KEYS: Record<ThemePreference, string> = {
   quintessence: 'themeQuintessence',
   hajnal: 'themeHajnal',
@@ -52,6 +59,7 @@ export function useThemeName() {
 
 /** Account menu: one row per theme */
 export function ThemeList({ onPicked }: { onPicked?: () => void }) {
+  const t = useTranslations('nav');
   const { preference, setPreference } = useTheme();
   const name = useThemeName();
   return (
@@ -74,7 +82,10 @@ export function ThemeList({ onPicked }: { onPicked?: () => void }) {
             )}
           >
             <ThemeSwatch theme={theme} className="h-6 w-9" />
-            <span className="flex-1 font-medium">{name(theme)}</span>
+            <span className="min-w-0 flex-1 truncate">
+              <span className="font-medium">{name(theme)}</span>
+              <span className="ml-1.5 text-xs text-muted-foreground">{t(HINT_KEYS[theme])}</span>
+            </span>
             {active && <Check className="h-4 w-4 shrink-0" />}
           </button>
         );

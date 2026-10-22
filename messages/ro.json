@@ -25,7 +25,10 @@
     "themeSystem": "Automat",
     "themeQuintessenceDesc": "Întunecat și cosmic — originalul",
     "themeHajnalDesc": "Luminos, pergament cald",
-    "themeSystemDesc": "Urmează setarea dispozitivului"
+    "themeSystemDesc": "Urmează setarea dispozitivului",
+    "themeQuintessenceShort": "întunecat",
+    "themeHajnalShort": "luminos",
+    "themeSystemShort": "după sistem"
   },
   "auth": {
     "login": "Autentificare",

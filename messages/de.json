@@ -25,7 +25,10 @@
     "themeSystem": "Automatisch",
     "themeQuintessenceDesc": "Dunkel und kosmisch — das Original",
     "themeHajnalDesc": "Hell, warmes Pergament",
-    "themeSystemDesc": "Folgt der Geräteeinstellung"
+    "themeSystemDesc": "Folgt der Geräteeinstellung",
+    "themeQuintessenceShort": "dunkel",
+    "themeHajnalShort": "hell",
+    "themeSystemShort": "wie System"
   },
   "auth": {
     "login": "Anmelden",

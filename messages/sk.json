@@ -25,7 +25,10 @@
     "themeSystem": "Automaticky",
     "themeQuintessenceDesc": "Tmavý a kozmický — pôvodný",
     "themeHajnalDesc": "Svetlý, teplý pergamen",
-    "themeSystemDesc": "Riadi sa nastavením zariadenia"
+    "themeSystemDesc": "Riadi sa nastavením zariadenia",
+    "themeQuintessenceShort": "tmavý",
+    "themeHajnalShort": "svetlý",
+    "themeSystemShort": "podľa systému"
   },
   "auth": {
     "login": "Prihlásiť sa",
