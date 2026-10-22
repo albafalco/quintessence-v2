@@ -10,7 +10,8 @@ export function UserAvatar({ username, name, className }: { username: string; na
     <div
       aria-hidden
       className={cn(
-        'flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-cosmic font-bold text-accent',
+        // avatar-orb: lighter gold orb on the Hajnal theme (globals.css)
+        'avatar-orb flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-cosmic font-bold text-accent',
         className
       )}
     >
