@@ -46,7 +46,7 @@ export async function POST() {
       await sendPushNotification(sub, {
         title,
         body,
-        url: `/${locale}/profile`,
+        url: `/${locale}/beallitasok#emlekeztetok`,
       });
     } catch (err) {
       const statusCode = (err as { statusCode?: number }).statusCode;

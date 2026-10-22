@@ -3,8 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { ChevronDown, ChevronRight, Info, ShieldCheck } from 'lucide-react';
+import { Bell, ChevronDown, Database, Info, Palette, UserRound, type LucideIcon } from 'lucide-react';
 import { locales, type Locale } from '@/i18n';
 import { createClient } from '@/lib/supabase/client';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
@@ -18,13 +17,10 @@ import {
   DEFAULT_MAGIA_STREAK_PUSH_TIME,
 } from '@/lib/locale-meta';
 import { AccountDataCard } from '@/components/profile/AccountDataCard';
-import { BadgesSection } from '@/components/profile/BadgesSection';
-import { InvitesCard } from '@/components/profile/InvitesCard';
 import { Collapse } from '@/components/ui/collapse';
 import { InfoTip } from '@/components/ui/info-tip';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
-import { UserAvatar } from '@/components/ui/UserAvatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
@@ -32,7 +28,7 @@ import { useSwitchLocale } from '@/components/layout/useSwitchLocale';
 import { NameCard, type PendingNameChange } from '@/components/profile/NameCard';
 import { ThemeTiles } from '@/components/layout/ThemePicker';
 
-interface ProfileData {
+interface SettingsData {
   id: string;
   /** Full name in the UI language order */
   name: string;
@@ -54,13 +50,21 @@ interface ProfileData {
   push_angol_time: string;
 }
 
-type Tab = 'overview' | 'notifications' | 'account';
+type Section = 'account' | 'appearance' | 'reminders' | 'data';
+
+/** URL hash of each section (links from notifications, the profile page) */
+const SECTION_HASH: Record<Section, string> = {
+  account: 'fiok',
+  appearance: 'megjelenes',
+  reminders: 'emlekeztetok',
+  data: 'adataim',
+};
 type SaveState = 'idle' | 'saving' | 'saved' | 'error';
 
 /** Time inputs save after the user stops changing them for this long. */
 const TIME_SAVE_DELAY_MS = 700;
 
-// Debounce timers of pending time-field saves (one profile form at a time)
+// Debounce timers of pending time-field saves (one settings form at a time)
 const pendingSaves = new Map<string, { timer: ReturnType<typeof setTimeout>; run: () => void }>();
 
 interface ReminderRowProps {
@@ -105,15 +109,13 @@ function ReminderRow({ label, description, checked, onCheckedChange, time, onTim
   );
 }
 
-export function ProfileForm({
+export function SettingsForm({
   profile,
-  isAdmin = false,
   angolAccess = false,
   pendingName = null,
   nextNameChangeAt = null,
 }: {
-  profile: ProfileData;
-  isAdmin?: boolean;
+  profile: SettingsData;
   /** Kreatív Angol unlocked by the admin (it also needs the Hungarian UI) */
   angolAccess?: boolean;
   /** Name change waiting for the admin */
@@ -126,7 +128,27 @@ export function ProfileForm({
   const switchLocale = useSwitchLocale();
   const supabase = createClient();
 
-  const [tab, setTab] = useState<Tab>('overview');
+  const [section, setSection] = useState<Section>('account');
+
+  // Deep links (#emlekeztetok …) and the browser back button
+  useEffect(() => {
+    const fromHash = () => {
+      const hash = window.location.hash.slice(1);
+      const match = (Object.keys(SECTION_HASH) as Section[]).find((key) => SECTION_HASH[key] === hash);
+      if (match) setSection(match);
+    };
+    const id = requestAnimationFrame(fromHash);
+    window.addEventListener('hashchange', fromHash);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener('hashchange', fromHash);
+    };
+  }, []);
+
+  const openSection = (next: Section) => {
+    setSection(next);
+    history.replaceState(null, '', `#${SECTION_HASH[next]}`);
+  };
   const notificationsRef = useRef<HTMLDivElement>(null);
   const [saveState, setSaveState] = useState<SaveState>('idle');
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -253,33 +275,44 @@ export function ProfileForm({
     }
   };
 
-  const TABS: { id: Tab; label: string }[] = [
-    { id: 'overview', label: t('tabOverview') },
-    { id: 'notifications', label: t('tabNotifications') },
-    { id: 'account', label: t('tabAccount') },
+  const SECTIONS: { id: Section; label: string; icon: LucideIcon }[] = [
+    { id: 'account', label: t('tabAccount'), icon: UserRound },
+    { id: 'appearance', label: t('tabAppearance'), icon: Palette },
+    { id: 'reminders', label: t('tabNotifications'), icon: Bell },
+    { id: 'data', label: t('tabData'), icon: Database },
   ];
 
   return (
-    <div className="mx-auto max-w-2xl space-y-6">
-      <div data-tip-avoid className="sticky top-[calc(env(safe-area-inset-top)+3.75rem)] z-20 -mx-1 flex items-center gap-2 px-1 sm:top-[calc(env(safe-area-inset-top)+4.25rem)]">
-        <div className="flex flex-1 gap-1 rounded-2xl border border-border/40 bg-background/80 p-1 backdrop-blur" role="tablist">
-          {TABS.map((item) => (
+    // Mobile: tab bar on top · desktop: section list on the left
+    <div className="mx-auto max-w-4xl md:grid md:grid-cols-[13rem_1fr] md:items-start md:gap-8">
+      <nav
+        data-tip-avoid
+        aria-label={t('settingsTitle')}
+        className="sticky top-[calc(env(safe-area-inset-top)+3.75rem)] z-20 -mx-1 mb-6 px-1 sm:top-[calc(env(safe-area-inset-top)+4.25rem)] md:top-24 md:mx-0 md:mb-0 md:px-0"
+      >
+        <div
+          className="no-scrollbar flex gap-1 overflow-x-auto rounded-2xl border border-border/40 bg-background/80 p-1 backdrop-blur md:flex-col md:overflow-visible md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none"
+          role="tablist"
+          aria-orientation="vertical"
+        >
+          {SECTIONS.map((item) => (
             <button
               key={item.id}
               type="button"
               role="tab"
-              aria-selected={tab === item.id}
-              onClick={() => setTab(item.id)}
+              aria-selected={section === item.id}
+              onClick={() => openSection(item.id)}
               className={cn(
-                'min-w-0 flex-1 truncate rounded-xl px-2 py-2 text-sm font-medium transition-all',
-                tab === item.id ? 'bg-primary/30 text-accent shadow-sm' : 'text-muted-foreground hover:bg-muted/40 hover:text-cream'
+                'flex min-w-0 shrink-0 items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition-all md:justify-start md:py-2.5',
+                section === item.id ? 'bg-primary/30 text-accent shadow-sm md:nav-item-active' : 'text-muted-foreground hover:bg-muted/40 hover:text-cream'
               )}
             >
-              {item.label}
+              <item.icon className="hidden h-4 w-4 shrink-0 md:block" />
+              <span className="truncate">{item.label}</span>
             </button>
           ))}
         </div>
-      </div>
+      </nav>
 
       <p
         aria-live="polite"
@@ -292,26 +325,8 @@ export function ProfileForm({
         {saveState === 'saving' ? t('saving') : saveState === 'error' ? t('saveFailed') : t('savedShort')}
       </p>
 
-      <div key={tab} className="animate-fade-up space-y-6 motion-reduce:animate-none">
-        {tab === 'overview' && (
-          <>
-            <Card className="premium-card">
-              <CardContent className="flex items-center gap-4 pt-6">
-                <UserAvatar username={profile.username} name={profile.name} className="h-14 w-14 text-xl" />
-                <div className="min-w-0">
-                  <p className="truncate font-display text-lg font-semibold text-cream">{profile.name}</p>
-                  <p className="truncate text-sm text-muted-foreground">@{profile.username}</p>
-                  <p className="truncate text-xs text-muted-foreground/80">{profile.email}</p>
-                </div>
-              </CardContent>
-            </Card>
-            <BadgesSection userId={profile.id} compact />
-              {/* Admins invite from the admin area */}
-              {!isAdmin && <InvitesCard />}
-          </>
-        )}
-
-        {tab === 'notifications' && (
+      <div key={section} className="min-w-0 animate-fade-up space-y-6 motion-reduce:animate-none">
+        {section === 'reminders' && (
           <Card className="premium-card">
             <CardContent ref={notificationsRef} className="space-y-1 pt-6">
               <PushToggle enabled={pushEnabled} onEnabledChange={setPushEnabled} label={t('pushEnabled')} />
@@ -396,7 +411,7 @@ export function ProfileForm({
           </Card>
         )}
 
-        {tab === 'account' && (
+        {section === 'account' && (
           <>
             <NameCard
               firstName={profile.first_name}
@@ -404,42 +419,6 @@ export function ProfileForm({
               pending={pendingName}
               nextChangeAt={nextNameChangeAt}
             />
-
-            <Card className="premium-card">
-              <CardHeader>
-                <CardTitle className="text-gradient-gold">{t('appearance')}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-3 text-xs text-muted-foreground">{t('appearanceHint')}</p>
-                <ThemeTiles />
-              </CardContent>
-            </Card>
-
-            <Card className="premium-card">
-              <CardHeader>
-                <CardTitle className="text-gradient-gold">{t('preferredLanguage')}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-3 text-xs text-muted-foreground">{t('preferredLanguageHint')}</p>
-                <Select value={language} onValueChange={changeLanguage}>
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {[...locales]
-                      .sort((a, b) => LANGUAGES[a].nativeName.localeCompare(LANGUAGES[b].nativeName, language))
-                      .map((value) => (
-                        <SelectItem key={value} value={value}>
-                          <span className="flex items-center gap-2">
-                            <LanguageBadge code={value} />
-                            {LANGUAGES[value].nativeName}
-                          </span>
-                        </SelectItem>
-                      ))}
-                  </SelectContent>
-                </Select>
-              </CardContent>
-            </Card>
 
             <Card className="premium-card">
               <button
@@ -487,7 +466,51 @@ export function ProfileForm({
                 </CardContent>
               </Collapse>
             </Card>
+          </>
+        )}
 
+        {section === 'appearance' && (
+          <>
+            <Card className="premium-card">
+              <CardHeader>
+                <CardTitle className="text-gradient-gold">{t('appearance')}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-3 text-xs text-muted-foreground">{t('appearanceHint')}</p>
+                <ThemeTiles />
+              </CardContent>
+            </Card>
+
+            <Card className="premium-card">
+              <CardHeader>
+                <CardTitle className="text-gradient-gold">{t('preferredLanguage')}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-3 text-xs text-muted-foreground">{t('preferredLanguageHint')}</p>
+                <Select value={language} onValueChange={changeLanguage}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {[...locales]
+                      .sort((a, b) => LANGUAGES[a].nativeName.localeCompare(LANGUAGES[b].nativeName, language))
+                      .map((value) => (
+                        <SelectItem key={value} value={value}>
+                          <span className="flex items-center gap-2">
+                            <LanguageBadge code={value} />
+                            {LANGUAGES[value].nativeName}
+                          </span>
+                        </SelectItem>
+                      ))}
+                  </SelectContent>
+                </Select>
+              </CardContent>
+            </Card>
+          </>
+        )}
+
+        {section === 'data' && (
+          <>
             <Card className="premium-card">
               <CardHeader>
                 <CardTitle className="text-gradient-gold">{t('myDataTitle')}</CardTitle>

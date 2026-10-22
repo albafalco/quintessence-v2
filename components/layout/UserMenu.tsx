@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { ChevronDown, ChevronLeft, ChevronRight, Languages, Palette, ShieldCheck, User } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, Languages, Palette, Settings, ShieldCheck, User } from 'lucide-react';
 import { UserAvatar } from '@/components/ui/UserAvatar';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { LanguageBadge, LanguageList } from './LanguagePicker';
@@ -26,8 +26,8 @@ type View = 'main' | 'language' | 'theme';
 const ITEM_SELECTOR = '[role="menuitem"], [role="menuitemradio"], input';
 
 /**
- * Header account button: "Üdv, @username" opening Profil / Admin / Nyelv /
- * Megjelenés / Kijelentkezés. "Nyelv" switches the panel to the language list.
+ * Header account button: "Üdv, @username" opening Profil / Beállítások / Admin /
+ * Nyelv / Megjelenés / Kijelentkezés. "Nyelv" switches the panel to the language list.
  */
 export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
   const t = useTranslations('nav');
@@ -157,6 +157,10 @@ export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
                   <Link role="menuitem" href={`/${locale}/profile`} onClick={close} className={itemClass}>
                     <User className="h-4 w-4 shrink-0 text-accent" />
                     {t('profile')}
+                  </Link>
+                  <Link role="menuitem" href={`/${locale}/beallitasok`} onClick={close} className={itemClass}>
+                    <Settings className="h-4 w-4 shrink-0 text-accent" />
+                    {t('settings')}
                   </Link>
                   {isAdmin && (
                     // The admin area is Hungarian-only

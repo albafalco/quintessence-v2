@@ -140,10 +140,10 @@ export function resolveNotification(
         'check',
         t.notifications('nameApprovedTitle'),
         t.notifications('nameApprovedBody', { name: formatFullName(String(data.first_name ?? ''), String(data.last_name ?? ''), locale) }),
-        `/${locale}/profile`
+        `/${locale}/beallitasok#fiok`
       );
     case 'name_change_rejected':
-      return personal('cross', t.notifications('nameRejectedTitle'), t.notifications('nameRejectedBody'), `/${locale}/profile`);
+      return personal('cross', t.notifications('nameRejectedTitle'), t.notifications('nameRejectedBody'), `/${locale}/beallitasok#fiok`);
     case 'weekly_report':
       return personal('chart', t.notifications('weeklyTitle'), t.notifications('weeklyBody'), `/${locale}/modules/magia/jelentes`);
     default:
