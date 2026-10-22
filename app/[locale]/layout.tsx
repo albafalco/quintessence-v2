@@ -11,6 +11,7 @@ import { BootInit } from '@/components/layout/BootInit';
 import { ConditionalAppShell } from '@/components/layout/ConditionalAppShell';
 import { GlobalErrorBoundary } from '@/components/layout/GlobalErrorBoundary';
 import { BOOT_INLINE_SCRIPT } from '@/lib/boot-inline';
+import { THEME_INLINE_SCRIPT } from '@/lib/theme';
 import '../globals.css';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -59,7 +60,8 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={toIntlLocale(locale)} dir={LANGUAGES[locale as Locale].dir} className="dark">
+    // The theme script sets data-theme before React hydrates
+    <html lang={toIntlLocale(locale)} dir={LANGUAGES[locale as Locale].dir} className="dark" suppressHydrationWarning>
       <head>
         {/* Dark background before stylesheet — prevents white flash on cold start */}
         <style>{`html,body{background-color:#0a0812}`}</style>
@@ -68,6 +70,8 @@ export default async function LocaleLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <meta name="theme-color" content="#3B2A6E" />
+        {/* Quintessence / Hajnal before the first paint (no flash) */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_INLINE_SCRIPT }} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 

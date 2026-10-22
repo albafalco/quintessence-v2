@@ -18,7 +18,14 @@
     "languageBack": "Vissza a menübe",
     "languageBeta": "béta",
     "practice": "Gyakorlás",
-    "close": "Bezárás"
+    "close": "Bezárás",
+    "appearance": "Megjelenés",
+    "themeQuintessence": "Quintessence",
+    "themeHajnal": "Hajnal",
+    "themeSystem": "Automatikus",
+    "themeQuintessenceDesc": "Sötét, kozmikus — az alap",
+    "themeHajnalDesc": "Világos, meleg pergamen",
+    "themeSystemDesc": "A készülék beállítását követi"
   },
   "auth": {
     "login": "Bejelentkezés",
@@ -443,7 +450,7 @@
     "name": "Név",
     "username": "Felhasználónév",
     "email": "Email",
-    "appearance": "Megjelenítés",
+    "appearance": "Megjelenés",
     "preferredLanguage": "Nyelv",
     "pushNotifications": "Push értesítések",
     "pushEnabled": "Push értesítések ezen az eszközön",
@@ -525,7 +532,8 @@
     "nameErrInvalid": "A vezeték- és keresztnév 2–50 karakter lehet, rövidítés nélkül, csak betűkkel, szóközzel, kötőjellel és aposztróffal.",
     "nameErrUnchanged": "Ez a jelenlegi neved.",
     "nameErrCooldown": "A nevedet 90 napon belül már módosították.",
-    "nameErrGeneric": "A kérés elküldése nem sikerült. Próbáld újra."
+    "nameErrGeneric": "A kérés elküldése nem sikerült. Próbáld újra.",
+    "appearanceHint": "A választásod minden eszközödön érvényes."
   },
   "brand": {
     "name": "Quintessence",

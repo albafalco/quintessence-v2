@@ -18,7 +18,14 @@
     "languageBack": "Nazad u meni",
     "languageBeta": "beta",
     "practice": "Vežba",
-    "close": "Zatvori"
+    "close": "Zatvori",
+    "appearance": "Izgled",
+    "themeQuintessence": "Quintessence",
+    "themeHajnal": "Zora",
+    "themeSystem": "Automatski",
+    "themeQuintessenceDesc": "Tamno i kosmičko — original",
+    "themeHajnalDesc": "Svetlo, topli pergament",
+    "themeSystemDesc": "Prati podešavanje uređaja"
   },
   "auth": {
     "login": "Prijava",
@@ -401,7 +408,8 @@
     "nameErrInvalid": "Ime i prezime moraju imati 2–50 znakova, bez skraćenica, samo slova, razmake, crtice i apostrofe.",
     "nameErrUnchanged": "Ovo je tvoje trenutno ime.",
     "nameErrCooldown": "Tvoje ime je već promenjeno u poslednjih 90 dana.",
-    "nameErrGeneric": "Zahtev nije poslat. Pokušaj ponovo."
+    "nameErrGeneric": "Zahtev nije poslat. Pokušaj ponovo.",
+    "appearanceHint": "Tvoj izbor važi na svim tvojim uređajima."
   },
   "brand": {
     "name": "Quintessence",

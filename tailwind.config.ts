@@ -1,5 +1,8 @@
 import type { Config } from 'tailwindcss';
 
+/** Theme colour from a CSS variable holding "R G B" (see globals.css). */
+const v = (name: string) => `rgb(var(--c-${name}) / <alpha-value>)`;
+
 const config: Config = {
   darkMode: ['class'],
   content: [
@@ -9,35 +12,76 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // Every colour is a CSS variable (globals.css), so the Quintessence (dark)
+      // and Hajnal (light) themes swap them; opacity modifiers keep working.
       colors: {
-        background: '#0a0812',
-        foreground: '#f5f0e8',
-        card: '#14101f',
-        'card-elevated': '#1c1630',
+        background: v('background'),
+        foreground: v('foreground'),
+        card: v('card'),
+        'card-elevated': v('card-elevated'),
         primary: {
-          DEFAULT: '#4C1D95',
-          light: '#6d28d9',
-          dark: '#3B2A6E',
-          foreground: '#f5f0e8',
+          DEFAULT: v('primary'),
+          light: v('primary-light'),
+          dark: v('primary-dark'),
+          foreground: v('primary-foreground'),
         },
         accent: {
-          DEFAULT: '#D4AF37',
-          light: '#e8c96a',
-          dark: '#b8942d',
-          foreground: '#0a0812',
+          DEFAULT: v('accent'),
+          light: v('accent-light'),
+          dark: v('accent-dark'),
+          foreground: v('accent-foreground'),
         },
         cosmic: {
-          DEFAULT: '#3B2A6E',
-          deep: '#1a1035',
-          glow: '#5b21b6',
+          DEFAULT: v('cosmic'),
+          deep: v('cosmic-deep'),
+          glow: v('cosmic-glow'),
         },
-        cream: '#f5f0e8',
+        cream: v('cream'),
         muted: {
-          DEFAULT: '#221c35',
-          foreground: '#a89bb8',
+          DEFAULT: v('muted'),
+          foreground: v('muted-foreground'),
         },
-        border: '#2e2648',
-        ring: '#D4AF37',
+        border: v('border'),
+        ring: v('accent'),
+        // Status colours in use: darker on the light theme so they stay readable
+        red: {
+          200: v('red-200'),
+          300: v('red-300'),
+          400: v('red-400'),
+          500: v('red-500'),
+          600: v('red-600'),
+          900: v('red-900'),
+          950: v('red-950'),
+        },
+        green: {
+          300: v('green-300'),
+          400: v('green-400'),
+          500: v('green-500'),
+          600: v('green-600'),
+          900: v('green-900'),
+        },
+        amber: {
+          200: v('amber-200'),
+          300: v('amber-300'),
+          400: v('amber-400'),
+          500: v('amber-500'),
+          900: v('amber-900'),
+        },
+        slate: {
+          100: v('slate-100'),
+          200: v('slate-200'),
+          300: v('slate-300'),
+          400: v('slate-400'),
+          500: v('slate-500'),
+          600: v('slate-600'),
+          700: v('slate-700'),
+          800: v('slate-800'),
+        },
+        emerald: {
+          400: v('emerald-400'),
+          600: v('emerald-600'),
+          950: v('emerald-950'),
+        },
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
@@ -49,20 +93,16 @@ const config: Config = {
         '2xl': '1.375rem',
       },
       boxShadow: {
-        glow: '0 0 40px -8px rgba(76, 29, 149, 0.5)',
-        'glow-gold': '0 0 32px -6px rgba(212, 175, 55, 0.35)',
-        card: '0 8px 32px -8px rgba(0, 0, 0, 0.5)',
-        'card-hover': '0 16px 48px -12px rgba(76, 29, 149, 0.25)',
+        glow: 'var(--shadow-glow)',
+        'glow-gold': 'var(--shadow-glow-gold)',
+        card: 'var(--shadow-card)',
+        'card-hover': 'var(--shadow-card-hover)',
       },
       backgroundImage: {
-        'cosmic-gradient':
-          'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(76, 29, 149, 0.22) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 100% 100%, rgba(212, 175, 55, 0.06) 0%, transparent 50%)',
-        'magia-gradient':
-          'linear-gradient(135deg, rgba(76, 29, 149, 0.15) 0%, rgba(59, 42, 110, 0.08) 50%, rgba(212, 175, 55, 0.05) 100%)',
-        'angol-gradient':
-          'linear-gradient(135deg, rgba(30, 58, 95, 0.12) 0%, rgba(20, 16, 31, 0.6) 100%)',
-        'gold-shimmer':
-          'linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.15) 50%, transparent 100%)',
+        'cosmic-gradient': 'var(--gradient-cosmic)',
+        'magia-gradient': 'var(--gradient-magia)',
+        'angol-gradient': 'var(--gradient-angol)',
+        'gold-shimmer': 'var(--gradient-gold-shimmer)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

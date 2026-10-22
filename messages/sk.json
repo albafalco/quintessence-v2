@@ -18,7 +18,14 @@
     "languageBack": "Späť do menu",
     "languageBeta": "beta",
     "practice": "Cvičenie",
-    "close": "Zavrieť"
+    "close": "Zavrieť",
+    "appearance": "Vzhľad",
+    "themeQuintessence": "Quintessence",
+    "themeHajnal": "Úsvit",
+    "themeSystem": "Automaticky",
+    "themeQuintessenceDesc": "Tmavý a kozmický — pôvodný",
+    "themeHajnalDesc": "Svetlý, teplý pergamen",
+    "themeSystemDesc": "Riadi sa nastavením zariadenia"
   },
   "auth": {
     "login": "Prihlásiť sa",
@@ -401,7 +408,8 @@
     "nameErrInvalid": "Meno a priezvisko musia mať 2–50 znakov, bez skratiek, len s písmenami, medzerami, spojovníkmi a apostrofmi.",
     "nameErrUnchanged": "Toto je tvoje súčasné meno.",
     "nameErrCooldown": "Tvoje meno už bolo za posledných 90 dní zmenené.",
-    "nameErrGeneric": "Žiadosť sa nepodarilo odoslať. Skús to znova."
+    "nameErrGeneric": "Žiadosť sa nepodarilo odoslať. Skús to znova.",
+    "appearanceHint": "Tvoja voľba platí na všetkých tvojich zariadeniach."
   },
   "brand": {
     "name": "Quintessence",

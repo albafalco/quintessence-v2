@@ -18,7 +18,14 @@
     "languageBack": "Torna al menu",
     "languageBeta": "beta",
     "practice": "Pratica",
-    "close": "Chiudi"
+    "close": "Chiudi",
+    "appearance": "Aspetto",
+    "themeQuintessence": "Quintessence",
+    "themeHajnal": "Alba",
+    "themeSystem": "Automatico",
+    "themeQuintessenceDesc": "Scuro e cosmico — l'originale",
+    "themeHajnalDesc": "Chiaro, pergamena calda",
+    "themeSystemDesc": "Segue le impostazioni del dispositivo"
   },
   "auth": {
     "login": "Accedi",
@@ -525,7 +532,8 @@
     "nameErrInvalid": "Nome e cognome devono avere 2–50 caratteri, senza abbreviazioni, solo lettere, spazi, trattini e apostrofi.",
     "nameErrUnchanged": "Questo è il tuo nome attuale.",
     "nameErrCooldown": "Il tuo nome è già stato modificato negli ultimi 90 giorni.",
-    "nameErrGeneric": "Impossibile inviare la richiesta. Riprova."
+    "nameErrGeneric": "Impossibile inviare la richiesta. Riprova.",
+    "appearanceHint": "La tua scelta vale su tutti i tuoi dispositivi."
   },
   "brand": {
     "name": "Quintessence",

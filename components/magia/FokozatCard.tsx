@@ -100,8 +100,8 @@ export function FokozatCard({ fokozat, locale, progress }: FokozatCardProps) {
                 {ROMAN_NUMERALS[fokozat.id]}. {t('fokozat')} — {t('lockedFokozat')}
               </p>
               <h3
-                className="font-display text-lg font-semibold opacity-60"
-                style={{ color: fokozat.szin }}
+                className="text-fokozat font-display text-lg font-semibold opacity-60"
+                style={{ '--fokozat-color': fokozat.szin } as React.CSSProperties}
               >
                 {fokozat.cim}
               </h3>
@@ -135,8 +135,8 @@ export function FokozatCard({ fokozat, locale, progress }: FokozatCardProps) {
               {ROMAN_NUMERALS[fokozat.id]}. {t('fokozat')}
             </p>
             <h3
-              className="font-display text-lg font-semibold"
-              style={{ color: fokozat.szin }}
+              className="text-fokozat font-display text-lg font-semibold"
+              style={{ '--fokozat-color': fokozat.szin } as React.CSSProperties}
             >
               {fokozat.cim}
             </h3>

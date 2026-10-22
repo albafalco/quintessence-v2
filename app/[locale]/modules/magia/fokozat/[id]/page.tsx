@@ -100,7 +100,7 @@ export default async function FokozatPage({ params }: FokozatPageProps) {
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">
             {ROMAN_NUMERALS[fokozatId]}. {t('fokozat')}
           </p>
-          <h1 className="font-display text-3xl font-bold md:text-4xl" style={{ color: fokozat.szin }}>
+          <h1 className="text-fokozat font-display text-3xl font-bold md:text-4xl" style={{ '--fokozat-color': fokozat.szin } as React.CSSProperties}>
             {fokozat.cim}
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">

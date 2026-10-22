@@ -18,7 +18,14 @@
     "languageBack": "Înapoi la meniu",
     "languageBeta": "beta",
     "practice": "Practică",
-    "close": "Închide"
+    "close": "Închide",
+    "appearance": "Aspect",
+    "themeQuintessence": "Quintessence",
+    "themeHajnal": "Zori",
+    "themeSystem": "Automat",
+    "themeQuintessenceDesc": "Întunecat și cosmic — originalul",
+    "themeHajnalDesc": "Luminos, pergament cald",
+    "themeSystemDesc": "Urmează setarea dispozitivului"
   },
   "auth": {
     "login": "Autentificare",
@@ -401,7 +408,8 @@
     "nameErrInvalid": "Prenumele și numele de familie trebuie să aibă 2–50 de caractere, fără abrevieri, doar litere, spații, cratime și apostrofuri.",
     "nameErrUnchanged": "Acesta este numele tău actual.",
     "nameErrCooldown": "Numele tău a fost deja schimbat în ultimele 90 de zile.",
-    "nameErrGeneric": "Cererea nu a putut fi trimisă. Încearcă din nou."
+    "nameErrGeneric": "Cererea nu a putut fi trimisă. Încearcă din nou.",
+    "appearanceHint": "Alegerea ta se aplică pe toate dispozitivele tale."
   },
   "brand": {
     "name": "Quintessence",

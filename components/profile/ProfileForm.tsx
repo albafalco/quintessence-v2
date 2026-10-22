@@ -30,6 +30,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { cn } from '@/lib/utils';
 import { useSwitchLocale } from '@/components/layout/useSwitchLocale';
 import { NameCard, type PendingNameChange } from '@/components/profile/NameCard';
+import { ThemeTiles } from '@/components/layout/ThemePicker';
 
 interface ProfileData {
   id: string;
@@ -403,6 +404,16 @@ export function ProfileForm({
               pending={pendingName}
               nextChangeAt={nextNameChangeAt}
             />
+
+            <Card className="premium-card">
+              <CardHeader>
+                <CardTitle className="text-gradient-gold">{t('appearance')}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-3 text-xs text-muted-foreground">{t('appearanceHint')}</p>
+                <ThemeTiles />
+              </CardContent>
+            </Card>
 
             <Card className="premium-card">
               <CardHeader>

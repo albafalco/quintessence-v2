@@ -18,7 +18,14 @@
     "languageBack": "Back to the menu",
     "languageBeta": "beta",
     "practice": "Practice",
-    "close": "Close"
+    "close": "Close",
+    "appearance": "Appearance",
+    "themeQuintessence": "Quintessence",
+    "themeHajnal": "Dawn",
+    "themeSystem": "Automatic",
+    "themeQuintessenceDesc": "Dark and cosmic — the original",
+    "themeHajnalDesc": "Light, warm parchment",
+    "themeSystemDesc": "Follows your device setting"
   },
   "auth": {
     "login": "Sign in",
@@ -525,7 +532,8 @@
     "nameErrInvalid": "First and last name must be 2–50 characters, without abbreviations, using only letters, spaces, hyphens and apostrophes.",
     "nameErrUnchanged": "This is your current name.",
     "nameErrCooldown": "Your name was already changed within the last 90 days.",
-    "nameErrGeneric": "Could not send the request. Please try again."
+    "nameErrGeneric": "Could not send the request. Please try again.",
+    "appearanceHint": "Your choice applies on all your devices."
   },
   "brand": {
     "name": "Quintessence",

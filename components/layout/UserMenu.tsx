@@ -4,10 +4,12 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { ChevronDown, ChevronLeft, ChevronRight, Languages, ShieldCheck, User } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, Languages, Palette, ShieldCheck, User } from 'lucide-react';
 import { UserAvatar } from '@/components/ui/UserAvatar';
 import { LogoutButton } from '@/components/auth/LogoutButton';
 import { LanguageBadge, LanguageList } from './LanguagePicker';
+import { ThemeList, ThemeSwatch, useThemeName } from './ThemePicker';
+import { useTheme } from './ThemeProvider';
 import { useSwitchLocale } from './useSwitchLocale';
 import { getLanguage } from '@/lib/languages';
 import type { Locale } from '@/i18n';
@@ -19,18 +21,20 @@ interface UserMenuProps {
   isAdmin: boolean;
 }
 
-type View = 'main' | 'language';
+type View = 'main' | 'language' | 'theme';
 
 const ITEM_SELECTOR = '[role="menuitem"], [role="menuitemradio"], input';
 
 /**
  * Header account button: "Üdv, @username" opening Profil / Admin / Nyelv /
- * Kijelentkezés. "Nyelv" switches the panel to the language list.
+ * Megjelenés / Kijelentkezés. "Nyelv" switches the panel to the language list.
  */
 export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
   const t = useTranslations('nav');
   const locale = useLocale();
   const switchLocale = useSwitchLocale();
+  const { preference: theme } = useTheme();
+  const themeName = useThemeName();
   const [open, setOpen] = useState(false);
   const [view, setView] = useState<View>('main');
   const [mounted, setMounted] = useState(false);
@@ -140,7 +144,7 @@ export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
           <div
             ref={panelRef}
             role="menu"
-            aria-label={view === 'language' ? t('language') : t('userMenu')}
+            aria-label={view === 'language' ? t('language') : view === 'theme' ? t('appearance') : t('userMenu')}
             className="fixed z-50 w-64 animate-pop-in overflow-hidden rounded-2xl border border-border/60 bg-card-elevated/95 shadow-card backdrop-blur-xl motion-reduce:animate-none"
           >
             {view === 'main' ? (
@@ -168,9 +172,34 @@ export function UserMenu({ username, name, isAdmin }: UserMenuProps) {
                     <span className="sr-only">{getLanguage(locale)?.nativeName}</span>
                     <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
                   </button>
+                  <button type="button" role="menuitem" aria-haspopup="menu" onClick={() => setView('theme')} className={itemClass}>
+                    <Palette className="h-4 w-4 shrink-0 text-accent" />
+                    <span className="flex-1">{t('appearance')}</span>
+                    <ThemeSwatch theme={theme} className="h-5 w-7" />
+                    <span className="sr-only">{themeName(theme)}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                  </button>
                 </div>
                 <div className="border-t border-border/40 p-1.5">
                   <LogoutButton variant="nav" role="menuitem" className="rounded-lg px-3 py-2 [&>svg]:h-4 [&>svg]:w-4" />
+                </div>
+              </div>
+            ) : view === 'theme' ? (
+              <div key="theme" className="animate-fade-in motion-reduce:animate-none">
+                <div className="flex items-center gap-1 border-b border-border/40 px-1.5 py-1.5">
+                  <button
+                    type="button"
+                    role="menuitem"
+                    onClick={() => setView('main')}
+                    aria-label={t('languageBack')}
+                    className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-muted/40 hover:text-cream focus-visible:bg-muted/40 focus-visible:outline-none"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <p className="font-display text-sm font-semibold text-gradient-gold">{t('appearance')}</p>
+                </div>
+                <div className="p-1.5">
+                  <ThemeList />
                 </div>
               </div>
             ) : (

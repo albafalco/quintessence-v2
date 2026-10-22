@@ -18,7 +18,14 @@
     "languageBack": "Zurück zum Menü",
     "languageBeta": "Beta",
     "practice": "Übung",
-    "close": "Schließen"
+    "close": "Schließen",
+    "appearance": "Darstellung",
+    "themeQuintessence": "Quintessence",
+    "themeHajnal": "Morgenrot",
+    "themeSystem": "Automatisch",
+    "themeQuintessenceDesc": "Dunkel und kosmisch — das Original",
+    "themeHajnalDesc": "Hell, warmes Pergament",
+    "themeSystemDesc": "Folgt der Geräteeinstellung"
   },
   "auth": {
     "login": "Anmelden",
@@ -525,7 +532,8 @@
     "nameErrInvalid": "Vor- und Nachname müssen 2–50 Zeichen lang sein, ohne Abkürzungen, nur mit Buchstaben, Leerzeichen, Bindestrichen und Apostrophen.",
     "nameErrUnchanged": "Das ist dein aktueller Name.",
     "nameErrCooldown": "Dein Name wurde in den letzten 90 Tagen bereits geändert.",
-    "nameErrGeneric": "Der Antrag konnte nicht gesendet werden. Bitte versuche es erneut."
+    "nameErrGeneric": "Der Antrag konnte nicht gesendet werden. Bitte versuche es erneut.",
+    "appearanceHint": "Deine Wahl gilt auf allen deinen Geräten."
   },
   "brand": {
     "name": "Quintessence",

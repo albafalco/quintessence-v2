@@ -10,7 +10,8 @@ export function AuthLayoutShell({ children }: { children: React.ReactNode }) {
   const isLogin = pathname.includes('/auth/login');
 
   return (
-    <div className="cosmic-bg relative flex min-h-[100dvh] w-full flex-col items-center justify-center overflow-x-hidden p-4 pb-safe">
+    // Always Quintessence (dark): the CSS variables are reset for this subtree
+    <div data-theme="dark" className="cosmic-bg relative flex min-h-[100dvh] w-full flex-col items-center justify-center overflow-x-hidden p-4 pb-safe text-foreground">
       {isLogin && <AuthBackgroundVideo />}
       <AuthLanguageButton />
 
