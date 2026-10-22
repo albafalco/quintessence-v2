@@ -386,7 +386,7 @@
     "preferredLanguageHint": "Jazyk aplikácie a tvojich notifikácií.",
     "passwordSave": "Uložiť heslo",
     "passwordChanged": "Heslo bolo zmenené.",
-    "dangerZone": "Nebezpečná zóna",
+    "dangerZone": "Vymazanie účtu",
     "displayName": "Ako ťa máme oslovovať?",
     "displayNameHint": "Takto ťa aplikácia pozdraví na prehľade. Ak zostane prázdne: @{username}",
     "displayNamePlaceholder": "napr. Peter"

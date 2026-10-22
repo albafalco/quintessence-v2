@@ -386,7 +386,7 @@
     "preferredLanguageHint": "Jezik aplikacije i tvojih obaveštenja.",
     "passwordSave": "Sačuvaj lozinku",
     "passwordChanged": "Lozinka je promenjena.",
-    "dangerZone": "Opasna zona",
+    "dangerZone": "Brisanje naloga",
     "displayName": "Kako da ti se obraćamo?",
     "displayNameHint": "Ovako te aplikacija pozdravlja na kontrolnoj tabli. Ako ostane prazno: @{username}",
     "displayNamePlaceholder": "npr. Petar"

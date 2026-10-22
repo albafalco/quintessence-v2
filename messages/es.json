@@ -510,7 +510,7 @@
     "preferredLanguageHint": "El idioma de la app y de tus notificaciones.",
     "passwordSave": "Guardar contraseña",
     "passwordChanged": "Contraseña cambiada.",
-    "dangerZone": "Zona de peligro",
+    "dangerZone": "Eliminar cuenta",
     "displayName": "¿Cómo te llamamos?",
     "displayNameHint": "Así te saluda la app en el panel. Si lo dejas vacío: @{username}",
     "displayNamePlaceholder": "p. ej. Pedro"

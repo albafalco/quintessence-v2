@@ -510,7 +510,7 @@
     "preferredLanguageHint": "Az app és az értesítések nyelve.",
     "passwordSave": "Jelszó mentése",
     "passwordChanged": "A jelszó megváltozott.",
-    "dangerZone": "Veszélyes műveletek",
+    "dangerZone": "Fiók törlése",
     "displayName": "Megszólítás",
     "displayNameHint": "Így szólít meg az app a vezérlőpulton. Ha üresen hagyod, ez jelenik meg: @{username}",
     "displayNamePlaceholder": "pl. Péter"

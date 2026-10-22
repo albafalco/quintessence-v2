@@ -510,7 +510,7 @@
     "preferredLanguageHint": "Die Sprache der App und deiner Benachrichtigungen.",
     "passwordSave": "Passwort speichern",
     "passwordChanged": "Passwort geändert.",
-    "dangerZone": "Gefahrenbereich",
+    "dangerZone": "Konto löschen",
     "displayName": "Anrede",
     "displayNameHint": "So begrüßt dich die App auf dem Dashboard. Wenn leer: @{username}",
     "displayNamePlaceholder": "z. B. Peter"
