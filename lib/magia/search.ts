@@ -9,7 +9,7 @@ export interface SearchEntry {
   mirror: SoulMirrorType;
   name: string;
   forms: string[];
-  /** mine = already in the user's mirror (core or added), core = the card list, dict = extended dictionary */
+  /** mine = already in the user's mirror (core list or added), core = the card list, dict = extended dictionary */
   source: 'mine' | 'core' | 'dict';
 }
 
@@ -35,7 +35,9 @@ export function searchTraits(query: string, entries: SearchEntry[], mirror: Soul
   for (const e of entries) {
     if (e.mirror !== mirror) continue;
     const words = [e.name, ...e.forms].map(normalize);
-    if (words.some((w) => w.includes(q))) hits.push({ e, exact: words.some((w) => w === q) });
+    // The start of a word: "ideg" finds "ideges", not "ridegség"
+    const starts = words.some((w) => w.startsWith(q) || w.split(/[\s-]+/).some((part) => part.startsWith(q)));
+    if (starts) hits.push({ e, exact: words.some((w) => w === q) });
   }
   hits.sort((a, b) => Number(b.exact) - Number(a.exact));
 

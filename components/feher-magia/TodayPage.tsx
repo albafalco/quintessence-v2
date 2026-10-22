@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { loadFeherMagia } from '@/lib/i18n-content';
+import { loadFeherMagia, loadTraitTexts } from '@/lib/i18n-content';
 import type { TodayData } from '@/lib/magia/store';
 import { ROMAN_NUMERALS } from '@/lib/magia-utils';
 import type { Locale } from '@/i18n';
@@ -8,10 +8,11 @@ import { TodayView } from './TodayView';
 
 /** The new "Ma" tab (admin preview until the switch). */
 export async function TodayPage({ locale, userId, data }: { locale: string; userId: string; data: TodayData }) {
-  const [t, tNav, content] = await Promise.all([
+  const [t, tNav, content, words] = await Promise.all([
     getTranslations('feherMagia.header'),
     getTranslations('nav'),
     loadFeherMagia(locale as Locale),
+    loadTraitTexts(locale as Locale),
   ]);
 
   return (
@@ -31,7 +32,16 @@ export async function TodayPage({ locale, userId, data }: { locale: string; user
       <TodayView
         userId={userId}
         data={data}
-        content={{ utravalo: content.utravalo, thought: content.thought, wishes: content.wishes, body: content.body, source: content.source }}
+        words={words}
+        content={{
+          utravalo: content.utravalo,
+          thought: content.thought,
+          wishes: content.wishes,
+          body: content.body,
+          source: content.source,
+          elements: content.elements,
+          sleep: content.sleep,
+        }}
       />
     </div>
   );

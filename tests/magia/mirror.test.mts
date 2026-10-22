@@ -99,3 +99,13 @@ test('search is accent-insensitive and finds word forms', () => {
   assert.equal(searchTraits('nyug', [...entries], 'fekete').core.length, 0); // other mirror
   assert.equal(searchTraits('i', [...entries], 'fekete').exact, false); // too short
 });
+
+test('search matches the start of a word only', () => {
+  const entries = [
+    { key: 'ridegseg', mirror: 'fekete', name: 'ridegség', forms: ['rideg'], source: 'dict' },
+    { key: 'ingerlekenyseg', mirror: 'fekete', name: 'ingerlékenység', forms: ['ideges'], source: 'dict' },
+    { key: 'kitartas_hianya', mirror: 'fekete', name: 'kitartás hiánya', forms: [], source: 'core' },
+  ] as const;
+  assert.deepEqual(searchTraits('ideg', [...entries], 'fekete').dict.map((e) => e.key), ['ingerlekenyseg']);
+  assert.deepEqual(searchTraits('hiány', [...entries], 'fekete').core.map((e) => e.key), ['kitartas_hianya']);
+});

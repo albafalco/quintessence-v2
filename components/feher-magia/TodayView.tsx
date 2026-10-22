@@ -3,6 +3,7 @@
 import { useMemo, useState, useSyncExternalStore } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import type { ElementType } from '@/lib/magia-types';
 import type { FeherMagiaContent, ReadingPage } from '@/lib/i18n-content';
 import { getBudapestDayBounds } from '@/lib/push-reminders';
 import {
@@ -15,32 +16,49 @@ import {
   slotOf,
   unlockedExercises,
 } from '@/lib/magia/path';
-import type { TodayData, TodaySession } from '@/lib/magia/store';
-import type { BodyItem, BreathState, DayPart, PathState, ThoughtState } from '@/lib/magia/types';
-import { deleteSessionsSince, saveSession, updatePath } from '@/lib/magia/actions';
+import { TRAITS, TRAIT_BY_KEY } from '@/lib/magia/traits';
+import { addedKey, markedCounts, mirrorTraits, searchEntries, traitName, type AddedTrait, type TraitWords } from '@/lib/magia/evening';
+import type { CycleRow, EveningRow, TodayData, TodaySession } from '@/lib/magia/store';
+import type { BodyItem, BreathState, DayPart, PathState, Ratings, ThoughtState } from '@/lib/magia/types';
+import {
+  addDayNote,
+  addUserTrait,
+  deleteSessionsSince,
+  openCycle,
+  saveEvening,
+  saveSession,
+  updatePath,
+} from '@/lib/magia/actions';
 import { Switch } from '@/components/ui/switch';
 import { AppIcon } from '@/components/ui/AppIcon';
 import { cn } from '@/lib/utils';
 import { BodyChecklist } from './BodyChecklist';
 import { BodySetup } from './BodySetup';
 import { BreathPractice } from './BreathPractice';
+import { EveningCards } from './EveningCards';
+import { HabitStep, SleepStep } from './EveningSteps';
 import { FlowShell } from './FlowShell';
+import { RecallStep } from './RecallStep';
 import { ThoughtPractice, type ThoughtSaved } from './ThoughtPractice';
+import { TraitPicker, type TraitPick } from './TraitPicker';
 import { UtravaloView } from './UtravaloView';
 
-type Step = 'setup' | 'body' | 'thought' | 'breath';
-type FlowState = { part: DayPart; step: Step | 'done'; skipped: Step[] };
+type Step = 'setup' | 'body' | 'thought' | 'breath' | 'meal' | 'water' | 'recall' | 'cards' | 'add' | 'sleep';
+type FlowState = { part: DayPart; step: Step | 'done'; skipped: Step[]; introRead?: boolean };
 
-export type TodayContent = Pick<FeherMagiaContent, 'utravalo' | 'thought' | 'wishes' | 'body' | 'source'>;
+export type TodayContent = Pick<FeherMagiaContent, 'utravalo' | 'thought' | 'wishes' | 'body' | 'source' | 'elements' | 'sleep'>;
 
 interface TodayViewProps {
   userId: string;
   data: TodayData;
   content: TodayContent;
+  /** Trait texts by key (tulajdonsagok.<locale>.json) */
+  words: Record<string, TraitWords>;
 }
 
 const PARTS: DayPart[] = ['reggel', 'napkozben', 'este'];
 const THOUGHT_PAGES = ['gondolat', 'fegyelmezes', 'uresseg'] as const;
+
 /** Preview only: every practice open, to try everything before the weekly unlocks */
 const PREVIEW_KEY = 'quintessence-fm-preview-all';
 
@@ -58,14 +76,22 @@ function subscribeStorage(onChange: () => void): () => void {
 }
 
 /** The "Ma" tab: morning, day and evening, each started with one button. */
-export function TodayView({ userId, data, content }: TodayViewProps) {
+export function TodayView({ userId, data, content, words }: TodayViewProps) {
   const t = useTranslations('feherMagia');
   const router = useRouter();
   const [path, setPath] = useState<PathState>(data.path);
   const [sessions, setSessions] = useState<TodaySession[]>(data.sessions);
   const [seen, setSeen] = useState(data.seen);
+  const [evening, setEvening] = useState<EveningRow | null>(data.evening);
+  const [cycle, setCycle] = useState<CycleRow | null>(data.cycle);
+  const [userTraits, setUserTraits] = useState<AddedTrait[]>(data.userTraits);
+  const [noteKeys, setNoteKeys] = useState<string[]>(data.noteKeys);
+  const [completedEvenings, setCompletedEvenings] = useState(data.completedEvenings);
   const [flow, setFlow] = useState<FlowState | null>(null);
   const [reading, setReading] = useState<ReadingPage | null>(null);
+  const [noting, setNoting] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [flowError, setFlowError] = useState<string | null>(null);
   const [, setPreviewVersion] = useState(0);
   const previewAll = useSyncExternalStore(subscribeStorage, readPreview, () => false);
   const today = data.today;
@@ -79,8 +105,10 @@ export function TodayView({ userId, data, content }: TodayViewProps) {
     setPreviewVersion((v) => v + 1);
   };
 
-  const unlocked = previewAll ? { breath: true, mealWater: true } : unlockedExercises(data.completedEvenings);
+  const unlocked = previewAll ? { breath: true, mealWater: true } : unlockedExercises(completedEvenings);
   const doneKeys = useMemo(() => new Set(sessions.map((s) => s.exercise_key)), [sessions]);
+  const traits = useMemo(() => mirrorTraits(TRAITS, userTraits), [userTraits]);
+  const entries = useMemo(() => searchEntries(TRAITS, words, userTraits), [words, userTraits]);
   const thoughtActive = path.thought_stage < 3;
   const stage = Math.min(path.thought_stage, 2);
   const isThought = (s: TodaySession) => s.exercise_key.startsWith('szellem_1_gondolat_');
@@ -90,7 +118,15 @@ export function TodayView({ userId, data, content }: TodayViewProps) {
   const breathDone = (part: DayPart) => doneIn(part, (s) => s.exercise_key === SESSION_KEYS.breath);
   const bodyDue = (part: DayPart) => bodyItemsFor(path.body_plan, today, part);
   const bodyDone = (item: BodyItem) => doneKeys.has(SESSION_KEYS.body(item.key));
+  const eveningDone = Boolean(evening?.completed_at);
   const labels = content.body;
+
+  const elementOf = (key: string): ElementType | null => {
+    const own = userTraits.find((a) => addedKey(a) === key);
+    if (own?.element) return own.element;
+    return TRAIT_BY_KEY.get(key)?.element ?? null;
+  };
+  const nameOf = (key: string) => traitName(key, words, userTraits);
 
   const pendingSteps = (part: DayPart): Step[] => {
     const steps: Step[] = [];
@@ -98,10 +134,14 @@ export function TodayView({ userId, data, content }: TodayViewProps) {
     if (path.body_plan.length === 0) {
       if (part !== 'napkozben') steps.push('setup');
     } else if (bodyDue(part).some((i) => !bodyDone(i))) steps.push('body');
-    if (part !== 'napkozben') {
-      if (thoughtActive && !thoughtDone(part)) steps.push('thought');
-      if (unlocked.breath && !breathDone(part)) steps.push('breath');
+    if (part === 'napkozben') {
+      if (unlocked.mealWater && !doneKeys.has(SESSION_KEYS.meal)) steps.push('meal');
+      if (unlocked.mealWater && !doneKeys.has(SESSION_KEYS.water)) steps.push('water');
+      return steps;
     }
+    if (thoughtActive && !thoughtDone(part)) steps.push('thought');
+    if (unlocked.breath && !breathDone(part)) steps.push('breath');
+    if (part === 'este' && !eveningDone) steps.push((evening?.step ?? 0) === 0 ? 'recall' : 'cards');
     return steps;
   };
 
@@ -137,8 +177,8 @@ export function TodayView({ userId, data, content }: TodayViewProps) {
     });
   };
 
-  const toggleBody = async (item: BodyItem, done: boolean) => {
-    const key = SESSION_KEYS.body(item.key);
+  /** A daily tick (body item, eating, water): a session of today, or none. */
+  const toggleTick = async (key: string, done: boolean) => {
     if (done) {
       const startedAt = new Date().toISOString();
       await saveSession(userId, { section: 'test', exerciseKey: key, fokozat: path.fokozat, startedAt });
@@ -186,6 +226,92 @@ export function TodayView({ userId, data, content }: TodayViewProps) {
     setSeen((s) => ({ ...s, breath: true }));
   };
 
+  // ── the evening ───────────────────────────────────────────────────────────
+  /** The first evening of a cycle opens it */
+  const currentCycleId = async (): Promise<string> => {
+    if (cycle) return cycle.id;
+    const number = data.lastCycleNumber + 1;
+    const id = await openCycle(userId, number, path.fokozat, today);
+    setCycle({ id, number, fokozat: path.fokozat, length_days: 14, started_on: today, closed_at: null });
+    return id;
+  };
+
+  const storeEvening = async (ratings: Ratings, step: number, completed = false) => {
+    const cycleId = await currentCycleId();
+    await saveEvening(userId, { obsDate: today, cycleId, ratings, step, completed });
+    setEvening((e) => ({
+      obs_date: today,
+      cycle_id: cycleId,
+      ratings,
+      step,
+      completed_at: completed ? new Date().toISOString() : (e?.completed_at ?? null),
+    }));
+  };
+
+  const recallDone = async () => {
+    setBusy(true);
+    setFlowError(null);
+    try {
+      await storeEvening(evening?.ratings ?? {}, 1);
+      setFlow((f) => (f ? { ...f, step: 'cards' } : f));
+    } catch (err) {
+      console.error('[magia] evening start failed', err);
+      setFlowError(t('flow.saveError'));
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const finishEvening = async () => {
+    setBusy(true);
+    setFlowError(null);
+    try {
+      const ratings = evening?.ratings ?? {};
+      await storeEvening(ratings, evening?.step ?? 1, true);
+      await saveSession(userId, { section: 'lelek', exerciseKey: SESSION_KEYS.selfExam, fokozat: path.fokozat, startedAt: new Date().toISOString() });
+      setSeen((s) => ({ ...s, selfExam: true }));
+      setCompletedEvenings((n) => n + 1);
+      setFlow((f) => (f ? { ...f, step: 'sleep' } : f));
+    } catch (err) {
+      console.error('[magia] evening finish failed', err);
+      setFlowError(t('flow.saveError'));
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  /** A trait added at the end of the evening, rated right away */
+  const addTonight = async (pick: TraitPick): Promise<string> => {
+    const added = await addUserTrait(userId, {
+      mirror: pick.mirror,
+      traitKey: pick.kind === 'dict' ? pick.key : undefined,
+      name: pick.kind === 'new' ? pick.name : undefined,
+      element: pick.element ?? null,
+    });
+    setUserTraits((list) => (list.some((a) => a.id === added.id) ? list : [...list, added]));
+    const ratings = { ...(evening?.ratings ?? {}), [addedKey(added)]: pick.level ?? 1 };
+    await storeEvening(ratings, evening?.step ?? 1);
+    return t('evening.added', { name: pick.name });
+  };
+
+  /** "+" during the day: note a trait; a new one goes into the mirror */
+  const noteNow = async (pick: TraitPick): Promise<string> => {
+    let key = pick.key ?? '';
+    if (pick.kind !== 'mine') {
+      const added = await addUserTrait(userId, {
+        mirror: pick.mirror,
+        traitKey: pick.kind === 'dict' ? pick.key : undefined,
+        name: pick.kind === 'new' ? pick.name : undefined,
+        element: pick.element ?? null,
+      });
+      setUserTraits((list) => (list.some((a) => a.id === added.id) ? list : [...list, added]));
+      key = addedKey(added);
+    }
+    await addDayNote(userId, today, key, pick.note ?? null);
+    setNoteKeys((k) => (k.includes(key) ? k : [...k, key]));
+    return pick.kind === 'mine' ? t('picker.savedToday', { name: pick.name }) : t('picker.savedNew', { name: pick.name });
+  };
+
   // ── the day ───────────────────────────────────────────────────────────────
   const rows = (part: DayPart): Row[] => {
     const out: Row[] = [];
@@ -198,39 +324,55 @@ export function TodayView({ userId, data, content }: TodayViewProps) {
         out.push({ label: t('items.body'), meta: `${n}/${due.length}`, state: n === due.length ? 'done' : 'todo', info: content.utravalo.test });
       }
     }
-    if (part !== 'napkozben') {
-      if (thoughtActive) {
-        out.push({
-          label: content.thought.stages[stage].name,
-          meta: t('items.minutes', { minutes: path.thought_minutes }),
-          state: thoughtDone(part) ? 'done' : 'todo',
-          info: content.utravalo[THOUGHT_PAGES[stage]],
-        });
-      }
-      out.push(
-        unlocked.breath
-          ? {
-              label: t('items.breath'),
-              meta: t('items.breaths', { count: breathTargetFor(path, today) }),
-              state: breathDone(part) ? 'done' : 'todo',
-              info: content.utravalo.legzes,
-            }
-          : { label: t('items.breath'), meta: t('items.fromDay', { day: UNLOCK_BREATH_AFTER + 1 }), state: 'locked' }
-      );
-    }
     if (part === 'napkozben') {
-      const later = unlocked.mealWater ? t('items.nextStep') : t('items.fromDay', { day: UNLOCK_MEAL_WATER_AFTER + 1 });
-      out.push({ label: t('items.meal'), meta: later, state: 'locked' });
-      out.push({ label: t('items.water'), meta: later, state: 'locked' });
+      const later = t('items.fromDay', { day: UNLOCK_MEAL_WATER_AFTER + 1 });
+      out.push(
+        unlocked.mealWater
+          ? { label: t('items.meal'), meta: '', state: doneKeys.has(SESSION_KEYS.meal) ? 'done' : 'todo', info: content.utravalo.etkezes }
+          : { label: t('items.meal'), meta: later, state: 'locked' }
+      );
+      out.push(
+        unlocked.mealWater
+          ? { label: t('items.water'), meta: '', state: doneKeys.has(SESSION_KEYS.water) ? 'done' : 'todo', info: content.utravalo.viz }
+          : { label: t('items.water'), meta: later, state: 'locked' }
+      );
+      return out;
     }
-    if (part === 'este') out.push({ label: t('items.selfExam'), meta: t('items.nextStep'), state: 'locked' });
+    if (thoughtActive) {
+      out.push({
+        label: content.thought.stages[stage].name,
+        meta: t('items.minutes', { minutes: path.thought_minutes }),
+        state: thoughtDone(part) ? 'done' : 'todo',
+        info: content.utravalo[THOUGHT_PAGES[stage]],
+      });
+    }
+    out.push(
+      unlocked.breath
+        ? {
+            label: t('items.breath'),
+            meta: t('items.breaths', { count: breathTargetFor(path, today) }),
+            state: breathDone(part) ? 'done' : 'todo',
+            info: content.utravalo.legzes,
+          }
+        : { label: t('items.breath'), meta: t('items.fromDay', { day: UNLOCK_BREATH_AFTER + 1 }), state: 'locked' }
+    );
+    if (part === 'este') {
+      out.push({
+        label: t('items.selfExam'),
+        meta: eveningDone ? '' : (evening?.step ?? 0) > 0 ? t('items.selfExamResume') : t('items.selfExamAll'),
+        state: eveningDone ? 'done' : 'todo',
+        info: content.utravalo.onvizsgalat,
+      });
+    }
     return out;
   };
 
   const flowTitle = flow ? t(`blocks.${flow.part}`) : '';
+  const dim = flow ? ['thought', 'breath', 'recall', 'sleep'].includes(flow.step) : false;
 
   return (
-    <div className="space-y-5">
+    // Room at the bottom for the "+" button
+    <div className="space-y-5 pb-20">
       {PARTS.map((part) => {
         const list = rows(part);
         const pending = pendingSteps(part);
@@ -267,7 +409,7 @@ export function TodayView({ userId, data, content }: TodayViewProps) {
                       {row.state === 'done' ? '✓' : row.state === 'locked' ? <AppIcon name="lock" className="h-3 w-3 text-muted-foreground" /> : ''}
                     </span>
                     <span className={cn('flex-1', row.state !== 'locked' && 'text-cream')}>{row.label}</span>
-                    <span className="text-xs tabular-nums text-muted-foreground">{row.meta}</span>
+                    {row.meta && <span className="text-xs tabular-nums text-muted-foreground">{row.meta}</span>}
                     {row.info && (
                       <button
                         type="button"
@@ -303,6 +445,31 @@ export function TodayView({ userId, data, content }: TodayViewProps) {
         <Switch checked={previewAll} onCheckedChange={togglePreview} aria-label={t('preview.allOpen')} />
       </label>
 
+      {/* "+": a note during the day */}
+      <button
+        type="button"
+        onClick={() => setNoting(true)}
+        aria-label={t('quickNote.title')}
+        className="fixed right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-2xl font-semibold text-accent-foreground shadow-glow-gold transition hover:scale-105 md:bottom-8"
+        style={{ bottom: 'calc(5.5rem + env(safe-area-inset-bottom))' }}
+      >
+        +
+      </button>
+
+      {noting && (
+        <FlowShell title={t('quickNote.title')} onClose={() => setNoting(false)}>
+          <p className="text-sm text-muted-foreground">{t('quickNote.hint')}</p>
+          <TraitPicker
+            mode="day"
+            entries={entries}
+            elementOf={elementOf}
+            hints={content.elements.hints}
+            elementNames={content.elements.names}
+            onSave={noteNow}
+          />
+        </FlowShell>
+      )}
+
       {reading && (
         <FlowShell title={t('utravalo.label')} onClose={() => setReading(null)}>
           <UtravaloView page={reading} source={content.source} onDone={() => setReading(null)} doneLabel={t('utravalo.close')} />
@@ -310,14 +477,15 @@ export function TodayView({ userId, data, content }: TodayViewProps) {
       )}
 
       {flow && (
-        <FlowShell title={flowTitle} onClose={closeFlow} dim={flow.step === 'thought' || flow.step === 'breath'}>
+        <FlowShell title={flowTitle} onClose={closeFlow} dim={dim}>
+          {flowError && <p className="text-sm text-red-400">{flowError}</p>}
           {flow.step === 'setup' && <BodySetup labels={labels} initial={path.body_plan} onSave={savePlan} />}
           {flow.step === 'body' && (
             <BodyChecklist
               items={bodyDue(flow.part)}
               labels={labels}
               isDone={bodyDone}
-              onToggle={toggleBody}
+              onToggle={(item, done) => toggleTick(SESSION_KEYS.body(item.key), done)}
               onEdit={() => setFlow((f) => (f ? { ...f, step: 'setup' } : f))}
               onNext={() => advance('body')}
               showWaterHint={!unlocked.mealWater}
@@ -353,11 +521,71 @@ export function TodayView({ userId, data, content }: TodayViewProps) {
               onNext={() => advance('breath')}
             />
           )}
+          {(flow.step === 'meal' || flow.step === 'water') && (
+            <HabitStep
+              key={flow.step}
+              title={t(flow.step === 'meal' ? 'items.meal' : 'items.water')}
+              label={t(flow.step === 'meal' ? 'habits.meal' : 'habits.water')}
+              utravalo={flow.step === 'meal' ? content.utravalo.etkezes : content.utravalo.viz}
+              source={content.source}
+              seen={flow.step === 'meal' ? seen.meal : seen.water}
+              done={doneKeys.has(flow.step === 'meal' ? SESSION_KEYS.meal : SESSION_KEYS.water)}
+              onToggle={async (done) => {
+                await toggleTick(flow.step === 'meal' ? SESSION_KEYS.meal : SESSION_KEYS.water, done);
+                setSeen((s) => ({ ...s, [flow.step]: true }));
+              }}
+              onNext={() => advance(flow.step as Step)}
+            />
+          )}
+          {flow.step === 'recall' &&
+            (!seen.selfExam && !flow.introRead ? (
+              <UtravaloView page={content.utravalo.onvizsgalat} source={content.source} onDone={() => setFlow((f) => (f ? { ...f, introRead: true } : f))} />
+            ) : (
+              <RecallStep onDone={recallDone} busy={busy} />
+            ))}
+          {flow.step === 'cards' && (
+            <EveningCards
+              traits={traits}
+              cycleEvenings={data.cycleEvenings}
+              names={nameOf}
+              questions={(key) => words[key]?.q}
+              elementNames={content.elements.names}
+              noteKeys={noteKeys}
+              initialRatings={evening?.ratings ?? {}}
+              initialCard={Math.max(0, (evening?.step ?? 1) - 1)}
+              onSave={(ratings, nextCard) => storeEvening(ratings, 1 + nextCard)}
+              onDone={() => setFlow((f) => (f ? { ...f, step: 'add' } : f))}
+            />
+          )}
+          {flow.step === 'add' && (
+            <div className="flex flex-1 flex-col gap-4">
+              <h2 className="font-display text-xl font-semibold text-cream">{t('evening.addTitle')}</h2>
+              <p className="text-sm text-muted-foreground">{t('evening.addHint')}</p>
+              <TraitPicker
+                mode="obs"
+                entries={entries}
+                elementOf={elementOf}
+                hints={content.elements.hints}
+                elementNames={content.elements.names}
+                onSave={addTonight}
+              />
+              <button
+                type="button"
+                onClick={finishEvening}
+                disabled={busy}
+                className="mt-auto rounded-xl border border-border/50 px-4 py-3 text-sm text-cream transition hover:border-accent/40 disabled:opacity-50"
+              >
+                {t('evening.finish')}
+              </button>
+            </div>
+          )}
+          {flow.step === 'sleep' && (
+            <SleepStep wish={path.wish} quote={content.sleep} counts={markedCounts(evening?.ratings ?? {}, traits)} onDone={closeFlow} />
+          )}
           {flow.step === 'done' && (
             <div className="flex flex-1 flex-col gap-4">
               <p className="font-display text-2xl font-semibold text-gradient-gold">{t('flow.doneTitle')}</p>
               <p className="text-cream">{flow.part === 'reggel' ? t('flow.morningDone') : t('flow.dayDone')}</p>
-              {flow.part === 'este' && <p className="text-sm text-muted-foreground">{t('flow.eveningSoon')}</p>}
               <button
                 type="button"
                 onClick={closeFlow}
@@ -379,3 +607,4 @@ interface Row {
   state: 'done' | 'todo' | 'locked';
   info?: ReadingPage;
 }
+
