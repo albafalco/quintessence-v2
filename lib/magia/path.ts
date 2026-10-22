@@ -24,6 +24,45 @@ export const UNLOCK_MEAL_WATER_AFTER = 14;
 /** Closed self-knowledge cycles needed for the II. fokozat */
 export const CYCLES_FOR_NEXT_FOKOZAT = 2;
 
+// ── Practice days and session keys ─────────────────────────────────────────
+
+/** A practice day starts at 4:00 Budapest time: a late evening still belongs to the day before. */
+export const DAY_STARTS_AT_HOUR = 4;
+/** Thought practice and breathing done from this hour on count as the evening session */
+export const EVENING_FROM_HOUR = 15;
+
+const budapestDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Budapest', year: 'numeric', month: '2-digit', day: '2-digit' });
+const budapestHour = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Budapest', hour: '2-digit', hourCycle: 'h23' });
+
+/** The practice day ('YYYY-MM-DD') a moment belongs to. */
+export function practiceDate(at: Date | string): string {
+  const ms = (typeof at === 'string' ? new Date(at) : at).getTime();
+  return budapestDate.format(new Date(ms - DAY_STARTS_AT_HOUR * 3_600_000));
+}
+
+/** 'YYYY-MM-DD' plus `days` calendar days. */
+export function addDays(date: string, days: number): string {
+  const d = new Date(date + 'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+/** Morning or evening session of the twice-daily practices. */
+export function slotOf(at: Date | string): 'reggel' | 'este' {
+  const hour = parseInt(budapestHour.format(typeof at === 'string' ? new Date(at) : at), 10);
+  return hour >= DAY_STARTS_AT_HOUR && hour < EVENING_FROM_HOUR ? 'reggel' : 'este';
+}
+
+/** `magia_sessions.exercise_key` of the new path's practices */
+export const SESSION_KEYS = {
+  thought: (stage: number) => `szellem_1_gondolat_${stage}`,
+  breath: 'test_1_legzes',
+  body: (itemKey: string) => `test_1_test_${itemKey}`,
+  meal: 'test_1_etkezes',
+  water: 'test_1_viz',
+  selfExam: 'lelek_1_onvizsgalat',
+} as const;
+
 // ── Thought practice ────────────────────────────────────────────────────────
 
 /** What the app offers after a session. */

@@ -19,14 +19,16 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const locale = await requestLocale;
   if (!locale || !locales.includes(locale as Locale)) notFound();
 
+  // Hungarian is the source language: a text not translated yet (neither in
+  // this language nor in the fallback) shows in Hungarian instead of a raw key.
+  const source = (await import(`./messages/${defaultLocale}.json`)).default;
+  if (locale === defaultLocale) return { locale, messages: source };
+  const fallback = mergeMessages(source, (await import(`./messages/${fallbackLocale}.json`)).default);
   return {
     locale,
     messages:
       locale === fallbackLocale
-        ? (await import(`./messages/${locale}.json`)).default
-        : mergeMessages(
-            (await import(`./messages/${fallbackLocale}.json`)).default,
-            (await import(`./messages/${locale}.json`)).default
-          ),
+        ? fallback
+        : mergeMessages(fallback, (await import(`./messages/${locale}.json`)).default),
   };
 });

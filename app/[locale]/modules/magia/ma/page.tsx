@@ -21,6 +21,9 @@ import { buildDailyPlan } from '@/lib/magia-plan';
 import type { MagiaProgressRecord, SessionRecord } from '@/lib/magia-utils';
 import { AppIcon } from '@/components/ui/AppIcon';
 import { toIntlLocale } from '@/i18n';
+import { hasModuleAccess } from '@/lib/module-access';
+import { loadTodayData } from '@/lib/magia/store';
+import { TodayPage } from '@/components/feher-magia/TodayPage';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -40,6 +43,13 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
 
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect(`/${locale}/auth/login`);
+
+  // The new Fehér Mágia path: only with access until the switch for everyone
+  if (await hasModuleAccess(supabase, 'feher_magia')) {
+    const data = await loadTodayData(supabase, user.id);
+    if (!data?.path.gate_read_at) redirect(`/${locale}/modules/magia/kapu`);
+    return <TodayPage locale={locale} userId={user.id} data={data} />;
+  }
 
   const budapestNow = getBudapestNow();
   const todayDate = budapestNow.date;

@@ -33,7 +33,7 @@ interface PushToggleProps {
  */
 const DEVICE_FLAG_KEY = 'quintessence-push-device';
 
-function readDeviceFlag(): string | null {
+export function readDeviceFlag(): string | null {
   try {
     return localStorage.getItem(DEVICE_FLAG_KEY);
   } catch {
@@ -41,7 +41,7 @@ function readDeviceFlag(): string | null {
   }
 }
 
-function writeDeviceFlag(on: boolean) {
+export function writeDeviceFlag(on: boolean) {
   try {
     localStorage.setItem(DEVICE_FLAG_KEY, on ? '1' : '0');
   } catch {
@@ -49,7 +49,7 @@ function writeDeviceFlag(on: boolean) {
   }
 }
 
-function mapPushError(error: unknown, t: (key: string) => string): string {
+export function mapPushError(error: unknown, t: (key: string) => string): string {
   const message = error instanceof Error ? error.message : '';
   const name = error instanceof Error ? error.name : '';
 

@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
+import { hasModuleAccess } from '@/lib/module-access';
 import { createClient } from '@/lib/supabase/server';
 import { loadMagiaFokozatok } from '@/lib/magia-data';
 import type { Locale } from '@/i18n';
@@ -28,6 +30,9 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
+  // The new Fehér Mágia path starts on the "Ma" tab (the Utam tab comes in a later step)
+  if (user && (await hasModuleAccess(supabase, 'feher_magia'))) redirect(`/${locale}/modules/magia/ma`);
 
   let progress: MagiaProgressRecord[] = [];
   let mirrorItems: Pick<SoulMirrorItem, 'mirror' | 'element' | 'intensity' | 'resolved'>[] = [];

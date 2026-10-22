@@ -12,9 +12,27 @@ import {
   declineBack,
   defaultBodyItem,
   fokozatIConditions,
+  practiceDate,
+  slotOf,
   unlockedExercises,
   weekdayOf,
 } from '../../lib/magia/path.ts';
+
+test('a practice day starts at 4:00 Budapest time', () => {
+  // 2026-11-02 is winter time (UTC+1)
+  assert.equal(practiceDate('2026-11-02T02:30:00Z'), '2026-11-01'); // 03:30 local
+  assert.equal(practiceDate('2026-11-02T03:30:00Z'), '2026-11-02'); // 04:30 local
+  assert.equal(practiceDate('2026-11-02T22:30:00Z'), '2026-11-02'); // 23:30 local
+  // summer time (UTC+2)
+  assert.equal(practiceDate('2026-07-10T01:59:00Z'), '2026-07-09'); // 03:59 local
+});
+
+test('morning and evening sessions', () => {
+  assert.equal(slotOf('2026-11-02T05:00:00Z'), 'reggel'); // 06:00
+  assert.equal(slotOf('2026-11-02T13:59:00Z'), 'reggel'); // 14:59
+  assert.equal(slotOf('2026-11-02T14:00:00Z'), 'este'); // 15:00
+  assert.equal(slotOf('2026-11-02T01:00:00Z'), 'este'); // 02:00, still the evening before
+});
 
 const start = { thought_stage: 0, thought_minutes: 1, thought_wins: 0, thought_fails: 0, thought_raised_on: null } as const;
 

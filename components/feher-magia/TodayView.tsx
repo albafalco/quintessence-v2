@@ -1,0 +1,381 @@
+'use client';
+
+import { useMemo, useState, useSyncExternalStore } from 'react';
+import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import type { FeherMagiaContent, ReadingPage } from '@/lib/i18n-content';
+import { getBudapestDayBounds } from '@/lib/push-reminders';
+import {
+  DAY_STARTS_AT_HOUR,
+  SESSION_KEYS,
+  UNLOCK_BREATH_AFTER,
+  UNLOCK_MEAL_WATER_AFTER,
+  bodyItemsFor,
+  breathTargetFor,
+  slotOf,
+  unlockedExercises,
+} from '@/lib/magia/path';
+import type { TodayData, TodaySession } from '@/lib/magia/store';
+import type { BodyItem, BreathState, DayPart, PathState, ThoughtState } from '@/lib/magia/types';
+import { deleteSessionsSince, saveSession, updatePath } from '@/lib/magia/actions';
+import { Switch } from '@/components/ui/switch';
+import { AppIcon } from '@/components/ui/AppIcon';
+import { cn } from '@/lib/utils';
+import { BodyChecklist } from './BodyChecklist';
+import { BodySetup } from './BodySetup';
+import { BreathPractice } from './BreathPractice';
+import { FlowShell } from './FlowShell';
+import { ThoughtPractice, type ThoughtSaved } from './ThoughtPractice';
+import { UtravaloView } from './UtravaloView';
+
+type Step = 'setup' | 'body' | 'thought' | 'breath';
+type FlowState = { part: DayPart; step: Step | 'done'; skipped: Step[] };
+
+export type TodayContent = Pick<FeherMagiaContent, 'utravalo' | 'thought' | 'wishes' | 'body' | 'source'>;
+
+interface TodayViewProps {
+  userId: string;
+  data: TodayData;
+  content: TodayContent;
+}
+
+const PARTS: DayPart[] = ['reggel', 'napkozben', 'este'];
+const THOUGHT_PAGES = ['gondolat', 'fegyelmezes', 'uresseg'] as const;
+/** Preview only: every practice open, to try everything before the weekly unlocks */
+const PREVIEW_KEY = 'quintessence-fm-preview-all';
+
+function readPreview(): boolean {
+  try {
+    return localStorage.getItem(PREVIEW_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function subscribeStorage(onChange: () => void): () => void {
+  window.addEventListener('storage', onChange);
+  return () => window.removeEventListener('storage', onChange);
+}
+
+/** The "Ma" tab: morning, day and evening, each started with one button. */
+export function TodayView({ userId, data, content }: TodayViewProps) {
+  const t = useTranslations('feherMagia');
+  const router = useRouter();
+  const [path, setPath] = useState<PathState>(data.path);
+  const [sessions, setSessions] = useState<TodaySession[]>(data.sessions);
+  const [seen, setSeen] = useState(data.seen);
+  const [flow, setFlow] = useState<FlowState | null>(null);
+  const [reading, setReading] = useState<ReadingPage | null>(null);
+  const [, setPreviewVersion] = useState(0);
+  const previewAll = useSyncExternalStore(subscribeStorage, readPreview, () => false);
+  const today = data.today;
+
+  const togglePreview = (on: boolean) => {
+    try {
+      localStorage.setItem(PREVIEW_KEY, on ? '1' : '0');
+    } catch {
+      // not critical
+    }
+    setPreviewVersion((v) => v + 1);
+  };
+
+  const unlocked = previewAll ? { breath: true, mealWater: true } : unlockedExercises(data.completedEvenings);
+  const doneKeys = useMemo(() => new Set(sessions.map((s) => s.exercise_key)), [sessions]);
+  const thoughtActive = path.thought_stage < 3;
+  const stage = Math.min(path.thought_stage, 2);
+  const isThought = (s: TodaySession) => s.exercise_key.startsWith('szellem_1_gondolat_');
+  const doneIn = (part: DayPart, match: (s: TodaySession) => boolean) =>
+    sessions.some((s) => match(s) && slotOf(s.started_at) === part);
+  const thoughtDone = (part: DayPart) => doneIn(part, isThought);
+  const breathDone = (part: DayPart) => doneIn(part, (s) => s.exercise_key === SESSION_KEYS.breath);
+  const bodyDue = (part: DayPart) => bodyItemsFor(path.body_plan, today, part);
+  const bodyDone = (item: BodyItem) => doneKeys.has(SESSION_KEYS.body(item.key));
+  const labels = content.body;
+
+  const pendingSteps = (part: DayPart): Step[] => {
+    const steps: Step[] = [];
+    // The first choice of body-training items is offered in the morning or the evening
+    if (path.body_plan.length === 0) {
+      if (part !== 'napkozben') steps.push('setup');
+    } else if (bodyDue(part).some((i) => !bodyDone(i))) steps.push('body');
+    if (part !== 'napkozben') {
+      if (thoughtActive && !thoughtDone(part)) steps.push('thought');
+      if (unlocked.breath && !breathDone(part)) steps.push('breath');
+    }
+    return steps;
+  };
+
+  const nextStep = (part: DayPart, skipped: Step[]): Step | 'done' =>
+    pendingSteps(part).find((s) => !skipped.includes(s)) ?? 'done';
+
+  // Re-evaluate after every saved change; `skipped` keeps a step the user moved on from
+  const advance = (skip?: Step) =>
+    setFlow((f) => {
+      if (!f) return f;
+      const skipped = skip ? [...f.skipped, skip] : f.skipped;
+      return { ...f, skipped, step: nextStep(f.part, skipped) };
+    });
+
+  const closeFlow = () => {
+    setFlow(null);
+    router.refresh();
+  };
+
+  // ── saving ────────────────────────────────────────────────────────────────
+  const dayStartIso = () => new Date(Date.parse(getBudapestDayBounds(today).start) + DAY_STARTS_AT_HOUR * 3_600_000).toISOString();
+
+  const savePlan = async (plan: BodyItem[]) => {
+    await updatePath(userId, { body_plan: plan });
+    setPath((p) => ({ ...p, body_plan: plan }));
+    setSeen((s) => ({ ...s, body: true }));
+    // Continue with today's items of this part of the day, if there are any
+    setFlow((f) => {
+      if (!f) return f;
+      const skipped: Step[] = [...f.skipped.filter((s) => s !== 'body'), 'setup'];
+      const hasBody = bodyItemsFor(plan, today, f.part).some((i) => !bodyDone(i));
+      return { ...f, skipped, step: hasBody ? 'body' : nextStep(f.part, skipped) };
+    });
+  };
+
+  const toggleBody = async (item: BodyItem, done: boolean) => {
+    const key = SESSION_KEYS.body(item.key);
+    if (done) {
+      const startedAt = new Date().toISOString();
+      await saveSession(userId, { section: 'test', exerciseKey: key, fokozat: path.fokozat, startedAt });
+      setSessions((s) => [...s, { exercise_key: key, started_at: startedAt, outcome: null, reps: null }]);
+    } else {
+      await deleteSessionsSince(userId, key, dayStartIso());
+      setSessions((s) => s.filter((x) => x.exercise_key !== key));
+    }
+  };
+
+  const saveThought = async (saved: ThoughtSaved, durationSec: number, targetSec: number) => {
+    await saveSession(userId, {
+      section: 'szellem',
+      exerciseKey: saved.session.exercise_key,
+      fokozat: path.fokozat,
+      startedAt: saved.session.started_at,
+      durationSec,
+      targetSec,
+      outcome: saved.session.outcome,
+    });
+    await updatePath(userId, { ...saved.state, thought_focus: saved.focus });
+    setPath((p) => ({ ...p, ...saved.state, thought_focus: saved.focus }));
+    setSessions((s) => [...s, { ...saved.session, reps: null }]);
+    setSeen((s) => ({ ...s, thought: true }));
+  };
+
+  const decideThought = async (next: ThoughtState) => {
+    await updatePath(userId, next);
+    setPath((p) => ({ ...p, ...next }));
+    // A new stage starts with its own Útravaló
+    if (next.thought_stage !== path.thought_stage) setSeen((s) => ({ ...s, thought: false }));
+  };
+
+  const saveWish = async (wish: string) => {
+    const now = new Date().toISOString();
+    await updatePath(userId, { wish, wish_set_at: now });
+    setPath((p) => ({ ...p, wish, wish_set_at: now }));
+  };
+
+  const saveBreath = async (next: BreathState, reps: number, durationSec: number, startedAt: string) => {
+    await saveSession(userId, { section: 'test', exerciseKey: SESSION_KEYS.breath, fokozat: path.fokozat, startedAt, durationSec, reps });
+    await updatePath(userId, next);
+    setPath((p) => ({ ...p, ...next }));
+    setSessions((s) => [...s, { exercise_key: SESSION_KEYS.breath, started_at: startedAt, outcome: null, reps }]);
+    setSeen((s) => ({ ...s, breath: true }));
+  };
+
+  // ── the day ───────────────────────────────────────────────────────────────
+  const rows = (part: DayPart): Row[] => {
+    const out: Row[] = [];
+    if (path.body_plan.length === 0) {
+      if (part !== 'napkozben') out.push({ label: t('items.body'), meta: t('items.bodySetup'), state: 'todo', info: content.utravalo.test });
+    } else {
+      const due = bodyDue(part);
+      if (due.length) {
+        const n = due.filter(bodyDone).length;
+        out.push({ label: t('items.body'), meta: `${n}/${due.length}`, state: n === due.length ? 'done' : 'todo', info: content.utravalo.test });
+      }
+    }
+    if (part !== 'napkozben') {
+      if (thoughtActive) {
+        out.push({
+          label: content.thought.stages[stage].name,
+          meta: t('items.minutes', { minutes: path.thought_minutes }),
+          state: thoughtDone(part) ? 'done' : 'todo',
+          info: content.utravalo[THOUGHT_PAGES[stage]],
+        });
+      }
+      out.push(
+        unlocked.breath
+          ? {
+              label: t('items.breath'),
+              meta: t('items.breaths', { count: breathTargetFor(path, today) }),
+              state: breathDone(part) ? 'done' : 'todo',
+              info: content.utravalo.legzes,
+            }
+          : { label: t('items.breath'), meta: t('items.fromDay', { day: UNLOCK_BREATH_AFTER + 1 }), state: 'locked' }
+      );
+    }
+    if (part === 'napkozben') {
+      const later = unlocked.mealWater ? t('items.nextStep') : t('items.fromDay', { day: UNLOCK_MEAL_WATER_AFTER + 1 });
+      out.push({ label: t('items.meal'), meta: later, state: 'locked' });
+      out.push({ label: t('items.water'), meta: later, state: 'locked' });
+    }
+    if (part === 'este') out.push({ label: t('items.selfExam'), meta: t('items.nextStep'), state: 'locked' });
+    return out;
+  };
+
+  const flowTitle = flow ? t(`blocks.${flow.part}`) : '';
+
+  return (
+    <div className="space-y-5">
+      {PARTS.map((part) => {
+        const list = rows(part);
+        const pending = pendingSteps(part);
+        const anyDone = list.some((r) => r.state === 'done');
+        return (
+          <section key={part} className="rounded-2xl border border-border/50 bg-card/30 p-4 sm:p-5">
+            <div className="mb-3 flex items-baseline justify-between">
+              <h2 className="font-display text-lg font-semibold text-cream">{t(`blocks.${part}`)}</h2>
+              {list.length > 0 && pending.length === 0 && list.some((r) => r.state !== 'locked') && (
+                <span className="text-xs text-accent">{t('blocks.done')}</span>
+              )}
+            </div>
+            {list.length === 0 ? (
+              <p className="text-sm text-muted-foreground">{t('blocks.nothing')}</p>
+            ) : (
+              <ul className="space-y-2">
+                {list.map((row) => (
+                  <li
+                    key={row.label}
+                    className={cn(
+                      'flex items-center gap-3 rounded-xl border px-3 py-2.5 text-sm',
+                      row.state === 'done' && 'border-accent/30 bg-accent/5',
+                      row.state === 'todo' && 'border-border/50',
+                      row.state === 'locked' && 'border-dashed border-border/40 text-muted-foreground'
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        'flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[11px]',
+                        row.state === 'done' ? 'border-accent bg-accent text-accent-foreground' : 'border-muted-foreground/40'
+                      )}
+                      aria-hidden
+                    >
+                      {row.state === 'done' ? '✓' : row.state === 'locked' ? <AppIcon name="lock" className="h-3 w-3 text-muted-foreground" /> : ''}
+                    </span>
+                    <span className={cn('flex-1', row.state !== 'locked' && 'text-cream')}>{row.label}</span>
+                    <span className="text-xs tabular-nums text-muted-foreground">{row.meta}</span>
+                    {row.info && (
+                      <button
+                        type="button"
+                        onClick={() => setReading(row.info!)}
+                        className="rounded-full p-1 text-muted-foreground transition hover:text-accent"
+                        aria-label={t('items.info', { title: row.info.title })}
+                      >
+                        <AppIcon name="book" className="h-4 w-4 text-current" />
+                      </button>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {pending.length > 0 && (
+              <button
+                type="button"
+                onClick={() => setFlow({ part, step: pending[0], skipped: [] })}
+                className="mt-4 w-full rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold"
+              >
+                {anyDone ? t('blocks.continue') : t('blocks.start')}
+              </button>
+            )}
+          </section>
+        );
+      })}
+
+      <label className="flex items-center justify-between gap-4 rounded-2xl border border-dashed border-border/50 px-4 py-3">
+        <span>
+          <span className="block text-sm text-cream">{t('preview.allOpen')}</span>
+          <span className="block text-xs text-muted-foreground">{t('preview.note')}</span>
+        </span>
+        <Switch checked={previewAll} onCheckedChange={togglePreview} aria-label={t('preview.allOpen')} />
+      </label>
+
+      {reading && (
+        <FlowShell title={t('utravalo.label')} onClose={() => setReading(null)}>
+          <UtravaloView page={reading} source={content.source} onDone={() => setReading(null)} doneLabel={t('utravalo.close')} />
+        </FlowShell>
+      )}
+
+      {flow && (
+        <FlowShell title={flowTitle} onClose={closeFlow} dim={flow.step === 'thought' || flow.step === 'breath'}>
+          {flow.step === 'setup' && <BodySetup labels={labels} initial={path.body_plan} onSave={savePlan} />}
+          {flow.step === 'body' && (
+            <BodyChecklist
+              items={bodyDue(flow.part)}
+              labels={labels}
+              isDone={bodyDone}
+              onToggle={toggleBody}
+              onEdit={() => setFlow((f) => (f ? { ...f, step: 'setup' } : f))}
+              onNext={() => advance('body')}
+              showWaterHint={!unlocked.mealWater}
+            />
+          )}
+          {flow.step === 'thought' && (
+            <ThoughtPractice
+              key={`thought-${path.thought_stage}`}
+              state={path}
+              focus={path.thought_focus}
+              wish={path.wish}
+              today={today}
+              stages={content.thought.stages}
+              utravalo={THOUGHT_PAGES.map((k) => content.utravalo[k])}
+              source={content.source}
+              seen={seen.thought}
+              onSave={saveThought}
+              onDecide={decideThought}
+              onNext={() => advance('thought')}
+            />
+          )}
+          {flow.step === 'breath' && (
+            <BreathPractice
+              state={path}
+              wish={path.wish}
+              wishes={content.wishes}
+              today={today}
+              utravalo={content.utravalo.legzes}
+              source={content.source}
+              seen={seen.breath}
+              onWish={saveWish}
+              onSave={saveBreath}
+              onNext={() => advance('breath')}
+            />
+          )}
+          {flow.step === 'done' && (
+            <div className="flex flex-1 flex-col gap-4">
+              <p className="font-display text-2xl font-semibold text-gradient-gold">{t('flow.doneTitle')}</p>
+              <p className="text-cream">{flow.part === 'reggel' ? t('flow.morningDone') : t('flow.dayDone')}</p>
+              {flow.part === 'este' && <p className="text-sm text-muted-foreground">{t('flow.eveningSoon')}</p>}
+              <button
+                type="button"
+                onClick={closeFlow}
+                className="mt-auto rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30"
+              >
+                {t('flow.close')}
+              </button>
+            </div>
+          )}
+        </FlowShell>
+      )}
+    </div>
+  );
+}
+
+interface Row {
+  label: string;
+  meta: string;
+  state: 'done' | 'todo' | 'locked';
+  info?: ReadingPage;
+}
