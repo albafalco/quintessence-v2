@@ -17,7 +17,8 @@
     "languageNoMatch": "Keine passende Sprache.",
     "languageBack": "Zurück zum Menü",
     "languageBeta": "Beta",
-    "practice": "Übung"
+    "practice": "Übung",
+    "close": "Schließen"
   },
   "auth": {
     "login": "Anmelden",
@@ -44,7 +45,11 @@
       "registrationFailed": "Registrierung fehlgeschlagen",
       "methodNotAllowed": "Methode nicht erlaubt. POST verwenden.",
       "emailTaken": "Mit dieser E-Mail-Adresse existiert bereits ein Konto.",
-      "usernameTaken": "Dieser Benutzername ist bereits vergeben."
+      "usernameTaken": "Dieser Benutzername ist bereits vergeben.",
+      "invalidCredentials": "E-Mail-Adresse oder Passwort ist falsch.",
+      "accountSuspended": "Dieses Konto ist gesperrt. Wende dich an den Administrator.",
+      "tooManyAttempts": "Zu viele Versuche. Warte ein paar Minuten und versuche es erneut.",
+      "loginFailed": "Die Anmeldung ist fehlgeschlagen. Bitte versuche es erneut."
     },
     "accountDeleted": "Dein Konto und alle deine Daten wurden gelöscht.",
     "newPasswordTitle": "Neues Passwort festlegen",

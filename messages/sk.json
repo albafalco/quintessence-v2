@@ -17,7 +17,8 @@
     "languageNoMatch": "Žiadny zodpovedajúci jazyk.",
     "languageBack": "Späť do menu",
     "languageBeta": "beta",
-    "practice": "Cvičenie"
+    "practice": "Cvičenie",
+    "close": "Zavrieť"
   },
   "auth": {
     "login": "Prihlásiť sa",
@@ -44,7 +45,11 @@
       "registrationFailed": "Registrácia zlyhala",
       "methodNotAllowed": "Metóda nie je povolená. Použi POST.",
       "emailTaken": "Účet s touto e-mailovou adresou už existuje.",
-      "usernameTaken": "Toto používateľské meno je už obsadené."
+      "usernameTaken": "Toto používateľské meno je už obsadené.",
+      "invalidCredentials": "Nesprávna e-mailová adresa alebo heslo.",
+      "accountSuspended": "Tento účet je pozastavený. Obráť sa na administrátora.",
+      "tooManyAttempts": "Príliš veľa pokusov. Počkaj pár minút a skús to znova.",
+      "loginFailed": "Prihlásenie zlyhalo. Skús to znova."
     },
     "accountDeleted": "Tvoj účet a všetky tvoje údaje boli vymazané.",
     "newPasswordTitle": "Nastav si nové heslo",

@@ -5,7 +5,7 @@ import { AdminNav } from '@/components/admin/AdminNav';
 import { MfaGate } from '@/components/admin/MfaGate';
 
 export const metadata: Metadata = {
-  title: 'Admin | Quintessence',
+  title: 'Admin',
   robots: { index: false, follow: false },
 };
 

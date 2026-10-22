@@ -10,6 +10,14 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
+/** Supabase auth error → message key (auth.errors.*); its own text is English-only. */
+function loginErrorKey(error: { code?: string; status?: number; message: string }) {
+  if (error.code === 'invalid_credentials' || /invalid login credentials/i.test(error.message)) return 'errors.invalidCredentials';
+  if (error.code === 'user_banned' || /banned/i.test(error.message)) return 'errors.accountSuspended';
+  if (error.status === 429 || error.code === 'over_request_rate_limit') return 'errors.tooManyAttempts';
+  return 'errors.loginFailed';
+}
+
 export function LoginForm() {
   const t = useTranslations('auth');
   const locale = useLocale();
@@ -32,7 +40,7 @@ export function LoginForm() {
 
     if (signInError) {
       setLoading(false);
-      setError(signInError.message);
+      setError(t(loginErrorKey(signInError)));
       return;
     }
 

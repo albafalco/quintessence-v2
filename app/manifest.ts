@@ -1,13 +1,15 @@
 import type { MetadataRoute } from 'next';
-import huMessages from '@/messages/hu.json';
+import enMessages from '@/messages/en.json';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: '/',
-    name: huMessages.pwa.name,
-    short_name: huMessages.pwa.name,
-    description: huMessages.pwa.description,
-    start_url: '/hu',
+    name: enMessages.pwa.name,
+    short_name: enMessages.pwa.name,
+    // One language only (a manifest cannot vary by locale)
+    description: enMessages.pwa.description,
+    // "/" redirects to the remembered or the browser's language
+    start_url: '/',
     scope: '/',
     display: 'standalone',
     display_override: ['window-controls-overlay', 'standalone'],

@@ -17,7 +17,8 @@
     "languageNoMatch": "Nema odgovarajućeg jezika.",
     "languageBack": "Nazad u meni",
     "languageBeta": "beta",
-    "practice": "Vežba"
+    "practice": "Vežba",
+    "close": "Zatvori"
   },
   "auth": {
     "login": "Prijava",
@@ -44,7 +45,11 @@
       "registrationFailed": "Registracija nije uspela",
       "methodNotAllowed": "Metoda nije dozvoljena. Koristi POST.",
       "emailTaken": "Nalog sa ovom imejl adresom već postoji.",
-      "usernameTaken": "Ovo korisničko ime je već zauzeto."
+      "usernameTaken": "Ovo korisničko ime je već zauzeto.",
+      "invalidCredentials": "Pogrešna imejl adresa ili lozinka.",
+      "accountSuspended": "Ovaj nalog je suspendovan. Obrati se administratoru.",
+      "tooManyAttempts": "Previše pokušaja. Sačekaj nekoliko minuta i pokušaj ponovo.",
+      "loginFailed": "Prijava nije uspela. Pokušaj ponovo."
     },
     "accountDeleted": "Tvoj nalog i svi tvoji podaci su obrisani.",
     "newPasswordTitle": "Postavi novu lozinku",

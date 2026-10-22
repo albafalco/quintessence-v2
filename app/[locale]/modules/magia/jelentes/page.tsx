@@ -14,6 +14,12 @@ import type { Locale } from '@/i18n';
 import { AppIcon } from '@/components/ui/AppIcon';
 import { toIntlLocale } from '@/i18n';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'magia' });
+  return { title: t('reportTitle') };
+}
+
 interface ReportPageProps {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ het?: string }>;

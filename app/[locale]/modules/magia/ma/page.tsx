@@ -22,6 +22,12 @@ import type { MagiaProgressRecord, SessionRecord } from '@/lib/magia-utils';
 import { AppIcon } from '@/components/ui/AppIcon';
 import { toIntlLocale } from '@/i18n';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'magia' });
+  return { title: t('maTitle') };
+}
+
 interface MaMagiaPageProps {
   params: Promise<{ locale: string }>;
 }

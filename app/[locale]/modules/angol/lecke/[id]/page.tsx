@@ -10,6 +10,12 @@ import { cn } from '@/lib/utils';
 import type { Locale } from '@/i18n';
 import { AppIcon } from '@/components/ui/AppIcon';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; id: string }> }) {
+  const { locale, id } = await params;
+  const t = await getTranslations({ locale, namespace: 'angol' });
+  return { title: `${id}. ${t('lesson').toLocaleLowerCase(locale)}` };
+}
+
 const VOCABULARY_SIZE = (vocabulary as unknown[]).length;
 
 /** done: exam passed · next: where to continue · available: open · reading: basics (no exam) */

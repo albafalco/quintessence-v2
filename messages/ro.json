@@ -17,7 +17,8 @@
     "languageNoMatch": "Nicio limbă găsită.",
     "languageBack": "Înapoi la meniu",
     "languageBeta": "beta",
-    "practice": "Practică"
+    "practice": "Practică",
+    "close": "Închide"
   },
   "auth": {
     "login": "Autentificare",
@@ -44,7 +45,11 @@
       "registrationFailed": "Înregistrarea a eșuat",
       "methodNotAllowed": "Metodă nepermisă. Folosește POST.",
       "emailTaken": "Există deja un cont cu această adresă de e-mail.",
-      "usernameTaken": "Acest nume de utilizator este deja folosit."
+      "usernameTaken": "Acest nume de utilizator este deja folosit.",
+      "invalidCredentials": "Adresa de e-mail sau parola este greșită.",
+      "accountSuspended": "Acest cont este suspendat. Contactează administratorul.",
+      "tooManyAttempts": "Prea multe încercări. Așteaptă câteva minute și încearcă din nou.",
+      "loginFailed": "Autentificarea a eșuat. Încearcă din nou."
     },
     "accountDeleted": "Contul tău și toate datele tale au fost șterse.",
     "newPasswordTitle": "Setează o parolă nouă",

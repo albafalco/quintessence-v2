@@ -64,7 +64,8 @@ export function MasteryDialog({
 
     setSaving(false);
     if (dbError) {
-      setError(dbError.message);
+      console.error('[magia] mastery save failed', dbError);
+      setError(t('saveFailed'));
     } else {
       onStatusChange(newStatus);
       onClose();

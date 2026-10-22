@@ -17,7 +17,8 @@
     "languageNoMatch": "No matching language.",
     "languageBack": "Back to the menu",
     "languageBeta": "beta",
-    "practice": "Practice"
+    "practice": "Practice",
+    "close": "Close"
   },
   "auth": {
     "login": "Sign in",
@@ -44,7 +45,11 @@
       "registrationFailed": "Registration failed",
       "methodNotAllowed": "Method not allowed. Use POST.",
       "emailTaken": "An account with this email already exists.",
-      "usernameTaken": "This username is already taken."
+      "usernameTaken": "This username is already taken.",
+      "invalidCredentials": "Incorrect email address or password.",
+      "accountSuspended": "This account is suspended. Contact the administrator.",
+      "tooManyAttempts": "Too many attempts. Wait a few minutes and try again.",
+      "loginFailed": "Sign-in failed. Please try again."
     },
     "accountDeleted": "Your account and all your data have been deleted.",
     "newPasswordTitle": "Set a new password",

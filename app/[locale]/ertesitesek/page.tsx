@@ -4,8 +4,7 @@ import { NotificationsCenter } from '@/components/notifications/NotificationsCen
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'notifications' });
-  const tBrand = await getTranslations({ locale, namespace: 'brand' });
-  return { title: `${t('title')} | ${tBrand('name')}` };
+  return { title: t('title') };
 }
 
 export default async function NotificationsPage({ params }: { params: Promise<{ locale: string }> }) {

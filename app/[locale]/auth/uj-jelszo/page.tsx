@@ -5,8 +5,7 @@ import { NewPasswordForm } from '@/components/auth/NewPasswordForm';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'auth' });
-  const tBrand = await getTranslations({ locale, namespace: 'brand' });
-  return { title: `${t('newPasswordTitle')} | ${tBrand('name')}`, robots: { index: false } };
+  return { title: t('newPasswordTitle'), robots: { index: false } };
 }
 
 /** Landing page of the admin-issued password reset link (?token_hash=…&type=recovery). */

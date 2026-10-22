@@ -6,6 +6,12 @@ import { HardItemsSession } from '@/components/angol/HardItemsSession';
 import type { HardItem } from '@/lib/angol-hard';
 import { AppIcon } from '@/components/ui/AppIcon';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'angol' });
+  return { title: t('hardTitle') };
+}
+
 interface HardItemsPageProps {
   params: Promise<{ locale: string; id: string }>;
 }

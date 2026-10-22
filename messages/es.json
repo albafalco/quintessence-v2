@@ -17,7 +17,8 @@
     "languageNoMatch": "Ningún idioma coincide.",
     "languageBack": "Volver al menú",
     "languageBeta": "beta",
-    "practice": "Práctica"
+    "practice": "Práctica",
+    "close": "Cerrar"
   },
   "auth": {
     "login": "Iniciar sesión",
@@ -44,7 +45,11 @@
       "registrationFailed": "Error en el registro",
       "methodNotAllowed": "Método no permitido. Usa POST.",
       "emailTaken": "Ya existe una cuenta con este correo electrónico.",
-      "usernameTaken": "Este nombre de usuario ya está en uso."
+      "usernameTaken": "Este nombre de usuario ya está en uso.",
+      "invalidCredentials": "Correo electrónico o contraseña incorrectos.",
+      "accountSuspended": "Esta cuenta está suspendida. Contacta con el administrador.",
+      "tooManyAttempts": "Demasiados intentos. Espera unos minutos e inténtalo de nuevo.",
+      "loginFailed": "No se pudo iniciar sesión. Inténtalo de nuevo."
     },
     "accountDeleted": "Tu cuenta y todos tus datos han sido eliminados.",
     "newPasswordTitle": "Establecer nueva contraseña",

@@ -6,6 +6,12 @@ import { loadAngolLesson1 } from '@/lib/angol-lecke1';
 import { getLessons } from '@/lib/angol-unlocks';
 import type { Locale } from '@/i18n';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'nav' });
+  return { title: t('angol') };
+}
+
 interface AngolPageProps {
   params: Promise<{ locale: string }>;
 }

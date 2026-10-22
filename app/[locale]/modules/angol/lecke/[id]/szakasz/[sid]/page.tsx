@@ -7,6 +7,12 @@ import { getLastExamResult, getUnlockedSectionIds } from '@/lib/angol-db';
 import { SzakaszView } from '@/components/angol/SzakaszView';
 import type { Locale } from '@/i18n';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; sid: string }> }) {
+  const { locale, sid } = await params;
+  const labels = getSectionLabels(await loadAngolLesson1(locale as Locale));
+  return labels[Number(sid)] ? { title: labels[Number(sid)] } : {};
+}
+
 interface SzakaszPageProps {
   params: Promise<{ locale: string; id: string; sid: string }>;
 }

@@ -4,6 +4,12 @@ import { createClient } from '@/lib/supabase/server';
 import { ProfileForm } from '@/components/profile/ProfileForm';
 import { hasModuleAccess } from '@/lib/module-access';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'profile' });
+  return { title: t('title') };
+}
+
 interface ProfilePageProps {
   params: Promise<{ locale: string }>;
 }

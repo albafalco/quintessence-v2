@@ -9,6 +9,12 @@ import type { SoulMirrorItem } from '@/lib/magia-types';
 import { ElementBalance } from '@/components/magia/ElementBalance';
 import { AppIcon } from '@/components/ui/AppIcon';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'nav' });
+  return { title: t('magia') };
+}
+
 interface MagiaPageProps {
   params: Promise<{ locale: string }>;
 }

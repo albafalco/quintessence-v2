@@ -1,12 +1,9 @@
 import { Outfit, Cinzel } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Quintessence - Personal Growth',
-};
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { locales, toIntlLocale, type Locale } from '@/i18n';
 import { LANGUAGES } from '@/lib/languages';
 import { BootFallback } from '@/components/layout/BootFallback';
@@ -15,6 +12,13 @@ import { ConditionalAppShell } from '@/components/layout/ConditionalAppShell';
 import { GlobalErrorBoundary } from '@/components/layout/GlobalErrorBoundary';
 import { BOOT_INLINE_SCRIPT } from '@/lib/boot-inline';
 import '../globals.css';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale: locales.includes(locale as Locale) ? locale : 'hu', namespace: 'brand' });
+  // Pages give only their own name; the brand is added by the template
+  return { title: { default: `${t('name')} – ${t('tagline')}`, template: `%s | ${t('name')}` } };
+}
 
 const outfit = Outfit({
   subsets: ['latin', 'latin-ext'],

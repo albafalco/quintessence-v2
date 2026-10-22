@@ -17,7 +17,8 @@
     "languageNoMatch": "Nincs ilyen nyelv.",
     "languageBack": "Vissza a menübe",
     "languageBeta": "béta",
-    "practice": "Gyakorlás"
+    "practice": "Gyakorlás",
+    "close": "Bezárás"
   },
   "auth": {
     "login": "Bejelentkezés",
@@ -44,7 +45,11 @@
       "registrationFailed": "A regisztráció sikertelen",
       "methodNotAllowed": "Nem engedélyezett metódus. Használd a POST-ot.",
       "emailTaken": "Ezzel az e-mail-címmel már van fiók.",
-      "usernameTaken": "Ez a felhasználónév már foglalt."
+      "usernameTaken": "Ez a felhasználónév már foglalt.",
+      "invalidCredentials": "Hibás e-mail-cím vagy jelszó.",
+      "accountSuspended": "Ez a fiók fel van függesztve. Fordulj az adminisztrátorhoz.",
+      "tooManyAttempts": "Túl sok próbálkozás. Várj pár percet, és próbáld újra.",
+      "loginFailed": "A bejelentkezés nem sikerült. Próbáld újra."
     },
     "accountDeleted": "A fiókodat és minden adatodat töröltük.",
     "newPasswordTitle": "Új jelszó beállítása",

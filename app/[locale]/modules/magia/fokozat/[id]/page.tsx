@@ -12,6 +12,12 @@ import type { JournalEntryData } from '@/components/magia/JournalEntry';
 import type { MagiaProgressRecord } from '@/lib/magia-utils';
 import { AppIcon } from '@/components/ui/AppIcon';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; id: string }> }) {
+  const { locale, id } = await params;
+  const fokozat = (await loadMagiaFokozatok(locale as Locale)).find((f) => f.id === Number(id));
+  return fokozat ? { title: fokozat.cim } : {};
+}
+
 interface FokozatPageProps {
   params: Promise<{ locale: string; id: string }>;
 }
