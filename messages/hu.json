@@ -26,7 +26,6 @@
     "logout": "Kijelentkezés",
     "email": "Email cím",
     "password": "Jelszó",
-    "name": "Teljes név",
     "username": "Felhasználónév",
     "inviteCode": "Meghívókód",
     "noAccount": "Nincs fiókod?",
@@ -49,7 +48,8 @@
       "invalidCredentials": "Hibás e-mail-cím vagy jelszó.",
       "accountSuspended": "Ez a fiók fel van függesztve. Fordulj az adminisztrátorhoz.",
       "tooManyAttempts": "Túl sok próbálkozás. Várj pár percet, és próbáld újra.",
-      "loginFailed": "A bejelentkezés nem sikerült. Próbáld újra."
+      "loginFailed": "A bejelentkezés nem sikerült. Próbáld újra.",
+      "invalidName": "A vezeték- és keresztnév 2–50 karakter lehet, rövidítés nélkül, csak betűkkel, szóközzel, kötőjellel és aposztróffal."
     },
     "accountDeleted": "A fiókodat és minden adatodat töröltük.",
     "newPasswordTitle": "Új jelszó beállítása",
@@ -62,7 +62,9 @@
     "passwordUpdated": "A jelszavad megváltozott. Átirányítunk…",
     "passwordUpdateFailed": "Nem sikerült menteni az új jelszót. Próbálj másik jelszót.",
     "invitedBy": "<b>{name}</b> meghívott a Quintessence-be",
-    "inviteForEmail": "A meghívó erre a címre szól: {email}"
+    "inviteForEmail": "A meghívó erre a címre szól: {email}",
+    "firstName": "Keresztnév",
+    "lastName": "Vezetéknév"
   },
   "dashboard": {
     "welcome": "Szia, {name}!",
@@ -511,9 +513,19 @@
     "passwordSave": "Jelszó mentése",
     "passwordChanged": "A jelszó megváltozott.",
     "dangerZone": "Fiók törlése",
-    "displayName": "Megszólítás",
-    "displayNameHint": "Így szólít meg az app a vezérlőpulton. Ha üresen hagyod, ez jelenik meg: @{username}",
-    "displayNamePlaceholder": "pl. Péter"
+    "nameTitle": "Név",
+    "nameHint": "A névváltoztatást az adminisztrátor hagyja jóvá. Jóváhagyás után 90 napig nem módosítható újra.",
+    "firstName": "Keresztnév",
+    "lastName": "Vezetéknév",
+    "nameRequest": "Módosítás kérése",
+    "namePending": "Jóváhagyásra vár: {name}",
+    "nameCancel": "Kérés visszavonása",
+    "nameCooldown": "A nevedet {date} után módosíthatod újra.",
+    "nameRequested": "Elküldve — az adminisztrátor hamarosan dönt róla.",
+    "nameErrInvalid": "A vezeték- és keresztnév 2–50 karakter lehet, rövidítés nélkül, csak betűkkel, szóközzel, kötőjellel és aposztróffal.",
+    "nameErrUnchanged": "Ez a jelenlegi neved.",
+    "nameErrCooldown": "A nevedet 90 napon belül már módosították.",
+    "nameErrGeneric": "A kérés elküldése nem sikerült. Próbáld újra."
   },
   "brand": {
     "name": "Quintessence",
@@ -640,7 +652,13 @@
     "inviteExpiredBody": "A(z) {email} címre küldött meghívód lejárt, így újra felhasználhatod.",
     "inviteRevokedBody": "A(z) {email} címre küldött meghívódat az adminisztrátor visszavonta, így újra felhasználhatod.",
     "moduleGrantedTitle": "Megnyílt számodra a Kreatív Angol",
-    "moduleGrantedBody": "Mostantól elérhető a menüben. Jó tanulást!"
+    "moduleGrantedBody": "Mostantól elérhető a menüben. Jó tanulást!",
+    "nameRequestTitle": "Névváltoztatási kérés: @{username}",
+    "nameRequestBody": "Új név: {name}",
+    "nameApprovedTitle": "A névváltoztatásod jóváhagyva",
+    "nameApprovedBody": "Az új neved: {name}",
+    "nameRejectedTitle": "A névváltoztatásod nem lett jóváhagyva",
+    "nameRejectedBody": "A neved nem változott. Ha kérdésed van, fordulj az adminisztrátorhoz."
   },
   "invites": {
     "title": "Meghívások",

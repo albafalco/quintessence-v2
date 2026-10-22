@@ -13,7 +13,6 @@ import {
   getMagiaDashboardStats,
 } from '@/lib/dashboard';
 import { cn } from '@/lib/utils';
-import { addressName } from '@/lib/display-name';
 import { canUseAngol } from '@/lib/module-access';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { countReviewQueue, type CardScheduleRow } from '@/lib/angol-srs';
@@ -84,12 +83,12 @@ export function DashboardContent() {
             supabase.from('profiles').select(columns).eq('id', user.id).single(),
             FETCH_TIMEOUT_MS,
             { data: null, error: null } as never
-          ) as Promise<{ data: { username?: string; display_name?: string | null } | null; error: { code?: string } | null }>;
-        let profileResult = await loadProfile('username, display_name');
-        // display_name needs migration 015
+          ) as Promise<{ data: { username?: string; first_name?: string | null } | null; error: { code?: string } | null }>;
+        let profileResult = await loadProfile('username, first_name');
+        // first_name needs migration 018
         if (isMissingColumnError(profileResult.error)) profileResult = await loadProfile('username');
 
-        const greetingName = addressName(profileResult.data?.display_name, profileResult.data?.username ?? 'user');
+        const greetingName = profileResult.data?.first_name?.trim() || `@${profileResult.data?.username ?? 'user'}`;
         // Locked module: Hungarian UI + access granted by the admin
         const showAngol = await canUseAngol(supabase, locale);
 

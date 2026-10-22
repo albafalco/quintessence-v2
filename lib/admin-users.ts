@@ -18,6 +18,13 @@ export interface AdminUserRow {
   /** Migration 016 */
   angol_access?: boolean;
   angol_has_progress?: boolean;
+  /** Migration 018 */
+  first_name?: string | null;
+  last_name?: string | null;
+  name_changed_at?: string | null;
+  pending_first_name?: string | null;
+  pending_last_name?: string | null;
+  pending_requested_at?: string | null;
 }
 
 export interface InviteGrantRow {

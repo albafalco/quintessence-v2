@@ -8,12 +8,15 @@ import { createClient } from '@/lib/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { NAME_PART_MAX, lastNameFirst } from '@/lib/person-name';
+import { cn } from '@/lib/utils';
 
 export function RegisterForm({ initialInviteCode = '' }: { initialInviteCode?: string }) {
   const t = useTranslations('auth');
   const locale = useLocale();
   const router = useRouter();
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,7 +35,7 @@ export function RegisterForm({ initialInviteCode = '' }: { initialInviteCode?: s
       res = await fetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, username, email, password, inviteCode, locale }),
+        body: JSON.stringify({ firstName, lastName, username, email, password, inviteCode, locale }),
       });
       data = await res.json().catch(() => ({}));
     } catch {
@@ -48,6 +51,7 @@ export function RegisterForm({ initialInviteCode = '' }: { initialInviteCode?: s
         SERVER_CONFIG: 'errors.serverConfig',
         MISSING_FIELDS: 'errors.missingFields',
         INVALID_USERNAME: 'errors.invalidUsername',
+        INVALID_NAME: 'errors.invalidName',
         PASSWORD_TOO_SHORT: 'errors.passwordTooShort',
         INVALID_INVITE: 'errors.invalidInvite',
         INVITE_EMAIL_MISMATCH: 'errors.inviteEmailMismatch',
@@ -81,15 +85,29 @@ export function RegisterForm({ initialInviteCode = '' }: { initialInviteCode?: s
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="space-y-2">
-        <Label htmlFor="name">{t('name')}</Label>
-        <Input
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          autoComplete="name"
-        />
+      <div className={cn('grid gap-4 sm:grid-cols-2', !lastNameFirst(locale) && '[&>*:first-child]:order-2')}>
+        <div className="space-y-2">
+          <Label htmlFor="lastName">{t('lastName')}</Label>
+          <Input
+            id="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+            maxLength={NAME_PART_MAX}
+            autoComplete="family-name"
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="firstName">{t('firstName')}</Label>
+          <Input
+            id="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+            maxLength={NAME_PART_MAX}
+            autoComplete="given-name"
+          />
+        </div>
       </div>
 
       <div className="space-y-2">

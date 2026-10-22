@@ -26,7 +26,6 @@
     "logout": "Odjava",
     "email": "Imejl adresa",
     "password": "Lozinka",
-    "name": "Puno ime",
     "username": "Korisničko ime",
     "inviteCode": "Kôd pozivnice",
     "noAccount": "Nemaš nalog?",
@@ -49,7 +48,8 @@
       "invalidCredentials": "Pogrešna imejl adresa ili lozinka.",
       "accountSuspended": "Ovaj nalog je suspendovan. Obrati se administratoru.",
       "tooManyAttempts": "Previše pokušaja. Sačekaj nekoliko minuta i pokušaj ponovo.",
-      "loginFailed": "Prijava nije uspela. Pokušaj ponovo."
+      "loginFailed": "Prijava nije uspela. Pokušaj ponovo.",
+      "invalidName": "Ime i prezime moraju imati 2–50 znakova, bez skraćenica, samo slova, razmake, crtice i apostrofe."
     },
     "accountDeleted": "Tvoj nalog i svi tvoji podaci su obrisani.",
     "newPasswordTitle": "Postavi novu lozinku",
@@ -62,7 +62,9 @@
     "passwordUpdated": "Lozinka je promenjena. Preusmeravanje…",
     "passwordUpdateFailed": "Nova lozinka nije sačuvana. Pokušaj sa drugom.",
     "invitedBy": "<b>{name}</b> te poziva u Quintessence",
-    "inviteForEmail": "Ova pozivnica je za: {email}"
+    "inviteForEmail": "Ova pozivnica je za: {email}",
+    "firstName": "Ime",
+    "lastName": "Prezime"
   },
   "dashboard": {
     "welcome": "Zdravo, {name}!",
@@ -387,9 +389,19 @@
     "passwordSave": "Sačuvaj lozinku",
     "passwordChanged": "Lozinka je promenjena.",
     "dangerZone": "Brisanje naloga",
-    "displayName": "Kako da ti se obraćamo?",
-    "displayNameHint": "Ovako te aplikacija pozdravlja na kontrolnoj tabli. Ako ostane prazno: @{username}",
-    "displayNamePlaceholder": "npr. Petar"
+    "nameTitle": "Ime",
+    "nameHint": "Promenu imena odobrava administrator. Posle odobrenja ime se ne može ponovo menjati 90 dana.",
+    "firstName": "Ime",
+    "lastName": "Prezime",
+    "nameRequest": "Zatraži promenu",
+    "namePending": "Čeka odobrenje: {name}",
+    "nameCancel": "Povuci zahtev",
+    "nameCooldown": "Ime možeš ponovo da promeniš posle {date}.",
+    "nameRequested": "Poslato — administrator će uskoro odlučiti.",
+    "nameErrInvalid": "Ime i prezime moraju imati 2–50 znakova, bez skraćenica, samo slova, razmake, crtice i apostrofe.",
+    "nameErrUnchanged": "Ovo je tvoje trenutno ime.",
+    "nameErrCooldown": "Tvoje ime je već promenjeno u poslednjih 90 dana.",
+    "nameErrGeneric": "Zahtev nije poslat. Pokušaj ponovo."
   },
   "brand": {
     "name": "Quintessence",
@@ -516,7 +528,13 @@
     "inviteExpiredBody": "Tvoja pozivnica za {email} je istekla, pa je možeš ponovo iskoristiti.",
     "inviteRevokedBody": "Administrator je opozvao tvoju pozivnicu za {email}, pa je možeš ponovo iskoristiti.",
     "moduleGrantedTitle": "Kreativni engleski ti je sada otvoren",
-    "moduleGrantedBody": "Nalazi se u meniju. Srećno učenje!"
+    "moduleGrantedBody": "Nalazi se u meniju. Srećno učenje!",
+    "nameRequestTitle": "Zahtev za promenu imena: @{username}",
+    "nameRequestBody": "Novo ime: {name}",
+    "nameApprovedTitle": "Promena imena je odobrena",
+    "nameApprovedBody": "Tvoje novo ime: {name}",
+    "nameRejectedTitle": "Promena imena nije odobrena",
+    "nameRejectedBody": "Tvoje ime ostaje isto. Ako imaš pitanja, obrati se administratoru."
   },
   "invites": {
     "title": "Pozivnice",

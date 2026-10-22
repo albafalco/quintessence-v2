@@ -26,7 +26,6 @@
     "logout": "Deconectare",
     "email": "Adresă de e-mail",
     "password": "Parolă",
-    "name": "Nume complet",
     "username": "Nume de utilizator",
     "inviteCode": "Cod de invitație",
     "noAccount": "Nu ai cont?",
@@ -49,7 +48,8 @@
       "invalidCredentials": "Adresa de e-mail sau parola este greșită.",
       "accountSuspended": "Acest cont este suspendat. Contactează administratorul.",
       "tooManyAttempts": "Prea multe încercări. Așteaptă câteva minute și încearcă din nou.",
-      "loginFailed": "Autentificarea a eșuat. Încearcă din nou."
+      "loginFailed": "Autentificarea a eșuat. Încearcă din nou.",
+      "invalidName": "Prenumele și numele de familie trebuie să aibă 2–50 de caractere, fără abrevieri, doar litere, spații, cratime și apostrofuri."
     },
     "accountDeleted": "Contul tău și toate datele tale au fost șterse.",
     "newPasswordTitle": "Setează o parolă nouă",
@@ -62,7 +62,9 @@
     "passwordUpdated": "Parola ta a fost schimbată. Redirecționare…",
     "passwordUpdateFailed": "Parola nouă nu a putut fi salvată. Încearcă alta.",
     "invitedBy": "<b>{name}</b> te-a invitat în Quintessence",
-    "inviteForEmail": "Această invitație este pentru: {email}"
+    "inviteForEmail": "Această invitație este pentru: {email}",
+    "firstName": "Prenume",
+    "lastName": "Nume de familie"
   },
   "dashboard": {
     "welcome": "Salut, {name}!",
@@ -387,9 +389,19 @@
     "passwordSave": "Salvează parola",
     "passwordChanged": "Parola a fost schimbată.",
     "dangerZone": "Ștergerea contului",
-    "displayName": "Cum să-ți spunem?",
-    "displayNameHint": "Așa te salută aplicația pe panou. Dacă rămâne gol: @{username}",
-    "displayNamePlaceholder": "de ex. Andrei"
+    "nameTitle": "Nume",
+    "nameHint": "Schimbarea numelui este aprobată de administrator. După aprobare, numele nu mai poate fi schimbat timp de 90 de zile.",
+    "firstName": "Prenume",
+    "lastName": "Nume de familie",
+    "nameRequest": "Cere modificarea",
+    "namePending": "Așteaptă aprobarea: {name}",
+    "nameCancel": "Retrage cererea",
+    "nameCooldown": "Îți poți schimba din nou numele după {date}.",
+    "nameRequested": "Trimis — administratorul va decide în curând.",
+    "nameErrInvalid": "Prenumele și numele de familie trebuie să aibă 2–50 de caractere, fără abrevieri, doar litere, spații, cratime și apostrofuri.",
+    "nameErrUnchanged": "Acesta este numele tău actual.",
+    "nameErrCooldown": "Numele tău a fost deja schimbat în ultimele 90 de zile.",
+    "nameErrGeneric": "Cererea nu a putut fi trimisă. Încearcă din nou."
   },
   "brand": {
     "name": "Quintessence",
@@ -516,7 +528,13 @@
     "inviteExpiredBody": "Invitația ta pentru {email} a expirat, așa că o poți folosi din nou.",
     "inviteRevokedBody": "Administratorul a revocat invitația ta pentru {email}, așa că o poți folosi din nou.",
     "moduleGrantedTitle": "Engleza Creativă s-a deschis pentru tine",
-    "moduleGrantedBody": "O găsești în meniu. Spor la învățat!"
+    "moduleGrantedBody": "O găsești în meniu. Spor la învățat!",
+    "nameRequestTitle": "Cerere de schimbare a numelui: @{username}",
+    "nameRequestBody": "Nume nou: {name}",
+    "nameApprovedTitle": "Schimbarea numelui a fost aprobată",
+    "nameApprovedBody": "Noul tău nume: {name}",
+    "nameRejectedTitle": "Schimbarea numelui nu a fost aprobată",
+    "nameRejectedBody": "Numele tău rămâne neschimbat. Dacă ai întrebări, contactează administratorul."
   },
   "invites": {
     "title": "Invitații",

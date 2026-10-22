@@ -13,6 +13,7 @@ const USER_TABLES = [
   'user_badges',
   'user_notifications',
   'announcement_reads',
+  'name_change_requests',
 ] as const;
 
 /** Collects all of the user's data into one JSON-serialisable object. */

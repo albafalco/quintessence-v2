@@ -26,7 +26,6 @@
     "logout": "Abmelden",
     "email": "E-Mail-Adresse",
     "password": "Passwort",
-    "name": "Vollständiger Name",
     "username": "Benutzername",
     "inviteCode": "Einladungscode",
     "noAccount": "Noch kein Konto?",
@@ -49,7 +48,8 @@
       "invalidCredentials": "E-Mail-Adresse oder Passwort ist falsch.",
       "accountSuspended": "Dieses Konto ist gesperrt. Wende dich an den Administrator.",
       "tooManyAttempts": "Zu viele Versuche. Warte ein paar Minuten und versuche es erneut.",
-      "loginFailed": "Die Anmeldung ist fehlgeschlagen. Bitte versuche es erneut."
+      "loginFailed": "Die Anmeldung ist fehlgeschlagen. Bitte versuche es erneut.",
+      "invalidName": "Vor- und Nachname müssen 2–50 Zeichen lang sein, ohne Abkürzungen, nur mit Buchstaben, Leerzeichen, Bindestrichen und Apostrophen."
     },
     "accountDeleted": "Dein Konto und alle deine Daten wurden gelöscht.",
     "newPasswordTitle": "Neues Passwort festlegen",
@@ -62,7 +62,9 @@
     "passwordUpdated": "Dein Passwort wurde geändert. Du wirst weitergeleitet…",
     "passwordUpdateFailed": "Das neue Passwort konnte nicht gespeichert werden. Versuche ein anderes.",
     "invitedBy": "<b>{name}</b> hat dich zu Quintessence eingeladen",
-    "inviteForEmail": "Die Einladung gilt für: {email}"
+    "inviteForEmail": "Die Einladung gilt für: {email}",
+    "firstName": "Vorname",
+    "lastName": "Nachname"
   },
   "dashboard": {
     "welcome": "Hallo, {name}!",
@@ -511,9 +513,19 @@
     "passwordSave": "Passwort speichern",
     "passwordChanged": "Passwort geändert.",
     "dangerZone": "Konto löschen",
-    "displayName": "Anrede",
-    "displayNameHint": "So begrüßt dich die App auf dem Dashboard. Wenn leer: @{username}",
-    "displayNamePlaceholder": "z. B. Peter"
+    "nameTitle": "Name",
+    "nameHint": "Namensänderungen werden vom Administrator genehmigt. Danach ist 90 Tage lang keine weitere Änderung möglich.",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "nameRequest": "Änderung beantragen",
+    "namePending": "Wartet auf Genehmigung: {name}",
+    "nameCancel": "Antrag zurückziehen",
+    "nameCooldown": "Du kannst deinen Namen nach dem {date} wieder ändern.",
+    "nameRequested": "Gesendet — der Administrator entscheidet bald.",
+    "nameErrInvalid": "Vor- und Nachname müssen 2–50 Zeichen lang sein, ohne Abkürzungen, nur mit Buchstaben, Leerzeichen, Bindestrichen und Apostrophen.",
+    "nameErrUnchanged": "Das ist dein aktueller Name.",
+    "nameErrCooldown": "Dein Name wurde in den letzten 90 Tagen bereits geändert.",
+    "nameErrGeneric": "Der Antrag konnte nicht gesendet werden. Bitte versuche es erneut."
   },
   "brand": {
     "name": "Quintessence",
@@ -640,7 +652,13 @@
     "inviteExpiredBody": "Deine Einladung an {email} ist abgelaufen, du kannst sie erneut verwenden.",
     "inviteRevokedBody": "Der Administrator hat deine Einladung an {email} widerrufen, du kannst sie erneut verwenden.",
     "moduleGrantedTitle": "Kreatív Angol ist jetzt für dich freigeschaltet",
-    "moduleGrantedBody": "Du findest es im Menü. Viel Freude beim Lernen!"
+    "moduleGrantedBody": "Du findest es im Menü. Viel Freude beim Lernen!",
+    "nameRequestTitle": "Antrag auf Namensänderung: @{username}",
+    "nameRequestBody": "Neuer Name: {name}",
+    "nameApprovedTitle": "Deine Namensänderung wurde genehmigt",
+    "nameApprovedBody": "Dein neuer Name: {name}",
+    "nameRejectedTitle": "Deine Namensänderung wurde nicht genehmigt",
+    "nameRejectedBody": "Dein Name bleibt unverändert. Bei Fragen wende dich an den Administrator."
   },
   "invites": {
     "title": "Einladungen",

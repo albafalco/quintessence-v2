@@ -26,7 +26,6 @@
     "logout": "Sign out",
     "email": "Email address",
     "password": "Password",
-    "name": "Full name",
     "username": "Username",
     "inviteCode": "Invite code",
     "noAccount": "Don't have an account?",
@@ -49,7 +48,8 @@
       "invalidCredentials": "Incorrect email address or password.",
       "accountSuspended": "This account is suspended. Contact the administrator.",
       "tooManyAttempts": "Too many attempts. Wait a few minutes and try again.",
-      "loginFailed": "Sign-in failed. Please try again."
+      "loginFailed": "Sign-in failed. Please try again.",
+      "invalidName": "First and last name must be 2–50 characters, without abbreviations, using only letters, spaces, hyphens and apostrophes."
     },
     "accountDeleted": "Your account and all your data have been deleted.",
     "newPasswordTitle": "Set a new password",
@@ -62,7 +62,9 @@
     "passwordUpdated": "Your password has been changed. Redirecting…",
     "passwordUpdateFailed": "Could not save the new password. Try a different one.",
     "invitedBy": "<b>{name}</b> invited you to Quintessence",
-    "inviteForEmail": "This invite is for: {email}"
+    "inviteForEmail": "This invite is for: {email}",
+    "firstName": "First name",
+    "lastName": "Last name"
   },
   "dashboard": {
     "welcome": "Hi, {name}!",
@@ -511,9 +513,19 @@
     "passwordSave": "Save password",
     "passwordChanged": "Password changed.",
     "dangerZone": "Delete account",
-    "displayName": "How should we call you?",
-    "displayNameHint": "This is how the app greets you on the dashboard. If left empty: @{username}",
-    "displayNamePlaceholder": "e.g. Peter"
+    "nameTitle": "Name",
+    "nameHint": "Name changes are approved by the administrator. After approval, the name cannot be changed again for 90 days.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "nameRequest": "Request change",
+    "namePending": "Awaiting approval: {name}",
+    "nameCancel": "Withdraw request",
+    "nameCooldown": "You can change your name again after {date}.",
+    "nameRequested": "Sent — the administrator will decide soon.",
+    "nameErrInvalid": "First and last name must be 2–50 characters, without abbreviations, using only letters, spaces, hyphens and apostrophes.",
+    "nameErrUnchanged": "This is your current name.",
+    "nameErrCooldown": "Your name was already changed within the last 90 days.",
+    "nameErrGeneric": "Could not send the request. Please try again."
   },
   "brand": {
     "name": "Quintessence",
@@ -640,7 +652,13 @@
     "inviteExpiredBody": "Your invite to {email} expired, so you can use it again.",
     "inviteRevokedBody": "The administrator revoked your invite to {email}, so you can use it again.",
     "moduleGrantedTitle": "Kreatív Angol is now open for you",
-    "moduleGrantedBody": "You can find it in the menu. Enjoy learning!"
+    "moduleGrantedBody": "You can find it in the menu. Enjoy learning!",
+    "nameRequestTitle": "Name change request: @{username}",
+    "nameRequestBody": "New name: {name}",
+    "nameApprovedTitle": "Your name change was approved",
+    "nameApprovedBody": "Your new name: {name}",
+    "nameRejectedTitle": "Your name change was not approved",
+    "nameRejectedBody": "Your name stays the same. If you have questions, contact the administrator."
   },
   "invites": {
     "title": "Invitations",

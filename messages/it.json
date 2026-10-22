@@ -26,7 +26,6 @@
     "logout": "Esci",
     "email": "Indirizzo email",
     "password": "Password",
-    "name": "Nome completo",
     "username": "Nome utente",
     "inviteCode": "Codice invito",
     "noAccount": "Non hai un account?",
@@ -49,7 +48,8 @@
       "invalidCredentials": "Indirizzo e-mail o password errati.",
       "accountSuspended": "Questo account è sospeso. Contatta l'amministratore.",
       "tooManyAttempts": "Troppi tentativi. Attendi qualche minuto e riprova.",
-      "loginFailed": "Accesso non riuscito. Riprova."
+      "loginFailed": "Accesso non riuscito. Riprova.",
+      "invalidName": "Nome e cognome devono avere 2–50 caratteri, senza abbreviazioni, solo lettere, spazi, trattini e apostrofi."
     },
     "accountDeleted": "Il tuo account e tutti i tuoi dati sono stati eliminati.",
     "newPasswordTitle": "Imposta una nuova password",
@@ -62,7 +62,9 @@
     "passwordUpdated": "La tua password è stata cambiata. Reindirizzamento…",
     "passwordUpdateFailed": "Impossibile salvare la nuova password. Provane un'altra.",
     "invitedBy": "<b>{name}</b> ti ha invitato su Quintessence",
-    "inviteForEmail": "L’invito è per: {email}"
+    "inviteForEmail": "L’invito è per: {email}",
+    "firstName": "Nome",
+    "lastName": "Cognome"
   },
   "dashboard": {
     "welcome": "Ciao, {name}!",
@@ -511,9 +513,19 @@
     "passwordSave": "Salva password",
     "passwordChanged": "Password modificata.",
     "dangerZone": "Elimina account",
-    "displayName": "Come ti chiamiamo?",
-    "displayNameHint": "Così l'app ti saluta nella dashboard. Se vuoto: @{username}",
-    "displayNamePlaceholder": "es. Pietro"
+    "nameTitle": "Nome",
+    "nameHint": "Le modifiche del nome sono approvate dall'amministratore. Dopo l'approvazione non è possibile modificarlo di nuovo per 90 giorni.",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "nameRequest": "Richiedi modifica",
+    "namePending": "In attesa di approvazione: {name}",
+    "nameCancel": "Ritira la richiesta",
+    "nameCooldown": "Potrai modificare di nuovo il nome dopo il {date}.",
+    "nameRequested": "Inviata — l'amministratore deciderà a breve.",
+    "nameErrInvalid": "Nome e cognome devono avere 2–50 caratteri, senza abbreviazioni, solo lettere, spazi, trattini e apostrofi.",
+    "nameErrUnchanged": "Questo è il tuo nome attuale.",
+    "nameErrCooldown": "Il tuo nome è già stato modificato negli ultimi 90 giorni.",
+    "nameErrGeneric": "Impossibile inviare la richiesta. Riprova."
   },
   "brand": {
     "name": "Quintessence",
@@ -640,7 +652,13 @@
     "inviteExpiredBody": "Il tuo invito per {email} è scaduto, quindi puoi usarlo di nuovo.",
     "inviteRevokedBody": "L’amministratore ha revocato il tuo invito per {email}, quindi puoi usarlo di nuovo.",
     "moduleGrantedTitle": "Kreatív Angol è ora disponibile per te",
-    "moduleGrantedBody": "Lo trovi nel menu. Buono studio!"
+    "moduleGrantedBody": "Lo trovi nel menu. Buono studio!",
+    "nameRequestTitle": "Richiesta di modifica del nome: @{username}",
+    "nameRequestBody": "Nuovo nome: {name}",
+    "nameApprovedTitle": "La modifica del nome è stata approvata",
+    "nameApprovedBody": "Il tuo nuovo nome: {name}",
+    "nameRejectedTitle": "La modifica del nome non è stata approvata",
+    "nameRejectedBody": "Il tuo nome resta invariato. Per domande, contatta l'amministratore."
   },
   "invites": {
     "title": "Inviti",

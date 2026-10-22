@@ -26,7 +26,6 @@
     "logout": "Odhlásiť sa",
     "email": "E-mailová adresa",
     "password": "Heslo",
-    "name": "Celé meno",
     "username": "Používateľské meno",
     "inviteCode": "Pozývací kód",
     "noAccount": "Nemáš účet?",
@@ -49,7 +48,8 @@
       "invalidCredentials": "Nesprávna e-mailová adresa alebo heslo.",
       "accountSuspended": "Tento účet je pozastavený. Obráť sa na administrátora.",
       "tooManyAttempts": "Príliš veľa pokusov. Počkaj pár minút a skús to znova.",
-      "loginFailed": "Prihlásenie zlyhalo. Skús to znova."
+      "loginFailed": "Prihlásenie zlyhalo. Skús to znova.",
+      "invalidName": "Meno a priezvisko musia mať 2–50 znakov, bez skratiek, len s písmenami, medzerami, spojovníkmi a apostrofmi."
     },
     "accountDeleted": "Tvoj účet a všetky tvoje údaje boli vymazané.",
     "newPasswordTitle": "Nastav si nové heslo",
@@ -62,7 +62,9 @@
     "passwordUpdated": "Heslo bolo zmenené. Presmerovanie…",
     "passwordUpdateFailed": "Nové heslo sa nepodarilo uložiť. Skús iné.",
     "invitedBy": "<b>{name}</b> ťa pozýva do Quintessence",
-    "inviteForEmail": "Táto pozvánka je pre: {email}"
+    "inviteForEmail": "Táto pozvánka je pre: {email}",
+    "firstName": "Krstné meno",
+    "lastName": "Priezvisko"
   },
   "dashboard": {
     "welcome": "Ahoj, {name}!",
@@ -387,9 +389,19 @@
     "passwordSave": "Uložiť heslo",
     "passwordChanged": "Heslo bolo zmenené.",
     "dangerZone": "Vymazanie účtu",
-    "displayName": "Ako ťa máme oslovovať?",
-    "displayNameHint": "Takto ťa aplikácia pozdraví na prehľade. Ak zostane prázdne: @{username}",
-    "displayNamePlaceholder": "napr. Peter"
+    "nameTitle": "Meno",
+    "nameHint": "Zmenu mena schvaľuje administrátor. Po schválení ho nemožno 90 dní znova zmeniť.",
+    "firstName": "Krstné meno",
+    "lastName": "Priezvisko",
+    "nameRequest": "Požiadať o zmenu",
+    "namePending": "Čaká na schválenie: {name}",
+    "nameCancel": "Stiahnuť žiadosť",
+    "nameCooldown": "Meno môžeš znova zmeniť po {date}.",
+    "nameRequested": "Odoslané — administrátor čoskoro rozhodne.",
+    "nameErrInvalid": "Meno a priezvisko musia mať 2–50 znakov, bez skratiek, len s písmenami, medzerami, spojovníkmi a apostrofmi.",
+    "nameErrUnchanged": "Toto je tvoje súčasné meno.",
+    "nameErrCooldown": "Tvoje meno už bolo za posledných 90 dní zmenené.",
+    "nameErrGeneric": "Žiadosť sa nepodarilo odoslať. Skús to znova."
   },
   "brand": {
     "name": "Quintessence",
@@ -516,7 +528,13 @@
     "inviteExpiredBody": "Tvoja pozvánka pre {email} vypršala, takže ju môžeš použiť znova.",
     "inviteRevokedBody": "Administrátor zrušil tvoju pozvánku pre {email}, takže ju môžeš použiť znova.",
     "moduleGrantedTitle": "Kreatívna angličtina je pre teba otvorená",
-    "moduleGrantedBody": "Nájdeš ju v menu. Príjemné učenie!"
+    "moduleGrantedBody": "Nájdeš ju v menu. Príjemné učenie!",
+    "nameRequestTitle": "Žiadosť o zmenu mena: @{username}",
+    "nameRequestBody": "Nové meno: {name}",
+    "nameApprovedTitle": "Tvoja zmena mena bola schválená",
+    "nameApprovedBody": "Tvoje nové meno: {name}",
+    "nameRejectedTitle": "Tvoja zmena mena nebola schválená",
+    "nameRejectedBody": "Tvoje meno zostáva bez zmeny. Ak máš otázky, obráť sa na administrátora."
   },
   "invites": {
     "title": "Pozvánky",

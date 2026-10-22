@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Bell, BellOff, Check, Copy, GraduationCap, KeyRound, MoreHorizontal, PauseCircle, PlayCircle, Search, Send, Ticket, Trash2 } from 'lucide-react';
-import { createRecoveryLink, deleteUserAccount, grantInvites, sendUserPush, setAngolAccess, setSuspended } from '@/app/[locale]/admin/felhasznalok/actions';
+import { Bell, BellOff, Check, Copy, GraduationCap, KeyRound, MoreHorizontal, PauseCircle, PenLine, PlayCircle, Search, Send, Ticket, Trash2, UserPen } from 'lucide-react';
+import { createRecoveryLink, decideNameChange, deleteUserAccount, grantInvites, sendUserPush, setAngolAccess, setSuspended, setUserName } from '@/app/[locale]/admin/felhasznalok/actions';
 import { PrimaryButton } from '@/components/admin/ui';
 import { Collapse } from '@/components/ui/collapse';
 import { Switch } from '@/components/ui/switch';
@@ -11,11 +11,15 @@ import { useConfirm } from '@/components/ui/confirm-dialog';
 import type { AdminUser } from '@/lib/admin-users';
 import { formatAdminDate } from '@/lib/invite-codes';
 import { cn } from '@/lib/utils';
+import { NAME_PART_MAX, formatFullName } from '@/lib/person-name';
 
 type Sort = 'activity' | 'created' | 'name';
 /** Kreatív Angol (locked module) filter */
-type AngolFilter = 'all' | 'access' | 'progress';
-type Panel = 'invites' | 'push' | 'recovery';
+type AngolFilter = 'all' | 'access' | 'progress' | 'nameRequest';
+type Panel = 'invites' | 'push' | 'recovery' | 'name';
+
+/** Full name, Hungarian order (the admin area is Hungarian-only) */
+const fullName = (u: AdminUser) => (u.first_name && u.last_name ? formatFullName(u.first_name, u.last_name, 'hu') : u.name);
 
 const fieldClass =
   'h-10 w-full rounded-xl border border-border/60 bg-background/60 px-3 text-sm text-cream placeholder:text-muted-foreground/50 focus:border-accent/60 focus:outline-none';
@@ -34,14 +38,16 @@ export function UserManager({ users, currentUserId }: { users: AdminUser[]; curr
 
   const q = query.trim().toLowerCase();
   const visible = users
-    .filter((u) => !q || [u.name, u.username, u.email].some((v) => v?.toLowerCase().includes(q)))
+    .filter((u) => !q || [fullName(u), u.username, u.email].some((v) => v?.toLowerCase().includes(q)))
     .filter((u) => {
       if (angolFilter === 'access') return u.is_admin || u.angol_access;
       if (angolFilter === 'progress') return !u.is_admin && !u.angol_access && u.angol_has_progress;
+      if (angolFilter === 'nameRequest') return Boolean(u.pending_first_name);
       return true;
     })
     .sort((a, b) => {
-      if (sort === 'name') return a.name.localeCompare(b.name, 'hu');
+      // Family name first, then given name
+      if (sort === 'name') return fullName(a).localeCompare(fullName(b), 'hu');
       if (sort === 'created') return b.created_at.localeCompare(a.created_at);
       return activityKey(b).localeCompare(activityKey(a));
     });
@@ -73,6 +79,7 @@ export function UserManager({ users, currentUserId }: { users: AdminUser[]; curr
           <option value="all">Mindenki</option>
           <option value="access">Kreatív Angol: van hozzáférése</option>
           <option value="progress">Angol haladás, hozzáférés nélkül</option>
+          <option value="nameRequest">Névváltoztatás vár ({users.filter((u) => u.pending_first_name).length})</option>
         </select>
       </div>
       <p className="px-1 text-xs text-muted-foreground">
@@ -128,6 +135,14 @@ function UserCard({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
   };
 
   const [angolBusy, setAngolBusy] = useState(false);
+  const [nameBusy, setNameBusy] = useState(false);
+  const decideName = async (approve: boolean) => {
+    setNotice(null);
+    setNameBusy(true);
+    const result = await decideNameChange(user.id, approve);
+    setNameBusy(false);
+    report(result, approve ? 'Névváltoztatás jóváhagyva (értesítést kapott).' : 'Névváltoztatás elutasítva (értesítést kapott).');
+  };
   const toggleAngol = async (enabled: boolean) => {
     setNotice(null);
     setAngolBusy(true);
@@ -175,6 +190,7 @@ function UserCard({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
     { icon: Ticket, label: 'Meghívók', onClick: () => openPanel('invites') },
     { icon: Send, label: 'Értesítés küldése', onClick: () => openPanel('push') },
     { icon: KeyRound, label: 'Jelszó-visszaállító link', onClick: () => openPanel('recovery') },
+    { icon: UserPen, label: 'Név javítása', onClick: () => openPanel('name') },
     { icon: user.suspended ? PlayCircle : PauseCircle, label: user.suspended ? 'Felfüggesztés feloldása' : 'Felfüggesztés', onClick: () => void toggleSuspend(), hidden: isSelf },
     { icon: Trash2, label: 'Fiók törlése', onClick: () => void remove(), danger: true, hidden: isSelf },
   ];
@@ -184,7 +200,7 @@ function UserCard({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
       <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span className="truncate font-semibold text-cream">{user.name}</span>
+            <span className="truncate font-semibold text-cream">{fullName(user)}</span>
             <span className="text-sm text-muted-foreground">@{user.username}</span>
             {user.is_admin && <span className="rounded-md bg-accent/15 px-1.5 py-0.5 text-[10px] font-semibold text-accent">Admin</span>}
             {user.suspended && <span className="rounded-md bg-red-500/15 px-1.5 py-0.5 text-[10px] font-semibold text-red-300">Felfüggesztve</span>}
@@ -251,6 +267,37 @@ function UserCard({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
         </Fact>
       </div>
 
+      {user.pending_first_name && user.pending_last_name && (
+        <div className="mt-3 flex flex-col gap-2 rounded-xl border border-accent/30 bg-accent/5 px-3 py-2 sm:flex-row sm:items-center">
+          <PenLine className="hidden h-4 w-4 shrink-0 text-accent sm:block" />
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-medium text-cream">Névváltoztatási kérés</p>
+            <p className="truncate text-[11px] text-muted-foreground">
+              {fullName(user)} → <span className="text-accent">{formatFullName(user.pending_first_name, user.pending_last_name, 'hu')}</span>
+              {user.pending_requested_at && <> · {formatAdminDate(user.pending_requested_at, false)}</>}
+            </p>
+          </div>
+          <div className="flex shrink-0 gap-2">
+            <button
+              type="button"
+              disabled={nameBusy}
+              onClick={() => void decideName(false)}
+              className="rounded-lg border border-border/60 px-2.5 py-1 text-xs text-muted-foreground transition hover:text-red-300 disabled:opacity-50"
+            >
+              Elutasítás
+            </button>
+            <button
+              type="button"
+              disabled={nameBusy}
+              onClick={() => void decideName(true)}
+              className="rounded-lg bg-accent/20 px-2.5 py-1 text-xs font-semibold text-accent transition hover:bg-accent/30 disabled:opacity-50"
+            >
+              Jóváhagyás
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="mt-3 flex items-center gap-3 rounded-xl border border-border/40 bg-background/30 px-3 py-2">
         <GraduationCap className="h-4 w-4 shrink-0 text-accent" />
         <div className="min-w-0 flex-1">
@@ -284,6 +331,7 @@ function UserCard({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
           {panel === 'invites' && <InvitesPanel user={user} onResult={report} />}
           {panel === 'push' && <PushPanel user={user} onResult={report} />}
           {panel === 'recovery' && <RecoveryPanel user={user} />}
+          {panel === 'name' && <NamePanel user={user} onResult={report} onDone={() => setPanel(null)} />}
         </div>
       </Collapse>
       {confirmDialog}
@@ -407,6 +455,35 @@ function PushPanel({ user, onResult }: { user: AdminUser; onResult: ResultHandle
           {busy ? 'Küldés…' : 'Értesítés küldése'}
         </PrimaryButton>
       </div>
+    </div>
+  );
+}
+
+function NamePanel({ user, onResult, onDone }: { user: AdminUser; onResult: ResultHandler; onDone: () => void }) {
+  const [last, setLast] = useState(user.last_name ?? '');
+  const [first, setFirst] = useState(user.first_name ?? '');
+  const [busy, setBusy] = useState(false);
+
+  const save = async () => {
+    setBusy(true);
+    const result = await setUserName(user.id, first, last);
+    setBusy(false);
+    onResult(result, 'Név javítva.');
+    if (result.ok) onDone();
+  };
+
+  return (
+    <div className="space-y-3">
+      <p className="text-xs leading-relaxed text-muted-foreground">
+        Közvetlen javítás (pl. rosszul szétbontott név). Nem kell hozzá jóváhagyás, és nem indítja a 90 napos várakozást.
+      </p>
+      <div className="grid gap-2 sm:grid-cols-2">
+        <input value={last} onChange={(e) => setLast(e.target.value)} maxLength={NAME_PART_MAX} placeholder="Vezetéknév" aria-label="Vezetéknév" className={fieldClass} />
+        <input value={first} onChange={(e) => setFirst(e.target.value)} maxLength={NAME_PART_MAX} placeholder="Keresztnév" aria-label="Keresztnév" className={fieldClass} />
+      </div>
+      <PrimaryButton onClick={() => void save()} disabled={busy || !first.trim() || !last.trim()}>
+        {busy ? 'Mentés…' : 'Név mentése'}
+      </PrimaryButton>
     </div>
   );
 }

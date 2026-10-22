@@ -1,6 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { BADGES } from '@/lib/badges';
 import { locales, toIntlLocale } from '@/i18n';
+import { formatFullName } from '@/lib/person-name';
 
 /** One row of notifications_feed() (migration 013). */
 export interface FeedRow {
@@ -126,6 +127,23 @@ export function resolveNotification(
     case 'module_granted':
       if (data.module !== 'angol' || !angol) return null;
       return personal('graduation', t.notifications('moduleGrantedTitle'), t.notifications('moduleGrantedBody'), `/${locale}/modules/angol`);
+    case 'name_change_requested':
+      // Sent to admins; the admin area is Hungarian-only
+      return personal(
+        'pen',
+        t.notifications('nameRequestTitle', { username: String(data.username ?? '—') }),
+        t.notifications('nameRequestBody', { name: formatFullName(String(data.first_name ?? ''), String(data.last_name ?? ''), locale) }),
+        '/hu/admin/felhasznalok'
+      );
+    case 'name_change_approved':
+      return personal(
+        'check',
+        t.notifications('nameApprovedTitle'),
+        t.notifications('nameApprovedBody', { name: formatFullName(String(data.first_name ?? ''), String(data.last_name ?? ''), locale) }),
+        `/${locale}/profile`
+      );
+    case 'name_change_rejected':
+      return personal('cross', t.notifications('nameRejectedTitle'), t.notifications('nameRejectedBody'), `/${locale}/profile`);
     case 'weekly_report':
       return personal('chart', t.notifications('weeklyTitle'), t.notifications('weeklyBody'), `/${locale}/modules/magia/jelentes`);
     default:

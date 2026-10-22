@@ -7,6 +7,7 @@ import { createServiceClient } from '@/lib/supabase/server';
 import { sendPushNotification } from '@/lib/push';
 import { getMessage, resolveLocale } from '@/lib/i18n-messages';
 import type { ActionResult } from '@/app/[locale]/admin/actions';
+import { isValidNamePart, normalizeNamePart } from '@/lib/person-name';
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const MAX_GRANT = 20;
@@ -230,5 +231,49 @@ async function pushModuleGranted(target: { id: string; preferred_language: strin
     if (stale.length) await service.from('push_subscriptions').delete().eq('user_id', target.id).in('endpoint', stale);
   } catch (err) {
     console.error('[admin/users] module push failed', err);
+  }
+}
+
+/** Approves or rejects a pending name change; the user is notified (DB function). */
+export async function decideNameChange(userId: string, approve: boolean): Promise<ActionResult> {
+  try {
+    const { supabase, user } = await requireAdmin();
+    const target = await loadTarget(supabase, userId);
+    if (!target) return { ok: false, error: 'Ismeretlen felhasználó.' };
+    const { error } = await supabase.rpc('admin_decide_name_change', { p_user_id: userId, p_approve: approve });
+    if (error) {
+      if (error.code === 'P0002') return { ok: false, error: 'Ennél a felhasználónál nincs függő névváltoztatás.' };
+      throw new Error(error.message);
+    }
+    await logAdminAction(supabase, user.id, approve ? 'name.approve' : 'name.reject', `@${target.username}`);
+    refresh();
+    return { ok: true };
+  } catch (err) {
+    return failure(err);
+  }
+}
+
+/** Direct correction by the admin (e.g. a wrong split); does not start the 90-day wait. */
+export async function setUserName(userId: string, firstName: string, lastName: string): Promise<ActionResult> {
+  try {
+    const { supabase, user } = await requireAdmin();
+    const target = await loadTarget(supabase, userId);
+    if (!target) return { ok: false, error: 'Ismeretlen felhasználó.' };
+    if (!isValidNamePart(firstName) || !isValidNamePart(lastName)) {
+      return { ok: false, error: 'A vezeték- és keresztnév 2–50 karakter lehet, rövidítés nélkül, csak betűkkel, szóközzel, kötőjellel és aposztróffal.' };
+    }
+    const { error } = await supabase.rpc('admin_set_name', {
+      p_user_id: userId,
+      p_first: normalizeNamePart(firstName),
+      p_last: normalizeNamePart(lastName),
+    });
+    if (error) throw new Error(error.message);
+    await logAdminAction(supabase, user.id, 'name.set', `@${target.username}`, {
+      name: `${normalizeNamePart(lastName)} ${normalizeNamePart(firstName)}`,
+    });
+    refresh();
+    return { ok: true };
+  } catch (err) {
+    return failure(err);
   }
 }

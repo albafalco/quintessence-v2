@@ -26,7 +26,6 @@
     "logout": "Sair",
     "email": "E-mail",
     "password": "Senha",
-    "name": "Nome completo",
     "username": "Nome de usuário",
     "inviteCode": "Código de convite",
     "noAccount": "Não tem uma conta?",
@@ -49,7 +48,8 @@
       "invalidCredentials": "E-mail ou senha incorretos.",
       "accountSuspended": "Esta conta está suspensa. Fale com o administrador.",
       "tooManyAttempts": "Tentativas demais. Aguarde alguns minutos e tente de novo.",
-      "loginFailed": "Não foi possível entrar. Tente novamente."
+      "loginFailed": "Não foi possível entrar. Tente novamente.",
+      "invalidName": "Nome e sobrenome devem ter 2–50 caracteres, sem abreviações, apenas com letras, espaços, hífens e apóstrofos."
     },
     "accountDeleted": "Sua conta e todos os seus dados foram excluídos.",
     "newPasswordTitle": "Definir nova senha",
@@ -62,7 +62,9 @@
     "passwordUpdated": "Sua senha foi alterada. Redirecionando…",
     "passwordUpdateFailed": "Não foi possível salvar a nova senha. Tente outra.",
     "invitedBy": "<b>{name}</b> convidou você para o Quintessence",
-    "inviteForEmail": "Este convite é para: {email}"
+    "inviteForEmail": "Este convite é para: {email}",
+    "firstName": "Nome",
+    "lastName": "Sobrenome"
   },
   "dashboard": {
     "welcome": "Oi, {name}!",
@@ -387,9 +389,19 @@
     "passwordSave": "Salvar senha",
     "passwordChanged": "Senha alterada.",
     "dangerZone": "Excluir conta",
-    "displayName": "Como devemos chamar você?",
-    "displayNameHint": "É assim que o app cumprimenta você no painel. Se ficar vazio: @{username}",
-    "displayNamePlaceholder": "ex.: Pedro"
+    "nameTitle": "Nome",
+    "nameHint": "As alterações de nome são aprovadas pelo administrador. Após a aprovação, o nome não pode ser alterado de novo por 90 dias.",
+    "firstName": "Nome",
+    "lastName": "Sobrenome",
+    "nameRequest": "Solicitar alteração",
+    "namePending": "Aguardando aprovação: {name}",
+    "nameCancel": "Retirar solicitação",
+    "nameCooldown": "Você poderá alterar seu nome de novo após {date}.",
+    "nameRequested": "Enviado — o administrador decidirá em breve.",
+    "nameErrInvalid": "Nome e sobrenome devem ter 2–50 caracteres, sem abreviações, apenas com letras, espaços, hífens e apóstrofos.",
+    "nameErrUnchanged": "Este é o seu nome atual.",
+    "nameErrCooldown": "Seu nome já foi alterado nos últimos 90 dias.",
+    "nameErrGeneric": "Não foi possível enviar a solicitação. Tente novamente."
   },
   "brand": {
     "name": "Quintessence",
@@ -516,7 +528,13 @@
     "inviteExpiredBody": "Seu convite para {email} expirou, então você pode usá-lo de novo.",
     "inviteRevokedBody": "O administrador revogou seu convite para {email}, então você pode usá-lo de novo.",
     "moduleGrantedTitle": "O Inglês Criativo foi liberado para você",
-    "moduleGrantedBody": "Ele está no menu. Bons estudos!"
+    "moduleGrantedBody": "Ele está no menu. Bons estudos!",
+    "nameRequestTitle": "Solicitação de alteração de nome: @{username}",
+    "nameRequestBody": "Novo nome: {name}",
+    "nameApprovedTitle": "Sua alteração de nome foi aprovada",
+    "nameApprovedBody": "Seu novo nome: {name}",
+    "nameRejectedTitle": "Sua alteração de nome não foi aprovada",
+    "nameRejectedBody": "Seu nome continua o mesmo. Se tiver dúvidas, fale com o administrador."
   },
   "invites": {
     "title": "Convites",

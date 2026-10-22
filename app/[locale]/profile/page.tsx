@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { ProfileForm } from '@/components/profile/ProfileForm';
 import { hasModuleAccess } from '@/lib/module-access';
+import { formatFullName, nextNameChangeAt } from '@/lib/person-name';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -39,6 +40,11 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
 
   const { data: adminRow } = await supabase.from('admins').select('user_id').eq('user_id', user.id).maybeSingle();
   const angolAccess = await hasModuleAccess(supabase, 'angol');
+  const { data: pendingName } = await supabase
+    .from('name_change_requests')
+    .select('first_name, last_name')
+    .eq('user_id', user.id)
+    .maybeSingle();
 
   return (
     <div className="mx-auto max-w-2xl space-y-8">
@@ -49,11 +55,14 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
         <ProfileForm
           isAdmin={Boolean(adminRow)}
           angolAccess={angolAccess}
+          pendingName={pendingName ?? null}
+          nextNameChangeAt={nextNameChangeAt(profile.name_changed_at ?? null)}
           profile={{
             id: profile.id,
-            name: profile.name,
+            name: formatFullName(profile.first_name, profile.last_name, locale),
+            first_name: profile.first_name,
+            last_name: profile.last_name,
             username: profile.username,
-            display_name: profile.display_name ?? null,
             email: user.email ?? '',
             preferred_language: profile.preferred_language,
             push_enabled: profile.push_enabled ?? false,

@@ -8,6 +8,7 @@ import { NotificationBell } from '@/components/notifications/NotificationBell';
 import { UserMenu } from './UserMenu';
 import { MomentumChip } from './MomentumChip';
 import { createClient } from '@/lib/supabase/client';
+import { formatFullName } from '@/lib/person-name';
 
 export function Navbar() {
   const tBrand = useTranslations('brand');
@@ -22,12 +23,13 @@ export function Navbar() {
       if (!user) return;
       supabase
         .from('profiles')
-        .select('username, name')
+        .select('*')
         .eq('id', user.id)
         .single()
         .then(({ data }) => {
           if (data?.username) setUsername(data.username);
-          if (data?.name) setName(data.name);
+          if (data?.first_name && data?.last_name) setName(formatFullName(data.first_name, data.last_name, locale));
+          else if (data?.name) setName(data.name);
         });
       // Only lists the menu link; the admin area checks access (2FA) itself
       supabase
@@ -37,7 +39,7 @@ export function Navbar() {
         .maybeSingle()
         .then(({ data }) => setIsAdmin(Boolean(data)));
     });
-  }, []);
+  }, [locale]);
 
   return (
     // The safe-area padding (iPhone status bar) sits on top of the full-height

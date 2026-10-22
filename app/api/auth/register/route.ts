@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getSupabaseConfig } from '@/lib/supabase/server';
 import { resolveLocale } from '@/lib/i18n-messages';
+import { formatFullName, isValidNamePart, normalizeNamePart } from '@/lib/person-name';
 
 const ERROR_CODES = {
   SERVER_CONFIG: 'SERVER_CONFIG',
   MISSING_FIELDS: 'MISSING_FIELDS',
   INVALID_USERNAME: 'INVALID_USERNAME',
+  INVALID_NAME: 'INVALID_NAME',
   PASSWORD_TOO_SHORT: 'PASSWORD_TOO_SHORT',
   INVALID_INVITE: 'INVALID_INVITE',
   INVITE_EMAIL_MISMATCH: 'INVITE_EMAIL_MISMATCH',
@@ -36,11 +38,18 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, username, email, password, inviteCode, locale } = await request.json();
+    const { firstName, lastName, username, email, password, inviteCode, locale } = await request.json();
 
-    if (!name || !username || !email || !password || !inviteCode) {
+    if (!firstName || !lastName || !username || !email || !password || !inviteCode) {
       return NextResponse.json({ errorCode: ERROR_CODES.MISSING_FIELDS }, { status: 400 });
     }
+
+    if (!isValidNamePart(String(firstName)) || !isValidNamePart(String(lastName))) {
+      return NextResponse.json({ errorCode: ERROR_CODES.INVALID_NAME }, { status: 400 });
+    }
+    const first = normalizeNamePart(String(firstName));
+    const last = normalizeNamePart(String(lastName));
+    const preferredLanguage = resolveLocale(locale);
 
     if (!/^[a-z0-9_-]+$/.test(username)) {
       return NextResponse.json({ errorCode: ERROR_CODES.INVALID_USERNAME }, { status: 400 });
@@ -122,10 +131,13 @@ export async function POST(request: Request) {
 
     const { error: profileError } = await supabase.from('profiles').insert({
       id: userId,
-      name,
+      first_name: first,
+      last_name: last,
+      // Kept in sync by a DB trigger as well (migration 018)
+      name: formatFullName(first, last, preferredLanguage),
       username,
       // The UI language of the registration (notifications follow it)
-      preferred_language: resolveLocale(locale),
+      preferred_language: preferredLanguage,
     });
 
     if (profileError) {
