@@ -1,0 +1,196 @@
+/**
+ * Rules of the Fehér Mágia path (I. fokozat), as pure functions.
+ * Dates are Budapest calendar days as 'YYYY-MM-DD' strings.
+ *
+ * Sources: Kovács-Magyar András, pp. 189–193 (thought practice, self-knowledge,
+ * body training, breathing, eating, water) and the approved plan.
+ */
+import type { BodyItem, BreathState, DayPart, Outcome, ThoughtState } from './types';
+
+export const THOUGHT_MAX_MINUTES = 10;
+/** Successful 10-minute sessions in a row before the next stage is offered */
+export const THOUGHT_WINS_TO_ADVANCE = 3;
+/** Unsuccessful sessions in a row before stepping back a minute is offered */
+export const THOUGHT_FAILS_TO_OFFER_BACK = 3;
+
+export const BREATH_START = 7;
+/** "tíz percnél tovább nem érdemes felmenni" */
+export const BREATH_MAX_SEC = 600;
+
+/** Practice days (completed evenings) before an exercise opens: one new step a week */
+export const UNLOCK_BREATH_AFTER = 7;
+export const UNLOCK_MEAL_WATER_AFTER = 14;
+
+/** Closed self-knowledge cycles needed for the II. fokozat */
+export const CYCLES_FOR_NEXT_FOKOZAT = 2;
+
+// ── Thought practice ────────────────────────────────────────────────────────
+
+/** What the app offers after a session. */
+export type ThoughtOffer =
+  | 'up' // "Tovább N+1 percre, vagy maradsz?"
+  | 'back' // "Háromszor nem sikerült: vissza egy percet?"
+  | 'nextStage' // three successful 10-minute sessions: the next stage
+  | 'allDone' // the third stage is mastered too
+  | null;
+
+export interface ThoughtResult {
+  state: ThoughtState;
+  offer: ThoughtOffer;
+}
+
+/**
+ * Records the answer to "Sikerült?". The minutes never change here; the user
+ * decides on the offer (acceptUp / acceptBack / advanceStage).
+ * "Fáradt vagyok, befejezem" counts as 'reszben'.
+ */
+export function applyThoughtOutcome(s: ThoughtState, outcome: Outcome, today: string): ThoughtResult {
+  if (outcome === 'reszben') {
+    return { state: { ...s, thought_wins: 0, thought_fails: 0 }, offer: null };
+  }
+  if (outcome === 'nem') {
+    const fails = s.thought_fails + 1;
+    const offer = fails >= THOUGHT_FAILS_TO_OFFER_BACK && s.thought_minutes > 1 ? 'back' : null;
+    return { state: { ...s, thought_wins: 0, thought_fails: fails }, offer };
+  }
+  // igen
+  if (s.thought_minutes < THOUGHT_MAX_MINUTES) {
+    // "Minden nap növeljük meg a gyakorlatra szánt időt egy perccel" — at most once a day
+    const offer = s.thought_raised_on === today ? null : 'up';
+    return { state: { ...s, thought_wins: 0, thought_fails: 0 }, offer };
+  }
+  const wins = s.thought_wins + 1;
+  const done = wins >= THOUGHT_WINS_TO_ADVANCE;
+  return {
+    state: { ...s, thought_wins: wins, thought_fails: 0 },
+    offer: done ? (s.thought_stage >= 2 ? 'allDone' : 'nextStage') : null,
+  };
+}
+
+export function acceptUp(s: ThoughtState, today: string): ThoughtState {
+  return {
+    ...s,
+    thought_minutes: Math.min(THOUGHT_MAX_MINUTES, s.thought_minutes + 1),
+    thought_raised_on: today,
+    thought_wins: 0,
+  };
+}
+
+export function acceptBack(s: ThoughtState): ThoughtState {
+  return { ...s, thought_minutes: Math.max(1, s.thought_minutes - 1), thought_fails: 0 };
+}
+
+/** "Még gyakorlom" / "Maradok" after a 'back' offer: start counting failures again. */
+export function declineBack(s: ThoughtState): ThoughtState {
+  return { ...s, thought_fails: 0 };
+}
+
+/** The next stage starts again at 1 minute; after the third, stage 3 = all mastered. */
+export function advanceStage(s: ThoughtState): ThoughtState {
+  const stage = Math.min(3, s.thought_stage + 1) as ThoughtState['thought_stage'];
+  return {
+    ...s,
+    thought_stage: stage,
+    thought_minutes: stage === 3 ? THOUGHT_MAX_MINUTES : 1,
+    thought_wins: 0,
+    thought_fails: 0,
+    thought_raised_on: null,
+  };
+}
+
+// ── Conscious breathing ─────────────────────────────────────────────────────
+
+/**
+ * Today's target: one more than the last reached target, once per practiced day.
+ * `breath_raised_on` is the day the current target was last reached in under 10 minutes.
+ */
+export function breathTargetFor(s: BreathState, today: string): number {
+  return s.breath_raised_on && s.breath_raised_on < today ? s.breath_target + 1 : s.breath_target;
+}
+
+/** State after a breathing session of `reps` breaths taking `durationSec`. */
+export function afterBreath(s: BreathState, reps: number, durationSec: number, today: string): BreathState {
+  const target = breathTargetFor(s, today);
+  if (reps < target) {
+    return { breath_target: target, breath_raised_on: s.breath_raised_on === today ? today : null };
+  }
+  // A session of 10 minutes or more stops the growth
+  return { breath_target: target, breath_raised_on: durationSec < BREATH_MAX_SEC ? today : null };
+}
+
+// ── Weekly unlocks ──────────────────────────────────────────────────────────
+
+/** Which exercises are open, by the number of completed evenings (practice days). */
+export function unlockedExercises(completedEvenings: number): { breath: boolean; mealWater: boolean } {
+  return {
+    breath: completedEvenings >= UNLOCK_BREATH_AFTER,
+    mealWater: completedEvenings >= UNLOCK_MEAL_WATER_AFTER,
+  };
+}
+
+// ── Body training ───────────────────────────────────────────────────────────
+
+/** The book's three morning items (p. 192), checked by default */
+export const BOOK_BODY_ITEMS = ['kefeles', 'hideg_viz', 'torna'] as const;
+/** Movement and sport offered next to them */
+export const MORE_BODY_ITEMS = ['nyujtas', 'joga', 'seta', 'futas', 'kerekpar', 'uszas'] as const;
+
+export function defaultBodyItem(key: string, label?: string): BodyItem {
+  const book = (BOOK_BODY_ITEMS as readonly string[]).includes(key);
+  return { key, ...(label ? { label } : {}), when: book ? 'reggel' : 'napkozben', days: null };
+}
+
+export function defaultBodyPlan(): BodyItem[] {
+  return BOOK_BODY_ITEMS.map((key) => defaultBodyItem(key));
+}
+
+/** Weekday of a 'YYYY-MM-DD' date, 0 = Monday … 6 = Sunday. */
+export function weekdayOf(date: string): number {
+  return (new Date(date + 'T00:00:00Z').getUTCDay() + 6) % 7;
+}
+
+export function isBodyItemDue(item: BodyItem, date: string): boolean {
+  return item.days === null || item.days.includes(weekdayOf(date));
+}
+
+/** The items due on `date`, optionally only those of one part of the day. */
+export function bodyItemsFor(plan: BodyItem[], date: string, when?: DayPart): BodyItem[] {
+  return plan.filter((item) => isBodyItemDue(item, date) && (!when || item.when === when));
+}
+
+// ── The I. fokozat ──────────────────────────────────────────────────────────
+// Body training, breathing, eating and water are daily habits for life: the
+// book lists them as the practice of the I. fokozat and the II. adds to them
+// (p. 198). They have no goal and do not gate the next fokozat. Only the
+// thought practice has to be mastered ("amíg az elsőt nem uraljuk
+// maradéktalanul") and the two soul mirrors have to be made.
+
+export interface FokozatIInput {
+  gateRead: boolean;
+  thoughtStage: number;
+  closedCycles: number;
+}
+
+export interface Condition {
+  key: 'gate' | 'thought' | 'cycles';
+  value: number;
+  target: number;
+  done: boolean;
+}
+
+/** The conditions of the II. fokozat and how far along they are. */
+export function fokozatIConditions(input: FokozatIInput): { conditions: Condition[]; allDone: boolean; percent: number } {
+  const cond = (key: Condition['key'], value: number, target: number): Condition => ({
+    key,
+    value: Math.min(value, target),
+    target,
+    done: value >= target,
+  });
+  const conditions = [
+    cond('gate', input.gateRead ? 1 : 0, 1),
+    cond('thought', input.thoughtStage, 3),
+    cond('cycles', input.closedCycles, CYCLES_FOR_NEXT_FOKOZAT),
+  ];
+  const ratio = conditions.reduce((sum, c) => sum + c.value / c.target, 0) / conditions.length;
+  return { conditions, allDone: conditions.every((c) => c.done), percent: Math.round(ratio * 100) };
+}

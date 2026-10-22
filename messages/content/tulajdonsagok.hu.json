@@ -1,0 +1,2067 @@
+{
+  "torkossag": {
+    "name": "torkosság",
+    "forms": [
+      "torkos",
+      "falánk",
+      "falánkság",
+      "nassolás",
+      "nassol"
+    ],
+    "q": "Akkor is ettél, nassoltál, amikor már nem voltál éhes?"
+  },
+  "feltekenyseg": {
+    "name": "féltékenység",
+    "forms": [
+      "féltékeny"
+    ],
+    "q": "Féltetted valakinek a figyelmét vagy a szeretetét, bántott, hogy másra figyel?"
+  },
+  "fuggoseg": {
+    "name": "függőség",
+    "forms": [
+      "függő",
+      "szenvedély",
+      "rászokás",
+      "dohányzás",
+      "telefonfüggés"
+    ],
+    "q": "Volt valami (étel, ital, cigaretta, telefon), ami nélkül nehezen bírtad?"
+  },
+  "izgagasag": {
+    "name": "izgágaság",
+    "forms": [
+      "izgága",
+      "fészkelődés",
+      "nyughatatlanság"
+    ],
+    "q": "Nehezen maradtál nyugton, sürgettél másokat vagy magadat?"
+  },
+  "veszekedosseg": {
+    "name": "veszekedősség",
+    "forms": [
+      "veszekedés",
+      "veszekedős",
+      "vitatkozás",
+      "összeveszés",
+      "perlekedés"
+    ],
+    "q": "Belekötöttél másokba, vitát kerestél apróság miatt?"
+  },
+  "mertektelenseg": {
+    "name": "mértéktelenség",
+    "forms": [
+      "mértéktelen",
+      "féktelenség",
+      "féktelen",
+      "túlzásba vitel"
+    ],
+    "q": "Nem tudtad időben abbahagyni: evést, munkát, vásárlást, szórakozást?"
+  },
+  "pusztito_kedv": {
+    "name": "pusztító kedv",
+    "forms": [
+      "pusztítókedv",
+      "pusztítás",
+      "rombolás",
+      "romboló",
+      "csapkodás"
+    ],
+    "q": "Csapkodni, rombolni, összetörni támadt kedved, amikor feszült voltál?"
+  },
+  "indulatossag": {
+    "name": "indulatosság",
+    "forms": [
+      "indulatos",
+      "lobbanékonyság",
+      "lobbanékony",
+      "robbanékonyság",
+      "hirtelen harag"
+    ],
+    "q": "Hirtelen felcsattantál, mielőtt végiggondoltad volna, mit mondasz?"
+  },
+  "harag": {
+    "name": "harag",
+    "forms": [
+      "haragos",
+      "düh",
+      "dühös",
+      "méreg",
+      "mérges",
+      "mérgelődés"
+    ],
+    "q": "Dühös voltál valakire, és ez benned maradt?"
+  },
+  "gyulolet": {
+    "name": "gyűlölet",
+    "forms": [
+      "gyűlölködés",
+      "gyűlölködő",
+      "utálat"
+    ],
+    "q": "Ellenségesen gondoltál valakire, rosszat kívántál neki?"
+  },
+  "bosszuvagy": {
+    "name": "bosszúvágy",
+    "forms": [
+      "bosszú",
+      "bosszúálló",
+      "bosszúállás",
+      "visszavágás"
+    ],
+    "q": "Azon járt az eszed, hogyan adhatnád vissza a sérelmet?"
+  },
+  "sertodottseg": {
+    "name": "sértődöttség",
+    "forms": [
+      "sértődős",
+      "sértődékeny",
+      "sértődékenység",
+      "megsértődik",
+      "duzzogás"
+    ],
+    "q": "Megbántódtál egy megjegyzésen, és duzzogtál miatta?"
+  },
+  "lenezes": {
+    "name": "lenézés",
+    "forms": [
+      "lenéző",
+      "lekezelés",
+      "lekezelő",
+      "fölényesség",
+      "fölényes"
+    ],
+    "q": "Felsőbbrendűnek érezted magad valakinél, lekezelően szóltál vagy gondoltál rá?"
+  },
+  "pletykalkodas": {
+    "name": "pletykálkodás",
+    "forms": [
+      "pletyka",
+      "pletykás",
+      "pletykál",
+      "kibeszélés",
+      "kibeszél"
+    ],
+    "q": "Beszéltél valakiről a háta mögött, továbbadtál olyat, ami nem rád tartozik?"
+  },
+  "kitartas_hianya": {
+    "name": "kitartás hiánya",
+    "forms": [
+      "kitartáshiány",
+      "feladja",
+      "könnyen feladja"
+    ],
+    "q": "Hamar feladtad, mert valami nehezebb volt, vagy tovább tartott a vártnál?"
+  },
+  "ravaszsag": {
+    "name": "ravaszság",
+    "forms": [
+      "ravasz",
+      "fondorlat",
+      "fondorlatos",
+      "ügyeskedés",
+      "cselszövés",
+      "intrika",
+      "áskálódás"
+    ],
+    "q": "Kerülőúton, ügyeskedve próbáltál elérni valamit, nem nyíltan?"
+  },
+  "fecseges": {
+    "name": "fecsegés",
+    "forms": [
+      "fecsegő",
+      "fecseg",
+      "szószátyárság",
+      "szószátyár",
+      "locsogás"
+    ],
+    "q": "Többet beszéltél a kelleténél, olyat is, ami fölösleges volt?"
+  },
+  "becstelenseg": {
+    "name": "becstelenség",
+    "forms": [
+      "becstelen",
+      "tisztességtelenség",
+      "tisztességtelen",
+      "csalás",
+      "csal"
+    ],
+    "q": "Tisztességtelenül jártál el, csaltál, vagy a magad hasznára kijátszottál valakit?"
+  },
+  "valtakozosag": {
+    "name": "váltakozóság",
+    "forms": [
+      "változékonyság",
+      "változékony",
+      "kiszámíthatatlanság",
+      "kiszámíthatatlan"
+    ],
+    "q": "Ide-oda kapkodtál, sűrűn változtattál a döntéseiden, a hangulatodon?"
+  },
+  "konnyelmuseg": {
+    "name": "könnyelműség",
+    "forms": [
+      "könnyelmű",
+      "hazardírozás"
+    ],
+    "q": "Meggondolatlanul vállaltál, költöttél vagy kockáztattál valamit?"
+  },
+  "kerkedes": {
+    "name": "kérkedés",
+    "forms": [
+      "dicsekvés",
+      "dicsekszik",
+      "hencegés",
+      "henceg",
+      "nagyzolás",
+      "felvágás",
+      "fellengzősség"
+    ],
+    "q": "Dicsekedtél, hogy mások felnézzenek rád?"
+  },
+  "ontulbecsules": {
+    "name": "öntúlbecsülés",
+    "forms": [
+      "beképzeltség",
+      "beképzelt",
+      "önteltség",
+      "öntelt",
+      "elbizakodottság",
+      "elbizakodott"
+    ],
+    "q": "Többnek láttad magad, mint amit valójában tudsz vagy teszel?"
+  },
+  "pazarlas": {
+    "name": "pazarlás",
+    "forms": [
+      "pazarló",
+      "költekezés",
+      "tékozlás",
+      "tékozló",
+      "időpazarlás"
+    ],
+    "q": "Elszórtad a pénzed, az idődet vagy valami értékeset, fölöslegesen?"
+  },
+  "kozombosseg": {
+    "name": "közömbösség",
+    "forms": [
+      "közömbös",
+      "közöny",
+      "közönyös",
+      "nemtörődömség"
+    ],
+    "q": "Hidegen hagyott mások gondja vagy egy közös ügy sorsa?"
+  },
+  "levertseg": {
+    "name": "levertség",
+    "forms": [
+      "levert",
+      "lehangoltság",
+      "lehangolt",
+      "kedvetlenség",
+      "kedvetlen"
+    ],
+    "q": "Kedvetlen, lehangolt voltál, és nehezen mozdultál ki belőle?"
+  },
+  "szegyenlosseg": {
+    "name": "szégyenlősség",
+    "forms": [
+      "szégyenlős",
+      "félénkség",
+      "félénk",
+      "gátlásosság",
+      "gátlásos"
+    ],
+    "q": "Visszahúzódtál, nem mertél megszólalni vagy kiállni magadért?"
+  },
+  "reszvetlenseg": {
+    "name": "részvétlenség",
+    "forms": [
+      "részvétlen",
+      "együttérzés hiánya"
+    ],
+    "q": "Láttad, hogy valakinek nehéz, és nem érintett meg?"
+  },
+  "csokonyosseg": {
+    "name": "csökönyösség",
+    "forms": [
+      "csökönyös",
+      "makacsság",
+      "makacs",
+      "konokság",
+      "konok"
+    ],
+    "q": "Makacsul ragaszkodtál a magadéhoz, akkor is, amikor beláthattad volna, hogy nincs igazad?"
+  },
+  "renyheseg": {
+    "name": "renyheség",
+    "forms": [
+      "renyhe",
+      "tunyaság",
+      "tunya",
+      "tespedtség"
+    ],
+    "q": "Tunyán, erőtlenül telt a napod, nehezen fogtál bármibe?"
+  },
+  "koszivuseg": {
+    "name": "kőszívűség",
+    "forms": [
+      "kőszívű",
+      "szívtelenség",
+      "szívtelen",
+      "érzéketlenség",
+      "érzéketlen"
+    ],
+    "q": "Keményszívű, hideg voltál valakivel, akinek szüksége lett volna a melegségedre?"
+  },
+  "tulzott_engedekenyseg": {
+    "name": "túlzott engedékenység",
+    "forms": [
+      "engedékenység",
+      "engedékeny",
+      "puhaság",
+      "nem tud nemet mondani"
+    ],
+    "q": "Ráhagytál valamit valakire, pedig nemet kellett volna mondanod?"
+  },
+  "akaratossag": {
+    "name": "akaratosság",
+    "forms": [
+      "akaratos",
+      "önakarat"
+    ],
+    "q": "Mindenáron a magad akaratát akartad keresztülvinni?"
+  },
+  "ingatagsag": {
+    "name": "ingatagság",
+    "forms": [
+      "ingatag",
+      "állhatatlanság",
+      "megingathatóság"
+    ],
+    "q": "Könnyen megingattak, mások hatására elálltál attól, amit elhatároztál?"
+  },
+  "flegmasag": {
+    "name": "flegmaság",
+    "forms": [
+      "flegma",
+      "vállvonogatás"
+    ],
+    "q": "Vállrándítással intéztél el valamit, ami pedig fontos volt?"
+  },
+  "unalmas": {
+    "name": "unalmas",
+    "forms": [
+      "unalom",
+      "egyhangúság",
+      "egyhangú",
+      "unottság",
+      "unott"
+    ],
+    "q": "Egyhangúan, szürkén teltek a beszélgetéseid, nem tettél bele magadból semmit?"
+  },
+  "hanyagsag": {
+    "name": "hanyagság",
+    "forms": [
+      "hanyag",
+      "slendriánság",
+      "slampos",
+      "trehányság",
+      "trehány"
+    ],
+    "q": "Elhanyagoltál egy feladatot, félig vagy rosszul csináltad meg?"
+  },
+  "megvetes": {
+    "name": "megvetés",
+    "forms": [
+      "megvető",
+      "lebecsülés"
+    ],
+    "q": "Megvetéssel gondoltál valakire, méltatlannak tartottad a figyelmedre?"
+  },
+  "emberiszonya_van": {
+    "name": "emberiszonya van",
+    "forms": [
+      "emberiszony",
+      "emberkerülés",
+      "emberkerülő"
+    ],
+    "q": "Kerülted az embereket, terhes volt a társaságuk?"
+  },
+  "lassusag": {
+    "name": "lassúság",
+    "forms": [
+      "lassú",
+      "vontatottság",
+      "vontatott",
+      "piszmogás"
+    ],
+    "q": "Lassan, vontatottan haladtál, akkor is, amikor sietni kellett volna?"
+  },
+  "nehezkes": {
+    "name": "nehézkes",
+    "forms": [
+      "nehézkesség",
+      "körülményesség",
+      "körülményes"
+    ],
+    "q": "Nehezen indultál, nehezen alkalmazkodtál egy váratlan helyzethez?"
+  },
+  "lustasag": {
+    "name": "lustaság",
+    "forms": [
+      "lusta",
+      "restség",
+      "rest",
+      "naplopás"
+    ],
+    "q": "Kerülted a munkát, az erőfeszítést, mert nem volt kedved hozzá?"
+  },
+  "megbizhatatlan": {
+    "name": "megbízhatatlan",
+    "forms": [
+      "megbízhatatlanság"
+    ],
+    "q": "Nem tartottad be, amit ígértél, cserben hagytál valakit?"
+  },
+  "szofukar": {
+    "name": "szófukar",
+    "forms": [
+      "szűkszavúság",
+      "szűkszavú"
+    ],
+    "q": "Szűkszavú voltál ott is, ahol egy kedves vagy magyarázó szó segített volna?"
+  },
+  "lelkiismeretlenseg": {
+    "name": "lelkiismeretlenség",
+    "forms": [
+      "lelkiismeretlen",
+      "gátlástalanság",
+      "gátlástalan"
+    ],
+    "q": "Tudtad, hogy valami nem helyes, és mégis megtetted?"
+  },
+  "buskomorsag": {
+    "name": "búskomorság",
+    "forms": [
+      "búskomor",
+      "mélabú",
+      "mélabús",
+      "szomorúság",
+      "borongás"
+    ],
+    "q": "Borús, nehéz gondolatok uralták a napodat?"
+  },
+  "rendszertelenseg": {
+    "name": "rendszertelenség",
+    "forms": [
+      "rendszertelen",
+      "rendetlenség",
+      "rendetlen"
+    ],
+    "q": "Terv nélkül, összevissza telt a napod, rendetlenül hagytad a dolgaidat?"
+  },
+  "aktivitas": {
+    "name": "aktivitás",
+    "forms": [
+      "aktív",
+      "tevékenység",
+      "tevékeny",
+      "tetterő",
+      "lendület"
+    ],
+    "q": "Tetted a dolgod, és nem vártad, hogy más kezdje el?"
+  },
+  "lelkesedes": {
+    "name": "lelkesedés",
+    "forms": [
+      "lelkes",
+      "rajongás"
+    ],
+    "q": "Örömmel, tűzzel fogtál bele abba, amit csináltál?"
+  },
+  "elhatarozottsag": {
+    "name": "elhatározottság",
+    "forms": [
+      "elhatározott",
+      "eltökéltség",
+      "eltökélt",
+      "elszántság",
+      "elszánt"
+    ],
+    "q": "Kitartottál amellett, amit elhatároztál?"
+  },
+  "mereszseg": {
+    "name": "merészség",
+    "forms": [
+      "merész",
+      "kedvvel teli",
+      "vállalkozó kedv"
+    ],
+    "q": "Belevágtál valamibe, amitől tartottál?"
+  },
+  "alkotoero": {
+    "name": "alkotóerő",
+    "forms": [
+      "alkotóerővel teli",
+      "alkotás",
+      "alkotó",
+      "kreativitás",
+      "kreatív"
+    ],
+    "q": "Létrehoztál valami újat: ötletet, tárgyat, megoldást?"
+  },
+  "torekves": {
+    "name": "törekvés",
+    "forms": [
+      "törekedés",
+      "törekvő",
+      "igyekezet",
+      "igyekvő"
+    ],
+    "q": "Tettél ma valamit egy célodért, ami fontos neked?"
+  },
+  "szenvedelyes": {
+    "name": "szenvedélyes",
+    "forms": [
+      "szenvedélyesség",
+      "odaadás",
+      "odaadó",
+      "hév"
+    ],
+    "q": "Teljes odaadással, lángolva csináltál valamit?"
+  },
+  "batorsag": {
+    "name": "bátorság",
+    "forms": [
+      "bátor",
+      "kiállás",
+      "kiáll"
+    ],
+    "q": "Kiálltál valamiért vagy valakiért, a félelmed ellenére?"
+  },
+  "allhatatossag": {
+    "name": "állhatatosság",
+    "forms": [
+      "állhatatos"
+    ],
+    "q": "Megmaradtál a választott utadon, akkor is, amikor kísértett valami más?"
+  },
+  "szorgalom": {
+    "name": "szorgalom",
+    "forms": [
+      "szorgalmas",
+      "szorgos",
+      "munkaszeretet"
+    ],
+    "q": "Kitartóan és szívesen dolgoztál, akkor is, ha senki nem figyelt?"
+  },
+  "orom": {
+    "name": "öröm",
+    "forms": [
+      "örömteliség",
+      "örömteli"
+    ],
+    "q": "Éreztél tiszta örömet valami egyszerű dologban?"
+  },
+  "jartassag": {
+    "name": "jártasság",
+    "forms": [
+      "jártas",
+      "ügyesség",
+      "ügyes",
+      "hozzáértés",
+      "hozzáértő"
+    ],
+    "q": "Ügyesen, hozzáértéssel oldottál meg valamit?"
+  },
+  "joszivuseg": {
+    "name": "jószívűség",
+    "forms": [
+      "jószívű",
+      "jóság",
+      "jó szív"
+    ],
+    "q": "Önzetlenül jót tettél valakivel?"
+  },
+  "vilagos": {
+    "name": "világos",
+    "forms": [
+      "világosság",
+      "tisztánlátás",
+      "világos gondolkodás"
+    ],
+    "q": "Tisztán láttad a helyzetet, és érthetően fogalmaztál?"
+  },
+  "gondtalan": {
+    "name": "gondtalan",
+    "forms": [
+      "gondtalanság",
+      "könnyű szív"
+    ],
+    "q": "Könnyű szívvel, aggodalom nélkül élted meg a napot?"
+  },
+  "vidam": {
+    "name": "vidám",
+    "forms": [
+      "vidámság",
+      "jókedv",
+      "jókedvű"
+    ],
+    "q": "Jókedvű voltál, és ez másokra is átragadt?"
+  },
+  "optimizmus": {
+    "name": "optimizmus",
+    "forms": [
+      "optimista",
+      "bizakodás",
+      "bizakodó",
+      "derűlátás"
+    ],
+    "q": "Bíztál benne, hogy jól alakulnak a dolgok, és a jót kerested bennük?"
+  },
+  "elenkseg": {
+    "name": "élénkség",
+    "forms": [
+      "élénk",
+      "frissesség",
+      "friss"
+    ],
+    "q": "Friss, mozgékony volt a tested és a gondolkodásod?"
+  },
+  "fuggetlenseg": {
+    "name": "függetlenség",
+    "forms": [
+      "független",
+      "önállóság",
+      "önálló"
+    ],
+    "q": "A saját belátásod szerint döntöttél, nem mások nyomására?"
+  },
+  "eberseg": {
+    "name": "éberség",
+    "forms": [
+      "éber",
+      "résen lét"
+    ],
+    "q": "Figyelmes voltál, észrevetted, mi történik körülötted és benned?"
+  },
+  "kedvesseg": {
+    "name": "kedvesség",
+    "forms": [
+      "kedves",
+      "barátságosság",
+      "barátságos",
+      "szívélyesség",
+      "szívélyes"
+    ],
+    "q": "Barátságosan, melegen bántál az emberekkel?"
+  },
+  "bizalom": {
+    "name": "bizalom",
+    "forms": [
+      "bizalmas",
+      "bízik",
+      "hit másokban"
+    ],
+    "q": "Megbíztál valakiben, és nem kerestél hátsó szándékot?"
+  },
+  "irgalmassag": {
+    "name": "irgalmasság",
+    "forms": [
+      "irgalmas",
+      "könyörületesség",
+      "könyörületes",
+      "kegyelem"
+    ],
+    "q": "Könyörületes voltál valakivel, aki hibázott vagy bajban volt?"
+  },
+  "szerenyseg": {
+    "name": "szerénység",
+    "forms": [
+      "szerény",
+      "visszafogottság"
+    ],
+    "q": "Nem tolakodtál előtérbe, hagytad, hogy mások is ragyogjanak?"
+  },
+  "megadas": {
+    "name": "megadás",
+    "forms": [
+      "belenyugvás",
+      "ráhagyatkozás"
+    ],
+    "q": "Elfogadtad, amin nem tudtál változtatni, belső harc nélkül?"
+  },
+  "alkalmazkodokeszseg": {
+    "name": "alkalmazkodókészség",
+    "forms": [
+      "alkalmazkodás",
+      "alkalmazkodó",
+      "rugalmasság",
+      "rugalmas"
+    ],
+    "q": "Rugalmasan igazodtál egy új helyzethez vagy mások igényeihez?"
+  },
+  "buzgosag": {
+    "name": "buzgóság",
+    "forms": [
+      "buzgó",
+      "buzgalom"
+    ],
+    "q": "Belső odaadással, hűséggel végezted a gyakorlataidat és a feladataidat?"
+  },
+  "bensosegesseg": {
+    "name": "bensőségesség",
+    "forms": [
+      "bensőséges",
+      "meghittség",
+      "meghitt"
+    ],
+    "q": "Volt mély, meghitt pillanatod valakivel vagy önmagaddal?"
+  },
+  "felfogokepesseg": {
+    "name": "felfogóképesség",
+    "forms": [
+      "fogékonyság",
+      "fogékony",
+      "befogadóképesség",
+      "megértés"
+    ],
+    "q": "Gyorsan és jól megértetted, amit mondtak, vagy ami történt?"
+  },
+  "meditacio": {
+    "name": "meditáció",
+    "forms": [
+      "meditálás",
+      "elmélkedés",
+      "befelé figyelés",
+      "áhítat"
+    ],
+    "q": "Szántál időt arra, hogy elcsendesedj és befelé figyelj?"
+  },
+  "szanalomerzet": {
+    "name": "szánalomérzet",
+    "forms": [
+      "szánalom",
+      "sajnálat",
+      "részvét"
+    ],
+    "q": "Megérintett valakinek a nehézsége, a szenvedése?"
+  },
+  "egyutterzes": {
+    "name": "együttérzés",
+    "forms": [
+      "együttérző",
+      "empátia",
+      "beleérzés"
+    ],
+    "q": "Bele tudtad élni magad valaki más helyzetébe, és ezt éreztetted is vele?"
+  },
+  "nyugalom": {
+    "name": "nyugalom",
+    "forms": [
+      "nyugodt",
+      "higgadtság",
+      "higgadt",
+      "béke",
+      "belső béke",
+      "békesség"
+    ],
+    "q": "Megőrizted a belső csendet, amikor körülötted kapkodtak?"
+  },
+  "elmelyultseg": {
+    "name": "elmélyültség",
+    "forms": [
+      "elmélyülés",
+      "elmélyült"
+    ],
+    "q": "Teljesen elmerültél valamiben, és a mélyére néztél?"
+  },
+  "mertekletesseg": {
+    "name": "mértékletesség",
+    "forms": [
+      "mértékletes",
+      "önmérséklet",
+      "mértéktartás"
+    ],
+    "q": "Tudtál időben megállni evésben, ivásban, szórakozásban?"
+  },
+  "gyongedseg": {
+    "name": "gyöngédség",
+    "forms": [
+      "gyöngéd",
+      "gyengédség",
+      "gyengéd",
+      "finomság"
+    ],
+    "q": "Finoman, szeretettel bántál valakivel?"
+  },
+  "tiszteletadas": {
+    "name": "tiszteletadás",
+    "forms": [
+      "tiszteletadó",
+      "tisztelet",
+      "tisztelettudás"
+    ],
+    "q": "Megadtad másoknak a tiszteletet, akkor is, ha nem értettél egyet velük?"
+  },
+  "tekintely": {
+    "name": "tekintély",
+    "forms": [
+      "tekintélyes"
+    ],
+    "q": "Súlya volt a szavadnak, a jelenlétednek, nyugodt határozottsággal?"
+  },
+  "kitartas": {
+    "name": "kitartás",
+    "forms": [
+      "kitartó"
+    ],
+    "q": "Végigvittél valamit, ami nehéz vagy hosszadalmas volt?"
+  },
+  "megfontoltsag": {
+    "name": "megfontoltság",
+    "forms": [
+      "megfontolt",
+      "átgondoltság",
+      "átgondolt"
+    ],
+    "q": "Átgondoltad, mielőtt döntöttél vagy megszólaltál?"
+  },
+  "hatarozottsag": {
+    "name": "határozottság",
+    "forms": [
+      "határozott"
+    ],
+    "q": "Világosan kimondtad, mit akarsz, és nemet mondtál, ahol kellett?"
+  },
+  "komolysag": {
+    "name": "komolyság",
+    "forms": [
+      "komoly"
+    ],
+    "q": "Kellő súllyal kezelted, ami fontos volt?"
+  },
+  "lelkiismeretesseg": {
+    "name": "lelkiismeretesség",
+    "forms": [
+      "lelkiismeretes"
+    ],
+    "q": "Úgy végezted a dolgod, ahogy a lelkiismereted diktálta?"
+  },
+  "alapossag": {
+    "name": "alaposság",
+    "forms": [
+      "alapos"
+    ],
+    "q": "Végigvitted a feladataidat a részletekig, akkor is, ha senki nem ellenőrzi?"
+  },
+  "koncentraltsag": {
+    "name": "koncentráltság",
+    "forms": [
+      "koncentráció",
+      "összpontosítás"
+    ],
+    "q": "Egyszerre egy dologra figyeltél, elkalandozás nélkül?"
+  },
+  "jozansag": {
+    "name": "józanság",
+    "forms": [
+      "józan",
+      "józan ész"
+    ],
+    "q": "Tisztán, a valóság talaján ítélted meg a dolgokat?"
+  },
+  "pontossag": {
+    "name": "pontosság",
+    "forms": [
+      "pontos"
+    ],
+    "q": "Időben érkeztél, és pontosan megtetted, amit vállaltál?"
+  },
+  "targyilagossag": {
+    "name": "tárgyilagosság",
+    "forms": [
+      "tárgyilagos",
+      "objektivitás"
+    ],
+    "q": "Érzelmektől függetlenül, igazságosan ítélted meg a helyzetet?"
+  },
+  "elovigyazatossag": {
+    "name": "elővigyázatosság",
+    "forms": [
+      "elővigyázatos",
+      "óvatosság",
+      "előrelátás"
+    ],
+    "q": "Előre gondoltál a lehetséges bajokra, és felkészültél rájuk?"
+  },
+  "ellenallo_kepesseg": {
+    "name": "ellenálló képesség",
+    "forms": [
+      "ellenálló-képesség",
+      "ellenállóképesség",
+      "lelkierő",
+      "edzettség"
+    ],
+    "q": "Megálltál egy kísértésnek, nyomásnak vagy fáradtságnak?"
+  },
+  "celtudatossag": {
+    "name": "céltudatosság",
+    "forms": [
+      "céltudatos"
+    ],
+    "q": "Tudtad, merre tartasz, és afelé haladtál?"
+  },
+  "felelossegerzet": {
+    "name": "felelősségérzet",
+    "forms": [
+      "felelősség",
+      "felelősségteljes",
+      "felelősségvállalás"
+    ],
+    "q": "Vállaltad a következményeit annak, amit tettél vagy mondtál?"
+  },
+  "turelmetlenseg": {
+    "name": "türelmetlenség",
+    "forms": [
+      "türelmetlen",
+      "sürgetés",
+      "sürget"
+    ]
+  },
+  "irigyseg": {
+    "name": "irigység",
+    "forms": [
+      "irigy",
+      "irigykedés",
+      "irigykedik"
+    ]
+  },
+  "ingerlekenyseg": {
+    "name": "ingerlékenység",
+    "forms": [
+      "ingerlékeny",
+      "ideges",
+      "idegesség",
+      "idegeskedés"
+    ]
+  },
+  "dac": {
+    "name": "dac",
+    "forms": [
+      "dacos",
+      "dacosság",
+      "dacoskodás"
+    ]
+  },
+  "agresszivitas": {
+    "name": "agresszivitás",
+    "forms": [
+      "agresszív",
+      "erőszakosság",
+      "erőszakos"
+    ]
+  },
+  "durvasag": {
+    "name": "durvaság",
+    "forms": [
+      "durva",
+      "nyerseség",
+      "nyers"
+    ]
+  },
+  "gorombasag": {
+    "name": "gorombaság",
+    "forms": [
+      "goromba",
+      "modortalanság",
+      "modortalan",
+      "bunkóság"
+    ]
+  },
+  "uralkodni_vagyas": {
+    "name": "uralkodni vágyás",
+    "forms": [
+      "uralkodó",
+      "hatalomvágy",
+      "basáskodás",
+      "zsarnokoskodás",
+      "parancsolgatás"
+    ]
+  },
+  "kegyetlenseg": {
+    "name": "kegyetlenség",
+    "forms": [
+      "kegyetlen",
+      "kíméletlenség",
+      "kíméletlen",
+      "könyörtelenség"
+    ]
+  },
+  "kapkodas": {
+    "name": "kapkodás",
+    "forms": [
+      "kapkod",
+      "hebehurgyaság",
+      "hebehurgya",
+      "rohanás"
+    ]
+  },
+  "sovargas": {
+    "name": "sóvárgás",
+    "forms": [
+      "sóvár",
+      "vágyakozás",
+      "kívánós"
+    ]
+  },
+  "kejvagy": {
+    "name": "kéjvágy",
+    "forms": [
+      "bujaság",
+      "buja",
+      "kicsapongás",
+      "kéjsóvárság"
+    ]
+  },
+  "mohosag": {
+    "name": "mohóság",
+    "forms": [
+      "mohó",
+      "habzsolás"
+    ]
+  },
+  "fanatizmus": {
+    "name": "fanatizmus",
+    "forms": [
+      "fanatikus",
+      "vakbuzgóság",
+      "vakbuzgó"
+    ]
+  },
+  "onfejuseg": {
+    "name": "önfejűség",
+    "forms": [
+      "önfejű"
+    ]
+  },
+  "nagyravagyas": {
+    "name": "nagyravágyás",
+    "forms": [
+      "nagyravágyó",
+      "becsvágy",
+      "becsvágyó",
+      "karrierizmus"
+    ]
+  },
+  "versenges": {
+    "name": "versengés",
+    "forms": [
+      "rivalizálás",
+      "versengő"
+    ]
+  },
+  "hiszterikussag": {
+    "name": "hisztérikusság",
+    "forms": [
+      "hiszti",
+      "hisztis",
+      "hisztizés",
+      "jelenetrendezés"
+    ]
+  },
+  "sertegetes": {
+    "name": "sértegetés",
+    "forms": [
+      "sértő",
+      "sértegető"
+    ]
+  },
+  "tolakodas": {
+    "name": "tolakodás",
+    "forms": [
+      "tolakodó",
+      "nyomulás",
+      "nyomulós"
+    ]
+  },
+  "karorvendes": {
+    "name": "kárörvendés",
+    "forms": [
+      "kárörvendő"
+    ]
+  },
+  "rosszindulat": {
+    "name": "rosszindulat",
+    "forms": [
+      "rosszindulatú",
+      "ártó szándék"
+    ]
+  },
+  "gog": {
+    "name": "gőg",
+    "forms": [
+      "gőgös",
+      "arrogancia",
+      "arrogáns",
+      "fennhéjázás",
+      "fennhéjázó"
+    ]
+  },
+  "undoksag": {
+    "name": "undokság",
+    "forms": [
+      "undok",
+      "piszkálódás",
+      "piszkálódó"
+    ]
+  },
+  "telhetetlenseg": {
+    "name": "telhetetlenség",
+    "forms": [
+      "telhetetlen"
+    ]
+  },
+  "kovetelozes": {
+    "name": "követelőzés",
+    "forms": [
+      "követelőző",
+      "követelődzés"
+    ]
+  },
+  "hiusag": {
+    "name": "hiúság",
+    "forms": [
+      "hiú",
+      "tetszelgés",
+      "feltűnési vágy",
+      "magamutogatás"
+    ]
+  },
+  "feluletesseg": {
+    "name": "felületesség",
+    "forms": [
+      "felületes",
+      "felszínesség",
+      "felszínes"
+    ]
+  },
+  "szetszortsag": {
+    "name": "szétszórtság",
+    "forms": [
+      "szétszórt",
+      "csapongás",
+      "csapongó"
+    ]
+  },
+  "hazudozas": {
+    "name": "hazudozás",
+    "forms": [
+      "hazug",
+      "hazudik",
+      "hazugság",
+      "füllentés"
+    ]
+  },
+  "kivancsiskodas": {
+    "name": "kíváncsiskodás",
+    "forms": [
+      "kíváncsiskodó",
+      "kotnyelesség",
+      "kotnyeles"
+    ]
+  },
+  "szeszelyesseg": {
+    "name": "szeszélyesség",
+    "forms": [
+      "szeszélyes",
+      "hangulatember"
+    ]
+  },
+  "szorakozottsag": {
+    "name": "szórakozottság",
+    "forms": [
+      "szórakozott",
+      "feledékenység",
+      "feledékeny"
+    ]
+  },
+  "komolytalansag": {
+    "name": "komolytalanság",
+    "forms": [
+      "komolytalan",
+      "léhaság",
+      "léha"
+    ]
+  },
+  "meggondolatlansag": {
+    "name": "meggondolatlanság",
+    "forms": [
+      "meggondolatlan",
+      "átgondolatlanság",
+      "átgondolatlan"
+    ]
+  },
+  "felelotlenseg": {
+    "name": "felelőtlenség",
+    "forms": [
+      "felelőtlen"
+    ]
+  },
+  "hizelges": {
+    "name": "hízelgés",
+    "forms": [
+      "hízelgő",
+      "nyalizás",
+      "talpnyalás"
+    ]
+  },
+  "kepmutatas": {
+    "name": "képmutatás",
+    "forms": [
+      "képmutató",
+      "álszentség",
+      "álszent",
+      "kétszínűség",
+      "kétszínű"
+    ]
+  },
+  "itelkezes": {
+    "name": "ítélkezés",
+    "forms": [
+      "ítélkező",
+      "kritizálás",
+      "kritizál",
+      "kritikusság",
+      "elítélés"
+    ]
+  },
+  "okoskodas": {
+    "name": "okoskodás",
+    "forms": [
+      "okoskodó",
+      "kioktatás",
+      "kioktató",
+      "mindentudás"
+    ]
+  },
+  "igergetes": {
+    "name": "ígérgetés",
+    "forms": [
+      "ígérget",
+      "be nem tartott ígéret"
+    ]
+  },
+  "zavarodottsag": {
+    "name": "zavarodottság",
+    "forms": [
+      "zavarodott",
+      "összevisszaság",
+      "zavaros gondolkodás"
+    ]
+  },
+  "nyugtalansag": {
+    "name": "nyugtalanság",
+    "forms": [
+      "nyugtalan",
+      "feszültség",
+      "feszült"
+    ]
+  },
+  "gunyolodas": {
+    "name": "gúnyolódás",
+    "forms": [
+      "gúnyos",
+      "csúfolódás",
+      "kötekedés",
+      "kötekedő"
+    ]
+  },
+  "figyelmetlenseg": {
+    "name": "figyelmetlenség",
+    "forms": [
+      "figyelmetlen"
+    ]
+  },
+  "pontatlansag": {
+    "name": "pontatlanság",
+    "forms": [
+      "pontatlan",
+      "késés",
+      "késik",
+      "elkésik"
+    ]
+  },
+  "manipulalas": {
+    "name": "manipulálás",
+    "forms": [
+      "manipulatív",
+      "manipuláció"
+    ]
+  },
+  "kifogaskereses": {
+    "name": "kifogáskeresés",
+    "forms": [
+      "mentegetőzés",
+      "önigazolás",
+      "kifogás",
+      "hibáztatás",
+      "másokra mutogatás"
+    ]
+  },
+  "hutlenseg": {
+    "name": "hűtlenség",
+    "forms": [
+      "hűtlen",
+      "megcsalás"
+    ]
+  },
+  "cinizmus": {
+    "name": "cinizmus",
+    "forms": [
+      "cinikus"
+    ]
+  },
+  "onsajnalat": {
+    "name": "önsajnálat",
+    "forms": [
+      "sajnálja magát",
+      "önsajnáló"
+    ]
+  },
+  "befolyasolhatosag": {
+    "name": "befolyásolhatóság",
+    "forms": [
+      "befolyásolható"
+    ]
+  },
+  "kishituseg": {
+    "name": "kishitűség",
+    "forms": [
+      "kishitű",
+      "önbizalomhiány",
+      "kisebbrendűségi érzés"
+    ]
+  },
+  "gyavasag": {
+    "name": "gyávaság",
+    "forms": [
+      "gyáva",
+      "beijedés",
+      "megfutamodás"
+    ]
+  },
+  "hatarozatlansag": {
+    "name": "határozatlanság",
+    "forms": [
+      "határozatlan",
+      "habozás",
+      "tétovázás",
+      "döntésképtelenség"
+    ]
+  },
+  "celtalansag": {
+    "name": "céltalanság",
+    "forms": [
+      "céltalan",
+      "sodródás",
+      "sodródik"
+    ]
+  },
+  "lanyhasag": {
+    "name": "lanyhaság",
+    "forms": [
+      "lanyha",
+      "langyosság",
+      "lagymatagság"
+    ]
+  },
+  "ridegseg": {
+    "name": "ridegség",
+    "forms": [
+      "rideg",
+      "hidegség",
+      "hűvösség"
+    ]
+  },
+  "elfogultsag": {
+    "name": "elfogultság",
+    "forms": [
+      "elfogult",
+      "részrehajlás",
+      "részrehajló"
+    ]
+  },
+  "passzivitas": {
+    "name": "passzivitás",
+    "forms": [
+      "passzív",
+      "tétlenség",
+      "tétlen"
+    ]
+  },
+  "tulerzekenyseg": {
+    "name": "túlérzékenység",
+    "forms": [
+      "túlérzékeny",
+      "érzékenykedés",
+      "sírósság"
+    ]
+  },
+  "szorongas": {
+    "name": "szorongás",
+    "forms": [
+      "szorongó",
+      "félelem",
+      "félősség"
+    ]
+  },
+  "alazatoskodas": {
+    "name": "alázatoskodás",
+    "forms": [
+      "alázatoskodó",
+      "megalázkodás",
+      "szervilizmus"
+    ]
+  },
+  "elkenyelmesedes": {
+    "name": "elkényelmesedés",
+    "forms": [
+      "kényelmesség",
+      "kényelmes",
+      "elpuhultság",
+      "elpuhult"
+    ]
+  },
+  "erzelgosseg": {
+    "name": "érzelgősség",
+    "forms": [
+      "érzelgős",
+      "szentimentalizmus"
+    ]
+  },
+  "halatlansag": {
+    "name": "hálátlanság",
+    "forms": [
+      "hálátlan"
+    ]
+  },
+  "iszakossag": {
+    "name": "iszákosság",
+    "forms": [
+      "ivászat",
+      "italozás",
+      "részegeskedés"
+    ]
+  },
+  "almodozas": {
+    "name": "álmodozás",
+    "forms": [
+      "álmodozó",
+      "ábrándozás",
+      "ábrándos"
+    ]
+  },
+  "panaszkodas": {
+    "name": "panaszkodás",
+    "forms": [
+      "panaszkodó",
+      "siránkozás",
+      "nyafogás"
+    ]
+  },
+  "megalkuvas": {
+    "name": "megalkuvás",
+    "forms": [
+      "megalkuvó",
+      "megalkuszik"
+    ]
+  },
+  "kapzsisag": {
+    "name": "kapzsiság",
+    "forms": [
+      "kapzsi",
+      "fösvénység",
+      "fösvény",
+      "zsugoriság",
+      "zsugori",
+      "fukarság",
+      "fukar"
+    ]
+  },
+  "merevseg": {
+    "name": "merevség",
+    "forms": [
+      "merev",
+      "rugalmatlanság",
+      "rugalmatlan",
+      "hajthatatlanság"
+    ]
+  },
+  "pesszimizmus": {
+    "name": "pesszimizmus",
+    "forms": [
+      "pesszimista",
+      "borúlátás",
+      "borúlátó"
+    ]
+  },
+  "halogatas": {
+    "name": "halogatás",
+    "forms": [
+      "halogat",
+      "halogató",
+      "odázás"
+    ]
+  },
+  "aggodalmaskodas": {
+    "name": "aggodalmaskodás",
+    "forms": [
+      "aggódás",
+      "aggódó",
+      "aggályoskodás",
+      "aggályos"
+    ]
+  },
+  "bizalmatlansag": {
+    "name": "bizalmatlanság",
+    "forms": [
+      "bizalmatlan",
+      "gyanakvás",
+      "gyanakvó"
+    ]
+  },
+  "zarkozottsag": {
+    "name": "zárkózottság",
+    "forms": [
+      "zárkózott",
+      "elzárkózás",
+      "magába fordulás"
+    ]
+  },
+  "ertetlenseg": {
+    "name": "értetlenség",
+    "forms": [
+      "értetlen",
+      "nehéz felfogás"
+    ]
+  },
+  "ugyetlenseg": {
+    "name": "ügyetlenség",
+    "forms": [
+      "ügyetlen",
+      "esetlenség",
+      "esetlen"
+    ]
+  },
+  "elegedetlenseg": {
+    "name": "elégedetlenség",
+    "forms": [
+      "elégedetlen",
+      "zsörtölődés",
+      "zsörtölődő"
+    ]
+  },
+  "kicsinyesseg": {
+    "name": "kicsinyesség",
+    "forms": [
+      "kicsinyes",
+      "szőrszálhasogatás"
+    ]
+  },
+  "haszonleses": {
+    "name": "haszonlesés",
+    "forms": [
+      "haszonleső",
+      "számítás",
+      "számító",
+      "anyagiasság",
+      "anyagias"
+    ]
+  },
+  "onzes": {
+    "name": "önzés",
+    "forms": [
+      "önző",
+      "önzőség"
+    ]
+  },
+  "szigorusag": {
+    "name": "szigorúság",
+    "forms": [
+      "szigorú",
+      "keménység másokkal"
+    ]
+  },
+  "maradisag": {
+    "name": "maradiság",
+    "forms": [
+      "maradi",
+      "begyöpösödés"
+    ]
+  },
+  "mogorvasag": {
+    "name": "mogorvaság",
+    "forms": [
+      "mogorva",
+      "morcosság",
+      "morcos",
+      "zsémbesség",
+      "rosszkedv"
+    ]
+  },
+  "elkeseredettseg": {
+    "name": "elkeseredettség",
+    "forms": [
+      "elkeseredett",
+      "reménytelenség",
+      "reménytelen"
+    ]
+  },
+  "ragaszkodas": {
+    "name": "ragaszkodás",
+    "forms": [
+      "birtoklási vágy",
+      "birtokló",
+      "kapaszkodás"
+    ]
+  },
+  "szuklatokoruseg": {
+    "name": "szűklátókörűség",
+    "forms": [
+      "szűklátókörű",
+      "korlátoltság",
+      "korlátolt"
+    ]
+  },
+  "nagylelkuseg": {
+    "name": "nagylelkűség",
+    "forms": [
+      "nagylelkű",
+      "bőkezűség",
+      "bőkezű",
+      "adakozás"
+    ]
+  },
+  "kezdemenyezokeszseg": {
+    "name": "kezdeményezőkészség",
+    "forms": [
+      "kezdeményező",
+      "kezdeményezés"
+    ]
+  },
+  "onbizalom": {
+    "name": "önbizalom",
+    "forms": [
+      "magabiztosság",
+      "magabiztos"
+    ]
+  },
+  "tettrekeszseg": {
+    "name": "tettrekészség",
+    "forms": [
+      "tettre kész",
+      "cselekvőkészség"
+    ]
+  },
+  "eletero": {
+    "name": "életerő",
+    "forms": [
+      "életkedv",
+      "vitalitás",
+      "energikusság",
+      "energikus"
+    ]
+  },
+  "nagyvonalusag": {
+    "name": "nagyvonalúság",
+    "forms": [
+      "nagyvonalú"
+    ]
+  },
+  "akaratero": {
+    "name": "akaraterő",
+    "forms": [
+      "erős akarat",
+      "akarat"
+    ]
+  },
+  "melegszivuseg": {
+    "name": "melegszívűség",
+    "forms": [
+      "melegszívű",
+      "szívmelegség"
+    ]
+  },
+  "hosiesseg": {
+    "name": "hősiesség",
+    "forms": [
+      "hős",
+      "hősies"
+    ]
+  },
+  "oszinteseg": {
+    "name": "őszinteség",
+    "forms": [
+      "őszinte",
+      "egyenesség",
+      "egyenes",
+      "nyíltság"
+    ]
+  },
+  "humor": {
+    "name": "humor",
+    "forms": [
+      "humoros",
+      "vicces",
+      "tréfásság"
+    ]
+  },
+  "segitokeszseg": {
+    "name": "segítőkészség",
+    "forms": [
+      "segítőkész",
+      "segítés"
+    ]
+  },
+  "kozlekenyseg": {
+    "name": "közlékenység",
+    "forms": [
+      "közlékeny",
+      "beszédesség"
+    ]
+  },
+  "nyitottsag": {
+    "name": "nyitottság",
+    "forms": [
+      "nyitott",
+      "érdeklődés",
+      "kíváncsiság"
+    ]
+  },
+  "figyelmesseg": {
+    "name": "figyelmesség",
+    "forms": [
+      "figyelmes",
+      "odafigyelés"
+    ]
+  },
+  "tapintat": {
+    "name": "tapintat",
+    "forms": [
+      "tapintatos",
+      "finomérzék"
+    ]
+  },
+  "furgeseg": {
+    "name": "fürgeség",
+    "forms": [
+      "fürge",
+      "gyorsaság",
+      "mozgékonyság"
+    ]
+  },
+  "konnyedseg": {
+    "name": "könnyedség",
+    "forms": [
+      "könnyed"
+    ]
+  },
+  "deru": {
+    "name": "derű",
+    "forms": [
+      "derűs"
+    ]
+  },
+  "tanulekonysag": {
+    "name": "tanulékonyság",
+    "forms": [
+      "tanulékony",
+      "tudásvágy"
+    ]
+  },
+  "lelemenyesseg": {
+    "name": "leleményesség",
+    "forms": [
+      "leleményes",
+      "ötletesség",
+      "ötletes"
+    ]
+  },
+  "kiegyensulyozottsag": {
+    "name": "kiegyensúlyozottság",
+    "forms": [
+      "kiegyensúlyozott",
+      "harmónia",
+      "belső egyensúly"
+    ]
+  },
+  "egyuttmukodes": {
+    "name": "együttműködés",
+    "forms": [
+      "együttműködő",
+      "csapatszellem"
+    ]
+  },
+  "bolcsesseg": {
+    "name": "bölcsesség",
+    "forms": [
+      "bölcs",
+      "belátás"
+    ]
+  },
+  "masok_szabadsaganak_tisztelete": {
+    "name": "mások szabadságának tisztelete",
+    "forms": [
+      "szabadságot ad",
+      "szabadságot adás",
+      "szabadon hagy",
+      "mások akaratának tisztelete"
+    ]
+  },
+  "hala": {
+    "name": "hála",
+    "forms": [
+      "hálás",
+      "hálaérzet"
+    ]
+  },
+  "joindulat": {
+    "name": "jóindulat",
+    "forms": [
+      "jóindulatú",
+      "jóakarat"
+    ]
+  },
+  "szelidseg": {
+    "name": "szelídség",
+    "forms": [
+      "szelíd"
+    ]
+  },
+  "szeretet": {
+    "name": "szeretet",
+    "forms": [
+      "szerető",
+      "szeretetteljesség",
+      "szeretetteljes"
+    ]
+  },
+  "megbocsatas": {
+    "name": "megbocsátás",
+    "forms": [
+      "megbocsátó",
+      "megbocsát"
+    ]
+  },
+  "bekulekenyseg": {
+    "name": "békülékenység",
+    "forms": [
+      "békülékeny",
+      "békeszeretet",
+      "békeszerető"
+    ]
+  },
+  "alazat": {
+    "name": "alázat",
+    "forms": [
+      "alázatosság",
+      "alázatos"
+    ]
+  },
+  "elfogadas": {
+    "name": "elfogadás",
+    "forms": [
+      "elfogadó",
+      "befogadás"
+    ]
+  },
+  "elnezes": {
+    "name": "elnézés",
+    "forms": [
+      "elnéző",
+      "elnézőség"
+    ]
+  },
+  "onzetlenseg": {
+    "name": "önzetlenség",
+    "forms": [
+      "önzetlen"
+    ]
+  },
+  "emberszeretet": {
+    "name": "emberszeretet",
+    "forms": [
+      "emberbarát",
+      "felebaráti szeretet"
+    ]
+  },
+  "megelegedettseg": {
+    "name": "megelégedettség",
+    "forms": [
+      "elégedettség",
+      "elégedett",
+      "megelégedés"
+    ]
+  },
+  "elengedes": {
+    "name": "elengedés",
+    "forms": [
+      "elenged"
+    ]
+  },
+  "remenyseg": {
+    "name": "reménység",
+    "forms": [
+      "remény",
+      "reménykedés",
+      "reményteli"
+    ]
+  },
+  "johiszemuseg": {
+    "name": "jóhiszeműség",
+    "forms": [
+      "jóhiszemű"
+    ]
+  },
+  "turelem": {
+    "name": "türelem",
+    "forms": [
+      "türelmes",
+      "béketűrés"
+    ]
+  },
+  "megbizhatosag": {
+    "name": "megbízhatóság",
+    "forms": [
+      "megbízható",
+      "szavahihetőség",
+      "szavahihető"
+    ]
+  },
+  "rendszeretet": {
+    "name": "rendszeretet",
+    "forms": [
+      "rendes",
+      "rendszerető",
+      "rendezettség",
+      "rend"
+    ]
+  },
+  "becsuletesseg": {
+    "name": "becsületesség",
+    "forms": [
+      "becsületes",
+      "tisztesség",
+      "tisztességes",
+      "becsület"
+    ]
+  },
+  "takarekossag": {
+    "name": "takarékosság",
+    "forms": [
+      "takarékos",
+      "beosztás",
+      "beosztó"
+    ]
+  },
+  "megbecsules": {
+    "name": "megbecsülés",
+    "forms": [
+      "megbecsül",
+      "értékelés"
+    ]
+  },
+  "diszkrecio": {
+    "name": "diszkréció",
+    "forms": [
+      "diszkrét",
+      "titoktartás",
+      "hallgatás"
+    ]
+  },
+  "onfegyelem": {
+    "name": "önfegyelem",
+    "forms": [
+      "fegyelmezettség",
+      "fegyelmezett",
+      "önuralom"
+    ]
+  },
+  "onbecsules": {
+    "name": "önbecsülés",
+    "forms": [
+      "méltóság",
+      "önérték"
+    ]
+  },
+  "huseg": {
+    "name": "hűség",
+    "forms": [
+      "hűséges"
+    ]
+  },
+  "egyszeruseg": {
+    "name": "egyszerűség",
+    "forms": [
+      "egyszerű"
+    ]
+  },
+  "gondossag": {
+    "name": "gondosság",
+    "forms": [
+      "gondos"
+    ]
+  },
+  "szilardsag": {
+    "name": "szilárdság",
+    "forms": [
+      "szilárd",
+      "rendíthetetlenség"
+    ]
+  },
+  "kotelessegtudat": {
+    "name": "kötelességtudat",
+    "forms": [
+      "kötelességtudó"
+    ]
+  },
+  "kovetkezetesseg": {
+    "name": "következetesség",
+    "forms": [
+      "következetes"
+    ]
+  },
+  "munkabiras": {
+    "name": "munkabírás",
+    "forms": [
+      "szívósság",
+      "szívós",
+      "teherbírás"
+    ]
+  },
+  "igazsagossag": {
+    "name": "igazságosság",
+    "forms": [
+      "igazságos",
+      "méltányosság",
+      "méltányos"
+    ]
+  },
+  "gyakorlatiassag": {
+    "name": "gyakorlatiasság",
+    "forms": [
+      "gyakorlatias",
+      "praktikus",
+      "realitásérzék"
+    ]
+  },
+  "tervszeruseg": {
+    "name": "tervszerűség",
+    "forms": [
+      "tervszerű",
+      "tervezés"
+    ]
+  }
+}
