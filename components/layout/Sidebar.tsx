@@ -50,10 +50,11 @@ export function Sidebar() {
     match: (path: string) => path === `/${locale}` || path === `/${locale}/`,
   };
 
-  // Profile, language and sign-out live in the header account menu
+  // Profile, settings and sign-out live in the header account menu
   const modules = [
     {
-      href: `/${locale}/modules/magia`,
+      // Opens on the daily practice; the module's own tabs lead on
+      href: `/${locale}/modules/magia/ma`,
       label: t('magia'),
       icon: ElementsNavIcon,
       match: (path: string) => path.includes('/modules/magia'),

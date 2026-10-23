@@ -15,20 +15,15 @@
     "languageSuggested": "Suggerite",
     "languageAll": "Tutte le lingue",
     "languageNoMatch": "Nessuna lingua trovata.",
-    "languageBack": "Torna al menu",
     "languageBeta": "beta",
-    "practice": "Pratica",
     "close": "Chiudi",
     "appearance": "Aspetto",
     "themeQuintessence": "Quintessence",
-    "themeHajnal": "Alba",
+    "themeHajnal": "Aurora",
     "themeSystem": "Automatico",
     "themeQuintessenceDesc": "Scuro e cosmico — l'originale",
     "themeHajnalDesc": "Chiaro, pergamena calda",
     "themeSystemDesc": "Segue le impostazioni del dispositivo",
-    "themeQuintessenceShort": "scuro",
-    "themeHajnalShort": "chiaro",
-    "themeSystemShort": "come il sistema",
     "settings": "Impostazioni"
   },
   "auth": {
@@ -340,7 +335,11 @@
     "exportHtml": "Riepilogo leggibile",
     "exportHtmlHint": "HTML — si apre nel browser, stampabile in PDF",
     "exportJson": "Pacchetto dati completo",
-    "exportJsonHint": "JSON — per l'elaborazione automatica"
+    "exportJsonHint": "JSON — per l'elaborazione automatica",
+    "practiceTitle": "Durante la pratica",
+    "practiceHint": "Vale per questo dispositivo.",
+    "practiceGong": "Gong alla fine della pratica",
+    "practiceVibrate": "Vibrazione"
   },
   "brand": {
     "name": "Quintessence",
@@ -468,7 +467,8 @@
     "nameApprovedTitle": "La modifica del nome è stata approvata",
     "nameApprovedBody": "Il tuo nuovo nome: {name}",
     "nameRejectedTitle": "La modifica del nome non è stata approvata",
-    "nameRejectedBody": "Il tuo nome resta invariato. Per domande, contatta l'amministratore."
+    "nameRejectedBody": "Il tuo nome resta invariato. Per domande, contatta l'amministratore.",
+    "settings": "Impostazioni notifiche"
   },
   "invites": {
     "title": "Inviti",
@@ -549,7 +549,7 @@
   "feherMagia": {
     "tabs": {
       "ma": "Pratica",
-      "tukor": "Specchio",
+      "tukor": "Specchio dell’anima",
       "utam": "Gradi"
     },
     "header": {
@@ -805,7 +805,7 @@
       "changeUp": "più forte che nel ciclo precedente",
       "changeDown": "più debole che nel ciclo precedente",
       "banner": "I tuoi 14 giorni sono completi: guarda i tuoi due specchi dell’anima.",
-      "bannerLink": "Vai allo Specchio",
+      "bannerLink": "Vai allo Specchio dell’anima",
       "saveError": "Salvataggio non riuscito. Riprova.",
       "countdown": "{left, plural, one {Ancora # sera} other {Ancora # sere}} ai tuoi due specchi dell’anima"
     },
@@ -835,12 +835,14 @@
       "opens2": "Si apre quando tutti i requisiti del Grado I sono soddisfatti.",
       "opens3": "Si apre dopo i due cicli di lavoro di 14 giorni del Grado II.",
       "locked": "chiuso",
-      "source": "Fonte: {source}"
+      "source": "Fonte: {source}",
+      "reminders": "Promemoria",
+      "remindersHint": "mattina e sera"
     },
     "dashboard": {
       "note": "+ Nota",
       "gate": "Leggi la Porta",
-      "cycleReady": "I tuoi 14 giorni sono completi: i tuoi due specchi dell’anima sono nella scheda Specchio",
+      "cycleReady": "I tuoi 14 giorni sono completi: i tuoi due specchi dell’anima sono nella scheda Specchio dell’anima",
       "parts": {
         "reggel": "mattina",
         "napkozben": "durante il giorno",

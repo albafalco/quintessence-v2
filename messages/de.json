@@ -15,20 +15,15 @@
     "languageSuggested": "Vorgeschlagen",
     "languageAll": "Alle Sprachen",
     "languageNoMatch": "Keine passende Sprache.",
-    "languageBack": "Zurück zum Menü",
     "languageBeta": "Beta",
-    "practice": "Übung",
     "close": "Schließen",
     "appearance": "Darstellung",
     "themeQuintessence": "Quintessence",
-    "themeHajnal": "Morgenrot",
+    "themeHajnal": "Aurora",
     "themeSystem": "Automatisch",
     "themeQuintessenceDesc": "Dunkel und kosmisch — das Original",
     "themeHajnalDesc": "Hell, warmes Pergament",
     "themeSystemDesc": "Folgt der Geräteeinstellung",
-    "themeQuintessenceShort": "dunkel",
-    "themeHajnalShort": "hell",
-    "themeSystemShort": "wie System",
     "settings": "Einstellungen"
   },
   "auth": {
@@ -340,7 +335,11 @@
     "exportHtml": "Lesbare Zusammenfassung",
     "exportHtmlHint": "HTML — im Browser öffnen, als PDF druckbar",
     "exportJson": "Vollständiges Datenpaket",
-    "exportJsonHint": "JSON — zur maschinellen Verarbeitung"
+    "exportJsonHint": "JSON — zur maschinellen Verarbeitung",
+    "practiceTitle": "Während der Übung",
+    "practiceHint": "Gilt für dieses Gerät.",
+    "practiceGong": "Gong am Ende einer Übung",
+    "practiceVibrate": "Vibration"
   },
   "brand": {
     "name": "Quintessence",
@@ -468,7 +467,8 @@
     "nameApprovedTitle": "Deine Namensänderung wurde genehmigt",
     "nameApprovedBody": "Dein neuer Name: {name}",
     "nameRejectedTitle": "Deine Namensänderung wurde nicht genehmigt",
-    "nameRejectedBody": "Dein Name bleibt unverändert. Bei Fragen wende dich an den Administrator."
+    "nameRejectedBody": "Dein Name bleibt unverändert. Bei Fragen wende dich an den Administrator.",
+    "settings": "Benachrichtigungseinstellungen"
   },
   "invites": {
     "title": "Einladungen",
@@ -549,7 +549,7 @@
   "feherMagia": {
     "tabs": {
       "ma": "Übung",
-      "tukor": "Spiegel",
+      "tukor": "Seelenspiegel",
       "utam": "Grade"
     },
     "header": {
@@ -805,7 +805,7 @@
       "changeUp": "stärker als im vorigen Zyklus",
       "changeDown": "schwächer als im vorigen Zyklus",
       "banner": "Deine 14 Tage sind vollständig: Sieh dir deine beiden Seelenspiegel an.",
-      "bannerLink": "Weiter zum Spiegel",
+      "bannerLink": "Weiter zum Seelenspiegel",
       "saveError": "Speichern fehlgeschlagen. Bitte versuche es noch einmal.",
       "countdown": "Noch {left, plural, one {# Abend} other {# Abende}} bis zu deinen zwei Seelenspiegeln"
     },
@@ -835,12 +835,14 @@
       "opens2": "Öffnet sich, wenn alle Voraussetzungen des I. Grades erfüllt sind.",
       "opens3": "Öffnet sich nach den zwei 14-tägigen Arbeitszyklen des II. Grades.",
       "locked": "gesperrt",
-      "source": "Quelle: {source}"
+      "source": "Quelle: {source}",
+      "reminders": "Erinnerungen",
+      "remindersHint": "morgens und abends"
     },
     "dashboard": {
       "note": "+ Notiz",
       "gate": "Das Tor lesen",
-      "cycleReady": "Deine 14 Tage sind vollständig: Deine beiden Seelenspiegel findest du im Tab Spiegel",
+      "cycleReady": "Deine 14 Tage sind vollständig: Deine beiden Seelenspiegel findest du im Tab Seelenspiegel",
       "parts": {
         "reggel": "morgens",
         "napkozben": "tagsüber",

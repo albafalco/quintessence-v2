@@ -15,20 +15,15 @@
     "languageSuggested": "Suggested",
     "languageAll": "All languages",
     "languageNoMatch": "No matching language.",
-    "languageBack": "Back to the menu",
     "languageBeta": "beta",
-    "practice": "Practice",
     "close": "Close",
     "appearance": "Appearance",
     "themeQuintessence": "Quintessence",
-    "themeHajnal": "Dawn",
+    "themeHajnal": "Aurora",
     "themeSystem": "Automatic",
     "themeQuintessenceDesc": "Dark and cosmic — the original",
     "themeHajnalDesc": "Light, warm parchment",
     "themeSystemDesc": "Follows your device setting",
-    "themeQuintessenceShort": "dark",
-    "themeHajnalShort": "light",
-    "themeSystemShort": "follows system",
     "settings": "Settings"
   },
   "auth": {
@@ -340,7 +335,11 @@
     "exportHtml": "Readable summary",
     "exportHtmlHint": "HTML — opens in a browser, can be printed to PDF",
     "exportJson": "Complete data package",
-    "exportJsonHint": "JSON — for machine processing"
+    "exportJsonHint": "JSON — for machine processing",
+    "practiceTitle": "During practice",
+    "practiceHint": "Applies to this device.",
+    "practiceGong": "Gong at the end of a practice",
+    "practiceVibrate": "Vibration"
   },
   "brand": {
     "name": "Quintessence",
@@ -469,7 +468,8 @@
     "nameApprovedTitle": "Your name change was approved",
     "nameApprovedBody": "Your new name: {name}",
     "nameRejectedTitle": "Your name change was not approved",
-    "nameRejectedBody": "Your name stays the same. If you have questions, contact the administrator."
+    "nameRejectedBody": "Your name stays the same. If you have questions, contact the administrator.",
+    "settings": "Notification settings"
   },
   "invites": {
     "title": "Invitations",
@@ -550,7 +550,7 @@
   "feherMagia": {
     "tabs": {
       "ma": "Practice",
-      "tukor": "Mirror",
+      "tukor": "Soul Mirror",
       "utam": "Grades"
     },
     "header": {
@@ -806,7 +806,7 @@
       "changeUp": "stronger than in the previous cycle",
       "changeDown": "weaker than in the previous cycle",
       "banner": "Your 14 days are complete: look at your two soul mirrors.",
-      "bannerLink": "On to the Mirror",
+      "bannerLink": "On to the Soul Mirror",
       "saveError": "Could not save. Please try again.",
       "countdown": "{left, plural, one {# more evening} other {# more evenings}} until your two soul mirrors"
     },
@@ -836,12 +836,14 @@
       "opens2": "Opens when every condition of Grade I is met.",
       "opens3": "Opens after the two 14-day work cycles of Grade II.",
       "locked": "locked",
-      "source": "Source: {source}"
+      "source": "Source: {source}",
+      "reminders": "Reminders",
+      "remindersHint": "morning and evening"
     },
     "dashboard": {
       "note": "+ Note",
       "gate": "Read the Gate",
-      "cycleReady": "Your 14 days are complete: your two soul mirrors are on the Mirror tab",
+      "cycleReady": "Your 14 days are complete: your two soul mirrors are on the Soul Mirror tab",
       "parts": {
         "reggel": "morning",
         "napkozben": "during the day",

@@ -15,20 +15,15 @@
     "languageSuggested": "Javasolt",
     "languageAll": "Összes nyelv",
     "languageNoMatch": "Nincs ilyen nyelv.",
-    "languageBack": "Vissza a menübe",
     "languageBeta": "béta",
-    "practice": "Gyakorlás",
     "close": "Bezárás",
     "appearance": "Megjelenés",
     "themeQuintessence": "Quintessence",
-    "themeHajnal": "Hajnal",
+    "themeHajnal": "Aurora",
     "themeSystem": "Automatikus",
     "themeQuintessenceDesc": "Sötét, kozmikus — az alap",
     "themeHajnalDesc": "Világos, meleg pergamen",
     "themeSystemDesc": "A készülék beállítását követi",
-    "themeQuintessenceShort": "sötét",
-    "themeHajnalShort": "világos",
-    "themeSystemShort": "rendszer szerint",
     "settings": "Beállítások"
   },
   "auth": {
@@ -340,7 +335,11 @@
     "exportHtml": "Olvasható összefoglaló",
     "exportHtmlHint": "HTML — böngészőben megnyitható, PDF-be nyomtatható",
     "exportJson": "Teljes adatcsomag",
-    "exportJsonHint": "JSON — gépi feldolgozásra"
+    "exportJsonHint": "JSON — gépi feldolgozásra",
+    "practiceTitle": "Gyakorlás közben",
+    "practiceHint": "Ezen az eszközön érvényes.",
+    "practiceGong": "Gong a gyakorlat végén",
+    "practiceVibrate": "Rezgés"
   },
   "brand": {
     "name": "Quintessence",
@@ -469,7 +468,8 @@
     "nameApprovedTitle": "A névváltoztatásod jóváhagyva",
     "nameApprovedBody": "Az új neved: {name}",
     "nameRejectedTitle": "A névváltoztatásod nem lett jóváhagyva",
-    "nameRejectedBody": "A neved nem változott. Ha kérdésed van, fordulj az adminisztrátorhoz."
+    "nameRejectedBody": "A neved nem változott. Ha kérdésed van, fordulj az adminisztrátorhoz.",
+    "settings": "Értesítési beállítások"
   },
   "invites": {
     "title": "Meghívások",
@@ -550,7 +550,7 @@
   "feherMagia": {
     "tabs": {
       "ma": "Gyakorlás",
-      "tukor": "Tükör",
+      "tukor": "Lelki tükör",
       "utam": "Fokozatok"
     },
     "header": {
@@ -807,7 +807,7 @@
       "changeUp": "erősebb, mint az előző ciklusban",
       "changeDown": "gyengébb, mint az előző ciklusban",
       "banner": "Elkészült a 14 napod: nézd meg a két lélektükrödet.",
-      "bannerLink": "Tovább a Tükörhöz",
+      "bannerLink": "Tovább a Lelki tükörhöz",
       "saveError": "Nem sikerült menteni. Próbáld újra."
     },
     "utam": {
@@ -836,12 +836,14 @@
       "opens2": "Akkor nyílik meg, ha az I. fokozat minden feltétele teljesül.",
       "opens3": "A II. fokozat két 14 napos munkaciklusa után nyílik meg.",
       "locked": "zárva",
-      "source": "Forrás: {source}"
+      "source": "Forrás: {source}",
+      "reminders": "Emlékeztetők",
+      "remindersHint": "reggel és este"
     },
     "dashboard": {
       "note": "+ Észrevétel",
       "gate": "A Kapu elolvasása",
-      "cycleReady": "Elkészült a 14 napod: a két lélektükröd a Tükör fülön",
+      "cycleReady": "Elkészült a 14 napod: a két lélektükröd a Lelki tükör fülön",
       "parts": {
         "reggel": "reggel",
         "napkozben": "napközben",

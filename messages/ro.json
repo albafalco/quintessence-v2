@@ -15,20 +15,15 @@
     "languageSuggested": "Sugerate",
     "languageAll": "Toate limbile",
     "languageNoMatch": "Nicio limbă găsită.",
-    "languageBack": "Înapoi la meniu",
     "languageBeta": "beta",
-    "practice": "Practică",
     "close": "Închide",
     "appearance": "Aspect",
     "themeQuintessence": "Quintessence",
-    "themeHajnal": "Zori",
+    "themeHajnal": "Aurora",
     "themeSystem": "Automat",
     "themeQuintessenceDesc": "Întunecat și cosmic — originalul",
     "themeHajnalDesc": "Luminos, pergament cald",
     "themeSystemDesc": "Urmează setarea dispozitivului",
-    "themeQuintessenceShort": "întunecat",
-    "themeHajnalShort": "luminos",
-    "themeSystemShort": "după sistem",
     "settings": "Setări"
   },
   "auth": {
@@ -216,7 +211,11 @@
     "exportHtml": "Rezumat lizibil",
     "exportHtmlHint": "HTML — se deschide în browser, se poate tipări ca PDF",
     "exportJson": "Pachet complet de date",
-    "exportJsonHint": "JSON — pentru procesare automată"
+    "exportJsonHint": "JSON — pentru procesare automată",
+    "practiceTitle": "În timpul practicii",
+    "practiceHint": "Se aplică acestui dispozitiv.",
+    "practiceGong": "Gong la finalul practicii",
+    "practiceVibrate": "Vibrație"
   },
   "brand": {
     "name": "Quintessence",
@@ -344,7 +343,8 @@
     "nameApprovedTitle": "Schimbarea numelui a fost aprobată",
     "nameApprovedBody": "Noul tău nume: {name}",
     "nameRejectedTitle": "Schimbarea numelui nu a fost aprobată",
-    "nameRejectedBody": "Numele tău rămâne neschimbat. Dacă ai întrebări, contactează administratorul."
+    "nameRejectedBody": "Numele tău rămâne neschimbat. Dacă ai întrebări, contactează administratorul.",
+    "settings": "Setări notificări"
   },
   "invites": {
     "title": "Invitații",
@@ -425,7 +425,7 @@
   "feherMagia": {
     "tabs": {
       "ma": "Practică",
-      "tukor": "Oglindă",
+      "tukor": "Oglinda sufletului",
       "utam": "Trepte"
     },
     "header": {
@@ -681,7 +681,7 @@
       "changeUp": "mai puternic decât în ciclul anterior",
       "changeDown": "mai slab decât în ciclul anterior",
       "banner": "Cele 14 zile ale tale sunt complete: privește cele două oglinzi ale sufletului tău.",
-      "bannerLink": "Spre Oglindă",
+      "bannerLink": "Spre Oglinda sufletului",
       "saveError": "Salvarea nu a reușit. Încearcă din nou.",
       "countdown": "{left, plural, one {Încă # seară} few {Încă # seri} other {Încă # de seri}} până la cele două oglinzi ale sufletului"
     },
@@ -711,12 +711,14 @@
       "opens2": "Se deschide când toate condițiile Treptei I sunt îndeplinite.",
       "opens3": "Se deschide după cele două cicluri de lucru de 14 zile ale Treptei II.",
       "locked": "închis",
-      "source": "Sursa: {source}"
+      "source": "Sursa: {source}",
+      "reminders": "Mementouri",
+      "remindersHint": "dimineața și seara"
     },
     "dashboard": {
       "note": "+ Notiță",
       "gate": "Citește Poarta",
-      "cycleReady": "Cele 14 zile ale tale sunt complete: cele două oglinzi ale sufletului tău sunt în fila Oglindă",
+      "cycleReady": "Cele 14 zile ale tale sunt complete: cele două oglinzi ale sufletului tău sunt în fila Oglinda sufletului",
       "parts": {
         "reggel": "dimineața",
         "napkozben": "în timpul zilei",

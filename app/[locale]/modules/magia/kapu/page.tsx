@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { createClient } from '@/lib/supabase/server';
+import { DEFAULT_MAGIA_EVENING_PUSH_TIME, DEFAULT_MAGIA_PUSH_TIME } from '@/lib/locale-meta';
 import { loadFeherMagia } from '@/lib/i18n-content';
 import { loadPath } from '@/lib/magia/store';
 import type { Locale } from '@/i18n';
@@ -53,8 +54,8 @@ export default async function KapuPage({ params }: { params: Promise<{ locale: s
         source={content.source}
         timeQuote={content.gate.timeQuote}
         readOnly={Boolean(path?.gate_read_at)}
-        initialMorning={profile?.push_magia_time ?? '06:30'}
-        initialEvening={profile?.push_magia_evening_time ?? '21:30'}
+        initialMorning={profile?.push_magia_time ?? DEFAULT_MAGIA_PUSH_TIME}
+        initialEvening={profile?.push_magia_evening_time ?? DEFAULT_MAGIA_EVENING_PUSH_TIME}
         initialReminder={Boolean(profile?.push_enabled && profile?.push_magia_reminders)}
         previousMinutes={path?.gate_read_at ? null : previousMinutes}
       />

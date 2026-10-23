@@ -21,7 +21,8 @@ export async function MagiaTabs({ locale, active }: { locale: string; active: Ta
           href={tab.href}
           aria-current={active === tab.id ? 'page' : undefined}
           className={cn(
-            'flex-1 rounded-xl px-3 py-2 text-center text-sm font-semibold transition',
+            // A longer name (e.g. "Specchio dell’anima") wraps on a phone; the others stay centred
+            'flex min-h-9 flex-1 items-center justify-center rounded-xl px-2 py-1.5 text-center text-sm font-semibold leading-tight transition sm:px-3',
             active === tab.id ? 'bg-accent/15 text-accent shadow-glow-gold' : 'text-muted-foreground hover:text-cream'
           )}
         >

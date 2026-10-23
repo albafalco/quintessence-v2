@@ -21,6 +21,27 @@ function audio(): AudioContext | null {
   }
 }
 
+/** The practice sounds can be switched off per device (Settings → Notifications) */
+export type PracticePref = 'gong' | 'vibrate';
+const PREF_KEY: Record<PracticePref, string> = { gong: 'quintessence-practice-gong', vibrate: 'quintessence-practice-vibrate' };
+
+export function getPracticePref(pref: PracticePref): boolean {
+  try {
+    return localStorage.getItem(PREF_KEY[pref]) !== 'off';
+  } catch {
+    return true;
+  }
+}
+
+export function setPracticePref(pref: PracticePref, on: boolean): void {
+  try {
+    if (on) localStorage.removeItem(PREF_KEY[pref]);
+    else localStorage.setItem(PREF_KEY[pref], 'off');
+  } catch {
+    // storage blocked: the default (on) stays
+  }
+}
+
 export function unlock(): void {
   void audio()?.resume().catch(() => {});
 }
@@ -64,6 +85,7 @@ function strike(c: AudioContext, at: number, volume: number): OscillatorNode[] {
 
 /** The end of a practice, now or `inSec` seconds later on the audio clock (it sounds even while rendering is paused): one strike. */
 export function endSound(inSec = 0): ScheduledSound | null {
+  if (!getPracticePref('gong')) return null;
   const c = audio();
   if (!c) return null;
   const at = c.currentTime + Math.max(0, inSec);
@@ -106,6 +128,7 @@ export function tick(): void {
 }
 
 export function vibrate(pattern: number | number[]): void {
+  if (!getPracticePref('vibrate')) return;
   try {
     navigator.vibrate?.(pattern);
   } catch {

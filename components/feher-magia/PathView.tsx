@@ -163,6 +163,14 @@ export async function PathView({ locale, data, content }: { locale: string; data
           <p className="text-xs text-muted-foreground">{t('utravaloHint')}</p>
         </div>
         <UtravaloShelf locale={locale} items={shelf} source={content.source} />
+        {/* The morning and evening reminder times (first set at the Gate) */}
+        <Link
+          href={`/${locale}/beallitasok#emlekeztetok`}
+          className="flex items-center justify-between gap-3 rounded-xl border border-border/40 px-4 py-3 text-sm text-cream transition hover:border-accent/30 hover:text-accent"
+        >
+          <span>{t('reminders')}</span>
+          <span className="text-xs text-muted-foreground">{t('remindersHint')} ›</span>
+        </Link>
       </section>
 
       {/* The II. and III. fokozat: a closed preview */}

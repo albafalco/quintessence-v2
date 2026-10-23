@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { SettingsForm } from '@/components/settings/SettingsForm';
 import { hasModuleAccess } from '@/lib/module-access';
 import { formatFullName, nextNameChangeAt } from '@/lib/person-name';
+import { DEFAULT_MAGIA_EVENING_PUSH_TIME, DEFAULT_MAGIA_PUSH_TIME } from '@/lib/locale-meta';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -48,9 +49,9 @@ export default async function SettingsPage({ params }: { params: Promise<{ local
           preferred_language: profile.preferred_language,
           push_enabled: profile.push_enabled ?? false,
           push_magia_reminders: profile.push_magia_reminders ?? true,
-          push_magia_time: profile.push_magia_time ?? '08:00',
+          push_magia_time: profile.push_magia_time ?? DEFAULT_MAGIA_PUSH_TIME,
           push_magia_evening: profile.push_magia_evening ?? true,
-          push_magia_evening_time: profile.push_magia_evening_time ?? '19:00',
+          push_magia_evening_time: profile.push_magia_evening_time ?? DEFAULT_MAGIA_EVENING_PUSH_TIME,
           push_magia_streak: profile.push_magia_streak ?? true,
           push_magia_streak_time: profile.push_magia_streak_time ?? '20:30',
           push_magia_reengagement: profile.push_magia_reengagement ?? true,

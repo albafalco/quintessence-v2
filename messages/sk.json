@@ -15,20 +15,15 @@
     "languageSuggested": "Navrhované",
     "languageAll": "Všetky jazyky",
     "languageNoMatch": "Žiadny zodpovedajúci jazyk.",
-    "languageBack": "Späť do menu",
     "languageBeta": "beta",
-    "practice": "Cvičenie",
     "close": "Zavrieť",
     "appearance": "Vzhľad",
     "themeQuintessence": "Quintessence",
-    "themeHajnal": "Úsvit",
+    "themeHajnal": "Aurora",
     "themeSystem": "Automaticky",
     "themeQuintessenceDesc": "Tmavý a kozmický — pôvodný",
     "themeHajnalDesc": "Svetlý, teplý pergamen",
     "themeSystemDesc": "Riadi sa nastavením zariadenia",
-    "themeQuintessenceShort": "tmavý",
-    "themeHajnalShort": "svetlý",
-    "themeSystemShort": "podľa systému",
     "settings": "Nastavenia"
   },
   "auth": {
@@ -216,7 +211,11 @@
     "exportHtml": "Čitateľný súhrn",
     "exportHtmlHint": "HTML — otvorí sa v prehliadači, dá sa vytlačiť do PDF",
     "exportJson": "Úplný balík údajov",
-    "exportJsonHint": "JSON — na strojové spracovanie"
+    "exportJsonHint": "JSON — na strojové spracovanie",
+    "practiceTitle": "Počas cvičenia",
+    "practiceHint": "Platí pre toto zariadenie.",
+    "practiceGong": "Gong na konci cvičenia",
+    "practiceVibrate": "Vibrácie"
   },
   "brand": {
     "name": "Quintessence",
@@ -344,7 +343,8 @@
     "nameApprovedTitle": "Tvoja zmena mena bola schválená",
     "nameApprovedBody": "Tvoje nové meno: {name}",
     "nameRejectedTitle": "Tvoja zmena mena nebola schválená",
-    "nameRejectedBody": "Tvoje meno zostáva bez zmeny. Ak máš otázky, obráť sa na administrátora."
+    "nameRejectedBody": "Tvoje meno zostáva bez zmeny. Ak máš otázky, obráť sa na administrátora.",
+    "settings": "Nastavenia upozornení"
   },
   "invites": {
     "title": "Pozvánky",
@@ -425,7 +425,7 @@
   "feherMagia": {
     "tabs": {
       "ma": "Cvičenie",
-      "tukor": "Zrkadlo",
+      "tukor": "Zrkadlo duše",
       "utam": "Stupne"
     },
     "header": {
@@ -681,7 +681,7 @@
       "changeUp": "silnejšie ako v predchádzajúcom cykle",
       "changeDown": "slabšie ako v predchádzajúcom cykle",
       "banner": "Tvojich 14 dní je za tebou: pozri si svoje dve zrkadlá duše.",
-      "bannerLink": "Na Zrkadlo",
+      "bannerLink": "Na Zrkadlo duše",
       "saveError": "Uloženie sa nepodarilo. Skús to znova.",
       "countdown": "Ešte {left, plural, one {# večer} few {# večery} other {# večerov}} do tvojich dvoch zrkadiel duše"
     },
@@ -711,12 +711,14 @@
       "opens2": "Otvorí sa, keď budú splnené všetky podmienky I. stupňa.",
       "opens3": "Otvorí sa po dvoch 14-dňových pracovných cykloch II. stupňa.",
       "locked": "zamknuté",
-      "source": "Zdroj: {source}"
+      "source": "Zdroj: {source}",
+      "reminders": "Pripomienky",
+      "remindersHint": "ráno a večer"
     },
     "dashboard": {
       "note": "+ Postreh",
       "gate": "Prečítať Bránu",
-      "cycleReady": "Tvojich 14 dní je za tebou: tvoje dve zrkadlá duše sú na karte Zrkadlo",
+      "cycleReady": "Tvojich 14 dní je za tebou: tvoje dve zrkadlá duše sú na karte Zrkadlo duše",
       "parts": {
         "reggel": "ráno",
         "napkozben": "počas dňa",

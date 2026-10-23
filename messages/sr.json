@@ -15,20 +15,15 @@
     "languageSuggested": "Predloženi",
     "languageAll": "Svi jezici",
     "languageNoMatch": "Nema odgovarajućeg jezika.",
-    "languageBack": "Nazad u meni",
     "languageBeta": "beta",
-    "practice": "Vežba",
     "close": "Zatvori",
     "appearance": "Izgled",
     "themeQuintessence": "Quintessence",
-    "themeHajnal": "Zora",
+    "themeHajnal": "Aurora",
     "themeSystem": "Automatski",
     "themeQuintessenceDesc": "Tamno i kosmičko — original",
     "themeHajnalDesc": "Svetlo, topli pergament",
     "themeSystemDesc": "Prati podešavanje uređaja",
-    "themeQuintessenceShort": "tamno",
-    "themeHajnalShort": "svetlo",
-    "themeSystemShort": "prema sistemu",
     "settings": "Podešavanja"
   },
   "auth": {
@@ -216,7 +211,11 @@
     "exportHtml": "Čitljiv pregled",
     "exportHtmlHint": "HTML — otvara se u pregledaču, može se odštampati u PDF",
     "exportJson": "Kompletan paket podataka",
-    "exportJsonHint": "JSON — za mašinsku obradu"
+    "exportJsonHint": "JSON — za mašinsku obradu",
+    "practiceTitle": "Tokom vežbe",
+    "practiceHint": "Važi za ovaj uređaj.",
+    "practiceGong": "Gong na kraju vežbe",
+    "practiceVibrate": "Vibracija"
   },
   "brand": {
     "name": "Quintessence",
@@ -344,7 +343,8 @@
     "nameApprovedTitle": "Promena imena je odobrena",
     "nameApprovedBody": "Tvoje novo ime: {name}",
     "nameRejectedTitle": "Promena imena nije odobrena",
-    "nameRejectedBody": "Tvoje ime ostaje isto. Ako imaš pitanja, obrati se administratoru."
+    "nameRejectedBody": "Tvoje ime ostaje isto. Ako imaš pitanja, obrati se administratoru.",
+    "settings": "Podešavanja obaveštenja"
   },
   "invites": {
     "title": "Pozivnice",
@@ -425,7 +425,7 @@
   "feherMagia": {
     "tabs": {
       "ma": "Vežbanje",
-      "tukor": "Ogledalo",
+      "tukor": "Ogledalo duše",
       "utam": "Stepeni"
     },
     "header": {
@@ -681,7 +681,7 @@
       "changeUp": "jače nego u prethodnom ciklusu",
       "changeDown": "slabije nego u prethodnom ciklusu",
       "banner": "Tvojih 14 dana je za tobom: pogledaj svoja dva ogledala duše.",
-      "bannerLink": "Na Ogledalo",
+      "bannerLink": "Na Ogledalo duše",
       "saveError": "Čuvanje nije uspelo. Pokušaj ponovo.",
       "countdown": "Još {left, plural, one {# veče} few {# večeri} other {# večeri}} do tvoja dva ogledala duše"
     },
@@ -711,12 +711,14 @@
       "opens2": "Otvara se kada se ispune svi uslovi I stepena.",
       "opens3": "Otvara se posle dva radna ciklusa od 14 dana na II stepenu.",
       "locked": "zaključano",
-      "source": "Izvor: {source}"
+      "source": "Izvor: {source}",
+      "reminders": "Podsetnici",
+      "remindersHint": "ujutru i uveče"
     },
     "dashboard": {
       "note": "+ Zapažanje",
       "gate": "Pročitaj Kapiju",
-      "cycleReady": "Tvojih 14 dana je za tobom: tvoja dva ogledala duše su na kartici Ogledalo",
+      "cycleReady": "Tvojih 14 dana je za tobom: tvoja dva ogledala duše su na kartici Ogledalo duše",
       "parts": {
         "reggel": "ujutru",
         "napkozben": "tokom dana",

@@ -26,6 +26,7 @@ import { cn } from '@/lib/utils';
 import { useSwitchLocale } from '@/components/layout/useSwitchLocale';
 import { NameCard, type PendingNameChange } from '@/components/profile/NameCard';
 import { ThemeTiles } from '@/components/layout/ThemePicker';
+import { getPracticePref, setPracticePref, type PracticePref } from '@/components/feher-magia/sound';
 
 interface SettingsData {
   id: string;
@@ -104,6 +105,42 @@ function ReminderRow({ label, description, checked, onCheckedChange, time, onTim
   );
 }
 
+/** The gong and the vibration of the practices: stored on this device only */
+function PracticeSoundsCard() {
+  const t = useTranslations('profile');
+  const [prefs, setPrefs] = useState<Record<PracticePref, boolean>>({ gong: true, vibrate: true });
+
+  // localStorage exists only in the browser
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setPrefs({ gong: getPracticePref('gong'), vibrate: getPracticePref('vibrate') }));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  const change = (pref: PracticePref) => (on: boolean) => {
+    setPracticePref(pref, on);
+    setPrefs((prev) => ({ ...prev, [pref]: on }));
+  };
+
+  return (
+    <Card className="premium-card">
+      <CardHeader>
+        <CardTitle className="text-gradient-gold">{t('practiceTitle')}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p className="mb-2 text-xs text-muted-foreground">{t('practiceHint')}</p>
+        <div className="divide-y divide-border/30">
+          {(['gong', 'vibrate'] as const).map((pref) => (
+            <label key={pref} className="flex cursor-pointer items-center gap-3 py-2.5">
+              <span className="min-w-0 flex-1 text-sm text-cream">{t(pref === 'gong' ? 'practiceGong' : 'practiceVibrate')}</span>
+              <Switch checked={prefs[pref]} onCheckedChange={change(pref)} />
+            </label>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export function SettingsForm({
   profile,
   angolAccess = false,
@@ -123,7 +160,7 @@ export function SettingsForm({
   const switchLocale = useSwitchLocale();
   const supabase = createClient();
 
-  const [section, setSection] = useState<Section>('account');
+  const [section, setSection] = useState<Section>('reminders');
 
   // Deep links (#emlekeztetok …) and the browser back button
   useEffect(() => {
@@ -264,9 +301,9 @@ export function SettingsForm({
   };
 
   const SECTIONS: { id: Section; label: string; icon: LucideIcon }[] = [
-    { id: 'account', label: t('tabAccount'), icon: UserRound },
-    { id: 'appearance', label: t('tabAppearance'), icon: Palette },
     { id: 'reminders', label: t('tabNotifications'), icon: Bell },
+    { id: 'appearance', label: t('tabAppearance'), icon: Palette },
+    { id: 'account', label: t('tabAccount'), icon: UserRound },
     { id: 'data', label: t('tabData'), icon: Database },
   ];
 
@@ -315,80 +352,83 @@ export function SettingsForm({
 
       <div key={section} className="min-w-0 animate-fade-up space-y-6 motion-reduce:animate-none">
         {section === 'reminders' && (
-          <Card className="premium-card">
-            <CardContent ref={notificationsRef} className="space-y-1 pt-6">
-              <PushToggle enabled={pushEnabled} onEnabledChange={setPushEnabled} label={t('pushEnabled')} />
+          <>
+            <Card className="premium-card">
+              <CardContent ref={notificationsRef} className="space-y-1 pt-6">
+                <PushToggle enabled={pushEnabled} onEnabledChange={setPushEnabled} label={t('pushEnabled')} />
 
-              {pushEnabled && (
-                <>
-                  <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">{t('magiaNotificationsTitle')}</p>
-                  <div className="divide-y divide-border/30">
-                    <ReminderRow
-                      boundaryRef={notificationsRef}
-                      label={t('morningReminder')}
-                      description={t('morningReminderDesc')}
-                      checked={magiaReminder}
-                      onCheckedChange={toggle(setMagiaReminder, 'push_magia_reminders')}
-                      time={magiaTime}
-                      onTimeChange={time(setMagiaTime, 'push_magia_time')}
-                    />
-                    <ReminderRow
-                      boundaryRef={notificationsRef}
-                      label={t('eveningReminder')}
-                      description={t('eveningReminderDesc')}
-                      checked={magiaEvening}
-                      onCheckedChange={toggle(setMagiaEvening, 'push_magia_evening')}
-                      time={magiaEveningTime}
-                      onTimeChange={time(setMagiaEveningTime, 'push_magia_evening_time')}
-                    />
-                    <ReminderRow
-                      boundaryRef={notificationsRef}
-                      label={t('streakProtector')}
-                      description={t('streakProtectorDesc')}
-                      checked={magiaStreak}
-                      onCheckedChange={toggle(setMagiaStreak, 'push_magia_streak')}
-                      time={magiaStreakTime}
-                      onTimeChange={time(setMagiaStreakTime, 'push_magia_streak_time')}
-                    />
-                    <ReminderRow
-                      boundaryRef={notificationsRef}
-                      label={t('reengagement')}
-                      description={t('reengagementDesc')}
-                      checked={magiaReengagement}
-                      onCheckedChange={toggle(setMagiaReengagement, 'push_magia_reengagement')}
-                    />
-                  </div>
-
-                  {language === 'hu' && angolAccess && (
-                    <>
-                      <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">{t('anglNotificationsTitle')}</p>
+                {pushEnabled && (
+                  <>
+                    <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">{t('magiaNotificationsTitle')}</p>
+                    <div className="divide-y divide-border/30">
                       <ReminderRow
                         boundaryRef={notificationsRef}
-                        label={t('angolReminder')}
-                        description={t('angolReminderDesc')}
-                        checked={angolReminder}
-                        onCheckedChange={toggle(setAngolReminder, 'push_angol_reminders')}
-                        time={angolTime}
-                        onTimeChange={time(setAngolTime, 'push_angol_time')}
+                        label={t('morningReminder')}
+                        description={t('morningReminderDesc')}
+                        checked={magiaReminder}
+                        onCheckedChange={toggle(setMagiaReminder, 'push_magia_reminders')}
+                        time={magiaTime}
+                        onTimeChange={time(setMagiaTime, 'push_magia_time')}
                       />
-                    </>
-                  )}
+                      <ReminderRow
+                        boundaryRef={notificationsRef}
+                        label={t('eveningReminder')}
+                        description={t('eveningReminderDesc')}
+                        checked={magiaEvening}
+                        onCheckedChange={toggle(setMagiaEvening, 'push_magia_evening')}
+                        time={magiaEveningTime}
+                        onTimeChange={time(setMagiaEveningTime, 'push_magia_evening_time')}
+                      />
+                      <ReminderRow
+                        boundaryRef={notificationsRef}
+                        label={t('streakProtector')}
+                        description={t('streakProtectorDesc')}
+                        checked={magiaStreak}
+                        onCheckedChange={toggle(setMagiaStreak, 'push_magia_streak')}
+                        time={magiaStreakTime}
+                        onTimeChange={time(setMagiaStreakTime, 'push_magia_streak_time')}
+                      />
+                      <ReminderRow
+                        boundaryRef={notificationsRef}
+                        label={t('reengagement')}
+                        description={t('reengagementDesc')}
+                        checked={magiaReengagement}
+                        onCheckedChange={toggle(setMagiaReengagement, 'push_magia_reengagement')}
+                      />
+                    </div>
 
-                  <div className="flex flex-col items-end gap-1 pt-4">
-                    <button
-                      type="button"
-                      onClick={sendTestPush}
-                      disabled={testingPush}
-                      className="text-xs font-medium text-accent hover:underline disabled:opacity-50"
-                    >
-                      {testingPush ? t('pushTesting') : t('pushTest')}
-                    </button>
-                    {pushTestMessage && <p className="text-xs text-muted-foreground">{pushTestMessage}</p>}
-                  </div>
-                </>
-              )}
-            </CardContent>
-          </Card>
+                    {language === 'hu' && angolAccess && (
+                      <>
+                        <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">{t('anglNotificationsTitle')}</p>
+                        <ReminderRow
+                          boundaryRef={notificationsRef}
+                          label={t('angolReminder')}
+                          description={t('angolReminderDesc')}
+                          checked={angolReminder}
+                          onCheckedChange={toggle(setAngolReminder, 'push_angol_reminders')}
+                          time={angolTime}
+                          onTimeChange={time(setAngolTime, 'push_angol_time')}
+                        />
+                      </>
+                    )}
+
+                    <div className="flex flex-col items-end gap-1 pt-4">
+                      <button
+                        type="button"
+                        onClick={sendTestPush}
+                        disabled={testingPush}
+                        className="text-xs font-medium text-accent hover:underline disabled:opacity-50"
+                      >
+                        {testingPush ? t('pushTesting') : t('pushTest')}
+                      </button>
+                      {pushTestMessage && <p className="text-xs text-muted-foreground">{pushTestMessage}</p>}
+                    </div>
+                  </>
+                )}
+              </CardContent>
+            </Card>
+            <PracticeSoundsCard />
+          </>
         )}
 
         {section === 'account' && (

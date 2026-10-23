@@ -15,20 +15,15 @@
     "languageSuggested": "Sugeridos",
     "languageAll": "Todos los idiomas",
     "languageNoMatch": "Ningún idioma coincide.",
-    "languageBack": "Volver al menú",
     "languageBeta": "beta",
-    "practice": "Práctica",
     "close": "Cerrar",
     "appearance": "Apariencia",
     "themeQuintessence": "Quintessence",
-    "themeHajnal": "Alba",
+    "themeHajnal": "Aurora",
     "themeSystem": "Automático",
     "themeQuintessenceDesc": "Oscuro y cósmico — el original",
     "themeHajnalDesc": "Claro, pergamino cálido",
     "themeSystemDesc": "Sigue el ajuste del dispositivo",
-    "themeQuintessenceShort": "oscuro",
-    "themeHajnalShort": "claro",
-    "themeSystemShort": "según el sistema",
     "settings": "Ajustes"
   },
   "auth": {
@@ -340,7 +335,11 @@
     "exportHtml": "Resumen legible",
     "exportHtmlHint": "HTML — se abre en el navegador, se puede imprimir en PDF",
     "exportJson": "Paquete de datos completo",
-    "exportJsonHint": "JSON — para procesamiento automático"
+    "exportJsonHint": "JSON — para procesamiento automático",
+    "practiceTitle": "Durante la práctica",
+    "practiceHint": "Se aplica a este dispositivo.",
+    "practiceGong": "Gong al final de la práctica",
+    "practiceVibrate": "Vibración"
   },
   "brand": {
     "name": "Quintessence",
@@ -468,7 +467,8 @@
     "nameApprovedTitle": "Tu cambio de nombre fue aprobado",
     "nameApprovedBody": "Tu nuevo nombre: {name}",
     "nameRejectedTitle": "Tu cambio de nombre no fue aprobado",
-    "nameRejectedBody": "Tu nombre no cambia. Si tienes preguntas, contacta con el administrador."
+    "nameRejectedBody": "Tu nombre no cambia. Si tienes preguntas, contacta con el administrador.",
+    "settings": "Ajustes de notificaciones"
   },
   "invites": {
     "title": "Invitaciones",
@@ -549,7 +549,7 @@
   "feherMagia": {
     "tabs": {
       "ma": "Práctica",
-      "tukor": "Espejo",
+      "tukor": "Espejo del alma",
       "utam": "Grados"
     },
     "header": {
@@ -805,7 +805,7 @@
       "changeUp": "más fuerte que en el ciclo anterior",
       "changeDown": "más débil que en el ciclo anterior",
       "banner": "Se han completado tus 14 días: mira tus dos espejos del alma.",
-      "bannerLink": "Ir al Espejo",
+      "bannerLink": "Ir al Espejo del alma",
       "saveError": "No se pudo guardar. Inténtalo de nuevo.",
       "countdown": "{left, plural, one {Falta # noche} other {Faltan # noches}} para tus dos espejos del alma"
     },
@@ -835,12 +835,14 @@
       "opens2": "Se abre cuando se cumplen todos los requisitos del Grado I.",
       "opens3": "Se abre después de los dos ciclos de trabajo de 14 días del Grado II.",
       "locked": "cerrado",
-      "source": "Fuente: {source}"
+      "source": "Fuente: {source}",
+      "reminders": "Recordatorios",
+      "remindersHint": "mañana y noche"
     },
     "dashboard": {
       "note": "+ Nota",
       "gate": "Leer la Puerta",
-      "cycleReady": "Se han completado tus 14 días: tus dos espejos del alma están en la pestaña Espejo",
+      "cycleReady": "Se han completado tus 14 días: tus dos espejos del alma están en la pestaña Espejo del alma",
       "parts": {
         "reggel": "por la mañana",
         "napkozben": "durante el día",

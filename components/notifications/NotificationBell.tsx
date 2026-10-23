@@ -4,7 +4,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Bell, CheckCheck } from 'lucide-react';
+import { Bell, CheckCheck, Settings } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { NOTIFICATION_FOCUS_EVENT, markAllNotificationsRead, setNotificationRead, type ResolvedNotification } from '@/lib/notifications';
 import { NotificationItem } from '@/components/notifications/NotificationItem';
@@ -146,16 +146,33 @@ export function NotificationBell() {
           >
             <div className="flex items-center justify-between border-b border-border/40 px-4 py-3">
               <p className="font-display text-base font-semibold text-gradient-gold">{t('title')}</p>
-              {unread > 0 && (
+              <div className="flex items-center gap-3">
+                {unread > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => void markAllNotificationsRead(createClient())}
+                    className="inline-flex items-center gap-1 text-xs font-medium text-accent transition hover:brightness-110"
+                  >
+                    <CheckCheck className="h-3.5 w-3.5" />
+                    {t('markAllRead')}
+                  </button>
+                )}
+                {/* Straight to the notification settings */}
                 <button
                   type="button"
-                  onClick={() => void markAllNotificationsRead(createClient())}
-                  className="inline-flex items-center gap-1 text-xs font-medium text-accent transition hover:brightness-110"
+                  onClick={() => {
+                    setOpen(false);
+                    // On the settings page already: only the tab changes (via hashchange)
+                    if (window.location.pathname === `/${locale}/beallitasok`) window.location.hash = 'emlekeztetok';
+                    else router.push(`/${locale}/beallitasok#emlekeztetok`);
+                  }}
+                  aria-label={t('settings')}
+                  title={t('settings')}
+                  className="flex h-7 w-7 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-muted/40 hover:text-accent"
                 >
-                  <CheckCheck className="h-3.5 w-3.5" />
-                  {t('markAllRead')}
+                  <Settings className="h-4 w-4" />
                 </button>
-              )}
+              </div>
             </div>
             <div
               ref={listRef}

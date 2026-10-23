@@ -3,11 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import {
-  GraduationCap,
-  LayoutDashboard,
-  Play,
-} from 'lucide-react';
+import { GraduationCap, LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { useAngolAccess } from './ModuleAccessProvider';
@@ -26,17 +22,11 @@ export function MobileNav() {
       match: (path: string) => path === `/${locale}` || path === `/${locale}/`,
     },
     {
-      href: `/${locale}/modules/magia`,
+      // Opens on the daily practice; the module's own tabs lead on
+      href: `/${locale}/modules/magia/ma`,
       label: t('magia'),
       icon: ElementsNavIcon,
-      // The daily practice has its own tab
-      match: (path: string) => path.includes('/modules/magia') && !path.includes('/modules/magia/ma'),
-    },
-    {
-      href: `/${locale}/modules/magia/ma`,
-      label: t('practice'),
-      icon: Play,
-      match: (path: string) => path.includes('/modules/magia/ma'),
+      match: (path: string) => path.includes('/modules/magia'),
     },
     // Locked module: only for users the admin picked (and Hungarian UI)
     ...(angolAccess

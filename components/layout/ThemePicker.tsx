@@ -6,13 +6,6 @@ import { THEME_PREFERENCES, type ThemePreference } from '@/lib/theme';
 import { useTheme } from './ThemeProvider';
 import { cn } from '@/lib/utils';
 
-/** Short hint next to the name in the account menu ("sötét", "világos") */
-const HINT_KEYS: Record<ThemePreference, string> = {
-  quintessence: 'themeQuintessenceShort',
-  hajnal: 'themeHajnalShort',
-  system: 'themeSystemShort',
-};
-
 const NAME_KEYS: Record<ThemePreference, string> = {
   quintessence: 'themeQuintessence',
   hajnal: 'themeHajnal',
@@ -37,7 +30,7 @@ function Half({ colors, className }: { colors: (typeof SWATCH)['dark']; classNam
 }
 
 /** Mini picture of a theme; "system" is half light, half dark. */
-export function ThemeSwatch({ theme, className }: { theme: ThemePreference; className?: string }) {
+function ThemeSwatch({ theme, className }: { theme: ThemePreference; className?: string }) {
   return (
     <span aria-hidden className={cn('relative block shrink-0 overflow-hidden rounded-md border border-border/60', className)}>
       {theme === 'system' ? (
@@ -52,49 +45,12 @@ export function ThemeSwatch({ theme, className }: { theme: ThemePreference; clas
   );
 }
 
-export function useThemeName() {
+function useThemeName() {
   const t = useTranslations('nav');
   return (theme: ThemePreference) => t(NAME_KEYS[theme]);
 }
 
-/** Account menu: one row per theme */
-export function ThemeList({ onPicked }: { onPicked?: () => void }) {
-  const t = useTranslations('nav');
-  const { preference, setPreference } = useTheme();
-  const name = useThemeName();
-  return (
-    <>
-      {THEME_PREFERENCES.map((theme) => {
-        const active = theme === preference;
-        return (
-          <button
-            key={theme}
-            type="button"
-            role="menuitemradio"
-            aria-checked={active}
-            onClick={() => {
-              setPreference(theme);
-              onPicked?.();
-            }}
-            className={cn(
-              'flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition focus-visible:bg-muted/40 focus-visible:outline-none',
-              active ? 'text-accent' : 'text-cream/90 hover:bg-muted/40 hover:text-cream'
-            )}
-          >
-            <ThemeSwatch theme={theme} className="h-6 w-9" />
-            <span className="min-w-0 flex-1 truncate">
-              <span className="font-medium">{name(theme)}</span>
-              <span className="ml-1.5 text-xs text-muted-foreground">{t(HINT_KEYS[theme])}</span>
-            </span>
-            {active && <Check className="h-4 w-4 shrink-0" />}
-          </button>
-        );
-      })}
-    </>
-  );
-}
-
-/** Profile → Account: three picture tiles */
+/** Settings → Appearance: three picture tiles */
 export function ThemeTiles() {
   const t = useTranslations('nav');
   const { preference, setPreference } = useTheme();
