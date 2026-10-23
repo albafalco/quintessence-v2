@@ -152,7 +152,7 @@ export function DashboardContent() {
         setData({ greetingName, showAngol, magiaStats: magia, angolStats, today });
 
         // Milestones are checked in the background; new ones show up in the bell
-        syncBadges(supabase, user.id, { angol: showAngol })
+        syncBadges(supabase, user.id)
           .then((state) => {
             if (state.newlyEarned.length > 0) emitNotificationsChanged();
           })
@@ -252,7 +252,7 @@ export function DashboardContent() {
           <ModuleCard
             title={tModules('magia.title')}
             subtitle={tModules('magia.subtitle')}
-            href={`/${locale}/modules/magia`}
+            href={`/${locale}/modules/magia/ma`}
             progress={magiaStats.fokozatPercent}
             progressLabel={t('fokozat', { level: magiaStats.currentFokozat })}
             lastActivity={formatActivityDate(magiaStats.lastActivity, locale)}

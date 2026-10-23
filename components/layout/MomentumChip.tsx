@@ -23,7 +23,8 @@ const RING_C = 2 * Math.PI * RING_R;
 const EDGE_GAP = 8;
 
 /**
- * Desktop header: streak + today's Fehér Mágia plan, linking to the "Ma" page.
+ * Header: the streak (and on wider screens today's Fehér Mágia plan), linking to the practice tab.
+ * A phone shows only the flame and the number, next to the bell.
  */
 export function MomentumChip() {
   const t = useTranslations('dashboard');
@@ -85,7 +86,7 @@ export function MomentumChip() {
       onFocus={(e) => e.currentTarget.matches(':focus-visible') && setTipOpen(true)}
       onBlur={() => setTipOpen(false)}
       onClick={() => setTipOpen(false)}
-      className="hidden h-9 shrink-0 items-center gap-2.5 rounded-xl border border-border/50 bg-muted/30 px-3 text-sm font-semibold transition-all hover:border-accent/30 hover:bg-muted/50 md:flex"
+      className="flex h-9 shrink-0 items-center gap-2.5 rounded-xl border border-border/50 bg-muted/30 px-2.5 text-sm font-semibold transition-all hover:border-accent/30 hover:bg-muted/50 md:px-3"
     >
       <span className={cn('flex items-center gap-1', streak > 0 ? 'text-accent' : 'text-muted-foreground')}>
         <Flame className="h-4 w-4" />
@@ -93,8 +94,8 @@ export function MomentumChip() {
       </span>
       {total > 0 && (
         <>
-          <span className="h-4 w-px bg-border/60" />
-          <span className={cn('flex items-center gap-1.5', allDone ? 'text-accent' : 'text-cream/90')}>
+          <span className="hidden h-4 w-px bg-border/60 md:block" />
+          <span className={cn('hidden items-center gap-1.5 md:flex', allDone ? 'text-accent' : 'text-cream/90')}>
             <svg viewBox="0 0 18 18" className="h-4 w-4 -rotate-90" aria-hidden>
               <circle cx="9" cy="9" r={RING_R} fill="none" stroke="currentColor" strokeWidth="2.5" className="text-muted-foreground/25" />
               {done > 0 && (

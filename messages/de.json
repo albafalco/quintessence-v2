@@ -376,8 +376,6 @@
     "loading": "Meilensteine werden geladen…",
     "earned": "Erreicht",
     "earnedOn": "Erreicht: {date}",
-    "category_magia": "Weiße Magie",
-    "category_angol": "Kreatives Englisch",
     "first_session": {
       "title": "Erste Sitzung",
       "desc": "Schließe eine Übung ab"
@@ -394,10 +392,6 @@
       "title": "100-Tage-Serie",
       "desc": "Übe 100 Tage am Stück"
     },
-    "practice_10h": {
-      "title": "10 Stunden Übung",
-      "desc": "Sammle 10 Stunden Übungszeit"
-    },
     "first_mastered": {
       "title": "Erste Stufe",
       "desc": "Beherrsche die erste Stufe der Gedankenübung, die Gedankenbeobachtung"
@@ -409,22 +403,6 @@
     "soul_mirror_10": {
       "title": "Die ersten zwei Seelenspiegel",
       "desc": "Schließe deine ersten 14 Tage Selbsterkenntnis ab"
-    },
-    "words_50": {
-      "title": "50 gelernte Wörter",
-      "desc": "Kenne 50 Wörter (mind. 3 richtige Antworten)"
-    },
-    "words_all": {
-      "title": "Die ganze Wortliste",
-      "desc": "Lerne alle Wörter der Liste"
-    },
-    "first_exam": {
-      "title": "Erste bestandene Prüfung",
-      "desc": "Bestehe eine Prüfung mit mindestens 80 %"
-    },
-    "all_sections": {
-      "title": "Alle Abschnitte freigeschaltet",
-      "desc": "Schalte alle 14 Übungsabschnitte der Lektion 1 frei"
     },
     "showAll": "Alle anzeigen",
     "showLess": "Weniger anzeigen",

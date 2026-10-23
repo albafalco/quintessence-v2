@@ -252,8 +252,6 @@
     "loading": "Se încarcă reperele…",
     "earned": "Obținut",
     "earnedOn": "Obținut: {date}",
-    "category_magia": "Magia Albă",
-    "category_angol": "Engleza Creativă",
     "first_session": {
       "title": "Prima sesiune",
       "desc": "Finalizează un exercițiu"
@@ -270,10 +268,6 @@
       "title": "Serie de 100 de zile",
       "desc": "Practică 100 de zile la rând"
     },
-    "practice_10h": {
-      "title": "10 ore de practică",
-      "desc": "Atinge 10 ore de timp de practică"
-    },
     "first_mastered": {
       "title": "Prima etapă",
       "desc": "Stăpânește prima etapă a exercițiului gândurilor, observarea gândurilor"
@@ -285,22 +279,6 @@
     "soul_mirror_10": {
       "title": "Primele două oglinzi ale sufletului",
       "desc": "Încheie primele tale 14 zile de cunoaștere de sine"
-    },
-    "words_50": {
-      "title": "50 de cuvinte învățate",
-      "desc": "Să știi 50 de cuvinte (cel puțin 3 răspunsuri corecte)"
-    },
-    "words_all": {
-      "title": "Toată lista de cuvinte",
-      "desc": "Învață toate cuvintele din listă"
-    },
-    "first_exam": {
-      "title": "Primul examen promovat",
-      "desc": "Promovează un examen cu cel puțin 80%"
-    },
-    "all_sections": {
-      "title": "Toate secțiunile deblocate",
-      "desc": "Deblochează toate cele 14 secțiuni de exerciții din lecția 1"
     },
     "showAll": "Vezi toate",
     "showLess": "Vezi mai puține",

@@ -377,8 +377,6 @@
     "loading": "Mérföldkövek betöltése…",
     "earned": "Megszerezve",
     "earnedOn": "Megszerezve: {date}",
-    "category_magia": "Fehér Mágia",
-    "category_angol": "Kreatív Angol",
     "first_session": {
       "title": "Első munkamenet",
       "desc": "Végezz el egy gyakorlatot"
@@ -395,10 +393,6 @@
       "title": "100 napos sorozat",
       "desc": "Gyakorolj 100 napig egymás után"
     },
-    "practice_10h": {
-      "title": "10 óra gyakorlás",
-      "desc": "Gyűjts össze 10 óra gyakorlási időt"
-    },
     "first_mastered": {
       "title": "Első lépcső",
       "desc": "Urald a gondolatgyakorlat első lépcsőjét, a gondolatmegfigyelést"
@@ -410,22 +404,6 @@
     "soul_mirror_10": {
       "title": "Az első két lélektükör",
       "desc": "Zárd le az első 14 napos önmegismerést"
-    },
-    "words_50": {
-      "title": "50 megtanult szó",
-      "desc": "Tudj 50 szót (legalább 3 helyes válasz)"
-    },
-    "words_all": {
-      "title": "A teljes szólap",
-      "desc": "Tanuld meg a szólap összes szavát"
-    },
-    "first_exam": {
-      "title": "Első sikeres vizsga",
-      "desc": "Teljesíts egy vizsgát legalább 80%-kal"
-    },
-    "all_sections": {
-      "title": "Minden szakasz feloldva",
-      "desc": "Oldd fel az 1. lecke mind a 14 gyakorló szakaszát"
     },
     "showAll": "Összes megtekintése",
     "showLess": "Kevesebb",

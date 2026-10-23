@@ -252,8 +252,6 @@
     "loading": "Učitavanje prekretnica…",
     "earned": "Osvojeno",
     "earnedOn": "Osvojeno: {date}",
-    "category_magia": "Bela magija",
-    "category_angol": "Kreativni engleski",
     "first_session": {
       "title": "Prva sesija",
       "desc": "Završi jednu vežbu"
@@ -270,10 +268,6 @@
       "title": "Niz od 100 dana",
       "desc": "Vežbaj 100 dana zaredom"
     },
-    "practice_10h": {
-      "title": "10 sati vežbe",
-      "desc": "Dostigni 10 sati vežbanja"
-    },
     "first_mastered": {
       "title": "Prvi nivo",
       "desc": "Savladaj prvi nivo vežbe misli, posmatranje misli"
@@ -285,22 +279,6 @@
     "soul_mirror_10": {
       "title": "Prva dva ogledala duše",
       "desc": "Zatvori svojih prvih 14 dana samospoznaje"
-    },
-    "words_50": {
-      "title": "50 naučenih reči",
-      "desc": "Znaj 50 reči (najmanje 3 tačna odgovora)"
-    },
-    "words_all": {
-      "title": "Cela lista reči",
-      "desc": "Nauči sve reči sa liste"
-    },
-    "first_exam": {
-      "title": "Prvi položen ispit",
-      "desc": "Položi ispit sa najmanje 80%"
-    },
-    "all_sections": {
-      "title": "Svi delovi otključani",
-      "desc": "Otključaj svih 14 delova za vežbu u 1. lekciji"
     },
     "showAll": "Prikaži sve",
     "showLess": "Prikaži manje",

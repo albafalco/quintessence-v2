@@ -95,7 +95,8 @@ export function resolveNotification(
   switch (row.kind) {
     case 'badge': {
       const badge = BADGES.find((b) => b.id === data.badge_id);
-      if (!badge || (badge.category === 'angol' && !angol)) return null;
+      // Retired milestones (e.g. the Kreatív Angol ones) are not shown
+      if (!badge) return null;
       return personal(
         badge.icon,
         t.notifications('badgeTitle', { title: t.badges(`${badge.id}.title`) }),

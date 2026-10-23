@@ -252,8 +252,6 @@
     "loading": "Načítavajú sa míľniky…",
     "earned": "Získané",
     "earnedOn": "Získané: {date}",
-    "category_magia": "Biela mágia",
-    "category_angol": "Kreatívna angličtina",
     "first_session": {
       "title": "Prvé cvičenie",
       "desc": "Dokonči jedno cvičenie"
@@ -270,10 +268,6 @@
       "title": "Séria 100 dní",
       "desc": "Cvič 100 dní po sebe"
     },
-    "practice_10h": {
-      "title": "10 hodín cvičenia",
-      "desc": "Dosiahni 10 hodín času cvičenia"
-    },
     "first_mastered": {
       "title": "Prvá úroveň",
       "desc": "Zvládni prvú úroveň myšlienkového cvičenia, pozorovanie myšlienok"
@@ -285,22 +279,6 @@
     "soul_mirror_10": {
       "title": "Prvé dve zrkadlá duše",
       "desc": "Uzavri svojich prvých 14 dní sebapoznania"
-    },
-    "words_50": {
-      "title": "50 naučených slov",
-      "desc": "Ovládaj 50 slov (aspoň 3 správne odpovede)"
-    },
-    "words_all": {
-      "title": "Celý zoznam slov",
-      "desc": "Nauč sa všetky slová zo zoznamu"
-    },
-    "first_exam": {
-      "title": "Prvá úspešná skúška",
-      "desc": "Zvládni skúšku aspoň na 80 %"
-    },
-    "all_sections": {
-      "title": "Všetky časti odomknuté",
-      "desc": "Odomkni všetkých 14 cvičných častí 1. lekcie"
     },
     "showAll": "Zobraziť všetko",
     "showLess": "Zobraziť menej",

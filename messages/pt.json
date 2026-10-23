@@ -252,8 +252,6 @@
     "loading": "Carregando conquistas…",
     "earned": "Conquistado",
     "earnedOn": "Conquistado: {date}",
-    "category_magia": "Magia Branca",
-    "category_angol": "Inglês Criativo",
     "first_session": {
       "title": "Primeira sessão",
       "desc": "Conclua um exercício"
@@ -270,10 +268,6 @@
       "title": "Sequência de 100 dias",
       "desc": "Pratique 100 dias seguidos"
     },
-    "practice_10h": {
-      "title": "10 horas de prática",
-      "desc": "Alcance 10 horas de tempo de prática"
-    },
     "first_mastered": {
       "title": "Primeiro degrau",
       "desc": "Domine o primeiro degrau do exercício do pensamento, a observação do pensamento"
@@ -285,22 +279,6 @@
     "soul_mirror_10": {
       "title": "Os dois primeiros espelhos da alma",
       "desc": "Feche os seus primeiros 14 dias de autoconhecimento"
-    },
-    "words_50": {
-      "title": "50 palavras aprendidas",
-      "desc": "Saiba 50 palavras (pelo menos 3 respostas corretas)"
-    },
-    "words_all": {
-      "title": "A lista completa",
-      "desc": "Aprenda todas as palavras da lista"
-    },
-    "first_exam": {
-      "title": "Primeira prova aprovada",
-      "desc": "Seja aprovado em uma prova com pelo menos 80%"
-    },
-    "all_sections": {
-      "title": "Todas as seções liberadas",
-      "desc": "Libere as 14 seções de prática da lição 1"
     },
     "showAll": "Ver todas",
     "showLess": "Ver menos",

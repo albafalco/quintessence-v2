@@ -376,8 +376,6 @@
     "loading": "Cargando hitos…",
     "earned": "Conseguido",
     "earnedOn": "Conseguido: {date}",
-    "category_magia": "Magia Blanca",
-    "category_angol": "Inglés creativo",
     "first_session": {
       "title": "Primera sesión",
       "desc": "Completa un ejercicio"
@@ -394,10 +392,6 @@
       "title": "Racha de 100 días",
       "desc": "Practica 100 días seguidos"
     },
-    "practice_10h": {
-      "title": "10 horas de práctica",
-      "desc": "Acumula 10 horas de práctica"
-    },
     "first_mastered": {
       "title": "Primer escalón",
       "desc": "Domina el primer escalón del ejercicio del pensamiento, la observación del pensamiento"
@@ -409,22 +403,6 @@
     "soul_mirror_10": {
       "title": "Los dos primeros espejos del alma",
       "desc": "Cierra tus primeros 14 días de autoconocimiento"
-    },
-    "words_50": {
-      "title": "50 palabras aprendidas",
-      "desc": "Domina 50 palabras (al menos 3 aciertos)"
-    },
-    "words_all": {
-      "title": "Toda la lista de palabras",
-      "desc": "Aprende todas las palabras de la lista"
-    },
-    "first_exam": {
-      "title": "Primer examen aprobado",
-      "desc": "Aprueba un examen con al menos un 80 %"
-    },
-    "all_sections": {
-      "title": "Todas las secciones desbloqueadas",
-      "desc": "Desbloquea las 14 secciones de práctica de la lección 1"
     },
     "showAll": "Ver todos",
     "showLess": "Ver menos",

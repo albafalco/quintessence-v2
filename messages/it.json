@@ -376,8 +376,6 @@
     "loading": "Caricamento traguardi…",
     "earned": "Ottenuto",
     "earnedOn": "Ottenuto: {date}",
-    "category_magia": "Magia Bianca",
-    "category_angol": "Inglese creativo",
     "first_session": {
       "title": "Prima sessione",
       "desc": "Completa un esercizio"
@@ -394,10 +392,6 @@
       "title": "Serie di 100 giorni",
       "desc": "Pratica 100 giorni di fila"
     },
-    "practice_10h": {
-      "title": "10 ore di pratica",
-      "desc": "Accumula 10 ore di pratica"
-    },
     "first_mastered": {
       "title": "Primo gradino",
       "desc": "Padroneggia il primo gradino dell’esercizio del pensiero, l’osservazione del pensiero"
@@ -409,22 +403,6 @@
     "soul_mirror_10": {
       "title": "I primi due specchi dell’anima",
       "desc": "Chiudi i tuoi primi 14 giorni di conoscenza di sé"
-    },
-    "words_50": {
-      "title": "50 parole imparate",
-      "desc": "Conosci 50 parole (almeno 3 risposte corrette)"
-    },
-    "words_all": {
-      "title": "L'intera lista di parole",
-      "desc": "Impara tutte le parole della lista"
-    },
-    "first_exam": {
-      "title": "Primo esame superato",
-      "desc": "Supera un esame con almeno l'80%"
-    },
-    "all_sections": {
-      "title": "Tutte le sezioni sbloccate",
-      "desc": "Sblocca tutte le 14 sezioni di pratica della lezione 1"
     },
     "showAll": "Mostra tutti",
     "showLess": "Mostra meno",

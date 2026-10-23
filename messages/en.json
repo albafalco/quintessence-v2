@@ -377,8 +377,6 @@
     "loading": "Loading milestones…",
     "earned": "Earned",
     "earnedOn": "Earned: {date}",
-    "category_magia": "White Magic",
-    "category_angol": "Creative English",
     "first_session": {
       "title": "First session",
       "desc": "Complete one exercise"
@@ -395,10 +393,6 @@
       "title": "100-day streak",
       "desc": "Practise 100 days in a row"
     },
-    "practice_10h": {
-      "title": "10 hours of practice",
-      "desc": "Reach 10 hours of practice time"
-    },
     "first_mastered": {
       "title": "First step",
       "desc": "Master the first step of the thought exercise, thought observation"
@@ -410,22 +404,6 @@
     "soul_mirror_10": {
       "title": "The first two soul mirrors",
       "desc": "Close your first 14 days of self-knowledge"
-    },
-    "words_50": {
-      "title": "50 words learned",
-      "desc": "Know 50 words (at least 3 correct answers)"
-    },
-    "words_all": {
-      "title": "The whole word list",
-      "desc": "Learn every word of the list"
-    },
-    "first_exam": {
-      "title": "First exam passed",
-      "desc": "Pass an exam with at least 80%"
-    },
-    "all_sections": {
-      "title": "All sections unlocked",
-      "desc": "Unlock all 14 practice sections of lesson 1"
     },
     "showAll": "Show all",
     "showLess": "Show less",

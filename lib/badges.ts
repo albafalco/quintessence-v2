@@ -10,38 +10,28 @@ export interface BadgeStats {
   masteredFokozatok: number;
   /** Closed 14-day cycles, each with the two soul mirrors */
   closedCycles: number;
+  /** Kreatív Angol words known (a profile stat; there are no Angol milestones) */
   learnedWords: number;
-  vocabularySize: number;
-  passedExams: number;
-  unlockedPracticeSections: number;
-  practiceSectionCount: number;
 }
-
-export type BadgeCategory = 'magia' | 'angol';
 
 export interface BadgeDefinition {
   id: string;
   /** AppIcon name */
   icon: string;
-  category: BadgeCategory;
   /** Current value and target, used for the progress bar */
   progress: (s: BadgeStats) => { value: number; target: number };
 }
 
+/** The stations of the Fehér Mágia path, then the streaks. Retired ids stay stored but are not shown. */
 export const BADGES: BadgeDefinition[] = [
-  { id: 'first_session', icon: 'sparkles', category: 'magia', progress: (s) => ({ value: s.sessionCount, target: 1 }) },
-  { id: 'streak_7', icon: 'flame', category: 'magia', progress: (s) => ({ value: s.longestStreak, target: 7 }) },
-  { id: 'streak_30', icon: 'flame', category: 'magia', progress: (s) => ({ value: s.longestStreak, target: 30 }) },
-  { id: 'streak_100', icon: 'flame', category: 'magia', progress: (s) => ({ value: s.longestStreak, target: 100 }) },
-  { id: 'practice_10h', icon: 'hourglass', category: 'magia', progress: (s) => ({ value: Math.floor(s.totalPracticeSec / 3600), target: 10 }) },
-  { id: 'first_mastered', icon: 'star', category: 'magia', progress: (s) => ({ value: s.masteredExercises, target: 1 }) },
-  { id: 'first_fokozat', icon: 'crown', category: 'magia', progress: (s) => ({ value: s.masteredFokozatok, target: 1 }) },
+  { id: 'first_session', icon: 'sparkles', progress: (s) => ({ value: s.sessionCount, target: 1 }) },
+  { id: 'first_mastered', icon: 'star', progress: (s) => ({ value: s.masteredExercises, target: 1 }) },
   // "Az első két lélektükör" (the id is kept from the earlier module's badge)
-  { id: 'soul_mirror_10', icon: 'mirror', category: 'magia', progress: (s) => ({ value: s.closedCycles, target: 1 }) },
-  { id: 'words_50', icon: 'book', category: 'angol', progress: (s) => ({ value: s.learnedWords, target: 50 }) },
-  { id: 'words_all', icon: 'library', category: 'angol', progress: (s) => ({ value: s.learnedWords, target: s.vocabularySize }) },
-  { id: 'first_exam', icon: 'graduation', category: 'angol', progress: (s) => ({ value: s.passedExams, target: 1 }) },
-  { id: 'all_sections', icon: 'key', category: 'angol', progress: (s) => ({ value: s.unlockedPracticeSections, target: s.practiceSectionCount }) },
+  { id: 'soul_mirror_10', icon: 'mirror', progress: (s) => ({ value: s.closedCycles, target: 1 }) },
+  { id: 'first_fokozat', icon: 'crown', progress: (s) => ({ value: s.masteredFokozatok, target: 1 }) },
+  { id: 'streak_7', icon: 'flame', progress: (s) => ({ value: s.longestStreak, target: 7 }) },
+  { id: 'streak_30', icon: 'flame', progress: (s) => ({ value: s.longestStreak, target: 30 }) },
+  { id: 'streak_100', icon: 'flame', progress: (s) => ({ value: s.longestStreak, target: 100 }) },
 ];
 
 export function isEarned(badge: BadgeDefinition, stats: BadgeStats): boolean {
