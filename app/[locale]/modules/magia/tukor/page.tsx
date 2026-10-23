@@ -1,7 +1,6 @@
 import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { createClient } from '@/lib/supabase/server';
-import { hasModuleAccess } from '@/lib/module-access';
 import { loadFeherMagia, loadTraitTexts } from '@/lib/i18n-content';
 import { loadPath } from '@/lib/magia/store';
 import { loadMirrorData } from '@/lib/magia/mirror-store';
@@ -29,8 +28,6 @@ export default async function TukorPage({ params, searchParams }: TukorPageProps
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) redirect(`/${locale}/auth/login`);
-  // The new path is visible only with access until the switch for everyone
-  if (!(await hasModuleAccess(supabase, 'feher_magia'))) redirect(`/${locale}/modules/magia`);
 
   const path = await loadPath(supabase, user.id);
   if (!path?.gate_read_at) redirect(`/${locale}/modules/magia/kapu`);

@@ -15,6 +15,13 @@ const nextConfig = {
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }];
   },
+  // Pages of the earlier Fehér Mágia module (old links, bookmarks, notifications)
+  async redirects() {
+    return [
+      { source: '/:locale/modules/magia/fokozat/:id', destination: '/:locale/modules/magia', permanent: false },
+      { source: '/:locale/modules/magia/jelentes', destination: '/:locale/modules/magia/tukor', permanent: false },
+    ];
+  },
 };
 
 module.exports = withNextIntl(nextConfig);

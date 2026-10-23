@@ -61,7 +61,7 @@ export function localizeHref(url: string | null, locale: string): string | null 
 export function resolveNotification(
   row: FeedRow,
   locale: string,
-  t: { notifications: Translator; badges: Translator; magia: Translator },
+  t: { notifications: Translator; badges: Translator },
   /** Kreatív Angol unlocked for this user; its personal notifications are hidden otherwise */
   angol: boolean,
   now = Date.now()
@@ -103,16 +103,6 @@ export function resolveNotification(
         `/${locale}/profile`
       );
     }
-    case 'exercise_mastered': {
-      const section = String(data.section ?? '');
-      const fokozat = Number(data.fokozat ?? 0);
-      return personal(
-        'star',
-        t.notifications('masteredTitle'),
-        t.notifications('masteredBody', { fokozat, section: ['szellem', 'lelek', 'test'].includes(section) ? t.magia(section) : section }),
-        fokozat ? `/${locale}/modules/magia/fokozat/${fokozat}` : null
-      );
-    }
     case 'invite_granted':
       return personal('ticket', t.notifications('inviteTitle', { count: Number(data.amount ?? 1) }), t.notifications('inviteBody'), `/${locale}/profile`);
     case 'invite_accepted':
@@ -144,8 +134,6 @@ export function resolveNotification(
       );
     case 'name_change_rejected':
       return personal('cross', t.notifications('nameRejectedTitle'), t.notifications('nameRejectedBody'), `/${locale}/beallitasok#fiok`);
-    case 'weekly_report':
-      return personal('chart', t.notifications('weeklyTitle'), t.notifications('weeklyBody'), `/${locale}/modules/magia/jelentes`);
     default:
       return null;
   }

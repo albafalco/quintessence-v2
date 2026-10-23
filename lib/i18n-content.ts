@@ -1,25 +1,4 @@
 import { fallbackLocale, type Locale } from '@/i18n';
-import type { Exercise, MagiaSection } from '@/lib/magia-types';
-
-export interface FokozatSection {
-  cim: string;
-  leiras: string;
-  gyakorlatok: Exercise[];
-}
-
-export interface FokozatData {
-  id: number;
-  cim: string;
-  rovidcim: string;
-  icon: string;
-  szin: string;
-  szellem: FokozatSection;
-  lelek: FokozatSection;
-  test: FokozatSection;
-  idotartam: string;
-  osszefoglalo: string;
-}
-
 export interface MondatPair {
   prompt: string;
   answer: string;
@@ -73,7 +52,7 @@ export interface ThoughtStageText {
   done: string;
 }
 
-/** Texts of the new Fehér Mágia path (Kovács-Magyar András, quoted verbatim). */
+/** Texts of the Fehér Mágia path (Kovács-Magyar András, quoted verbatim). */
 export interface FeherMagiaContent {
   source: string;
   gate: { pages: ReadingPage[]; timeQuote: string };
@@ -104,7 +83,6 @@ export interface TraitText {
 }
 
 type ContentKind =
-  | 'magia'
   | 'feher-magia'
   | 'tulajdonsagok'
   | 'angol-vocabulary'
@@ -117,21 +95,6 @@ const cache = new Map<string, unknown>();
 async function importContent<T>(locale: Locale, kind: ContentKind): Promise<T> {
   const mod = await import(`@/messages/content/${kind}.${locale}.json`);
   return mod.default as T;
-}
-
-export async function loadMagiaFokozatok(locale: Locale): Promise<FokozatData[]> {
-  const key = `magia:${locale}`;
-  if (cache.has(key)) return cache.get(key) as FokozatData[];
-
-  try {
-    const data = await importContent<FokozatData[]>(locale, 'magia');
-    cache.set(key, data);
-    return data;
-  } catch {
-    const data = await importContent<FokozatData[]>(fallbackLocale, 'magia');
-    cache.set(key, data);
-    return data;
-  }
 }
 
 /**
@@ -230,18 +193,3 @@ export async function loadAngolGrammar(locale: Locale): Promise<AngolGrammarCont
     return data;
   }
 }
-
-export function getFokozatExerciseCount(fokozat: FokozatData): number {
-  return (
-    fokozat.szellem.gyakorlatok.length +
-    fokozat.lelek.gyakorlatok.length +
-    fokozat.test.gyakorlatok.length
-  );
-}
-
-export async function getTotalMagiaExercises(locale: Locale): Promise<number> {
-  const fokozatok = await loadMagiaFokozatok(locale);
-  return fokozatok.reduce((sum, f) => sum + getFokozatExerciseCount(f), 0);
-}
-
-export type { MagiaSection };

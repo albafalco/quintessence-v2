@@ -11,19 +11,9 @@ import {
   unlockedExercises,
 } from '@/lib/magia/path';
 import { ROMAN_NUMERALS } from '@/lib/magia-utils';
-import { toIntlLocale } from '@/i18n';
 import { AppIcon } from '@/components/ui/AppIcon';
 import { cn } from '@/lib/utils';
 import { UtravaloShelf, type ShelfItem } from './UtravaloShelf';
-
-const JOURNAL_FIELDS = [
-  ['successes', 'journalFieldSuccesses'],
-  ['failures', 'journalFieldFailures'],
-  ['disturbances', 'journalFieldDisturbances'],
-  ['self_criticism', 'journalFieldSelfCriticism'],
-  ['next_plan', 'journalFieldNextPlan'],
-  ['content', 'journalFieldContent'],
-] as const;
 
 type PathContent = Pick<FeherMagiaContent, 'utravalo' | 'thought' | 'source' | 'elements' | 'fokozatok'>;
 
@@ -41,13 +31,9 @@ function Check({ done }: { done: boolean }) {
   );
 }
 
-/** The Utam tab: where the I. fokozat stands, the Útravalók, the next fokozatok, the former notes. */
+/** The Utam tab: where the I. fokozat stands, the Útravalók, the next fokozatok. */
 export async function PathView({ locale, data, content }: { locale: string; data: PathData; content: PathContent }) {
-  const [t, tPath, tMagia] = await Promise.all([
-    getTranslations('feherMagia.utam'),
-    getTranslations('feherMagia'),
-    getTranslations('magia'),
-  ]);
+  const [t, tPath] = await Promise.all([getTranslations('feherMagia.utam'), getTranslations('feherMagia')]);
   const { day } = data;
   const { path } = day;
   const stage = path.thought_stage;
@@ -78,9 +64,6 @@ export async function PathView({ locale, data, content }: { locale: string; data
     lockedHint: lockedHint[key],
   }));
 
-  const dateFmt = new Intl.DateTimeFormat(toIntlLocale(locale), { year: 'numeric', month: 'long', day: 'numeric' });
-  const blackMirror = data.oldMirror.filter((m) => m.mirror === 'fekete');
-  const whiteMirror = data.oldMirror.filter((m) => m.mirror === 'feher');
   const [first, ...next] = content.fokozatok;
 
   return (
@@ -208,63 +191,6 @@ export async function PathView({ locale, data, content }: { locale: string; data
           </article>
         ))}
       </section>
-
-      {/* The former module's notes, read-only */}
-      {(data.journal.length > 0 || data.oldMirror.length > 0) && (
-        <section className="space-y-3">
-          <div>
-            <h2 className="font-display text-lg font-semibold text-cream">{t('pastTitle')}</h2>
-            <p className="text-xs text-muted-foreground">{t('pastHint')}</p>
-          </div>
-          {data.journal.length > 0 && (
-            <details className="rounded-2xl border border-border/50 bg-card/30 p-4">
-              <summary className="cursor-pointer text-sm font-semibold text-cream">{t('pastJournal', { count: data.journal.length })}</summary>
-              <ul className="mt-3 space-y-4">
-                {data.journal.map((entry) => (
-                  <li key={entry.id} className="border-t border-border/30 pt-3 text-sm">
-                    <p className="mb-1 text-xs font-semibold text-accent/80">{dateFmt.format(new Date(entry.entry_date + 'T00:00:00Z'))}</p>
-                    <dl className="space-y-1">
-                      {JOURNAL_FIELDS.filter(([field]) => entry[field]?.trim()).map(([field, label]) => (
-                        <div key={field}>
-                          <dt className="text-xs text-muted-foreground">{tMagia(label)}</dt>
-                          <dd className="whitespace-pre-line text-cream/90">{entry[field]}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          )}
-          {data.oldMirror.length > 0 && (
-            <details className="rounded-2xl border border-border/50 bg-card/30 p-4">
-              <summary className="cursor-pointer text-sm font-semibold text-cream">{t('pastMirror', { count: data.oldMirror.length })}</summary>
-              {[
-                [tMagia('soulMirrorBlack'), blackMirror],
-                [tMagia('soulMirrorWhite'), whiteMirror],
-              ].map(([title, items]) =>
-                (items as PathData['oldMirror']).length === 0 ? null : (
-                  <div key={String(title)} className="mt-3">
-                    <p className="mb-1 text-xs font-semibold text-accent/80">{String(title)}</p>
-                    <ul className="space-y-1 text-sm">
-                      {(items as PathData['oldMirror']).map((m) => (
-                        <li key={m.id} className="flex flex-wrap items-baseline gap-x-2">
-                          <span className="text-cream/90">{m.trait}</span>
-                          <span className="text-xs text-muted-foreground">
-                            {[m.element ? content.elements.names[m.element] : null, t('pastIntensity', { n: m.intensity }), m.resolved ? t('pastResolved') : null]
-                              .filter(Boolean)
-                              .join(' · ')}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )
-              )}
-            </details>
-          )}
-        </section>
-      )}
 
       <p className="text-center text-xs italic text-muted-foreground">{t('source', { source: content.source })}</p>
     </div>

@@ -25,5 +25,14 @@ export default function manifest(): MetadataRoute.Manifest {
       { src: '/icon-maskable-192.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
       { src: '/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
     ],
+    // Long press on the app icon (Android): a Fehér Mágia note right away; the locale is added on the way
+    shortcuts: [
+      {
+        name: enMessages.pwa.shortcutNote,
+        short_name: enMessages.pwa.shortcutNote,
+        url: '/modules/magia/ma?jegyzet=1',
+        icons: [{ src: '/icon-192.png', sizes: '192x192', type: 'image/png' }],
+      },
+    ],
   };
 }

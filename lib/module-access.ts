@@ -2,10 +2,8 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 /**
  * Locked modules: only users picked by the admin see them (migration 016).
- * 'feher_magia' is the new Fehér Mágia path while it is being built (migration 020);
- * everyone else keeps the current module until the switch.
  */
-export type LockedModule = 'angol' | 'feher_magia';
+export type LockedModule = 'angol';
 
 /** Kreatív Angol content is Hungarian-only. */
 export const ANGOL_LOCALE = 'hu';

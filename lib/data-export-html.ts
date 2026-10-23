@@ -1,4 +1,3 @@
-import type { FokozatData } from '@/lib/i18n-content';
 import { BADGES } from '@/lib/badges';
 import { ROMAN_NUMERALS } from '@/lib/magia-utils';
 import { TRAIT_BY_KEY } from '@/lib/magia/traits';
@@ -18,13 +17,10 @@ interface ReportOptions {
   locale: string;
   /** dataExport namespace */
   t: Translate;
-  /** magia namespace (sections, journal fields, mirror, elements) */
-  tMagia: Translate;
   /** badges namespace */
   tBadges: Translate;
-  fokozatok: FokozatData[];
-  /** Texts of the new Fehér Mágia path; its section is left out without them */
-  path?: PathTexts;
+  /** Texts of the Fehér Mágia path */
+  path: PathTexts;
 }
 
 export interface PathTexts {
@@ -49,42 +45,21 @@ const text = (value: unknown) => esc(value).replace(/\n/g, '<br>');
 
 const rows = (data: ExportData, table: string) => (Array.isArray(data[table]) ? (data[table] as Row[]) : []);
 
-const SECTION_KEYS: Record<string, string> = { szellem: 'shortSzellem', lelek: 'shortLelek', test: 'shortTest' };
-const ELEMENT_KEYS: Record<string, string> = {
-  tuz: 'soulMirrorElementFire',
-  levego: 'soulMirrorElementAir',
-  viz: 'soulMirrorElementWater',
-  fold: 'soulMirrorElementEarth',
-};
-const JOURNAL_FIELDS: [string, string][] = [
-  ['successes', 'journalFieldSuccesses'],
-  ['failures', 'journalFieldFailures'],
-  ['disturbances', 'journalFieldDisturbances'],
-  ['self_criticism', 'journalFieldSelfCriticism'],
-  ['next_plan', 'journalFieldNextPlan'],
-  ['content', 'journalFieldContent'],
-];
-
 /**
  * The readable copy of the user's data: one self-contained HTML file that
  * opens in any browser and prints to PDF. The JSON file stays the complete,
  * machine-readable copy.
  */
-export function buildUserReportHtml(data: ExportData, { locale, t, tMagia, tBadges, fokozatok, path }: ReportOptions) {
+export function buildUserReportHtml(data: ExportData, { locale, t, tBadges, path }: ReportOptions) {
   const dateFmt = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long', day: 'numeric' });
   const dateTimeFmt = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
   const date = (iso: unknown) => (iso ? dateFmt.format(new Date(String(iso))) : '—');
   const dateTime = (iso: unknown) => (iso ? dateTimeFmt.format(new Date(String(iso))) : '—');
+  // m:ss, the same in every language
   const duration = (sec: unknown) => {
-    const s = Number(sec) || 0;
-    return s >= 60 ? tMagia('durationMinSec', { m: Math.floor(s / 60), s: s % 60 }) : tMagia('durationSec', { s });
+    const total = Number(sec) || 0;
+    return `${Math.floor(total / 60)}:${String(total % 60).padStart(2, '0')}`;
   };
-  const exerciseTitle = (fokozat: unknown, section: unknown, key: unknown) => {
-    const f = fokozatok.find((x) => x.id === Number(fokozat));
-    const sec = f?.[section as 'szellem' | 'lelek' | 'test'];
-    return sec?.gyakorlatok.find((g) => g.key === key)?.cim ?? String(key ?? '');
-  };
-  const sectionName = (section: unknown) => (SECTION_KEYS[String(section)] ? tMagia(SECTION_KEYS[String(section)]) : '');
   const empty = `<p class="muted">${esc(t('none'))}</p>`;
   const table = (head: string[], body: string[][]) =>
     body.length === 0
@@ -96,68 +71,18 @@ export function buildUserReportHtml(data: ExportData, { locale, t, tMagia, tBadg
   const account = data.account;
   const fullName = [account.last_name, account.first_name].filter(Boolean).join(' ') || String(account.name ?? '');
 
-  // Grade progress, grouped by grade
-  const progress = rows(data, 'magia_progress').sort(
-    (a, b) => Number(a.fokozat) - Number(b.fokozat) || String(a.section).localeCompare(String(b.section))
-  );
-  const statusLabel = (s: unknown) =>
-    s === 'mastered' ? t('statusMastered') : s === 'in_progress' ? t('statusInProgress') : t('statusNotStarted');
-  const progressHtml = table(
-    [t('colGrade'), t('colExercise'), t('colStatus'), t('colSessions'), t('colMasteredAt')],
-    progress.map((p) => [
-      esc(fokozatok.find((f) => f.id === Number(p.fokozat))?.rovidcim ?? p.fokozat),
-      `${esc(exerciseTitle(p.fokozat, p.section, p.exercise_key))}<br><span class="muted">${esc(sectionName(p.section))}</span>`,
-      esc(statusLabel(p.status)),
-      esc(p.session_count ?? 0),
-      esc(p.mastered_at ? date(p.mastered_at) : '—'),
-    ])
-  );
-
   const sessions = rows(data, 'magia_sessions').sort((a, b) => String(b.started_at).localeCompare(String(a.started_at)));
   const sessionsHtml = table(
-    [t('colDate'), t('colExercise'), t('colDuration'), t('colRating'), t('colNote')],
+    [t('colDate'), t('colExercise'), t('colDuration'), t('colNote')],
     sessions.map((s) => [
       esc(dateTime(s.started_at)),
-      esc(exerciseTitle(s.fokozat, s.section, s.exercise_key)),
+      esc(exerciseTitle(path, s.exercise_key)),
       esc(s.duration_sec ? duration(s.duration_sec) : '—'),
-      s.rating ? `<span class="gold">${'★'.repeat(Number(s.rating))}</span>` : '—',
-      text([s.note, s.disturbances].filter(Boolean).join('\n')),
+      text([s.reps ? `${s.reps} ×` : '', s.note].filter(Boolean).join('\n')),
     ])
   );
 
-  const journal = rows(data, 'magia_journal').sort((a, b) =>
-    String(b.entry_date ?? b.created_at).localeCompare(String(a.entry_date ?? a.created_at))
-  );
-  const journalHtml =
-    journal.length === 0
-      ? empty
-      : journal
-          .map((j) => {
-            const fields = JOURNAL_FIELDS.filter(([field]) => String(j[field] ?? '').trim())
-              .map(([field, key]) => `<dt>${esc(tMagia(key))}</dt><dd>${text(j[field])}</dd>`)
-              .join('');
-            const meta = [j.exercise_key ? exerciseTitle(j.fokozat, j.section, j.exercise_key) : '', j.duration_sec ? duration(j.duration_sec) : '']
-              .filter(Boolean)
-              .join(' · ');
-            return `<article class="entry"><h3>${esc(date(j.entry_date ?? j.created_at))}${meta ? ` <span class="muted">· ${esc(meta)}</span>` : ''}</h3><dl>${fields}</dl></article>`;
-          })
-          .join('');
-
-  const mirror = rows(data, 'magia_soul_mirror');
-  const mirrorTable = (kind: 'fekete' | 'feher') =>
-    table(
-      [t('colTrait'), t('colElement'), t('colIntensity'), t('colResolved')],
-      mirror
-        .filter((m) => m.mirror === kind)
-        .map((m) => [
-          esc(m.trait),
-          esc(ELEMENT_KEYS[String(m.element)] ? tMagia(ELEMENT_KEYS[String(m.element)]) : '—'),
-          esc(m.intensity ?? '—'),
-          m.resolved ? '✓' : '',
-        ])
-    );
-
-  const pathHtml = path ? buildPathHtml(data, path, { t, date, table, empty }) : '';
+  const pathHtml = buildPathHtml(data, path, { t, date, table, empty });
 
   const badgesHtml = table(
     [t('colMilestone'), t('colDate')],
@@ -229,14 +154,8 @@ ${section(
     <dt>${esc(t('pushDevicesLabel'))}</dt><dd>${esc(data.pushDevices)}</dd>
   </dl>`
 )}
-${pathHtml ? section(t('newPath'), pathHtml) : ''}
-${section(t('magiaProgress'), progressHtml)}
+${section(t('newPath'), pathHtml)}
 ${section(t('sessions'), sessionsHtml)}
-${section(t('journal'), journalHtml)}
-${section(
-  t('soulMirror'),
-  `<h3>${esc(tMagia('soulMirrorBlack'))}</h3>${mirrorTable('fekete')}<h3 style="margin-top:16px">${esc(tMagia('soulMirrorWhite'))}</h3>${mirrorTable('feher')}`
-)}
 ${section(t('badges'), badgesHtml)}
 ${angolHtml ? section(t('angol'), angolHtml) : ''}
 </main>
@@ -244,7 +163,19 @@ ${angolHtml ? section(t('angol'), angolHtml) : ''}
 </html>`;
 }
 
-/** The new path: where it stands, the 14-day cycles, the evenings and the day notes. */
+/** A practice session's exercise by its key (szellem_1_gondolat_0, test_1_legzes, test_1_test_seta, …) */
+function exerciseTitle({ tPath, bodyLabels, thoughtStages }: PathTexts, key: unknown): string {
+  const k = String(key ?? '');
+  const thought = /^szellem_\d+_gondolat_(\d)$/.exec(k);
+  if (thought) return thoughtStages[Number(thought[1])] ?? tPath('items.thought');
+  const body = /^test_\d+_test_(.+)$/.exec(k);
+  if (body) return `${tPath('items.body')}: ${bodyLabels[body[1]] ?? body[1]}`;
+  const named: Record<string, string> = { legzes: 'items.breath', etkezes: 'items.meal', viz: 'items.water', onvizsgalat: 'items.selfExam' };
+  const simple = /^(?:test|lelek)_\d+_(legzes|etkezes|viz|onvizsgalat)$/.exec(k);
+  return simple ? tPath(named[simple[1]]) : k;
+}
+
+/** The path: where it stands, the 14-day cycles, the evenings and the day notes. */
 function buildPathHtml(
   data: ExportData,
   { tPath, traitNames, bodyLabels, thoughtStages }: PathTexts,

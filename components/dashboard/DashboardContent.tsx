@@ -7,11 +7,7 @@ import { BookOpen } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { bootLog } from '@/lib/boot-logger';
 
-import {
-  formatActivityDate,
-  getAngolDashboardStats,
-  getMagiaDashboardStats,
-} from '@/lib/dashboard';
+import { formatActivityDate, getAngolDashboardStats } from '@/lib/dashboard';
 import { cn } from '@/lib/utils';
 import { canUseAngol } from '@/lib/module-access';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
@@ -43,7 +39,7 @@ function timed<T>(promise: PromiseLike<T>, ms: number, fallback: T): Promise<T> 
 interface DashboardData {
   greetingName: string;
   showAngol: boolean;
-  magiaStats: ReturnType<typeof getMagiaDashboardStats>;
+  magiaStats: { currentFokozat: number; fokozatPercent: number; lastActivity: string | null };
   angolStats: { progress: number; lastActivity: string | null; reviewCount: number | null };
   today: TodayData | null;
 }
@@ -95,18 +91,8 @@ export function DashboardContent() {
         // Locked module: Hungarian UI + access granted by the admin
         const showAngol = await canUseAngol(supabase, locale);
 
-        const magiaResult = await timed(
-          supabase
-            .from('magia_progress')
-            .select('fokozat, section, exercise_key, completed, completed_at, notes, status, mastered_at, session_count')
-            .eq('user_id', user.id),
-          FETCH_TIMEOUT_MS,
-          { data: [], error: null } as never
-        );
-
-        const magiaStats = getMagiaDashboardStats(magiaResult.data ?? []);
         // Not critical: the card is simply left out if this fails
-        const todayPromise = loadTodayData(supabase, user.id, locale as Locale, magiaResult.data ?? [], showAngol).catch(
+        const todayPromise = loadTodayData(supabase, user.id, showAngol).catch(
           (err) => {
             bootLog('dashboard-today-failed', { error: String(err) });
             return null;
@@ -156,15 +142,11 @@ export function DashboardContent() {
         const today = await todayPromise;
         if (cancelled) return;
 
-        // The new Fehér Mágia path counts its own fokozat and percent
-        const magia = today?.path
-          ? {
-              ...magiaStats,
-              currentFokozat: today.path.fokozat,
-              fokozatPercent: today.path.percent,
-              lastActivity: profileResult.data?.last_magia_activity_date ?? magiaStats.lastActivity,
-            }
-          : magiaStats;
+        const magia = {
+          currentFokozat: today?.path.fokozat ?? 1,
+          fokozatPercent: today?.path.percent ?? 0,
+          lastActivity: profileResult.data?.last_magia_activity_date ?? null,
+        };
 
         bootLog('dashboard-fetch-done');
         setData({ greetingName, showAngol, magiaStats: magia, angolStats, today });

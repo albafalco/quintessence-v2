@@ -4,7 +4,6 @@ import { createClient } from '@/lib/supabase/server';
 import { SettingsForm } from '@/components/settings/SettingsForm';
 import { hasModuleAccess } from '@/lib/module-access';
 import { formatFullName, nextNameChangeAt } from '@/lib/person-name';
-import { loadPath } from '@/lib/magia/store';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -25,10 +24,9 @@ export default async function SettingsPage({ params }: { params: Promise<{ local
   const { data: profile } = await supabase.from('profiles').select('*').eq('id', user.id).single();
   if (!profile) redirect(`/${locale}/auth/login`);
 
-  const [angolAccess, { data: pendingName }, magiaPath] = await Promise.all([
+  const [angolAccess, { data: pendingName }] = await Promise.all([
     hasModuleAccess(supabase, 'angol'),
     supabase.from('name_change_requests').select('first_name, last_name').eq('user_id', user.id).maybeSingle(),
-    loadPath(supabase, user.id),
   ]);
 
   return (
@@ -38,7 +36,6 @@ export default async function SettingsPage({ params }: { params: Promise<{ local
       </header>
       <SettingsForm
         angolAccess={angolAccess}
-        newMagiaPath={Boolean(magiaPath)}
         pendingName={pendingName ?? null}
         nextNameChangeAt={nextNameChangeAt(profile.name_changed_at ?? null)}
         profile={{
@@ -57,7 +54,6 @@ export default async function SettingsPage({ params }: { params: Promise<{ local
           push_magia_streak: profile.push_magia_streak ?? true,
           push_magia_streak_time: profile.push_magia_streak_time ?? '20:30',
           push_magia_reengagement: profile.push_magia_reengagement ?? true,
-          push_weekly_report: profile.push_weekly_report ?? true,
           push_angol_reminders: profile.push_angol_reminders ?? true,
           push_angol_time: profile.push_angol_time ?? '20:00',
         }}

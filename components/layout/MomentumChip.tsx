@@ -59,11 +59,7 @@ export function MomentumChip() {
         data: { user },
       } = await supabase.auth.getUser();
       if (!user) return;
-      const { data: progress } = await supabase
-        .from('magia_progress')
-        .select('fokozat, section, exercise_key, completed, completed_at, notes, status, mastered_at, session_count')
-        .eq('user_id', user.id);
-      const today = await loadTodayData(supabase, user.id, locale as Locale, progress ?? [], false);
+      const today = await loadTodayData(supabase, user.id, false);
       if (cancelled) return;
       setMomentum({ streak: today.streak, done: today.items.filter((i) => i.done).length, total: today.items.length });
     })().catch((err) => console.error('[momentum] load failed', err));

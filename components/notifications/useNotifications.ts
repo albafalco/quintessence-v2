@@ -42,7 +42,6 @@ export function useNotifications(limit: number): NotificationsState {
   const locale = useLocale();
   const tNotifications = useTranslations('notifications');
   const tBadges = useTranslations('badges');
-  const tMagia = useTranslations('magia');
   const pathname = usePathname();
   const angol = useAngolAccess() === true;
   const [rows, setRows] = useState<FeedRow[]>([]);
@@ -105,11 +104,10 @@ export function useNotifications(limit: number): NotificationsState {
           resolveNotification(row, locale, {
             notifications: tNotifications as never,
             badges: tBadges as never,
-            magia: tMagia as never,
           }, angol)
         )
         .filter((n): n is ResolvedNotification => n !== null),
-    [rows, locale, tNotifications, tBadges, tMagia, angol]
+    [rows, locale, tNotifications, tBadges, angol]
   );
 
   // Hidden (locked-module) rows must not count as unread either

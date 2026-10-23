@@ -40,7 +40,7 @@ function TaskRow({ href, done, children }: { href: string; done: boolean; childr
 
 export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps) {
   const t = useTranslations('dashboard');
-  const tMagia = useTranslations('magia');
+  const tNav = useTranslations('nav');
   const tPath = useTranslations('feherMagia');
   const locale = useLocale();
 
@@ -51,8 +51,8 @@ export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps
   const visible = today.items.slice(0, MAX_MAGIA_ROWS);
   const hidden = today.items.length - visible.length;
   const magiaHref = `/${locale}/modules/magia/ma`;
-  // New path: a quick note during the day, once the Gate is read
-  const canNote = Boolean(today.path) && !today.items.some((i) => i.task === 'gate');
+  // A quick note during the day, once the Gate is read
+  const canNote = !today.items.some((i) => i.task === 'gate');
 
   return (
     <section className="premium-card p-4 sm:p-6">
@@ -86,7 +86,7 @@ export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps
           <div className="mb-1 flex items-center justify-between gap-2 px-2">
             <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">
               <ElementsNavIcon className="h-3 w-3" />
-              {tMagia('title')}
+              {tNav('magia')}
             </p>
             {canNote && (
               <Link
@@ -98,23 +98,12 @@ export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps
             )}
           </div>
           <ul>
-            {visible.map((item, i) =>
-              item.task ? (
-                <TaskRow key={i} href={item.task === 'gate' ? `/${locale}/modules/magia/kapu` : magiaHref} done={item.done}>
-                  {item.task === 'gate' ? tPath('dashboard.gate') : tPath(`items.${item.task}`)}
-                  {item.part && <span className="ml-1.5 text-xs text-muted-foreground">· {tPath(`dashboard.parts.${item.part}`)}</span>}
-                </TaskRow>
-              ) : (
-                <TaskRow key={i} href={magiaHref} done={item.done}>
-                  {item.title}
-                  {item.slot !== undefined && (
-                    <span className="ml-1.5 text-xs text-muted-foreground">
-                      · {item.slot === 0 ? tMagia('morning') : tMagia('evening')}
-                    </span>
-                  )}
-                </TaskRow>
-              )
-            )}
+            {visible.map((item, i) => (
+              <TaskRow key={i} href={item.task === 'gate' ? `/${locale}/modules/magia/kapu` : magiaHref} done={item.done}>
+                {item.task === 'gate' ? tPath('dashboard.gate') : tPath(`items.${item.task}`)}
+                {item.part && <span className="ml-1.5 text-xs text-muted-foreground">· {tPath(`dashboard.parts.${item.part}`)}</span>}
+              </TaskRow>
+            ))}
           </ul>
           {hidden > 0 && (
             <Link href={magiaHref} className="block px-2 pt-1 text-xs text-muted-foreground hover:text-accent">
@@ -152,7 +141,7 @@ export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps
         </div>
       )}
 
-      {today.path?.cycleReady && (
+      {today.path.cycleReady && (
         <Link
           href={`/${locale}/modules/magia/tukor`}
           className="mt-3 flex items-center justify-between rounded-xl border border-accent/25 px-3 py-2.5 text-sm text-accent transition hover:bg-accent/10"
@@ -162,15 +151,6 @@ export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps
         </Link>
       )}
 
-      {today.isSunday && (
-        <Link
-          href={`/${locale}/modules/magia/jelentes`}
-          className="mt-3 flex items-center justify-between rounded-xl border border-accent/25 px-3 py-2.5 text-sm text-accent transition hover:bg-accent/10"
-        >
-          {tMagia('reportButton')}
-          <ChevronRight className="h-4 w-4" />
-        </Link>
-      )}
     </section>
   );
 }

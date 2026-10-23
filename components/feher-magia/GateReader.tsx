@@ -22,6 +22,8 @@ interface GateReaderProps {
   initialMorning: string;
   initialEvening: string;
   initialReminder: boolean;
+  /** Minutes reached in the earlier module's thought observation (offered once, at the start) */
+  previousMinutes?: number | null;
 }
 
 function timeOptions(fromMin: number, toMin: number): string[] {
@@ -46,6 +48,7 @@ export function GateReader({
   initialMorning,
   initialEvening,
   initialReminder,
+  previousMinutes = null,
 }: GateReaderProps) {
   const t = useTranslations('feherMagia.gate');
   const tProfile = useTranslations('profile');
@@ -55,6 +58,8 @@ export function GateReader({
   const [morning, setMorning] = useState(MORNING_TIMES.includes(initialMorning) ? initialMorning : '06:30');
   const [evening, setEvening] = useState(EVENING_TIMES.includes(initialEvening) ? initialEvening : '21:30');
   const [reminder, setReminder] = useState(initialReminder);
+  const offerPrevious = previousMinutes !== null && previousMinutes > 1;
+  const [keepPrevious, setKeepPrevious] = useState(true);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
@@ -102,7 +107,15 @@ export function GateReader({
       const now = new Date().toISOString();
       const { error: pathError } = await supabase
         .from('magia_path')
-        .upsert({ user_id: userId, gate_read_at: now, updated_at: now }, { onConflict: 'user_id' });
+        .upsert(
+          {
+            user_id: userId,
+            gate_read_at: now,
+            updated_at: now,
+            ...(offerPrevious && keepPrevious ? { thought_minutes: previousMinutes } : {}),
+          },
+          { onConflict: 'user_id' }
+        );
       if (pathError) throw pathError;
       const { error: profileError } = await supabase
         .from('profiles')
@@ -202,6 +215,27 @@ export function GateReader({
             <Switch checked={reminder} onCheckedChange={toggleReminder} aria-label={t('reminder')} />
           </label>
           {reminder && <p className="text-xs text-muted-foreground">{t('reminderPermission')}</p>}
+          {offerPrevious && (
+            <div className="flex flex-col gap-3 rounded-xl border border-accent/30 bg-accent/5 px-4 py-3">
+              <p className="text-sm text-cream">{t('previousAsk', { minutes: previousMinutes })}</p>
+              <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label={t('previousAsk', { minutes: previousMinutes })}>
+                {[true, false].map((keep) => (
+                  <button
+                    key={String(keep)}
+                    type="button"
+                    role="radio"
+                    aria-checked={keepPrevious === keep}
+                    onClick={() => setKeepPrevious(keep)}
+                    className={`rounded-xl border px-3 py-2.5 text-sm transition ${
+                      keepPrevious === keep ? 'border-accent bg-accent/15 font-semibold text-accent' : 'border-border/50 text-cream'
+                    }`}
+                  >
+                    {keep ? t('previousYes', { minutes: previousMinutes }) : t('previousNo')}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
           <p className="text-xs text-muted-foreground">{t('timeNote')}</p>
         </article>
       )}

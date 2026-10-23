@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 import { Bell, ChevronDown, Database, Info, Palette, UserRound, type LucideIcon } from 'lucide-react';
 import { locales, type Locale } from '@/i18n';
 import { createClient } from '@/lib/supabase/client';
-import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { PushToggle } from '@/components/push/PushToggle';
 import { LanguageBadge } from '@/components/layout/LanguagePicker';
 import { LANGUAGES } from '@/lib/languages';
@@ -45,7 +44,6 @@ interface SettingsData {
   push_magia_streak: boolean;
   push_magia_streak_time: string;
   push_magia_reengagement: boolean;
-  push_weekly_report: boolean;
   push_angol_reminders: boolean;
   push_angol_time: string;
 }
@@ -74,13 +72,11 @@ interface ReminderRowProps {
   onCheckedChange: (checked: boolean) => void;
   time?: string;
   onTimeChange?: (time: string) => void;
-  /** Fixed schedule shown instead of a time input (e.g. "Sunday 19:00") */
-  fixedTime?: string;
   /** The info bubble stays inside this element */
   boundaryRef: React.RefObject<HTMLElement | null>;
 }
 
-function ReminderRow({ label, description, checked, onCheckedChange, time, onTimeChange, fixedTime, boundaryRef }: ReminderRowProps) {
+function ReminderRow({ label, description, checked, onCheckedChange, time, onTimeChange, boundaryRef }: ReminderRowProps) {
   return (
     <div className="flex items-center gap-2 py-2.5">
       <span className="min-w-0 flex-1 text-sm text-cream">{label}</span>
@@ -94,7 +90,6 @@ function ReminderRow({ label, description, checked, onCheckedChange, time, onTim
       >
         <Info className="h-3.5 w-3.5" />
       </InfoTip>
-      {fixedTime && <span className="text-xs text-muted-foreground">{fixedTime}</span>}
       {onTimeChange && (
         <Input
           type="time"
@@ -112,15 +107,12 @@ function ReminderRow({ label, description, checked, onCheckedChange, time, onTim
 export function SettingsForm({
   profile,
   angolAccess = false,
-  newMagiaPath = false,
   pendingName = null,
   nextNameChangeAt = null,
 }: {
   profile: SettingsData;
   /** Kreatív Angol unlocked by the admin (it also needs the Hungarian UI) */
   angolAccess?: boolean;
-  /** On the new Fehér Mágia path: no weekly report (the 14-day close replaces it) */
-  newMagiaPath?: boolean;
   /** Name change waiting for the admin */
   pendingName?: PendingNameChange | null;
   /** ISO date of the next allowed name change (90-day rule), null = now */
@@ -165,7 +157,6 @@ export function SettingsForm({
   const [magiaStreak, setMagiaStreak] = useState(profile.push_magia_streak);
   const [magiaStreakTime, setMagiaStreakTime] = useState(profile.push_magia_streak_time || DEFAULT_MAGIA_STREAK_PUSH_TIME);
   const [magiaReengagement, setMagiaReengagement] = useState(profile.push_magia_reengagement);
-  const [weeklyReport, setWeeklyReport] = useState(profile.push_weekly_report);
   const [angolReminder, setAngolReminder] = useState(profile.push_angol_reminders);
   const [angolTime, setAngolTime] = useState(profile.push_angol_time || DEFAULT_ANGOL_PUSH_TIME);
 
@@ -197,13 +188,7 @@ export function SettingsForm({
       setSaveState('saving');
       const run = (values: Record<string, unknown>) =>
         supabase.from('profiles').update({ ...values, updated_at: new Date().toISOString() }).eq('id', profile.id);
-      let { error } = await run(patch);
-      // push_weekly_report needs migration 008; nothing else to save without it
-      if (isMissingColumnError(error) && 'push_weekly_report' in patch) {
-        const { push_weekly_report: _ignored, ...rest } = patch;
-        void _ignored;
-        ({ error } = Object.keys(rest).length > 0 ? await run(rest) : { error: null });
-      }
+      const { error } = await run(patch);
       if (error) {
         console.error('[profile] autosave failed', error);
         setSaveState('error');
@@ -372,16 +357,6 @@ export function SettingsForm({
                       checked={magiaReengagement}
                       onCheckedChange={toggle(setMagiaReengagement, 'push_magia_reengagement')}
                     />
-                    {!newMagiaPath && (
-                      <ReminderRow
-                        boundaryRef={notificationsRef}
-                        label={t('weeklyReport')}
-                        description={t('weeklyReportDesc')}
-                        checked={weeklyReport}
-                        onCheckedChange={toggle(setWeeklyReport, 'push_weekly_report')}
-                        fixedTime={t('weeklyReportTime')}
-                      />
-                    )}
                   </div>
 
                   {language === 'hu' && angolAccess && (

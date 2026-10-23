@@ -1,55 +1,8 @@
-import type { FokozatData } from '@/lib/i18n-content';
-import magiaStructure from '@/messages/content/magia.hu.json';
 import vocabulary from '@/messages/content/angol-vocabulary.json';
 import { ALL_SECTION_IDS, INITIAL_UNLOCKED_SECTIONS } from '@/lib/angol-unlocks';
-import { getFokozatExerciseCount } from '@/lib/i18n-content';
-import { getCurrentFokozatId, getFokozatProgress } from '@/lib/magia-utils';
-import type { MagiaProgressRecord } from '@/lib/magia-types';
 import { toIntlLocale } from '@/i18n';
 
-const MAGIA_STRUCTURE = magiaStructure as FokozatData[];
 const VOCABULARY = vocabulary as { prompt: string; answer: string }[];
-
-export function getFokozatExerciseCountFromStructure(fokozatId: number): number {
-  const fokozat = MAGIA_STRUCTURE.find((f) => f.id === fokozatId);
-  if (!fokozat) return 0;
-  return getFokozatExerciseCount(fokozat);
-}
-
-export function getTotalMagiaExercisesFromStructure(): number {
-  return MAGIA_STRUCTURE.reduce((sum, f) => sum + getFokozatExerciseCount(f), 0);
-}
-
-interface MagiaProgressRow extends MagiaProgressRecord {
-  completed_at: string | null;
-}
-
-/** Same "mastered"-based progress model as the Mágia module itself. */
-export function getMagiaDashboardStats(progress: MagiaProgressRow[]) {
-  const currentFokozat = getCurrentFokozatId(progress);
-  const fokozatPercent = getFokozatProgress(currentFokozat, progress).percent;
-
-  const overallTotal = getTotalMagiaExercisesFromStructure();
-  const overallMastered = MAGIA_STRUCTURE.reduce(
-    (sum, f) => sum + getFokozatProgress(f.id, progress).mastered,
-    0
-  );
-  const overallPercent =
-    overallTotal > 0 ? Math.round((overallMastered / overallTotal) * 100) : 0;
-
-  const lastActivity = progress
-    .flatMap((p) => [p.completed_at, p.mastered_at ?? null])
-    .filter((d): d is string => Boolean(d))
-    .sort()
-    .reverse()[0] ?? null;
-
-  return {
-    currentFokozat,
-    fokozatPercent,
-    overallPercent,
-    lastActivity,
-  };
-}
 
 interface AngolCardRow {
   correct_count: number;

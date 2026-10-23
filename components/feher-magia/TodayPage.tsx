@@ -6,7 +6,7 @@ import type { Locale } from '@/i18n';
 import { MagiaTabs } from './MagiaTabs';
 import { TodayView } from './TodayView';
 
-/** The new "Ma" tab (admin preview until the switch). */
+/** The "Ma" tab. */
 export async function TodayPage({
   locale,
   userId,

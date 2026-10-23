@@ -4,13 +4,12 @@ export interface BadgeStats {
   sessionCount: number;
   longestStreak: number;
   totalPracticeSec: number;
-  /** New Fehér Mágia path: mastered thought stages */
+  /** Fehér Mágia: mastered thought stages */
   masteredExercises: number;
-  /** New path: fokozatok completed (the II. fokozat reached = 1) */
+  /** Fokozatok completed (the II. fokozat reached = 1) */
   masteredFokozatok: number;
-  resolvedSoulMirror: number;
-  /** New path: closed 14-day cycles, each with the two soul mirrors (null on the current module) */
-  closedCycles: number | null;
+  /** Closed 14-day cycles, each with the two soul mirrors */
+  closedCycles: number;
   learnedWords: number;
   vocabularySize: number;
   passedExams: number;
@@ -37,13 +36,8 @@ export const BADGES: BadgeDefinition[] = [
   { id: 'practice_10h', icon: 'hourglass', category: 'magia', progress: (s) => ({ value: Math.floor(s.totalPracticeSec / 3600), target: 10 }) },
   { id: 'first_mastered', icon: 'star', category: 'magia', progress: (s) => ({ value: s.masteredExercises, target: 1 }) },
   { id: 'first_fokozat', icon: 'crown', category: 'magia', progress: (s) => ({ value: s.masteredFokozatok, target: 1 }) },
-  // New path: "Az első két lélektükör" (same id, the old "10 resolved items" until the switch)
-  {
-    id: 'soul_mirror_10',
-    icon: 'mirror',
-    category: 'magia',
-    progress: (s) => (s.closedCycles === null ? { value: s.resolvedSoulMirror, target: 10 } : { value: s.closedCycles, target: 1 }),
-  },
+  // "Az első két lélektükör" (the id is kept from the earlier module's badge)
+  { id: 'soul_mirror_10', icon: 'mirror', category: 'magia', progress: (s) => ({ value: s.closedCycles, target: 1 }) },
   { id: 'words_50', icon: 'book', category: 'angol', progress: (s) => ({ value: s.learnedWords, target: 50 }) },
   { id: 'words_all', icon: 'library', category: 'angol', progress: (s) => ({ value: s.learnedWords, target: s.vocabularySize }) },
   { id: 'first_exam', icon: 'graduation', category: 'angol', progress: (s) => ({ value: s.passedExams, target: 1 }) },

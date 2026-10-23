@@ -2,11 +2,8 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 /** Tables exported for the signed-in user (RLS limits every query to own rows). */
 const USER_TABLES = [
-  'magia_progress',
   'magia_sessions',
-  'magia_journal',
-  'magia_soul_mirror',
-  // The new Fehér Mágia path (migration 020)
+  // The Fehér Mágia path (migration 020)
   'magia_path',
   'magia_cycles',
   'magia_evenings',

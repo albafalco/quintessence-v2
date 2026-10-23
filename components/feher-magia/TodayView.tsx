@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useSyncExternalStore } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -34,7 +34,6 @@ import {
   saveSession,
   updatePath,
 } from '@/lib/magia/actions';
-import { Switch } from '@/components/ui/switch';
 import { AppIcon } from '@/components/ui/AppIcon';
 import { cn } from '@/lib/utils';
 import { BodyChecklist } from './BodyChecklist';
@@ -67,22 +66,6 @@ interface TodayViewProps {
 const PARTS: DayPart[] = ['reggel', 'napkozben', 'este'];
 const THOUGHT_PAGES = ['gondolat', 'fegyelmezes', 'uresseg'] as const;
 
-/** Preview only: every practice open, to try everything before the weekly unlocks */
-const PREVIEW_KEY = 'quintessence-fm-preview-all';
-
-function readPreview(): boolean {
-  try {
-    return localStorage.getItem(PREVIEW_KEY) === '1';
-  } catch {
-    return false;
-  }
-}
-
-function subscribeStorage(onChange: () => void): () => void {
-  window.addEventListener('storage', onChange);
-  return () => window.removeEventListener('storage', onChange);
-}
-
 /** The "Ma" tab: morning, day and evening, each started with one button. */
 export function TodayView({ locale, userId, data, content, words, openNote = false }: TodayViewProps) {
   const t = useTranslations('feherMagia');
@@ -100,20 +83,9 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
   const [noting, setNoting] = useState(openNote);
   const [busy, setBusy] = useState(false);
   const [flowError, setFlowError] = useState<string | null>(null);
-  const [, setPreviewVersion] = useState(0);
-  const previewAll = useSyncExternalStore(subscribeStorage, readPreview, () => false);
   const today = data.today;
 
-  const togglePreview = (on: boolean) => {
-    try {
-      localStorage.setItem(PREVIEW_KEY, on ? '1' : '0');
-    } catch {
-      // not critical
-    }
-    setPreviewVersion((v) => v + 1);
-  };
-
-  const unlocked = previewAll ? { breath: true, mealWater: true } : unlockedExercises(completedEvenings);
+  const unlocked = unlockedExercises(completedEvenings);
   const doneKeys = useMemo(() => new Set(sessions.map((s) => s.exercise_key)), [sessions]);
   const traits = useMemo(() => mirrorTraits(TRAITS, userTraits), [userTraits]);
   const entries = useMemo(() => searchEntries(TRAITS, words, userTraits), [words, userTraits]);
@@ -456,14 +428,6 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
           </section>
         );
       })}
-
-      <label className="flex items-center justify-between gap-4 rounded-2xl border border-dashed border-border/50 px-4 py-3">
-        <span>
-          <span className="block text-sm text-cream">{t('preview.allOpen')}</span>
-          <span className="block text-xs text-muted-foreground">{t('preview.note')}</span>
-        </span>
-        <Switch checked={previewAll} onCheckedChange={togglePreview} aria-label={t('preview.allOpen')} />
-      </label>
 
       {/* "+": a note during the day */}
       <button
