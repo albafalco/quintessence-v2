@@ -48,7 +48,6 @@ export function UtravaloShelf({ locale, items, source }: { locale: string; items
               >
                 <AppIcon name="book" className="h-4 w-4 shrink-0 text-accent/80" />
                 <span className="flex-1 text-cream">{item.page.title}</span>
-                {item.page.page && <span className="text-xs text-muted-foreground">{t('utam.page', { page: item.page.page })}</span>}
               </button>
             </li>
           )
