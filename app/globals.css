@@ -344,3 +344,19 @@
   .animate-stagger-2 { animation-delay: 0.2s; }
   .animate-stagger-3 { animation-delay: 0.3s; }
 }
+/*
+ * iPhone home-screen app (black-translucent): iOS always draws the clock, signal and battery in
+ * white over the page. On the light theme a deep purple strip under them keeps them readable;
+ * it follows a theme switch at once. Elsewhere the inset is 0, so nothing shows.
+ */
+@media (display-mode: standalone) {
+  [data-theme='light'] body::before {
+    content: '';
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 1000;
+    height: env(safe-area-inset-top);
+    background: rgb(var(--c-foreground));
+    pointer-events: none;
+  }
+}
