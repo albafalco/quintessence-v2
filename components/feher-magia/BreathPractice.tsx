@@ -7,7 +7,7 @@ import { BREATH_MAX_SEC, addDays, afterBreath, breathTargetFor } from '@/lib/mag
 import type { BreathState } from '@/lib/magia/types';
 import { cn } from '@/lib/utils';
 import { UtravaloView } from './UtravaloView';
-import { gong, keepAwake, tick, unlock, vibrate } from './sound';
+import { endSound, keepAwake, tick, unlock, vibrate } from './sound';
 
 interface BreathPracticeProps {
   state: BreathState;
@@ -93,7 +93,7 @@ export function BreathPractice(props: BreathPracticeProps) {
     const n = count + 1;
     setCount(n);
     if (n >= target) {
-      gong();
+      endSound();
       vibrate([200, 100, 200]);
       void finish(n);
       return;

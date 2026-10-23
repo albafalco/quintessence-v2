@@ -231,6 +231,15 @@
     @apply bg-gradient-to-r from-primary-light via-cream to-accent bg-clip-text text-transparent;
   }
 
+  /* Closed-eye practices: a darker, calm surface in either theme */
+  .flow-dim {
+    background-color: #05040a;
+  }
+
+  [data-theme='light'] .flow-dim {
+    background-color: rgb(229 219 199);
+  }
+
   .magia-surface {
     @apply border border-primary/20 bg-magia-gradient shadow-glow;
   }

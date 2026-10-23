@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { cancel, gong, hasPlayed, keepAwake, unlock, vibrate, type ScheduledSound } from './sound';
+import { cancel, endSound, hasPlayed, keepAwake, startSound, unlock, vibrate, type ScheduledSound } from './sound';
 
 const RECALL_SEC = 60;
 
@@ -24,7 +24,7 @@ export function RecallStep({ onDone, busy }: { onDone: () => void; busy: boolean
         window.clearInterval(id);
         if (!hasPlayed(endRef.current)) {
           cancel(endRef.current);
-          gong();
+          endSound();
         }
         vibrate([200, 100, 200]);
         void wakeRef.current?.release().catch(() => {});
@@ -47,8 +47,8 @@ export function RecallStep({ onDone, busy }: { onDone: () => void; busy: boolean
     unlock();
     startRef.current = Date.now();
     setElapsed(0);
-    gong(0, 0.3);
-    endRef.current = gong(RECALL_SEC);
+    startSound();
+    endRef.current = endSound(RECALL_SEC);
     wakeRef.current = await keepAwake();
     setRunning(true);
   };

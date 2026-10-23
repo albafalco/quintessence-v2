@@ -63,8 +63,8 @@ export function FlowShell({ title, meta, onClose: close, dim, children }: FlowSh
       className={cn(
         'fixed inset-0 z-[100] flex flex-col overflow-y-auto motion-reduce:animate-none',
         closing ? 'pointer-events-none animate-sheet-out' : 'animate-sheet-in',
-        // The app's own background; a darker one for the closed-eye practices
-        dim ? 'bg-[#05040a] text-cream' : 'bg-background bg-[image:var(--gradient-cosmic)]'
+        // The app's own background; a darker one for the closed-eye practices (following the theme)
+        dim ? 'flow-dim' : 'bg-background bg-[image:var(--gradient-cosmic)]'
       )}
       style={{
         paddingTop: 'max(12px, env(safe-area-inset-top))',
