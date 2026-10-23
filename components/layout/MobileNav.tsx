@@ -48,7 +48,7 @@ export function MobileNav() {
               <div
                 className={cn(
                   'flex h-7 w-7 items-center justify-center rounded-xl transition-all',
-                  active && 'bg-primary/25 shadow-glow-gold'
+                  active && 'bg-primary/25'
                 )}
               >
                 <Icon className={cn('h-5 w-5', active && 'text-accent')} />

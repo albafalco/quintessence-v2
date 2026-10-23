@@ -129,7 +129,7 @@ export function NotificationBell() {
       >
         <Bell className={cn('h-4 w-4', ringing && 'animate-bell-ring motion-reduce:animate-none')} />
         {unread > 0 && (
-          <span className="absolute -right-1.5 -top-1.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-gradient-to-br from-accent-light to-accent-dark px-1 text-[10px] font-bold leading-none text-accent-foreground shadow-glow-gold">
+          <span className="absolute -right-1.5 -top-1.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-gradient-to-br from-accent-light to-accent-dark px-1 text-[10px] font-bold leading-none text-accent-foreground">
             {badge}
           </span>
         )}

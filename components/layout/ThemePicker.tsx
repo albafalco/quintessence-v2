@@ -73,7 +73,7 @@ export function ThemeTiles() {
             onClick={() => setPreference(theme)}
             className={cn(
               'flex flex-col items-stretch gap-2 rounded-xl border p-2 text-left transition sm:p-2.5',
-              active ? 'border-accent/60 bg-accent/5 shadow-glow-gold' : 'border-border/60 hover:border-accent/30'
+              active ? 'border-accent/60 bg-accent/5' : 'border-border/60 hover:border-accent/30'
             )}
           >
             <ThemeSwatch theme={theme} className="aspect-[16/10] w-full" />

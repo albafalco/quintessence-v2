@@ -148,7 +148,7 @@ export function DashboardContent() {
         <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <ShieldLogo size={48} showGlow />
+              <ShieldLogo size={48} />
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent/80">
                 {tBrand('name')}
               </p>

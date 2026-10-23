@@ -184,7 +184,7 @@ export function ThoughtPractice(props: ThoughtPracticeProps) {
   };
 
   const primary =
-    'rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold disabled:opacity-50';
+    'rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30 disabled:opacity-50';
   const secondary =
     'rounded-xl border border-border/50 px-4 py-3 text-sm font-medium text-cream transition hover:border-accent/40 disabled:opacity-50';
   const minutes = current.thought_minutes;

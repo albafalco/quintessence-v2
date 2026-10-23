@@ -58,7 +58,7 @@ export function TodayCard({ today }: TodayCardProps) {
           <p className="text-xs text-muted-foreground">{t('todayProgress', { done, total })}</p>
         </div>
         {today.streak > 0 && (
-          <span className="inline-flex items-center gap-1 rounded-xl bg-accent/10 px-3 py-1 text-sm font-bold text-accent shadow-glow-gold">
+          <span className="inline-flex items-center gap-1 rounded-xl bg-accent/10 px-3 py-1 text-sm font-bold text-accent">
             <AppIcon name="flame" className="h-4 w-4" />
             {today.streak}
           </span>

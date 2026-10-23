@@ -10,7 +10,7 @@ export default async function NotFound() {
 
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center text-center">
-      <ShieldLogo size={72} showGlow />
+      <ShieldLogo size={72} />
       <p className="mt-6 font-display text-6xl font-bold text-gradient-gold">404</p>
       <h2 className="mt-4 font-display text-2xl font-semibold text-cream">{t('title')}</h2>
       <p className="mt-3 max-w-md text-muted-foreground">{t('description')}</p>

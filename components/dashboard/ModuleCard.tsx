@@ -37,7 +37,7 @@ export function ModuleCard({
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0 space-y-2">
             <CardTitle className="flex items-center gap-3 text-lg sm:text-xl">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-2xl shadow-glow-gold" aria-hidden>
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-2xl" aria-hidden>
                 {icon}
               </span>
               <span className="break-words text-gradient-gold">{title}</span>
@@ -71,7 +71,7 @@ export function ModuleCard({
       </CardContent>
 
       <CardFooter className="relative">
-        <Button asChild variant="gold" className="w-full group-hover:shadow-glow-gold">
+        <Button asChild variant="gold" className="w-full">
           <Link href={href}>
             {t('continue')}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

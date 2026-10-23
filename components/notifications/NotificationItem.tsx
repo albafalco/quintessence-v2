@@ -58,7 +58,7 @@ function CompactItem({ item, onOpen }: NotificationItemProps) {
       <div className="min-w-0 flex-1">
         <div className="flex items-start gap-2">
           <p className={cn('min-w-0 flex-1 text-sm', unread ? 'font-semibold text-cream' : 'text-cream/80')}>{item.title}</p>
-          {unread && <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent shadow-glow-gold" aria-label={t('unread')} />}
+          {unread && <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent" aria-label={t('unread')} />}
         </div>
         {item.body && <p className="mt-0.5 line-clamp-2 text-xs leading-snug text-muted-foreground">{stripRichText(item.body)}</p>}
         <p className="mt-1 text-[11px] text-muted-foreground/70">
@@ -113,7 +113,7 @@ function FullItem({ item, onOpen, onRead, highlight = false }: NotificationItemP
       className={cn(
         'premium-card scroll-mt-28 p-4 transition-[border-color,box-shadow] duration-700',
         unread && 'border-accent/30',
-        glow && 'border-accent/70 shadow-glow-gold'
+        glow && 'border-accent/70'
       )}
     >
       <div className="flex items-start gap-3">
@@ -121,7 +121,7 @@ function FullItem({ item, onOpen, onRead, highlight = false }: NotificationItemP
         <div className="min-w-0 flex-1">
           <div className="flex items-start gap-2">
             <p className={cn('min-w-0 flex-1', unread ? 'font-semibold text-cream' : 'text-cream/85')}>{item.title}</p>
-            {unread && <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent shadow-glow-gold" aria-label={t('unread')} />}
+            {unread && <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-label={t('unread')} />}
           </div>
           <p className="text-[11px] text-muted-foreground/70">
             {relativeTime(item.row.created_at, locale)}

@@ -54,8 +54,8 @@
     --c-emerald-400: 52 211 153;
     --c-emerald-600: 5 150 105;
     --c-emerald-950: 2 44 34;
-    --shadow-glow: 0 0 40px -8px rgba(76, 29, 149, 0.5);
-    --shadow-glow-gold: 0 0 32px -6px rgba(212, 175, 55, 0.35);
+    --shadow-glow: 0 0 40px -8px rgba(76, 29, 149, 0.25);
+    --shadow-glow-gold: 0 2px 14px -6px rgba(212, 175, 55, 0.3);
     --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.5);
     --shadow-card-hover: 0 16px 48px -12px rgba(76, 29, 149, 0.25);
     --gradient-cosmic: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(76, 29, 149, 0.22) 0%, transparent 55%),
@@ -117,8 +117,8 @@
     --c-emerald-400: 4 120 87;
     --c-emerald-600: 5 150 105;
     --c-emerald-950: 236 253 245;
-    --shadow-glow: 0 0 32px -10px rgba(76, 29, 149, 0.25);
-    --shadow-glow-gold: 0 0 24px -8px rgba(140, 106, 16, 0.35);
+    --shadow-glow: 0 0 32px -10px rgba(76, 29, 149, 0.12);
+    --shadow-glow-gold: 0 2px 12px -6px rgba(140, 106, 16, 0.25);
     --shadow-card: 0 6px 24px -10px rgba(42, 31, 69, 0.18);
     --shadow-card-hover: 0 14px 36px -12px rgba(76, 29, 149, 0.2);
     --gradient-cosmic: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(212, 175, 55, 0.16) 0%, transparent 55%),

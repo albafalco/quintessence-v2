@@ -467,7 +467,7 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
               <button
                 type="button"
                 onClick={() => setFlow({ part, step: pending[0], skipped: [] })}
-                className="mt-4 w-full rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold"
+                className="mt-4 w-full rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30"
               >
                 {anyDone ? t('blocks.continue') : t('blocks.start')}
               </button>

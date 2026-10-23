@@ -47,8 +47,8 @@ export function Navbar() {
     <header className="sticky top-0 z-30 min-w-0 border-b border-border/40 glass pt-[env(safe-area-inset-top)]">
       <div className="flex h-14 min-w-0 items-center justify-between gap-2 overflow-hidden px-3 sm:h-16 sm:px-4 md:px-6">
         <Link href={`/${locale}`} className="flex min-w-0 shrink items-center gap-2 md:hidden">
-          <ShieldLogo size={28} showGlow className="shrink-0 sm:hidden" />
-          <ShieldLogo size={32} showGlow className="hidden shrink-0 sm:block" />
+          <ShieldLogo size={28} className="shrink-0 sm:hidden" />
+          <ShieldLogo size={32} className="hidden shrink-0 sm:block" />
           <span className="hidden truncate font-display text-sm font-semibold text-gradient-gold min-[400px]:inline sm:text-base">
             {tBrand('name')}
           </span>

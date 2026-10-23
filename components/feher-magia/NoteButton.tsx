@@ -12,7 +12,7 @@ export function NoteButton() {
     <button
       type="button"
       onClick={() => window.dispatchEvent(new Event(NOTE_EVENT))}
-      className="hidden shrink-0 rounded-xl border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/20 hover:shadow-glow-gold md:inline-flex"
+      className="hidden shrink-0 rounded-xl border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/20 md:inline-flex"
     >
       {t('note')}
     </button>

@@ -64,7 +64,7 @@ export function BadgesSection({ userId, compact = false }: { userId: string; com
                       description={t(`${b.id}.desc`)}
                       footer={state.earned[b.id] ? t('earnedOn', { date: formatDate(state.earned[b.id]!) }) : t('earned')}
                       boundaryRef={contentRef}
-                      className="flex h-9 w-9 items-center justify-center rounded-full border border-accent/50 bg-accent/10 shadow-glow-gold transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border border-accent/50 bg-accent/10 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
                       openClassName="scale-110"
                     >
                       <AppIcon name={b.icon} className="h-4 w-4" />
@@ -95,7 +95,7 @@ export function BadgesSection({ userId, compact = false }: { userId: string; com
                       style={expanded ? { animationDelay: `${80 + order * 35}ms` } : undefined}
                       className={cn(
                         'flex flex-col items-center rounded-2xl border p-3 text-center transition',
-                        earned ? 'border-accent/40 bg-accent/5 shadow-glow-gold' : 'border-border/40 bg-card/20',
+                        earned ? 'border-accent/40 bg-accent/5' : 'border-border/40 bg-card/20',
                         expanded && 'animate-fade-up motion-reduce:animate-none'
                       )}
                     >

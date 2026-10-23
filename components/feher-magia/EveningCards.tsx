@@ -177,7 +177,7 @@ export function EveningCards(props: EveningCardsProps) {
           type="button"
           disabled={busy}
           onClick={() => go(index + 1)}
-          className="flex-1 rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold disabled:opacity-50"
+          className="flex-1 rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30 disabled:opacity-50"
         >
           {t('next')}
         </button>

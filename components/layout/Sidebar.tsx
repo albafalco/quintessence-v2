@@ -104,7 +104,7 @@ export function Sidebar() {
             collapsed && 'justify-center'
           )}
         >
-          <ShieldLogo size={36} showGlow />
+          <ShieldLogo size={36} />
           {!collapsed && (
             <span className="font-display text-lg font-semibold tracking-wide text-gradient-gold">
               {tBrand('name')}

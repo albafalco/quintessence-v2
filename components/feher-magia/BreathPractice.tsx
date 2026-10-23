@@ -105,7 +105,7 @@ export function BreathPractice(props: BreathPracticeProps) {
   };
 
   const primary =
-    'rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30 hover:shadow-glow-gold disabled:opacity-50';
+    'rounded-xl bg-accent/20 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent/30 disabled:opacity-50';
 
   if (phase === 'utravalo') {
     return <UtravaloView page={props.utravalo} source={props.source} onDone={() => setPhase(wish ? 'intro' : 'wish')} />;
