@@ -9,9 +9,10 @@ import { cn } from '@/lib/utils';
 import { AppIcon } from '@/components/ui/AppIcon';
 
 const ICON_STYLE: Record<ResolvedNotification['category'], string> = {
-  news: 'bg-accent/15 text-accent',
-  content: 'bg-accent/15 text-accent',
-  system: 'bg-amber-400/15 text-amber-200',
+  news: 'border border-accent/40 bg-accent/10 text-accent',
+  content: 'border border-accent/40 bg-accent/10 text-accent',
+  // Warnings stay amber, so they stand out
+  system: 'border border-amber-300/40 bg-amber-400/10 text-amber-200',
   personal: 'border border-accent/40 bg-accent/10 text-accent',
 };
 
