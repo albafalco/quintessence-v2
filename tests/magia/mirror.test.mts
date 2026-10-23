@@ -1,7 +1,7 @@
 // The 14-day mirror, the evening cards and the trait search. Run: npm test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildEveningCards, effectiveLevel, elementBalance, levelChanges, levelOf, needsHonestyWeek, summarize } from '../../lib/magia/mirror.ts';
+import { buildEveningCards, effectiveLevel, elementBalance, gridGroups, isCycleReady, levelChanges, levelOf, needsHonestyWeek, summarize } from '../../lib/magia/mirror.ts';
 import { normalize, searchTraits } from '../../lib/magia/search.ts';
 import { CORE_TRAITS, TRAITS, TRAIT_BY_KEY } from '../../lib/magia/traits.ts';
 
@@ -44,6 +44,18 @@ test('dominant element of a mirror', () => {
 test('honesty check counts black traits at least "kicsit"', () => {
   const s = summarize([{ harag: 1, torkossag: 1 }], traits.map((t) => t.key));
   assert.equal(needsHonestyWeek([...traits], s), true);
+});
+
+test('the grid: present traits by element, strongest first; the rest apart', () => {
+  const s = summarize([{ harag: 1, torkossag: 3, lustasag: 2 }, { harag: 1, torkossag: 2 }], traits.map((t) => t.key));
+  const { groups, quiet } = gridGroups([...traits], 'fekete', s);
+  assert.deepEqual(groups.map((g) => [g.element, g.keys.join(',')]), [['tuz', 'torkossag,harag'], ['fold', 'lustasag']]);
+  assert.deepEqual(quiet, ['fecseges', 'own:1']);
+  // The user's sorting moves a trait
+  const sorted = gridGroups([...traits], 'fekete', s, { lustasag: 0 });
+  assert.ok(sorted.quiet.includes('lustasag'));
+  assert.equal(isCycleReady(13, 14), false);
+  assert.equal(isCycleReady(14, 14), true);
 });
 
 test('changes since the previous cycle', () => {

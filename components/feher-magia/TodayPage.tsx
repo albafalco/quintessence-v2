@@ -30,6 +30,7 @@ export async function TodayPage({ locale, userId, data }: { locale: string; user
       </header>
       <MagiaTabs locale={locale} active="ma" />
       <TodayView
+        locale={locale}
         userId={userId}
         data={data}
         words={words}

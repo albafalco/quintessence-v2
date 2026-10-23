@@ -4,7 +4,8 @@ import { createClient } from '@/lib/supabase/client';
 import { toBudapestDate } from '@/lib/push-reminders';
 import type { ElementType } from '../magia-types';
 import type { AddedTrait } from './evening';
-import type { PathState, Ratings } from './types';
+import type { TraitSummary } from './mirror';
+import type { Level, PathState, Ratings } from './types';
 
 type PathUpdate = Partial<Omit<PathState, 'user_id'>>;
 
@@ -73,6 +74,36 @@ export async function openCycle(userId: string, number: number, fokozat: number,
     .maybeSingle();
   if (existing) return existing.id as string;
   throw error;
+}
+
+/** Closes a cycle: its summary (the two soul mirrors) and the user's own sorting. */
+export async function closeCycle(
+  userId: string,
+  cycleId: string,
+  summary: Record<string, TraitSummary>,
+  overrides: Record<string, Level>
+): Promise<void> {
+  const supabase = createClient();
+  const { error } = await supabase
+    .from('magia_cycles')
+    .update({ closed_at: new Date().toISOString(), summary, overrides })
+    .eq('id', cycleId)
+    .eq('user_id', userId);
+  if (error) throw error;
+}
+
+/** "Még egy hét": the honesty check lengthens the cycle. */
+export async function extendCycle(userId: string, cycleId: string, lengthDays: number): Promise<void> {
+  const supabase = createClient();
+  const { error } = await supabase.from('magia_cycles').update({ length_days: lengthDays }).eq('id', cycleId).eq('user_id', userId);
+  if (error) throw error;
+}
+
+/** The user's own sorting of a closed cycle ("osszuk fel három csoportra"). */
+export async function saveOverrides(userId: string, cycleId: string, overrides: Record<string, Level>): Promise<void> {
+  const supabase = createClient();
+  const { error } = await supabase.from('magia_cycles').update({ overrides }).eq('id', cycleId).eq('user_id', userId);
+  if (error) throw error;
 }
 
 /** Saves tonight's self-examination after every card, so an interrupted evening can go on later. */

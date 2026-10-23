@@ -103,6 +103,41 @@ export function levelChanges(
   return out;
 }
 
+/** The cycle has as many completed evenings as its length: it can be closed. */
+export function isCycleReady(completedEvenings: number, lengthDays: number): boolean {
+  return completedEvenings >= lengthDays;
+}
+
+export interface GridGroup {
+  /** null = unclassified own words */
+  element: ElementType | null;
+  keys: string[];
+}
+
+/**
+ * Rows of the 14-day grid of one mirror: the present traits element by
+ * element, strongest first; the not characteristic ones apart (collapsed).
+ */
+export function gridGroups(
+  traits: MirrorTrait[],
+  mirror: SoulMirrorType,
+  summary: Record<string, TraitSummary>,
+  overrides: Record<string, Level> = {}
+): { groups: GridGroup[]; quiet: string[] } {
+  const list = traits.filter((t) => t.mirror === mirror);
+  const level = (key: string) => effectiveLevel(summary, overrides, key);
+  const avg = (key: string) => summary[key]?.avg ?? 0;
+  const groups: GridGroup[] = [];
+  for (const element of [...ELEMENTS, null]) {
+    const keys = list
+      .filter((t) => t.element === element && level(t.key) > 0)
+      .map((t) => t.key)
+      .sort((a, b) => level(b) - level(a) || avg(b) - avg(a));
+    if (keys.length) groups.push({ element, keys });
+  }
+  return { groups, quiet: list.filter((t) => level(t.key) === 0).map((t) => t.key) };
+}
+
 export interface EveningCard {
   mirror: SoulMirrorType;
   /** 'marked' = present so far in this cycle, strongest first; otherwise one element (null = unclassified) */

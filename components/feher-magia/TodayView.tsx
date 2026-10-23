@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState, useSyncExternalStore } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import type { ElementType } from '@/lib/magia-types';
@@ -17,12 +18,14 @@ import {
   unlockedExercises,
 } from '@/lib/magia/path';
 import { TRAITS, TRAIT_BY_KEY } from '@/lib/magia/traits';
+import { isCycleReady, summarize } from '@/lib/magia/mirror';
 import { addedKey, markedCounts, mirrorTraits, searchEntries, traitName, type AddedTrait, type TraitWords } from '@/lib/magia/evening';
 import type { CycleRow, EveningRow, TodayData, TodaySession } from '@/lib/magia/store';
 import type { BodyItem, BreathState, DayPart, PathState, Ratings, ThoughtState } from '@/lib/magia/types';
 import {
   addDayNote,
   addUserTrait,
+  closeCycle,
   deleteSessionsSince,
   openCycle,
   saveEvening,
@@ -49,6 +52,7 @@ type FlowState = { part: DayPart; step: Step | 'done'; skipped: Step[]; introRea
 export type TodayContent = Pick<FeherMagiaContent, 'utravalo' | 'thought' | 'wishes' | 'body' | 'source' | 'elements' | 'sleep'>;
 
 interface TodayViewProps {
+  locale: string;
   userId: string;
   data: TodayData;
   content: TodayContent;
@@ -76,7 +80,7 @@ function subscribeStorage(onChange: () => void): () => void {
 }
 
 /** The "Ma" tab: morning, day and evening, each started with one button. */
-export function TodayView({ userId, data, content, words }: TodayViewProps) {
+export function TodayView({ locale, userId, data, content, words }: TodayViewProps) {
   const t = useTranslations('feherMagia');
   const router = useRouter();
   const [path, setPath] = useState<PathState>(data.path);
@@ -119,6 +123,9 @@ export function TodayView({ userId, data, content, words }: TodayViewProps) {
   const bodyDue = (part: DayPart) => bodyItemsFor(path.body_plan, today, part);
   const bodyDone = (item: BodyItem) => doneKeys.has(SESSION_KEYS.body(item.key));
   const eveningDone = Boolean(evening?.completed_at);
+  // The open cycle has all its evenings: the two soul mirrors can be made on the Tükör tab
+  const doneInCycle = cycle ? data.cycleEvenings.length + (eveningDone && evening?.cycle_id === cycle.id ? 1 : 0) : 0;
+  const cycleReady = Boolean(cycle && isCycleReady(doneInCycle, cycle.length_days));
   const labels = content.body;
 
   const elementOf = (key: string): ElementType | null => {
@@ -227,17 +234,22 @@ export function TodayView({ userId, data, content, words }: TodayViewProps) {
   };
 
   // ── the evening ───────────────────────────────────────────────────────────
-  /** The first evening of a cycle opens it */
+  /**
+   * The first evening of a cycle opens it. A full cycle not closed on the
+   * Tükör tab is closed here with its averages, so the evenings go on.
+   */
   const currentCycleId = async (): Promise<string> => {
-    if (cycle) return cycle.id;
-    const number = data.lastCycleNumber + 1;
+    if (cycle && !isCycleReady(data.cycleEvenings.length, cycle.length_days)) return cycle.id;
+    if (cycle) await closeCycle(userId, cycle.id, summarize(data.cycleEvenings, traits.map((tr) => tr.key)), {});
+    const number = (cycle?.number ?? data.lastCycleNumber) + 1;
     const id = await openCycle(userId, number, path.fokozat, today);
     setCycle({ id, number, fokozat: path.fokozat, length_days: 14, started_on: today, closed_at: null });
     return id;
   };
 
   const storeEvening = async (ratings: Ratings, step: number, completed = false) => {
-    const cycleId = await currentCycleId();
+    // A started evening stays in its cycle
+    const cycleId = evening?.cycle_id ?? (await currentCycleId());
     await saveEvening(userId, { obsDate: today, cycleId, ratings, step, completed });
     setEvening((e) => ({
       obs_date: today,
@@ -373,6 +385,15 @@ export function TodayView({ userId, data, content, words }: TodayViewProps) {
   return (
     // Room at the bottom for the "+" button
     <div className="space-y-5 pb-20">
+      {cycleReady && (
+        <Link
+          href={`/${locale}/modules/magia/tukor`}
+          className="block rounded-2xl border border-accent/40 bg-accent/10 p-4 text-sm text-cream transition hover:bg-accent/15"
+        >
+          <b className="block font-display text-lg text-gradient-gold">{t('mirror.readyTitle')}</b>
+          {t('mirror.banner')} <span className="font-semibold text-accent">{t('mirror.bannerLink')} →</span>
+        </Link>
+      )}
       {PARTS.map((part) => {
         const list = rows(part);
         const pending = pendingSteps(part);

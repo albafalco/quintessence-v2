@@ -4,12 +4,12 @@ import { cn } from '@/lib/utils';
 
 type Tab = 'ma' | 'tukor' | 'utam';
 
-/** Ma · Tükör · Utam. Tükör and Utam come in the next steps of the build. */
+/** Ma · Tükör · Utam. Utam comes in the next step of the build. */
 export async function MagiaTabs({ locale, active }: { locale: string; active: Tab }) {
   const t = await getTranslations('feherMagia.tabs');
   const tabs: { id: Tab; href: string | null }[] = [
     { id: 'ma', href: `/${locale}/modules/magia/ma` },
-    { id: 'tukor', href: null },
+    { id: 'tukor', href: `/${locale}/modules/magia/tukor` },
     { id: 'utam', href: null },
   ];
   return (
