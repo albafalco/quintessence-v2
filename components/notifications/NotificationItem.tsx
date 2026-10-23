@@ -10,7 +10,7 @@ import { AppIcon } from '@/components/ui/AppIcon';
 
 const ICON_STYLE: Record<ResolvedNotification['category'], string> = {
   news: 'bg-accent/15 text-accent',
-  content: 'bg-primary/30 text-accent-light',
+  content: 'bg-accent/15 text-accent',
   system: 'bg-amber-400/15 text-amber-200',
   personal: 'border border-accent/40 bg-accent/10 text-accent',
 };
