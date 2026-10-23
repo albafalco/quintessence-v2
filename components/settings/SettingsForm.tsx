@@ -112,12 +112,15 @@ function ReminderRow({ label, description, checked, onCheckedChange, time, onTim
 export function SettingsForm({
   profile,
   angolAccess = false,
+  newMagiaPath = false,
   pendingName = null,
   nextNameChangeAt = null,
 }: {
   profile: SettingsData;
   /** Kreatív Angol unlocked by the admin (it also needs the Hungarian UI) */
   angolAccess?: boolean;
+  /** On the new Fehér Mágia path: no weekly report (the 14-day close replaces it) */
+  newMagiaPath?: boolean;
   /** Name change waiting for the admin */
   pendingName?: PendingNameChange | null;
   /** ISO date of the next allowed name change (90-day rule), null = now */
@@ -369,14 +372,16 @@ export function SettingsForm({
                       checked={magiaReengagement}
                       onCheckedChange={toggle(setMagiaReengagement, 'push_magia_reengagement')}
                     />
-                    <ReminderRow
-                      boundaryRef={notificationsRef}
-                      label={t('weeklyReport')}
-                      description={t('weeklyReportDesc')}
-                      checked={weeklyReport}
-                      onCheckedChange={toggle(setWeeklyReport, 'push_weekly_report')}
-                      fixedTime={t('weeklyReportTime')}
-                    />
+                    {!newMagiaPath && (
+                      <ReminderRow
+                        boundaryRef={notificationsRef}
+                        label={t('weeklyReport')}
+                        description={t('weeklyReportDesc')}
+                        checked={weeklyReport}
+                        onCheckedChange={toggle(setWeeklyReport, 'push_weekly_report')}
+                        fixedTime={t('weeklyReportTime')}
+                      />
+                    )}
                   </div>
 
                   {language === 'hu' && angolAccess && (

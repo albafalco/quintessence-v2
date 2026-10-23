@@ -22,6 +22,7 @@ import { isMissingColumnError } from '@/lib/supabase/missing-column';
 import { isSunday, weekBounds, weekStartOf } from '@/lib/weekly-report';
 import { countReviewQueue, type CardScheduleRow } from '@/lib/angol-srs';
 import { sendDueAnnouncementPushes } from '@/lib/announcement-push';
+import { practiceDate } from '@/lib/magia/path';
 import vocabulary from '@/messages/content/angol-vocabulary.json';
 
 const WEEKLY_REPORT_TIME = '19:00';
@@ -66,12 +67,36 @@ interface PushPayload {
   url: string;
 }
 
+type ServiceClient = Awaited<ReturnType<typeof createServiceClient>>;
+
+/** New Fehér Mágia path: the completed evenings of the open 14-day cycle, if tonight is its last one. */
+async function cycleLastEvening(supabase: ServiceClient, userId: string, today: string): Promise<number | null> {
+  const { data: cycle } = await supabase
+    .from('magia_cycles')
+    .select('id, length_days')
+    .eq('user_id', userId)
+    .is('closed_at', null)
+    .maybeSingle();
+  if (!cycle) return null;
+  const { data: evenings } = await supabase
+    .from('magia_evenings')
+    .select('obs_date')
+    .eq('user_id', userId)
+    .eq('cycle_id', cycle.id)
+    .not('completed_at', 'is', null);
+  const rows = (evenings ?? []) as { obs_date: string }[];
+  if (rows.some((e) => e.obs_date === today)) return null;
+  return rows.length === cycle.length_days - 1 ? cycle.length_days : null;
+}
+
 async function buildPushNotifications(
   profile: ProfileRow,
   budapestNow: ReturnType<typeof getBudapestNow>,
-  supabase: Awaited<ReturnType<typeof createServiceClient>>,
+  supabase: ServiceClient,
   /** Users with Kreatív Angol access (locked module) */
-  angolUsers: Set<string>
+  angolUsers: Set<string>,
+  /** Users on the new Fehér Mágia path (a path row: the Gate is read) */
+  newPathUsers: Set<string>
 ): Promise<PushPayload[]> {
   const locale = resolveLocale(profile.preferred_language);
   const notifications: PushPayload[] = [];
@@ -99,10 +124,14 @@ async function buildPushNotifications(
     !eveningAlreadySent &&
     isReminderDue(budapestNow.totalMinutes, eveningTime)
   ) {
+    // New path: on the cycle's last evening, "Ma zárul a 14 napod"
+    const cycleDays = newPathUsers.has(profile.id) ? await cycleLastEvening(supabase, profile.id, practiceDate(new Date())) : null;
     notifications.push({
       type: 'magia_evening',
       title: await getMessage(locale, 'push.eveningTitle'),
-      body: await getMessage(locale, 'push.eveningBody'),
+      body: cycleDays
+        ? await getMessage(locale, 'push.cycleLastEveningBody', { days: cycleDays })
+        : await getMessage(locale, 'push.eveningBody'),
       url: magiaUrl,
     });
   }
@@ -154,7 +183,9 @@ async function buildPushNotifications(
 
   // Weekly initiation report: Sunday evening, only after an active week.
   // Requires the migration 008 columns (otherwise dedup could not be stored).
+  // The new path has none: its 14-day close replaces it.
   if (
+    !newPathUsers.has(profile.id) &&
     'push_weekly_report' in profile &&
     profile.push_weekly_report !== false &&
     profile.last_weekly_report_date !== budapestNow.date &&
@@ -229,6 +260,10 @@ export async function GET(request: Request) {
   const supabase = await createServiceClient();
   const budapestNow = getBudapestNow();
 
+  // The new Fehér Mágia path (migration 020): users who have read the Gate
+  const { data: pathRows } = await supabase.from('magia_path').select('user_id');
+  const newPathUsers = new Set(((pathRows ?? []) as { user_id: string }[]).map((r) => r.user_id));
+
   // Announcements whose scheduled publish time has come (migration 013)
   let announcementsSent = 0;
   try {
@@ -248,6 +283,15 @@ export async function GET(request: Request) {
       p_end: end,
     });
     if (weeklyError) console.error('[push/send] weekly notifications failed:', weeklyError.message);
+    // The new path has no weekly report: remove theirs (the function above adds it for every active user)
+    if (!weeklyError && newPathUsers.size > 0) {
+      await supabase
+        .from('user_notifications')
+        .delete()
+        .eq('kind', 'weekly_report')
+        .eq('dedup_key', `weekly:${monday}`)
+        .in('user_id', Array.from(newPathUsers));
+    }
   }
 
   const baseColumns =
@@ -289,7 +333,7 @@ export async function GET(request: Request) {
 
     if (!subscriptions?.length) continue;
 
-    const notifications = await buildPushNotifications(profile, budapestNow, supabase, angolUsers);
+    const notifications = await buildPushNotifications(profile, budapestNow, supabase, angolUsers, newPathUsers);
     if (!notifications.length) continue;
 
     let angolSent = false;

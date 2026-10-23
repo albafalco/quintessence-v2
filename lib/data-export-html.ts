@@ -1,5 +1,7 @@
 import type { FokozatData } from '@/lib/i18n-content';
 import { BADGES } from '@/lib/badges';
+import { ROMAN_NUMERALS } from '@/lib/magia-utils';
+import { TRAIT_BY_KEY } from '@/lib/magia/traits';
 
 type Row = Record<string, unknown>;
 type Translate = (key: string, values?: Record<string, string | number>) => string;
@@ -21,6 +23,18 @@ interface ReportOptions {
   /** badges namespace */
   tBadges: Translate;
   fokozatok: FokozatData[];
+  /** Texts of the new Fehér Mágia path; its section is left out without them */
+  path?: PathTexts;
+}
+
+export interface PathTexts {
+  /** feherMagia namespace */
+  tPath: Translate;
+  /** Dictionary trait key → name */
+  traitNames: Record<string, string>;
+  /** Body-training item key → label */
+  bodyLabels: Record<string, string>;
+  thoughtStages: string[];
 }
 
 const esc = (value: unknown) =>
@@ -56,7 +70,7 @@ const JOURNAL_FIELDS: [string, string][] = [
  * opens in any browser and prints to PDF. The JSON file stays the complete,
  * machine-readable copy.
  */
-export function buildUserReportHtml(data: ExportData, { locale, t, tMagia, tBadges, fokozatok }: ReportOptions) {
+export function buildUserReportHtml(data: ExportData, { locale, t, tMagia, tBadges, fokozatok, path }: ReportOptions) {
   const dateFmt = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long', day: 'numeric' });
   const dateTimeFmt = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
   const date = (iso: unknown) => (iso ? dateFmt.format(new Date(String(iso))) : '—');
@@ -143,6 +157,8 @@ export function buildUserReportHtml(data: ExportData, { locale, t, tMagia, tBadg
         ])
     );
 
+  const pathHtml = path ? buildPathHtml(data, path, { t, date, table, empty }) : '';
+
   const badgesHtml = table(
     [t('colMilestone'), t('colDate')],
     rows(data, 'user_badges')
@@ -213,6 +229,7 @@ ${section(
     <dt>${esc(t('pushDevicesLabel'))}</dt><dd>${esc(data.pushDevices)}</dd>
   </dl>`
 )}
+${pathHtml ? section(t('newPath'), pathHtml) : ''}
 ${section(t('magiaProgress'), progressHtml)}
 ${section(t('sessions'), sessionsHtml)}
 ${section(t('journal'), journalHtml)}
@@ -225,6 +242,70 @@ ${angolHtml ? section(t('angol'), angolHtml) : ''}
 </main>
 </body>
 </html>`;
+}
+
+/** The new path: where it stands, the 14-day cycles, the evenings and the day notes. */
+function buildPathHtml(
+  data: ExportData,
+  { tPath, traitNames, bodyLabels, thoughtStages }: PathTexts,
+  h: { t: Translate; date: (iso: unknown) => string; table: (head: string[], body: string[][]) => string; empty: string }
+) {
+  const { t, date, table } = h;
+  const p = rows(data, 'magia_path')[0];
+  if (!p) return '';
+  const own = rows(data, 'magia_user_traits');
+  const ownOf = (key: string) => own.find((o) => `own:${o.id}` === key);
+  const nameOf = (key: string) => (key.startsWith('own:') ? String(ownOf(key)?.name ?? key) : traitNames[key] ?? key);
+  const mirrorOf = (key: string) => (key.startsWith('own:') ? ownOf(key)?.mirror : TRAIT_BY_KEY.get(key)?.mirror);
+
+  const stage = Number(p.thought_stage);
+  const body = (Array.isArray(p.body_plan) ? (p.body_plan as Row[]) : []).map((item) => {
+    const days = Array.isArray(item.days) ? (item.days as number[]).map((d) => tPath(`body.d${d}`)).join(', ') : t('everyDay');
+    return `${esc(item.label ?? bodyLabels[String(item.key)] ?? item.key)} <span class="muted">· ${esc(tPath(`dashboard.parts.${item.when}`))}, ${esc(days)}</span>`;
+  });
+  const summary = `<dl>
+    <dt>${esc(t('colGrade'))}</dt><dd>${esc(tPath('header.fokozat', { roman: ROMAN_NUMERALS[Number(p.fokozat)] ?? String(p.fokozat) }))}</dd>
+    <dt>${esc(t('pathGate'))}</dt><dd>${esc(date(p.gate_read_at))}</dd>
+    <dt>${esc(t('pathWish'))}</dt><dd>${esc(p.wish ?? '—')}</dd>
+    <dt>${esc(t('pathThought'))}</dt><dd>${esc(
+      stage >= 3 ? t('pathThoughtDone') : `${thoughtStages[stage] ?? ''}, ${tPath('items.minutes', { minutes: Number(p.thought_minutes) })}`
+    )}</dd>
+    <dt>${esc(t('pathBreath'))}</dt><dd>${esc(tPath('items.breaths', { count: Number(p.breath_target) }))}</dd>
+    <dt>${esc(t('pathBody'))}</dt><dd>${body.length ? body.join('<br>') : '—'}</dd>
+  </dl>`;
+
+  const cycles = rows(data, 'magia_cycles').sort((a, b) => Number(a.number) - Number(b.number));
+  const cyclesHtml = table(
+    [t('colCycle'), t('colStart'), t('colLength'), t('colClosed')],
+    cycles.map((c) => [esc(c.number), esc(date(c.started_on)), esc(t('days', { count: Number(c.length_days) })), esc(c.closed_at ? date(c.closed_at) : t('open'))])
+  );
+
+  // One evening: the marked traits of a mirror, strongest first
+  const marked = (ratings: Row, mirror: 'fekete' | 'feher') =>
+    Object.entries(ratings)
+      .filter(([key]) => mirrorOf(key) === mirror)
+      .sort(([, a], [, b]) => (b === '?' ? 0 : Number(b)) - (a === '?' ? 0 : Number(a)))
+      .map(([key, level]) => `${esc(nameOf(key))} ${esc(level)}`)
+      .join(', ') || '—';
+  const evenings = rows(data, 'magia_evenings')
+    .filter((e) => e.completed_at)
+    .sort((a, b) => String(b.obs_date).localeCompare(String(a.obs_date)));
+  const eveningsHtml = evenings.length
+    ? `<p class="muted">${esc(t('ratingLegend'))}</p>${table(
+        [t('colDate'), tPath('evening.black'), tPath('evening.white')],
+        evenings.map((e) => [esc(date(e.obs_date)), marked((e.ratings ?? {}) as Row, 'fekete'), marked((e.ratings ?? {}) as Row, 'feher')])
+      )}`
+    : h.empty;
+
+  const notes = rows(data, 'magia_day_notes').sort((a, b) => String(b.noted_at ?? b.obs_date).localeCompare(String(a.noted_at ?? a.obs_date)));
+  const notesHtml = table(
+    [t('colDate'), t('colTrait'), t('colNote')],
+    notes.map((n) => [esc(date(n.obs_date)), esc(nameOf(String(n.trait_key))), text(n.note ?? '')])
+  );
+
+  return `${summary}<h3 style="margin-top:16px">${esc(t('cycles'))}</h3>${cyclesHtml}<h3 style="margin-top:16px">${esc(
+    t('evenings')
+  )}</h3>${eveningsHtml}<h3 style="margin-top:16px">${esc(t('dayNotes'))}</h3>${notesHtml}`;
 }
 
 export function downloadHtml(html: string, filename: string) {

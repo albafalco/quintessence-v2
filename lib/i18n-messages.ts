@@ -1,4 +1,4 @@
-import { fallbackLocale, locales, type Locale } from '@/i18n';
+import { defaultLocale, fallbackLocale, locales, type Locale } from '@/i18n';
 import { mergeMessages } from '@/lib/merge-messages';
 
 type Messages = Record<string, unknown>;
@@ -9,11 +9,12 @@ export async function loadMessages(locale: Locale): Promise<Messages> {
   if (cache.has(locale)) return cache.get(locale)!;
 
   const mod = await import(`@/messages/${locale}.json`);
-  // Missing texts fall back to English
-  const messages =
-    locale === fallbackLocale
-      ? (mod.default as Messages)
-      : mergeMessages(await loadMessages(fallbackLocale), mod.default as Messages);
+  // Missing texts fall back to English, and a text not translated yet to the
+  // Hungarian source (same order as the UI, see i18n.ts)
+  let messages: Messages;
+  if (locale === defaultLocale) messages = mod.default as Messages;
+  else if (locale === fallbackLocale) messages = mergeMessages(await loadMessages(defaultLocale), mod.default as Messages);
+  else messages = mergeMessages(await loadMessages(fallbackLocale), mod.default as Messages);
   cache.set(locale, messages);
   return messages;
 }

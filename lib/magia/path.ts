@@ -63,6 +63,9 @@ export const SESSION_KEYS = {
   selfExam: 'lelek_1_onvizsgalat',
 } as const;
 
+/** A thought-practice session of any stage */
+export const isThoughtKey = (key: string) => key.startsWith('szellem_1_gondolat_');
+
 // ── Thought practice ────────────────────────────────────────────────────────
 
 /** What the app offers after a session. */
@@ -197,6 +200,54 @@ export function bodyItemsFor(plan: BodyItem[], date: string, when?: DayPart): Bo
   return plan.filter((item) => isBodyItemDue(item, date) && (!when || item.when === when));
 }
 
+// ── Today's tasks ───────────────────────────────────────────────────────────
+
+export type DayTaskKey = 'body' | 'thought' | 'breath' | 'meal' | 'water' | 'selfExam';
+
+export interface DayTask {
+  key: DayTaskKey;
+  part: DayPart;
+  done: boolean;
+}
+
+export interface DayTasksInput {
+  bodyPlan: BodyItem[];
+  thoughtStage: number;
+  today: string;
+  /** Sessions of the practice day */
+  sessions: { exercise_key: string; started_at: string }[];
+  unlocked: { breath: boolean; mealWater: boolean };
+  eveningDone: boolean;
+}
+
+/**
+ * Today's tasks in the order the "Ma" tab goes through them. The thought
+ * practice and breathing come morning and evening; the body-training items
+ * due in a part of the day make one task.
+ */
+export function dayTasks(input: DayTasksInput): DayTask[] {
+  const { sessions, unlocked } = input;
+  const keys = new Set(sessions.map((s) => s.exercise_key));
+  const doneIn = (part: DayPart, match: (key: string) => boolean) =>
+    sessions.some((s) => match(s.exercise_key) && slotOf(s.started_at) === part);
+  const tasks: DayTask[] = [];
+  for (const part of ['reggel', 'napkozben', 'este'] as const) {
+    const body = bodyItemsFor(input.bodyPlan, input.today, part);
+    if (body.length > 0) tasks.push({ key: 'body', part, done: body.every((i) => keys.has(SESSION_KEYS.body(i.key))) });
+    if (part === 'napkozben') {
+      if (unlocked.mealWater) {
+        tasks.push({ key: 'meal', part, done: keys.has(SESSION_KEYS.meal) });
+        tasks.push({ key: 'water', part, done: keys.has(SESSION_KEYS.water) });
+      }
+      continue;
+    }
+    if (input.thoughtStage < 3) tasks.push({ key: 'thought', part, done: doneIn(part, isThoughtKey) });
+    if (unlocked.breath) tasks.push({ key: 'breath', part, done: doneIn(part, (k) => k === SESSION_KEYS.breath) });
+    if (part === 'este') tasks.push({ key: 'selfExam', part, done: input.eveningDone });
+  }
+  return tasks;
+}
+
 // ── The I. fokozat ──────────────────────────────────────────────────────────
 // Body training, breathing, eating and water are daily habits for life: the
 // book lists them as the practice of the I. fokozat and the II. adds to them
@@ -208,6 +259,12 @@ export interface FokozatIInput {
   gateRead: boolean;
   thoughtStage: number;
   closedCycles: number;
+  /** Where the current thought stage stands (for the percent) */
+  thoughtMinutes?: number;
+  thoughtWins?: number;
+  /** Completed evenings of the open cycle and its length (for the percent) */
+  openCycleDays?: number;
+  openCycleLength?: number;
 }
 
 export interface Condition {
@@ -217,7 +274,11 @@ export interface Condition {
   done: boolean;
 }
 
-/** The conditions of the II. fokozat and how far along they are. */
+/**
+ * The conditions of the II. fokozat and how far along they are. The percent
+ * counts six equal steps (the Gate, three thought stages, two cycles) and the
+ * way into the current stage and cycle, so it moves day by day.
+ */
 export function fokozatIConditions(input: FokozatIInput): { conditions: Condition[]; allDone: boolean; percent: number } {
   const cond = (key: Condition['key'], value: number, target: number): Condition => ({
     key,
@@ -230,6 +291,17 @@ export function fokozatIConditions(input: FokozatIInput): { conditions: Conditio
     cond('thought', input.thoughtStage, 3),
     cond('cycles', input.closedCycles, CYCLES_FOR_NEXT_FOKOZAT),
   ];
-  const ratio = conditions.reduce((sum, c) => sum + c.value / c.target, 0) / conditions.length;
-  return { conditions, allDone: conditions.every((c) => c.done), percent: Math.round(ratio * 100) };
+  const allDone = conditions.every((c) => c.done);
+
+  // Into the current stage: 1 → 10 minutes, then the successful 10-minute sessions
+  const stageSteps = THOUGHT_MAX_MINUTES - 1 + THOUGHT_WINS_TO_ADVANCE;
+  const intoStage =
+    input.thoughtStage < 3 ? Math.min(1, ((input.thoughtMinutes ?? 1) - 1 + (input.thoughtWins ?? 0)) / stageSteps) : 0;
+  const intoCycle = input.openCycleLength ? Math.min(1, (input.openCycleDays ?? 0) / input.openCycleLength) : 0;
+  const steps =
+    conditions[0].value +
+    Math.min(3, conditions[1].value + intoStage) +
+    Math.min(CYCLES_FOR_NEXT_FOKOZAT, conditions[2].value + intoCycle);
+  const percent = allDone ? 100 : Math.min(99, Math.round((steps / (4 + CYCLES_FOR_NEXT_FOKOZAT)) * 100));
+  return { conditions, allDone, percent };
 }

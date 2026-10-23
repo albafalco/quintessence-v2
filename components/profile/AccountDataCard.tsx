@@ -7,7 +7,7 @@ import { FileJson, FileText, Trash2 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { collectUserData, downloadJson } from '@/lib/data-export';
 import { buildUserReportHtml, downloadHtml, type ExportData } from '@/lib/data-export-html';
-import { loadMagiaFokozatok } from '@/lib/i18n-content';
+import { loadFeherMagia, loadMagiaFokozatok, loadTraitTexts } from '@/lib/i18n-content';
 import type { Locale } from '@/i18n';
 import { removeCurrentDeviceSubscription } from '@/lib/push-subscription';
 import { toBudapestDate } from '@/lib/push-reminders';
@@ -26,6 +26,7 @@ export function AccountDataCard({ userId, username, email, part }: AccountDataCa
   const tExport = useTranslations('dataExport');
   const tMagia = useTranslations('magia');
   const tBadges = useTranslations('badges');
+  const tPath = useTranslations('feherMagia');
   const locale = useLocale();
   const router = useRouter();
   const { confirm, confirmDialog } = useConfirm();
@@ -41,13 +42,23 @@ export function AccountDataCard({ userId, username, email, part }: AccountDataCa
       const name = `quintessence-adataim-${toBudapestDate(new Date())}`;
       if (format === 'json') downloadJson(data, `${name}.json`);
       else {
-        const fokozatok = await loadMagiaFokozatok(locale as Locale);
+        const [fokozatok, content, words] = await Promise.all([
+          loadMagiaFokozatok(locale as Locale),
+          loadFeherMagia(locale as Locale),
+          loadTraitTexts(locale as Locale),
+        ]);
         const html = buildUserReportHtml(data as unknown as ExportData, {
           locale,
           t: tExport as never,
           tMagia: tMagia as never,
           tBadges: tBadges as never,
           fokozatok,
+          path: {
+            tPath: tPath as never,
+            traitNames: Object.fromEntries(Object.entries(words).map(([key, w]) => [key, w.name.charAt(0).toUpperCase() + w.name.slice(1)])),
+            bodyLabels: content.body,
+            thoughtStages: content.thought.stages.map((s) => s.name),
+          },
         });
         downloadHtml(html, `${name}.html`);
       }

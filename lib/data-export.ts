@@ -6,6 +6,12 @@ const USER_TABLES = [
   'magia_sessions',
   'magia_journal',
   'magia_soul_mirror',
+  // The new Fehér Mágia path (migration 020)
+  'magia_path',
+  'magia_cycles',
+  'magia_evenings',
+  'magia_user_traits',
+  'magia_day_notes',
   'angol_card_progress',
   'angol_section_unlocks',
   'angol_exam_results',

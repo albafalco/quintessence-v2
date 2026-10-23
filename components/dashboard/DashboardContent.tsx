@@ -83,8 +83,11 @@ export function DashboardContent() {
             supabase.from('profiles').select(columns).eq('id', user.id).single(),
             FETCH_TIMEOUT_MS,
             { data: null, error: null } as never
-          ) as Promise<{ data: { username?: string; first_name?: string | null } | null; error: { code?: string } | null }>;
-        let profileResult = await loadProfile('username, first_name');
+          ) as Promise<{
+            data: { username?: string; first_name?: string | null; last_magia_activity_date?: string | null } | null;
+            error: { code?: string } | null;
+          }>;
+        let profileResult = await loadProfile('username, first_name, last_magia_activity_date');
         // first_name needs migration 018
         if (isMissingColumnError(profileResult.error)) profileResult = await loadProfile('username');
 
@@ -153,8 +156,18 @@ export function DashboardContent() {
         const today = await todayPromise;
         if (cancelled) return;
 
+        // The new Fehér Mágia path counts its own fokozat and percent
+        const magia = today?.path
+          ? {
+              ...magiaStats,
+              currentFokozat: today.path.fokozat,
+              fokozatPercent: today.path.percent,
+              lastActivity: profileResult.data?.last_magia_activity_date ?? magiaStats.lastActivity,
+            }
+          : magiaStats;
+
         bootLog('dashboard-fetch-done');
-        setData({ greetingName, showAngol, magiaStats, angolStats, today });
+        setData({ greetingName, showAngol, magiaStats: magia, angolStats, today });
 
         // Milestones are checked in the background; new ones show up in the bell
         syncBadges(supabase, user.id, { angol: showAngol })

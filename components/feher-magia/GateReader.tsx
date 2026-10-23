@@ -63,6 +63,8 @@ export function GateReader({
     router.push(`/${locale}/modules/magia/ma`);
     router.refresh();
   };
+  // Read again from the Utam tab: back there
+  const toPath = () => router.push(`/${locale}/modules/magia`);
 
   // Ask for permission right on the tap (browsers want it inside the gesture)
   const toggleReminder = async (on: boolean) => {
@@ -218,8 +220,8 @@ export function GateReader({
           </button>
         )}
         {onLast && readOnly && (
-          <button type="button" onClick={toToday} className={`flex-1 ${primary}`}>
-            {t('toToday')}
+          <button type="button" onClick={toPath} className={`flex-1 ${primary}`}>
+            {t('toPath')}
           </button>
         )}
         {onLast && !readOnly && (

@@ -7,7 +7,17 @@ import { MagiaTabs } from './MagiaTabs';
 import { TodayView } from './TodayView';
 
 /** The new "Ma" tab (admin preview until the switch). */
-export async function TodayPage({ locale, userId, data }: { locale: string; userId: string; data: TodayData }) {
+export async function TodayPage({
+  locale,
+  userId,
+  data,
+  openNote = false,
+}: {
+  locale: string;
+  userId: string;
+  data: TodayData;
+  openNote?: boolean;
+}) {
   const [t, tNav, content, words] = await Promise.all([
     getTranslations('feherMagia.header'),
     getTranslations('nav'),
@@ -34,6 +44,7 @@ export async function TodayPage({ locale, userId, data }: { locale: string; user
         userId={userId}
         data={data}
         words={words}
+        openNote={openNote}
         content={{
           utravalo: content.utravalo,
           thought: content.thought,

@@ -33,9 +33,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 interface MaMagiaPageProps {
   params: Promise<{ locale: string }>;
+  /** ?jegyzet=1: the dashboard's "+" opens a note right away */
+  searchParams: Promise<{ jegyzet?: string }>;
 }
 
-export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
+export default async function MaMagiaPage({ params, searchParams }: MaMagiaPageProps) {
   const { locale } = await params;
   const t = await getTranslations('magia');
   const fokozatok = await loadMagiaFokozatok(locale as Locale);
@@ -48,7 +50,8 @@ export default async function MaMagiaPage({ params }: MaMagiaPageProps) {
   if (await hasModuleAccess(supabase, 'feher_magia')) {
     const data = await loadTodayData(supabase, user.id);
     if (!data?.path.gate_read_at) redirect(`/${locale}/modules/magia/kapu`);
-    return <TodayPage locale={locale} userId={user.id} data={data} />;
+    const { jegyzet } = await searchParams;
+    return <TodayPage locale={locale} userId={user.id} data={data} openNote={jegyzet === '1'} />;
   }
 
   const budapestNow = getBudapestNow();

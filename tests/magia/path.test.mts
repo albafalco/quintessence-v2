@@ -9,6 +9,7 @@ import {
   applyThoughtOutcome,
   bodyItemsFor,
   breathTargetFor,
+  dayTasks,
   declineBack,
   defaultBodyItem,
   fokozatIConditions,
@@ -138,4 +139,38 @@ test('the II. fokozat opens after the Gate, the three thought stages and two cyc
   assert.equal(done.percent, 100);
   assert.deepEqual(done.conditions.map((c) => c.key), ['gate', 'thought', 'cycles']);
   assert.equal(fokozatIConditions({ gateRead: false, thoughtStage: 0, closedCycles: 0 }).percent, 0);
+});
+
+test('the percent moves day by day', () => {
+  assert.equal(fokozatIConditions({ gateRead: true, thoughtStage: 0, closedCycles: 0 }).percent, 17);
+  // Gate + stage 1 done + a quarter into stage 2 + half a cycle: 2.75 of 6 steps
+  const mid = fokozatIConditions({ gateRead: true, thoughtStage: 1, closedCycles: 0, thoughtMinutes: 4, openCycleDays: 7, openCycleLength: 14 });
+  assert.equal(mid.percent, 46);
+  // A full but unclosed cycle is not the end
+  const full = fokozatIConditions({ gateRead: true, thoughtStage: 3, closedCycles: 1, openCycleDays: 14, openCycleLength: 14 });
+  assert.equal(full.allDone, false);
+  assert.equal(full.percent, 99);
+});
+
+test("today's tasks: twice-daily practices, body items by part, the evening", () => {
+  const wednesday = '2026-10-21';
+  const plan = [defaultBodyItem('kefeles'), { key: 'futas', when: 'este' as const, days: [0, 2, 4] }];
+  const base = { bodyPlan: plan, thoughtStage: 0, today: wednesday, sessions: [], unlocked: { breath: false, mealWater: false }, eveningDone: false };
+  const keys = (tasks: ReturnType<typeof dayTasks>) => tasks.map((t) => `${t.part}:${t.key}${t.done ? '✓' : ''}`);
+  assert.deepEqual(keys(dayTasks(base)), ['reggel:body', 'reggel:thought', 'este:body', 'este:thought', 'este:selfExam']);
+
+  // 07:10 and 20:30 Budapest time (UTC+2 in October)
+  const sessions = [
+    { exercise_key: 'test_1_test_kefeles', started_at: '2026-10-21T05:00:00Z' },
+    { exercise_key: 'szellem_1_gondolat_0', started_at: '2026-10-21T05:10:00Z' },
+    { exercise_key: 'test_1_legzes', started_at: '2026-10-21T18:30:00Z' },
+  ];
+  const later = dayTasks({ ...base, sessions, unlocked: { breath: true, mealWater: true }, eveningDone: true });
+  assert.deepEqual(keys(later), [
+    'reggel:body✓', 'reggel:thought✓', 'reggel:breath',
+    'napkozben:meal', 'napkozben:water',
+    'este:body', 'este:thought', 'este:breath✓', 'este:selfExam✓',
+  ]);
+  // The thought practice ends with the third stage
+  assert.ok(!dayTasks({ ...base, thoughtStage: 3 }).some((t) => t.key === 'thought'));
 });

@@ -14,6 +14,8 @@ import {
   UNLOCK_MEAL_WATER_AFTER,
   bodyItemsFor,
   breathTargetFor,
+  dayTasks,
+  isThoughtKey,
   slotOf,
   unlockedExercises,
 } from '@/lib/magia/path';
@@ -58,6 +60,8 @@ interface TodayViewProps {
   content: TodayContent;
   /** Trait texts by key (tulajdonsagok.<locale>.json) */
   words: Record<string, TraitWords>;
+  /** Open the "+" note right away (the dashboard's quick button) */
+  openNote?: boolean;
 }
 
 const PARTS: DayPart[] = ['reggel', 'napkozben', 'este'];
@@ -80,7 +84,7 @@ function subscribeStorage(onChange: () => void): () => void {
 }
 
 /** The "Ma" tab: morning, day and evening, each started with one button. */
-export function TodayView({ locale, userId, data, content, words }: TodayViewProps) {
+export function TodayView({ locale, userId, data, content, words, openNote = false }: TodayViewProps) {
   const t = useTranslations('feherMagia');
   const router = useRouter();
   const [path, setPath] = useState<PathState>(data.path);
@@ -93,7 +97,7 @@ export function TodayView({ locale, userId, data, content, words }: TodayViewPro
   const [completedEvenings, setCompletedEvenings] = useState(data.completedEvenings);
   const [flow, setFlow] = useState<FlowState | null>(null);
   const [reading, setReading] = useState<ReadingPage | null>(null);
-  const [noting, setNoting] = useState(false);
+  const [noting, setNoting] = useState(openNote);
   const [busy, setBusy] = useState(false);
   const [flowError, setFlowError] = useState<string | null>(null);
   const [, setPreviewVersion] = useState(0);
@@ -115,10 +119,9 @@ export function TodayView({ locale, userId, data, content, words }: TodayViewPro
   const entries = useMemo(() => searchEntries(TRAITS, words, userTraits), [words, userTraits]);
   const thoughtActive = path.thought_stage < 3;
   const stage = Math.min(path.thought_stage, 2);
-  const isThought = (s: TodaySession) => s.exercise_key.startsWith('szellem_1_gondolat_');
   const doneIn = (part: DayPart, match: (s: TodaySession) => boolean) =>
     sessions.some((s) => match(s) && slotOf(s.started_at) === part);
-  const thoughtDone = (part: DayPart) => doneIn(part, isThought);
+  const thoughtDone = (part: DayPart) => doneIn(part, (s) => isThoughtKey(s.exercise_key));
   const breathDone = (part: DayPart) => doneIn(part, (s) => s.exercise_key === SESSION_KEYS.breath);
   const bodyDue = (part: DayPart) => bodyItemsFor(path.body_plan, today, part);
   const bodyDone = (item: BodyItem) => doneKeys.has(SESSION_KEYS.body(item.key));
@@ -135,20 +138,16 @@ export function TodayView({ locale, userId, data, content, words }: TodayViewPro
   };
   const nameOf = (key: string) => traitName(key, words, userTraits);
 
+  const tasks = dayTasks({ bodyPlan: path.body_plan, thoughtStage: path.thought_stage, today, sessions, unlocked, eveningDone });
+
   const pendingSteps = (part: DayPart): Step[] => {
     const steps: Step[] = [];
     // The first choice of body-training items is offered in the morning or the evening
-    if (path.body_plan.length === 0) {
-      if (part !== 'napkozben') steps.push('setup');
-    } else if (bodyDue(part).some((i) => !bodyDone(i))) steps.push('body');
-    if (part === 'napkozben') {
-      if (unlocked.mealWater && !doneKeys.has(SESSION_KEYS.meal)) steps.push('meal');
-      if (unlocked.mealWater && !doneKeys.has(SESSION_KEYS.water)) steps.push('water');
-      return steps;
+    if (path.body_plan.length === 0 && part !== 'napkozben') steps.push('setup');
+    for (const task of tasks) {
+      if (task.part !== part || task.done) continue;
+      steps.push(task.key === 'selfExam' ? ((evening?.step ?? 0) === 0 ? 'recall' : 'cards') : task.key);
     }
-    if (thoughtActive && !thoughtDone(part)) steps.push('thought');
-    if (unlocked.breath && !breathDone(part)) steps.push('breath');
-    if (part === 'este' && !eveningDone) steps.push((evening?.step ?? 0) === 0 ? 'recall' : 'cards');
     return steps;
   };
 

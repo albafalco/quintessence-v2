@@ -16,26 +16,33 @@ export interface BadgeState {
 }
 
 export async function loadBadgeStats(supabase: SupabaseClient, userId: string): Promise<BadgeStats> {
-  const [sessions, progress, mirror, cards, exams, unlocks] = await Promise.all([
+  const [sessions, progress, mirror, cards, exams, unlocks, path, cycles] = await Promise.all([
     supabase.from('magia_sessions').select('started_at, duration_sec, completed').eq('user_id', userId),
     supabase.from('magia_progress').select('fokozat, section, exercise_key, completed, notes, status').eq('user_id', userId),
     supabase.from('magia_soul_mirror').select('resolved').eq('user_id', userId).eq('resolved', true),
     supabase.from('angol_card_progress').select('correct_count').eq('user_id', userId),
     supabase.from('angol_exam_results').select('passed').eq('user_id', userId).eq('passed', true),
     supabase.from('angol_section_unlocks').select('section_id').eq('user_id', userId).eq('lesson_id', 1),
+    supabase.from('magia_path').select('fokozat, thought_stage').eq('user_id', userId).maybeSingle(),
+    supabase.from('magia_cycles').select('id', { count: 'exact', head: true }).eq('user_id', userId).not('closed_at', 'is', null),
   ]);
 
   const sessionRows = (sessions.data ?? []) as { started_at: string; duration_sec: number | null; completed: boolean }[];
   const progressRows = (progress.data ?? []) as MagiaProgressRecord[];
   const unlocked = new Set(mergeUnlockedSections(((unlocks.data ?? []) as { section_id: number }[]).map((u) => u.section_id)));
+  // The new Fehér Mágia path (a path row once the Gate is read) gives the magia badges their new content
+  const newPath = path.data as { fokozat: number; thought_stage: number } | null;
 
   return {
     sessionCount: sessionRows.length,
     longestStreak: longestDayStreak(sessionRows.filter((s) => s.completed).map((s) => toBudapestDate(s.started_at))),
     totalPracticeSec: sessionRows.reduce((sum, s) => sum + (s.duration_sec ?? 0), 0),
-    masteredExercises: progressRows.filter((p) => p.status === 'mastered').length,
-    masteredFokozatok: Array.from({ length: 10 }, (_, i) => i + 1).filter((id) => isFokozatMastered(id, progressRows)).length,
+    masteredExercises: newPath ? newPath.thought_stage : progressRows.filter((p) => p.status === 'mastered').length,
+    masteredFokozatok: newPath
+      ? newPath.fokozat - 1
+      : Array.from({ length: 10 }, (_, i) => i + 1).filter((id) => isFokozatMastered(id, progressRows)).length,
     resolvedSoulMirror: (mirror.data ?? []).length,
+    closedCycles: newPath ? (cycles.count ?? 0) : null,
     learnedWords: ((cards.data ?? []) as { correct_count: number }[]).filter((c) => c.correct_count >= 3).length,
     vocabularySize: (vocabulary as unknown[]).length,
     passedExams: (exams.data ?? []).length,

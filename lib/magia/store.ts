@@ -73,28 +73,38 @@ async function hasSession(supabase: SupabaseClient, userId: string, key: string,
   return (count ?? 0) > 0;
 }
 
+/** The sessions of the practice day `today`, oldest first. */
+async function loadTodaySessions(supabase: SupabaseClient, userId: string, today: string, now: Date): Promise<TodaySession[]> {
+  // The practice day can start up to a day and 4 hours ago
+  const since = new Date(now.getTime() - 30 * 3_600_000).toISOString();
+  const { data } = await supabase
+    .from('magia_sessions')
+    .select('exercise_key, started_at, outcome, reps')
+    .eq('user_id', userId)
+    .gte('started_at', since)
+    .order('started_at', { ascending: true });
+  return ((data ?? []) as TodaySession[]).filter((s) => practiceDate(s.started_at) === today);
+}
+
+function countCompletedEvenings(supabase: SupabaseClient, userId: string) {
+  return supabase
+    .from('magia_evenings')
+    .select('obs_date', { count: 'exact', head: true })
+    .eq('user_id', userId)
+    .not('completed_at', 'is', null);
+}
+
 /** Everything the "Ma" page needs; null before the Gate (no path row yet). */
 export async function loadTodayData(supabase: SupabaseClient, userId: string, now = new Date()): Promise<TodayData | null> {
   const path = await loadPath(supabase, userId);
   if (!path) return null;
 
   const today = practiceDate(now);
-  // Today's sessions: the practice day can start up to a day and 4 hours ago
-  const since = new Date(now.getTime() - 30 * 3_600_000).toISOString();
 
-  const [sessionsRes, eveningsCount, cycleRes, traitsRes, notesRes, seenBody, seenThought, seenBreath, seenSelf, seenMeal, seenWater] =
+  const [sessions, eveningsCount, cycleRes, traitsRes, notesRes, seenBody, seenThought, seenBreath, seenSelf, seenMeal, seenWater] =
     await Promise.all([
-      supabase
-        .from('magia_sessions')
-        .select('exercise_key, started_at, outcome, reps')
-        .eq('user_id', userId)
-        .gte('started_at', since)
-        .order('started_at', { ascending: true }),
-      supabase
-        .from('magia_evenings')
-        .select('obs_date', { count: 'exact', head: true })
-        .eq('user_id', userId)
-        .not('completed_at', 'is', null),
+      loadTodaySessions(supabase, userId, today, now),
+      countCompletedEvenings(supabase, userId),
       supabase
         .from('magia_cycles')
         .select('id, number, fokozat, length_days, started_on, closed_at')
@@ -112,7 +122,6 @@ export async function loadTodayData(supabase: SupabaseClient, userId: string, no
       hasSession(supabase, userId, SESSION_KEYS.water),
     ]);
 
-  const sessions = ((sessionsRes.data ?? []) as TodaySession[]).filter((s) => practiceDate(s.started_at) === today);
   const openCycle = cycleRes.data && !cycleRes.data.closed_at ? (cycleRes.data as CycleRow) : null;
 
   // The open cycle's evenings: the completed ones before today, and tonight's
@@ -149,5 +158,54 @@ export async function loadTodayData(supabase: SupabaseClient, userId: string, no
     cycleEvenings,
     evening,
     noteKeys: ((notesRes.data ?? []) as { trait_key: string }[]).map((n) => n.trait_key),
+  };
+}
+
+/** What the dashboard and the Utam tab need: today's tasks and where the fokozat stands. */
+export interface DaySummary {
+  path: PathState;
+  today: string;
+  sessions: TodaySession[];
+  completedEvenings: number;
+  eveningDone: boolean;
+  closedCycles: number;
+  /** The open cycle: its completed evenings (tonight's included) and its length */
+  openCycle: { days: number; length: number } | null;
+}
+
+/** A lighter load than loadTodayData; null before the Gate. */
+export async function loadDaySummary(supabase: SupabaseClient, userId: string, now = new Date()): Promise<DaySummary | null> {
+  const path = await loadPath(supabase, userId);
+  if (!path) return null;
+
+  const today = practiceDate(now);
+  const [sessions, eveningsCount, tonightRes, cyclesRes] = await Promise.all([
+    loadTodaySessions(supabase, userId, today, now),
+    countCompletedEvenings(supabase, userId),
+    supabase.from('magia_evenings').select('completed_at').eq('user_id', userId).eq('obs_date', today).maybeSingle(),
+    supabase.from('magia_cycles').select('id, length_days, closed_at').eq('user_id', userId),
+  ]);
+
+  const cycles = (cyclesRes.data ?? []) as { id: string; length_days: number; closed_at: string | null }[];
+  const open = cycles.find((c) => !c.closed_at);
+  let openCycle: DaySummary['openCycle'] = null;
+  if (open) {
+    const { count } = await supabase
+      .from('magia_evenings')
+      .select('obs_date', { count: 'exact', head: true })
+      .eq('user_id', userId)
+      .eq('cycle_id', open.id)
+      .not('completed_at', 'is', null);
+    openCycle = { days: count ?? 0, length: open.length_days };
+  }
+
+  return {
+    path,
+    today,
+    sessions,
+    completedEvenings: eveningsCount.count ?? 0,
+    eveningDone: Boolean((tonightRes.data as { completed_at: string | null } | null)?.completed_at),
+    closedCycles: cycles.filter((c) => c.closed_at).length,
+    openCycle,
   };
 }

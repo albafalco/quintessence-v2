@@ -178,5 +178,80 @@
       }
     }
   },
-  "sleep": "Mindig a békesség, megelégedettség és egészség gondolataival aludjunk el."
+  "sleep": "Mindig a békesség, megelégedettség és egészség gondolataival aludjunk el.",
+  "fokozatok": [
+    {
+      "theme": "Gondolat · önmegismerés · anyagi test"
+    },
+    {
+      "theme": "Uralás · autoszuggesztió · koncentráció",
+      "items": [
+        {
+          "name": "Fókusz és ellenpár",
+          "text": "A fokozat elején a tükrödből választod ki a legerősebb fekete tulajdonságokat, mindegyiket az ellenpárjával. Minden este a fókuszkártya jön a teljes lista előtt."
+        },
+        {
+          "name": "Autoszuggesztió",
+          "text": "Elalvás előtt és ébredéskor 40-szer mondod el az óhajod mondatát, jelen időben („Nyugodt vagyok.”). Új mondat csak akkor jön, ha az előző teljesült."
+        },
+        {
+          "name": "Koncentráció tárgyra",
+          "text": "Csukott szemmel 5 percig."
+        },
+        {
+          "name": "Kivetítés nyitott szemmel",
+          "text": "A tárgy a levegőben lebeg, 5 percig. Az előző után nyílik meg."
+        },
+        {
+          "name": "Hang, érzés, illat, íz",
+          "text": "Egymás után, mindegyik 5 percig, kép nélkül."
+        },
+        {
+          "name": "Módszer a fókuszhoz",
+          "text": "A könyv három módszere: önszuggesztió, transzmutáció, gondosság és akaraterő."
+        },
+        {
+          "name": "Póruslégzés",
+          "text": "Belégzéskor az óhaj jön be, kilégzéskor a gyengeség távozik."
+        },
+        {
+          "name": "Tudatos testtartás",
+          "text": "Mozdulatlan ülés: 5 perccel kezdődik, naponta 1 perccel több, legfeljebb 30 perc."
+        },
+        {
+          "name": "A test uralása",
+          "text": "Napi kis feladat: fáradtan még egy rövid séta, az evés elhalasztása, a kapkodás lassítása."
+        }
+      ]
+    },
+    {
+      "theme": "Többérzékes koncentráció · elemlégzés · életerő",
+      "items": [
+        {
+          "name": "Koncentráció 2–3 érzékkel",
+          "text": "Ingaóra ketyegéssel, gongot ütő ember, csobogó patak, búzamező a szélben."
+        },
+        {
+          "name": "Tájak, helyiségek, állatok, emberek",
+          "text": "Csukott, majd nyitott szemmel. Az előző után nyílik meg."
+        },
+        {
+          "name": "Elemlégzés",
+          "text": "Tűz, Levegő, Víz, Föld: egyszerre egy elem. 7 lélegzettel kezdődik, a végén ugyanannyi kilégzéssel visszaadod. Előfeltétel: a tükrödben egyik elem se uralkodjon."
+        },
+        {
+          "name": "Életerő-torlaszolás",
+          "text": "Előbb az egész test, aztán a testrészek. A végén kötelező a visszaadás."
+        },
+        {
+          "name": "Térimpregnálás",
+          "text": "A szoba feltöltése egészséggel, nyugalommal."
+        },
+        {
+          "name": "Biomagnetizmus",
+          "text": "Olvasmány, csak tudnivaló."
+        }
+      ]
+    }
+  ]
 }

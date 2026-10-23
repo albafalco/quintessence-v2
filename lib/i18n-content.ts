@@ -87,6 +87,13 @@ export interface FeherMagiaContent {
     hints: Record<'fekete' | 'feher', Record<'tuz' | 'levego' | 'viz' | 'fold', string>>;
   };
   sleep: string;
+  /** I.–III. fokozat on the Utam tab; the items are the preview of the locked ones */
+  fokozatok: FokozatText[];
+}
+
+export interface FokozatText {
+  theme: string;
+  items?: { name: string; text: string }[];
 }
 
 /** Text of one trait of lib/magia/traits.ts; `q` (recognition question) only for core traits. */

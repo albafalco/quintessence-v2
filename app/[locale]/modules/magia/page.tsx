@@ -10,6 +10,11 @@ import type { MagiaProgressRecord } from '@/lib/magia-utils';
 import type { SoulMirrorItem } from '@/lib/magia-types';
 import { ElementBalance } from '@/components/magia/ElementBalance';
 import { AppIcon } from '@/components/ui/AppIcon';
+import { loadFeherMagia } from '@/lib/i18n-content';
+import { loadPathData } from '@/lib/magia/path-store';
+import { ROMAN_NUMERALS } from '@/lib/magia-utils';
+import { MagiaTabs } from '@/components/feher-magia/MagiaTabs';
+import { PathView } from '@/components/feher-magia/PathView';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -31,8 +36,34 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // The new Fehér Mágia path starts on the "Ma" tab (the Utam tab comes in a later step)
-  if (user && (await hasModuleAccess(supabase, 'feher_magia'))) redirect(`/${locale}/modules/magia/ma`);
+  // The new Fehér Mágia path: this is its Utam tab
+  if (user && (await hasModuleAccess(supabase, 'feher_magia'))) {
+    const [data, content, tHeader, tNav] = await Promise.all([
+      loadPathData(supabase, user.id),
+      loadFeherMagia(locale as Locale),
+      getTranslations('feherMagia.header'),
+      getTranslations('nav'),
+    ]);
+    if (!data?.day.path.gate_read_at) redirect(`/${locale}/modules/magia/kapu`);
+    const { path } = data.day;
+    return (
+      <div className="mx-auto max-w-2xl space-y-5">
+        <header className="premium-card magia-surface p-5 sm:p-6">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">
+            {tHeader('fokozat', { roman: ROMAN_NUMERALS[path.fokozat] })} · {tHeader('day', { day: data.day.completedEvenings + 1 })}
+          </p>
+          <h1 className="font-display text-3xl font-bold text-gradient-gold">{tNav('magia')}</h1>
+          {path.wish && (
+            <p className="mt-2 inline-flex rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs text-accent">
+              {tHeader('wish', { wish: path.wish })}
+            </p>
+          )}
+        </header>
+        <MagiaTabs locale={locale} active="utam" />
+        <PathView locale={locale} data={data} content={content} />
+      </div>
+    );
+  }
 
   let progress: MagiaProgressRecord[] = [];
   let mirrorItems: Pick<SoulMirrorItem, 'mirror' | 'element' | 'intensity' | 'resolved'>[] = [];

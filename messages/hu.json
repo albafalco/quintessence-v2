@@ -581,7 +581,8 @@
     "weeklyReportBody": "{minutes} perc gyakorlás, {days} aktív nap. Nézd meg, hogyan haladtál!",
     "angolReviewBody": "{count} kártya vár ismétlésre. Pár perc, és megvan a mai angol!",
     "moduleGrantedTitle": "✦ Megnyílt számodra a Kreatív Angol",
-    "moduleGrantedBody": "Kezdd el az első leckét!"
+    "moduleGrantedBody": "Kezdd el az első leckét!",
+    "cycleLastEveningBody": "Ma zárul a {days} napod. A mai önvizsgálat után elkészülhet a két lélektükröd."
   },
   "badges": {
     "sectionTitle": "Mérföldkövek",
@@ -611,16 +612,16 @@
       "desc": "Gyűjts össze 10 óra gyakorlási időt"
     },
     "first_mastered": {
-      "title": "Első uralt gyakorlat",
-      "desc": "Jelölj meg egy gyakorlatot uraltként"
+      "title": "Első lépcső",
+      "desc": "Urald a gondolatgyakorlat első lépcsőjét, a gondolatmegfigyelést"
     },
     "first_fokozat": {
-      "title": "Első uralt fokozat",
-      "desc": "Urald egy fokozat minden gyakorlatát"
+      "title": "II. fokozat",
+      "desc": "Teljesítsd az I. fokozat minden feltételét"
     },
     "soul_mirror_10": {
-      "title": "10 feldolgozott tulajdonság",
-      "desc": "Dolgozz fel 10 tételt a lelki tükrödben"
+      "title": "Az első két lélektükör",
+      "desc": "Zárd le az első 14 napos önmegismerést"
     },
     "words_50": {
       "title": "50 megtanult szó",
@@ -754,14 +755,31 @@
     "colResolved": "Feldolgozva",
     "colMilestone": "Mérföldkő",
     "learnedWords": "Megtanult szavak: {count}",
-    "passedExams": "Sikeres vizsgák: {count}"
+    "passedExams": "Sikeres vizsgák: {count}",
+    "newPath": "Fehér Mágia — az út",
+    "pathGate": "A Kapu elolvasva",
+    "pathWish": "Óhaj",
+    "pathThought": "Gondolatgyakorlat",
+    "pathThoughtDone": "Mindhárom lépcső uralva",
+    "pathBreath": "Tudatos légzés",
+    "pathBody": "A test iskolázása",
+    "cycles": "14 napos ciklusok",
+    "colCycle": "Ciklus",
+    "colStart": "Kezdete",
+    "colLength": "Hossza",
+    "colClosed": "Lezárva",
+    "days": "{count} nap",
+    "open": "folyamatban",
+    "evenings": "Esti önvizsgálatok",
+    "ratingLegend": "3 = nagyon, 2 = közepesen, 1 = kicsit, ? = nem biztos",
+    "dayNotes": "Napközbeni feljegyzések",
+    "everyDay": "minden nap"
   },
   "feherMagia": {
     "tabs": {
       "ma": "Ma",
       "tukor": "Tükör",
-      "utam": "Utam",
-      "soon": "hamarosan"
+      "utam": "Utam"
     },
     "header": {
       "fokozat": "{roman}. fokozat",
@@ -817,6 +835,7 @@
       "reminderOn": "Mindkét időpontban emlékeztetőt kapsz.",
       "reminderOff": "Emlékeztetőt később is kérhetsz a Beállításokban.",
       "toToday": "Tovább a mai naphoz",
+      "toPath": "Vissza az Utam fülre",
       "quote": "„Egy idő után kívánkozni fogunk a gyakorlatok után.”",
       "saveError": "Nem sikerült menteni. Próbáld újra."
     },
@@ -1017,6 +1036,50 @@
       "banner": "Elkészült a 14 napod: nézd meg a két lélektükrödet.",
       "bannerLink": "Tovább a Tükörhöz",
       "saveError": "Nem sikerült menteni. Próbáld újra."
+    },
+    "utam": {
+      "conditionsTitle": "A II. fokozat feltételei",
+      "gate": "A Kapu elolvasva",
+      "gateReread": "Újraolvasom",
+      "thought": "Mindhárom gondolat-lépcső uralva",
+      "thoughtNow": "most: {stage}, {minutes} perc",
+      "thoughtWins": "most: {stage}, 10 perc · {wins} / 3 sikeres alkalom",
+      "cycles": "Két lezárt 14 napos önmegismerés",
+      "cyclesNow": "most: {days} / {length} nap",
+      "count": "{value} / {target}",
+      "habits": "A test iskolázása, a tudatos légzés, a tudatos étkezés és a víz mágiája napi szokások: nincs céljuk, minden fokozatban megmaradnak.",
+      "allDone": "Minden feltétel teljesült. A II. fokozat még készül; amíg megnyílik, folytasd az esti önvizsgálatot és a szokásaidat.",
+      "statDays": "gyakorlási nap",
+      "statStreak": "napos sorozat",
+      "statCycles": "lezárt ciklus",
+      "utravaloTitle": "Útravalók",
+      "utravaloHint": "A könyv szövegei, amelyeket a gyakorlatok előtt olvastál. Bármikor újraolvashatod őket.",
+      "gateItem": "A Kapu",
+      "gateItemSub": "Háromféle aszkézis · 189. oldal",
+      "page": "{page}. oldal",
+      "lockedDay": "a {day}. naptól",
+      "lockedStage": "a {n}. lépcsőtől",
+      "nextTitle": "A következő fokozatok",
+      "opens2": "Akkor nyílik meg, ha az I. fokozat minden feltétele teljesül.",
+      "opens3": "A II. fokozat két 14 napos munkaciklusa után nyílik meg.",
+      "locked": "zárva",
+      "pastTitle": "Korábbi feljegyzések",
+      "pastHint": "A korábbi Fehér Mágia modulból. Csak olvasható, és az adatmentésben is benne van.",
+      "pastJournal": "Napló · {count} bejegyzés",
+      "pastMirror": "Lelki tükör · {count} tétel",
+      "pastIntensity": "erősség: {n}",
+      "pastResolved": "feldolgozva",
+      "source": "Forrás: {source}"
+    },
+    "dashboard": {
+      "note": "+ Megfigyelés",
+      "gate": "A Kapu elolvasása",
+      "cycleReady": "Elkészült a 14 napod: a két lélektükröd a Tükör fülön",
+      "parts": {
+        "reggel": "reggel",
+        "napkozben": "napközben",
+        "este": "este"
+      }
     },
     "flow": {
       "close": "Bezárás",
