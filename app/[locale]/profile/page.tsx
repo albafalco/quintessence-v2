@@ -65,17 +65,21 @@ export default async function ProfilePage({ params }: { params: Promise<{ locale
 
       <section className="premium-card flex items-center gap-4 p-5 sm:p-6">
         <UserAvatar username={profile.username} name={name} className="h-16 w-16 text-2xl" />
+        {/* The name and the date wrap instead of being cut */}
         <div className="min-w-0 flex-1">
-          <p className="truncate font-display text-xl font-semibold text-cream">{name}</p>
+          <p className="break-words font-display text-xl font-semibold leading-snug text-cream">{name}</p>
           <p className="truncate text-sm text-muted-foreground">@{profile.username}</p>
-          {memberSince && <p className="truncate text-xs text-muted-foreground/80">{t('memberSince', { date: memberSince })}</p>}
+          {memberSince && <p className="text-xs text-muted-foreground/80">{t('memberSince', { date: memberSince })}</p>}
         </div>
+        {/* A phone: only the pencil; wider screens: with the label */}
         <Link
           href={`/${locale}/beallitasok#fiok`}
-          className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-xl border border-accent/30 px-3 py-1.5 text-xs font-semibold text-accent transition hover:bg-accent/10"
+          aria-label={t('editProfile')}
+          title={t('editProfile')}
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center gap-1.5 self-start rounded-full border border-accent/30 text-xs font-semibold text-accent transition hover:bg-accent/10 sm:h-auto sm:w-auto sm:rounded-xl sm:px-3 sm:py-1.5"
         >
-          <PenLine className="h-3.5 w-3.5" />
-          {t('editProfile')}
+          <PenLine className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
+          <span className="hidden sm:inline">{t('editProfile')}</span>
         </Link>
       </section>
 
