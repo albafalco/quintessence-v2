@@ -1,0 +1,2269 @@
+{
+  "torkossag": {
+    "name": "gula",
+    "forms": [
+      "guloso",
+      "comilança",
+      "comer demais",
+      "beliscar",
+      "compulsão alimentar"
+    ],
+    "q": "Você comeu ou beliscou mesmo quando já não tinha fome?"
+  },
+  "feltekenyseg": {
+    "name": "ciúme",
+    "forms": [
+      "ciumento",
+      "ciúmes"
+    ],
+    "q": "Você teve medo de perder a atenção ou o carinho de alguém, doeu que a pessoa desse atenção a outro?"
+  },
+  "fuggoseg": {
+    "name": "dependência",
+    "forms": [
+      "dependente",
+      "vício",
+      "viciado",
+      "fumar",
+      "vício em celular"
+    ],
+    "q": "Houve algo (comida, bebida, cigarro, celular) sem o qual você mal conseguiu ficar?"
+  },
+  "izgagasag": {
+    "name": "agitação",
+    "forms": [
+      "agitado",
+      "irrequieto",
+      "não conseguir ficar parado"
+    ],
+    "q": "Você teve dificuldade de sossegar, apressou os outros ou a si?"
+  },
+  "veszekedosseg": {
+    "name": "gosto por briga",
+    "forms": [
+      "briguento",
+      "briga",
+      "brigar",
+      "discussão",
+      "discutir",
+      "bate-boca"
+    ],
+    "q": "Você implicou com os outros, procurou briga por bobagem?"
+  },
+  "mertektelenseg": {
+    "name": "falta de medida",
+    "forms": [
+      "exagero",
+      "exagerado",
+      "excesso",
+      "excessivo",
+      "descontrole"
+    ],
+    "q": "Você não conseguiu parar a tempo: ao comer, trabalhar, comprar, se divertir?"
+  },
+  "pusztito_kedv": {
+    "name": "impulso destrutivo",
+    "forms": [
+      "destrutivo",
+      "destruição",
+      "quebrar coisas",
+      "bater portas",
+      "destruir"
+    ],
+    "q": "Deu vontade de bater, destruir, quebrar algo quando você estava sob tensão?"
+  },
+  "indulatossag": {
+    "name": "irascibilidade",
+    "forms": [
+      "irascível",
+      "pavio curto",
+      "explosivo",
+      "estourar",
+      "acesso de raiva"
+    ],
+    "q": "Você estourou de repente, antes de pensar no que ia dizer?"
+  },
+  "harag": {
+    "name": "raiva",
+    "forms": [
+      "ira",
+      "zanga",
+      "zangado",
+      "furioso",
+      "fúria"
+    ],
+    "q": "Você sentiu raiva de alguém, e isso ficou guardado?"
+  },
+  "gyulolet": {
+    "name": "ódio",
+    "forms": [
+      "odiar",
+      "aversão",
+      "hostilidade"
+    ],
+    "q": "Você pensou em alguém com hostilidade, desejou mal a essa pessoa?"
+  },
+  "bosszuvagy": {
+    "name": "sede de vingança",
+    "forms": [
+      "vingança",
+      "vingativo",
+      "vingar-se",
+      "revanche",
+      "dar o troco"
+    ],
+    "q": "Você ficou pensando em como dar o troco pela ofensa?"
+  },
+  "sertodottseg": {
+    "name": "melindre",
+    "forms": [
+      "melindroso",
+      "ofendido",
+      "magoado",
+      "emburrar",
+      "fazer bico"
+    ],
+    "q": "Um comentário magoou você, e você ficou de bico por isso?"
+  },
+  "lenezes": {
+    "name": "ar de superioridade",
+    "forms": [
+      "olhar de cima",
+      "superioridade",
+      "condescendência",
+      "condescendente"
+    ],
+    "q": "Você se sentiu superior a alguém, falou ou pensou nessa pessoa com condescendência?"
+  },
+  "pletykalkodas": {
+    "name": "fofoca",
+    "forms": [
+      "fofoqueiro",
+      "fofocar",
+      "falar pelas costas",
+      "mexerico"
+    ],
+    "q": "Você falou de alguém pelas costas, passou adiante algo que não era da sua conta?"
+  },
+  "kitartas_hianya": {
+    "name": "falta de perseverança",
+    "forms": [
+      "desistir",
+      "largar mão",
+      "jogar a toalha",
+      "inconstância"
+    ],
+    "q": "Você desistiu logo porque algo era mais difícil ou demorava mais do que o esperado?"
+  },
+  "ravaszsag": {
+    "name": "astúcia",
+    "forms": [
+      "astuto",
+      "esperteza",
+      "malandragem",
+      "artimanha",
+      "intriga",
+      "tramar"
+    ],
+    "q": "Você tentou conseguir algo por caminhos tortos, com artimanhas, em vez de abertamente?"
+  },
+  "fecseges": {
+    "name": "tagarelice",
+    "forms": [
+      "tagarela",
+      "falar demais",
+      "falatório",
+      "conversa fiada",
+      "matraquear"
+    ],
+    "q": "Você falou mais do que o necessário, inclusive coisas que sobravam?"
+  },
+  "becstelenseg": {
+    "name": "desonestidade",
+    "forms": [
+      "desonesto",
+      "trapaça",
+      "trapacear",
+      "enganar",
+      "fraude"
+    ],
+    "q": "Você agiu de forma desonesta, trapaceou ou levou vantagem sobre alguém?"
+  },
+  "valtakozosag": {
+    "name": "volubilidade",
+    "forms": [
+      "volúvel",
+      "imprevisível",
+      "mudar de ideia toda hora"
+    ],
+    "q": "Você foi de um lado para o outro, mudando muito de decisão ou de humor?"
+  },
+  "konnyelmuseg": {
+    "name": "leviandade",
+    "forms": [
+      "leviano",
+      "imprudência",
+      "imprudente",
+      "arriscar"
+    ],
+    "q": "Você assumiu, gastou ou arriscou algo sem pensar?"
+  },
+  "kerkedes": {
+    "name": "gabolice",
+    "forms": [
+      "gabar-se",
+      "contar vantagem",
+      "exibido",
+      "fanfarrão",
+      "se achar"
+    ],
+    "q": "Você contou vantagem para que os outros admirassem você?"
+  },
+  "ontulbecsules": {
+    "name": "presunção",
+    "forms": [
+      "presunçoso",
+      "convencido",
+      "metido",
+      "superestimar-se"
+    ],
+    "q": "Você se viu como mais do que realmente sabe ou faz?"
+  },
+  "pazarlas": {
+    "name": "desperdício",
+    "forms": [
+      "desperdiçar",
+      "esbanjar",
+      "esbanjador",
+      "perder tempo"
+    ],
+    "q": "Você desperdiçou dinheiro, tempo ou algo valioso sem necessidade?"
+  },
+  "kozombosseg": {
+    "name": "indiferença",
+    "forms": [
+      "indiferente",
+      "apatia",
+      "descaso",
+      "tanto faz"
+    ],
+    "q": "Os problemas dos outros ou uma causa comum foram indiferentes para você?"
+  },
+  "levertseg": {
+    "name": "abatimento",
+    "forms": [
+      "abatido",
+      "desânimo",
+      "desanimado",
+      "baixo-astral",
+      "pra baixo"
+    ],
+    "q": "Você ficou com o ânimo baixo e teve dificuldade de sair disso?"
+  },
+  "szegyenlosseg": {
+    "name": "timidez",
+    "forms": [
+      "tímido",
+      "acanhamento",
+      "acanhado",
+      "vergonha",
+      "inibição"
+    ],
+    "q": "Você se retraiu, sem coragem de falar ou de se defender?"
+  },
+  "reszvetlenseg": {
+    "name": "falta de compaixão",
+    "forms": [
+      "impassível",
+      "insensível à dor alheia",
+      "indiferença ao sofrimento"
+    ],
+    "q": "Você viu que alguém estava passando por dificuldade e isso não tocou você?"
+  },
+  "csokonyosseg": {
+    "name": "teimosia",
+    "forms": [
+      "teimoso",
+      "obstinação",
+      "obstinado",
+      "cabeça-dura",
+      "turrão"
+    ],
+    "q": "Você se apegou com teimosia ao seu ponto de vista, mesmo quando podia ver que não tinha razão?"
+  },
+  "renyheseg": {
+    "name": "indolência",
+    "forms": [
+      "indolente",
+      "moleza",
+      "marasmo"
+    ],
+    "q": "O seu dia passou na moleza, sem energia, e você teve dificuldade de começar qualquer coisa?"
+  },
+  "koszivuseg": {
+    "name": "dureza de coração",
+    "forms": [
+      "coração de pedra",
+      "sem coração",
+      "insensibilidade",
+      "insensível"
+    ],
+    "q": "Você tratou com dureza ou frieza alguém que precisava do seu calor?"
+  },
+  "tulzott_engedekenyseg": {
+    "name": "permissividade excessiva",
+    "forms": [
+      "permissivo",
+      "mole demais",
+      "não saber dizer não",
+      "ceder demais"
+    ],
+    "q": "Você deixou passar algo quando deveria ter dito não?"
+  },
+  "akaratossag": {
+    "name": "vontade de se impor",
+    "forms": [
+      "impor-se",
+      "fazer do seu jeito",
+      "querer ganhar sempre"
+    ],
+    "q": "Você quis impor a sua vontade a qualquer custo?"
+  },
+  "ingatagsag": {
+    "name": "instabilidade",
+    "forms": [
+      "instável",
+      "vacilante",
+      "inconstante"
+    ],
+    "q": "Os outros abalaram você facilmente, e você abandonou o que tinha decidido por influência deles?"
+  },
+  "flegmasag": {
+    "name": "fleuma",
+    "forms": [
+      "fleumático",
+      "dar de ombros",
+      "pachorra"
+    ],
+    "q": "Você despachou com um dar de ombros algo que era importante?"
+  },
+  "unalmas": {
+    "name": "tédio",
+    "forms": [
+      "entediante",
+      "chato",
+      "monotonia",
+      "monótono",
+      "sem graça"
+    ],
+    "q": "As suas conversas foram monótonas e cinzentas, sem você colocar nada de si nelas?"
+  },
+  "hanyagsag": {
+    "name": "desleixo",
+    "forms": [
+      "desleixado",
+      "negligência",
+      "negligente",
+      "descuido",
+      "descuidado",
+      "relaxo"
+    ],
+    "q": "Você descuidou de uma tarefa, fez pela metade ou malfeito?"
+  },
+  "megvetes": {
+    "name": "desprezo",
+    "forms": [
+      "desprezar",
+      "desdém",
+      "desdenhoso",
+      "menosprezo"
+    ],
+    "q": "Você pensou em alguém com desprezo, considerou a pessoa indigna da sua atenção?"
+  },
+  "emberiszonya_van": {
+    "name": "aversão às pessoas",
+    "forms": [
+      "misantropia",
+      "misantropo",
+      "evitar as pessoas",
+      "antissocial",
+      "bicho do mato"
+    ],
+    "q": "Você evitou as pessoas, a companhia delas pesou?"
+  },
+  "lassusag": {
+    "name": "lentidão",
+    "forms": [
+      "lento",
+      "lerdeza",
+      "lerdo",
+      "enrolar",
+      "arrastar-se"
+    ],
+    "q": "Você avançou devagar, mesmo quando precisava se apressar?"
+  },
+  "nehezkes": {
+    "name": "morosidade",
+    "forms": [
+      "pesado",
+      "moroso",
+      "travado",
+      "complicado"
+    ],
+    "q": "Você teve dificuldade de começar e de se adaptar a uma situação inesperada?"
+  },
+  "lustasag": {
+    "name": "preguiça",
+    "forms": [
+      "preguiçoso",
+      "vadiagem",
+      "folgado",
+      "corpo mole"
+    ],
+    "q": "Você evitou o trabalho e o esforço porque estava sem vontade?"
+  },
+  "megbizhatatlan": {
+    "name": "falta de confiabilidade",
+    "forms": [
+      "não confiável",
+      "furar",
+      "deixar na mão",
+      "não cumprir"
+    ],
+    "q": "Você não cumpriu o que prometeu, deixou alguém na mão?"
+  },
+  "szofukar": {
+    "name": "laconismo",
+    "forms": [
+      "lacônico",
+      "calado",
+      "de poucas palavras",
+      "seco"
+    ],
+    "q": "Você usou poucas palavras mesmo onde uma palavra gentil ou uma explicação teria ajudado?"
+  },
+  "lelkiismeretlenseg": {
+    "name": "falta de escrúpulos",
+    "forms": [
+      "sem escrúpulos",
+      "inescrupuloso",
+      "sem consciência"
+    ],
+    "q": "Você sabia que algo não era certo e mesmo assim fez?"
+  },
+  "buskomorsag": {
+    "name": "melancolia",
+    "forms": [
+      "melancólico",
+      "tristeza",
+      "triste",
+      "tristonho",
+      "ruminar"
+    ],
+    "q": "Pensamentos sombrios e pesados dominaram o seu dia?"
+  },
+  "rendszertelenseg": {
+    "name": "desorganização",
+    "forms": [
+      "desorganizado",
+      "bagunça",
+      "bagunçado",
+      "desordem",
+      "caótico"
+    ],
+    "q": "O seu dia passou sem plano, de qualquer jeito, deixando as suas coisas em desordem?"
+  },
+  "aktivitas": {
+    "name": "atividade",
+    "forms": [
+      "ativo",
+      "dinamismo",
+      "dinâmico",
+      "disposição",
+      "garra"
+    ],
+    "q": "Você fez a sua parte sem esperar que outro começasse?"
+  },
+  "lelkesedes": {
+    "name": "entusiasmo",
+    "forms": [
+      "entusiasmado",
+      "empolgação",
+      "empolgado",
+      "ânimo"
+    ],
+    "q": "Você começou o que fez com alegria e fogo?"
+  },
+  "elhatarozottsag": {
+    "name": "determinação",
+    "forms": [
+      "determinado",
+      "resolução",
+      "resoluto",
+      "firme propósito"
+    ],
+    "q": "Você se manteve no que tinha decidido?"
+  },
+  "mereszseg": {
+    "name": "ousadia",
+    "forms": [
+      "ousado",
+      "audácia",
+      "audacioso",
+      "coragem de arriscar"
+    ],
+    "q": "Você encarou algo que dava medo?"
+  },
+  "alkotoero": {
+    "name": "força criadora",
+    "forms": [
+      "criatividade",
+      "criativo",
+      "criar",
+      "criação",
+      "inventividade"
+    ],
+    "q": "Você criou algo novo: uma ideia, um objeto, uma solução?"
+  },
+  "torekves": {
+    "name": "empenho",
+    "forms": [
+      "esforço",
+      "aspiração",
+      "batalhar",
+      "correr atrás"
+    ],
+    "q": "Você fez hoje algo por uma meta que importa para você?"
+  },
+  "szenvedelyes": {
+    "name": "apaixonado",
+    "forms": [
+      "paixão",
+      "dedicação",
+      "entrega",
+      "ardor"
+    ],
+    "q": "Você fez algo com dedicação total, com paixão?"
+  },
+  "batorsag": {
+    "name": "coragem",
+    "forms": [
+      "corajoso",
+      "bravura",
+      "valente",
+      "defender"
+    ],
+    "q": "Você defendeu algo ou alguém, apesar do medo?"
+  },
+  "allhatatossag": {
+    "name": "constância",
+    "forms": [
+      "constante",
+      "fidelidade ao caminho",
+      "não se desviar"
+    ],
+    "q": "Você seguiu no caminho escolhido, mesmo quando outra coisa tentou você?"
+  },
+  "szorgalom": {
+    "name": "diligência",
+    "forms": [
+      "diligente",
+      "esforçado",
+      "trabalhador",
+      "aplicado"
+    ],
+    "q": "Você trabalhou com constância e com gosto, mesmo sem ninguém olhando?"
+  },
+  "orom": {
+    "name": "alegria",
+    "forms": [
+      "alegre",
+      "felicidade",
+      "feliz",
+      "gozo"
+    ],
+    "q": "Você sentiu uma alegria pura em algo simples?"
+  },
+  "jartassag": {
+    "name": "habilidade",
+    "forms": [
+      "hábil",
+      "destreza",
+      "competência",
+      "competente",
+      "perícia",
+      "jeito"
+    ],
+    "q": "Você resolveu algo com habilidade e competência?"
+  },
+  "joszivuseg": {
+    "name": "bondade",
+    "forms": [
+      "bondoso",
+      "bom coração",
+      "boa pessoa"
+    ],
+    "q": "Você fez o bem a alguém sem interesse?"
+  },
+  "vilagos": {
+    "name": "clareza",
+    "forms": [
+      "claro",
+      "lucidez",
+      "lúcido",
+      "pensamento claro"
+    ],
+    "q": "Você viu a situação com clareza e se expressou de forma compreensível?"
+  },
+  "gondtalan": {
+    "name": "despreocupação",
+    "forms": [
+      "despreocupado",
+      "leveza de espírito",
+      "sem preocupações"
+    ],
+    "q": "Você viveu o dia com o coração leve, sem preocupações?"
+  },
+  "vidam": {
+    "name": "bom humor",
+    "forms": [
+      "bem-humorado",
+      "jovialidade",
+      "jovial",
+      "risonho"
+    ],
+    "q": "Você esteve de bom humor e contagiou os outros?"
+  },
+  "optimizmus": {
+    "name": "otimismo",
+    "forms": [
+      "otimista",
+      "confiança no futuro",
+      "pensamento positivo"
+    ],
+    "q": "Você confiou que as coisas dariam certo e procurou o lado bom delas?"
+  },
+  "elenkseg": {
+    "name": "vivacidade",
+    "forms": [
+      "vivaz",
+      "animação",
+      "animado",
+      "frescor"
+    ],
+    "q": "O seu corpo e o seu pensamento estiveram frescos e ágeis?"
+  },
+  "fuggetlenseg": {
+    "name": "independência",
+    "forms": [
+      "independente",
+      "autonomia",
+      "autônomo"
+    ],
+    "q": "Você decidiu pelo seu próprio critério, não pela pressão dos outros?"
+  },
+  "eberseg": {
+    "name": "estado de alerta",
+    "forms": [
+      "alerta",
+      "vigilante",
+      "vigilância",
+      "desperto"
+    ],
+    "q": "Você prestou atenção, percebeu o que acontecia ao seu redor e dentro de você?"
+  },
+  "kedvesseg": {
+    "name": "gentileza",
+    "forms": [
+      "gentil",
+      "simpatia",
+      "simpático",
+      "cordialidade",
+      "cordial"
+    ],
+    "q": "Você tratou as pessoas com gentileza e calor?"
+  },
+  "bizalom": {
+    "name": "confiança",
+    "forms": [
+      "confiante",
+      "confiar",
+      "fé nos outros"
+    ],
+    "q": "Você confiou em alguém sem procurar segundas intenções?"
+  },
+  "irgalmassag": {
+    "name": "misericórdia",
+    "forms": [
+      "misericordioso",
+      "clemência",
+      "piedade"
+    ],
+    "q": "Você teve misericórdia de alguém que errou ou estava em apuros?"
+  },
+  "szerenyseg": {
+    "name": "modéstia",
+    "forms": [
+      "modesto",
+      "sem pretensão",
+      "despretensioso"
+    ],
+    "q": "Você evitou ficar em evidência e deixou os outros brilharem também?"
+  },
+  "megadas": {
+    "name": "rendição",
+    "forms": [
+      "resignação",
+      "deixar ser",
+      "aceitar o que vier"
+    ],
+    "q": "Você aceitou o que não podia mudar, sem luta interior?"
+  },
+  "alkalmazkodokeszseg": {
+    "name": "adaptabilidade",
+    "forms": [
+      "adaptável",
+      "adaptar-se",
+      "flexibilidade",
+      "flexível",
+      "jogo de cintura"
+    ],
+    "q": "Você se adaptou com flexibilidade a uma situação nova ou às necessidades dos outros?"
+  },
+  "buzgosag": {
+    "name": "zelo",
+    "forms": [
+      "zeloso",
+      "fervor",
+      "fervoroso",
+      "devoção"
+    ],
+    "q": "Você fez os seus exercícios e as suas tarefas com entrega interior e fidelidade?"
+  },
+  "bensosegesseg": {
+    "name": "intimidade",
+    "forms": [
+      "íntimo",
+      "proximidade",
+      "aconchego"
+    ],
+    "q": "Você teve um momento profundo e íntimo com alguém ou consigo?"
+  },
+  "felfogokepesseg": {
+    "name": "compreensão",
+    "forms": [
+      "capacidade de compreender",
+      "receptividade",
+      "receptivo",
+      "entendimento"
+    ],
+    "q": "Você entendeu rápido e bem o que foi dito ou o que aconteceu?"
+  },
+  "meditacio": {
+    "name": "meditação",
+    "forms": [
+      "meditar",
+      "contemplação",
+      "reflexão",
+      "olhar para dentro"
+    ],
+    "q": "Você reservou um tempo para silenciar e olhar para dentro?"
+  },
+  "szanalomerzet": {
+    "name": "compadecimento",
+    "forms": [
+      "compadecer-se",
+      "pena",
+      "dó"
+    ],
+    "q": "A dificuldade ou o sofrimento de alguém tocou você?"
+  },
+  "egyutterzes": {
+    "name": "compaixão",
+    "forms": [
+      "compassivo",
+      "empatia",
+      "empático",
+      "solidariedade"
+    ],
+    "q": "Você conseguiu se colocar no lugar do outro e fazer com que ele sentisse isso?"
+  },
+  "nyugalom": {
+    "name": "calma",
+    "forms": [
+      "tranquilidade",
+      "tranquilo",
+      "serenidade",
+      "sereno",
+      "paz",
+      "paz interior"
+    ],
+    "q": "Você manteve a calma interior quando ao seu redor havia correria?"
+  },
+  "elmelyultseg": {
+    "name": "profundidade",
+    "forms": [
+      "absorto",
+      "imersão",
+      "aprofundar",
+      "mergulhar"
+    ],
+    "q": "Você mergulhou por completo em algo e foi até o fundo?"
+  },
+  "mertekletesseg": {
+    "name": "temperança",
+    "forms": [
+      "moderação",
+      "moderado",
+      "comedimento",
+      "comedido"
+    ],
+    "q": "Você soube parar a tempo ao comer, beber ou se divertir?"
+  },
+  "gyongedseg": {
+    "name": "ternura",
+    "forms": [
+      "terno",
+      "delicadeza",
+      "delicado",
+      "doçura"
+    ],
+    "q": "Você tratou alguém com delicadeza e carinho?"
+  },
+  "tiszteletadas": {
+    "name": "respeito",
+    "forms": [
+      "respeitoso",
+      "deferência",
+      "honrar"
+    ],
+    "q": "Você mostrou respeito aos outros, mesmo sem concordar com eles?"
+  },
+  "tekintely": {
+    "name": "autoridade",
+    "forms": [
+      "presença",
+      "peso",
+      "respeitabilidade"
+    ],
+    "q": "As suas palavras e a sua presença tiveram peso, com firmeza tranquila?"
+  },
+  "kitartas": {
+    "name": "perseverança",
+    "forms": [
+      "perseverante",
+      "persistência",
+      "persistente",
+      "tenacidade"
+    ],
+    "q": "Você levou até o fim algo difícil ou demorado?"
+  },
+  "megfontoltsag": {
+    "name": "ponderação",
+    "forms": [
+      "ponderado",
+      "sensatez",
+      "sensato",
+      "pensar bem"
+    ],
+    "q": "Você pensou bem antes de decidir ou de falar?"
+  },
+  "hatarozottsag": {
+    "name": "firmeza",
+    "forms": [
+      "firme",
+      "decisão",
+      "decidido",
+      "assertividade",
+      "assertivo"
+    ],
+    "q": "Você disse com clareza o que quer, e disse não onde era preciso?"
+  },
+  "komolysag": {
+    "name": "seriedade",
+    "forms": [
+      "sério"
+    ],
+    "q": "Você deu ao que era importante o peso que merecia?"
+  },
+  "lelkiismeretesseg": {
+    "name": "conscienciosidade",
+    "forms": [
+      "consciencioso",
+      "escrupuloso",
+      "escrúpulo"
+    ],
+    "q": "Você fez as suas coisas como a consciência mandava?"
+  },
+  "alapossag": {
+    "name": "minúcia",
+    "forms": [
+      "minucioso",
+      "meticulosidade",
+      "meticuloso",
+      "a fundo"
+    ],
+    "q": "Você levou as suas tarefas até os detalhes, mesmo que ninguém confira?"
+  },
+  "koncentraltsag": {
+    "name": "concentração",
+    "forms": [
+      "concentrado",
+      "foco",
+      "focado"
+    ],
+    "q": "Você se dedicou a uma coisa de cada vez, sem divagar?"
+  },
+  "jozansag": {
+    "name": "sobriedade",
+    "forms": [
+      "sóbrio",
+      "bom senso",
+      "pé no chão",
+      "juízo"
+    ],
+    "q": "Você julgou as coisas com clareza, com os pés no chão?"
+  },
+  "pontossag": {
+    "name": "pontualidade",
+    "forms": [
+      "pontual",
+      "precisão",
+      "preciso",
+      "exatidão",
+      "exato"
+    ],
+    "q": "Você chegou na hora e fez exatamente o que tinha assumido?"
+  },
+  "targyilagossag": {
+    "name": "objetividade",
+    "forms": [
+      "objetivo",
+      "imparcialidade",
+      "imparcial"
+    ],
+    "q": "Você julgou a situação com justiça, sem se deixar levar pelas emoções?"
+  },
+  "elovigyazatossag": {
+    "name": "precaução",
+    "forms": [
+      "precavido",
+      "cautela",
+      "cauteloso",
+      "previdência",
+      "previdente"
+    ],
+    "q": "Você pensou com antecedência nos possíveis problemas e se preparou para eles?"
+  },
+  "ellenallo_kepesseg": {
+    "name": "resistência",
+    "forms": [
+      "resistente",
+      "fortaleza",
+      "resiliência",
+      "resiliente"
+    ],
+    "q": "Você resistiu a uma tentação, a uma pressão ou ao cansaço?"
+  },
+  "celtudatossag": {
+    "name": "foco na meta",
+    "forms": [
+      "saber aonde ir",
+      "orientado a metas",
+      "propósito"
+    ],
+    "q": "Você sabia para onde ia, e avançou nessa direção?"
+  },
+  "felelossegerzet": {
+    "name": "senso de responsabilidade",
+    "forms": [
+      "responsabilidade",
+      "responsável",
+      "assumir"
+    ],
+    "q": "Você assumiu as consequências do que fez ou disse?"
+  },
+  "turelmetlenseg": {
+    "name": "impaciência",
+    "forms": [
+      "impaciente",
+      "apressar os outros"
+    ]
+  },
+  "irigyseg": {
+    "name": "inveja",
+    "forms": [
+      "invejoso",
+      "invejar",
+      "olho grande"
+    ]
+  },
+  "ingerlekenyseg": {
+    "name": "irritabilidade",
+    "forms": [
+      "irritável",
+      "nervoso",
+      "nervosismo",
+      "irritado",
+      "irritação"
+    ]
+  },
+  "dac": {
+    "name": "rebeldia",
+    "forms": [
+      "desafio",
+      "desafiador",
+      "birra",
+      "do contra"
+    ]
+  },
+  "agresszivitas": {
+    "name": "agressividade",
+    "forms": [
+      "agressivo",
+      "violência",
+      "violento"
+    ]
+  },
+  "durvasag": {
+    "name": "rudeza",
+    "forms": [
+      "rude",
+      "brutalidade",
+      "bruto",
+      "aspereza",
+      "áspero"
+    ]
+  },
+  "gorombasag": {
+    "name": "grosseria",
+    "forms": [
+      "grosso",
+      "grosseiro",
+      "mal-educado",
+      "falta de educação"
+    ]
+  },
+  "uralkodni_vagyas": {
+    "name": "vontade de dominar",
+    "forms": [
+      "dominador",
+      "mandão",
+      "sede de poder",
+      "tirania",
+      "dar ordens"
+    ]
+  },
+  "kegyetlenseg": {
+    "name": "crueldade",
+    "forms": [
+      "cruel",
+      "impiedade",
+      "impiedoso",
+      "desumano"
+    ]
+  },
+  "kapkodas": {
+    "name": "afobação",
+    "forms": [
+      "afobado",
+      "pressa",
+      "atropelo",
+      "correria"
+    ]
+  },
+  "sovargas": {
+    "name": "ânsia",
+    "forms": [
+      "ânsias",
+      "anseio",
+      "desejo ardente",
+      "fissura"
+    ]
+  },
+  "kejvagy": {
+    "name": "luxúria",
+    "forms": [
+      "luxurioso",
+      "lascívia",
+      "lascivo",
+      "libertinagem"
+    ]
+  },
+  "mohosag": {
+    "name": "avidez",
+    "forms": [
+      "ávido",
+      "voracidade",
+      "voraz",
+      "devorar"
+    ]
+  },
+  "fanatizmus": {
+    "name": "fanatismo",
+    "forms": [
+      "fanático",
+      "intolerância",
+      "sectarismo"
+    ]
+  },
+  "onfejuseg": {
+    "name": "cabeçudice",
+    "forms": [
+      "cabeçudo",
+      "voluntarioso",
+      "fazer o que dá na telha"
+    ]
+  },
+  "nagyravagyas": {
+    "name": "ambição",
+    "forms": [
+      "ambicioso",
+      "carreirismo",
+      "carreirista",
+      "alpinismo social"
+    ]
+  },
+  "versenges": {
+    "name": "rivalidade",
+    "forms": [
+      "rival",
+      "competitividade",
+      "competitivo",
+      "competir"
+    ]
+  },
+  "hiszterikussag": {
+    "name": "histeria",
+    "forms": [
+      "histérico",
+      "chilique",
+      "dar escândalo",
+      "drama",
+      "fazer cena"
+    ]
+  },
+  "sertegetes": {
+    "name": "insultos",
+    "forms": [
+      "insultar",
+      "ofensivo",
+      "ofender",
+      "xingar"
+    ]
+  },
+  "tolakodas": {
+    "name": "inconveniência",
+    "forms": [
+      "inconveniente",
+      "forçar a barra",
+      "furar fila",
+      "impertinente"
+    ]
+  },
+  "karorvendes": {
+    "name": "alegria com o mal alheio",
+    "forms": [
+      "gostar do mal alheio",
+      "regozijar-se",
+      "schadenfreude"
+    ]
+  },
+  "rosszindulat": {
+    "name": "maldade",
+    "forms": [
+      "maldoso",
+      "malícia",
+      "malicioso",
+      "má intenção",
+      "malvado"
+    ]
+  },
+  "gog": {
+    "name": "soberba",
+    "forms": [
+      "soberbo",
+      "arrogância",
+      "arrogante",
+      "altivez",
+      "nariz empinado"
+    ]
+  },
+  "undoksag": {
+    "name": "implicância",
+    "forms": [
+      "implicante",
+      "implicar",
+      "cutucar",
+      "provocar"
+    ]
+  },
+  "telhetetlenseg": {
+    "name": "insaciabilidade",
+    "forms": [
+      "insaciável",
+      "nunca é suficiente"
+    ]
+  },
+  "kovetelozes": {
+    "name": "exigência",
+    "forms": [
+      "exigente",
+      "exigir",
+      "cobrar"
+    ]
+  },
+  "hiusag": {
+    "name": "vaidade",
+    "forms": [
+      "vaidoso",
+      "querer aparecer",
+      "exibir-se",
+      "pavão"
+    ]
+  },
+  "feluletesseg": {
+    "name": "superficialidade",
+    "forms": [
+      "superficial",
+      "raso",
+      "ficar na superfície"
+    ]
+  },
+  "szetszortsag": {
+    "name": "dispersão",
+    "forms": [
+      "disperso",
+      "desconcentrado",
+      "cabeça avoada"
+    ]
+  },
+  "hazudozas": {
+    "name": "mentiras",
+    "forms": [
+      "mentir",
+      "mentiroso",
+      "mentira",
+      "lorota"
+    ]
+  },
+  "kivancsiskodas": {
+    "name": "bisbilhotice",
+    "forms": [
+      "bisbilhoteiro",
+      "bisbilhotar",
+      "xereta",
+      "intrometido",
+      "meter o nariz"
+    ]
+  },
+  "szeszelyesseg": {
+    "name": "capricho",
+    "forms": [
+      "caprichoso",
+      "temperamental",
+      "de lua",
+      "oscilação de humor"
+    ]
+  },
+  "szorakozottsag": {
+    "name": "distração",
+    "forms": [
+      "distraído",
+      "esquecimento",
+      "esquecido",
+      "avoado"
+    ]
+  },
+  "komolytalansag": {
+    "name": "frivolidade",
+    "forms": [
+      "frívolo",
+      "falta de seriedade",
+      "levar na brincadeira"
+    ]
+  },
+  "meggondolatlansag": {
+    "name": "irreflexão",
+    "forms": [
+      "irrefletido",
+      "impulsividade",
+      "impulsivo",
+      "sem pensar",
+      "precipitado"
+    ]
+  },
+  "felelotlenseg": {
+    "name": "irresponsabilidade",
+    "forms": [
+      "irresponsável"
+    ]
+  },
+  "hizelges": {
+    "name": "bajulação",
+    "forms": [
+      "bajular",
+      "bajulador",
+      "puxa-saco",
+      "lisonjear"
+    ]
+  },
+  "kepmutatas": {
+    "name": "hipocrisia",
+    "forms": [
+      "hipócrita",
+      "falsidade",
+      "falso",
+      "duas caras"
+    ]
+  },
+  "itelkezes": {
+    "name": "julgar os outros",
+    "forms": [
+      "julgar",
+      "criticar",
+      "crítica",
+      "crítico",
+      "condenar"
+    ]
+  },
+  "okoskodas": {
+    "name": "sabichão",
+    "forms": [
+      "sabe-tudo",
+      "dar lição",
+      "pedantismo",
+      "pedante"
+    ]
+  },
+  "igergetes": {
+    "name": "promessas vazias",
+    "forms": [
+      "prometer",
+      "promessa não cumprida",
+      "promessas"
+    ]
+  },
+  "zavarodottsag": {
+    "name": "confusão",
+    "forms": [
+      "confuso",
+      "atrapalhado",
+      "pensamento embaralhado"
+    ]
+  },
+  "nyugtalansag": {
+    "name": "inquietação",
+    "forms": [
+      "inquieto",
+      "tensão",
+      "tenso",
+      "desassossego"
+    ]
+  },
+  "gunyolodas": {
+    "name": "zombaria",
+    "forms": [
+      "zombar",
+      "deboche",
+      "debochado",
+      "sarcasmo",
+      "sarcástico",
+      "tirar sarro"
+    ]
+  },
+  "figyelmetlenseg": {
+    "name": "desatenção",
+    "forms": [
+      "desatento",
+      "falta de atenção"
+    ]
+  },
+  "pontatlansag": {
+    "name": "impontualidade",
+    "forms": [
+      "impontual",
+      "imprecisão",
+      "impreciso",
+      "atraso",
+      "atrasado"
+    ]
+  },
+  "manipulalas": {
+    "name": "manipulação",
+    "forms": [
+      "manipulador",
+      "manipular"
+    ]
+  },
+  "kifogaskereses": {
+    "name": "dar desculpas",
+    "forms": [
+      "desculpas",
+      "desculpa",
+      "justificar-se",
+      "pôr a culpa",
+      "culpar os outros"
+    ]
+  },
+  "hutlenseg": {
+    "name": "infidelidade",
+    "forms": [
+      "infiel",
+      "deslealdade",
+      "desleal",
+      "trair",
+      "traição"
+    ]
+  },
+  "cinizmus": {
+    "name": "cinismo",
+    "forms": [
+      "cínico"
+    ]
+  },
+  "onsajnalat": {
+    "name": "autopiedade",
+    "forms": [
+      "ter pena de si",
+      "vitimismo",
+      "fazer-se de vítima"
+    ]
+  },
+  "befolyasolhatosag": {
+    "name": "influenciabilidade",
+    "forms": [
+      "influenciável",
+      "sugestionável",
+      "deixar-se levar"
+    ]
+  },
+  "kishituseg": {
+    "name": "pusilanimidade",
+    "forms": [
+      "pusilânime",
+      "insegurança",
+      "inseguro",
+      "falta de autoconfiança",
+      "complexo de inferioridade"
+    ]
+  },
+  "gyavasag": {
+    "name": "covardia",
+    "forms": [
+      "covarde",
+      "amarelar",
+      "fugir da raia",
+      "recuar"
+    ]
+  },
+  "hatarozatlansag": {
+    "name": "indecisão",
+    "forms": [
+      "indeciso",
+      "hesitação",
+      "hesitar",
+      "vacilação",
+      "ficar em cima do muro"
+    ]
+  },
+  "celtalansag": {
+    "name": "falta de rumo",
+    "forms": [
+      "sem rumo",
+      "à deriva",
+      "sem objetivo"
+    ]
+  },
+  "lanyhasag": {
+    "name": "tibieza",
+    "forms": [
+      "morno",
+      "sem empenho",
+      "meia-boca"
+    ]
+  },
+  "ridegseg": {
+    "name": "frieza",
+    "forms": [
+      "frio",
+      "distância",
+      "distante",
+      "secura",
+      "seco"
+    ]
+  },
+  "elfogultsag": {
+    "name": "parcialidade",
+    "forms": [
+      "parcial",
+      "preconceito",
+      "preconceituoso",
+      "viés"
+    ]
+  },
+  "passzivitas": {
+    "name": "passividade",
+    "forms": [
+      "passivo",
+      "inatividade",
+      "inativo",
+      "inércia"
+    ]
+  },
+  "tulerzekenyseg": {
+    "name": "hipersensibilidade",
+    "forms": [
+      "hipersensível",
+      "suscetível",
+      "chorão",
+      "sensível demais"
+    ]
+  },
+  "szorongas": {
+    "name": "ansiedade",
+    "forms": [
+      "ansioso",
+      "medo",
+      "temor",
+      "angústia"
+    ]
+  },
+  "alazatoskodas": {
+    "name": "servilismo",
+    "forms": [
+      "servil",
+      "submissão",
+      "submisso",
+      "rastejar"
+    ]
+  },
+  "elkenyelmesedes": {
+    "name": "acomodação",
+    "forms": [
+      "acomodado",
+      "comodismo",
+      "comodista"
+    ]
+  },
+  "erzelgosseg": {
+    "name": "pieguice",
+    "forms": [
+      "piegas",
+      "sentimentalismo",
+      "sentimental",
+      "meloso"
+    ]
+  },
+  "halatlansag": {
+    "name": "ingratidão",
+    "forms": [
+      "ingrato",
+      "mal-agradecido"
+    ]
+  },
+  "iszakossag": {
+    "name": "bebedeira",
+    "forms": [
+      "beber",
+      "embriaguez",
+      "encher a cara",
+      "álcool",
+      "alcoolismo"
+    ]
+  },
+  "almodozas": {
+    "name": "devaneio",
+    "forms": [
+      "sonhador",
+      "sonhar acordado",
+      "fantasiar",
+      "viver no mundo da lua"
+    ]
+  },
+  "panaszkodas": {
+    "name": "reclamação",
+    "forms": [
+      "reclamar",
+      "reclamão",
+      "queixar-se",
+      "lamuriar",
+      "choramingar"
+    ]
+  },
+  "megalkuvas": {
+    "name": "conivência",
+    "forms": [
+      "oportunismo",
+      "oportunista",
+      "ceder",
+      "se vender"
+    ]
+  },
+  "kapzsisag": {
+    "name": "ganância",
+    "forms": [
+      "ganancioso",
+      "avareza",
+      "avarento",
+      "pão-duro",
+      "sovina"
+    ]
+  },
+  "merevseg": {
+    "name": "rigidez",
+    "forms": [
+      "rígido",
+      "inflexibilidade",
+      "inflexível",
+      "intransigência",
+      "intransigente"
+    ]
+  },
+  "pesszimizmus": {
+    "name": "pessimismo",
+    "forms": [
+      "pessimista",
+      "negatividade",
+      "ver tudo preto"
+    ]
+  },
+  "halogatas": {
+    "name": "procrastinação",
+    "forms": [
+      "procrastinar",
+      "adiar",
+      "empurrar com a barriga",
+      "deixar para depois"
+    ]
+  },
+  "aggodalmaskodas": {
+    "name": "preocupação excessiva",
+    "forms": [
+      "preocupar-se",
+      "preocupado",
+      "encucação",
+      "encucado"
+    ]
+  },
+  "bizalmatlansag": {
+    "name": "desconfiança",
+    "forms": [
+      "desconfiado",
+      "suspeita",
+      "suspeitar",
+      "pé atrás"
+    ]
+  },
+  "zarkozottsag": {
+    "name": "retraimento",
+    "forms": [
+      "retraído",
+      "fechado",
+      "introvertido",
+      "fechar-se"
+    ]
+  },
+  "ertetlenseg": {
+    "name": "incompreensão",
+    "forms": [
+      "não entender",
+      "lento para entender",
+      "obtuso"
+    ]
+  },
+  "ugyetlenseg": {
+    "name": "falta de jeito",
+    "forms": [
+      "desajeitado",
+      "estabanado",
+      "sem jeito"
+    ]
+  },
+  "elegedetlenseg": {
+    "name": "insatisfação",
+    "forms": [
+      "insatisfeito",
+      "descontentamento",
+      "descontente",
+      "resmungar"
+    ]
+  },
+  "kicsinyesseg": {
+    "name": "mesquinharia",
+    "forms": [
+      "mesquinho",
+      "picuinha",
+      "tacanho"
+    ]
+  },
+  "haszonleses": {
+    "name": "interesse próprio",
+    "forms": [
+      "interesseiro",
+      "calculista",
+      "materialismo",
+      "materialista"
+    ]
+  },
+  "onzes": {
+    "name": "egoísmo",
+    "forms": [
+      "egoísta",
+      "egocêntrico"
+    ]
+  },
+  "szigorusag": {
+    "name": "severidade",
+    "forms": [
+      "severo",
+      "rigor",
+      "rigoroso",
+      "dureza com os outros"
+    ]
+  },
+  "maradisag": {
+    "name": "mentalidade antiquada",
+    "forms": [
+      "antiquado",
+      "retrógrado",
+      "ultrapassado",
+      "parado no tempo"
+    ]
+  },
+  "mogorvasag": {
+    "name": "mau humor",
+    "forms": [
+      "mal-humorado",
+      "ranzinza",
+      "rabugento",
+      "emburrado",
+      "cara fechada"
+    ]
+  },
+  "elkeseredettseg": {
+    "name": "desesperança",
+    "forms": [
+      "desesperado",
+      "amargura",
+      "amargurado",
+      "desespero"
+    ]
+  },
+  "ragaszkodas": {
+    "name": "apego",
+    "forms": [
+      "possessividade",
+      "possessivo",
+      "agarrar-se",
+      "apegado"
+    ]
+  },
+  "szuklatokoruseg": {
+    "name": "estreiteza mental",
+    "forms": [
+      "cabeça fechada",
+      "mente estreita",
+      "limitado",
+      "bitolado"
+    ]
+  },
+  "nagylelkuseg": {
+    "name": "generosidade",
+    "forms": [
+      "generoso",
+      "mão aberta",
+      "doar",
+      "desprendimento"
+    ]
+  },
+  "kezdemenyezokeszseg": {
+    "name": "iniciativa",
+    "forms": [
+      "empreendedor",
+      "tomar a iniciativa",
+      "proativo"
+    ]
+  },
+  "onbizalom": {
+    "name": "autoconfiança",
+    "forms": [
+      "confiança em si",
+      "seguro de si",
+      "segurança"
+    ]
+  },
+  "tettrekeszseg": {
+    "name": "prontidão para agir",
+    "forms": [
+      "disposto a agir",
+      "pôr a mão na massa",
+      "arregaçar as mangas"
+    ]
+  },
+  "eletero": {
+    "name": "vitalidade",
+    "forms": [
+      "força vital",
+      "vontade de viver",
+      "energia",
+      "enérgico",
+      "vigor"
+    ]
+  },
+  "nagyvonalusag": {
+    "name": "magnanimidade",
+    "forms": [
+      "magnânimo",
+      "grandeza",
+      "generosidade de espírito"
+    ]
+  },
+  "akaratero": {
+    "name": "força de vontade",
+    "forms": [
+      "vontade",
+      "vontade firme"
+    ]
+  },
+  "melegszivuseg": {
+    "name": "calor humano",
+    "forms": [
+      "caloroso",
+      "coração quente",
+      "afetuosidade"
+    ]
+  },
+  "hosiesseg": {
+    "name": "heroísmo",
+    "forms": [
+      "herói",
+      "heroico",
+      "heroína"
+    ]
+  },
+  "oszinteseg": {
+    "name": "sinceridade",
+    "forms": [
+      "sincero",
+      "honestidade",
+      "honesto",
+      "franqueza",
+      "franco"
+    ]
+  },
+  "humor": {
+    "name": "humor",
+    "forms": [
+      "engraçado",
+      "espirituoso",
+      "senso de humor",
+      "brincalhão"
+    ]
+  },
+  "segitokeszseg": {
+    "name": "prestatividade",
+    "forms": [
+      "prestativo",
+      "ajudar",
+      "solícito"
+    ]
+  },
+  "kozlekenyseg": {
+    "name": "comunicabilidade",
+    "forms": [
+      "comunicativo",
+      "expansivo",
+      "falante"
+    ]
+  },
+  "nyitottsag": {
+    "name": "abertura",
+    "forms": [
+      "aberto",
+      "mente aberta",
+      "interesse",
+      "curiosidade",
+      "curioso"
+    ]
+  },
+  "figyelmesseg": {
+    "name": "atenção",
+    "forms": [
+      "atencioso",
+      "atento",
+      "consideração",
+      "cuidado com o outro"
+    ]
+  },
+  "tapintat": {
+    "name": "tato",
+    "forms": [
+      "diplomacia",
+      "diplomático",
+      "jeito com as pessoas",
+      "sutileza"
+    ]
+  },
+  "furgeseg": {
+    "name": "agilidade",
+    "forms": [
+      "ágil",
+      "rapidez",
+      "rápido",
+      "ligeiro"
+    ]
+  },
+  "konnyedseg": {
+    "name": "leveza",
+    "forms": [
+      "leve",
+      "naturalidade",
+      "desenvoltura",
+      "sem esforço"
+    ]
+  },
+  "deru": {
+    "name": "serenidade alegre",
+    "forms": [
+      "alegria serena",
+      "luminosidade",
+      "solar"
+    ]
+  },
+  "tanulekonysag": {
+    "name": "vontade de aprender",
+    "forms": [
+      "aprender",
+      "sede de saber",
+      "aprende rápido"
+    ]
+  },
+  "lelemenyesseg": {
+    "name": "engenhosidade",
+    "forms": [
+      "engenhoso",
+      "cheio de recursos",
+      "sacadas"
+    ]
+  },
+  "kiegyensulyozottsag": {
+    "name": "equilíbrio",
+    "forms": [
+      "equilibrado",
+      "harmonia",
+      "equilíbrio interior",
+      "equanimidade"
+    ]
+  },
+  "egyuttmukodes": {
+    "name": "cooperação",
+    "forms": [
+      "cooperativo",
+      "colaboração",
+      "colaborar",
+      "espírito de equipe"
+    ]
+  },
+  "bolcsesseg": {
+    "name": "sabedoria",
+    "forms": [
+      "sábio",
+      "discernimento",
+      "perspicácia"
+    ]
+  },
+  "masok_szabadsaganak_tisztelete": {
+    "name": "respeito à liberdade alheia",
+    "forms": [
+      "dar liberdade",
+      "deixar o outro ser",
+      "respeitar a vontade alheia",
+      "respeitar as escolhas dos outros"
+    ]
+  },
+  "hala": {
+    "name": "gratidão",
+    "forms": [
+      "grato",
+      "agradecido",
+      "agradecer"
+    ]
+  },
+  "joindulat": {
+    "name": "benevolência",
+    "forms": [
+      "benevolente",
+      "boa vontade",
+      "bem-intencionado"
+    ]
+  },
+  "szelidseg": {
+    "name": "mansidão",
+    "forms": [
+      "manso",
+      "brandura",
+      "brando",
+      "suavidade"
+    ]
+  },
+  "szeretet": {
+    "name": "amor",
+    "forms": [
+      "amoroso",
+      "carinho",
+      "carinhoso",
+      "amar"
+    ]
+  },
+  "megbocsatas": {
+    "name": "perdão",
+    "forms": [
+      "perdoar",
+      "desculpar"
+    ]
+  },
+  "bekulekenyseg": {
+    "name": "espírito conciliador",
+    "forms": [
+      "conciliador",
+      "reconciliação",
+      "pacífico",
+      "amante da paz"
+    ]
+  },
+  "alazat": {
+    "name": "humildade",
+    "forms": [
+      "humilde"
+    ]
+  },
+  "elfogadas": {
+    "name": "aceitação",
+    "forms": [
+      "aceitar",
+      "acolher",
+      "acolhedor"
+    ]
+  },
+  "elnezes": {
+    "name": "indulgência",
+    "forms": [
+      "indulgente",
+      "tolerância",
+      "tolerante",
+      "compreensivo"
+    ]
+  },
+  "onzetlenseg": {
+    "name": "altruísmo",
+    "forms": [
+      "altruísta",
+      "abnegação",
+      "desinteresse"
+    ]
+  },
+  "emberszeretet": {
+    "name": "amor ao próximo",
+    "forms": [
+      "filantropia",
+      "filantropo",
+      "humanidade",
+      "caridade"
+    ]
+  },
+  "megelegedettseg": {
+    "name": "contentamento",
+    "forms": [
+      "contente",
+      "satisfação",
+      "satisfeito"
+    ]
+  },
+  "elengedes": {
+    "name": "desapego",
+    "forms": [
+      "soltar",
+      "deixar ir",
+      "libertar"
+    ]
+  },
+  "remenyseg": {
+    "name": "esperança",
+    "forms": [
+      "esperançoso",
+      "ter esperança"
+    ]
+  },
+  "johiszemuseg": {
+    "name": "boa-fé",
+    "forms": [
+      "de boa-fé",
+      "sem malícia",
+      "candura"
+    ]
+  },
+  "turelem": {
+    "name": "paciência",
+    "forms": [
+      "paciente",
+      "saber esperar",
+      "longanimidade"
+    ]
+  },
+  "megbizhatosag": {
+    "name": "confiabilidade",
+    "forms": [
+      "confiável",
+      "de confiança",
+      "cumpridor",
+      "palavra"
+    ]
+  },
+  "rendszeretet": {
+    "name": "amor à ordem",
+    "forms": [
+      "organizado",
+      "arrumado",
+      "ordem",
+      "organização"
+    ]
+  },
+  "becsuletesseg": {
+    "name": "honradez",
+    "forms": [
+      "honrado",
+      "honra",
+      "integridade",
+      "íntegro",
+      "decência",
+      "decente"
+    ]
+  },
+  "takarekossag": {
+    "name": "economia",
+    "forms": [
+      "econômico",
+      "poupar",
+      "poupador",
+      "controle dos gastos"
+    ]
+  },
+  "megbecsules": {
+    "name": "apreço",
+    "forms": [
+      "apreciar",
+      "valorizar",
+      "estima",
+      "reconhecimento"
+    ]
+  },
+  "diszkrecio": {
+    "name": "discrição",
+    "forms": [
+      "discreto",
+      "sigilo",
+      "guardar segredo",
+      "reserva"
+    ]
+  },
+  "onfegyelem": {
+    "name": "autodisciplina",
+    "forms": [
+      "disciplinado",
+      "autocontrole",
+      "domínio de si"
+    ]
+  },
+  "onbecsules": {
+    "name": "amor-próprio",
+    "forms": [
+      "dignidade",
+      "autoestima",
+      "valor próprio"
+    ]
+  },
+  "huseg": {
+    "name": "fidelidade",
+    "forms": [
+      "fiel",
+      "lealdade",
+      "leal"
+    ]
+  },
+  "egyszeruseg": {
+    "name": "simplicidade",
+    "forms": [
+      "simples",
+      "despojamento",
+      "singeleza"
+    ]
+  },
+  "gondossag": {
+    "name": "cuidado",
+    "forms": [
+      "cuidadoso",
+      "esmero",
+      "atenção aos detalhes"
+    ]
+  },
+  "szilardsag": {
+    "name": "solidez",
+    "forms": [
+      "sólido",
+      "estabilidade",
+      "estável",
+      "inabalável"
+    ]
+  },
+  "kotelessegtudat": {
+    "name": "senso de dever",
+    "forms": [
+      "dever",
+      "obrigação",
+      "dedicado ao dever"
+    ]
+  },
+  "kovetkezetesseg": {
+    "name": "coerência",
+    "forms": [
+      "coerente",
+      "consequente"
+    ]
+  },
+  "munkabiras": {
+    "name": "capacidade de trabalho",
+    "forms": [
+      "incansável",
+      "pique",
+      "aguentar o tranco"
+    ]
+  },
+  "igazsagossag": {
+    "name": "justiça",
+    "forms": [
+      "justo",
+      "equidade",
+      "equitativo"
+    ]
+  },
+  "gyakorlatiassag": {
+    "name": "senso prático",
+    "forms": [
+      "prático",
+      "pragmatismo",
+      "pragmático",
+      "realismo"
+    ]
+  },
+  "tervszeruseg": {
+    "name": "planejamento",
+    "forms": [
+      "planejado",
+      "planejar",
+      "metódico",
+      "método",
+      "sistemático"
+    ]
+  }
+}

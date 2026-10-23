@@ -1,0 +1,2259 @@
+{
+  "torkossag": {
+    "name": "proždrljivost",
+    "forms": [
+      "proždrljiv",
+      "prejedanje",
+      "grickanje",
+      "grickati",
+      "sladokusac"
+    ],
+    "q": "Da li si jeo/la ili grickao/la i bez gladi?"
+  },
+  "feltekenyseg": {
+    "name": "ljubomora",
+    "forms": [
+      "ljubomoran"
+    ],
+    "q": "Da li si strepeo/la za nečiju pažnju ili ljubav, da li te je zabolelo što se posvećuje drugome?"
+  },
+  "fuggoseg": {
+    "name": "zavisnost",
+    "forms": [
+      "zavisan",
+      "porok",
+      "pušenje",
+      "zavisnost od telefona"
+    ],
+    "q": "Da li je postojalo nešto (hrana, piće, cigareta, telefon) bez čega si teško izdržao/la?"
+  },
+  "izgagasag": {
+    "name": "vrpoljenje",
+    "forms": [
+      "vrpoljiti se",
+      "ne može da sedi mirno",
+      "užurbanost"
+    ],
+    "q": "Da li ti je bilo teško da se smiriš, da li si požurivao/la druge ili sebe?"
+  },
+  "veszekedosseg": {
+    "name": "svadljivost",
+    "forms": [
+      "svadljiv",
+      "svađa",
+      "svađati se",
+      "prepirka",
+      "čarka"
+    ],
+    "q": "Da li si se kačio/la s drugima, tražio/la svađu zbog sitnica?"
+  },
+  "mertektelenseg": {
+    "name": "neumerenost",
+    "forms": [
+      "neumeren",
+      "preterivanje",
+      "preterivati",
+      "neobuzdanost"
+    ],
+    "q": "Da li nisi umeo/la da staneš na vreme: u jelu, poslu, kupovini, zabavi?"
+  },
+  "pusztito_kedv": {
+    "name": "rušilački nagon",
+    "forms": [
+      "rušilački",
+      "uništavanje",
+      "razbijanje",
+      "lupanje vratima",
+      "destruktivnost"
+    ],
+    "q": "Da li si poželeo/la da lupaš, uništavaš, razbiješ nešto dok je u tebi bila napetost?"
+  },
+  "indulatossag": {
+    "name": "plahovitost",
+    "forms": [
+      "plahovit",
+      "naglost",
+      "nagao",
+      "eksplozivnost",
+      "planuti"
+    ],
+    "q": "Da li si naglo planuo/la, pre nego što si promislio/la šta govoriš?"
+  },
+  "harag": {
+    "name": "ljutnja",
+    "forms": [
+      "ljut",
+      "bes",
+      "besan",
+      "gnev",
+      "srdžba"
+    ],
+    "q": "Da li si se ljutio/la na nekoga i to je ostalo u tebi?"
+  },
+  "gyulolet": {
+    "name": "mržnja",
+    "forms": [
+      "mrzeti",
+      "neprijateljstvo",
+      "odbojnost"
+    ],
+    "q": "Da li si neprijateljski mislio/la o nekome, želeo/la mu zlo?"
+  },
+  "bosszuvagy": {
+    "name": "osvetoljubivost",
+    "forms": [
+      "osveta",
+      "osvetiti se",
+      "osvetoljubiv",
+      "vraćanje milo za drago"
+    ],
+    "q": "Da li si razmišljao/la kako da vratiš uvredu?"
+  },
+  "sertodottseg": {
+    "name": "uvredljivost",
+    "forms": [
+      "uvređen",
+      "nadurenost",
+      "naduriti se",
+      "duriti se"
+    ],
+    "q": "Da li te je povredila neka primedba i da li si se zbog nje durio/la?"
+  },
+  "lenezes": {
+    "name": "nipodaštavanje",
+    "forms": [
+      "nipodaštavati",
+      "gledanje s visine",
+      "osećaj nadmoći"
+    ],
+    "q": "Da li si se osećao/la nadmoćno, da li si o nekome govorio/la ili mislio/la s visine?"
+  },
+  "pletykalkodas": {
+    "name": "ogovaranje",
+    "forms": [
+      "ogovarati",
+      "trač",
+      "tračariti",
+      "pričati iza leđa"
+    ],
+    "q": "Da li si pričao/la o nekome iza leđa, prenosio/la nešto što se tebe ne tiče?"
+  },
+  "kitartas_hianya": {
+    "name": "nedostatak istrajnosti",
+    "forms": [
+      "odustajanje",
+      "odustati",
+      "lako odustaje",
+      "neistrajnost"
+    ],
+    "q": "Da li si brzo odustao/la jer je nešto bilo teže ili trajalo duže nego što si očekivao/la?"
+  },
+  "ravaszsag": {
+    "name": "lukavost",
+    "forms": [
+      "lukav",
+      "prepredenost",
+      "prepreden",
+      "spletka",
+      "spletkarenje",
+      "smicalica"
+    ],
+    "q": "Da li si pokušao/la da nešto postigneš zaobilaznim putem, lukavstvom, a ne otvoreno?"
+  },
+  "fecseges": {
+    "name": "brbljanje",
+    "forms": [
+      "brbljiv",
+      "brbljati",
+      "naklapanje",
+      "blebetanje",
+      "trkeljanje"
+    ],
+    "q": "Da li si pričao/la više nego što je trebalo, i ono što je bilo suvišno?"
+  },
+  "becstelenseg": {
+    "name": "nepoštenje",
+    "forms": [
+      "nepošten",
+      "prevara",
+      "varati",
+      "muljanje"
+    ],
+    "q": "Da li si postupio/la nepošteno, varao/la ili nekoga izigrao/la za svoju korist?"
+  },
+  "valtakozosag": {
+    "name": "promenljivost",
+    "forms": [
+      "promenljiv",
+      "nepredvidivost",
+      "nepredvidiv"
+    ],
+    "q": "Da li si se kolebao/la amo-tamo, često menjao/la odluke ili raspoloženje?"
+  },
+  "konnyelmuseg": {
+    "name": "lakomislenost",
+    "forms": [
+      "lakomislen",
+      "rizikovanje",
+      "kockanje"
+    ],
+    "q": "Da li si nepromišljeno nešto preuzeo/la, potrošio/la ili rizikovao/la?"
+  },
+  "kerkedes": {
+    "name": "hvalisanje",
+    "forms": [
+      "hvalisav",
+      "hvaliti se",
+      "razmetanje",
+      "razmetati se",
+      "foliranje"
+    ],
+    "q": "Da li si se hvalio/la da bi ti se drugi divili?"
+  },
+  "ontulbecsules": {
+    "name": "precenjivanje sebe",
+    "forms": [
+      "uobraženost",
+      "uobražen",
+      "umišljenost",
+      "umišljen",
+      "naduvenost"
+    ],
+    "q": "Da li si sebe video/la kao više nego što zaista znaš ili radiš?"
+  },
+  "pazarlas": {
+    "name": "rasipnost",
+    "forms": [
+      "rasipan",
+      "rasipanje",
+      "traćenje",
+      "traćenje vremena"
+    ],
+    "q": "Da li si nepotrebno spiskao/la novac, vreme ili nešto vredno?"
+  },
+  "kozombosseg": {
+    "name": "ravnodušnost",
+    "forms": [
+      "ravnodušan",
+      "apatija",
+      "nezainteresovanost",
+      "baš me briga"
+    ],
+    "q": "Da li su ti bile svejedno brige drugih ili zajednička stvar?"
+  },
+  "levertseg": {
+    "name": "potištenost",
+    "forms": [
+      "potišten",
+      "utučenost",
+      "utučen",
+      "bezvoljnost",
+      "bezvoljan"
+    ],
+    "q": "Da li je raspoloženje bilo na dnu i teško se iz toga izlazilo?"
+  },
+  "szegyenlosseg": {
+    "name": "stidljivost",
+    "forms": [
+      "stidljiv",
+      "bojažljivost",
+      "bojažljiv",
+      "sramežljivost",
+      "sramežljiv"
+    ],
+    "q": "Da li si se povukao/la, nisi se usudio/la da progovoriš ili da se zauzmeš za sebe?"
+  },
+  "reszvetlenseg": {
+    "name": "bezosećajnost prema patnji",
+    "forms": [
+      "neučestvovanje",
+      "nedostatak saosećanja",
+      "neosetljivost na tuđu muku"
+    ],
+    "q": "Da li si video/la da je nekome teško, a to te nije dirnulo?"
+  },
+  "csokonyosseg": {
+    "name": "tvrdoglavost",
+    "forms": [
+      "tvrdoglav",
+      "jogunastost",
+      "jogunast",
+      "zadrtost",
+      "inat"
+    ],
+    "q": "Da li si tvrdoglavo ostao/la pri svome, i kada si mogao/la da vidiš da nisi u pravu?"
+  },
+  "renyheseg": {
+    "name": "mlitavost",
+    "forms": [
+      "mlitav",
+      "tromost",
+      "učmalost",
+      "inercija"
+    ],
+    "q": "Da li je dan prošao mlitavo, bez energije, i teško ti je bilo da se prihvatiš nečega?"
+  },
+  "koszivuseg": {
+    "name": "bezdušnost",
+    "forms": [
+      "bezdušan",
+      "kameno srce",
+      "bezosećajnost",
+      "bezosećajan"
+    ],
+    "q": "Da li si se ophodio/la grubo ili hladno prema nekome kome je trebala tvoja toplina?"
+  },
+  "tulzott_engedekenyseg": {
+    "name": "preterana popustljivost",
+    "forms": [
+      "popustljivost",
+      "popustljiv",
+      "mekoća",
+      "ne ume da kaže ne"
+    ],
+    "q": "Da li si nešto propustio/la, iako je trebalo da kažeš ne?"
+  },
+  "akaratossag": {
+    "name": "samovolja",
+    "forms": [
+      "samovoljan",
+      "nametanje volje",
+      "tera po svome"
+    ],
+    "q": "Da li si po svaku cenu hteo/la da nametneš svoju volju?"
+  },
+  "ingatagsag": {
+    "name": "nepostojanost",
+    "forms": [
+      "nepostojan",
+      "kolebljivost",
+      "kolebljiv",
+      "pokolebati se"
+    ],
+    "q": "Da li su te lako pokolebali, da li si pod uticajem drugih odustao/la od onoga što si odlučio/la?"
+  },
+  "flegmasag": {
+    "name": "flegmatičnost",
+    "forms": [
+      "flegma",
+      "sleganje ramenima",
+      "nehajnost"
+    ],
+    "q": "Da li si sleganjem ramena otpisao/la nešto što je zapravo bilo važno?"
+  },
+  "unalmas": {
+    "name": "dosadnost",
+    "forms": [
+      "dosadan",
+      "dosada",
+      "jednoličnost",
+      "jednoličan",
+      "smoren"
+    ],
+    "q": "Da li su tvoji razgovori bili jednolični i sivi, a da u njih nisi uneo/la ništa od sebe?"
+  },
+  "hanyagsag": {
+    "name": "nemar",
+    "forms": [
+      "nemaran",
+      "aljkavost",
+      "aljkav",
+      "traljavost",
+      "traljav"
+    ],
+    "q": "Da li si zanemario/la neki zadatak, uradio/la ga napola ili loše?"
+  },
+  "megvetes": {
+    "name": "prezir",
+    "forms": [
+      "prezirati",
+      "prezriv",
+      "omalovažavanje",
+      "potcenjivanje"
+    ],
+    "q": "Da li si s prezirom mislio/la o nekome, smatrao/la ga nedostojnim svoje pažnje?"
+  },
+  "emberiszonya_van": {
+    "name": "odbojnost prema ljudima",
+    "forms": [
+      "mizantropija",
+      "mizantrop",
+      "izbegavanje ljudi",
+      "nedruštven"
+    ],
+    "q": "Da li si izbegavao/la ljude, da li ti je njihovo društvo bilo teret?"
+  },
+  "lassusag": {
+    "name": "sporost",
+    "forms": [
+      "spor",
+      "razvlačenje",
+      "otezanje",
+      "sporo napredovanje"
+    ],
+    "q": "Da li si napredovao/la sporo, otežući, i kada je trebalo da požuriš?"
+  },
+  "nehezkes": {
+    "name": "teškopokretnost",
+    "forms": [
+      "teško pokretan",
+      "komplikovanost",
+      "zamršenost"
+    ],
+    "q": "Da li si se teško pokretao/la i teško se prilagođavao/la neočekivanoj situaciji?"
+  },
+  "lustasag": {
+    "name": "lenjost",
+    "forms": [
+      "lenj",
+      "dokolica",
+      "lenčariti",
+      "zabušavanje"
+    ],
+    "q": "Da li si izbegavao/la rad i napor jer ti se nije dalo?"
+  },
+  "megbizhatatlan": {
+    "name": "nepouzdanost",
+    "forms": [
+      "nepouzdan",
+      "ostaviti na cedilu",
+      "ne održati reč"
+    ],
+    "q": "Da li nisi održao/la ono što si obećao/la, ostavio/la nekoga na cedilu?"
+  },
+  "szofukar": {
+    "name": "škrtost na rečima",
+    "forms": [
+      "ćutljiv",
+      "škrt na rečima",
+      "lakonski",
+      "kratak u rečima"
+    ],
+    "q": "Da li si štedeo/la reči i tamo gde bi pomogla lepa ili objašnjavajuća reč?"
+  },
+  "lelkiismeretlenseg": {
+    "name": "nesavesnost",
+    "forms": [
+      "nesavestan",
+      "bez skrupula",
+      "beskrupuloznost"
+    ],
+    "q": "Da li si znao/la da nešto nije ispravno, a ipak si to uradio/la?"
+  },
+  "buskomorsag": {
+    "name": "seta",
+    "forms": [
+      "setan",
+      "tuga",
+      "tužan",
+      "sumornost",
+      "sumoran"
+    ],
+    "q": "Da li su tvojim danom vladale mračne, teške misli?"
+  },
+  "rendszertelenseg": {
+    "name": "neurednost",
+    "forms": [
+      "neuredan",
+      "nered",
+      "haos",
+      "haotičan",
+      "bez plana"
+    ],
+    "q": "Da li je dan prošao bez plana, haotično, da li si ostavio/la stvari u neredu?"
+  },
+  "aktivitas": {
+    "name": "aktivnost",
+    "forms": [
+      "aktivan",
+      "delatnost",
+      "delatan",
+      "polet"
+    ],
+    "q": "Da li si uradio/la svoj deo ne čekajući da neko drugi počne?"
+  },
+  "lelkesedes": {
+    "name": "oduševljenje",
+    "forms": [
+      "oduševljen",
+      "zanos",
+      "zanesen",
+      "žar"
+    ],
+    "q": "Da li si se prihvatio/la onoga što si radio/la s radošću i žarom?"
+  },
+  "elhatarozottsag": {
+    "name": "rešenost",
+    "forms": [
+      "rešen",
+      "čvrsta odluka",
+      "istrajnost u nameri"
+    ],
+    "q": "Da li si ostao/la pri onome što si odlučio/la?"
+  },
+  "mereszseg": {
+    "name": "smelost",
+    "forms": [
+      "smeo",
+      "odvažnost",
+      "odvažan",
+      "preduzimljivost"
+    ],
+    "q": "Da li si se upustio/la u nešto čega si se plašio/la?"
+  },
+  "alkotoero": {
+    "name": "stvaralačka snaga",
+    "forms": [
+      "stvaralaštvo",
+      "stvaralački",
+      "kreativnost",
+      "kreativan",
+      "stvarati"
+    ],
+    "q": "Da li si stvorio/la nešto novo: ideju, predmet, rešenje?"
+  },
+  "torekves": {
+    "name": "težnja",
+    "forms": [
+      "trud",
+      "truditi se",
+      "stremljenje",
+      "nastojanje"
+    ],
+    "q": "Da li si danas uradio/la nešto za cilj do kojeg ti je stalo?"
+  },
+  "szenvedelyes": {
+    "name": "strastvenost",
+    "forms": [
+      "strastven",
+      "strast",
+      "predanost",
+      "posvećenost"
+    ],
+    "q": "Da li si nešto radio/la s punom predanošću, sa strašću?"
+  },
+  "batorsag": {
+    "name": "hrabrost",
+    "forms": [
+      "hrabar",
+      "srčanost",
+      "srčan",
+      "zauzeti se"
+    ],
+    "q": "Da li si se zauzeo/la za nešto ili nekoga uprkos strahu?"
+  },
+  "allhatatossag": {
+    "name": "postojanost",
+    "forms": [
+      "postojan",
+      "nepokolebljivost",
+      "nepokolebljiv",
+      "vernost putu"
+    ],
+    "q": "Da li si ostao/la na izabranom putu, i kada te je mamilo nešto drugo?"
+  },
+  "szorgalom": {
+    "name": "marljivost",
+    "forms": [
+      "marljiv",
+      "vrednoća",
+      "vredan",
+      "radinost"
+    ],
+    "q": "Da li si radio/la istrajno i rado, i kada niko nije gledao?"
+  },
+  "orom": {
+    "name": "radost",
+    "forms": [
+      "radostan",
+      "sreća",
+      "srećan"
+    ],
+    "q": "Da li si osetio/la čistu radost u nečemu jednostavnom?"
+  },
+  "jartassag": {
+    "name": "veština",
+    "forms": [
+      "vešt",
+      "spretnost",
+      "spretan",
+      "umešnost",
+      "stručnost"
+    ],
+    "q": "Da li si nešto rešio/la vešto, sa umešnošću?"
+  },
+  "joszivuseg": {
+    "name": "dobrodušnost",
+    "forms": [
+      "dobrodušan",
+      "dobrota",
+      "dobro srce"
+    ],
+    "q": "Da li si nekome nesebično učinio/la dobro?"
+  },
+  "vilagos": {
+    "name": "jasnoća",
+    "forms": [
+      "jasan",
+      "bistrina",
+      "bistar um",
+      "jasno mišljenje"
+    ],
+    "q": "Da li si jasno video/la situaciju i razumljivo se izrazio/la?"
+  },
+  "gondtalan": {
+    "name": "bezbrižnost",
+    "forms": [
+      "bezbrižan",
+      "lako srce",
+      "bez briga"
+    ],
+    "q": "Da li si dan proživeo/la lakog srca, bez briga?"
+  },
+  "vidam": {
+    "name": "veselost",
+    "forms": [
+      "veseo",
+      "veselje",
+      "dobro raspoloženje",
+      "razdraganost"
+    ],
+    "q": "Da li si imao/la dobro raspoloženje i preneo/la ga na druge?"
+  },
+  "optimizmus": {
+    "name": "optimizam",
+    "forms": [
+      "optimista",
+      "optimističan",
+      "poverenje u budućnost",
+      "pozitivno mišljenje"
+    ],
+    "q": "Da li si verovao/la da će se stvari dobro odvijati i tražio/la dobro u njima?"
+  },
+  "elenkseg": {
+    "name": "živahnost",
+    "forms": [
+      "živahan",
+      "svežina",
+      "svež",
+      "čilost",
+      "čio"
+    ],
+    "q": "Da li su tvoje telo i mišljenje bili sveži i pokretni?"
+  },
+  "fuggetlenseg": {
+    "name": "nezavisnost",
+    "forms": [
+      "nezavisan",
+      "samostalnost",
+      "samostalan"
+    ],
+    "q": "Da li si odlučivao/la po svom sudu, a ne pod pritiskom drugih?"
+  },
+  "eberseg": {
+    "name": "budnost",
+    "forms": [
+      "budan",
+      "bdenje",
+      "biti na oprezu"
+    ],
+    "q": "Da li si primećivao/la šta se dešava oko tebe i u tebi?"
+  },
+  "kedvesseg": {
+    "name": "ljubaznost",
+    "forms": [
+      "ljubazan",
+      "prijateljski",
+      "srdačnost",
+      "srdačan"
+    ],
+    "q": "Da li si se prema ljudima ophodio/la ljubazno i toplo?"
+  },
+  "bizalom": {
+    "name": "poverenje",
+    "forms": [
+      "verovati",
+      "imati poverenja",
+      "vera u druge"
+    ],
+    "q": "Da li si nekome verovao/la bez traženja skrivenih namera?"
+  },
+  "irgalmassag": {
+    "name": "milosrđe",
+    "forms": [
+      "milosrdan",
+      "samilost",
+      "milost"
+    ],
+    "q": "Da li si pokazao/la milosrđe prema nekome ko je pogrešio ili je bio u nevolji?"
+  },
+  "szerenyseg": {
+    "name": "skromnost",
+    "forms": [
+      "skroman",
+      "uzdržanost",
+      "nenametljivost"
+    ],
+    "q": "Da li se nisi gurao/la u prvi plan i pustio/la si i druge da zablistaju?"
+  },
+  "megadas": {
+    "name": "predanost sudbini",
+    "forms": [
+      "prepuštanje",
+      "predati se",
+      "pustiti da bude"
+    ],
+    "q": "Da li si prihvatio/la ono što nisi mogao/la da promeniš, bez unutrašnje borbe?"
+  },
+  "alkalmazkodokeszseg": {
+    "name": "prilagodljivost",
+    "forms": [
+      "prilagodljiv",
+      "prilagoditi se",
+      "fleksibilnost",
+      "fleksibilan"
+    ],
+    "q": "Da li si se fleksibilno prilagodio/la novoj situaciji ili potrebama drugih?"
+  },
+  "buzgosag": {
+    "name": "revnost",
+    "forms": [
+      "revnostan",
+      "usrdnost",
+      "usrdan",
+      "pobožnost"
+    ],
+    "q": "Da li si svoje vežbe i zadatke obavljao/la s unutrašnjom predanošću i vernošću?"
+  },
+  "bensosegesseg": {
+    "name": "prisnost",
+    "forms": [
+      "prisan",
+      "bliskost",
+      "intimnost"
+    ],
+    "q": "Da li si imao/la dubok, prisan trenutak s nekim ili sa sobom?"
+  },
+  "felfogokepesseg": {
+    "name": "moć shvatanja",
+    "forms": [
+      "shvatanje",
+      "prijemčivost",
+      "prijemčiv",
+      "razumevanje"
+    ],
+    "q": "Da li si brzo i dobro razumeo/la šta ti je rečeno ili šta se desilo?"
+  },
+  "meditacio": {
+    "name": "meditacija",
+    "forms": [
+      "meditirati",
+      "kontemplacija",
+      "okretanje ka sebi",
+      "umirenje"
+    ],
+    "q": "Da li si odvojio/la vreme da se umiriš i pogledaš u sebe?"
+  },
+  "szanalomerzet": {
+    "name": "sažaljenje",
+    "forms": [
+      "sažaljevati",
+      "žaljenje",
+      "saučešće"
+    ],
+    "q": "Da li te je dirnula nečija muka, nečija patnja?"
+  },
+  "egyutterzes": {
+    "name": "saosećanje",
+    "forms": [
+      "saosećajan",
+      "empatija",
+      "empatičan",
+      "uživljavanje"
+    ],
+    "q": "Da li si uspeo/la da se uživiš u položaj drugoga i da mu to daš do znanja?"
+  },
+  "nyugalom": {
+    "name": "smirenost",
+    "forms": [
+      "smiren",
+      "spokoj",
+      "spokojan",
+      "mir",
+      "unutrašnji mir"
+    ],
+    "q": "Da li si sačuvao/la unutrašnju tišinu dok je oko tebe vladala žurba?"
+  },
+  "elmelyultseg": {
+    "name": "udubljenost",
+    "forms": [
+      "udubljen",
+      "zadubljenost",
+      "zadubljen",
+      "dubina"
+    ],
+    "q": "Da li si se potpuno udubio/la u nešto i došao/la do njegove suštine?"
+  },
+  "mertekletesseg": {
+    "name": "umerenost",
+    "forms": [
+      "umeren",
+      "uzdržljivost",
+      "znati meru"
+    ],
+    "q": "Da li si umeo/la da staneš na vreme u jelu, piću, zabavi?"
+  },
+  "gyongedseg": {
+    "name": "nežnost",
+    "forms": [
+      "nežan",
+      "finoća",
+      "milina"
+    ],
+    "q": "Da li si se prema nekome ophodio/la nežno i s ljubavlju?"
+  },
+  "tiszteletadas": {
+    "name": "poštovanje",
+    "forms": [
+      "pun poštovanja",
+      "uvažavanje",
+      "uvažavati",
+      "poštovati"
+    ],
+    "q": "Da li si drugima iskazao/la poštovanje, i kada se nisi slagao/la s njima?"
+  },
+  "tekintely": {
+    "name": "autoritet",
+    "forms": [
+      "ugled",
+      "uticaj",
+      "pojava"
+    ],
+    "q": "Da li su tvoja reč i tvoje prisustvo imali težinu, uz mirnu odlučnost?"
+  },
+  "kitartas": {
+    "name": "istrajnost",
+    "forms": [
+      "istrajan",
+      "upornost",
+      "uporan"
+    ],
+    "q": "Da li si do kraja doveo/la nešto teško ili dugotrajno?"
+  },
+  "megfontoltsag": {
+    "name": "promišljenost",
+    "forms": [
+      "promišljen",
+      "razboritost",
+      "razborit",
+      "smotrenost"
+    ],
+    "q": "Da li si dobro razmislio/la pre nego što si odlučio/la ili progovorio/la?"
+  },
+  "hatarozottsag": {
+    "name": "odlučnost",
+    "forms": [
+      "odlučan",
+      "čvrstina",
+      "asertivnost",
+      "asertivan"
+    ],
+    "q": "Da li si jasno rekao/la šta želiš i rekao/la ne gde je trebalo?"
+  },
+  "komolysag": {
+    "name": "ozbiljnost",
+    "forms": [
+      "ozbiljan"
+    ],
+    "q": "Da li si se prema važnom odnosio/la s dužnom ozbiljnošću?"
+  },
+  "lelkiismeretesseg": {
+    "name": "savesnost",
+    "forms": [
+      "savestan"
+    ],
+    "q": "Da li si svoj posao radio/la onako kako ti je savest nalagala?"
+  },
+  "alapossag": {
+    "name": "temeljnost",
+    "forms": [
+      "temeljan",
+      "detaljnost",
+      "detaljan"
+    ],
+    "q": "Da li si zadatke doveo/la do detalja, i kada to niko ne proverava?"
+  },
+  "koncentraltsag": {
+    "name": "usredsređenost",
+    "forms": [
+      "usredsređen",
+      "koncentracija",
+      "sabranost",
+      "sabran"
+    ],
+    "q": "Da li si se posvetio/la jednoj stvari u isto vreme, bez lutanja?"
+  },
+  "jozansag": {
+    "name": "trezvenost",
+    "forms": [
+      "trezven",
+      "zdrav razum",
+      "noge na zemlji"
+    ],
+    "q": "Da li si stvari procenjivao/la jasno, s nogama na zemlji?"
+  },
+  "pontossag": {
+    "name": "tačnost",
+    "forms": [
+      "tačan",
+      "preciznost",
+      "precizan",
+      "na vreme"
+    ],
+    "q": "Da li si stigao/la na vreme i uradio/la tačno ono što si preuzeo/la?"
+  },
+  "targyilagossag": {
+    "name": "objektivnost",
+    "forms": [
+      "objektivan",
+      "nepristrasnost",
+      "nepristrasan"
+    ],
+    "q": "Da li si procenio/la situaciju pravično, nezavisno od emocija?"
+  },
+  "elovigyazatossag": {
+    "name": "opreznost",
+    "forms": [
+      "oprezan",
+      "obazrivost",
+      "obazriv",
+      "predostrožnost",
+      "dalekovidost"
+    ],
+    "q": "Da li si unapred mislio/la na moguće teškoće i pripremio/la se za njih?"
+  },
+  "ellenallo_kepesseg": {
+    "name": "otpornost",
+    "forms": [
+      "otporan",
+      "duševna snaga",
+      "izdržljivost"
+    ],
+    "q": "Da li si odoleo/la iskušenju, pritisku ili umoru?"
+  },
+  "celtudatossag": {
+    "name": "usmerenost ka cilju",
+    "forms": [
+      "usmeren na cilj",
+      "svrhovitost",
+      "znati kuda"
+    ],
+    "q": "Da li si znao/la kuda ideš i išao/la si ka tome?"
+  },
+  "felelossegerzet": {
+    "name": "osećaj odgovornosti",
+    "forms": [
+      "odgovornost",
+      "odgovoran"
+    ],
+    "q": "Da li si preuzeo/la posledice onoga što si uradio/la ili rekao/la?"
+  },
+  "turelmetlenseg": {
+    "name": "nestrpljivost",
+    "forms": [
+      "nestrpljiv",
+      "nestrpljenje",
+      "požurivanje"
+    ]
+  },
+  "irigyseg": {
+    "name": "zavist",
+    "forms": [
+      "zavidan",
+      "zavideti"
+    ]
+  },
+  "ingerlekenyseg": {
+    "name": "razdražljivost",
+    "forms": [
+      "razdražljiv",
+      "nervozan",
+      "nervoza",
+      "iznerviranost"
+    ]
+  },
+  "dac": {
+    "name": "prkos",
+    "forms": [
+      "prkosan",
+      "za inat"
+    ]
+  },
+  "agresszivitas": {
+    "name": "agresivnost",
+    "forms": [
+      "agresivan",
+      "nasilnost",
+      "nasilan",
+      "nasilje"
+    ]
+  },
+  "durvasag": {
+    "name": "grubost",
+    "forms": [
+      "grub",
+      "sirovost",
+      "sirov",
+      "brutalnost"
+    ]
+  },
+  "gorombasag": {
+    "name": "neotesanost",
+    "forms": [
+      "neotesan",
+      "neučtivost",
+      "neučtiv",
+      "bezobrazluk",
+      "prostakluk"
+    ]
+  },
+  "uralkodni_vagyas": {
+    "name": "vlastoljublje",
+    "forms": [
+      "vlastoljubiv",
+      "žudnja za moći",
+      "tiranija",
+      "komandovanje",
+      "šefovanje"
+    ]
+  },
+  "kegyetlenseg": {
+    "name": "okrutnost",
+    "forms": [
+      "okrutan",
+      "bezobzirnost",
+      "bezobziran",
+      "nemilosrdnost"
+    ]
+  },
+  "kapkodas": {
+    "name": "užurbanost",
+    "forms": [
+      "užurban",
+      "jurnjava",
+      "žurba",
+      "hitanje"
+    ]
+  },
+  "sovargas": {
+    "name": "žudnja",
+    "forms": [
+      "žudeti",
+      "pohlepna želja",
+      "prohtev"
+    ]
+  },
+  "kejvagy": {
+    "name": "pohota",
+    "forms": [
+      "pohotan",
+      "požuda",
+      "bludnost",
+      "razvrat"
+    ]
+  },
+  "mohosag": {
+    "name": "halapljivost",
+    "forms": [
+      "halapljiv",
+      "gutati",
+      "grabljivost"
+    ]
+  },
+  "fanatizmus": {
+    "name": "fanatizam",
+    "forms": [
+      "fanatičan",
+      "fanatik",
+      "zaslepljenost",
+      "netrpeljivost"
+    ]
+  },
+  "onfejuseg": {
+    "name": "svojeglavost",
+    "forms": [
+      "svojeglav",
+      "neposlušnost",
+      "svojevoljno"
+    ]
+  },
+  "nagyravagyas": {
+    "name": "častoljublje",
+    "forms": [
+      "častoljubiv",
+      "karijerizam",
+      "karijerista",
+      "ambicioznost"
+    ]
+  },
+  "versenges": {
+    "name": "rivalstvo",
+    "forms": [
+      "nadmetanje",
+      "nadmetati se",
+      "takmičarski duh",
+      "rivalitet"
+    ]
+  },
+  "hiszterikussag": {
+    "name": "histeričnost",
+    "forms": [
+      "histeričan",
+      "histerija",
+      "scene",
+      "praviti scene",
+      "drama"
+    ]
+  },
+  "sertegetes": {
+    "name": "vređanje",
+    "forms": [
+      "vređati",
+      "uvreda",
+      "psovanje"
+    ]
+  },
+  "tolakodas": {
+    "name": "nametljivost",
+    "forms": [
+      "nametljiv",
+      "napadnost",
+      "napadan",
+      "guranje"
+    ]
+  },
+  "karorvendes": {
+    "name": "zluradost",
+    "forms": [
+      "zlurad",
+      "radovati se tuđoj nesreći"
+    ]
+  },
+  "rosszindulat": {
+    "name": "zloba",
+    "forms": [
+      "zloban",
+      "zlonamernost",
+      "zlonameran",
+      "pakost",
+      "pakostan"
+    ]
+  },
+  "gog": {
+    "name": "oholost",
+    "forms": [
+      "ohol",
+      "arogancija",
+      "arogantan",
+      "nadmenost",
+      "nadmen"
+    ]
+  },
+  "undoksag": {
+    "name": "zajedljivost",
+    "forms": [
+      "zajedljiv",
+      "bockanje",
+      "bockati",
+      "podbadanje"
+    ]
+  },
+  "telhetetlenseg": {
+    "name": "nezasitost",
+    "forms": [
+      "nezasit",
+      "nikad dosta"
+    ]
+  },
+  "kovetelozes": {
+    "name": "zahtevnost",
+    "forms": [
+      "zahtevan",
+      "zahtevanje",
+      "traženje"
+    ]
+  },
+  "hiusag": {
+    "name": "sujeta",
+    "forms": [
+      "sujetan",
+      "taština",
+      "tašt",
+      "šepurenje",
+      "želja za pažnjom"
+    ]
+  },
+  "feluletesseg": {
+    "name": "površnost",
+    "forms": [
+      "površan",
+      "plitkost",
+      "plitak"
+    ]
+  },
+  "szetszortsag": {
+    "name": "raštrkanost",
+    "forms": [
+      "raštrkan",
+      "nesabranost",
+      "nesabran",
+      "skakanje s teme na temu"
+    ]
+  },
+  "hazudozas": {
+    "name": "laganje",
+    "forms": [
+      "lagati",
+      "lažov",
+      "laž",
+      "izmišljati"
+    ]
+  },
+  "kivancsiskodas": {
+    "name": "zabadanje nosa",
+    "forms": [
+      "zabadati nos",
+      "njuškanje",
+      "njuškalo",
+      "radoznalo zavirivanje"
+    ]
+  },
+  "szeszelyesseg": {
+    "name": "ćudljivost",
+    "forms": [
+      "ćudljiv",
+      "hirovitost",
+      "hirovit",
+      "mušičavost",
+      "mušičav"
+    ]
+  },
+  "szorakozottsag": {
+    "name": "rasejanost",
+    "forms": [
+      "rasejan",
+      "zaboravnost",
+      "zaboravan"
+    ]
+  },
+  "komolytalansag": {
+    "name": "neozbiljnost",
+    "forms": [
+      "neozbiljan",
+      "frivolnost",
+      "olako shvatanje"
+    ]
+  },
+  "meggondolatlansag": {
+    "name": "nepromišljenost",
+    "forms": [
+      "nepromišljen",
+      "brzopletost",
+      "brzoplet",
+      "impulsivnost",
+      "impulsivan"
+    ]
+  },
+  "felelotlenseg": {
+    "name": "neodgovornost",
+    "forms": [
+      "neodgovoran"
+    ]
+  },
+  "hizelges": {
+    "name": "laskanje",
+    "forms": [
+      "laskati",
+      "laskavac",
+      "ulizivanje",
+      "ulizica",
+      "dodvoravanje"
+    ]
+  },
+  "kepmutatas": {
+    "name": "licemerje",
+    "forms": [
+      "licemer",
+      "licemeran",
+      "dvoličnost",
+      "dvoličan",
+      "lažnost"
+    ]
+  },
+  "itelkezes": {
+    "name": "osuđivanje",
+    "forms": [
+      "osuđivati",
+      "kritikovanje",
+      "kritikovati",
+      "kritizerstvo",
+      "suditi"
+    ]
+  },
+  "okoskodas": {
+    "name": "sveznalaštvo",
+    "forms": [
+      "sveznalica",
+      "mudrovanje",
+      "mudrovati",
+      "pametovanje",
+      "držati predavanja"
+    ]
+  },
+  "igergetes": {
+    "name": "prazna obećanja",
+    "forms": [
+      "obećavanje",
+      "neodržano obećanje",
+      "obećavati"
+    ]
+  },
+  "zavarodottsag": {
+    "name": "zbunjenost",
+    "forms": [
+      "zbunjen",
+      "smetenost",
+      "smeten",
+      "konfuzija"
+    ]
+  },
+  "nyugtalansag": {
+    "name": "nemir",
+    "forms": [
+      "nemiran",
+      "napetost",
+      "napet",
+      "uznemirenost"
+    ]
+  },
+  "gunyolodas": {
+    "name": "podsmevanje",
+    "forms": [
+      "podsmešljiv",
+      "podsmeh",
+      "ruganje",
+      "sarkazam",
+      "sarkastičan",
+      "ismevanje"
+    ]
+  },
+  "figyelmetlenseg": {
+    "name": "nepažnja",
+    "forms": [
+      "nepažljiv",
+      "neobazrivost",
+      "neobazriv"
+    ]
+  },
+  "pontatlansag": {
+    "name": "netačnost",
+    "forms": [
+      "netačan",
+      "nepreciznost",
+      "neprecizan",
+      "kašnjenje",
+      "kasniti"
+    ]
+  },
+  "manipulalas": {
+    "name": "manipulacija",
+    "forms": [
+      "manipulativan",
+      "manipulisati",
+      "manipulator"
+    ]
+  },
+  "kifogaskereses": {
+    "name": "traženje izgovora",
+    "forms": [
+      "izgovor",
+      "izgovori",
+      "pravdanje",
+      "prebacivanje krivice",
+      "okrivljavanje drugih"
+    ]
+  },
+  "hutlenseg": {
+    "name": "nevernost",
+    "forms": [
+      "neveran",
+      "nelojalnost",
+      "nelojalan",
+      "izdaja",
+      "prevariti"
+    ]
+  },
+  "cinizmus": {
+    "name": "cinizam",
+    "forms": [
+      "ciničan",
+      "cinik"
+    ]
+  },
+  "onsajnalat": {
+    "name": "samosažaljenje",
+    "forms": [
+      "sažaljevati sebe",
+      "kukanje nad sobom",
+      "igrati žrtvu"
+    ]
+  },
+  "befolyasolhatosag": {
+    "name": "podložnost uticaju",
+    "forms": [
+      "lako se povodi",
+      "povodljivost",
+      "povodljiv",
+      "sugestibilan"
+    ]
+  },
+  "kishituseg": {
+    "name": "malodušnost",
+    "forms": [
+      "malodušan",
+      "nesigurnost",
+      "nesiguran",
+      "manjak samopouzdanja",
+      "osećaj manje vrednosti"
+    ]
+  },
+  "gyavasag": {
+    "name": "kukavičluk",
+    "forms": [
+      "kukavica",
+      "kukavički",
+      "plašljivost",
+      "povući se",
+      "uzmaknuti"
+    ]
+  },
+  "hatarozatlansag": {
+    "name": "neodlučnost",
+    "forms": [
+      "neodlučan",
+      "oklevanje",
+      "oklevati",
+      "dvoumljenje"
+    ]
+  },
+  "celtalansag": {
+    "name": "besciljnost",
+    "forms": [
+      "besciljan",
+      "bez cilja",
+      "plutati"
+    ]
+  },
+  "lanyhasag": {
+    "name": "mlakost",
+    "forms": [
+      "mlak",
+      "polovičnost",
+      "polovičan"
+    ]
+  },
+  "ridegseg": {
+    "name": "hladnoća",
+    "forms": [
+      "hladan",
+      "distanciranost",
+      "rezervisan"
+    ]
+  },
+  "elfogultsag": {
+    "name": "pristrasnost",
+    "forms": [
+      "pristrasan",
+      "predrasuda",
+      "predrasude",
+      "jednostranost"
+    ]
+  },
+  "passzivitas": {
+    "name": "pasivnost",
+    "forms": [
+      "pasivan",
+      "neaktivnost",
+      "nečinjenje"
+    ]
+  },
+  "tulerzekenyseg": {
+    "name": "preosetljivost",
+    "forms": [
+      "preosetljiv",
+      "plačljivost",
+      "plačljiv",
+      "tankoćutnost"
+    ]
+  },
+  "szorongas": {
+    "name": "strepnja",
+    "forms": [
+      "anksioznost",
+      "anksiozan",
+      "strah",
+      "bojazan"
+    ]
+  },
+  "alazatoskodas": {
+    "name": "servilnost",
+    "forms": [
+      "servilan",
+      "puzavost",
+      "podaničko ponašanje"
+    ]
+  },
+  "elkenyelmesedes": {
+    "name": "udobnjaštvo",
+    "forms": [
+      "udobnost",
+      "razmaženost",
+      "razmažen",
+      "komocija"
+    ]
+  },
+  "erzelgosseg": {
+    "name": "sentimentalnost",
+    "forms": [
+      "sentimentalan",
+      "patetičnost",
+      "patetika",
+      "sladunjavost"
+    ]
+  },
+  "halatlansag": {
+    "name": "nezahvalnost",
+    "forms": [
+      "nezahvalan"
+    ]
+  },
+  "iszakossag": {
+    "name": "pijančenje",
+    "forms": [
+      "pijanstvo",
+      "opijanje",
+      "piti",
+      "alkohol",
+      "alkoholizam"
+    ]
+  },
+  "almodozas": {
+    "name": "sanjarenje",
+    "forms": [
+      "sanjar",
+      "sanjariti",
+      "maštarenje",
+      "maštati",
+      "sa glavom u oblacima"
+    ]
+  },
+  "panaszkodas": {
+    "name": "kukanje",
+    "forms": [
+      "kukati",
+      "žaliti se",
+      "jadikovanje",
+      "jadikovati",
+      "cmizdrenje"
+    ]
+  },
+  "megalkuvas": {
+    "name": "oportunizam",
+    "forms": [
+      "oportunista",
+      "popuštanje",
+      "prodati se",
+      "trula nagodba"
+    ]
+  },
+  "kapzsisag": {
+    "name": "pohlepa",
+    "forms": [
+      "pohlepan",
+      "lakomost",
+      "lakom",
+      "škrtost",
+      "škrt",
+      "cicija"
+    ]
+  },
+  "merevseg": {
+    "name": "krutost",
+    "forms": [
+      "krut",
+      "neprilagodljivost",
+      "neprilagodljiv",
+      "nepopustljivost",
+      "nepopustljiv"
+    ]
+  },
+  "pesszimizmus": {
+    "name": "pesimizam",
+    "forms": [
+      "pesimista",
+      "pesimističan",
+      "crnogledost"
+    ]
+  },
+  "halogatas": {
+    "name": "odugovlačenje",
+    "forms": [
+      "odugovlačiti",
+      "prokrastinacija",
+      "odlaganje",
+      "odlagati"
+    ]
+  },
+  "aggodalmaskodas": {
+    "name": "zabrinutost",
+    "forms": [
+      "zabrinut",
+      "brinuti",
+      "sekirancija",
+      "sekirati se"
+    ]
+  },
+  "bizalmatlansag": {
+    "name": "nepoverenje",
+    "forms": [
+      "nepoverljiv",
+      "sumnjičavost",
+      "sumnjičav",
+      "sumnja"
+    ]
+  },
+  "zarkozottsag": {
+    "name": "zatvorenost",
+    "forms": [
+      "zatvoren",
+      "povučenost",
+      "povučen",
+      "introvertnost"
+    ]
+  },
+  "ertetlenseg": {
+    "name": "nerazumevanje",
+    "forms": [
+      "ne shvata",
+      "sporo shvatanje",
+      "tupost",
+      "tup"
+    ]
+  },
+  "ugyetlenseg": {
+    "name": "nespretnost",
+    "forms": [
+      "nespretan",
+      "nezgrapnost",
+      "nezgrapan",
+      "smotanost",
+      "smotan"
+    ]
+  },
+  "elegedetlenseg": {
+    "name": "nezadovoljstvo",
+    "forms": [
+      "nezadovoljan",
+      "gunđanje",
+      "gunđati",
+      "zanovetanje"
+    ]
+  },
+  "kicsinyesseg": {
+    "name": "sitničavost",
+    "forms": [
+      "sitničav",
+      "cepidlačenje",
+      "cepidlaka"
+    ]
+  },
+  "haszonleses": {
+    "name": "koristoljublje",
+    "forms": [
+      "koristoljubiv",
+      "proračunatost",
+      "proračunat",
+      "materijalizam",
+      "materijalista"
+    ]
+  },
+  "onzes": {
+    "name": "sebičnost",
+    "forms": [
+      "sebičan",
+      "egoizam",
+      "egoista"
+    ]
+  },
+  "szigorusag": {
+    "name": "strogost",
+    "forms": [
+      "strog",
+      "oštrina prema drugima"
+    ]
+  },
+  "maradisag": {
+    "name": "zaostalost",
+    "forms": [
+      "zaostao",
+      "nazadnost",
+      "nazadan",
+      "zastareo"
+    ]
+  },
+  "mogorvasag": {
+    "name": "mrzovolja",
+    "forms": [
+      "mrzovoljan",
+      "namrgođenost",
+      "namrgođen",
+      "zlovolja",
+      "loše raspoloženje"
+    ]
+  },
+  "elkeseredettseg": {
+    "name": "ogorčenost",
+    "forms": [
+      "ogorčen",
+      "očaj",
+      "očajan",
+      "beznađe",
+      "beznadežan"
+    ]
+  },
+  "ragaszkodas": {
+    "name": "vezanost",
+    "forms": [
+      "posesivnost",
+      "posesivan",
+      "grčevito držanje",
+      "prianjanje"
+    ]
+  },
+  "szuklatokoruseg": {
+    "name": "uskogrudost",
+    "forms": [
+      "uskogrud",
+      "ograničenost",
+      "ograničen",
+      "malograđanština"
+    ]
+  },
+  "nagylelkuseg": {
+    "name": "velikodušnost",
+    "forms": [
+      "velikodušan",
+      "darežljivost",
+      "darežljiv",
+      "darivanje"
+    ]
+  },
+  "kezdemenyezokeszseg": {
+    "name": "inicijativnost",
+    "forms": [
+      "inicijativa",
+      "preduzetan",
+      "prvi korak"
+    ]
+  },
+  "onbizalom": {
+    "name": "samopouzdanje",
+    "forms": [
+      "samouveren",
+      "sigurnost u sebe",
+      "samosvest"
+    ]
+  },
+  "tettrekeszseg": {
+    "name": "spremnost na delo",
+    "forms": [
+      "spreman na delo",
+      "prionuti na posao",
+      "zasukati rukave"
+    ]
+  },
+  "eletero": {
+    "name": "životna snaga",
+    "forms": [
+      "vitalnost",
+      "vitalan",
+      "energija",
+      "energičan",
+      "volja za životom"
+    ]
+  },
+  "nagyvonalusag": {
+    "name": "plemenitost duha",
+    "forms": [
+      "širokogrudost",
+      "širokogrud",
+      "plemenit"
+    ]
+  },
+  "akaratero": {
+    "name": "snaga volje",
+    "forms": [
+      "volja",
+      "čvrsta volja",
+      "jaka volja"
+    ]
+  },
+  "melegszivuseg": {
+    "name": "toplina srca",
+    "forms": [
+      "topao",
+      "srdačna toplina",
+      "toplodušnost"
+    ]
+  },
+  "hosiesseg": {
+    "name": "herojstvo",
+    "forms": [
+      "heroj",
+      "herojski",
+      "junaštvo",
+      "junak"
+    ]
+  },
+  "oszinteseg": {
+    "name": "iskrenost",
+    "forms": [
+      "iskren",
+      "neposrednost",
+      "neposredan",
+      "istinoljubivost"
+    ]
+  },
+  "humor": {
+    "name": "humor",
+    "forms": [
+      "duhovit",
+      "šala",
+      "šaljiv",
+      "smisao za humor"
+    ]
+  },
+  "segitokeszseg": {
+    "name": "predusretljivost",
+    "forms": [
+      "predusretljiv",
+      "pomagati",
+      "spremnost na pomoć",
+      "uslužan"
+    ]
+  },
+  "kozlekenyseg": {
+    "name": "komunikativnost",
+    "forms": [
+      "komunikativan",
+      "razgovorljiv",
+      "otvoren za razgovor"
+    ]
+  },
+  "nyitottsag": {
+    "name": "otvorenost",
+    "forms": [
+      "otvoren",
+      "interesovanje",
+      "radoznalost",
+      "radoznao",
+      "otvoren um"
+    ]
+  },
+  "figyelmesseg": {
+    "name": "pažljivost",
+    "forms": [
+      "pažljiv",
+      "obzirnost",
+      "obziran",
+      "pažnja"
+    ]
+  },
+  "tapintat": {
+    "name": "takt",
+    "forms": [
+      "taktičan",
+      "diplomatičnost",
+      "diplomatičan",
+      "osećaj za meru"
+    ]
+  },
+  "furgeseg": {
+    "name": "hitrina",
+    "forms": [
+      "hitar",
+      "brzina",
+      "brz",
+      "okretnost",
+      "okretan"
+    ]
+  },
+  "konnyedseg": {
+    "name": "lakoća",
+    "forms": [
+      "lak",
+      "neusiljenost",
+      "neusiljen",
+      "bez napora"
+    ]
+  },
+  "deru": {
+    "name": "vedrina",
+    "forms": [
+      "vedar",
+      "ozarenost",
+      "ozaren"
+    ]
+  },
+  "tanulekonysag": {
+    "name": "želja za učenjem",
+    "forms": [
+      "učenje",
+      "žeđ za znanjem",
+      "brzo uči"
+    ]
+  },
+  "lelemenyesseg": {
+    "name": "dovitljivost",
+    "forms": [
+      "dovitljiv",
+      "snalažljivost",
+      "snalažljiv",
+      "domišljatost",
+      "domišljat"
+    ]
+  },
+  "kiegyensulyozottsag": {
+    "name": "uravnoteženost",
+    "forms": [
+      "uravnotežen",
+      "sklad",
+      "unutrašnja ravnoteža",
+      "ravnoteža"
+    ]
+  },
+  "egyuttmukodes": {
+    "name": "saradnja",
+    "forms": [
+      "sarađivati",
+      "timski duh",
+      "kooperativnost",
+      "kooperativan"
+    ]
+  },
+  "bolcsesseg": {
+    "name": "mudrost",
+    "forms": [
+      "mudar",
+      "pronicljivost",
+      "pronicljiv"
+    ]
+  },
+  "masok_szabadsaganak_tisztelete": {
+    "name": "poštovanje tuđe slobode",
+    "forms": [
+      "davati slobodu",
+      "pustiti druge da budu",
+      "poštovati tuđu volju",
+      "poštovati tuđe izbore"
+    ]
+  },
+  "hala": {
+    "name": "zahvalnost",
+    "forms": [
+      "zahvalan",
+      "hvala",
+      "zahvaljivati"
+    ]
+  },
+  "joindulat": {
+    "name": "dobronamernost",
+    "forms": [
+      "dobronameran",
+      "dobra volja",
+      "blagonaklonost",
+      "blagonaklon"
+    ]
+  },
+  "szelidseg": {
+    "name": "blagost",
+    "forms": [
+      "blag",
+      "krotkost",
+      "krotak"
+    ]
+  },
+  "szeretet": {
+    "name": "ljubav",
+    "forms": [
+      "pun ljubavi",
+      "naklonost",
+      "voleti"
+    ]
+  },
+  "megbocsatas": {
+    "name": "opraštanje",
+    "forms": [
+      "oprostiti",
+      "praštanje",
+      "oproštaj"
+    ]
+  },
+  "bekulekenyseg": {
+    "name": "pomirljivost",
+    "forms": [
+      "pomirljiv",
+      "pomirenje",
+      "miroljubivost",
+      "miroljubiv"
+    ]
+  },
+  "alazat": {
+    "name": "poniznost",
+    "forms": [
+      "ponizan",
+      "skrušenost"
+    ]
+  },
+  "elfogadas": {
+    "name": "prihvatanje",
+    "forms": [
+      "prihvatati",
+      "prihvatiti",
+      "otvorenost za druge"
+    ]
+  },
+  "elnezes": {
+    "name": "trpeljivost",
+    "forms": [
+      "trpeljiv",
+      "tolerancija",
+      "tolerantan"
+    ]
+  },
+  "onzetlenseg": {
+    "name": "nesebičnost",
+    "forms": [
+      "nesebičan",
+      "altruizam",
+      "altruista",
+      "samopregor"
+    ]
+  },
+  "emberszeretet": {
+    "name": "čovekoljublje",
+    "forms": [
+      "čovekoljubiv",
+      "filantropija",
+      "filantrop",
+      "ljubav prema bližnjem"
+    ]
+  },
+  "megelegedettseg": {
+    "name": "zadovoljstvo",
+    "forms": [
+      "zadovoljan",
+      "zadovoljenost",
+      "pomirenost sa sobom"
+    ]
+  },
+  "elengedes": {
+    "name": "puštanje",
+    "forms": [
+      "pustiti",
+      "otpuštanje",
+      "pustiti da ode"
+    ]
+  },
+  "remenyseg": {
+    "name": "nada",
+    "forms": [
+      "pun nade",
+      "nadati se",
+      "nadanje"
+    ]
+  },
+  "johiszemuseg": {
+    "name": "dobra vera",
+    "forms": [
+      "u dobroj veri",
+      "bezazlenost",
+      "bezazlen",
+      "prostodušnost"
+    ]
+  },
+  "turelem": {
+    "name": "strpljenje",
+    "forms": [
+      "strpljiv",
+      "strpljivost",
+      "umeti čekati"
+    ]
+  },
+  "megbizhatosag": {
+    "name": "pouzdanost",
+    "forms": [
+      "pouzdan",
+      "čovek od reči",
+      "održati reč",
+      "na koga se može osloniti"
+    ]
+  },
+  "rendszeretet": {
+    "name": "ljubav prema redu",
+    "forms": [
+      "uredan",
+      "red",
+      "urednost",
+      "organizovanost"
+    ]
+  },
+  "becsuletesseg": {
+    "name": "poštenje",
+    "forms": [
+      "pošten",
+      "čast",
+      "čestitost",
+      "čestit",
+      "ispravnost"
+    ]
+  },
+  "takarekossag": {
+    "name": "štedljivost",
+    "forms": [
+      "štedljiv",
+      "štednja",
+      "štedeti",
+      "domaćinski odnos"
+    ]
+  },
+  "megbecsules": {
+    "name": "cenjenje",
+    "forms": [
+      "ceniti",
+      "priznanje",
+      "priznavati",
+      "vrednovanje"
+    ]
+  },
+  "diszkrecio": {
+    "name": "diskrecija",
+    "forms": [
+      "diskretan",
+      "čuvanje tajne",
+      "ćutanje"
+    ]
+  },
+  "onfegyelem": {
+    "name": "samodisciplina",
+    "forms": [
+      "disciplinovan",
+      "samokontrola",
+      "vladanje sobom"
+    ]
+  },
+  "onbecsules": {
+    "name": "samopoštovanje",
+    "forms": [
+      "dostojanstvo",
+      "samovrednovanje",
+      "ponos"
+    ]
+  },
+  "huseg": {
+    "name": "vernost",
+    "forms": [
+      "veran",
+      "odanost",
+      "odan",
+      "lojalnost",
+      "lojalan"
+    ]
+  },
+  "egyszeruseg": {
+    "name": "jednostavnost",
+    "forms": [
+      "jednostavan",
+      "prostota"
+    ]
+  },
+  "gondossag": {
+    "name": "brižljivost",
+    "forms": [
+      "brižljiv",
+      "briga",
+      "staranje",
+      "pažnja prema detaljima"
+    ]
+  },
+  "szilardsag": {
+    "name": "stabilnost",
+    "forms": [
+      "stabilan",
+      "čvrst",
+      "neuzdrmanost"
+    ]
+  },
+  "kotelessegtudat": {
+    "name": "osećaj dužnosti",
+    "forms": [
+      "dužnost",
+      "obaveza",
+      "ispunjavanje dužnosti"
+    ]
+  },
+  "kovetkezetesseg": {
+    "name": "doslednost",
+    "forms": [
+      "dosledan",
+      "konzistentnost",
+      "konzistentan"
+    ]
+  },
+  "munkabiras": {
+    "name": "radna izdržljivost",
+    "forms": [
+      "neumoran",
+      "radna snaga",
+      "izdržljivost na poslu"
+    ]
+  },
+  "igazsagossag": {
+    "name": "pravednost",
+    "forms": [
+      "pravedan",
+      "pravičnost",
+      "pravičan",
+      "fer"
+    ]
+  },
+  "gyakorlatiassag": {
+    "name": "praktičnost",
+    "forms": [
+      "praktičan",
+      "pragmatičnost",
+      "pragmatičan",
+      "smisao za realnost"
+    ]
+  },
+  "tervszeruseg": {
+    "name": "planiranje",
+    "forms": [
+      "planski",
+      "planirati",
+      "metodičnost",
+      "metodičan",
+      "sistematičnost"
+    ]
+  }
+}

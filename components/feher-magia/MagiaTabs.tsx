@@ -7,13 +7,14 @@ type Tab = 'ma' | 'tukor' | 'utam';
 /** Ma · Tükör · Utam */
 export async function MagiaTabs({ locale, active }: { locale: string; active: Tab }) {
   const t = await getTranslations('feherMagia.tabs');
+  const tNav = await getTranslations('nav');
   const tabs: { id: Tab; href: string }[] = [
     { id: 'ma', href: `/${locale}/modules/magia/ma` },
     { id: 'tukor', href: `/${locale}/modules/magia/tukor` },
     { id: 'utam', href: `/${locale}/modules/magia` },
   ];
   return (
-    <nav className="flex gap-1 rounded-2xl border border-border/40 bg-card/30 p-1" aria-label="Fehér Mágia">
+    <nav className="flex gap-1 rounded-2xl border border-border/40 bg-card/30 p-1" aria-label={tNav('magia')}>
       {tabs.map((tab) => (
         <Link
           key={tab.id}

@@ -1,0 +1,2382 @@
+{
+  "torkossag": {
+    "name": "gluttony",
+    "forms": [
+      "gluttonous",
+      "overeating",
+      "greedy eating",
+      "snacking",
+      "snack"
+    ],
+    "q": "Did you eat or snack even when you were no longer hungry?"
+  },
+  "feltekenyseg": {
+    "name": "jealousy",
+    "forms": [
+      "jealous"
+    ],
+    "q": "Were you anxious about someone’s attention or love, did it hurt that they paid attention to someone else?"
+  },
+  "fuggoseg": {
+    "name": "dependence",
+    "forms": [
+      "dependent",
+      "addiction",
+      "addicted",
+      "smoking",
+      "phone addiction"
+    ],
+    "q": "Was there something (food, drink, cigarettes, phone) you could hardly do without?"
+  },
+  "izgagasag": {
+    "name": "fidgetiness",
+    "forms": [
+      "fidgety",
+      "fidgeting",
+      "jittery",
+      "can't sit still"
+    ],
+    "q": "Did you find it hard to keep still, did you rush others or yourself?"
+  },
+  "veszekedosseg": {
+    "name": "quarrelsomeness",
+    "forms": [
+      "quarrelsome",
+      "quarrel",
+      "quarreling",
+      "arguing",
+      "argumentative",
+      "bickering"
+    ],
+    "q": "Did you pick on others, look for an argument over trifles?"
+  },
+  "mertektelenseg": {
+    "name": "immoderation",
+    "forms": [
+      "immoderate",
+      "excess",
+      "excessive",
+      "unrestrained",
+      "overdoing it"
+    ],
+    "q": "Were you unable to stop in time: eating, working, shopping, entertainment?"
+  },
+  "pusztito_kedv": {
+    "name": "destructiveness",
+    "forms": [
+      "destructive",
+      "urge to destroy",
+      "smashing things",
+      "slamming doors"
+    ],
+    "q": "Did you feel like slamming, wrecking or breaking things when you were tense?"
+  },
+  "indulatossag": {
+    "name": "hot temper",
+    "forms": [
+      "hot-tempered",
+      "temper",
+      "irascible",
+      "short fuse",
+      "explosive",
+      "outburst"
+    ],
+    "q": "Did you snap suddenly, before thinking through what you were saying?"
+  },
+  "harag": {
+    "name": "anger",
+    "forms": [
+      "angry",
+      "rage",
+      "fury",
+      "furious",
+      "mad"
+    ],
+    "q": "Were you angry with someone, and did it stay with you?"
+  },
+  "gyulolet": {
+    "name": "hatred",
+    "forms": [
+      "hate",
+      "hateful",
+      "loathing"
+    ],
+    "q": "Did you think of someone with hostility, wish them ill?"
+  },
+  "bosszuvagy": {
+    "name": "vengefulness",
+    "forms": [
+      "revenge",
+      "vengeful",
+      "vindictive",
+      "getting even",
+      "payback"
+    ],
+    "q": "Were you thinking about how you could pay back the hurt?"
+  },
+  "sertodottseg": {
+    "name": "touchiness",
+    "forms": [
+      "touchy",
+      "taking offense",
+      "offended",
+      "hurt feelings",
+      "sulking",
+      "sulky"
+    ],
+    "q": "Were you hurt by a remark and sulked about it?"
+  },
+  "lenezes": {
+    "name": "condescension",
+    "forms": [
+      "condescending",
+      "looking down on others",
+      "patronizing",
+      "superiority",
+      "superior"
+    ],
+    "q": "Did you feel superior to someone, speak or think of them condescendingly?"
+  },
+  "pletykalkodas": {
+    "name": "gossiping",
+    "forms": [
+      "gossip",
+      "gossipy",
+      "talking behind backs",
+      "backbiting"
+    ],
+    "q": "Did you talk about someone behind their back, pass on something that was none of your business?"
+  },
+  "kitartas_hianya": {
+    "name": "lack of perseverance",
+    "forms": [
+      "giving up",
+      "gives up easily",
+      "quitter",
+      "no stamina"
+    ],
+    "q": "Did you give up quickly because something was harder or took longer than expected?"
+  },
+  "ravaszsag": {
+    "name": "cunning",
+    "forms": [
+      "sly",
+      "slyness",
+      "scheming",
+      "wily",
+      "trickery",
+      "intrigue",
+      "plotting"
+    ],
+    "q": "Did you try to get something in a roundabout, crafty way instead of openly?"
+  },
+  "fecseges": {
+    "name": "chatter",
+    "forms": [
+      "chatty",
+      "chattering",
+      "babbling",
+      "talkativeness",
+      "prattle",
+      "rambling"
+    ],
+    "q": "Did you talk more than needed, including things that were unnecessary?"
+  },
+  "becstelenseg": {
+    "name": "dishonesty",
+    "forms": [
+      "dishonest",
+      "unfair",
+      "cheating",
+      "cheat",
+      "deceit"
+    ],
+    "q": "Did you act dishonestly, cheat, or outmaneuver someone for your own gain?"
+  },
+  "valtakozosag": {
+    "name": "fickleness",
+    "forms": [
+      "fickle",
+      "changeable",
+      "changeability",
+      "unpredictable",
+      "erratic"
+    ],
+    "q": "Did you jump back and forth, often changing your decisions or your mood?"
+  },
+  "konnyelmuseg": {
+    "name": "recklessness",
+    "forms": [
+      "reckless",
+      "light-minded",
+      "gambling",
+      "taking risks"
+    ],
+    "q": "Did you thoughtlessly take on, spend or risk something?"
+  },
+  "kerkedes": {
+    "name": "boasting",
+    "forms": [
+      "boast",
+      "boastful",
+      "bragging",
+      "brag",
+      "showing off",
+      "show-off",
+      "swagger"
+    ],
+    "q": "Did you boast so that others would look up to you?"
+  },
+  "ontulbecsules": {
+    "name": "overestimating oneself",
+    "forms": [
+      "conceit",
+      "conceited",
+      "self-importance",
+      "smug",
+      "overconfidence",
+      "overconfident"
+    ],
+    "q": "Did you see yourself as more than what you really know or do?"
+  },
+  "pazarlas": {
+    "name": "wastefulness",
+    "forms": [
+      "wasteful",
+      "waste",
+      "squandering",
+      "splurging",
+      "wasting time"
+    ],
+    "q": "Did you throw away your money, your time or something valuable, needlessly?"
+  },
+  "kozombosseg": {
+    "name": "indifference",
+    "forms": [
+      "indifferent",
+      "apathy",
+      "apathetic",
+      "not caring"
+    ],
+    "q": "Did others’ troubles or a common cause leave you cold?"
+  },
+  "levertseg": {
+    "name": "dejection",
+    "forms": [
+      "dejected",
+      "downcast",
+      "low spirits",
+      "listless",
+      "discouraged"
+    ],
+    "q": "Were you listless and low, and did you find it hard to get out of it?"
+  },
+  "szegyenlosseg": {
+    "name": "shyness",
+    "forms": [
+      "shy",
+      "timid",
+      "timidity",
+      "inhibited",
+      "bashful"
+    ],
+    "q": "Did you hold back, not daring to speak up or stand up for yourself?"
+  },
+  "reszvetlenseg": {
+    "name": "lack of sympathy",
+    "forms": [
+      "unsympathetic",
+      "unmoved",
+      "lack of compassion"
+    ],
+    "q": "Did you see that someone was having a hard time, and it did not touch you?"
+  },
+  "csokonyosseg": {
+    "name": "obstinacy",
+    "forms": [
+      "obstinate",
+      "stubborn",
+      "stubbornness",
+      "pig-headed"
+    ],
+    "q": "Did you stubbornly cling to your own view, even when you could have seen you were wrong?"
+  },
+  "renyheseg": {
+    "name": "sluggishness",
+    "forms": [
+      "sluggish",
+      "torpor",
+      "torpid",
+      "inert",
+      "inertia"
+    ],
+    "q": "Did your day pass sluggishly, without energy, and did you find it hard to start anything?"
+  },
+  "koszivuseg": {
+    "name": "hard-heartedness",
+    "forms": [
+      "hard-hearted",
+      "heartless",
+      "heartlessness",
+      "callous",
+      "insensitive"
+    ],
+    "q": "Were you hard-hearted or cold with someone who needed your warmth?"
+  },
+  "tulzott_engedekenyseg": {
+    "name": "excessive compliance",
+    "forms": [
+      "compliant",
+      "pushover",
+      "too soft",
+      "can't say no",
+      "indulgent"
+    ],
+    "q": "Did you let someone have their way when you should have said no?"
+  },
+  "akaratossag": {
+    "name": "willfulness",
+    "forms": [
+      "willful",
+      "wilful",
+      "self-will",
+      "insisting on one's way"
+    ],
+    "q": "Did you want to push through your own will at any cost?"
+  },
+  "ingatagsag": {
+    "name": "inconstancy",
+    "forms": [
+      "inconstant",
+      "unsteady",
+      "unsteadiness",
+      "wavers"
+    ],
+    "q": "Were you easily shaken, giving up what you had decided because of others?"
+  },
+  "flegmasag": {
+    "name": "nonchalance",
+    "forms": [
+      "phlegmatic",
+      "nonchalant",
+      "offhand",
+      "shrugging off"
+    ],
+    "q": "Did you shrug off something that was actually important?"
+  },
+  "unalmas": {
+    "name": "dullness",
+    "forms": [
+      "dull",
+      "boring",
+      "boredom",
+      "monotony",
+      "monotonous",
+      "bored"
+    ],
+    "q": "Were your conversations monotonous and gray, without putting anything of yourself into them?"
+  },
+  "hanyagsag": {
+    "name": "negligence",
+    "forms": [
+      "negligent",
+      "careless",
+      "carelessness",
+      "sloppy",
+      "sloppiness"
+    ],
+    "q": "Did you neglect a task, or do it halfway or badly?"
+  },
+  "megvetes": {
+    "name": "contempt",
+    "forms": [
+      "contemptuous",
+      "scorn",
+      "disdain",
+      "disparaging"
+    ],
+    "q": "Did you think of someone with contempt, consider them unworthy of your attention?"
+  },
+  "emberiszonya_van": {
+    "name": "aversion to people",
+    "forms": [
+      "misanthropy",
+      "misanthropic",
+      "avoiding people",
+      "unsociable"
+    ],
+    "q": "Did you avoid people, was their company a burden?"
+  },
+  "lassusag": {
+    "name": "slowness",
+    "forms": [
+      "slow",
+      "dawdling",
+      "dragging",
+      "plodding"
+    ],
+    "q": "Did you move slowly and draggingly, even when you should have hurried?"
+  },
+  "nehezkes": {
+    "name": "ponderousness",
+    "forms": [
+      "ponderous",
+      "cumbersome",
+      "awkward",
+      "long-winded"
+    ],
+    "q": "Did you start slowly, and find it hard to adapt to an unexpected situation?"
+  },
+  "lustasag": {
+    "name": "laziness",
+    "forms": [
+      "lazy",
+      "idleness",
+      "idle",
+      "loafing",
+      "sloth"
+    ],
+    "q": "Did you avoid work and effort because you did not feel like it?"
+  },
+  "megbizhatatlan": {
+    "name": "unreliability",
+    "forms": [
+      "unreliable",
+      "letting people down"
+    ],
+    "q": "Did you fail to keep what you promised, let someone down?"
+  },
+  "szofukar": {
+    "name": "taciturnity",
+    "forms": [
+      "taciturn",
+      "reticent",
+      "tight-lipped",
+      "curt"
+    ],
+    "q": "Were you curt even where a kind or explanatory word would have helped?"
+  },
+  "lelkiismeretlenseg": {
+    "name": "unscrupulousness",
+    "forms": [
+      "unscrupulous",
+      "without conscience",
+      "shameless"
+    ],
+    "q": "Did you know something was not right, and do it anyway?"
+  },
+  "buskomorsag": {
+    "name": "melancholy",
+    "forms": [
+      "melancholic",
+      "gloom",
+      "gloomy",
+      "sadness",
+      "sad",
+      "brooding"
+    ],
+    "q": "Did dark, heavy thoughts rule your day?"
+  },
+  "rendszertelenseg": {
+    "name": "disorderliness",
+    "forms": [
+      "disorderly",
+      "disorganized",
+      "untidiness",
+      "untidy",
+      "mess",
+      "messy",
+      "chaotic"
+    ],
+    "q": "Did your day pass without a plan, all over the place, leaving your things in disorder?"
+  },
+  "aktivitas": {
+    "name": "activity",
+    "forms": [
+      "active",
+      "activeness",
+      "drive",
+      "dynamism",
+      "busy"
+    ],
+    "q": "Did you do your part without waiting for someone else to start?"
+  },
+  "lelkesedes": {
+    "name": "enthusiasm",
+    "forms": [
+      "enthusiastic",
+      "eagerness",
+      "eager",
+      "keen"
+    ],
+    "q": "Did you start what you did with joy and fire?"
+  },
+  "elhatarozottsag": {
+    "name": "resolve",
+    "forms": [
+      "resolute",
+      "determination",
+      "determined",
+      "resoluteness"
+    ],
+    "q": "Did you stick to what you had decided?"
+  },
+  "mereszseg": {
+    "name": "daring",
+    "forms": [
+      "bold",
+      "boldness",
+      "audacity",
+      "venturesome",
+      "adventurous"
+    ],
+    "q": "Did you take on something you were afraid of?"
+  },
+  "alkotoero": {
+    "name": "creative power",
+    "forms": [
+      "creativity",
+      "creative",
+      "creating",
+      "creation",
+      "inventive"
+    ],
+    "q": "Did you create something new: an idea, an object, a solution?"
+  },
+  "torekves": {
+    "name": "striving",
+    "forms": [
+      "aspiration",
+      "effort",
+      "endeavor",
+      "keen to improve"
+    ],
+    "q": "Did you do something today for a goal that matters to you?"
+  },
+  "szenvedelyes": {
+    "name": "passionate",
+    "forms": [
+      "passion",
+      "devotion",
+      "devoted",
+      "ardor",
+      "ardent"
+    ],
+    "q": "Did you do something with full devotion, ablaze?"
+  },
+  "batorsag": {
+    "name": "courage",
+    "forms": [
+      "courageous",
+      "brave",
+      "bravery",
+      "standing up for"
+    ],
+    "q": "Did you stand up for something or someone, despite your fear?"
+  },
+  "allhatatossag": {
+    "name": "steadfastness",
+    "forms": [
+      "steadfast",
+      "constancy",
+      "constant"
+    ],
+    "q": "Did you stay on your chosen path, even when something else tempted you?"
+  },
+  "szorgalom": {
+    "name": "diligence",
+    "forms": [
+      "diligent",
+      "industrious",
+      "industriousness",
+      "hard-working",
+      "work ethic"
+    ],
+    "q": "Did you work steadily and gladly, even when no one was watching?"
+  },
+  "orom": {
+    "name": "joy",
+    "forms": [
+      "joyful",
+      "joyfulness",
+      "glad",
+      "gladness"
+    ],
+    "q": "Did you feel pure joy in something simple?"
+  },
+  "jartassag": {
+    "name": "skill",
+    "forms": [
+      "skilled",
+      "skillful",
+      "competence",
+      "competent",
+      "expertise",
+      "adept"
+    ],
+    "q": "Did you solve something skillfully, with expertise?"
+  },
+  "joszivuseg": {
+    "name": "kind-heartedness",
+    "forms": [
+      "kind-hearted",
+      "goodness",
+      "good heart",
+      "good-hearted"
+    ],
+    "q": "Did you do good to someone selflessly?"
+  },
+  "vilagos": {
+    "name": "clarity",
+    "forms": [
+      "clear",
+      "clear-headed",
+      "clear thinking",
+      "lucid"
+    ],
+    "q": "Did you see the situation clearly, and express yourself understandably?"
+  },
+  "gondtalan": {
+    "name": "carefree",
+    "forms": [
+      "carefreeness",
+      "light heart",
+      "lighthearted",
+      "untroubled"
+    ],
+    "q": "Did you live the day with a light heart, without worry?"
+  },
+  "vidam": {
+    "name": "cheerful",
+    "forms": [
+      "cheerfulness",
+      "good mood",
+      "good humor",
+      "merry"
+    ],
+    "q": "Were you in a good mood, and did it rub off on others?"
+  },
+  "optimizmus": {
+    "name": "optimism",
+    "forms": [
+      "optimistic",
+      "bright side",
+      "positive outlook",
+      "positive thinking"
+    ],
+    "q": "Did you trust that things would turn out well, and look for the good in them?"
+  },
+  "elenkseg": {
+    "name": "liveliness",
+    "forms": [
+      "lively",
+      "freshness",
+      "fresh",
+      "sprightly",
+      "vivacious"
+    ],
+    "q": "Were your body and your thinking fresh and agile?"
+  },
+  "fuggetlenseg": {
+    "name": "independence",
+    "forms": [
+      "independent",
+      "self-reliance",
+      "self-reliant",
+      "autonomy"
+    ],
+    "q": "Did you decide by your own judgment, not under pressure from others?"
+  },
+  "eberseg": {
+    "name": "alertness",
+    "forms": [
+      "alert",
+      "watchfulness",
+      "watchful",
+      "vigilance",
+      "vigilant",
+      "awake"
+    ],
+    "q": "Were you attentive, did you notice what was happening around you and within you?"
+  },
+  "kedvesseg": {
+    "name": "kindness",
+    "forms": [
+      "kind",
+      "friendliness",
+      "friendly",
+      "cordiality",
+      "cordial"
+    ],
+    "q": "Did you treat people in a friendly, warm way?"
+  },
+  "bizalom": {
+    "name": "trust",
+    "forms": [
+      "trusting",
+      "trustful",
+      "faith in others"
+    ],
+    "q": "Did you trust someone without looking for hidden motives?"
+  },
+  "irgalmassag": {
+    "name": "mercy",
+    "forms": [
+      "merciful",
+      "mercifulness",
+      "clemency"
+    ],
+    "q": "Were you merciful to someone who made a mistake or was in trouble?"
+  },
+  "szerenyseg": {
+    "name": "modesty",
+    "forms": [
+      "modest",
+      "reserve",
+      "unassuming"
+    ],
+    "q": "Did you stay out of the limelight, letting others shine too?"
+  },
+  "megadas": {
+    "name": "surrender",
+    "forms": [
+      "resignation",
+      "surrendering",
+      "letting be",
+      "yielding"
+    ],
+    "q": "Did you accept what you could not change, without inner struggle?"
+  },
+  "alkalmazkodokeszseg": {
+    "name": "adaptability",
+    "forms": [
+      "adaptable",
+      "adapting",
+      "flexibility",
+      "flexible"
+    ],
+    "q": "Did you adjust flexibly to a new situation or to the needs of others?"
+  },
+  "buzgosag": {
+    "name": "zeal",
+    "forms": [
+      "zealous",
+      "fervor",
+      "fervent",
+      "devoutness"
+    ],
+    "q": "Did you do your exercises and your tasks with inner devotion and faithfulness?"
+  },
+  "bensosegesseg": {
+    "name": "intimacy",
+    "forms": [
+      "intimate",
+      "closeness",
+      "inwardness",
+      "heartfelt"
+    ],
+    "q": "Did you have a deep, intimate moment with someone or with yourself?"
+  },
+  "felfogokepesseg": {
+    "name": "comprehension",
+    "forms": [
+      "quick understanding",
+      "receptiveness",
+      "receptive",
+      "perceptiveness",
+      "understanding"
+    ],
+    "q": "Did you understand quickly and well what was said or what happened?"
+  },
+  "meditacio": {
+    "name": "meditation",
+    "forms": [
+      "meditating",
+      "meditate",
+      "contemplation",
+      "reflection",
+      "turning inward"
+    ],
+    "q": "Did you take time to grow quiet and turn inward?"
+  },
+  "szanalomerzet": {
+    "name": "pity",
+    "forms": [
+      "pitying",
+      "feeling sorry",
+      "commiseration",
+      "sympathy"
+    ],
+    "q": "Were you touched by someone’s difficulty, their suffering?"
+  },
+  "egyutterzes": {
+    "name": "compassion",
+    "forms": [
+      "compassionate",
+      "empathy",
+      "empathetic",
+      "fellow feeling"
+    ],
+    "q": "Could you put yourself in someone else’s place, and let them feel it?"
+  },
+  "nyugalom": {
+    "name": "calm",
+    "forms": [
+      "calmness",
+      "composure",
+      "composed",
+      "peace",
+      "inner peace",
+      "tranquility"
+    ],
+    "q": "Did you keep your inner quiet when people around you were rushing?"
+  },
+  "elmelyultseg": {
+    "name": "absorption",
+    "forms": [
+      "deep focus",
+      "depth",
+      "immersed",
+      "engrossed",
+      "profundity"
+    ],
+    "q": "Did you immerse yourself completely in something and look into its depths?"
+  },
+  "mertekletesseg": {
+    "name": "moderation",
+    "forms": [
+      "moderate",
+      "temperance",
+      "temperate",
+      "self-restraint"
+    ],
+    "q": "Could you stop in time with eating, drinking, entertainment?"
+  },
+  "gyongedseg": {
+    "name": "tenderness",
+    "forms": [
+      "tender",
+      "delicacy",
+      "softness",
+      "affectionate"
+    ],
+    "q": "Did you treat someone delicately, with love?"
+  },
+  "tiszteletadas": {
+    "name": "respect",
+    "forms": [
+      "respectful",
+      "deference",
+      "honoring"
+    ],
+    "q": "Did you give others respect, even when you disagreed with them?"
+  },
+  "tekintely": {
+    "name": "authority",
+    "forms": [
+      "authoritative",
+      "presence",
+      "gravitas"
+    ],
+    "q": "Did your words and your presence carry weight, with calm firmness?"
+  },
+  "kitartas": {
+    "name": "perseverance",
+    "forms": [
+      "persevering",
+      "persistence",
+      "persistent",
+      "tenacity"
+    ],
+    "q": "Did you see through something that was difficult or lengthy?"
+  },
+  "megfontoltsag": {
+    "name": "prudence",
+    "forms": [
+      "prudent",
+      "deliberate",
+      "considered",
+      "thinking things through"
+    ],
+    "q": "Did you think it over before you decided or spoke?"
+  },
+  "hatarozottsag": {
+    "name": "firmness",
+    "forms": [
+      "firm",
+      "decisive",
+      "decisiveness",
+      "assertive",
+      "assertiveness"
+    ],
+    "q": "Did you say clearly what you want, and say no where you had to?"
+  },
+  "komolysag": {
+    "name": "seriousness",
+    "forms": [
+      "serious",
+      "earnest",
+      "earnestness"
+    ],
+    "q": "Did you treat what was important with due weight?"
+  },
+  "lelkiismeretesseg": {
+    "name": "conscientiousness",
+    "forms": [
+      "conscientious"
+    ],
+    "q": "Did you do your work the way your conscience told you?"
+  },
+  "alapossag": {
+    "name": "thoroughness",
+    "forms": [
+      "thorough"
+    ],
+    "q": "Did you carry your tasks through to the details, even if no one checks?"
+  },
+  "koncentraltsag": {
+    "name": "concentration",
+    "forms": [
+      "concentrated",
+      "focus",
+      "focused"
+    ],
+    "q": "Did you pay attention to one thing at a time, without drifting off?"
+  },
+  "jozansag": {
+    "name": "sobriety",
+    "forms": [
+      "sober",
+      "common sense",
+      "level-headed",
+      "level-headedness"
+    ],
+    "q": "Did you judge things clearly, with your feet on the ground?"
+  },
+  "pontossag": {
+    "name": "punctuality",
+    "forms": [
+      "punctual",
+      "precision",
+      "precise",
+      "accuracy",
+      "accurate"
+    ],
+    "q": "Did you arrive on time, and do exactly what you had taken on?"
+  },
+  "targyilagossag": {
+    "name": "objectivity",
+    "forms": [
+      "objective",
+      "impartiality",
+      "impartial"
+    ],
+    "q": "Did you judge the situation fairly, independent of your emotions?"
+  },
+  "elovigyazatossag": {
+    "name": "caution",
+    "forms": [
+      "cautious",
+      "foresight",
+      "precaution",
+      "wariness"
+    ],
+    "q": "Did you think ahead about possible trouble, and prepare for it?"
+  },
+  "ellenallo_kepesseg": {
+    "name": "resilience",
+    "forms": [
+      "resilient",
+      "resistance",
+      "strength of mind",
+      "fortitude",
+      "toughness"
+    ],
+    "q": "Did you withstand a temptation, pressure or tiredness?"
+  },
+  "celtudatossag": {
+    "name": "purposefulness",
+    "forms": [
+      "purposeful",
+      "goal-oriented",
+      "sense of purpose"
+    ],
+    "q": "Did you know where you were heading, and move toward it?"
+  },
+  "felelossegerzet": {
+    "name": "sense of responsibility",
+    "forms": [
+      "responsibility",
+      "responsible",
+      "accountability",
+      "accountable"
+    ],
+    "q": "Did you take on the consequences of what you did or said?"
+  },
+  "turelmetlenseg": {
+    "name": "impatience",
+    "forms": [
+      "impatient",
+      "rushing others",
+      "hurrying people"
+    ]
+  },
+  "irigyseg": {
+    "name": "envy",
+    "forms": [
+      "envious",
+      "envying",
+      "begrudging"
+    ]
+  },
+  "ingerlekenyseg": {
+    "name": "irritability",
+    "forms": [
+      "irritable",
+      "nervous",
+      "nervousness",
+      "on edge",
+      "irritation"
+    ]
+  },
+  "dac": {
+    "name": "defiance",
+    "forms": [
+      "defiant",
+      "contrariness",
+      "contrary"
+    ]
+  },
+  "agresszivitas": {
+    "name": "aggression",
+    "forms": [
+      "aggressive",
+      "aggressiveness",
+      "violence",
+      "violent",
+      "forceful"
+    ]
+  },
+  "durvasag": {
+    "name": "rudeness",
+    "forms": [
+      "rude",
+      "coarseness",
+      "coarse",
+      "crude",
+      "harsh"
+    ]
+  },
+  "gorombasag": {
+    "name": "boorishness",
+    "forms": [
+      "boorish",
+      "churlish",
+      "bad manners",
+      "ill-mannered",
+      "loutish"
+    ]
+  },
+  "uralkodni_vagyas": {
+    "name": "desire to dominate",
+    "forms": [
+      "domineering",
+      "bossiness",
+      "bossy",
+      "lust for power",
+      "tyrannical",
+      "ordering around"
+    ]
+  },
+  "kegyetlenseg": {
+    "name": "cruelty",
+    "forms": [
+      "cruel",
+      "ruthlessness",
+      "ruthless",
+      "merciless"
+    ]
+  },
+  "kapkodas": {
+    "name": "haste",
+    "forms": [
+      "hasty",
+      "hurried",
+      "rushing",
+      "rush",
+      "headlong"
+    ]
+  },
+  "sovargas": {
+    "name": "craving",
+    "forms": [
+      "cravings",
+      "longing",
+      "yearning",
+      "hankering"
+    ]
+  },
+  "kejvagy": {
+    "name": "lust",
+    "forms": [
+      "lustful",
+      "lechery",
+      "debauchery",
+      "sensuality"
+    ]
+  },
+  "mohosag": {
+    "name": "greediness",
+    "forms": [
+      "greedy",
+      "voracious",
+      "gobbling",
+      "grabbing"
+    ]
+  },
+  "fanatizmus": {
+    "name": "fanaticism",
+    "forms": [
+      "fanatic",
+      "fanatical",
+      "zealotry",
+      "bigotry"
+    ]
+  },
+  "onfejuseg": {
+    "name": "headstrongness",
+    "forms": [
+      "headstrong",
+      "wayward",
+      "doing it my way"
+    ]
+  },
+  "nagyravagyas": {
+    "name": "ambition",
+    "forms": [
+      "ambitious",
+      "careerism",
+      "careerist",
+      "craving for status"
+    ]
+  },
+  "versenges": {
+    "name": "rivalry",
+    "forms": [
+      "rival",
+      "competitiveness",
+      "competitive",
+      "vying"
+    ]
+  },
+  "hiszterikussag": {
+    "name": "hysterics",
+    "forms": [
+      "hysterical",
+      "tantrum",
+      "throwing a tantrum",
+      "making a scene",
+      "drama"
+    ]
+  },
+  "sertegetes": {
+    "name": "insulting",
+    "forms": [
+      "insult",
+      "insults",
+      "offensive",
+      "abusive",
+      "name-calling"
+    ]
+  },
+  "tolakodas": {
+    "name": "pushiness",
+    "forms": [
+      "pushy",
+      "intrusive",
+      "intrusiveness",
+      "elbowing in"
+    ]
+  },
+  "karorvendes": {
+    "name": "gloating",
+    "forms": [
+      "gloat",
+      "schadenfreude",
+      "malicious joy"
+    ]
+  },
+  "rosszindulat": {
+    "name": "malice",
+    "forms": [
+      "malicious",
+      "ill will",
+      "spite",
+      "spiteful",
+      "intent to harm"
+    ]
+  },
+  "gog": {
+    "name": "arrogance",
+    "forms": [
+      "arrogant",
+      "pride",
+      "proud",
+      "haughtiness",
+      "haughty"
+    ]
+  },
+  "undoksag": {
+    "name": "nastiness",
+    "forms": [
+      "nasty",
+      "mean",
+      "meanness",
+      "needling",
+      "picking on"
+    ]
+  },
+  "telhetetlenseg": {
+    "name": "insatiability",
+    "forms": [
+      "insatiable",
+      "never enough"
+    ]
+  },
+  "kovetelozes": {
+    "name": "demandingness",
+    "forms": [
+      "demanding",
+      "making demands",
+      "exacting"
+    ]
+  },
+  "hiusag": {
+    "name": "vanity",
+    "forms": [
+      "vain",
+      "self-admiration",
+      "attention-seeking",
+      "wanting attention"
+    ]
+  },
+  "feluletesseg": {
+    "name": "superficiality",
+    "forms": [
+      "superficial",
+      "shallowness",
+      "shallow",
+      "surface-level"
+    ]
+  },
+  "szetszortsag": {
+    "name": "scatteredness",
+    "forms": [
+      "scattered",
+      "scatterbrained",
+      "flighty",
+      "unfocused"
+    ]
+  },
+  "hazudozas": {
+    "name": "lying",
+    "forms": [
+      "liar",
+      "lie",
+      "lies",
+      "fibbing",
+      "untruth"
+    ]
+  },
+  "kivancsiskodas": {
+    "name": "nosiness",
+    "forms": [
+      "nosy",
+      "prying",
+      "snooping",
+      "meddling"
+    ]
+  },
+  "szeszelyesseg": {
+    "name": "capriciousness",
+    "forms": [
+      "capricious",
+      "moody",
+      "moodiness",
+      "whimsical"
+    ]
+  },
+  "szorakozottsag": {
+    "name": "absent-mindedness",
+    "forms": [
+      "absent-minded",
+      "forgetfulness",
+      "forgetful"
+    ]
+  },
+  "komolytalansag": {
+    "name": "frivolity",
+    "forms": [
+      "frivolous",
+      "flippancy",
+      "flippant",
+      "not serious"
+    ]
+  },
+  "meggondolatlansag": {
+    "name": "thoughtlessness",
+    "forms": [
+      "thoughtless",
+      "rash",
+      "rashness",
+      "ill-considered",
+      "impulsive"
+    ]
+  },
+  "felelotlenseg": {
+    "name": "irresponsibility",
+    "forms": [
+      "irresponsible"
+    ]
+  },
+  "hizelges": {
+    "name": "flattery",
+    "forms": [
+      "flattering",
+      "flatterer",
+      "sucking up",
+      "brown-nosing"
+    ]
+  },
+  "kepmutatas": {
+    "name": "hypocrisy",
+    "forms": [
+      "hypocrite",
+      "hypocritical",
+      "sanctimonious",
+      "two-faced",
+      "double standards"
+    ]
+  },
+  "itelkezes": {
+    "name": "judgmentalness",
+    "forms": [
+      "judgmental",
+      "judging",
+      "criticizing",
+      "criticize",
+      "critical",
+      "condemning"
+    ]
+  },
+  "okoskodas": {
+    "name": "know-it-all attitude",
+    "forms": [
+      "know-it-all",
+      "lecturing",
+      "preaching",
+      "smart-aleck",
+      "wiseacre"
+    ]
+  },
+  "igergetes": {
+    "name": "empty promises",
+    "forms": [
+      "empty promise",
+      "broken promise",
+      "unkept promise",
+      "overpromising"
+    ]
+  },
+  "zavarodottsag": {
+    "name": "confusion",
+    "forms": [
+      "confused",
+      "muddled",
+      "muddle-headed",
+      "muddled thinking"
+    ]
+  },
+  "nyugtalansag": {
+    "name": "restlessness",
+    "forms": [
+      "restless",
+      "tension",
+      "tense",
+      "uneasy",
+      "unease"
+    ]
+  },
+  "gunyolodas": {
+    "name": "mockery",
+    "forms": [
+      "mocking",
+      "mock",
+      "sarcasm",
+      "sarcastic",
+      "ridicule",
+      "teasing"
+    ]
+  },
+  "figyelmetlenseg": {
+    "name": "inattention",
+    "forms": [
+      "inattentive",
+      "inattentiveness",
+      "heedless"
+    ]
+  },
+  "pontatlansag": {
+    "name": "unpunctuality",
+    "forms": [
+      "unpunctual",
+      "imprecise",
+      "lateness",
+      "late",
+      "being late"
+    ]
+  },
+  "manipulalas": {
+    "name": "manipulation",
+    "forms": [
+      "manipulative",
+      "manipulate",
+      "manipulating"
+    ]
+  },
+  "kifogaskereses": {
+    "name": "making excuses",
+    "forms": [
+      "excuses",
+      "excuse",
+      "self-justification",
+      "blaming",
+      "blaming others",
+      "pointing fingers"
+    ]
+  },
+  "hutlenseg": {
+    "name": "unfaithfulness",
+    "forms": [
+      "unfaithful",
+      "infidelity",
+      "disloyalty",
+      "disloyal",
+      "cheating on"
+    ]
+  },
+  "cinizmus": {
+    "name": "cynicism",
+    "forms": [
+      "cynical",
+      "cynic"
+    ]
+  },
+  "onsajnalat": {
+    "name": "self-pity",
+    "forms": [
+      "feeling sorry for oneself",
+      "self-pitying"
+    ]
+  },
+  "befolyasolhatosag": {
+    "name": "suggestibility",
+    "forms": [
+      "suggestible",
+      "easily influenced",
+      "easily swayed",
+      "impressionable"
+    ]
+  },
+  "kishituseg": {
+    "name": "faintheartedness",
+    "forms": [
+      "fainthearted",
+      "lack of self-confidence",
+      "insecurity",
+      "insecure",
+      "inferiority complex"
+    ]
+  },
+  "gyavasag": {
+    "name": "cowardice",
+    "forms": [
+      "coward",
+      "cowardly",
+      "chickening out",
+      "backing down"
+    ]
+  },
+  "hatarozatlansag": {
+    "name": "indecision",
+    "forms": [
+      "indecisive",
+      "hesitation",
+      "hesitant",
+      "dithering"
+    ]
+  },
+  "celtalansag": {
+    "name": "aimlessness",
+    "forms": [
+      "aimless",
+      "drifting",
+      "drift",
+      "purposeless"
+    ]
+  },
+  "lanyhasag": {
+    "name": "half-heartedness",
+    "forms": [
+      "half-hearted",
+      "lukewarm",
+      "tepid",
+      "lax",
+      "laxity"
+    ]
+  },
+  "ridegseg": {
+    "name": "coldness",
+    "forms": [
+      "cold",
+      "frosty",
+      "aloof",
+      "aloofness",
+      "chilly"
+    ]
+  },
+  "elfogultsag": {
+    "name": "bias",
+    "forms": [
+      "biased",
+      "partiality",
+      "partial",
+      "prejudice",
+      "prejudiced",
+      "one-sided"
+    ]
+  },
+  "passzivitas": {
+    "name": "passivity",
+    "forms": [
+      "passive",
+      "inactivity",
+      "inactive",
+      "inertness"
+    ]
+  },
+  "tulerzekenyseg": {
+    "name": "oversensitivity",
+    "forms": [
+      "oversensitive",
+      "hypersensitive",
+      "thin-skinned",
+      "tearfulness",
+      "tearful"
+    ]
+  },
+  "szorongas": {
+    "name": "anxiety",
+    "forms": [
+      "anxious",
+      "fear",
+      "fearful",
+      "dread",
+      "apprehension"
+    ]
+  },
+  "alazatoskodas": {
+    "name": "servility",
+    "forms": [
+      "servile",
+      "obsequious",
+      "groveling",
+      "subservience",
+      "submissive"
+    ]
+  },
+  "elkenyelmesedes": {
+    "name": "complacency",
+    "forms": [
+      "complacent",
+      "comfort-seeking",
+      "softness",
+      "soft",
+      "pampered"
+    ]
+  },
+  "erzelgosseg": {
+    "name": "sentimentality",
+    "forms": [
+      "sentimental",
+      "mawkish",
+      "soppy",
+      "over-emotional"
+    ]
+  },
+  "halatlansag": {
+    "name": "ingratitude",
+    "forms": [
+      "ungrateful",
+      "thankless",
+      "unthankful"
+    ]
+  },
+  "iszakossag": {
+    "name": "heavy drinking",
+    "forms": [
+      "drinking",
+      "drunkenness",
+      "boozing",
+      "getting drunk",
+      "alcohol"
+    ]
+  },
+  "almodozas": {
+    "name": "daydreaming",
+    "forms": [
+      "daydreamer",
+      "daydream",
+      "dreaminess",
+      "dreamy",
+      "woolgathering"
+    ]
+  },
+  "panaszkodas": {
+    "name": "complaining",
+    "forms": [
+      "complain",
+      "complainer",
+      "whining",
+      "whine",
+      "moaning",
+      "lamenting"
+    ]
+  },
+  "megalkuvas": {
+    "name": "compromising oneself",
+    "forms": [
+      "compromise",
+      "opportunism",
+      "opportunist",
+      "selling out"
+    ]
+  },
+  "kapzsisag": {
+    "name": "avarice",
+    "forms": [
+      "avaricious",
+      "greed",
+      "miserliness",
+      "miserly",
+      "miser",
+      "stinginess",
+      "stingy",
+      "tight-fisted"
+    ]
+  },
+  "merevseg": {
+    "name": "rigidity",
+    "forms": [
+      "rigid",
+      "inflexibility",
+      "inflexible",
+      "intransigence",
+      "unbending"
+    ]
+  },
+  "pesszimizmus": {
+    "name": "pessimism",
+    "forms": [
+      "pessimist",
+      "pessimistic",
+      "negativity",
+      "negative outlook"
+    ]
+  },
+  "halogatas": {
+    "name": "procrastination",
+    "forms": [
+      "procrastinate",
+      "procrastinating",
+      "putting off",
+      "postponing",
+      "delaying"
+    ]
+  },
+  "aggodalmaskodas": {
+    "name": "worrying",
+    "forms": [
+      "worry",
+      "worried",
+      "worrier",
+      "fretting",
+      "overcautious"
+    ]
+  },
+  "bizalmatlansag": {
+    "name": "distrust",
+    "forms": [
+      "distrustful",
+      "mistrust",
+      "suspicion",
+      "suspicious"
+    ]
+  },
+  "zarkozottsag": {
+    "name": "withdrawnness",
+    "forms": [
+      "withdrawn",
+      "closed off",
+      "reclusive",
+      "introverted",
+      "shutting oneself off"
+    ]
+  },
+  "ertetlenseg": {
+    "name": "incomprehension",
+    "forms": [
+      "slow on the uptake",
+      "obtuse",
+      "obtuseness",
+      "failing to understand"
+    ]
+  },
+  "ugyetlenseg": {
+    "name": "clumsiness",
+    "forms": [
+      "clumsy",
+      "ineptness",
+      "inept",
+      "bungling",
+      "gawky"
+    ]
+  },
+  "elegedetlenseg": {
+    "name": "dissatisfaction",
+    "forms": [
+      "dissatisfied",
+      "discontent",
+      "discontented",
+      "grumbling",
+      "griping"
+    ]
+  },
+  "kicsinyesseg": {
+    "name": "pettiness",
+    "forms": [
+      "petty",
+      "nitpicking",
+      "hair-splitting",
+      "small-minded"
+    ]
+  },
+  "haszonleses": {
+    "name": "self-interest",
+    "forms": [
+      "calculating",
+      "profit-seeking",
+      "materialism",
+      "materialistic",
+      "mercenary"
+    ]
+  },
+  "onzes": {
+    "name": "selfishness",
+    "forms": [
+      "selfish",
+      "egoism",
+      "egoist",
+      "self-centered"
+    ]
+  },
+  "szigorusag": {
+    "name": "harshness",
+    "forms": [
+      "strict",
+      "strictness",
+      "severity",
+      "severe",
+      "hard on others"
+    ]
+  },
+  "maradisag": {
+    "name": "hidebound thinking",
+    "forms": [
+      "hidebound",
+      "backward",
+      "stuck in the past",
+      "old-fashioned",
+      "fossilized"
+    ]
+  },
+  "mogorvasag": {
+    "name": "grumpiness",
+    "forms": [
+      "grumpy",
+      "sullen",
+      "surly",
+      "morose",
+      "bad mood"
+    ]
+  },
+  "elkeseredettseg": {
+    "name": "despair",
+    "forms": [
+      "desperate",
+      "bitterness",
+      "bitter",
+      "hopelessness",
+      "hopeless"
+    ]
+  },
+  "ragaszkodas": {
+    "name": "clinging",
+    "forms": [
+      "possessiveness",
+      "possessive",
+      "attachment",
+      "clingy",
+      "holding on"
+    ]
+  },
+  "szuklatokoruseg": {
+    "name": "narrow-mindedness",
+    "forms": [
+      "narrow-minded",
+      "blinkered",
+      "limited",
+      "closed-minded"
+    ]
+  },
+  "nagylelkuseg": {
+    "name": "generosity",
+    "forms": [
+      "generous",
+      "open-handed",
+      "giving"
+    ]
+  },
+  "kezdemenyezokeszseg": {
+    "name": "initiative",
+    "forms": [
+      "enterprising",
+      "taking initiative",
+      "proactive",
+      "self-starter"
+    ]
+  },
+  "onbizalom": {
+    "name": "self-confidence",
+    "forms": [
+      "self-confident",
+      "self-assurance",
+      "self-assured",
+      "confidence",
+      "confident"
+    ]
+  },
+  "tettrekeszseg": {
+    "name": "readiness to act",
+    "forms": [
+      "ready to act",
+      "willingness to act",
+      "action-oriented",
+      "go-getter"
+    ]
+  },
+  "eletero": {
+    "name": "vitality",
+    "forms": [
+      "vital force",
+      "zest for life",
+      "energy",
+      "energetic",
+      "vigor",
+      "vigorous"
+    ]
+  },
+  "nagyvonalusag": {
+    "name": "magnanimity",
+    "forms": [
+      "magnanimous",
+      "big-hearted",
+      "broad-minded",
+      "large-hearted"
+    ]
+  },
+  "akaratero": {
+    "name": "willpower",
+    "forms": [
+      "strong will",
+      "will",
+      "strength of will"
+    ]
+  },
+  "melegszivuseg": {
+    "name": "warm-heartedness",
+    "forms": [
+      "warm-hearted",
+      "warmth",
+      "warm heart"
+    ]
+  },
+  "hosiesseg": {
+    "name": "heroism",
+    "forms": [
+      "hero",
+      "heroic",
+      "valor"
+    ]
+  },
+  "oszinteseg": {
+    "name": "sincerity",
+    "forms": [
+      "sincere",
+      "honest",
+      "honesty",
+      "candor",
+      "frank",
+      "frankness"
+    ]
+  },
+  "humor": {
+    "name": "humor",
+    "forms": [
+      "humorous",
+      "funny",
+      "wit",
+      "witty",
+      "playfulness"
+    ]
+  },
+  "segitokeszseg": {
+    "name": "helpfulness",
+    "forms": [
+      "helpful",
+      "helping",
+      "willing to help"
+    ]
+  },
+  "kozlekenyseg": {
+    "name": "communicativeness",
+    "forms": [
+      "communicative",
+      "forthcoming",
+      "expressive",
+      "sharing"
+    ]
+  },
+  "nyitottsag": {
+    "name": "openness",
+    "forms": [
+      "open",
+      "open-minded",
+      "interest",
+      "curiosity",
+      "curious"
+    ]
+  },
+  "figyelmesseg": {
+    "name": "attentiveness",
+    "forms": [
+      "attentive",
+      "considerate",
+      "considerateness",
+      "thoughtful"
+    ]
+  },
+  "tapintat": {
+    "name": "tact",
+    "forms": [
+      "tactful",
+      "diplomacy",
+      "diplomatic",
+      "finesse"
+    ]
+  },
+  "furgeseg": {
+    "name": "nimbleness",
+    "forms": [
+      "nimble",
+      "quickness",
+      "quick",
+      "agility",
+      "agile"
+    ]
+  },
+  "konnyedseg": {
+    "name": "lightness",
+    "forms": [
+      "ease",
+      "easygoing",
+      "light touch",
+      "effortless"
+    ]
+  },
+  "deru": {
+    "name": "serenity",
+    "forms": [
+      "serene",
+      "sunny disposition",
+      "cheerful calm"
+    ]
+  },
+  "tanulekonysag": {
+    "name": "teachability",
+    "forms": [
+      "teachable",
+      "eager to learn",
+      "thirst for knowledge",
+      "quick learner"
+    ]
+  },
+  "lelemenyesseg": {
+    "name": "ingenuity",
+    "forms": [
+      "ingenious",
+      "resourcefulness",
+      "resourceful",
+      "clever ideas"
+    ]
+  },
+  "kiegyensulyozottsag": {
+    "name": "balance",
+    "forms": [
+      "balanced",
+      "harmony",
+      "inner balance",
+      "equanimity",
+      "even-tempered"
+    ]
+  },
+  "egyuttmukodes": {
+    "name": "cooperation",
+    "forms": [
+      "cooperative",
+      "team spirit",
+      "teamwork",
+      "collaboration"
+    ]
+  },
+  "bolcsesseg": {
+    "name": "wisdom",
+    "forms": [
+      "wise",
+      "insight",
+      "sagacity"
+    ]
+  },
+  "masok_szabadsaganak_tisztelete": {
+    "name": "respect for others’ freedom",
+    "forms": [
+      "giving freedom",
+      "letting others be",
+      "respecting others' choices",
+      "respect for others' will"
+    ]
+  },
+  "hala": {
+    "name": "gratitude",
+    "forms": [
+      "grateful",
+      "gratefulness",
+      "thankfulness",
+      "thankful"
+    ]
+  },
+  "joindulat": {
+    "name": "goodwill",
+    "forms": [
+      "well-meaning",
+      "benevolence",
+      "benevolent",
+      "good will"
+    ]
+  },
+  "szelidseg": {
+    "name": "gentleness",
+    "forms": [
+      "gentle",
+      "mild",
+      "meek"
+    ]
+  },
+  "szeretet": {
+    "name": "love",
+    "forms": [
+      "loving",
+      "affection",
+      "lovingness"
+    ]
+  },
+  "megbocsatas": {
+    "name": "forgiveness",
+    "forms": [
+      "forgiving",
+      "forgive",
+      "pardon"
+    ]
+  },
+  "bekulekenyseg": {
+    "name": "peaceableness",
+    "forms": [
+      "peaceable",
+      "conciliatory",
+      "peace-loving",
+      "reconciliation"
+    ]
+  },
+  "alazat": {
+    "name": "humility",
+    "forms": [
+      "humble",
+      "humbleness"
+    ]
+  },
+  "elfogadas": {
+    "name": "acceptance",
+    "forms": [
+      "accepting",
+      "accept",
+      "embracing",
+      "welcoming"
+    ]
+  },
+  "elnezes": {
+    "name": "forbearance",
+    "forms": [
+      "lenient",
+      "leniency",
+      "forbearing",
+      "tolerance",
+      "tolerant"
+    ]
+  },
+  "onzetlenseg": {
+    "name": "selflessness",
+    "forms": [
+      "selfless",
+      "unselfish",
+      "altruism",
+      "altruistic"
+    ]
+  },
+  "emberszeretet": {
+    "name": "love of humanity",
+    "forms": [
+      "philanthropy",
+      "philanthropist",
+      "humanity",
+      "love of neighbor",
+      "charity"
+    ]
+  },
+  "megelegedettseg": {
+    "name": "contentment",
+    "forms": [
+      "content",
+      "contented",
+      "satisfaction",
+      "satisfied"
+    ]
+  },
+  "elengedes": {
+    "name": "letting go",
+    "forms": [
+      "let go",
+      "release",
+      "releasing",
+      "detachment"
+    ]
+  },
+  "remenyseg": {
+    "name": "hope",
+    "forms": [
+      "hopeful",
+      "hoping",
+      "hopefulness"
+    ]
+  },
+  "johiszemuseg": {
+    "name": "good faith",
+    "forms": [
+      "in good faith",
+      "benefit of the doubt",
+      "guilelessness",
+      "guileless"
+    ]
+  },
+  "turelem": {
+    "name": "patience",
+    "forms": [
+      "patient",
+      "long-suffering",
+      "waiting calmly"
+    ]
+  },
+  "megbizhatosag": {
+    "name": "reliability",
+    "forms": [
+      "reliable",
+      "dependable",
+      "dependability",
+      "trustworthy",
+      "trustworthiness"
+    ]
+  },
+  "rendszeretet": {
+    "name": "orderliness",
+    "forms": [
+      "orderly",
+      "tidy",
+      "tidiness",
+      "neat",
+      "order",
+      "organized"
+    ]
+  },
+  "becsuletesseg": {
+    "name": "integrity",
+    "forms": [
+      "honorable",
+      "honor",
+      "decency",
+      "decent",
+      "upright",
+      "uprightness"
+    ]
+  },
+  "takarekossag": {
+    "name": "thrift",
+    "forms": [
+      "thrifty",
+      "frugality",
+      "frugal",
+      "economical",
+      "budgeting"
+    ]
+  },
+  "megbecsules": {
+    "name": "appreciation",
+    "forms": [
+      "appreciate",
+      "appreciative",
+      "valuing",
+      "esteem"
+    ]
+  },
+  "diszkrecio": {
+    "name": "discretion",
+    "forms": [
+      "discreet",
+      "confidentiality",
+      "keeping secrets",
+      "silence"
+    ]
+  },
+  "onfegyelem": {
+    "name": "self-discipline",
+    "forms": [
+      "disciplined",
+      "self-control",
+      "self-mastery"
+    ]
+  },
+  "onbecsules": {
+    "name": "self-respect",
+    "forms": [
+      "dignity",
+      "self-worth",
+      "self-esteem"
+    ]
+  },
+  "huseg": {
+    "name": "loyalty",
+    "forms": [
+      "loyal",
+      "faithfulness",
+      "faithful",
+      "fidelity"
+    ]
+  },
+  "egyszeruseg": {
+    "name": "simplicity",
+    "forms": [
+      "simple",
+      "plainness",
+      "unpretentious"
+    ]
+  },
+  "gondossag": {
+    "name": "carefulness",
+    "forms": [
+      "careful",
+      "care",
+      "caring",
+      "meticulous"
+    ]
+  },
+  "szilardsag": {
+    "name": "steadiness",
+    "forms": [
+      "steady",
+      "solid",
+      "solidity",
+      "unshakable",
+      "unwavering"
+    ]
+  },
+  "kotelessegtudat": {
+    "name": "sense of duty",
+    "forms": [
+      "dutiful",
+      "duty",
+      "dutifulness"
+    ]
+  },
+  "kovetkezetesseg": {
+    "name": "consistency",
+    "forms": [
+      "consistent"
+    ]
+  },
+  "munkabiras": {
+    "name": "stamina",
+    "forms": [
+      "endurance",
+      "capacity for work",
+      "hardiness",
+      "hardy"
+    ]
+  },
+  "igazsagossag": {
+    "name": "fairness",
+    "forms": [
+      "fair",
+      "justice",
+      "just",
+      "equity",
+      "even-handed"
+    ]
+  },
+  "gyakorlatiassag": {
+    "name": "practicality",
+    "forms": [
+      "practical",
+      "pragmatic",
+      "sense of reality",
+      "hands-on"
+    ]
+  },
+  "tervszeruseg": {
+    "name": "planning",
+    "forms": [
+      "planned",
+      "methodical",
+      "method",
+      "systematic",
+      "plan"
+    ]
+  }
+}

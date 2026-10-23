@@ -121,3 +121,19 @@ test('search matches the start of a word only', () => {
   assert.deepEqual(searchTraits('ideg', [...entries], 'fekete').dict.map((e) => e.key), ['ingerlekenyseg']);
   assert.deepEqual(searchTraits('hiány', [...entries], 'fekete').core.map((e) => e.key), ['kitartas_hianya']);
 });
+
+test('search finds another ending of the same word when nothing else matches', () => {
+  const entries = [
+    { key: 'feltekenyseg', mirror: 'fekete', name: 'celos', forms: ['celoso'], source: 'core' },
+    { key: 'turelmetlenseg', mirror: 'fekete', name: 'netrpezlivosť', forms: ['netrpezlivý'], source: 'dict' },
+    { key: 'harag', mirror: 'fekete', name: 'harag', forms: ['haragos'], source: 'core' },
+  ] as const;
+  // "celosa" → "celoso", "netrpezlivá" → "netrpezlivý", never an exact match
+  const r = searchTraits('celosa', [...entries], 'fekete');
+  assert.deepEqual(r.core.map((e) => e.key), ['feltekenyseg']);
+  assert.equal(r.exact, false);
+  assert.deepEqual(searchTraits('netrpezlivá', [...entries], 'fekete').dict.map((e) => e.key), ['turelmetlenseg']);
+  // Only when the whole query finds nothing, and only from 5 letters
+  assert.deepEqual(searchTraits('haragos', [...entries], 'fekete').core.map((e) => e.key), ['harag']);
+  assert.equal(searchTraits('celx', [...entries], 'fekete').core.length, 0);
+});

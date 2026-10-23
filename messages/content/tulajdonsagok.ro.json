@@ -1,0 +1,2360 @@
+{
+  "torkossag": {
+    "name": "lăcomie la mâncare",
+    "forms": [
+      "lacom",
+      "lacomă",
+      "mâncat peste măsură",
+      "ronțăit",
+      "ciugulit"
+    ],
+    "q": "Ai mâncat sau ai ronțăit ceva chiar și când nu-ți mai era foame?"
+  },
+  "feltekenyseg": {
+    "name": "gelozie",
+    "forms": [
+      "gelos",
+      "geloasă"
+    ],
+    "q": "Te-ai temut pentru atenția sau dragostea cuiva, te-a durut că își îndrepta atenția spre altcineva?"
+  },
+  "fuggoseg": {
+    "name": "dependență",
+    "forms": [
+      "dependent",
+      "dependentă",
+      "viciu",
+      "fumat",
+      "dependență de telefon"
+    ],
+    "q": "A fost ceva (mâncare, băutură, țigară, telefon) fără de care abia ai rezistat?"
+  },
+  "izgagasag": {
+    "name": "neastâmpăr",
+    "forms": [
+      "neastâmpărat",
+      "neastâmpărată",
+      "agitație",
+      "foială"
+    ],
+    "q": "Ți-a fost greu să-ți găsești liniștea, i-ai grăbit pe alții sau pe tine?"
+  },
+  "veszekedosseg": {
+    "name": "spirit certăreț",
+    "forms": [
+      "certăreț",
+      "certăreață",
+      "ceartă",
+      "a se certa",
+      "gâlceavă",
+      "arțag"
+    ],
+    "q": "Te-ai legat de alții, ai căutat ceartă din nimicuri?"
+  },
+  "mertektelenseg": {
+    "name": "necumpătare",
+    "forms": [
+      "necumpătat",
+      "exces",
+      "excesiv",
+      "lipsă de măsură",
+      "a exagera"
+    ],
+    "q": "N-ai putut să te oprești la timp: la mâncare, muncă, cumpărături, distracție?"
+  },
+  "pusztito_kedv": {
+    "name": "pornire distructivă",
+    "forms": [
+      "distructiv",
+      "distrugere",
+      "a sparge",
+      "a trânti ușile",
+      "a strica"
+    ],
+    "q": "Ți-a venit să trântești, să distrugi, să spargi ceva când simțeai tensiune?"
+  },
+  "indulatossag": {
+    "name": "irascibilitate",
+    "forms": [
+      "irascibil",
+      "iute la mânie",
+      "izbucnire",
+      "exploziv"
+    ],
+    "q": "Ai izbucnit dintr-odată, înainte să te gândești ce spui?"
+  },
+  "harag": {
+    "name": "mânie",
+    "forms": [
+      "furie",
+      "furios",
+      "furioasă",
+      "supărare",
+      "nervi"
+    ],
+    "q": "Ai simțit mânie pe cineva, și ți-a rămas în suflet?"
+  },
+  "gyulolet": {
+    "name": "ură",
+    "forms": [
+      "a urî",
+      "aversiune",
+      "dușmănie"
+    ],
+    "q": "Te-ai gândit cu ostilitate la cineva, i-ai dorit răul?"
+  },
+  "bosszuvagy": {
+    "name": "sete de răzbunare",
+    "forms": [
+      "răzbunare",
+      "răzbunător",
+      "răzbunătoare",
+      "a se răzbuna",
+      "revanșă"
+    ],
+    "q": "Te-ai gândit cum ai putea plăti ofensa?"
+  },
+  "sertodottseg": {
+    "name": "susceptibilitate",
+    "forms": [
+      "susceptibil",
+      "ofensat",
+      "bosumflat",
+      "bosumflare",
+      "a se supăra"
+    ],
+    "q": "Te-a rănit o remarcă și te-ai bosumflat din cauza ei?"
+  },
+  "lenezes": {
+    "name": "condescendență",
+    "forms": [
+      "condescendent",
+      "privit de sus",
+      "aer de superioritate",
+      "superioritate"
+    ],
+    "q": "Ai privit pe cineva de sus, ai vorbit sau te-ai gândit la acea persoană cu condescendență?"
+  },
+  "pletykalkodas": {
+    "name": "bârfă",
+    "forms": [
+      "bârfitor",
+      "bârfitoare",
+      "a bârfi",
+      "clevetire",
+      "vorbit pe la spate"
+    ],
+    "q": "Ai vorbit despre cineva pe la spate, ai transmis ceva ce nu era treaba ta?"
+  },
+  "kitartas_hianya": {
+    "name": "lipsă de perseverență",
+    "forms": [
+      "a renunța",
+      "a abandona",
+      "a lăsa baltă",
+      "inconstanță"
+    ],
+    "q": "Ai renunțat repede pentru că ceva era mai greu sau dura mai mult decât te așteptai?"
+  },
+  "ravaszsag": {
+    "name": "viclenie",
+    "forms": [
+      "viclean",
+      "vicleană",
+      "șiretenie",
+      "șiret",
+      "intrigă",
+      "uneltire"
+    ],
+    "q": "Ai încercat să obții ceva pe căi ocolite, cu șiretlicuri, în loc să o faci deschis?"
+  },
+  "fecseges": {
+    "name": "vorbărie",
+    "forms": [
+      "vorbăreț",
+      "vorbăreață",
+      "flecăreală",
+      "flecar",
+      "trăncăneală"
+    ],
+    "q": "Ai vorbit mai mult decât era nevoie, inclusiv lucruri de prisos?"
+  },
+  "becstelenseg": {
+    "name": "necinste",
+    "forms": [
+      "necinstit",
+      "necinstită",
+      "înșelăciune",
+      "a înșela",
+      "fraudă",
+      "trișat"
+    ],
+    "q": "Ai acționat necinstit, ai trișat sau ai profitat de cineva în folosul tău?"
+  },
+  "valtakozosag": {
+    "name": "nestatornicie",
+    "forms": [
+      "nestatornic",
+      "schimbător",
+      "schimbătoare",
+      "imprevizibil"
+    ],
+    "q": "Ai oscilat încoace și încolo, schimbându-ți des deciziile sau dispoziția?"
+  },
+  "konnyelmuseg": {
+    "name": "ușurătate",
+    "forms": [
+      "ușuratic",
+      "ușuratică",
+      "imprudență",
+      "imprudent",
+      "a risca"
+    ],
+    "q": "Ai luat asupra ta, ai cheltuit sau ai riscat ceva fără să te gândești?"
+  },
+  "kerkedes": {
+    "name": "lăudăroșenie",
+    "forms": [
+      "lăudăros",
+      "lăudăroasă",
+      "a se lăuda",
+      "fanfaronadă",
+      "a se da mare"
+    ],
+    "q": "Te-ai lăudat ca alții să te admire?"
+  },
+  "ontulbecsules": {
+    "name": "supraevaluare de sine",
+    "forms": [
+      "îngâmfare",
+      "îngâmfat",
+      "îngâmfată",
+      "înfumurare",
+      "înfumurat",
+      "a se crede grozav"
+    ],
+    "q": "Te-ai văzut mai mult decât știi sau faci cu adevărat?"
+  },
+  "pazarlas": {
+    "name": "risipă",
+    "forms": [
+      "risipitor",
+      "risipitoare",
+      "a risipi",
+      "irosire",
+      "pierdere de timp"
+    ],
+    "q": "Ai risipit bani, timp sau ceva valoros, fără rost?"
+  },
+  "kozombosseg": {
+    "name": "indiferență",
+    "forms": [
+      "indiferent",
+      "indiferentă",
+      "apatie",
+      "nepăsare",
+      "nepăsător"
+    ],
+    "q": "Ți-au fost indiferente grijile altora sau o cauză comună?"
+  },
+  "levertseg": {
+    "name": "deprimare",
+    "forms": [
+      "abătut",
+      "abătută",
+      "descurajare",
+      "descurajat",
+      "lipsă de chef"
+    ],
+    "q": "Ai avut moralul la pământ și ți-a fost greu să ieși din asta?"
+  },
+  "szegyenlosseg": {
+    "name": "timiditate",
+    "forms": [
+      "timid",
+      "timidă",
+      "sfială",
+      "sfios",
+      "rușinos"
+    ],
+    "q": "Te-ai retras, fără să îndrăznești să vorbești sau să te aperi?"
+  },
+  "reszvetlenseg": {
+    "name": "lipsă de compasiune",
+    "forms": [
+      "impasibil",
+      "insensibil la durerea altora",
+      "nepăsare la suferință"
+    ],
+    "q": "Ai văzut că cineva o duce greu și nu te-a atins?"
+  },
+  "csokonyosseg": {
+    "name": "încăpățânare",
+    "forms": [
+      "încăpățânat",
+      "încăpățânată",
+      "îndărătnicie",
+      "îndărătnic",
+      "cap tare"
+    ],
+    "q": "Te-ai agățat cu încăpățânare de ce credeai, chiar și când puteai vedea că nu ai dreptate?"
+  },
+  "renyheseg": {
+    "name": "moleșeală",
+    "forms": [
+      "moleșit",
+      "lâncezeală",
+      "toropeală",
+      "inerție"
+    ],
+    "q": "Ziua ta a trecut în moleșeală, fără energie, și ți-a fost greu să te apuci de ceva?"
+  },
+  "koszivuseg": {
+    "name": "inimă de piatră",
+    "forms": [
+      "fără inimă",
+      "insensibilitate",
+      "insensibil",
+      "împietrire"
+    ],
+    "q": "Te-ai purtat aspru sau rece cu cineva care avea nevoie de căldura ta?"
+  },
+  "tulzott_engedekenyseg": {
+    "name": "îngăduință excesivă",
+    "forms": [
+      "prea îngăduitor",
+      "prea moale",
+      "a nu putea spune nu",
+      "a ceda prea ușor"
+    ],
+    "q": "Ai lăsat să treacă ceva când ar fi trebuit să spui nu?"
+  },
+  "akaratossag": {
+    "name": "dorința de a se impune",
+    "forms": [
+      "a se impune",
+      "a vrea să câștige mereu",
+      "voință impusă cu forța"
+    ],
+    "q": "Ai vrut să-ți impui voința cu orice preț?"
+  },
+  "ingatagsag": {
+    "name": "instabilitate",
+    "forms": [
+      "instabil",
+      "instabilă",
+      "șovăielnic",
+      "a se clătina"
+    ],
+    "q": "Ai șovăit ușor și ai renunțat la ce hotărâseși, sub influența altora?"
+  },
+  "flegmasag": {
+    "name": "flegmă",
+    "forms": [
+      "flegmatic",
+      "flegmatică",
+      "ridicat din umeri",
+      "a nu-i păsa"
+    ],
+    "q": "Ai expediat cu un ridicat din umeri ceva ce era de fapt important?"
+  },
+  "unalmas": {
+    "name": "plictiseală",
+    "forms": [
+      "plictisitor",
+      "plictisitoare",
+      "monotonie",
+      "monoton",
+      "plictisit"
+    ],
+    "q": "Conversațiile tale au fost monotone și cenușii, fără să pui ceva din tine în ele?"
+  },
+  "hanyagsag": {
+    "name": "neglijență",
+    "forms": [
+      "neglijent",
+      "neglijentă",
+      "delăsare",
+      "șleampăt",
+      "lucru de mântuială"
+    ],
+    "q": "Ai neglijat o sarcină, ai făcut-o pe jumătate sau prost?"
+  },
+  "megvetes": {
+    "name": "dispreț",
+    "forms": [
+      "disprețuitor",
+      "disprețuitoare",
+      "a disprețui",
+      "desconsiderare"
+    ],
+    "q": "Te-ai gândit cu dispreț la cineva, l-ai socotit nedemn de atenția ta?"
+  },
+  "emberiszonya_van": {
+    "name": "aversiune față de oameni",
+    "forms": [
+      "mizantropie",
+      "mizantrop",
+      "a evita oamenii",
+      "nesociabil"
+    ],
+    "q": "Ai evitat oamenii, ți-a fost povară compania lor?"
+  },
+  "lassusag": {
+    "name": "încetineală",
+    "forms": [
+      "încet",
+      "lent",
+      "lentoare",
+      "a tărăgăna",
+      "a se codi"
+    ],
+    "q": "Ai avansat încet, chiar și când ar fi trebuit să te grăbești?"
+  },
+  "nehezkes": {
+    "name": "greutate în mișcare",
+    "forms": [
+      "greoi",
+      "greoaie",
+      "anevoios",
+      "complicat"
+    ],
+    "q": "Ți-a fost greu să pornești și să te adaptezi la o situație neașteptată?"
+  },
+  "lustasag": {
+    "name": "lene",
+    "forms": [
+      "leneș",
+      "leneșă",
+      "trândăvie",
+      "trândav",
+      "a lenevi"
+    ],
+    "q": "Ai evitat munca și efortul pentru că nu aveai chef?"
+  },
+  "megbizhatatlan": {
+    "name": "lipsă de încredere",
+    "forms": [
+      "nedemn de încredere",
+      "a lăsa baltă pe cineva",
+      "a nu-ți ține cuvântul"
+    ],
+    "q": "Nu ai respectat ce ai promis, ai lăsat pe cineva baltă?"
+  },
+  "szofukar": {
+    "name": "zgârcenie la vorbă",
+    "forms": [
+      "tăcut",
+      "taciturn",
+      "laconic",
+      "de puține cuvinte"
+    ],
+    "q": "Ai folosit puține cuvinte chiar și acolo unde o vorbă bună sau o explicație ar fi ajutat?"
+  },
+  "lelkiismeretlenseg": {
+    "name": "lipsă de scrupule",
+    "forms": [
+      "fără scrupule",
+      "fără conștiință",
+      "nerușinat"
+    ],
+    "q": "Știai că ceva nu e corect și totuși ai făcut-o?"
+  },
+  "buskomorsag": {
+    "name": "melancolie",
+    "forms": [
+      "melancolic",
+      "melancolică",
+      "tristețe",
+      "trist",
+      "tristă",
+      "mohoreală"
+    ],
+    "q": "Gânduri întunecate și grele ți-au stăpânit ziua?"
+  },
+  "rendszertelenseg": {
+    "name": "dezordine",
+    "forms": [
+      "dezordonat",
+      "dezordonată",
+      "dezorganizare",
+      "haos",
+      "haotic"
+    ],
+    "q": "Ziua ta a trecut fără plan, la întâmplare, și ți-ai lăsat lucrurile în dezordine?"
+  },
+  "aktivitas": {
+    "name": "activitate",
+    "forms": [
+      "activ",
+      "activă",
+      "dinamism",
+      "dinamic",
+      "elan"
+    ],
+    "q": "Ți-ai făcut partea fără să aștepți să înceapă altcineva?"
+  },
+  "lelkesedes": {
+    "name": "entuziasm",
+    "forms": [
+      "entuziast",
+      "entuziastă",
+      "însuflețire",
+      "înflăcărare"
+    ],
+    "q": "Te-ai apucat de ce ai făcut cu bucurie și foc?"
+  },
+  "elhatarozottsag": {
+    "name": "hotărâre",
+    "forms": [
+      "hotărât",
+      "hotărâtă",
+      "determinare",
+      "determinat"
+    ],
+    "q": "Ai rămas la ce hotărâseși?"
+  },
+  "mereszseg": {
+    "name": "îndrăzneală",
+    "forms": [
+      "îndrăzneț",
+      "îndrăzneață",
+      "cutezanță",
+      "curaj de a risca"
+    ],
+    "q": "Te-ai încumetat la ceva de care te temeai?"
+  },
+  "alkotoero": {
+    "name": "forță creatoare",
+    "forms": [
+      "creativitate",
+      "creativ",
+      "creativă",
+      "a crea",
+      "creație"
+    ],
+    "q": "Ai creat ceva nou: o idee, un obiect, o soluție?"
+  },
+  "torekves": {
+    "name": "străduință",
+    "forms": [
+      "strădanie",
+      "efort",
+      "a se strădui",
+      "aspirație"
+    ],
+    "q": "Ai făcut azi ceva pentru un țel care contează pentru tine?"
+  },
+  "szenvedelyes": {
+    "name": "pasionat",
+    "forms": [
+      "pasiune",
+      "dăruire",
+      "pasionată",
+      "ardoare"
+    ],
+    "q": "Ai făcut ceva cu dăruire deplină, cu pasiune?"
+  },
+  "batorsag": {
+    "name": "curaj",
+    "forms": [
+      "curajos",
+      "curajoasă",
+      "vitejie",
+      "viteaz"
+    ],
+    "q": "Ai luat apărarea a ceva sau a cuiva, în ciuda fricii?"
+  },
+  "allhatatossag": {
+    "name": "statornicie",
+    "forms": [
+      "statornic",
+      "statornică",
+      "constanță",
+      "neclintire"
+    ],
+    "q": "Ai rămas pe drumul ales, chiar și când altceva te ispitea?"
+  },
+  "szorgalom": {
+    "name": "hărnicie",
+    "forms": [
+      "harnic",
+      "harnică",
+      "sârguință",
+      "sârguincios"
+    ],
+    "q": "Ai lucrat cu sârg și cu plăcere, chiar dacă nu te vedea nimeni?"
+  },
+  "orom": {
+    "name": "bucurie",
+    "forms": [
+      "bucuros",
+      "bucuroasă",
+      "fericire",
+      "fericit"
+    ],
+    "q": "Ai simțit o bucurie curată într-un lucru simplu?"
+  },
+  "jartassag": {
+    "name": "pricepere",
+    "forms": [
+      "priceput",
+      "pricepută",
+      "îndemânare",
+      "îndemânatic",
+      "competență",
+      "competent"
+    ],
+    "q": "Ai rezolvat ceva cu pricepere și competență?"
+  },
+  "joszivuseg": {
+    "name": "bunătate",
+    "forms": [
+      "bun",
+      "bună",
+      "inimă bună",
+      "suflet bun"
+    ],
+    "q": "Ai făcut un bine cuiva, dezinteresat?"
+  },
+  "vilagos": {
+    "name": "claritate",
+    "forms": [
+      "clar",
+      "limpezime",
+      "luciditate",
+      "lucid",
+      "gândire clară"
+    ],
+    "q": "Ai văzut limpede situația și te-ai exprimat pe înțeles?"
+  },
+  "gondtalan": {
+    "name": "lipsă de griji",
+    "forms": [
+      "fără griji",
+      "inimă ușoară",
+      "degajat"
+    ],
+    "q": "Ai trăit ziua cu inima ușoară, fără griji?"
+  },
+  "vidam": {
+    "name": "voioșie",
+    "forms": [
+      "vesel",
+      "veselă",
+      "veselie",
+      "bună dispoziție",
+      "voios"
+    ],
+    "q": "Ai avut bună dispoziție și i-ai molipsit și pe alții?"
+  },
+  "optimizmus": {
+    "name": "optimism",
+    "forms": [
+      "optimist",
+      "optimistă",
+      "încredere în viitor",
+      "gândire pozitivă"
+    ],
+    "q": "Ai avut încredere că lucrurile se vor aranja și ai căutat partea bună din ele?"
+  },
+  "elenkseg": {
+    "name": "vioiciune",
+    "forms": [
+      "vioi",
+      "vioaie",
+      "prospețime",
+      "vivacitate"
+    ],
+    "q": "Corpul și gândirea ta au fost proaspete și sprintene?"
+  },
+  "fuggetlenseg": {
+    "name": "independență",
+    "forms": [
+      "independent",
+      "independentă",
+      "autonomie",
+      "autonom"
+    ],
+    "q": "Ai hotărât după propria judecată, nu sub presiunea altora?"
+  },
+  "eberseg": {
+    "name": "vigilență",
+    "forms": [
+      "vigilent",
+      "vigilentă",
+      "treaz",
+      "trezie"
+    ],
+    "q": "Ai fost cu băgare de seamă, ai observat ce se întâmpla în jurul tău și în tine?"
+  },
+  "kedvesseg": {
+    "name": "amabilitate",
+    "forms": [
+      "amabil",
+      "amabilă",
+      "cordialitate",
+      "cordial",
+      "drăgălășenie"
+    ],
+    "q": "Te-ai purtat cu oamenii amabil și cu căldură?"
+  },
+  "bizalom": {
+    "name": "încredere",
+    "forms": [
+      "încrezător",
+      "încrezătoare",
+      "a avea încredere",
+      "credință în alții"
+    ],
+    "q": "Ai avut încredere în cineva fără să cauți gânduri ascunse?"
+  },
+  "irgalmassag": {
+    "name": "îndurare",
+    "forms": [
+      "milos",
+      "milostiv",
+      "milostivire",
+      "clemență"
+    ],
+    "q": "Ai arătat îndurare față de cineva care a greșit sau era la necaz?"
+  },
+  "szerenyseg": {
+    "name": "modestie",
+    "forms": [
+      "modest",
+      "modestă",
+      "fără pretenții"
+    ],
+    "q": "Ai evitat să te pui în prim-plan, lăsându-i și pe alții să strălucească?"
+  },
+  "megadas": {
+    "name": "resemnare",
+    "forms": [
+      "predare",
+      "a lăsa să fie",
+      "a accepta ce vine"
+    ],
+    "q": "Ai acceptat ce nu puteai schimba, fără luptă interioară?"
+  },
+  "alkalmazkodokeszseg": {
+    "name": "adaptabilitate",
+    "forms": [
+      "adaptabil",
+      "adaptabilă",
+      "a se adapta",
+      "flexibilitate",
+      "flexibil"
+    ],
+    "q": "Te-ai adaptat cu flexibilitate la o situație nouă sau la nevoile altora?"
+  },
+  "buzgosag": {
+    "name": "zel",
+    "forms": [
+      "zelos",
+      "zeloasă",
+      "râvnă",
+      "evlavie"
+    ],
+    "q": "Ți-ai făcut exercițiile și sarcinile cu dăruire lăuntrică și fidelitate?"
+  },
+  "bensosegesseg": {
+    "name": "intimitate",
+    "forms": [
+      "intim",
+      "intimă",
+      "apropiere",
+      "căldură sufletească"
+    ],
+    "q": "Ai avut un moment adânc și intim cu cineva sau cu tine?"
+  },
+  "felfogokepesseg": {
+    "name": "capacitate de înțelegere",
+    "forms": [
+      "înțelegere",
+      "receptivitate",
+      "receptiv",
+      "pătrundere"
+    ],
+    "q": "Ai înțeles repede și bine ce ți s-a spus sau ce s-a întâmplat?"
+  },
+  "meditacio": {
+    "name": "meditație",
+    "forms": [
+      "a medita",
+      "contemplare",
+      "reflecție",
+      "privire spre interior"
+    ],
+    "q": "Ți-ai luat timp să te liniștești și să privești înăuntru?"
+  },
+  "szanalomerzet": {
+    "name": "milă",
+    "forms": [
+      "a compătimi",
+      "compătimire",
+      "părere de rău pentru alții"
+    ],
+    "q": "Te-a atins greutatea sau suferința cuiva?"
+  },
+  "egyutterzes": {
+    "name": "compasiune",
+    "forms": [
+      "empatie",
+      "empatic",
+      "empatică",
+      "a fi alături"
+    ],
+    "q": "Ai reușit să te pui în locul altuia și să-l faci să simtă asta?"
+  },
+  "nyugalom": {
+    "name": "liniște",
+    "forms": [
+      "liniștit",
+      "liniștită",
+      "calm",
+      "pace",
+      "pace interioară"
+    ],
+    "q": "Ți-ai păstrat liniștea lăuntrică atunci când în jurul tău era agitație?"
+  },
+  "elmelyultseg": {
+    "name": "adâncire",
+    "forms": [
+      "adâncit",
+      "absorbit",
+      "cufundare",
+      "profunzime"
+    ],
+    "q": "Te-ai cufundat complet în ceva și i-ai dat de capăt?"
+  },
+  "mertekletesseg": {
+    "name": "cumpătare",
+    "forms": [
+      "cumpătat",
+      "cumpătată",
+      "moderație",
+      "măsură"
+    ],
+    "q": "Ai știut să te oprești la timp la mâncare, băutură, distracție?"
+  },
+  "gyongedseg": {
+    "name": "gingășie",
+    "forms": [
+      "gingaș",
+      "gingașă",
+      "tandrețe",
+      "tandru",
+      "delicatețe"
+    ],
+    "q": "Te-ai purtat cu cineva delicat și cu drag?"
+  },
+  "tiszteletadas": {
+    "name": "respect",
+    "forms": [
+      "respectuos",
+      "respectuoasă",
+      "deferență",
+      "a onora"
+    ],
+    "q": "Le-ai arătat respect altora, chiar dacă nu erai de acord cu ei?"
+  },
+  "tekintely": {
+    "name": "autoritate",
+    "forms": [
+      "prezență",
+      "greutate",
+      "ascendent"
+    ],
+    "q": "Cuvintele și prezența ta au avut greutate, cu o fermitate liniștită?"
+  },
+  "kitartas": {
+    "name": "perseverență",
+    "forms": [
+      "perseverent",
+      "perseverentă",
+      "tenacitate",
+      "tenace"
+    ],
+    "q": "Ai dus până la capăt ceva greu sau de durată?"
+  },
+  "megfontoltsag": {
+    "name": "chibzuință",
+    "forms": [
+      "chibzuit",
+      "chibzuită",
+      "cumpănire",
+      "a cântări bine"
+    ],
+    "q": "Te-ai gândit bine înainte să hotărăști sau să vorbești?"
+  },
+  "hatarozottsag": {
+    "name": "fermitate",
+    "forms": [
+      "ferm",
+      "fermă",
+      "decizie",
+      "asertivitate",
+      "asertiv"
+    ],
+    "q": "Ai spus limpede ce vrei, și ai spus nu acolo unde trebuia?"
+  },
+  "komolysag": {
+    "name": "seriozitate",
+    "forms": [
+      "serios",
+      "serioasă"
+    ],
+    "q": "Ai tratat ce era important cu greutatea cuvenită?"
+  },
+  "lelkiismeretesseg": {
+    "name": "conștiinciozitate",
+    "forms": [
+      "conștiincios",
+      "conștiincioasă",
+      "scrupulozitate"
+    ],
+    "q": "Ți-ai făcut treaba așa cum ți-a dictat conștiința?"
+  },
+  "alapossag": {
+    "name": "temeinicie",
+    "forms": [
+      "temeinic",
+      "temeinică",
+      "minuțiozitate",
+      "minuțios"
+    ],
+    "q": "Ți-ai dus sarcinile până la detalii, chiar dacă nu verifică nimeni?"
+  },
+  "koncentraltsag": {
+    "name": "concentrare",
+    "forms": [
+      "concentrat",
+      "concentrată",
+      "focus",
+      "adunare"
+    ],
+    "q": "Te-ai ocupat de un singur lucru odată, fără să divaghezi?"
+  },
+  "jozansag": {
+    "name": "bun-simț",
+    "forms": [
+      "judecată limpede",
+      "realism",
+      "cu picioarele pe pământ",
+      "sobru"
+    ],
+    "q": "Ai judecat lucrurile limpede, cu picioarele pe pământ?"
+  },
+  "pontossag": {
+    "name": "punctualitate",
+    "forms": [
+      "punctual",
+      "punctuală",
+      "exactitate",
+      "exact",
+      "precizie",
+      "precis"
+    ],
+    "q": "Ai ajuns la timp și ai făcut exact ce îți asumaseși?"
+  },
+  "targyilagossag": {
+    "name": "obiectivitate",
+    "forms": [
+      "obiectiv",
+      "obiectivă",
+      "imparțialitate",
+      "imparțial"
+    ],
+    "q": "Ai judecat situația drept, fără să lași emoțiile să decidă?"
+  },
+  "elovigyazatossag": {
+    "name": "prevedere",
+    "forms": [
+      "prevăzător",
+      "prevăzătoare",
+      "precauție",
+      "prudență",
+      "prudent"
+    ],
+    "q": "Te-ai gândit dinainte la posibilele probleme și te-ai pregătit pentru ele?"
+  },
+  "ellenallo_kepesseg": {
+    "name": "putere de rezistență",
+    "forms": [
+      "rezistent",
+      "rezistentă",
+      "tărie sufletească",
+      "reziliență"
+    ],
+    "q": "Ai rezistat unei ispite, unei presiuni sau oboselii?"
+  },
+  "celtudatossag": {
+    "name": "claritatea țelului",
+    "forms": [
+      "țintă clară",
+      "orientat spre scop",
+      "a ști încotro"
+    ],
+    "q": "Știai încotro mergi și ai înaintat într-acolo?"
+  },
+  "felelossegerzet": {
+    "name": "simț al răspunderii",
+    "forms": [
+      "responsabilitate",
+      "responsabil",
+      "răspundere",
+      "a-și asuma"
+    ],
+    "q": "Ți-ai asumat urmările a ceea ce ai făcut sau ai spus?"
+  },
+  "turelmetlenseg": {
+    "name": "nerăbdare",
+    "forms": [
+      "nerăbdător",
+      "nerăbdătoare",
+      "a grăbi pe alții"
+    ]
+  },
+  "irigyseg": {
+    "name": "invidie",
+    "forms": [
+      "invidios",
+      "invidioasă",
+      "a invidia",
+      "pizmă"
+    ]
+  },
+  "ingerlekenyseg": {
+    "name": "iritabilitate",
+    "forms": [
+      "iritabil",
+      "iritabilă",
+      "nervos",
+      "nervoasă",
+      "nervozitate",
+      "enervare"
+    ]
+  },
+  "dac": {
+    "name": "spirit de frondă",
+    "forms": [
+      "frondă",
+      "sfidare",
+      "sfidător",
+      "în ciudă"
+    ]
+  },
+  "agresszivitas": {
+    "name": "agresivitate",
+    "forms": [
+      "agresiv",
+      "agresivă",
+      "violență",
+      "violent"
+    ]
+  },
+  "durvasag": {
+    "name": "brutalitate",
+    "forms": [
+      "brutal",
+      "brutală",
+      "asprime",
+      "dur"
+    ]
+  },
+  "gorombasag": {
+    "name": "grosolănie",
+    "forms": [
+      "grosolan",
+      "grosolană",
+      "bădăran",
+      "necioplit",
+      "mojic"
+    ]
+  },
+  "uralkodni_vagyas": {
+    "name": "dorință de dominare",
+    "forms": [
+      "dominator",
+      "dominatoare",
+      "sete de putere",
+      "tiranie",
+      "a porunci"
+    ]
+  },
+  "kegyetlenseg": {
+    "name": "cruzime",
+    "forms": [
+      "crud",
+      "crudă",
+      "neîndurare",
+      "nemilos",
+      "fără milă"
+    ]
+  },
+  "kapkodas": {
+    "name": "pripeală",
+    "forms": [
+      "pripit",
+      "zor",
+      "a se pripi",
+      "grabă"
+    ]
+  },
+  "sovargas": {
+    "name": "poftă arzătoare",
+    "forms": [
+      "poftă",
+      "tânjire",
+      "jind",
+      "dor arzător"
+    ]
+  },
+  "kejvagy": {
+    "name": "poftă trupească",
+    "forms": [
+      "libidinos",
+      "lascivitate",
+      "lasciv",
+      "desfrâu"
+    ]
+  },
+  "mohosag": {
+    "name": "aviditate",
+    "forms": [
+      "avid",
+      "avidă",
+      "nesaț",
+      "a înfuleca",
+      "hulpav"
+    ]
+  },
+  "fanatizmus": {
+    "name": "fanatism",
+    "forms": [
+      "fanatic",
+      "fanatică",
+      "intoleranță",
+      "sectarism"
+    ]
+  },
+  "onfejuseg": {
+    "name": "a face după capul său",
+    "forms": [
+      "cap sec",
+      "neascultare",
+      "de capul lui"
+    ]
+  },
+  "nagyravagyas": {
+    "name": "ambiție",
+    "forms": [
+      "ambițios",
+      "ambițioasă",
+      "carierism",
+      "carierist"
+    ]
+  },
+  "versenges": {
+    "name": "rivalitate",
+    "forms": [
+      "rival",
+      "competitivitate",
+      "competitiv",
+      "a concura"
+    ]
+  },
+  "hiszterikussag": {
+    "name": "isterie",
+    "forms": [
+      "isteric",
+      "isterică",
+      "crize",
+      "a face scene",
+      "dramă"
+    ]
+  },
+  "sertegetes": {
+    "name": "insulte",
+    "forms": [
+      "a insulta",
+      "jignire",
+      "jignitor",
+      "a jigni"
+    ]
+  },
+  "tolakodas": {
+    "name": "impertinență",
+    "forms": [
+      "impertinent",
+      "a deranja",
+      "a se băga",
+      "a se înghesui"
+    ]
+  },
+  "karorvendes": {
+    "name": "bucurie de răul altuia",
+    "forms": [
+      "a se bucura de răul altuia",
+      "rânjet",
+      "schadenfreude"
+    ]
+  },
+  "rosszindulat": {
+    "name": "răutate",
+    "forms": [
+      "răutăcios",
+      "răutăcioasă",
+      "rea-voință",
+      "rău intenționat",
+      "malițiozitate"
+    ]
+  },
+  "gog": {
+    "name": "trufie",
+    "forms": [
+      "trufaș",
+      "trufașă",
+      "aroganță",
+      "arogant",
+      "semeție",
+      "fudulie"
+    ]
+  },
+  "undoksag": {
+    "name": "șicană",
+    "forms": [
+      "șicanator",
+      "a șicana",
+      "a înțepa",
+      "a necăji"
+    ]
+  },
+  "telhetetlenseg": {
+    "name": "nesățiozitate",
+    "forms": [
+      "nesățios",
+      "nesățioasă",
+      "niciodată destul"
+    ]
+  },
+  "kovetelozes": {
+    "name": "pretenții",
+    "forms": [
+      "pretențios",
+      "pretențioasă",
+      "a pretinde",
+      "exigent"
+    ]
+  },
+  "hiusag": {
+    "name": "vanitate",
+    "forms": [
+      "vanitos",
+      "vanitoasă",
+      "a se da în spectacol",
+      "dorință de a ieși în evidență"
+    ]
+  },
+  "feluletesseg": {
+    "name": "superficialitate",
+    "forms": [
+      "superficial",
+      "superficială",
+      "lipsă de profunzime"
+    ]
+  },
+  "szetszortsag": {
+    "name": "împrăștiere",
+    "forms": [
+      "împrăștiat",
+      "împrăștiată",
+      "neconcentrat",
+      "de la una la alta"
+    ]
+  },
+  "hazudozas": {
+    "name": "minciuni",
+    "forms": [
+      "a minți",
+      "mincinos",
+      "mincinoasă",
+      "minciună",
+      "a născoci"
+    ]
+  },
+  "kivancsiskodas": {
+    "name": "curiozitate indiscretă",
+    "forms": [
+      "indiscret",
+      "indiscretă",
+      "băgăcios",
+      "a-și băga nasul"
+    ]
+  },
+  "szeszelyesseg": {
+    "name": "capriciozitate",
+    "forms": [
+      "capricios",
+      "capricioasă",
+      "toane",
+      "schimbări de dispoziție"
+    ]
+  },
+  "szorakozottsag": {
+    "name": "distragere",
+    "forms": [
+      "distrat",
+      "distrată",
+      "uitare",
+      "uituc",
+      "uitucă"
+    ]
+  },
+  "komolytalansag": {
+    "name": "neseriozitate",
+    "forms": [
+      "neserios",
+      "neserioasă",
+      "frivolitate",
+      "frivol"
+    ]
+  },
+  "meggondolatlansag": {
+    "name": "nechibzuință",
+    "forms": [
+      "nechibzuit",
+      "nechibzuită",
+      "impulsivitate",
+      "impulsiv",
+      "fără să gândească"
+    ]
+  },
+  "felelotlenseg": {
+    "name": "iresponsabilitate",
+    "forms": [
+      "iresponsabil",
+      "iresponsabilă"
+    ]
+  },
+  "hizelges": {
+    "name": "lingușire",
+    "forms": [
+      "lingușitor",
+      "lingușitoare",
+      "a linguși",
+      "a se gudura"
+    ]
+  },
+  "kepmutatas": {
+    "name": "ipocrizie",
+    "forms": [
+      "ipocrit",
+      "ipocrită",
+      "fățărnicie",
+      "fățarnic",
+      "cu două fețe"
+    ]
+  },
+  "itelkezes": {
+    "name": "judecarea altora",
+    "forms": [
+      "a judeca",
+      "a critica",
+      "critică",
+      "critic",
+      "a condamna"
+    ]
+  },
+  "okoskodas": {
+    "name": "pedanterie",
+    "forms": [
+      "pedant",
+      "a face pe deșteptul",
+      "a ține predici",
+      "știe-tot"
+    ]
+  },
+  "igergetes": {
+    "name": "promisiuni goale",
+    "forms": [
+      "a promite",
+      "promisiune neținută",
+      "promisiuni"
+    ]
+  },
+  "zavarodottsag": {
+    "name": "confuzie",
+    "forms": [
+      "confuz",
+      "confuză",
+      "încurcătură",
+      "gândire încâlcită"
+    ]
+  },
+  "nyugtalansag": {
+    "name": "neliniște",
+    "forms": [
+      "neliniștit",
+      "neliniștită",
+      "tensiune",
+      "tensionat",
+      "încordare"
+    ]
+  },
+  "gunyolodas": {
+    "name": "batjocură",
+    "forms": [
+      "batjocoritor",
+      "a batjocori",
+      "zeflemea",
+      "sarcasm",
+      "sarcastic",
+      "a lua peste picior"
+    ]
+  },
+  "figyelmetlenseg": {
+    "name": "neatenție",
+    "forms": [
+      "neatent",
+      "neatentă"
+    ]
+  },
+  "pontatlansag": {
+    "name": "nepunctualitate",
+    "forms": [
+      "nepunctual",
+      "inexactitate",
+      "inexact",
+      "întârziere",
+      "a întârzia"
+    ]
+  },
+  "manipulalas": {
+    "name": "manipulare",
+    "forms": [
+      "manipulator",
+      "manipulatoare",
+      "a manipula"
+    ]
+  },
+  "kifogaskereses": {
+    "name": "căutarea scuzelor",
+    "forms": [
+      "scuze",
+      "scuză",
+      "a se justifica",
+      "a da vina",
+      "a da vina pe alții"
+    ]
+  },
+  "hutlenseg": {
+    "name": "infidelitate",
+    "forms": [
+      "infidel",
+      "infidelă",
+      "neloialitate",
+      "neloial",
+      "trădare"
+    ]
+  },
+  "cinizmus": {
+    "name": "cinism",
+    "forms": [
+      "cinic",
+      "cinică"
+    ]
+  },
+  "onsajnalat": {
+    "name": "autocompătimire",
+    "forms": [
+      "a se plânge de milă",
+      "victimizare",
+      "a face pe victima"
+    ]
+  },
+  "befolyasolhatosag": {
+    "name": "influențabilitate",
+    "forms": [
+      "influențabil",
+      "influențabilă",
+      "sugestibil",
+      "a se lăsa influențat"
+    ]
+  },
+  "kishituseg": {
+    "name": "lipsă de încredere în sine",
+    "forms": [
+      "nesiguranță",
+      "nesigur",
+      "nesigură",
+      "complex de inferioritate",
+      "slab de înger"
+    ]
+  },
+  "gyavasag": {
+    "name": "lașitate",
+    "forms": [
+      "laș",
+      "lașă",
+      "a da înapoi",
+      "fricos",
+      "fricoasă"
+    ]
+  },
+  "hatarozatlansag": {
+    "name": "nehotărâre",
+    "forms": [
+      "nehotărât",
+      "nehotărâtă",
+      "ezitare",
+      "a ezita"
+    ]
+  },
+  "celtalansag": {
+    "name": "lipsă de țel",
+    "forms": [
+      "fără țel",
+      "în derivă",
+      "fără scop"
+    ]
+  },
+  "lanyhasag": {
+    "name": "jumătate de măsură",
+    "forms": [
+      "călduț",
+      "fără avânt",
+      "cu jumătate de inimă"
+    ]
+  },
+  "ridegseg": {
+    "name": "răceală",
+    "forms": [
+      "rece",
+      "distanță",
+      "distant",
+      "distantă"
+    ]
+  },
+  "elfogultsag": {
+    "name": "părtinire",
+    "forms": [
+      "părtinitor",
+      "părtinitoare",
+      "prejudecată",
+      "prejudecăți"
+    ]
+  },
+  "passzivitas": {
+    "name": "pasivitate",
+    "forms": [
+      "pasiv",
+      "pasivă",
+      "inactivitate",
+      "inactiv"
+    ]
+  },
+  "tulerzekenyseg": {
+    "name": "hipersensibilitate",
+    "forms": [
+      "hipersensibil",
+      "hipersensibilă",
+      "plângăcios",
+      "cu pielea subțire"
+    ]
+  },
+  "szorongas": {
+    "name": "anxietate",
+    "forms": [
+      "anxios",
+      "anxioasă",
+      "teamă",
+      "frică",
+      "angoasă"
+    ]
+  },
+  "alazatoskodas": {
+    "name": "servilism",
+    "forms": [
+      "servil",
+      "servilă",
+      "slugărnicie",
+      "slugarnic",
+      "supunere"
+    ]
+  },
+  "elkenyelmesedes": {
+    "name": "comoditate",
+    "forms": [
+      "comod",
+      "comodă",
+      "moliciune",
+      "a se lăsa pe tânjală"
+    ]
+  },
+  "erzelgosseg": {
+    "name": "sentimentalism",
+    "forms": [
+      "sentimental",
+      "sentimentală",
+      "siropos",
+      "dulceag"
+    ]
+  },
+  "halatlansag": {
+    "name": "nerecunoștință",
+    "forms": [
+      "nerecunoscător",
+      "nerecunoscătoare"
+    ]
+  },
+  "iszakossag": {
+    "name": "beție",
+    "forms": [
+      "băutură",
+      "a bea",
+      "bețiv",
+      "alcool",
+      "alcoolism"
+    ]
+  },
+  "almodozas": {
+    "name": "visare",
+    "forms": [
+      "visător",
+      "visătoare",
+      "a visa cu ochii deschiși",
+      "a fantaza",
+      "cu capul în nori"
+    ]
+  },
+  "panaszkodas": {
+    "name": "văicăreală",
+    "forms": [
+      "a se plânge",
+      "văicăreț",
+      "a se văicări",
+      "smiorcăială"
+    ]
+  },
+  "megalkuvas": {
+    "name": "oportunism",
+    "forms": [
+      "oportunist",
+      "oportunistă",
+      "a face compromisuri",
+      "a se vinde"
+    ]
+  },
+  "kapzsisag": {
+    "name": "avariție",
+    "forms": [
+      "avar",
+      "avară",
+      "zgârcenie",
+      "zgârcit",
+      "zgârcită",
+      "cărpănos",
+      "hrăpăreț"
+    ]
+  },
+  "merevseg": {
+    "name": "rigiditate",
+    "forms": [
+      "rigid",
+      "rigidă",
+      "inflexibilitate",
+      "inflexibil",
+      "intransigență",
+      "intransigent"
+    ]
+  },
+  "pesszimizmus": {
+    "name": "pesimism",
+    "forms": [
+      "pesimist",
+      "pesimistă",
+      "negativism",
+      "a vedea totul în negru"
+    ]
+  },
+  "halogatas": {
+    "name": "amânare",
+    "forms": [
+      "a amâna",
+      "procrastinare",
+      "a lăsa pe mâine"
+    ]
+  },
+  "aggodalmaskodas": {
+    "name": "îngrijorare excesivă",
+    "forms": [
+      "a se îngrijora",
+      "îngrijorat",
+      "îngrijorată",
+      "frământare"
+    ]
+  },
+  "bizalmatlansag": {
+    "name": "neîncredere",
+    "forms": [
+      "neîncrezător",
+      "neîncrezătoare",
+      "suspiciune",
+      "suspicios",
+      "bănuială"
+    ]
+  },
+  "zarkozottsag": {
+    "name": "închidere în sine",
+    "forms": [
+      "închis",
+      "închisă",
+      "retras",
+      "retrasă",
+      "introvertit"
+    ]
+  },
+  "ertetlenseg": {
+    "name": "neînțelegere",
+    "forms": [
+      "a nu pricepe",
+      "greu de cap",
+      "obtuzitate",
+      "obtuz"
+    ]
+  },
+  "ugyetlenseg": {
+    "name": "stângăcie",
+    "forms": [
+      "stângaci",
+      "stângace",
+      "neîndemânare",
+      "neîndemânatic",
+      "împiedicat"
+    ]
+  },
+  "elegedetlenseg": {
+    "name": "nemulțumire",
+    "forms": [
+      "nemulțumit",
+      "nemulțumită",
+      "cârteală",
+      "a cârti",
+      "bombăneală"
+    ]
+  },
+  "kicsinyesseg": {
+    "name": "meschinărie",
+    "forms": [
+      "meschin",
+      "meschină",
+      "cârcotaș",
+      "despicarea firului în patru"
+    ]
+  },
+  "haszonleses": {
+    "name": "interes propriu",
+    "forms": [
+      "interesat",
+      "calculat",
+      "materialism",
+      "materialist"
+    ]
+  },
+  "onzes": {
+    "name": "egoism",
+    "forms": [
+      "egoist",
+      "egoistă",
+      "egocentric"
+    ]
+  },
+  "szigorusag": {
+    "name": "severitate",
+    "forms": [
+      "sever",
+      "severă",
+      "asprime față de alții",
+      "rigoare"
+    ]
+  },
+  "maradisag": {
+    "name": "înapoiere",
+    "forms": [
+      "retrograd",
+      "retrogradă",
+      "învechit",
+      "demodat",
+      "încremenit"
+    ]
+  },
+  "mogorvasag": {
+    "name": "posăceală",
+    "forms": [
+      "posac",
+      "posacă",
+      "morocănos",
+      "morocănoasă",
+      "ursuz",
+      "proastă dispoziție"
+    ]
+  },
+  "elkeseredettseg": {
+    "name": "deznădejde",
+    "forms": [
+      "deznădăjduit",
+      "disperare",
+      "disperat",
+      "amărăciune",
+      "amărât"
+    ]
+  },
+  "ragaszkodas": {
+    "name": "atașament",
+    "forms": [
+      "posesivitate",
+      "posesiv",
+      "posesivă",
+      "a se agăța"
+    ]
+  },
+  "szuklatokoruseg": {
+    "name": "îngustime la minte",
+    "forms": [
+      "îngust la minte",
+      "mărginire",
+      "mărginit",
+      "limitat"
+    ]
+  },
+  "nagylelkuseg": {
+    "name": "generozitate",
+    "forms": [
+      "generos",
+      "generoasă",
+      "dărnicie",
+      "darnic"
+    ]
+  },
+  "kezdemenyezokeszseg": {
+    "name": "spirit de inițiativă",
+    "forms": [
+      "inițiativă",
+      "întreprinzător",
+      "întreprinzătoare",
+      "proactiv"
+    ]
+  },
+  "onbizalom": {
+    "name": "încredere în sine",
+    "forms": [
+      "siguranță de sine",
+      "sigur pe sine",
+      "sigură pe sine"
+    ]
+  },
+  "tettrekeszseg": {
+    "name": "disponibilitate de a acționa",
+    "forms": [
+      "gata de faptă",
+      "a se apuca de treabă",
+      "a-și sufleca mânecile"
+    ]
+  },
+  "eletero": {
+    "name": "vitalitate",
+    "forms": [
+      "forță vitală",
+      "poftă de viață",
+      "energie",
+      "energic",
+      "vigoare"
+    ]
+  },
+  "nagyvonalusag": {
+    "name": "mărinimie",
+    "forms": [
+      "mărinimos",
+      "mărinimoasă",
+      "suflet mare",
+      "larg la inimă"
+    ]
+  },
+  "akaratero": {
+    "name": "putere de voință",
+    "forms": [
+      "voință",
+      "voință fermă"
+    ]
+  },
+  "melegszivuseg": {
+    "name": "inimă caldă",
+    "forms": [
+      "cald la suflet",
+      "afectuozitate",
+      "căldură"
+    ]
+  },
+  "hosiesseg": {
+    "name": "eroism",
+    "forms": [
+      "erou",
+      "eroic",
+      "eroină"
+    ]
+  },
+  "oszinteseg": {
+    "name": "sinceritate",
+    "forms": [
+      "sincer",
+      "sinceră",
+      "onestitate",
+      "onest",
+      "franchețe"
+    ]
+  },
+  "humor": {
+    "name": "umor",
+    "forms": [
+      "plin de umor",
+      "amuzant",
+      "spiritual",
+      "haz",
+      "glumeț"
+    ]
+  },
+  "segitokeszseg": {
+    "name": "spirit de întrajutorare",
+    "forms": [
+      "săritor",
+      "săritoare",
+      "a ajuta",
+      "serviabil"
+    ]
+  },
+  "kozlekenyseg": {
+    "name": "comunicativitate",
+    "forms": [
+      "comunicativ",
+      "comunicativă",
+      "expansiv"
+    ]
+  },
+  "nyitottsag": {
+    "name": "deschidere",
+    "forms": [
+      "deschis",
+      "deschisă",
+      "minte deschisă",
+      "interes",
+      "curiozitate",
+      "curios"
+    ]
+  },
+  "figyelmesseg": {
+    "name": "atenție",
+    "forms": [
+      "atent",
+      "atentă",
+      "grijă față de alții",
+      "considerație"
+    ]
+  },
+  "tapintat": {
+    "name": "tact",
+    "forms": [
+      "plin de tact",
+      "diplomație",
+      "diplomatic",
+      "finețe"
+    ]
+  },
+  "furgeseg": {
+    "name": "agilitate",
+    "forms": [
+      "agil",
+      "agilă",
+      "iuțeală",
+      "sprinten",
+      "sprintenă"
+    ]
+  },
+  "konnyedseg": {
+    "name": "ușurință",
+    "forms": [
+      "dezinvoltură",
+      "natural",
+      "fără efort"
+    ]
+  },
+  "deru": {
+    "name": "seninătate",
+    "forms": [
+      "senin",
+      "senină",
+      "luminozitate"
+    ]
+  },
+  "tanulekonysag": {
+    "name": "dorința de a învăța",
+    "forms": [
+      "a învăța",
+      "sete de cunoaștere",
+      "învață repede"
+    ]
+  },
+  "lelemenyesseg": {
+    "name": "ingeniozitate",
+    "forms": [
+      "ingenios",
+      "ingenioasă",
+      "descurcăreț",
+      "descurcăreață",
+      "plin de idei"
+    ]
+  },
+  "kiegyensulyozottsag": {
+    "name": "echilibru",
+    "forms": [
+      "echilibrat",
+      "echilibrată",
+      "armonie",
+      "echilibru interior",
+      "cumpănă"
+    ]
+  },
+  "egyuttmukodes": {
+    "name": "cooperare",
+    "forms": [
+      "cooperant",
+      "colaborare",
+      "a colabora",
+      "spirit de echipă"
+    ]
+  },
+  "bolcsesseg": {
+    "name": "înțelepciune",
+    "forms": [
+      "înțelept",
+      "înțeleaptă",
+      "discernământ"
+    ]
+  },
+  "masok_szabadsaganak_tisztelete": {
+    "name": "respectarea libertății altora",
+    "forms": [
+      "a da libertate",
+      "a-i lăsa pe alții să fie",
+      "a respecta voința altora",
+      "a respecta alegerile altora"
+    ]
+  },
+  "hala": {
+    "name": "recunoștință",
+    "forms": [
+      "recunoscător",
+      "recunoscătoare",
+      "a mulțumi"
+    ]
+  },
+  "joindulat": {
+    "name": "bunăvoință",
+    "forms": [
+      "binevoitor",
+      "binevoitoare",
+      "bune intenții"
+    ]
+  },
+  "szelidseg": {
+    "name": "blândețe",
+    "forms": [
+      "blând",
+      "blândă",
+      "dulceață"
+    ]
+  },
+  "szeretet": {
+    "name": "iubire",
+    "forms": [
+      "iubitor",
+      "iubitoare",
+      "dragoste",
+      "afecțiune",
+      "a iubi"
+    ]
+  },
+  "megbocsatas": {
+    "name": "iertare",
+    "forms": [
+      "a ierta",
+      "iertător",
+      "iertătoare"
+    ]
+  },
+  "bekulekenyseg": {
+    "name": "spirit împăciuitor",
+    "forms": [
+      "împăciuitor",
+      "împăciuitoare",
+      "împăcare",
+      "pașnic",
+      "iubitor de pace"
+    ]
+  },
+  "alazat": {
+    "name": "smerenie",
+    "forms": [
+      "smerit",
+      "smerită",
+      "umilință",
+      "umil"
+    ]
+  },
+  "elfogadas": {
+    "name": "acceptare",
+    "forms": [
+      "a accepta",
+      "a primi",
+      "primitor",
+      "primitoare"
+    ]
+  },
+  "elnezes": {
+    "name": "îngăduință",
+    "forms": [
+      "îngăduitor",
+      "îngăduitoare",
+      "toleranță",
+      "tolerant",
+      "înțelegător"
+    ]
+  },
+  "onzetlenseg": {
+    "name": "altruism",
+    "forms": [
+      "altruist",
+      "altruistă",
+      "dezinteres",
+      "lepădare de sine"
+    ]
+  },
+  "emberszeretet": {
+    "name": "iubire de oameni",
+    "forms": [
+      "filantropie",
+      "filantrop",
+      "omenie",
+      "caritate"
+    ]
+  },
+  "megelegedettseg": {
+    "name": "mulțumire",
+    "forms": [
+      "mulțumit",
+      "mulțumită",
+      "împăcare cu sine",
+      "satisfacție"
+    ]
+  },
+  "elengedes": {
+    "name": "detașare",
+    "forms": [
+      "a da drumul",
+      "a lăsa să plece",
+      "a elibera"
+    ]
+  },
+  "remenyseg": {
+    "name": "speranță",
+    "forms": [
+      "plin de speranță",
+      "nădejde",
+      "a spera"
+    ]
+  },
+  "johiszemuseg": {
+    "name": "bună-credință",
+    "forms": [
+      "cu bună-credință",
+      "fără răutate",
+      "candoare"
+    ]
+  },
+  "turelem": {
+    "name": "răbdare",
+    "forms": [
+      "răbdător",
+      "răbdătoare",
+      "a ști să aștepți",
+      "îndelungă-răbdare"
+    ]
+  },
+  "megbizhatosag": {
+    "name": "fiabilitate",
+    "forms": [
+      "de încredere",
+      "de nădejde",
+      "om de cuvânt"
+    ]
+  },
+  "rendszeretet": {
+    "name": "iubire de ordine",
+    "forms": [
+      "ordonat",
+      "ordonată",
+      "ordine",
+      "organizat"
+    ]
+  },
+  "becsuletesseg": {
+    "name": "cinste",
+    "forms": [
+      "cinstit",
+      "cinstită",
+      "onoare",
+      "integritate",
+      "integru",
+      "corectitudine"
+    ]
+  },
+  "takarekossag": {
+    "name": "spirit de economie",
+    "forms": [
+      "econom",
+      "econoamă",
+      "a economisi",
+      "cumpătare la cheltuieli"
+    ]
+  },
+  "megbecsules": {
+    "name": "prețuire",
+    "forms": [
+      "a prețui",
+      "apreciere",
+      "a aprecia",
+      "stimă"
+    ]
+  },
+  "diszkrecio": {
+    "name": "discreție",
+    "forms": [
+      "discret",
+      "discretă",
+      "păstrarea secretelor",
+      "tăcere"
+    ]
+  },
+  "onfegyelem": {
+    "name": "autodisciplină",
+    "forms": [
+      "disciplinat",
+      "disciplinată",
+      "autocontrol",
+      "stăpânire de sine"
+    ]
+  },
+  "onbecsules": {
+    "name": "respect de sine",
+    "forms": [
+      "demnitate",
+      "stimă de sine",
+      "amor propriu"
+    ]
+  },
+  "huseg": {
+    "name": "fidelitate",
+    "forms": [
+      "fidel",
+      "fidelă",
+      "credincios",
+      "credincioasă",
+      "loialitate",
+      "loial"
+    ]
+  },
+  "egyszeruseg": {
+    "name": "simplitate",
+    "forms": [
+      "simplu",
+      "simplă",
+      "naturalețe"
+    ]
+  },
+  "gondossag": {
+    "name": "grijă",
+    "forms": [
+      "grijuliu",
+      "grijulie",
+      "atenție la detalii",
+      "migală"
+    ]
+  },
+  "szilardsag": {
+    "name": "tărie",
+    "forms": [
+      "solid",
+      "solidă",
+      "stabilitate",
+      "stabil",
+      "neclintit"
+    ]
+  },
+  "kotelessegtudat": {
+    "name": "simțul datoriei",
+    "forms": [
+      "datorie",
+      "îndatorire",
+      "conștient de datorie"
+    ]
+  },
+  "kovetkezetesseg": {
+    "name": "consecvență",
+    "forms": [
+      "consecvent",
+      "consecventă",
+      "coerență",
+      "coerent"
+    ]
+  },
+  "munkabiras": {
+    "name": "putere de muncă",
+    "forms": [
+      "neobosit",
+      "neobosită",
+      "rezistență la efort",
+      "muncitor"
+    ]
+  },
+  "igazsagossag": {
+    "name": "dreptate",
+    "forms": [
+      "drept",
+      "dreaptă",
+      "echitate",
+      "echitabil",
+      "corect"
+    ]
+  },
+  "gyakorlatiassag": {
+    "name": "simț practic",
+    "forms": [
+      "practic",
+      "practică",
+      "pragmatism",
+      "pragmatic",
+      "realism"
+    ]
+  },
+  "tervszeruseg": {
+    "name": "planificare",
+    "forms": [
+      "planificat",
+      "a planifica",
+      "metodic",
+      "metodă",
+      "sistematic"
+    ]
+  }
+}

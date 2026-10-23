@@ -307,7 +307,7 @@ export function MirrorView({ locale, userId, data, words, elements }: MirrorView
       {/* Elements */}
       <section className="space-y-2 rounded-2xl border border-border/50 bg-card/30 p-4">
         <p className="text-xs text-muted-foreground">
-          {t('elementsTitle', { mirror: t(mirror === 'fekete' ? 'black' : 'white').toLowerCase() })}
+          {t(mirror === 'fekete' ? 'elementsBlack' : 'elementsWhite')}
           {balance.dominant && (
             <>
               {' · '}

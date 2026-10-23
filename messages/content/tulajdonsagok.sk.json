@@ -1,0 +1,2260 @@
+{
+  "torkossag": {
+    "name": "maškrtnosť",
+    "forms": [
+      "maškrtný",
+      "obžerstvo",
+      "obžerný",
+      "prejedanie",
+      "mlsanie"
+    ],
+    "q": "Jedol/a si alebo mlsal/a aj bez hladu?"
+  },
+  "feltekenyseg": {
+    "name": "žiarlivosť",
+    "forms": [
+      "žiarlivý",
+      "žiarliť"
+    ],
+    "q": "Bál/a si sa o pozornosť alebo lásku niekoho, bolelo ťa, že sa venuje inému?"
+  },
+  "fuggoseg": {
+    "name": "závislosť",
+    "forms": [
+      "závislý",
+      "návyk",
+      "fajčenie",
+      "závislosť od mobilu"
+    ],
+    "q": "Bolo niečo (jedlo, pitie, cigareta, mobil), bez čoho sa ti ťažko vydržalo?"
+  },
+  "izgagasag": {
+    "name": "neposednosť",
+    "forms": [
+      "neposedný",
+      "vrtenie sa",
+      "nevydrží sedieť"
+    ],
+    "q": "Ťažko sa ti dalo upokojiť, súril/a si druhých alebo seba?"
+  },
+  "veszekedosseg": {
+    "name": "hašterivosť",
+    "forms": [
+      "hašterivý",
+      "hádka",
+      "hádať sa",
+      "škriepky",
+      "zvada"
+    ],
+    "q": "Pichal/a si do druhých, hľadal/a si hádku pre maličkosti?"
+  },
+  "mertektelenseg": {
+    "name": "nestriedmosť",
+    "forms": [
+      "nestriedmy",
+      "neviazanosť",
+      "prehnanosť",
+      "preháňať"
+    ],
+    "q": "Nevedel/a si prestať včas: pri jedle, práci, nakupovaní, zábave?"
+  },
+  "pusztito_kedv": {
+    "name": "ničivosť",
+    "forms": [
+      "ničivý",
+      "ničenie",
+      "rozbíjanie",
+      "trieskanie dverami",
+      "deštrukcia"
+    ],
+    "q": "Mal/a si chuť tresknúť, ničiť, niečo rozbiť, keď v tebe bolo napätie?"
+  },
+  "indulatossag": {
+    "name": "prchkosť",
+    "forms": [
+      "prchký",
+      "výbušnosť",
+      "výbušný",
+      "vznetlivosť",
+      "vznetlivý"
+    ],
+    "q": "Vybuchol/a si náhle, skôr než si premyslel/a, čo povieš?"
+  },
+  "harag": {
+    "name": "hnev",
+    "forms": [
+      "nahnevaný",
+      "zlosť",
+      "zlostný",
+      "jed",
+      "zúrivosť"
+    ],
+    "q": "Hneval/a si sa na niekoho a zostalo to v tebe?"
+  },
+  "gyulolet": {
+    "name": "nenávisť",
+    "forms": [
+      "nenávidieť",
+      "nenávistný",
+      "odpor"
+    ],
+    "q": "Myslel/a si na niekoho nepriateľsky, prial/a si mu zlé?"
+  },
+  "bosszuvagy": {
+    "name": "pomstychtivosť",
+    "forms": [
+      "pomsta",
+      "pomstiť sa",
+      "pomstychtivý",
+      "odplata"
+    ],
+    "q": "Premýšľal/a si, ako vrátiť krivdu?"
+  },
+  "sertodottseg": {
+    "name": "urážlivosť",
+    "forms": [
+      "urazený",
+      "dotknutý",
+      "trucovanie",
+      "trucovať"
+    ],
+    "q": "Ranila ťa poznámka a trucoval/a si kvôli nej?"
+  },
+  "lenezes": {
+    "name": "povýšenosť",
+    "forms": [
+      "povýšený",
+      "zhadzovanie",
+      "zhadzovať",
+      "nadradenosť"
+    ],
+    "q": "Cítil/a si sa nad niekým, hovoril/a alebo myslel/a si o ňom povýšenecky?"
+  },
+  "pletykalkodas": {
+    "name": "klebetenie",
+    "forms": [
+      "klebeta",
+      "klebetný",
+      "klebetiť",
+      "ohováranie",
+      "ohovárať"
+    ],
+    "q": "Hovoril/a si o niekom za jeho chrbtom, šíril/a si, čo ti neprislúcha?"
+  },
+  "kitartas_hianya": {
+    "name": "nedostatok vytrvalosti",
+    "forms": [
+      "vzdať sa",
+      "ľahko sa vzdáva",
+      "nevytrvalosť",
+      "nevytrvalý"
+    ],
+    "q": "Vzdal/a si to rýchlo, lebo niečo bolo ťažšie alebo trvalo dlhšie, než si čakal/a?"
+  },
+  "ravaszsag": {
+    "name": "prefíkanosť",
+    "forms": [
+      "prefíkaný",
+      "ľstivý",
+      "lesť",
+      "úskok",
+      "intriga",
+      "intrigovať"
+    ],
+    "q": "Snažil/a si sa niečo dosiahnuť oklukou, ľsťou, nie otvorene?"
+  },
+  "fecseges": {
+    "name": "táranie",
+    "forms": [
+      "tárať",
+      "táravý",
+      "tliachanie",
+      "kecanie",
+      "ukecaný"
+    ],
+    "q": "Hovoril/a si viac, než bolo treba, aj zbytočné veci?"
+  },
+  "becstelenseg": {
+    "name": "nečestnosť",
+    "forms": [
+      "nečestný",
+      "podvod",
+      "podvádzať",
+      "švindľovať"
+    ],
+    "q": "Konal/a si nečestne, podvádzal/a alebo si niekoho vo svoj prospech oklamal/a?"
+  },
+  "valtakozosag": {
+    "name": "premenlivosť",
+    "forms": [
+      "premenlivý",
+      "nevypočítateľnosť",
+      "nevypočítateľný",
+      "striedavosť"
+    ],
+    "q": "Kmital/a si sem a tam, často si menil/a rozhodnutia alebo náladu?"
+  },
+  "konnyelmuseg": {
+    "name": "ľahkomyseľnosť",
+    "forms": [
+      "ľahkomyseľný",
+      "hazardovanie",
+      "riskovať"
+    ],
+    "q": "Ľahkomyseľne si niečo sľúbil/a, minul/a alebo riskoval/a?"
+  },
+  "kerkedes": {
+    "name": "chvastúnstvo",
+    "forms": [
+      "chvastať sa",
+      "vychvaľovať sa",
+      "vystatovanie",
+      "machrovanie"
+    ],
+    "q": "Vychvaľoval/a si sa, aby k tebe ostatní vzhliadali?"
+  },
+  "ontulbecsules": {
+    "name": "preceňovanie sa",
+    "forms": [
+      "namyslenosť",
+      "namyslený",
+      "domýšľavosť",
+      "domýšľavý",
+      "nafúkanosť"
+    ],
+    "q": "Videl/a si sa ako viac, než naozaj vieš alebo robíš?"
+  },
+  "pazarlas": {
+    "name": "márnotratnosť",
+    "forms": [
+      "márnotratný",
+      "plytvanie",
+      "plytvať",
+      "mrhanie časom"
+    ],
+    "q": "Premrhal/a si peniaze, čas alebo niečo cenné zbytočne?"
+  },
+  "kozombosseg": {
+    "name": "ľahostajnosť",
+    "forms": [
+      "ľahostajný",
+      "apatia",
+      "nezáujem",
+      "je mi to jedno"
+    ],
+    "q": "Boli ti ľahostajné starosti druhých alebo spoločná vec?"
+  },
+  "levertseg": {
+    "name": "skleslosť",
+    "forms": [
+      "skleslý",
+      "skľúčenosť",
+      "skľúčený",
+      "bez nálady",
+      "depka"
+    ],
+    "q": "Bola nálada na dne a ťažko sa z toho dostávalo?"
+  },
+  "szegyenlosseg": {
+    "name": "hanblivosť",
+    "forms": [
+      "hanblivý",
+      "nesmelosť",
+      "nesmelý",
+      "ostýchavosť",
+      "ostýchavý"
+    ],
+    "q": "Stiahol/stiahla si sa, netrúfal/a si sa ozvať alebo sa zastať?"
+  },
+  "reszvetlenseg": {
+    "name": "nezúčastnenosť",
+    "forms": [
+      "nedostatok súcitu",
+      "necitlivosť k druhým",
+      "nedotknutý utrpením"
+    ],
+    "q": "Videl/a si, že je niekomu ťažko, a nedotklo sa ťa to?"
+  },
+  "csokonyosseg": {
+    "name": "tvrdohlavosť",
+    "forms": [
+      "tvrdohlavý",
+      "zaťatosť",
+      "zaťatý",
+      "paličatosť",
+      "paličatý"
+    ],
+    "q": "Tvrdohlavo si trval/a na svojom, aj keď si mohol/mohla vidieť, že nemáš pravdu?"
+  },
+  "renyheseg": {
+    "name": "malátnosť",
+    "forms": [
+      "malátny",
+      "ochablosť",
+      "ochabnutý",
+      "zotrvačnosť"
+    ],
+    "q": "Bol deň malátny, bez energie, a ťažko sa ti do niečoho púšťalo?"
+  },
+  "koszivuseg": {
+    "name": "bezcitnosť",
+    "forms": [
+      "bezcitný",
+      "kamenné srdce",
+      "necitlivosť",
+      "necitlivý"
+    ],
+    "q": "Správal/a si sa tvrdo alebo chladne k niekomu, kto potreboval tvoje teplo?"
+  },
+  "tulzott_engedekenyseg": {
+    "name": "prílišná povoľnosť",
+    "forms": [
+      "povoľnosť",
+      "povoľný",
+      "mäkkosť",
+      "nevie povedať nie"
+    ],
+    "q": "Nechal/a si niečo prejsť, hoci si mal/a povedať nie?"
+  },
+  "akaratossag": {
+    "name": "svojhlavosť",
+    "forms": [
+      "svojhlavý",
+      "presadzovať sa",
+      "svojvôľa"
+    ],
+    "q": "Chcel/a si za každú cenu presadiť svoju vôľu?"
+  },
+  "ingatagsag": {
+    "name": "nestálosť",
+    "forms": [
+      "nestály",
+      "vratkosť",
+      "kolísavosť",
+      "dať sa zviklať"
+    ],
+    "q": "Ľahko ťa zviklali, pod vplyvom druhých si ustúpil/a od toho, čo si si predsavzal/a?"
+  },
+  "flegmasag": {
+    "name": "flegma",
+    "forms": [
+      "flegmatický",
+      "mávnuť rukou",
+      "bohorovnosť"
+    ],
+    "q": "Mávol/mávla si rukou nad niečím, čo bolo pritom dôležité?"
+  },
+  "unalmas": {
+    "name": "nudnosť",
+    "forms": [
+      "nudný",
+      "nuda",
+      "jednotvárnosť",
+      "jednotvárny",
+      "znudený"
+    ],
+    "q": "Boli tvoje rozhovory jednotvárne a šedé, bez toho, aby si do nich vložil/a niečo zo seba?"
+  },
+  "hanyagsag": {
+    "name": "nedbalosť",
+    "forms": [
+      "nedbalý",
+      "fušovanie",
+      "lajdáctvo",
+      "lajdácky",
+      "šlendriánstvo"
+    ],
+    "q": "Zanedbal/a si nejakú úlohu, urobil/a si ju napoly alebo zle?"
+  },
+  "megvetes": {
+    "name": "pohŕdanie",
+    "forms": [
+      "pohŕdať",
+      "pohŕdavý",
+      "opovrhovanie",
+      "znevažovanie"
+    ],
+    "q": "Myslel/a si na niekoho s pohŕdaním, považoval/a si ho za nehodného svojej pozornosti?"
+  },
+  "emberiszonya_van": {
+    "name": "odpor k ľuďom",
+    "forms": [
+      "mizantropia",
+      "mizantrop",
+      "vyhýbanie sa ľuďom",
+      "nespoločenský"
+    ],
+    "q": "Vyhýbal/a si sa ľuďom, bola ti ich spoločnosť na ťarchu?"
+  },
+  "lassusag": {
+    "name": "pomalosť",
+    "forms": [
+      "pomalý",
+      "vliecť sa",
+      "zdĺhavosť",
+      "zdĺhavý"
+    ],
+    "q": "Postupoval/a si pomaly, ťahavo, aj keď si sa mal/a ponáhľať?"
+  },
+  "nehezkes": {
+    "name": "ťažkopádnosť",
+    "forms": [
+      "ťažkopádny",
+      "zložitosť",
+      "komplikovanosť"
+    ],
+    "q": "Ťažko si sa rozbiehal/a, ťažko si sa prispôsoboval/a nečakanej situácii?"
+  },
+  "lustasag": {
+    "name": "lenivosť",
+    "forms": [
+      "lenivý",
+      "záhaľka",
+      "lenošiť",
+      "flákať sa"
+    ],
+    "q": "Vyhýbal/a si sa práci a námahe, lebo sa ti nechcelo?"
+  },
+  "megbizhatatlan": {
+    "name": "nespoľahlivosť",
+    "forms": [
+      "nespoľahlivý",
+      "nechať v štichu",
+      "nedodržať slovo"
+    ],
+    "q": "Nedodržal/a si, čo si sľúbil/a, nechal/a si niekoho v štichu?"
+  },
+  "szofukar": {
+    "name": "málovravnosť",
+    "forms": [
+      "málovravný",
+      "skúpy na slová",
+      "mlčanlivý",
+      "strohý"
+    ],
+    "q": "Šetril/a si slovami aj tam, kde by pomohlo milé alebo vysvetľujúce slovo?"
+  },
+  "lelkiismeretlenseg": {
+    "name": "nesvedomitosť",
+    "forms": [
+      "nesvedomitý",
+      "bez škrupúľ",
+      "bezškrupulóznosť"
+    ],
+    "q": "Vedel/a si, že niečo nie je správne, a predsa si to urobil/a?"
+  },
+  "buskomorsag": {
+    "name": "melanchólia",
+    "forms": [
+      "melancholický",
+      "smútok",
+      "smutný",
+      "zádumčivosť",
+      "chmúrnosť"
+    ],
+    "q": "Ovládli tvoj deň pochmúrne, ťažké myšlienky?"
+  },
+  "rendszertelenseg": {
+    "name": "neporiadnosť",
+    "forms": [
+      "neporiadny",
+      "neporiadok",
+      "chaos",
+      "chaotický",
+      "bez plánu"
+    ],
+    "q": "Prešiel ti deň bez plánu, chaoticky, nechal/a si veci v neporiadku?"
+  },
+  "aktivitas": {
+    "name": "aktivita",
+    "forms": [
+      "aktívny",
+      "činorodosť",
+      "činorodý",
+      "elán"
+    ],
+    "q": "Urobil/a si svoju časť bez čakania, kým začne niekto iný?"
+  },
+  "lelkesedes": {
+    "name": "nadšenie",
+    "forms": [
+      "nadšený",
+      "zápal",
+      "zanietenie",
+      "zanietený"
+    ],
+    "q": "Pustil/a si sa do toho, čo si robil/a, s radosťou a zápalom?"
+  },
+  "elhatarozottsag": {
+    "name": "odhodlanosť",
+    "forms": [
+      "odhodlaný",
+      "odhodlanie",
+      "pevné predsavzatie"
+    ],
+    "q": "Vydržal/a si pri tom, čo si si predsavzal/a?"
+  },
+  "mereszseg": {
+    "name": "smelosť",
+    "forms": [
+      "smelý",
+      "odvážnosť",
+      "podnikavosť",
+      "podnikavý"
+    ],
+    "q": "Pustil/a si sa do niečoho, čoho si sa obával/a?"
+  },
+  "alkotoero": {
+    "name": "tvorivá sila",
+    "forms": [
+      "tvorivosť",
+      "tvorivý",
+      "kreativita",
+      "kreatívny",
+      "tvoriť"
+    ],
+    "q": "Vytvoril/a si niečo nové: nápad, predmet, riešenie?"
+  },
+  "torekves": {
+    "name": "úsilie",
+    "forms": [
+      "snaha",
+      "snaživý",
+      "usilovať sa",
+      "ašpirácia"
+    ],
+    "q": "Urobil/a si dnes niečo pre cieľ, na ktorom ti záleží?"
+  },
+  "szenvedelyes": {
+    "name": "vášnivosť",
+    "forms": [
+      "vášnivý",
+      "vášeň",
+      "oddanosť",
+      "plné nasadenie"
+    ],
+    "q": "Robil/a si niečo s plným nasadením, s vášňou?"
+  },
+  "batorsag": {
+    "name": "odvaha",
+    "forms": [
+      "odvážny",
+      "statočnosť",
+      "statočný",
+      "zastať sa"
+    ],
+    "q": "Zastal/a si sa niečoho alebo niekoho napriek strachu?"
+  },
+  "allhatatossag": {
+    "name": "stálosť",
+    "forms": [
+      "stály",
+      "neochvejnosť",
+      "neochvejný",
+      "vernosť ceste"
+    ],
+    "q": "Zostal/a si na zvolenej ceste, aj keď ťa lákalo niečo iné?"
+  },
+  "szorgalom": {
+    "name": "usilovnosť",
+    "forms": [
+      "usilovný",
+      "pracovitosť",
+      "pracovitý",
+      "snaživosť"
+    ],
+    "q": "Pracoval/a si vytrvalo a s chuťou, aj keď sa nikto nepozeral?"
+  },
+  "orom": {
+    "name": "radosť",
+    "forms": [
+      "radostný",
+      "potešenie",
+      "šťastie"
+    ],
+    "q": "Zažil/a si čistú radosť z niečoho jednoduchého?"
+  },
+  "jartassag": {
+    "name": "zručnosť",
+    "forms": [
+      "zručný",
+      "šikovnosť",
+      "šikovný",
+      "odbornosť",
+      "skúsenosť"
+    ],
+    "q": "Vyriešil/a si niečo šikovne, s odbornosťou?"
+  },
+  "joszivuseg": {
+    "name": "dobrosrdečnosť",
+    "forms": [
+      "dobrosrdečný",
+      "dobrota",
+      "dobré srdce"
+    ],
+    "q": "Urobil/a si niekomu nezištne dobro?"
+  },
+  "vilagos": {
+    "name": "jasnosť",
+    "forms": [
+      "jasný",
+      "jasné myslenie",
+      "priezračnosť"
+    ],
+    "q": "Videl/a si situáciu jasne a vyjadril/a si sa zrozumiteľne?"
+  },
+  "gondtalan": {
+    "name": "bezstarostnosť",
+    "forms": [
+      "bezstarostný",
+      "ľahké srdce",
+      "bez obáv"
+    ],
+    "q": "Prežil/a si deň s ľahkým srdcom, bez starostí?"
+  },
+  "vidam": {
+    "name": "veselosť",
+    "forms": [
+      "veselý",
+      "dobrá nálada",
+      "rozjarenosť",
+      "žoviálnosť"
+    ],
+    "q": "Mal/a si dobrú náladu a nakazil/a si ňou aj druhých?"
+  },
+  "optimizmus": {
+    "name": "optimizmus",
+    "forms": [
+      "optimistický",
+      "optimista",
+      "dôvera v budúcnosť",
+      "pozitívne myslenie"
+    ],
+    "q": "Veril/a si, že sa veci dobre vyvinú, a hľadal/a si v nich dobré?"
+  },
+  "elenkseg": {
+    "name": "živosť",
+    "forms": [
+      "živý",
+      "sviežosť",
+      "svieži",
+      "čulosť",
+      "čulý"
+    ],
+    "q": "Bolo tvoje telo a myslenie svieže a pohyblivé?"
+  },
+  "fuggetlenseg": {
+    "name": "nezávislosť",
+    "forms": [
+      "nezávislý",
+      "samostatnosť",
+      "samostatný"
+    ],
+    "q": "Rozhodol/rozhodla si sa podľa vlastného úsudku, nie pod tlakom druhých?"
+  },
+  "eberseg": {
+    "name": "bdelosť",
+    "forms": [
+      "bdelý",
+      "ostražitosť",
+      "ostražitý",
+      "byť v strehu"
+    ],
+    "q": "Všímal/a si si, čo sa deje okolo teba aj v tebe?"
+  },
+  "kedvesseg": {
+    "name": "láskavosť",
+    "forms": [
+      "láskavý",
+      "priateľskosť",
+      "priateľský",
+      "srdečnosť",
+      "srdečný"
+    ],
+    "q": "Správal/a si sa k ľuďom priateľsky a vrúcne?"
+  },
+  "bizalom": {
+    "name": "dôvera",
+    "forms": [
+      "dôverčivý",
+      "dôverovať",
+      "viera v druhých"
+    ],
+    "q": "Dôveroval/a si niekomu bez hľadania postranných úmyslov?"
+  },
+  "irgalmassag": {
+    "name": "milosrdenstvo",
+    "forms": [
+      "milosrdný",
+      "zľutovanie",
+      "milosť"
+    ],
+    "q": "Prejavil/a si milosrdenstvo voči niekomu, kto pochybil alebo bol v núdzi?"
+  },
+  "szerenyseg": {
+    "name": "skromnosť",
+    "forms": [
+      "skromný",
+      "zdržanlivosť",
+      "nenápadnosť"
+    ],
+    "q": "Netlačil/a si sa do popredia a nechal/a si zažiariť aj druhých?"
+  },
+  "megadas": {
+    "name": "odovzdanosť",
+    "forms": [
+      "odovzdať sa",
+      "prijatie osudu",
+      "nechať tak"
+    ],
+    "q": "Prijal/a si, čo sa nedalo zmeniť, bez vnútorného boja?"
+  },
+  "alkalmazkodokeszseg": {
+    "name": "prispôsobivosť",
+    "forms": [
+      "prispôsobivý",
+      "prispôsobiť sa",
+      "flexibilita",
+      "flexibilný"
+    ],
+    "q": "Prispôsobil/a si sa pružne novej situácii alebo potrebám druhých?"
+  },
+  "buzgosag": {
+    "name": "horlivosť",
+    "forms": [
+      "horlivý",
+      "vrúcnosť",
+      "zbožnosť"
+    ],
+    "q": "Robil/a si svoje cvičenia a úlohy s vnútornou oddanosťou a vernosťou?"
+  },
+  "bensosegesseg": {
+    "name": "dôvernosť",
+    "forms": [
+      "dôverný",
+      "blízkosť",
+      "intimita"
+    ],
+    "q": "Zažil/a si hlboký, dôverný okamih s niekým alebo so sebou?"
+  },
+  "felfogokepesseg": {
+    "name": "chápavosť",
+    "forms": [
+      "chápavý",
+      "vnímavosť",
+      "vnímavý",
+      "porozumenie"
+    ],
+    "q": "Pochopil/a si rýchlo a dobre, čo ti povedali alebo čo sa stalo?"
+  },
+  "meditacio": {
+    "name": "meditácia",
+    "forms": [
+      "meditovať",
+      "rozjímanie",
+      "stíšenie",
+      "pohľad dovnútra"
+    ],
+    "q": "Našiel/našla si si čas stíšiť sa a pozrieť sa dovnútra?"
+  },
+  "szanalomerzet": {
+    "name": "ľútosť",
+    "forms": [
+      "ľutovať",
+      "účasť",
+      "spoluúčasť"
+    ],
+    "q": "Dotkla sa ťa niekoho ťažkosť, jeho utrpenie?"
+  },
+  "egyutterzes": {
+    "name": "súcit",
+    "forms": [
+      "súcitný",
+      "empatia",
+      "empatický",
+      "vcítenie"
+    ],
+    "q": "Dokázal/a si sa vžiť do situácie druhého a dať mu to pocítiť?"
+  },
+  "nyugalom": {
+    "name": "pokoj",
+    "forms": [
+      "pokojný",
+      "kľud",
+      "mier",
+      "vnútorný pokoj"
+    ],
+    "q": "Zachoval/a si si vnútorné ticho, keď okolo teba bol zhon?"
+  },
+  "elmelyultseg": {
+    "name": "zahĺbenie",
+    "forms": [
+      "zahĺbený",
+      "pohrúženie",
+      "pohrúžený",
+      "hĺbka"
+    ],
+    "q": "Ponoril/a si sa úplne do niečoho a dostal/a si sa k jeho podstate?"
+  },
+  "mertekletesseg": {
+    "name": "striedmosť",
+    "forms": [
+      "striedmy",
+      "umiernenosť",
+      "umiernený",
+      "mať mieru"
+    ],
+    "q": "Vedel/a si včas prestať pri jedle, pití, zábave?"
+  },
+  "gyongedseg": {
+    "name": "nežnosť",
+    "forms": [
+      "nežný",
+      "jemnosť",
+      "jemný",
+      "láskyplnosť"
+    ],
+    "q": "Správal/a si sa k niekomu jemne a s láskou?"
+  },
+  "tiszteletadas": {
+    "name": "úcta",
+    "forms": [
+      "úctivý",
+      "rešpekt",
+      "rešpektovať"
+    ],
+    "q": "Prejavil/a si úctu druhým, aj keď si s nimi nesúhlasil/a?"
+  },
+  "tekintely": {
+    "name": "autorita",
+    "forms": [
+      "vážnosť",
+      "prirodzená autorita",
+      "prítomnosť"
+    ],
+    "q": "Malo tvoje slovo a prítomnosť váhu, s pokojnou rozhodnosťou?"
+  },
+  "kitartas": {
+    "name": "vytrvalosť",
+    "forms": [
+      "vytrvalý",
+      "húževnatosť",
+      "húževnatý",
+      "neústupnosť"
+    ],
+    "q": "Doviedol/doviedla si do konca niečo ťažké alebo zdĺhavé?"
+  },
+  "megfontoltsag": {
+    "name": "rozvážnosť",
+    "forms": [
+      "rozvážny",
+      "uváženie",
+      "uvážlivý",
+      "premyslenosť"
+    ],
+    "q": "Premyslel/a si si to, kým si sa rozhodol/rozhodla alebo prehovoril/a?"
+  },
+  "hatarozottsag": {
+    "name": "rozhodnosť",
+    "forms": [
+      "rozhodný",
+      "pevnosť v postoji",
+      "asertivita",
+      "asertívny"
+    ],
+    "q": "Povedal/a si jasne, čo chceš, a povedal/a si nie, kde bolo treba?"
+  },
+  "komolysag": {
+    "name": "serióznosť",
+    "forms": [
+      "vážny",
+      "seriózny"
+    ],
+    "q": "Pristupoval/a si k dôležitému s primeranou vážnosťou?"
+  },
+  "lelkiismeretesseg": {
+    "name": "svedomitosť",
+    "forms": [
+      "svedomitý"
+    ],
+    "q": "Robil/a si svoju prácu tak, ako ti kázalo svedomie?"
+  },
+  "alapossag": {
+    "name": "dôkladnosť",
+    "forms": [
+      "dôkladný",
+      "do detailu"
+    ],
+    "q": "Dotiahol/dotiahla si úlohy do detailov, aj keď to nikto nekontroluje?"
+  },
+  "koncentraltsag": {
+    "name": "sústredenosť",
+    "forms": [
+      "sústredený",
+      "koncentrácia",
+      "sústredenie"
+    ],
+    "q": "Venoval/a si sa naraz jednej veci, bez odbiehania?"
+  },
+  "jozansag": {
+    "name": "triezvosť",
+    "forms": [
+      "triezvy",
+      "zdravý rozum",
+      "nohy na zemi"
+    ],
+    "q": "Posudzoval/a si veci jasne, s nohami na zemi?"
+  },
+  "pontossag": {
+    "name": "presnosť",
+    "forms": [
+      "presný",
+      "dochvíľnosť",
+      "dochvíľny",
+      "precíznosť"
+    ],
+    "q": "Prišiel/prišla si načas a urobil/a si presne to, čo si sľúbil/a?"
+  },
+  "targyilagossag": {
+    "name": "vecnosť",
+    "forms": [
+      "vecný",
+      "objektivita",
+      "objektívny",
+      "nestrannosť",
+      "nestranný"
+    ],
+    "q": "Posúdil/a si situáciu spravodlivo, nezávisle od emócií?"
+  },
+  "elovigyazatossag": {
+    "name": "opatrnosť",
+    "forms": [
+      "opatrný",
+      "obozretnosť",
+      "obozretný",
+      "prezieravosť",
+      "prezieravý"
+    ],
+    "q": "Myslel/a si dopredu na možné ťažkosti a pripravil/a si sa na ne?"
+  },
+  "ellenallo_kepesseg": {
+    "name": "odolnosť",
+    "forms": [
+      "odolný",
+      "duševná sila",
+      "otužilosť",
+      "rezistencia"
+    ],
+    "q": "Odolal/a si pokušeniu, tlaku alebo únave?"
+  },
+  "celtudatossag": {
+    "name": "cieľavedomosť",
+    "forms": [
+      "cieľavedomý",
+      "zameraný na cieľ"
+    ],
+    "q": "Vedel/a si, kam smeruješ, a išiel/išla si tam?"
+  },
+  "felelossegerzet": {
+    "name": "zmysel pre zodpovednosť",
+    "forms": [
+      "zodpovednosť",
+      "zodpovedný"
+    ],
+    "q": "Prevzal/a si zodpovednosť za dôsledky toho, čo si urobil/a alebo povedal/a?"
+  },
+  "turelmetlenseg": {
+    "name": "netrpezlivosť",
+    "forms": [
+      "netrpezlivý",
+      "súrenie",
+      "súriť"
+    ]
+  },
+  "irigyseg": {
+    "name": "závisť",
+    "forms": [
+      "závistlivý",
+      "závidieť",
+      "neprajnosť",
+      "neprajný"
+    ]
+  },
+  "ingerlekenyseg": {
+    "name": "podráždenosť",
+    "forms": [
+      "podráždený",
+      "nervózny",
+      "nervozita",
+      "dráždivosť"
+    ]
+  },
+  "dac": {
+    "name": "vzdorovitosť",
+    "forms": [
+      "vzdor",
+      "vzdorovitý",
+      "naschvál"
+    ]
+  },
+  "agresszivitas": {
+    "name": "agresivita",
+    "forms": [
+      "agresívny",
+      "násilnosť",
+      "násilný",
+      "násilie"
+    ]
+  },
+  "durvasag": {
+    "name": "hrubosť",
+    "forms": [
+      "hrubý",
+      "surovosť",
+      "surový",
+      "drsnosť"
+    ]
+  },
+  "gorombasag": {
+    "name": "neotesanosť",
+    "forms": [
+      "neotesaný",
+      "nezdvorilosť",
+      "nezdvorilý",
+      "hulvátstvo",
+      "hulvát"
+    ]
+  },
+  "uralkodni_vagyas": {
+    "name": "panovačnosť",
+    "forms": [
+      "panovačný",
+      "túžba po moci",
+      "tyrania",
+      "rozkazovanie",
+      "šéfovanie"
+    ]
+  },
+  "kegyetlenseg": {
+    "name": "krutosť",
+    "forms": [
+      "krutý",
+      "bezohľadnosť",
+      "bezohľadný",
+      "nemilosrdnosť"
+    ]
+  },
+  "kapkodas": {
+    "name": "zhon",
+    "forms": [
+      "ponáhľanie",
+      "unáhlenosť",
+      "unáhlený",
+      "chvat"
+    ]
+  },
+  "sovargas": {
+    "name": "baženie",
+    "forms": [
+      "bažiť",
+      "túžba",
+      "chtivosť",
+      "chtivý"
+    ]
+  },
+  "kejvagy": {
+    "name": "chlípnosť",
+    "forms": [
+      "chlípny",
+      "žiadostivosť",
+      "oplzlosť",
+      "rozkošníctvo"
+    ]
+  },
+  "mohosag": {
+    "name": "hltavosť",
+    "forms": [
+      "hltavý",
+      "hltať",
+      "lačnosť",
+      "lačný"
+    ]
+  },
+  "fanatizmus": {
+    "name": "fanatizmus",
+    "forms": [
+      "fanatický",
+      "fanatik",
+      "zaslepenosť",
+      "netolerantnosť"
+    ]
+  },
+  "onfejuseg": {
+    "name": "neposlušnosť",
+    "forms": [
+      "neposlušný",
+      "robiť po svojom"
+    ]
+  },
+  "nagyravagyas": {
+    "name": "ctižiadostivosť",
+    "forms": [
+      "ctižiadostivý",
+      "kariérizmus",
+      "kariérista",
+      "ambicióznosť"
+    ]
+  },
+  "versenges": {
+    "name": "rivalita",
+    "forms": [
+      "súperenie",
+      "súperiť",
+      "súťaživosť",
+      "súťaživý"
+    ]
+  },
+  "hiszterikussag": {
+    "name": "hysterickosť",
+    "forms": [
+      "hysterický",
+      "hystéria",
+      "scény",
+      "robiť scény",
+      "dráma"
+    ]
+  },
+  "sertegetes": {
+    "name": "urážanie",
+    "forms": [
+      "urážka",
+      "urážať",
+      "nadávanie"
+    ]
+  },
+  "tolakodas": {
+    "name": "dotieravosť",
+    "forms": [
+      "dotieravý",
+      "vtieravosť",
+      "vtieravý",
+      "predbiehanie sa"
+    ]
+  },
+  "karorvendes": {
+    "name": "škodoradosť",
+    "forms": [
+      "škodoradostný"
+    ]
+  },
+  "rosszindulat": {
+    "name": "zlomyseľnosť",
+    "forms": [
+      "zlomyseľný",
+      "zlá vôľa",
+      "zlý úmysel",
+      "jedovatosť"
+    ]
+  },
+  "gog": {
+    "name": "pýcha",
+    "forms": [
+      "pyšný",
+      "arogancia",
+      "arogantný",
+      "spupnosť",
+      "spupný"
+    ]
+  },
+  "undoksag": {
+    "name": "protivnosť",
+    "forms": [
+      "protivný",
+      "rýpanie",
+      "rýpať",
+      "doberanie"
+    ]
+  },
+  "telhetetlenseg": {
+    "name": "nenásytnosť",
+    "forms": [
+      "nenásytný",
+      "nikdy dosť"
+    ]
+  },
+  "kovetelozes": {
+    "name": "náročnosť",
+    "forms": [
+      "náročný",
+      "vyžadovanie",
+      "požadovačnosť"
+    ]
+  },
+  "hiusag": {
+    "name": "márnivosť",
+    "forms": [
+      "márnivý",
+      "ješitnosť",
+      "ješitný",
+      "predvádzanie sa",
+      "túžba po pozornosti"
+    ]
+  },
+  "feluletesseg": {
+    "name": "povrchnosť",
+    "forms": [
+      "povrchný",
+      "plytkosť",
+      "plytký"
+    ]
+  },
+  "szetszortsag": {
+    "name": "rozptýlenosť",
+    "forms": [
+      "rozptýlený",
+      "nesústredenosť",
+      "nesústredený",
+      "skákanie z jedného na druhé"
+    ]
+  },
+  "hazudozas": {
+    "name": "klamanie",
+    "forms": [
+      "klamať",
+      "klamár",
+      "lož",
+      "luhať",
+      "cigániť"
+    ]
+  },
+  "kivancsiskodas": {
+    "name": "vtieravá zvedavosť",
+    "forms": [
+      "strkanie nosa",
+      "sliedenie",
+      "sliediť",
+      "špehovanie"
+    ]
+  },
+  "szeszelyesseg": {
+    "name": "náladovosť",
+    "forms": [
+      "náladový",
+      "rozmarnosť",
+      "rozmarný",
+      "vrtkavosť",
+      "vrtkavý"
+    ]
+  },
+  "szorakozottsag": {
+    "name": "roztržitosť",
+    "forms": [
+      "roztržitý",
+      "zábudlivosť",
+      "zábudlivý"
+    ]
+  },
+  "komolytalansag": {
+    "name": "nevážnosť",
+    "forms": [
+      "nevážny",
+      "ľahkovážnosť",
+      "ľahkovážny",
+      "frivolnosť"
+    ]
+  },
+  "meggondolatlansag": {
+    "name": "nerozvážnosť",
+    "forms": [
+      "nerozvážny",
+      "impulzívnosť",
+      "impulzívny",
+      "bez rozmýšľania",
+      "zbrklosť"
+    ]
+  },
+  "felelotlenseg": {
+    "name": "nezodpovednosť",
+    "forms": [
+      "nezodpovedný"
+    ]
+  },
+  "hizelges": {
+    "name": "podlizovanie",
+    "forms": [
+      "podlizovať sa",
+      "lichotenie",
+      "lichotník",
+      "pätolizač"
+    ]
+  },
+  "kepmutatas": {
+    "name": "pokrytectvo",
+    "forms": [
+      "pokrytec",
+      "pokrytecký",
+      "falošnosť",
+      "falošný",
+      "dvojtvárnosť"
+    ]
+  },
+  "itelkezes": {
+    "name": "odsudzovanie",
+    "forms": [
+      "odsudzovať",
+      "kritizovanie",
+      "kritizovať",
+      "kritickosť",
+      "súdiť"
+    ]
+  },
+  "okoskodas": {
+    "name": "mudrlantstvo",
+    "forms": [
+      "mudrlant",
+      "poúčanie",
+      "poučovať",
+      "vševed",
+      "múdrovanie"
+    ]
+  },
+  "igergetes": {
+    "name": "prázdne sľuby",
+    "forms": [
+      "sľubovanie",
+      "nesplnený sľub",
+      "sľubovať"
+    ]
+  },
+  "zavarodottsag": {
+    "name": "zmätenosť",
+    "forms": [
+      "zmätený",
+      "zmätok",
+      "popletenosť",
+      "popletený"
+    ]
+  },
+  "nyugtalansag": {
+    "name": "nepokoj",
+    "forms": [
+      "nepokojný",
+      "napätie",
+      "napätý",
+      "znepokojenie"
+    ]
+  },
+  "gunyolodas": {
+    "name": "posmievanie",
+    "forms": [
+      "posmešný",
+      "posmech",
+      "výsmech",
+      "sarkazmus",
+      "sarkastický",
+      "zosmiešňovanie"
+    ]
+  },
+  "figyelmetlenseg": {
+    "name": "nepozornosť",
+    "forms": [
+      "nepozorný",
+      "nevšímavosť",
+      "nevšímavý"
+    ]
+  },
+  "pontatlansag": {
+    "name": "nepresnosť",
+    "forms": [
+      "nepresný",
+      "nedochvíľnosť",
+      "nedochvíľny",
+      "meškanie",
+      "meškať"
+    ]
+  },
+  "manipulalas": {
+    "name": "manipulácia",
+    "forms": [
+      "manipulatívny",
+      "manipulovať",
+      "manipulátor"
+    ]
+  },
+  "kifogaskereses": {
+    "name": "hľadanie výhovoriek",
+    "forms": [
+      "výhovorka",
+      "výhovorky",
+      "ospravedlňovanie sa",
+      "zvaľovanie viny",
+      "obviňovanie druhých"
+    ]
+  },
+  "hutlenseg": {
+    "name": "nevera",
+    "forms": [
+      "neverný",
+      "nelojálnosť",
+      "nelojálny",
+      "zrada",
+      "zradiť"
+    ]
+  },
+  "cinizmus": {
+    "name": "cynizmus",
+    "forms": [
+      "cynický",
+      "cynik"
+    ]
+  },
+  "onsajnalat": {
+    "name": "sebaľútosť",
+    "forms": [
+      "ľutovať sa",
+      "sebaľútostivý",
+      "hrať sa na obeť"
+    ]
+  },
+  "befolyasolhatosag": {
+    "name": "ovplyvniteľnosť",
+    "forms": [
+      "ovplyvniteľný",
+      "ľahko ovplyvniteľný",
+      "sugestibilný"
+    ]
+  },
+  "kishituseg": {
+    "name": "malomyseľnosť",
+    "forms": [
+      "malomyseľný",
+      "neistota",
+      "neistý",
+      "nedostatok sebadôvery",
+      "pocit menejcennosti"
+    ]
+  },
+  "gyavasag": {
+    "name": "zbabelosť",
+    "forms": [
+      "zbabelý",
+      "zbabelec",
+      "cúvnuť",
+      "stiahnuť chvost"
+    ]
+  },
+  "hatarozatlansag": {
+    "name": "nerozhodnosť",
+    "forms": [
+      "nerozhodný",
+      "váhanie",
+      "váhať",
+      "zaváhanie"
+    ]
+  },
+  "celtalansag": {
+    "name": "bezcieľnosť",
+    "forms": [
+      "bezcieľny",
+      "bez cieľa",
+      "unášať sa"
+    ]
+  },
+  "lanyhasag": {
+    "name": "vlažnosť",
+    "forms": [
+      "vlažný",
+      "polovičatosť",
+      "polovičatý",
+      "laxnosť"
+    ]
+  },
+  "ridegseg": {
+    "name": "chlad",
+    "forms": [
+      "chladný",
+      "odmeranosť",
+      "odmeraný"
+    ]
+  },
+  "elfogultsag": {
+    "name": "zaujatosť",
+    "forms": [
+      "zaujatý",
+      "predpojatosť",
+      "predpojatý",
+      "predsudok"
+    ]
+  },
+  "passzivitas": {
+    "name": "pasivita",
+    "forms": [
+      "pasívny",
+      "nečinnosť",
+      "nečinný"
+    ]
+  },
+  "tulerzekenyseg": {
+    "name": "precitlivenosť",
+    "forms": [
+      "precitlivený",
+      "plačlivosť",
+      "plačlivý",
+      "vzťahovačnosť",
+      "vzťahovačný"
+    ]
+  },
+  "szorongas": {
+    "name": "úzkosť",
+    "forms": [
+      "úzkostný",
+      "strach",
+      "bojazlivosť",
+      "obavy"
+    ]
+  },
+  "alazatoskodas": {
+    "name": "servilnosť",
+    "forms": [
+      "servilný",
+      "poníženosť",
+      "ponížený",
+      "podriadenosť"
+    ]
+  },
+  "elkenyelmesedes": {
+    "name": "pohodlnosť",
+    "forms": [
+      "pohodlný",
+      "zmäkčilosť",
+      "zmäkčilý",
+      "pohodlie"
+    ]
+  },
+  "erzelgosseg": {
+    "name": "sentimentálnosť",
+    "forms": [
+      "sentimentálny",
+      "sladkastosť",
+      "gýčovitosť"
+    ]
+  },
+  "halatlansag": {
+    "name": "nevďačnosť",
+    "forms": [
+      "nevďačný"
+    ]
+  },
+  "iszakossag": {
+    "name": "pitie",
+    "forms": [
+      "opilstvo",
+      "opitosť",
+      "opíjanie sa",
+      "alkohol",
+      "alkoholizmus"
+    ]
+  },
+  "almodozas": {
+    "name": "snívanie",
+    "forms": [
+      "snívať",
+      "rojko",
+      "rojčiť",
+      "denné snenie",
+      "fantazírovanie"
+    ]
+  },
+  "panaszkodas": {
+    "name": "sťažovanie sa",
+    "forms": [
+      "sťažovať sa",
+      "nariekanie",
+      "nariekať",
+      "fňukanie",
+      "fňukať"
+    ]
+  },
+  "megalkuvas": {
+    "name": "alibizmus",
+    "forms": [
+      "alibista",
+      "oportunizmus",
+      "oportunista",
+      "ustupovanie"
+    ]
+  },
+  "kapzsisag": {
+    "name": "chamtivosť",
+    "forms": [
+      "chamtivý",
+      "lakomosť",
+      "lakomý",
+      "skúposť",
+      "skúpy",
+      "držgrošstvo"
+    ]
+  },
+  "merevseg": {
+    "name": "strnulosť",
+    "forms": [
+      "strnulý",
+      "neohybnosť",
+      "nepružnosť",
+      "nepružný",
+      "neústupčivosť"
+    ]
+  },
+  "pesszimizmus": {
+    "name": "pesimizmus",
+    "forms": [
+      "pesimista",
+      "pesimistický",
+      "čiernohľadstvo"
+    ]
+  },
+  "halogatas": {
+    "name": "odkladanie",
+    "forms": [
+      "odkladať",
+      "prokrastinácia",
+      "naťahovanie"
+    ]
+  },
+  "aggodalmaskodas": {
+    "name": "ustarostenosť",
+    "forms": [
+      "ustarostený",
+      "robiť si starosti",
+      "strachovanie sa"
+    ]
+  },
+  "bizalmatlansag": {
+    "name": "nedôvera",
+    "forms": [
+      "nedôverčivý",
+      "podozrievavosť",
+      "podozrievavý",
+      "podozrenie"
+    ]
+  },
+  "zarkozottsag": {
+    "name": "uzavretosť",
+    "forms": [
+      "uzavretý",
+      "utiahnutosť",
+      "utiahnutý",
+      "introvertnosť"
+    ]
+  },
+  "ertetlenseg": {
+    "name": "nechápavosť",
+    "forms": [
+      "nechápavý",
+      "pomalé chápanie",
+      "tupý"
+    ]
+  },
+  "ugyetlenseg": {
+    "name": "nešikovnosť",
+    "forms": [
+      "nešikovný",
+      "nemotornosť",
+      "nemotorný",
+      "ťarbavosť",
+      "ťarbavý"
+    ]
+  },
+  "elegedetlenseg": {
+    "name": "nespokojnosť",
+    "forms": [
+      "nespokojný",
+      "frflanie",
+      "frflať",
+      "šomranie"
+    ]
+  },
+  "kicsinyesseg": {
+    "name": "malichernosť",
+    "forms": [
+      "malicherný",
+      "puntičkárstvo",
+      "puntičkár",
+      "hnidopišstvo"
+    ]
+  },
+  "haszonleses": {
+    "name": "vypočítavosť",
+    "forms": [
+      "vypočítavý",
+      "zištnosť",
+      "zištný",
+      "materializmus",
+      "materialistický"
+    ]
+  },
+  "onzes": {
+    "name": "sebectvo",
+    "forms": [
+      "sebecký",
+      "egoizmus",
+      "egoista"
+    ]
+  },
+  "szigorusag": {
+    "name": "prísnosť",
+    "forms": [
+      "prísny",
+      "tvrdosť k druhým"
+    ]
+  },
+  "maradisag": {
+    "name": "zaostalosť",
+    "forms": [
+      "zaostalý",
+      "spiatočníctvo",
+      "spiatočnícky",
+      "zastaraný"
+    ]
+  },
+  "mogorvasag": {
+    "name": "mrzutosť",
+    "forms": [
+      "mrzutý",
+      "zamračenosť",
+      "zamračený",
+      "nevrlosť",
+      "nevrlý"
+    ]
+  },
+  "elkeseredettseg": {
+    "name": "zatrpknutosť",
+    "forms": [
+      "zatrpknutý",
+      "zúfalstvo",
+      "zúfalý",
+      "beznádej",
+      "beznádejný"
+    ]
+  },
+  "ragaszkodas": {
+    "name": "lipnutie",
+    "forms": [
+      "majetníckosť",
+      "majetnícky",
+      "kŕčovité lipnutie",
+      "pripútanosť"
+    ]
+  },
+  "szuklatokoruseg": {
+    "name": "obmedzenosť",
+    "forms": [
+      "obmedzený",
+      "úzkoprsosť",
+      "úzkoprsý",
+      "malomeštiactvo"
+    ]
+  },
+  "nagylelkuseg": {
+    "name": "veľkorysosť",
+    "forms": [
+      "veľkorysý",
+      "štedrosť",
+      "štedrý",
+      "darovanie"
+    ]
+  },
+  "kezdemenyezokeszseg": {
+    "name": "iniciatívnosť",
+    "forms": [
+      "iniciatívny",
+      "iniciatíva",
+      "prvý krok"
+    ]
+  },
+  "onbizalom": {
+    "name": "sebadôvera",
+    "forms": [
+      "sebavedomie",
+      "sebavedomý",
+      "istota"
+    ]
+  },
+  "tettrekeszseg": {
+    "name": "pohotovosť k činu",
+    "forms": [
+      "ochota konať",
+      "pustiť sa do toho",
+      "priložiť ruku k dielu"
+    ]
+  },
+  "eletero": {
+    "name": "životná sila",
+    "forms": [
+      "vitalita",
+      "vitálny",
+      "energia",
+      "energický",
+      "chuť do života"
+    ]
+  },
+  "nagyvonalusag": {
+    "name": "veľkodušnosť",
+    "forms": [
+      "veľkodušný",
+      "šľachetnosť",
+      "šľachetný"
+    ]
+  },
+  "akaratero": {
+    "name": "sila vôle",
+    "forms": [
+      "vôľa",
+      "pevná vôľa",
+      "silná vôľa"
+    ]
+  },
+  "melegszivuseg": {
+    "name": "vrelosť",
+    "forms": [
+      "teplé srdce",
+      "vrelý",
+      "srdečné teplo"
+    ]
+  },
+  "hosiesseg": {
+    "name": "hrdinstvo",
+    "forms": [
+      "hrdina",
+      "hrdinský",
+      "hrdinka"
+    ]
+  },
+  "oszinteseg": {
+    "name": "úprimnosť",
+    "forms": [
+      "úprimný",
+      "priamosť",
+      "priamy",
+      "pravdivosť"
+    ]
+  },
+  "humor": {
+    "name": "humor",
+    "forms": [
+      "vtipný",
+      "vtip",
+      "žartovanie",
+      "zmysel pre humor"
+    ]
+  },
+  "segitokeszseg": {
+    "name": "ochota pomôcť",
+    "forms": [
+      "ochotný",
+      "pomáhať",
+      "nápomocný",
+      "ústretovosť"
+    ]
+  },
+  "kozlekenyseg": {
+    "name": "zhovorčivosť",
+    "forms": [
+      "zhovorčivý",
+      "komunikatívnosť",
+      "komunikatívny",
+      "zdieľnosť"
+    ]
+  },
+  "nyitottsag": {
+    "name": "otvorenosť",
+    "forms": [
+      "otvorený",
+      "záujem",
+      "zvedavosť",
+      "zvedavý",
+      "otvorená myseľ"
+    ]
+  },
+  "figyelmesseg": {
+    "name": "pozornosť",
+    "forms": [
+      "pozorný",
+      "ohľaduplnosť",
+      "ohľaduplný",
+      "všímavosť"
+    ]
+  },
+  "tapintat": {
+    "name": "takt",
+    "forms": [
+      "taktný",
+      "taktnosť",
+      "diplomacia",
+      "diplomatický",
+      "jemnocit"
+    ]
+  },
+  "furgeseg": {
+    "name": "svižnosť",
+    "forms": [
+      "svižný",
+      "rýchlosť",
+      "rýchly",
+      "obratnosť",
+      "obratný"
+    ]
+  },
+  "konnyedseg": {
+    "name": "ľahkosť",
+    "forms": [
+      "ľahký",
+      "nenútenosť",
+      "nenútený",
+      "bez námahy"
+    ]
+  },
+  "deru": {
+    "name": "jas",
+    "forms": [
+      "jasná myseľ",
+      "rozjasnenosť",
+      "pohoda"
+    ]
+  },
+  "tanulekonysag": {
+    "name": "učenlivosť",
+    "forms": [
+      "učenlivý",
+      "túžba po poznaní",
+      "rád sa učí"
+    ]
+  },
+  "lelemenyesseg": {
+    "name": "vynaliezavosť",
+    "forms": [
+      "vynaliezavý",
+      "nápaditosť",
+      "nápaditý",
+      "dôvtip",
+      "dôvtipný"
+    ]
+  },
+  "kiegyensulyozottsag": {
+    "name": "vyrovnanosť",
+    "forms": [
+      "vyrovnaný",
+      "harmónia",
+      "vnútorná rovnováha",
+      "rovnováha"
+    ]
+  },
+  "egyuttmukodes": {
+    "name": "spolupráca",
+    "forms": [
+      "spolupracovať",
+      "tímový duch",
+      "kooperácia"
+    ]
+  },
+  "bolcsesseg": {
+    "name": "múdrosť",
+    "forms": [
+      "múdry",
+      "nadhľad"
+    ]
+  },
+  "masok_szabadsaganak_tisztelete": {
+    "name": "rešpektovanie slobody druhých",
+    "forms": [
+      "dať slobodu",
+      "nechať druhých byť",
+      "rešpektovať vôľu druhých",
+      "rešpektovať voľby druhých"
+    ]
+  },
+  "hala": {
+    "name": "vďačnosť",
+    "forms": [
+      "vďačný",
+      "vďaka",
+      "ďakovať"
+    ]
+  },
+  "joindulat": {
+    "name": "dobroprajnosť",
+    "forms": [
+      "dobroprajný",
+      "dobrá vôľa",
+      "dobromyseľnosť",
+      "dobromyseľný"
+    ]
+  },
+  "szelidseg": {
+    "name": "miernosť",
+    "forms": [
+      "mierny",
+      "krotkosť",
+      "krotký",
+      "vľúdnosť"
+    ]
+  },
+  "szeretet": {
+    "name": "láska",
+    "forms": [
+      "láskyplný",
+      "náklonnosť",
+      "milovať"
+    ]
+  },
+  "megbocsatas": {
+    "name": "odpustenie",
+    "forms": [
+      "odpustiť",
+      "odpúšťať"
+    ]
+  },
+  "bekulekenyseg": {
+    "name": "zmierlivosť",
+    "forms": [
+      "zmierlivý",
+      "zmierenie",
+      "mierumilovnosť",
+      "mierumilovný"
+    ]
+  },
+  "alazat": {
+    "name": "pokora",
+    "forms": [
+      "pokorný"
+    ]
+  },
+  "elfogadas": {
+    "name": "prijatie",
+    "forms": [
+      "prijímať",
+      "akceptovanie",
+      "akceptovať"
+    ]
+  },
+  "elnezes": {
+    "name": "zhovievavosť",
+    "forms": [
+      "zhovievavý",
+      "tolerancia",
+      "tolerantný"
+    ]
+  },
+  "onzetlenseg": {
+    "name": "nezištnosť",
+    "forms": [
+      "nezištný",
+      "nesebeckosť",
+      "altruizmus",
+      "altruista"
+    ]
+  },
+  "emberszeretet": {
+    "name": "láska k ľuďom",
+    "forms": [
+      "ľudomilnosť",
+      "ľudomil",
+      "filantropia",
+      "dobročinnosť"
+    ]
+  },
+  "megelegedettseg": {
+    "name": "spokojnosť",
+    "forms": [
+      "spokojný",
+      "uspokojenie",
+      "zmierenie so sebou"
+    ]
+  },
+  "elengedes": {
+    "name": "púšťanie",
+    "forms": [
+      "pustiť",
+      "odpútanie",
+      "nechať odísť"
+    ]
+  },
+  "remenyseg": {
+    "name": "nádej",
+    "forms": [
+      "nádejný",
+      "dúfať",
+      "dúfanie"
+    ]
+  },
+  "johiszemuseg": {
+    "name": "dobrá viera",
+    "forms": [
+      "v dobrej viere",
+      "bezelstnosť",
+      "bezelstný"
+    ]
+  },
+  "turelem": {
+    "name": "trpezlivosť",
+    "forms": [
+      "trpezlivý",
+      "znášanlivosť",
+      "vedieť čakať"
+    ]
+  },
+  "megbizhatosag": {
+    "name": "spoľahlivosť",
+    "forms": [
+      "spoľahlivý",
+      "dôveryhodnosť",
+      "dôveryhodný",
+      "držať slovo"
+    ]
+  },
+  "rendszeretet": {
+    "name": "poriadkumilovnosť",
+    "forms": [
+      "poriadny",
+      "poriadok",
+      "usporiadanosť",
+      "organizovanosť"
+    ]
+  },
+  "becsuletesseg": {
+    "name": "čestnosť",
+    "forms": [
+      "čestný",
+      "bezúhonnosť",
+      "bezúhonný",
+      "česť",
+      "poctivosť"
+    ]
+  },
+  "takarekossag": {
+    "name": "šetrnosť",
+    "forms": [
+      "šetrný",
+      "sporivosť",
+      "sporivý",
+      "hospodárnosť"
+    ]
+  },
+  "megbecsules": {
+    "name": "uznanie",
+    "forms": [
+      "uznávať",
+      "vážiť si",
+      "oceňovanie",
+      "oceniť"
+    ]
+  },
+  "diszkrecio": {
+    "name": "diskrétnosť",
+    "forms": [
+      "diskrétny",
+      "zachovanie tajomstva",
+      "mlčať"
+    ]
+  },
+  "onfegyelem": {
+    "name": "sebadisciplína",
+    "forms": [
+      "disciplinovaný",
+      "sebaovládanie",
+      "sebakontrola"
+    ]
+  },
+  "onbecsules": {
+    "name": "sebaúcta",
+    "forms": [
+      "dôstojnosť",
+      "sebahodnota",
+      "hrdosť"
+    ]
+  },
+  "huseg": {
+    "name": "vernosť",
+    "forms": [
+      "verný",
+      "lojálnosť",
+      "lojálny"
+    ]
+  },
+  "egyszeruseg": {
+    "name": "jednoduchosť",
+    "forms": [
+      "jednoduchý",
+      "prostota",
+      "prostý"
+    ]
+  },
+  "gondossag": {
+    "name": "starostlivosť",
+    "forms": [
+      "starostlivý",
+      "opatera",
+      "pozornosť k detailom"
+    ]
+  },
+  "szilardsag": {
+    "name": "pevnosť",
+    "forms": [
+      "pevný",
+      "neotrasiteľnosť",
+      "neotrasiteľný",
+      "stabilita"
+    ]
+  },
+  "kotelessegtudat": {
+    "name": "zmysel pre povinnosť",
+    "forms": [
+      "povinnosť",
+      "plnenie povinností"
+    ]
+  },
+  "kovetkezetesseg": {
+    "name": "dôslednosť",
+    "forms": [
+      "dôsledný",
+      "konzistentnosť",
+      "konzistentný"
+    ]
+  },
+  "munkabiras": {
+    "name": "výkonnosť",
+    "forms": [
+      "výkonný",
+      "nezlomnosť",
+      "nezlomný",
+      "pracovné nasadenie"
+    ]
+  },
+  "igazsagossag": {
+    "name": "spravodlivosť",
+    "forms": [
+      "spravodlivý",
+      "férovosť",
+      "férový"
+    ]
+  },
+  "gyakorlatiassag": {
+    "name": "praktickosť",
+    "forms": [
+      "praktický",
+      "pragmatickosť",
+      "pragmatický",
+      "zmysel pre realitu"
+    ]
+  },
+  "tervszeruseg": {
+    "name": "plánovitosť",
+    "forms": [
+      "plánovitý",
+      "plánovanie",
+      "plánovať",
+      "metodickosť",
+      "systematickosť"
+    ]
+  }
+}

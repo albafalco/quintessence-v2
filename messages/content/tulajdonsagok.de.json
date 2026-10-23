@@ -1,0 +1,2283 @@
+{
+  "torkossag": {
+    "name": "Gefräßigkeit",
+    "forms": [
+      "gefräßig",
+      "Völlerei",
+      "Naschen",
+      "naschen",
+      "naschhaft",
+      "Fressattacke"
+    ],
+    "q": "Hast du gegessen oder genascht, obwohl du keinen Hunger mehr hattest?"
+  },
+  "feltekenyseg": {
+    "name": "Eifersucht",
+    "forms": [
+      "eifersüchtig"
+    ],
+    "q": "Hattest du Angst um die Aufmerksamkeit oder Liebe eines Menschen, hat es dich gekränkt, dass er sich jemand anderem zuwandte?"
+  },
+  "fuggoseg": {
+    "name": "Abhängigkeit",
+    "forms": [
+      "abhängig",
+      "Sucht",
+      "süchtig",
+      "Rauchen",
+      "Handysucht"
+    ],
+    "q": "Gab es etwas (Essen, Getränk, Zigarette, Handy), ohne das du es kaum ausgehalten hast?"
+  },
+  "izgagasag": {
+    "name": "Zappeligkeit",
+    "forms": [
+      "zappelig",
+      "Unrast",
+      "herumzappeln",
+      "nicht stillsitzen können"
+    ],
+    "q": "Konntest du schwer stillhalten, hast du andere oder dich selbst angetrieben?"
+  },
+  "veszekedosseg": {
+    "name": "Streitsucht",
+    "forms": [
+      "streitsüchtig",
+      "streitlustig",
+      "Streit",
+      "streiten",
+      "Zank",
+      "zanken"
+    ],
+    "q": "Hast du dich mit anderen angelegt, wegen Kleinigkeiten Streit gesucht?"
+  },
+  "mertektelenseg": {
+    "name": "Maßlosigkeit",
+    "forms": [
+      "maßlos",
+      "Zügellosigkeit",
+      "zügellos",
+      "Übermaß",
+      "übertreiben"
+    ],
+    "q": "Konntest du nicht rechtzeitig aufhören: beim Essen, Arbeiten, Einkaufen, Vergnügen?"
+  },
+  "pusztito_kedv": {
+    "name": "Zerstörungslust",
+    "forms": [
+      "zerstörerisch",
+      "Zerstörung",
+      "Zerstörungswut",
+      "Türenknallen",
+      "kaputtmachen"
+    ],
+    "q": "Hattest du Lust, zu knallen, zu zerstören, etwas kaputtzumachen, als du angespannt warst?"
+  },
+  "indulatossag": {
+    "name": "Jähzorn",
+    "forms": [
+      "jähzornig",
+      "aufbrausend",
+      "Hitzköpfigkeit",
+      "hitzköpfig",
+      "Wutausbruch"
+    ],
+    "q": "Bist du plötzlich aufgebraust, bevor du durchdacht hattest, was du sagst?"
+  },
+  "harag": {
+    "name": "Zorn",
+    "forms": [
+      "zornig",
+      "Wut",
+      "wütend",
+      "Ärger",
+      "ärgerlich",
+      "sich ärgern"
+    ],
+    "q": "Warst du wütend auf jemanden, und ist das in dir geblieben?"
+  },
+  "gyulolet": {
+    "name": "Hass",
+    "forms": [
+      "hassen",
+      "hasserfüllt",
+      "Abscheu"
+    ],
+    "q": "Hast du feindselig an jemanden gedacht, ihm Schlechtes gewünscht?"
+  },
+  "bosszuvagy": {
+    "name": "Rachsucht",
+    "forms": [
+      "Rache",
+      "rachsüchtig",
+      "rächen",
+      "Vergeltung",
+      "heimzahlen"
+    ],
+    "q": "Hast du darüber nachgedacht, wie du die Kränkung heimzahlen könntest?"
+  },
+  "sertodottseg": {
+    "name": "Gekränktheit",
+    "forms": [
+      "gekränkt",
+      "beleidigt sein",
+      "eingeschnappt",
+      "schmollen",
+      "Schmollen"
+    ],
+    "q": "Hat dich eine Bemerkung gekränkt, und hast du deswegen geschmollt?"
+  },
+  "lenezes": {
+    "name": "Herablassung",
+    "forms": [
+      "herablassend",
+      "von oben herab",
+      "Überheblichkeit",
+      "überheblich"
+    ],
+    "q": "Hast du dich jemandem überlegen gefühlt, herablassend über ihn gesprochen oder gedacht?"
+  },
+  "pletykalkodas": {
+    "name": "Klatsch",
+    "forms": [
+      "Tratsch",
+      "tratschen",
+      "klatschen",
+      "Lästern",
+      "lästern",
+      "hinter dem Rücken reden"
+    ],
+    "q": "Hast du hinter jemandes Rücken über ihn geredet, etwas weitergegeben, das dich nichts angeht?"
+  },
+  "kitartas_hianya": {
+    "name": "Mangel an Ausdauer",
+    "forms": [
+      "aufgeben",
+      "schnell aufgeben",
+      "gibt schnell auf",
+      "keine Ausdauer"
+    ],
+    "q": "Hast du schnell aufgegeben, weil etwas schwieriger war oder länger dauerte als erwartet?"
+  },
+  "ravaszsag": {
+    "name": "Verschlagenheit",
+    "forms": [
+      "verschlagen",
+      "listig",
+      "List",
+      "Intrige",
+      "intrigieren",
+      "Ränke"
+    ],
+    "q": "Hast du versucht, etwas auf Umwegen, mit Schläue zu erreichen statt offen?"
+  },
+  "fecseges": {
+    "name": "Geschwätz",
+    "forms": [
+      "geschwätzig",
+      "Geschwätzigkeit",
+      "schwatzen",
+      "plappern",
+      "Gerede"
+    ],
+    "q": "Hast du mehr geredet als nötig, auch Überflüssiges?"
+  },
+  "becstelenseg": {
+    "name": "Unehrlichkeit",
+    "forms": [
+      "unehrlich",
+      "unredlich",
+      "Betrug",
+      "betrügen",
+      "schummeln"
+    ],
+    "q": "Hast du unehrlich gehandelt, betrogen oder jemanden zu deinem Vorteil übervorteilt?"
+  },
+  "valtakozosag": {
+    "name": "Wankelmut",
+    "forms": [
+      "wankelmütig",
+      "Sprunghaftigkeit",
+      "sprunghaft",
+      "unberechenbar"
+    ],
+    "q": "Hast du hin und her geschwankt, oft deine Entscheidungen oder deine Stimmung geändert?"
+  },
+  "konnyelmuseg": {
+    "name": "Leichtsinn",
+    "forms": [
+      "leichtsinnig",
+      "Leichtfertigkeit",
+      "leichtfertig",
+      "Zocken"
+    ],
+    "q": "Hast du unüberlegt etwas übernommen, ausgegeben oder riskiert?"
+  },
+  "kerkedes": {
+    "name": "Prahlerei",
+    "forms": [
+      "prahlen",
+      "Angeberei",
+      "angeben",
+      "Angeber",
+      "großtun",
+      "aufschneiden"
+    ],
+    "q": "Hast du geprahlt, damit andere zu dir aufschauen?"
+  },
+  "ontulbecsules": {
+    "name": "Selbstüberschätzung",
+    "forms": [
+      "eingebildet",
+      "Eingebildetheit",
+      "Dünkel",
+      "selbstgefällig",
+      "Selbstgefälligkeit",
+      "Übermut"
+    ],
+    "q": "Hast du dich für mehr gehalten, als du wirklich kannst oder tust?"
+  },
+  "pazarlas": {
+    "name": "Verschwendung",
+    "forms": [
+      "verschwenderisch",
+      "verschwenden",
+      "vergeuden",
+      "Prasserei",
+      "Zeitverschwendung"
+    ],
+    "q": "Hast du dein Geld, deine Zeit oder etwas Wertvolles unnötig vergeudet?"
+  },
+  "kozombosseg": {
+    "name": "Gleichgültigkeit",
+    "forms": [
+      "gleichgültig",
+      "Desinteresse",
+      "egal sein",
+      "Apathie"
+    ],
+    "q": "Haben dich die Sorgen anderer oder eine gemeinsame Sache kaltgelassen?"
+  },
+  "levertseg": {
+    "name": "Niedergeschlagenheit",
+    "forms": [
+      "niedergeschlagen",
+      "bedrückt",
+      "Lustlosigkeit",
+      "lustlos"
+    ],
+    "q": "Warst du lustlos und bedrückt, und kamst du schwer da heraus?"
+  },
+  "szegyenlosseg": {
+    "name": "Schüchternheit",
+    "forms": [
+      "schüchtern",
+      "Scheu",
+      "scheu",
+      "gehemmt",
+      "Hemmung"
+    ],
+    "q": "Hast du dich zurückgezogen, dich nicht getraut zu sprechen oder für dich einzustehen?"
+  },
+  "reszvetlenseg": {
+    "name": "Teilnahmslosigkeit",
+    "forms": [
+      "teilnahmslos",
+      "mitleidlos",
+      "fehlendes Mitgefühl"
+    ],
+    "q": "Hast du gesehen, dass es jemandem schwerfällt, und es hat dich nicht berührt?"
+  },
+  "csokonyosseg": {
+    "name": "Starrsinn",
+    "forms": [
+      "starrsinnig",
+      "Sturheit",
+      "stur",
+      "Dickköpfigkeit",
+      "dickköpfig"
+    ],
+    "q": "Hast du stur an deiner Meinung festgehalten, auch als du hättest einsehen können, dass du nicht recht hast?"
+  },
+  "renyheseg": {
+    "name": "Trägheit",
+    "forms": [
+      "träge",
+      "Schlaffheit",
+      "schlaff",
+      "Antriebslosigkeit",
+      "antriebslos"
+    ],
+    "q": "Verlief dein Tag träge und kraftlos, und konntest du dich schwer zu etwas aufraffen?"
+  },
+  "koszivuseg": {
+    "name": "Hartherzigkeit",
+    "forms": [
+      "hartherzig",
+      "Herzlosigkeit",
+      "herzlos",
+      "Gefühllosigkeit",
+      "gefühllos"
+    ],
+    "q": "Warst du hart und kalt zu jemandem, der deine Wärme gebraucht hätte?"
+  },
+  "tulzott_engedekenyseg": {
+    "name": "übermäßige Nachgiebigkeit",
+    "forms": [
+      "Nachgiebigkeit",
+      "nachgiebig",
+      "zu weich",
+      "nicht Nein sagen können"
+    ],
+    "q": "Hast du jemandem etwas durchgehen lassen, obwohl du hättest Nein sagen müssen?"
+  },
+  "akaratossag": {
+    "name": "Eigenwille",
+    "forms": [
+      "eigenwillig",
+      "Eigensinn",
+      "eigensinnig",
+      "seinen Kopf durchsetzen"
+    ],
+    "q": "Wolltest du um jeden Preis deinen Willen durchsetzen?"
+  },
+  "ingatagsag": {
+    "name": "Haltlosigkeit",
+    "forms": [
+      "haltlos",
+      "schwankend",
+      "Unbeständigkeit",
+      "unbeständig",
+      "leicht zu erschüttern"
+    ],
+    "q": "Haben andere dich leicht ins Wanken gebracht, bist du unter fremdem Einfluss von deinem Entschluss abgerückt?"
+  },
+  "flegmasag": {
+    "name": "Phlegma",
+    "forms": [
+      "phlegmatisch",
+      "Achselzucken",
+      "Wurstigkeit",
+      "wurstig"
+    ],
+    "q": "Hast du etwas mit einem Achselzucken abgetan, das doch wichtig war?"
+  },
+  "unalmas": {
+    "name": "Langweiligkeit",
+    "forms": [
+      "langweilig",
+      "Langeweile",
+      "Eintönigkeit",
+      "eintönig",
+      "gelangweilt"
+    ],
+    "q": "Waren deine Gespräche eintönig und grau, ohne dass du etwas von dir hineingelegt hast?"
+  },
+  "hanyagsag": {
+    "name": "Nachlässigkeit",
+    "forms": [
+      "nachlässig",
+      "Schlamperei",
+      "schlampig",
+      "Schludrigkeit",
+      "schludrig"
+    ],
+    "q": "Hast du eine Aufgabe vernachlässigt, sie halb oder schlecht erledigt?"
+  },
+  "megvetes": {
+    "name": "Verachtung",
+    "forms": [
+      "verachten",
+      "verächtlich",
+      "Geringschätzung",
+      "geringschätzig"
+    ],
+    "q": "Hast du mit Verachtung an jemanden gedacht, ihn deiner Aufmerksamkeit nicht für würdig gehalten?"
+  },
+  "emberiszonya_van": {
+    "name": "Menschenscheu",
+    "forms": [
+      "menschenscheu",
+      "Menschenfeindlichkeit",
+      "menschenfeindlich",
+      "ungesellig"
+    ],
+    "q": "Bist du den Menschen ausgewichen, war dir ihre Gesellschaft eine Last?"
+  },
+  "lassusag": {
+    "name": "Langsamkeit",
+    "forms": [
+      "langsam",
+      "Trödelei",
+      "trödeln",
+      "schleppend"
+    ],
+    "q": "Bist du langsam und schleppend vorangekommen, auch als du dich hättest beeilen müssen?"
+  },
+  "nehezkes": {
+    "name": "Schwerfälligkeit",
+    "forms": [
+      "schwerfällig",
+      "Umständlichkeit",
+      "umständlich"
+    ],
+    "q": "Bist du schwer in Gang gekommen, hast du dich schwer an eine unerwartete Lage angepasst?"
+  },
+  "lustasag": {
+    "name": "Faulheit",
+    "forms": [
+      "faul",
+      "Müßiggang",
+      "Drückebergerei",
+      "faulenzen"
+    ],
+    "q": "Hast du Arbeit und Anstrengung gemieden, weil du keine Lust hattest?"
+  },
+  "megbizhatatlan": {
+    "name": "Unzuverlässigkeit",
+    "forms": [
+      "unzuverlässig",
+      "im Stich lassen"
+    ],
+    "q": "Hast du nicht gehalten, was du versprochen hast, jemanden im Stich gelassen?"
+  },
+  "szofukar": {
+    "name": "Wortkargheit",
+    "forms": [
+      "wortkarg",
+      "einsilbig",
+      "kurz angebunden"
+    ],
+    "q": "Warst du auch dort wortkarg, wo ein freundliches oder erklärendes Wort geholfen hätte?"
+  },
+  "lelkiismeretlenseg": {
+    "name": "Gewissenlosigkeit",
+    "forms": [
+      "gewissenlos",
+      "Skrupellosigkeit",
+      "skrupellos"
+    ],
+    "q": "Wusstest du, dass etwas nicht richtig ist, und hast es trotzdem getan?"
+  },
+  "buskomorsag": {
+    "name": "Schwermut",
+    "forms": [
+      "schwermütig",
+      "Trübsinn",
+      "trübsinnig",
+      "Traurigkeit",
+      "traurig",
+      "Grübeln"
+    ],
+    "q": "Haben trübe, schwere Gedanken deinen Tag beherrscht?"
+  },
+  "rendszertelenseg": {
+    "name": "Planlosigkeit",
+    "forms": [
+      "planlos",
+      "Unordnung",
+      "unordentlich",
+      "Chaos",
+      "chaotisch"
+    ],
+    "q": "Ist dein Tag ohne Plan und durcheinander verlaufen, hast du deine Sachen in Unordnung gelassen?"
+  },
+  "aktivitas": {
+    "name": "Aktivität",
+    "forms": [
+      "aktiv",
+      "Tätigkeit",
+      "tätig",
+      "Tatkraft",
+      "Schwung"
+    ],
+    "q": "Hast du das Deine getan, ohne zu warten, dass ein anderer anfängt?"
+  },
+  "lelkesedes": {
+    "name": "Begeisterung",
+    "forms": [
+      "begeistert",
+      "Begeisterungsfähigkeit",
+      "Feuer und Flamme"
+    ],
+    "q": "Hast du mit Freude und Feuer angepackt, was du getan hast?"
+  },
+  "elhatarozottsag": {
+    "name": "Entschlossenheit",
+    "forms": [
+      "entschlossen",
+      "fest entschlossen",
+      "Vorsatz"
+    ],
+    "q": "Bist du bei dem geblieben, was du dir vorgenommen hast?"
+  },
+  "mereszseg": {
+    "name": "Wagemut",
+    "forms": [
+      "wagemutig",
+      "kühn",
+      "Kühnheit",
+      "Unternehmungslust",
+      "unternehmungslustig"
+    ],
+    "q": "Hast du etwas angepackt, wovor du Angst hattest?"
+  },
+  "alkotoero": {
+    "name": "Schaffenskraft",
+    "forms": [
+      "kreativ",
+      "Kreativität",
+      "schöpferisch",
+      "Schöpferkraft",
+      "erschaffen"
+    ],
+    "q": "Hast du etwas Neues geschaffen: eine Idee, einen Gegenstand, eine Lösung?"
+  },
+  "torekves": {
+    "name": "Streben",
+    "forms": [
+      "strebsam",
+      "Strebsamkeit",
+      "Bemühen",
+      "bemüht"
+    ],
+    "q": "Hast du heute etwas für ein Ziel getan, das dir wichtig ist?"
+  },
+  "szenvedelyes": {
+    "name": "leidenschaftlich",
+    "forms": [
+      "Leidenschaft",
+      "Hingabe",
+      "hingebungsvoll",
+      "Glut"
+    ],
+    "q": "Hast du etwas mit ganzer Hingabe, mit Feuer getan?"
+  },
+  "batorsag": {
+    "name": "Mut",
+    "forms": [
+      "mutig",
+      "Tapferkeit",
+      "tapfer",
+      "einstehen"
+    ],
+    "q": "Bist du für etwas oder jemanden eingestanden, trotz deiner Angst?"
+  },
+  "allhatatossag": {
+    "name": "Standhaftigkeit",
+    "forms": [
+      "standhaft",
+      "Beständigkeit",
+      "beständig"
+    ],
+    "q": "Bist du auf deinem gewählten Weg geblieben, auch als dich etwas anderes lockte?"
+  },
+  "szorgalom": {
+    "name": "Fleiß",
+    "forms": [
+      "fleißig",
+      "Arbeitsfreude",
+      "emsig"
+    ],
+    "q": "Hast du ausdauernd und gern gearbeitet, auch wenn niemand zusah?"
+  },
+  "orom": {
+    "name": "Freude",
+    "forms": [
+      "freudig",
+      "froh",
+      "freudvoll"
+    ],
+    "q": "Hast du reine Freude an etwas Einfachem empfunden?"
+  },
+  "jartassag": {
+    "name": "Geschick",
+    "forms": [
+      "geschickt",
+      "Geschicklichkeit",
+      "Können",
+      "Sachkenntnis",
+      "kompetent"
+    ],
+    "q": "Hast du etwas geschickt und mit Sachkenntnis gelöst?"
+  },
+  "joszivuseg": {
+    "name": "Gutherzigkeit",
+    "forms": [
+      "gutherzig",
+      "Güte",
+      "gütig",
+      "gutes Herz"
+    ],
+    "q": "Hast du jemandem selbstlos Gutes getan?"
+  },
+  "vilagos": {
+    "name": "Klarheit",
+    "forms": [
+      "klar",
+      "Klarsicht",
+      "klares Denken",
+      "klar denken"
+    ],
+    "q": "Hast du die Lage klar gesehen und dich verständlich ausgedrückt?"
+  },
+  "gondtalan": {
+    "name": "Sorglosigkeit",
+    "forms": [
+      "sorglos",
+      "unbeschwert",
+      "Unbeschwertheit",
+      "leichtes Herz"
+    ],
+    "q": "Hast du den Tag leichten Herzens, ohne Sorgen erlebt?"
+  },
+  "vidam": {
+    "name": "Fröhlichkeit",
+    "forms": [
+      "fröhlich",
+      "gute Laune",
+      "gut gelaunt",
+      "lustig"
+    ],
+    "q": "Warst du gut gelaunt, und hat das auch andere angesteckt?"
+  },
+  "optimizmus": {
+    "name": "Optimismus",
+    "forms": [
+      "optimistisch",
+      "Zuversicht",
+      "zuversichtlich",
+      "positives Denken"
+    ],
+    "q": "Hast du darauf vertraut, dass sich die Dinge gut fügen, und das Gute in ihnen gesucht?"
+  },
+  "elenkseg": {
+    "name": "Lebhaftigkeit",
+    "forms": [
+      "lebhaft",
+      "Frische",
+      "frisch",
+      "munter"
+    ],
+    "q": "Waren dein Körper und dein Denken frisch und beweglich?"
+  },
+  "fuggetlenseg": {
+    "name": "Unabhängigkeit",
+    "forms": [
+      "unabhängig",
+      "Selbstständigkeit",
+      "selbstständig",
+      "eigenständig"
+    ],
+    "q": "Hast du nach eigenem Ermessen entschieden, nicht unter dem Druck anderer?"
+  },
+  "eberseg": {
+    "name": "Wachsamkeit",
+    "forms": [
+      "wachsam",
+      "Wachheit",
+      "wach",
+      "auf der Hut"
+    ],
+    "q": "Warst du aufmerksam, hast du bemerkt, was um dich herum und in dir geschieht?"
+  },
+  "kedvesseg": {
+    "name": "Freundlichkeit",
+    "forms": [
+      "freundlich",
+      "liebenswürdig",
+      "Liebenswürdigkeit",
+      "herzlich",
+      "Herzlichkeit"
+    ],
+    "q": "Bist du freundlich und warm mit den Menschen umgegangen?"
+  },
+  "bizalom": {
+    "name": "Vertrauen",
+    "forms": [
+      "vertrauen",
+      "vertrauensvoll",
+      "Glaube an andere"
+    ],
+    "q": "Hast du jemandem vertraut, ohne Hintergedanken zu suchen?"
+  },
+  "irgalmassag": {
+    "name": "Barmherzigkeit",
+    "forms": [
+      "barmherzig",
+      "Erbarmen",
+      "Gnade",
+      "gnädig"
+    ],
+    "q": "Warst du barmherzig mit jemandem, der einen Fehler gemacht hat oder in Not war?"
+  },
+  "szerenyseg": {
+    "name": "Bescheidenheit",
+    "forms": [
+      "bescheiden",
+      "Zurückhaltung",
+      "zurückhaltend"
+    ],
+    "q": "Hast du dich nicht in den Vordergrund gedrängt und auch andere glänzen lassen?"
+  },
+  "megadas": {
+    "name": "Ergebenheit",
+    "forms": [
+      "Ergebung",
+      "sich fügen",
+      "geschehen lassen"
+    ],
+    "q": "Hast du angenommen, was du nicht ändern konntest, ohne inneren Kampf?"
+  },
+  "alkalmazkodokeszseg": {
+    "name": "Anpassungsfähigkeit",
+    "forms": [
+      "anpassungsfähig",
+      "anpassen",
+      "Flexibilität",
+      "flexibel"
+    ],
+    "q": "Hast du dich flexibel auf eine neue Lage oder auf die Bedürfnisse anderer eingestellt?"
+  },
+  "buzgosag": {
+    "name": "Eifer",
+    "forms": [
+      "eifrig",
+      "Inbrunst",
+      "inbrünstig"
+    ],
+    "q": "Hast du deine Übungen und Aufgaben mit innerer Hingabe und Treue erledigt?"
+  },
+  "bensosegesseg": {
+    "name": "Innigkeit",
+    "forms": [
+      "innig",
+      "Vertrautheit",
+      "vertraut",
+      "Geborgenheit"
+    ],
+    "q": "Hattest du einen tiefen, innigen Moment mit jemandem oder mit dir selbst?"
+  },
+  "felfogokepesseg": {
+    "name": "Auffassungsgabe",
+    "forms": [
+      "Empfänglichkeit",
+      "empfänglich",
+      "Verständnis",
+      "schnelles Verstehen"
+    ],
+    "q": "Hast du schnell und gut verstanden, was gesagt wurde oder was geschehen ist?"
+  },
+  "meditacio": {
+    "name": "Meditation",
+    "forms": [
+      "meditieren",
+      "Besinnung",
+      "Einkehr",
+      "nach innen schauen",
+      "Andacht"
+    ],
+    "q": "Hast du dir Zeit genommen, still zu werden und nach innen zu schauen?"
+  },
+  "szanalomerzet": {
+    "name": "Mitleid",
+    "forms": [
+      "mitleidig",
+      "Bedauern",
+      "Anteilnahme"
+    ],
+    "q": "Hat dich die Not, das Leiden eines Menschen berührt?"
+  },
+  "egyutterzes": {
+    "name": "Mitgefühl",
+    "forms": [
+      "mitfühlend",
+      "Empathie",
+      "einfühlsam",
+      "Einfühlung"
+    ],
+    "q": "Konntest du dich in die Lage eines anderen hineinversetzen und es ihn auch spüren lassen?"
+  },
+  "nyugalom": {
+    "name": "Ruhe",
+    "forms": [
+      "ruhig",
+      "Gelassenheit",
+      "gelassen",
+      "Frieden",
+      "innerer Frieden"
+    ],
+    "q": "Hast du die innere Stille bewahrt, als um dich herum Hektik herrschte?"
+  },
+  "elmelyultseg": {
+    "name": "Vertiefung",
+    "forms": [
+      "vertieft",
+      "Versenkung",
+      "versunken",
+      "Tiefe"
+    ],
+    "q": "Bist du ganz in etwas versunken und ihm auf den Grund gegangen?"
+  },
+  "mertekletesseg": {
+    "name": "Mäßigung",
+    "forms": [
+      "maßvoll",
+      "Mäßigkeit",
+      "Maß halten"
+    ],
+    "q": "Konntest du beim Essen, Trinken und Vergnügen rechtzeitig aufhören?"
+  },
+  "gyongedseg": {
+    "name": "Zärtlichkeit",
+    "forms": [
+      "zärtlich",
+      "Behutsamkeit",
+      "behutsam",
+      "Zartheit"
+    ],
+    "q": "Bist du mit jemandem fein und liebevoll umgegangen?"
+  },
+  "tiszteletadas": {
+    "name": "Respekt",
+    "forms": [
+      "respektvoll",
+      "Achtung",
+      "Ehrerbietung"
+    ],
+    "q": "Hast du anderen Respekt erwiesen, auch wenn du nicht ihrer Meinung warst?"
+  },
+  "tekintely": {
+    "name": "Autorität",
+    "forms": [
+      "Ansehen",
+      "Ausstrahlung",
+      "Gewicht"
+    ],
+    "q": "Hatten dein Wort und deine Gegenwart Gewicht, mit ruhiger Bestimmtheit?"
+  },
+  "kitartas": {
+    "name": "Ausdauer",
+    "forms": [
+      "ausdauernd",
+      "Beharrlichkeit",
+      "beharrlich",
+      "Durchhaltevermögen"
+    ],
+    "q": "Hast du etwas zu Ende gebracht, das schwierig oder langwierig war?"
+  },
+  "megfontoltsag": {
+    "name": "Besonnenheit",
+    "forms": [
+      "besonnen",
+      "Überlegtheit",
+      "überlegt",
+      "durchdacht"
+    ],
+    "q": "Hast du nachgedacht, bevor du entschieden oder gesprochen hast?"
+  },
+  "hatarozottsag": {
+    "name": "Bestimmtheit",
+    "forms": [
+      "bestimmt",
+      "entschieden",
+      "Entschiedenheit",
+      "Durchsetzungsvermögen"
+    ],
+    "q": "Hast du klar gesagt, was du willst, und Nein gesagt, wo es nötig war?"
+  },
+  "komolysag": {
+    "name": "Ernsthaftigkeit",
+    "forms": [
+      "ernsthaft",
+      "ernst",
+      "Ernst"
+    ],
+    "q": "Hast du das Wichtige mit dem nötigen Gewicht behandelt?"
+  },
+  "lelkiismeretesseg": {
+    "name": "Gewissenhaftigkeit",
+    "forms": [
+      "gewissenhaft"
+    ],
+    "q": "Hast du deine Sache so gemacht, wie es dein Gewissen verlangte?"
+  },
+  "alapossag": {
+    "name": "Gründlichkeit",
+    "forms": [
+      "gründlich"
+    ],
+    "q": "Hast du deine Aufgaben bis ins Detail erledigt, auch wenn niemand nachprüft?"
+  },
+  "koncentraltsag": {
+    "name": "Konzentration",
+    "forms": [
+      "konzentriert",
+      "Sammlung",
+      "gesammelt"
+    ],
+    "q": "Hast du dich auf eine Sache auf einmal gerichtet, ohne abzuschweifen?"
+  },
+  "jozansag": {
+    "name": "Nüchternheit",
+    "forms": [
+      "nüchtern",
+      "gesunder Menschenverstand",
+      "bodenständig"
+    ],
+    "q": "Hast du die Dinge klar, auf dem Boden der Wirklichkeit beurteilt?"
+  },
+  "pontossag": {
+    "name": "Pünktlichkeit",
+    "forms": [
+      "pünktlich",
+      "Genauigkeit",
+      "genau",
+      "exakt"
+    ],
+    "q": "Bist du rechtzeitig gekommen und hast du genau getan, was du übernommen hattest?"
+  },
+  "targyilagossag": {
+    "name": "Sachlichkeit",
+    "forms": [
+      "sachlich",
+      "Objektivität",
+      "objektiv"
+    ],
+    "q": "Hast du die Lage gerecht und unabhängig von deinen Gefühlen beurteilt?"
+  },
+  "elovigyazatossag": {
+    "name": "Vorsicht",
+    "forms": [
+      "vorsichtig",
+      "Umsicht",
+      "umsichtig",
+      "Vorausschau"
+    ],
+    "q": "Hast du an mögliche Schwierigkeiten gedacht und dich darauf vorbereitet?"
+  },
+  "ellenallo_kepesseg": {
+    "name": "Widerstandskraft",
+    "forms": [
+      "widerstandsfähig",
+      "Seelenstärke",
+      "Abhärtung",
+      "abgehärtet",
+      "Resilienz"
+    ],
+    "q": "Hast du einer Versuchung, einem Druck oder der Müdigkeit standgehalten?"
+  },
+  "celtudatossag": {
+    "name": "Zielstrebigkeit",
+    "forms": [
+      "zielstrebig",
+      "zielbewusst"
+    ],
+    "q": "Wusstest du, wohin du willst, und bist du darauf zugegangen?"
+  },
+  "felelossegerzet": {
+    "name": "Verantwortungsgefühl",
+    "forms": [
+      "Verantwortung",
+      "verantwortungsvoll",
+      "verantwortungsbewusst"
+    ],
+    "q": "Hast du die Folgen dessen getragen, was du getan oder gesagt hast?"
+  },
+  "turelmetlenseg": {
+    "name": "Ungeduld",
+    "forms": [
+      "ungeduldig",
+      "drängen",
+      "Drängelei"
+    ]
+  },
+  "irigyseg": {
+    "name": "Neid",
+    "forms": [
+      "neidisch",
+      "beneiden",
+      "Missgunst",
+      "missgünstig"
+    ]
+  },
+  "ingerlekenyseg": {
+    "name": "Reizbarkeit",
+    "forms": [
+      "reizbar",
+      "nervös",
+      "Nervosität",
+      "gereizt"
+    ]
+  },
+  "dac": {
+    "name": "Trotz",
+    "forms": [
+      "trotzig",
+      "Trotzigkeit",
+      "bockig"
+    ]
+  },
+  "agresszivitas": {
+    "name": "Aggressivität",
+    "forms": [
+      "aggressiv",
+      "Gewalttätigkeit",
+      "gewalttätig",
+      "Gewalt"
+    ]
+  },
+  "durvasag": {
+    "name": "Grobheit",
+    "forms": [
+      "grob",
+      "Derbheit",
+      "derb",
+      "roh",
+      "Rohheit"
+    ]
+  },
+  "gorombasag": {
+    "name": "Ruppigkeit",
+    "forms": [
+      "ruppig",
+      "unhöflich",
+      "Unhöflichkeit",
+      "flegelhaft",
+      "Flegel"
+    ]
+  },
+  "uralkodni_vagyas": {
+    "name": "Herrschsucht",
+    "forms": [
+      "herrschsüchtig",
+      "Machtgier",
+      "Tyrannei",
+      "herumkommandieren",
+      "bevormunden"
+    ]
+  },
+  "kegyetlenseg": {
+    "name": "Grausamkeit",
+    "forms": [
+      "grausam",
+      "Rücksichtslosigkeit",
+      "rücksichtslos",
+      "erbarmungslos"
+    ]
+  },
+  "kapkodas": {
+    "name": "Hast",
+    "forms": [
+      "hastig",
+      "Hektik",
+      "hektisch",
+      "überstürzt",
+      "Eile"
+    ]
+  },
+  "sovargas": {
+    "name": "Begierde",
+    "forms": [
+      "begierig",
+      "Sehnsucht",
+      "Verlangen",
+      "gieren"
+    ]
+  },
+  "kejvagy": {
+    "name": "Wollust",
+    "forms": [
+      "wollüstig",
+      "Lüsternheit",
+      "lüstern",
+      "Ausschweifung"
+    ]
+  },
+  "mohosag": {
+    "name": "Gier",
+    "forms": [
+      "gierig",
+      "Raffen",
+      "Schlingen"
+    ]
+  },
+  "fanatizmus": {
+    "name": "Fanatismus",
+    "forms": [
+      "fanatisch",
+      "Fanatiker",
+      "Eiferertum",
+      "Bigotterie"
+    ]
+  },
+  "onfejuseg": {
+    "name": "Querköpfigkeit",
+    "forms": [
+      "querköpfig",
+      "Querkopf",
+      "eigenmächtig"
+    ]
+  },
+  "nagyravagyas": {
+    "name": "Ehrgeiz",
+    "forms": [
+      "ehrgeizig",
+      "Karrierismus",
+      "Geltungsdrang"
+    ]
+  },
+  "versenges": {
+    "name": "Rivalität",
+    "forms": [
+      "rivalisieren",
+      "Konkurrenzdenken",
+      "konkurrieren",
+      "Wetteifern"
+    ]
+  },
+  "hiszterikussag": {
+    "name": "Hysterie",
+    "forms": [
+      "hysterisch",
+      "Szene machen",
+      "Theater",
+      "Wutanfall"
+    ]
+  },
+  "sertegetes": {
+    "name": "Beleidigung",
+    "forms": [
+      "beleidigen",
+      "beleidigend",
+      "kränkend",
+      "beschimpfen"
+    ]
+  },
+  "tolakodas": {
+    "name": "Aufdringlichkeit",
+    "forms": [
+      "aufdringlich",
+      "Zudringlichkeit",
+      "sich vordrängen"
+    ]
+  },
+  "karorvendes": {
+    "name": "Schadenfreude",
+    "forms": [
+      "schadenfroh"
+    ]
+  },
+  "rosszindulat": {
+    "name": "Bosheit",
+    "forms": [
+      "boshaft",
+      "Böswilligkeit",
+      "böswillig",
+      "Gehässigkeit",
+      "gehässig"
+    ]
+  },
+  "gog": {
+    "name": "Hochmut",
+    "forms": [
+      "hochmütig",
+      "Arroganz",
+      "arrogant",
+      "hochnäsig"
+    ]
+  },
+  "undoksag": {
+    "name": "Gemeinheit",
+    "forms": [
+      "gemein",
+      "Fiesheit",
+      "fies",
+      "sticheln"
+    ]
+  },
+  "telhetetlenseg": {
+    "name": "Unersättlichkeit",
+    "forms": [
+      "unersättlich",
+      "nie genug"
+    ]
+  },
+  "kovetelozes": {
+    "name": "Anspruchsdenken",
+    "forms": [
+      "fordernd",
+      "Forderungen stellen",
+      "anspruchsvoll"
+    ]
+  },
+  "hiusag": {
+    "name": "Eitelkeit",
+    "forms": [
+      "eitel",
+      "Gefallsucht",
+      "Geltungssucht",
+      "sich zur Schau stellen"
+    ]
+  },
+  "feluletesseg": {
+    "name": "Oberflächlichkeit",
+    "forms": [
+      "oberflächlich",
+      "Seichtheit",
+      "seicht"
+    ]
+  },
+  "szetszortsag": {
+    "name": "Fahrigkeit",
+    "forms": [
+      "fahrig",
+      "unkonzentriert",
+      "flatterhaft"
+    ]
+  },
+  "hazudozas": {
+    "name": "Lügen",
+    "forms": [
+      "Lüge",
+      "lügen",
+      "Lügner",
+      "verlogen",
+      "flunkern"
+    ]
+  },
+  "kivancsiskodas": {
+    "name": "Schnüffelei",
+    "forms": [
+      "schnüffeln",
+      "naseweis",
+      "sich einmischen"
+    ]
+  },
+  "szeszelyesseg": {
+    "name": "Launenhaftigkeit",
+    "forms": [
+      "launisch",
+      "Launen",
+      "launenhaft"
+    ]
+  },
+  "szorakozottsag": {
+    "name": "Zerstreutheit",
+    "forms": [
+      "zerstreut",
+      "Vergesslichkeit",
+      "vergesslich"
+    ]
+  },
+  "komolytalansag": {
+    "name": "Unernst",
+    "forms": [
+      "unernst",
+      "Albernheit",
+      "albern",
+      "nicht ernst nehmen"
+    ]
+  },
+  "meggondolatlansag": {
+    "name": "Unbedachtheit",
+    "forms": [
+      "unbedacht",
+      "Gedankenlosigkeit",
+      "gedankenlos",
+      "unüberlegt",
+      "vorschnell"
+    ]
+  },
+  "felelotlenseg": {
+    "name": "Verantwortungslosigkeit",
+    "forms": [
+      "verantwortungslos"
+    ]
+  },
+  "hizelges": {
+    "name": "Schmeichelei",
+    "forms": [
+      "schmeicheln",
+      "Schmeichler",
+      "einschleimen",
+      "Speichellecker"
+    ]
+  },
+  "kepmutatas": {
+    "name": "Heuchelei",
+    "forms": [
+      "heucheln",
+      "Heuchler",
+      "scheinheilig",
+      "Scheinheiligkeit",
+      "doppelzüngig"
+    ]
+  },
+  "itelkezes": {
+    "name": "Verurteilen",
+    "forms": [
+      "verurteilend",
+      "kritisieren",
+      "Kritisieren",
+      "kritisch",
+      "urteilen"
+    ]
+  },
+  "okoskodas": {
+    "name": "Besserwisserei",
+    "forms": [
+      "Besserwisser",
+      "besserwisserisch",
+      "belehren",
+      "Belehrung",
+      "Rechthaberei",
+      "rechthaberisch"
+    ]
+  },
+  "igergetes": {
+    "name": "leere Versprechen",
+    "forms": [
+      "Versprechen",
+      "nicht gehaltenes Versprechen",
+      "vertrösten"
+    ]
+  },
+  "zavarodottsag": {
+    "name": "Verwirrtheit",
+    "forms": [
+      "verwirrt",
+      "Durcheinander",
+      "wirres Denken",
+      "konfus"
+    ]
+  },
+  "nyugtalansag": {
+    "name": "Unruhe",
+    "forms": [
+      "unruhig",
+      "Anspannung",
+      "angespannt",
+      "rastlos"
+    ]
+  },
+  "gunyolodas": {
+    "name": "Spott",
+    "forms": [
+      "spöttisch",
+      "verspotten",
+      "Hohn",
+      "höhnisch",
+      "Sarkasmus",
+      "sarkastisch",
+      "necken"
+    ]
+  },
+  "figyelmetlenseg": {
+    "name": "Unaufmerksamkeit",
+    "forms": [
+      "unaufmerksam",
+      "Achtlosigkeit",
+      "achtlos"
+    ]
+  },
+  "pontatlansag": {
+    "name": "Unpünktlichkeit",
+    "forms": [
+      "unpünktlich",
+      "Ungenauigkeit",
+      "ungenau",
+      "Verspätung",
+      "zu spät"
+    ]
+  },
+  "manipulalas": {
+    "name": "Manipulation",
+    "forms": [
+      "manipulativ",
+      "manipulieren"
+    ]
+  },
+  "kifogaskereses": {
+    "name": "Ausreden",
+    "forms": [
+      "Ausrede",
+      "Rechtfertigung",
+      "sich rechtfertigen",
+      "Schuldzuweisung",
+      "anderen die Schuld geben"
+    ]
+  },
+  "hutlenseg": {
+    "name": "Untreue",
+    "forms": [
+      "untreu",
+      "Treulosigkeit",
+      "treulos",
+      "fremdgehen"
+    ]
+  },
+  "cinizmus": {
+    "name": "Zynismus",
+    "forms": [
+      "zynisch",
+      "Zyniker"
+    ]
+  },
+  "onsajnalat": {
+    "name": "Selbstmitleid",
+    "forms": [
+      "sich selbst bemitleiden",
+      "wehleidig"
+    ]
+  },
+  "befolyasolhatosag": {
+    "name": "Beeinflussbarkeit",
+    "forms": [
+      "beeinflussbar",
+      "leicht zu beeinflussen",
+      "Mitläufer"
+    ]
+  },
+  "kishituseg": {
+    "name": "Kleinmut",
+    "forms": [
+      "kleinmütig",
+      "mangelndes Selbstvertrauen",
+      "Unsicherheit",
+      "unsicher",
+      "Minderwertigkeitsgefühl"
+    ]
+  },
+  "gyavasag": {
+    "name": "Feigheit",
+    "forms": [
+      "feige",
+      "Feigling",
+      "kneifen",
+      "den Schwanz einziehen"
+    ]
+  },
+  "hatarozatlansag": {
+    "name": "Unentschlossenheit",
+    "forms": [
+      "unentschlossen",
+      "Zögern",
+      "zögern",
+      "Zaudern",
+      "Entscheidungsschwäche"
+    ]
+  },
+  "celtalansag": {
+    "name": "Ziellosigkeit",
+    "forms": [
+      "ziellos",
+      "sich treiben lassen",
+      "Treibenlassen"
+    ]
+  },
+  "lanyhasag": {
+    "name": "Lauheit",
+    "forms": [
+      "lau",
+      "halbherzig",
+      "Halbherzigkeit",
+      "lasch"
+    ]
+  },
+  "ridegseg": {
+    "name": "Kälte",
+    "forms": [
+      "kalt",
+      "Kühle",
+      "kühl",
+      "abweisend",
+      "Schroffheit"
+    ]
+  },
+  "elfogultsag": {
+    "name": "Voreingenommenheit",
+    "forms": [
+      "voreingenommen",
+      "Parteilichkeit",
+      "parteiisch",
+      "Vorurteil"
+    ]
+  },
+  "passzivitas": {
+    "name": "Passivität",
+    "forms": [
+      "passiv",
+      "Untätigkeit",
+      "untätig"
+    ]
+  },
+  "tulerzekenyseg": {
+    "name": "Überempfindlichkeit",
+    "forms": [
+      "überempfindlich",
+      "Empfindlichkeit",
+      "dünnhäutig",
+      "Weinerlichkeit",
+      "weinerlich"
+    ]
+  },
+  "szorongas": {
+    "name": "Ängstlichkeit",
+    "forms": [
+      "ängstlich",
+      "Angst",
+      "Furcht",
+      "Beklemmung"
+    ]
+  },
+  "alazatoskodas": {
+    "name": "Unterwürfigkeit",
+    "forms": [
+      "unterwürfig",
+      "Kriecherei",
+      "kriecherisch",
+      "Servilität"
+    ]
+  },
+  "elkenyelmesedes": {
+    "name": "Bequemlichkeit",
+    "forms": [
+      "bequem",
+      "Verweichlichung",
+      "verweichlicht",
+      "Behäbigkeit"
+    ]
+  },
+  "erzelgosseg": {
+    "name": "Gefühlsduselei",
+    "forms": [
+      "sentimental",
+      "Sentimentalität",
+      "rührselig"
+    ]
+  },
+  "halatlansag": {
+    "name": "Undankbarkeit",
+    "forms": [
+      "undankbar"
+    ]
+  },
+  "iszakossag": {
+    "name": "Trunksucht",
+    "forms": [
+      "Trinken",
+      "Saufen",
+      "Besäufnis",
+      "betrunken",
+      "Alkohol"
+    ]
+  },
+  "almodozas": {
+    "name": "Träumerei",
+    "forms": [
+      "träumerisch",
+      "Tagträumen",
+      "Tagträumer",
+      "Schwärmerei"
+    ]
+  },
+  "panaszkodas": {
+    "name": "Jammern",
+    "forms": [
+      "jammern",
+      "Klagen",
+      "klagen",
+      "Gejammer",
+      "Wehklagen"
+    ]
+  },
+  "megalkuvas": {
+    "name": "Opportunismus",
+    "forms": [
+      "opportunistisch",
+      "Opportunist",
+      "faule Kompromisse",
+      "klein beigeben"
+    ]
+  },
+  "kapzsisag": {
+    "name": "Habgier",
+    "forms": [
+      "habgierig",
+      "Geiz",
+      "geizig",
+      "Knauserei",
+      "knauserig",
+      "Raffgier"
+    ]
+  },
+  "merevseg": {
+    "name": "Starrheit",
+    "forms": [
+      "starr",
+      "Unbeweglichkeit",
+      "unflexibel",
+      "Unnachgiebigkeit",
+      "unnachgiebig"
+    ]
+  },
+  "pesszimizmus": {
+    "name": "Pessimismus",
+    "forms": [
+      "pessimistisch",
+      "Pessimist",
+      "Schwarzseherei",
+      "schwarzsehen"
+    ]
+  },
+  "halogatas": {
+    "name": "Aufschieben",
+    "forms": [
+      "aufschieben",
+      "Prokrastination",
+      "hinauszögern",
+      "vertagen"
+    ]
+  },
+  "aggodalmaskodas": {
+    "name": "Sorgenmacherei",
+    "forms": [
+      "sich sorgen",
+      "besorgt",
+      "Sorgen",
+      "übervorsichtig",
+      "Bedenkenträger"
+    ]
+  },
+  "bizalmatlansag": {
+    "name": "Misstrauen",
+    "forms": [
+      "misstrauisch",
+      "Argwohn",
+      "argwöhnisch"
+    ]
+  },
+  "zarkozottsag": {
+    "name": "Verschlossenheit",
+    "forms": [
+      "verschlossen",
+      "Abkapselung",
+      "sich abkapseln",
+      "in sich gekehrt"
+    ]
+  },
+  "ertetlenseg": {
+    "name": "Begriffsstutzigkeit",
+    "forms": [
+      "begriffsstutzig",
+      "Unverständnis",
+      "schwer von Begriff"
+    ]
+  },
+  "ugyetlenseg": {
+    "name": "Ungeschicklichkeit",
+    "forms": [
+      "ungeschickt",
+      "Tollpatschigkeit",
+      "tollpatschig",
+      "linkisch"
+    ]
+  },
+  "elegedetlenseg": {
+    "name": "Unzufriedenheit",
+    "forms": [
+      "unzufrieden",
+      "Nörgelei",
+      "nörgeln",
+      "nörglerisch",
+      "meckern"
+    ]
+  },
+  "kicsinyesseg": {
+    "name": "Kleinlichkeit",
+    "forms": [
+      "kleinlich",
+      "Haarspalterei",
+      "Pedanterie",
+      "pedantisch"
+    ]
+  },
+  "haszonleses": {
+    "name": "Berechnung",
+    "forms": [
+      "berechnend",
+      "Gewinnsucht",
+      "Materialismus",
+      "materialistisch",
+      "auf den Vorteil bedacht"
+    ]
+  },
+  "onzes": {
+    "name": "Selbstsucht",
+    "forms": [
+      "selbstsüchtig",
+      "Egoismus",
+      "egoistisch",
+      "Egoist"
+    ]
+  },
+  "szigorusag": {
+    "name": "Strenge",
+    "forms": [
+      "streng",
+      "Härte",
+      "hart zu anderen"
+    ]
+  },
+  "maradisag": {
+    "name": "Rückständigkeit",
+    "forms": [
+      "rückständig",
+      "verstaubt",
+      "altmodisch",
+      "verknöchert"
+    ]
+  },
+  "mogorvasag": {
+    "name": "Mürrischkeit",
+    "forms": [
+      "mürrisch",
+      "Missmut",
+      "missmutig",
+      "griesgrämig",
+      "schlechte Laune"
+    ]
+  },
+  "elkeseredettseg": {
+    "name": "Verbitterung",
+    "forms": [
+      "verbittert",
+      "Verzweiflung",
+      "verzweifelt",
+      "Hoffnungslosigkeit",
+      "hoffnungslos"
+    ]
+  },
+  "ragaszkodas": {
+    "name": "Klammern",
+    "forms": [
+      "klammern",
+      "Besitzdenken",
+      "besitzergreifend",
+      "Anhaften"
+    ]
+  },
+  "szuklatokoruseg": {
+    "name": "Engstirnigkeit",
+    "forms": [
+      "engstirnig",
+      "Borniertheit",
+      "borniert",
+      "beschränkt"
+    ]
+  },
+  "nagylelkuseg": {
+    "name": "Großzügigkeit",
+    "forms": [
+      "großzügig",
+      "Freigebigkeit",
+      "freigebig",
+      "spenden"
+    ]
+  },
+  "kezdemenyezokeszseg": {
+    "name": "Eigeninitiative",
+    "forms": [
+      "Initiative",
+      "initiativ",
+      "anpacken"
+    ]
+  },
+  "onbizalom": {
+    "name": "Selbstvertrauen",
+    "forms": [
+      "selbstbewusst",
+      "Selbstsicherheit",
+      "selbstsicher"
+    ]
+  },
+  "tettrekeszseg": {
+    "name": "Tatbereitschaft",
+    "forms": [
+      "tatbereit",
+      "Tatendrang",
+      "zupacken"
+    ]
+  },
+  "eletero": {
+    "name": "Lebenskraft",
+    "forms": [
+      "Lebensfreude",
+      "Vitalität",
+      "vital",
+      "Energie",
+      "energisch"
+    ]
+  },
+  "nagyvonalusag": {
+    "name": "Großmut",
+    "forms": [
+      "großmütig",
+      "Großherzigkeit",
+      "großherzig",
+      "Weitherzigkeit"
+    ]
+  },
+  "akaratero": {
+    "name": "Willenskraft",
+    "forms": [
+      "starker Wille",
+      "Wille",
+      "Willensstärke"
+    ]
+  },
+  "melegszivuseg": {
+    "name": "Warmherzigkeit",
+    "forms": [
+      "warmherzig",
+      "Herzenswärme",
+      "Wärme"
+    ]
+  },
+  "hosiesseg": {
+    "name": "Heldenmut",
+    "forms": [
+      "Held",
+      "heldenhaft",
+      "heldenmütig"
+    ]
+  },
+  "oszinteseg": {
+    "name": "Aufrichtigkeit",
+    "forms": [
+      "aufrichtig",
+      "ehrlich",
+      "Ehrlichkeit",
+      "geradlinig",
+      "Geradlinigkeit"
+    ]
+  },
+  "humor": {
+    "name": "Humor",
+    "forms": [
+      "humorvoll",
+      "witzig",
+      "Witz",
+      "Scherz"
+    ]
+  },
+  "segitokeszseg": {
+    "name": "Hilfsbereitschaft",
+    "forms": [
+      "hilfsbereit",
+      "helfen"
+    ]
+  },
+  "kozlekenyseg": {
+    "name": "Mitteilsamkeit",
+    "forms": [
+      "mitteilsam",
+      "gesprächig",
+      "Gesprächigkeit"
+    ]
+  },
+  "nyitottsag": {
+    "name": "Offenheit",
+    "forms": [
+      "offen",
+      "aufgeschlossen",
+      "Interesse",
+      "Neugier",
+      "neugierig"
+    ]
+  },
+  "figyelmesseg": {
+    "name": "Aufmerksamkeit",
+    "forms": [
+      "aufmerksam",
+      "Rücksicht",
+      "rücksichtsvoll"
+    ]
+  },
+  "tapintat": {
+    "name": "Takt",
+    "forms": [
+      "taktvoll",
+      "Taktgefühl",
+      "Feingefühl",
+      "Fingerspitzengefühl"
+    ]
+  },
+  "furgeseg": {
+    "name": "Flinkheit",
+    "forms": [
+      "flink",
+      "Schnelligkeit",
+      "schnell",
+      "Beweglichkeit",
+      "wendig"
+    ]
+  },
+  "konnyedseg": {
+    "name": "Leichtigkeit",
+    "forms": [
+      "leicht",
+      "locker",
+      "Lockerheit",
+      "mühelos"
+    ]
+  },
+  "deru": {
+    "name": "Heiterkeit",
+    "forms": [
+      "heiter",
+      "Frohsinn",
+      "sonnig"
+    ]
+  },
+  "tanulekonysag": {
+    "name": "Lernfähigkeit",
+    "forms": [
+      "lernfähig",
+      "lernbereit",
+      "Wissbegierde",
+      "wissbegierig"
+    ]
+  },
+  "lelemenyesseg": {
+    "name": "Einfallsreichtum",
+    "forms": [
+      "einfallsreich",
+      "Findigkeit",
+      "findig",
+      "erfinderisch"
+    ]
+  },
+  "kiegyensulyozottsag": {
+    "name": "Ausgeglichenheit",
+    "forms": [
+      "ausgeglichen",
+      "Harmonie",
+      "inneres Gleichgewicht",
+      "Gleichmut"
+    ]
+  },
+  "egyuttmukodes": {
+    "name": "Zusammenarbeit",
+    "forms": [
+      "kooperativ",
+      "Teamgeist",
+      "Kooperation",
+      "zusammenarbeiten"
+    ]
+  },
+  "bolcsesseg": {
+    "name": "Weisheit",
+    "forms": [
+      "weise",
+      "Einsicht",
+      "einsichtig"
+    ]
+  },
+  "masok_szabadsaganak_tisztelete": {
+    "name": "Achtung der Freiheit anderer",
+    "forms": [
+      "Freiheit lassen",
+      "Freiheit geben",
+      "andere lassen",
+      "den Willen anderer achten"
+    ]
+  },
+  "hala": {
+    "name": "Dankbarkeit",
+    "forms": [
+      "dankbar",
+      "Dank"
+    ]
+  },
+  "joindulat": {
+    "name": "Wohlwollen",
+    "forms": [
+      "wohlwollend",
+      "Gutmütigkeit",
+      "gutmütig",
+      "guter Wille"
+    ]
+  },
+  "szelidseg": {
+    "name": "Sanftmut",
+    "forms": [
+      "sanft",
+      "sanftmütig",
+      "Milde",
+      "mild"
+    ]
+  },
+  "szeretet": {
+    "name": "Liebe",
+    "forms": [
+      "liebevoll",
+      "Zuneigung",
+      "lieben"
+    ]
+  },
+  "megbocsatas": {
+    "name": "Vergebung",
+    "forms": [
+      "vergeben",
+      "verzeihen",
+      "Verzeihung"
+    ]
+  },
+  "bekulekenyseg": {
+    "name": "Versöhnlichkeit",
+    "forms": [
+      "versöhnlich",
+      "Friedfertigkeit",
+      "friedfertig",
+      "friedliebend"
+    ]
+  },
+  "alazat": {
+    "name": "Demut",
+    "forms": [
+      "demütig"
+    ]
+  },
+  "elfogadas": {
+    "name": "Annahme",
+    "forms": [
+      "annehmen",
+      "akzeptieren",
+      "Akzeptanz",
+      "akzeptierend"
+    ]
+  },
+  "elnezes": {
+    "name": "Nachsicht",
+    "forms": [
+      "nachsichtig",
+      "Toleranz",
+      "tolerant",
+      "Duldsamkeit"
+    ]
+  },
+  "onzetlenseg": {
+    "name": "Selbstlosigkeit",
+    "forms": [
+      "selbstlos",
+      "Uneigennützigkeit",
+      "uneigennützig",
+      "Altruismus"
+    ]
+  },
+  "emberszeretet": {
+    "name": "Menschenliebe",
+    "forms": [
+      "Nächstenliebe",
+      "menschenfreundlich",
+      "Menschenfreund",
+      "Philanthropie"
+    ]
+  },
+  "megelegedettseg": {
+    "name": "Zufriedenheit",
+    "forms": [
+      "zufrieden",
+      "Genügsamkeit",
+      "genügsam"
+    ]
+  },
+  "elengedes": {
+    "name": "Loslassen",
+    "forms": [
+      "loslassen",
+      "sich lösen",
+      "freigeben"
+    ]
+  },
+  "remenyseg": {
+    "name": "Hoffnung",
+    "forms": [
+      "hoffnungsvoll",
+      "hoffen"
+    ]
+  },
+  "johiszemuseg": {
+    "name": "guter Glaube",
+    "forms": [
+      "in gutem Glauben",
+      "Arglosigkeit",
+      "arglos",
+      "redliche Absicht"
+    ]
+  },
+  "turelem": {
+    "name": "Geduld",
+    "forms": [
+      "geduldig",
+      "Langmut",
+      "langmütig"
+    ]
+  },
+  "megbizhatosag": {
+    "name": "Zuverlässigkeit",
+    "forms": [
+      "zuverlässig",
+      "Verlässlichkeit",
+      "verlässlich",
+      "vertrauenswürdig"
+    ]
+  },
+  "rendszeretet": {
+    "name": "Ordnungsliebe",
+    "forms": [
+      "ordentlich",
+      "ordnungsliebend",
+      "Ordnung"
+    ]
+  },
+  "becsuletesseg": {
+    "name": "Redlichkeit",
+    "forms": [
+      "redlich",
+      "Anständigkeit",
+      "anständig",
+      "Ehrenhaftigkeit",
+      "ehrenhaft",
+      "Ehre"
+    ]
+  },
+  "takarekossag": {
+    "name": "Sparsamkeit",
+    "forms": [
+      "sparsam",
+      "Haushalten",
+      "haushalten"
+    ]
+  },
+  "megbecsules": {
+    "name": "Wertschätzung",
+    "forms": [
+      "wertschätzen",
+      "schätzen",
+      "Anerkennung",
+      "anerkennen"
+    ]
+  },
+  "diszkrecio": {
+    "name": "Diskretion",
+    "forms": [
+      "diskret",
+      "Verschwiegenheit",
+      "verschwiegen",
+      "Schweigen"
+    ]
+  },
+  "onfegyelem": {
+    "name": "Selbstdisziplin",
+    "forms": [
+      "diszipliniert",
+      "Selbstbeherrschung",
+      "Selbstkontrolle"
+    ]
+  },
+  "onbecsules": {
+    "name": "Selbstachtung",
+    "forms": [
+      "Würde",
+      "Selbstwert",
+      "Selbstwertgefühl"
+    ]
+  },
+  "huseg": {
+    "name": "Treue",
+    "forms": [
+      "treu",
+      "Loyalität",
+      "loyal"
+    ]
+  },
+  "egyszeruseg": {
+    "name": "Einfachheit",
+    "forms": [
+      "einfach",
+      "Schlichtheit",
+      "schlicht"
+    ]
+  },
+  "gondossag": {
+    "name": "Sorgfalt",
+    "forms": [
+      "sorgfältig",
+      "Fürsorge",
+      "fürsorglich"
+    ]
+  },
+  "szilardsag": {
+    "name": "Festigkeit",
+    "forms": [
+      "fest",
+      "Unerschütterlichkeit",
+      "unerschütterlich",
+      "standfest"
+    ]
+  },
+  "kotelessegtudat": {
+    "name": "Pflichtbewusstsein",
+    "forms": [
+      "pflichtbewusst",
+      "Pflichtgefühl",
+      "Pflicht"
+    ]
+  },
+  "kovetkezetesseg": {
+    "name": "Konsequenz",
+    "forms": [
+      "konsequent",
+      "Folgerichtigkeit"
+    ]
+  },
+  "munkabiras": {
+    "name": "Belastbarkeit",
+    "forms": [
+      "belastbar",
+      "Zähigkeit",
+      "zäh",
+      "Arbeitskraft"
+    ]
+  },
+  "igazsagossag": {
+    "name": "Gerechtigkeit",
+    "forms": [
+      "gerecht",
+      "Fairness",
+      "fair"
+    ]
+  },
+  "gyakorlatiassag": {
+    "name": "Praxissinn",
+    "forms": [
+      "praktisch",
+      "pragmatisch",
+      "Wirklichkeitssinn",
+      "Realitätssinn"
+    ]
+  },
+  "tervszeruseg": {
+    "name": "Planmäßigkeit",
+    "forms": [
+      "planmäßig",
+      "Planung",
+      "planen",
+      "methodisch",
+      "systematisch"
+    ]
+  }
+}
