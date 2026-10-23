@@ -115,6 +115,7 @@ const config: Config = {
         'bell-ring': 'bellRing 0.9s ease-in-out',
         'sheet-in': 'sheetIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) backwards',
         'sheet-out': 'sheetOut 0.22s ease-in forwards',
+        'pop-out': 'popOut 0.18s ease-in forwards',
       },
       keyframes: {
         fadeIn: {
@@ -144,6 +145,10 @@ const config: Config = {
         sheetIn: {
           '0%': { opacity: '0', transform: 'translateY(24px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        popOut: {
+          '0%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+          '100%': { opacity: '0', transform: 'translateY(4px) scale(0.95)' },
         },
         sheetOut: {
           '0%': { opacity: '1', transform: 'translateY(0)' },

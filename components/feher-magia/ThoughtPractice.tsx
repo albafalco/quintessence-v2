@@ -15,7 +15,7 @@ import {
 } from '@/lib/magia/path';
 import type { Outcome, ThoughtState } from '@/lib/magia/types';
 import { UtravaloView } from './UtravaloView';
-import { cancel, endSound, hasPlayed, keepAwake, startSound, unlock, vibrate, type ScheduledSound } from './sound';
+import { cancel, endSound, hasPlayed, keepAwake, unlock, vibrate, type ScheduledSound } from './sound';
 
 export interface ThoughtSaved {
   state: ThoughtState;
@@ -108,7 +108,6 @@ export function ThoughtPractice(props: ThoughtPracticeProps) {
     startedAtRef.current = new Date().toISOString();
     startMsRef.current = Date.now();
     setElapsed(0);
-    startSound();
     endGongRef.current = endSound(targetSec);
     wakeRef.current = await keepAwake();
     setPhase('run');

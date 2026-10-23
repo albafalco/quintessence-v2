@@ -28,7 +28,9 @@ export async function TodayPage({
   ]);
 
   return (
-    <div className="mx-auto max-w-2xl space-y-5">
+    <div className="mx-auto max-w-2xl space-y-5 xl:max-w-6xl">
+      {/* The header and the tabs keep the width of the other tabs; the day below gets wider */}
+      <div className="mx-auto max-w-2xl space-y-5">
       <header className="premium-card magia-surface p-5 sm:p-6">
         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">
           {t('fokozat', { roman: ROMAN_NUMERALS[data.path.fokozat] })} · {t('day', { day: data.completedEvenings + 1 })}
@@ -41,6 +43,7 @@ export async function TodayPage({
         )}
       </header>
       <MagiaTabs locale={locale} active="ma" />
+      </div>
       <TodayView
         locale={locale}
         userId={userId}

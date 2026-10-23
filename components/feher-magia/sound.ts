@@ -2,7 +2,7 @@
 
 /**
  * Sounds of the closed-eye practices, synthesised with Web Audio (no files):
- * the singing bowl that starts (one strike) and ends (two strikes) a practice, and the soft tick of the breath counter.
+ * the singing bowl that ends a practice (one strike), and the soft tick of the breath counter.
  * iOS plays sound only from an AudioContext resumed inside a tap, so call
  * `unlock()` from the button that starts the practice.
  */
@@ -62,23 +62,12 @@ function strike(c: AudioContext, at: number, volume: number): OscillatorNode[] {
   return nodes;
 }
 
-/** The start of a practice: one quiet strike of the singing bowl. */
-export function startSound(): ScheduledSound | null {
-  const c = audio();
-  if (!c) return null;
-  const at = c.currentTime;
-  return { nodes: strike(c, at, 0.3), at };
-}
-
-/**
- * The end of a practice, now or `inSec` seconds later on the audio clock (it sounds
- * even while rendering is paused): two strikes, the second one softer.
- */
+/** The end of a practice, now or `inSec` seconds later on the audio clock (it sounds even while rendering is paused): one strike. */
 export function endSound(inSec = 0): ScheduledSound | null {
   const c = audio();
   if (!c) return null;
   const at = c.currentTime + Math.max(0, inSec);
-  return { nodes: [...strike(c, at, 0.45), ...strike(c, at + 2.4, 0.28)], at };
+  return { nodes: strike(c, at, 0.45), at };
 }
 
 export function cancel(sound: ScheduledSound | null): void {

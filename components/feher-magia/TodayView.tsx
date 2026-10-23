@@ -393,6 +393,16 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
     <div className="space-y-5 pb-20">
       {/* The tab's content comes in like the settings tabs (the "+" stays outside: it is fixed) */}
       <div className="animate-fade-up space-y-5 motion-reduce:animate-none">
+      {/* Desktop: the note button under the tabs (the floating "+" is for phones) */}
+      <div className="hidden justify-end md:flex">
+        <button
+          type="button"
+          onClick={() => setNoting(true)}
+          className="rounded-xl border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/20 hover:shadow-glow-gold"
+        >
+          {t('dashboard.note')}
+        </button>
+      </div>
       {cycleReady && (
         <Link
           href={`/${locale}/modules/magia/tukor`}
@@ -402,6 +412,8 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
           {t('mirror.banner')} <span className="font-semibold text-accent">{t('mirror.bannerLink')} →</span>
         </Link>
       )}
+      {/* Wide screens: morning, day and evening side by side */}
+      <div className="space-y-5 xl:grid xl:grid-cols-3 xl:items-start xl:gap-5 xl:space-y-0">
       {PARTS.map((part) => {
         const list = rows(part);
         const pending = pendingSteps(part);
@@ -465,6 +477,7 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
           </section>
         );
       })}
+      </div>
 
       </div>
 
@@ -474,7 +487,7 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
         onClick={() => setNoting(true)}
         aria-label={t('quickNote.title')}
         className={cn(
-          'fixed right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-xl font-semibold text-accent-foreground shadow-glow-gold transition duration-300 hover:scale-105 md:bottom-8',
+          'fixed right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-xl font-semibold text-accent-foreground shadow-glow-gold transition duration-300 hover:scale-105 md:hidden',
           scrolling && 'opacity-25'
         )}
         style={{ bottom: 'calc(5.5rem + env(safe-area-inset-bottom))' }}

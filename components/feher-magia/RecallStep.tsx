@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { cancel, endSound, hasPlayed, keepAwake, startSound, unlock, vibrate, type ScheduledSound } from './sound';
+import { cancel, endSound, hasPlayed, keepAwake, unlock, vibrate, type ScheduledSound } from './sound';
 
 const RECALL_SEC = 60;
 
@@ -47,7 +47,6 @@ export function RecallStep({ onDone, busy }: { onDone: () => void; busy: boolean
     unlock();
     startRef.current = Date.now();
     setElapsed(0);
-    startSound();
     endRef.current = endSound(RECALL_SEC);
     wakeRef.current = await keepAwake();
     setRunning(true);
