@@ -2,7 +2,7 @@
 
 /**
  * Sounds of the closed-eye practices, synthesised with Web Audio (no files):
- * the singing bowl that ends a practice (one strike), and the soft tick of the breath counter.
+ * the gong that ends a practice (one singing-bowl-like strike), and the soft tick of the breath counter.
  * iOS plays sound only from an AudioContext resumed inside a tap, so call
  * `unlock()` from the button that starts the practice.
  */
