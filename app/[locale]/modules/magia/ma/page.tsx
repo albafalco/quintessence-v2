@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 interface MaMagiaPageProps {
   params: Promise<{ locale: string }>;
-  /** ?jegyzet=1: the dashboard's "+" (and the app icon shortcut) opens a note right away */
-  searchParams: Promise<{ jegyzet?: string }>;
+  /** ?jegyzet=1: the dashboard's "+" (and the app icon shortcut) opens a note; ?este=1: the evening reminder opens the evening */
+  searchParams: Promise<{ jegyzet?: string; este?: string }>;
 }
 
 export default async function MaMagiaPage({ params, searchParams }: MaMagiaPageProps) {
@@ -26,6 +26,6 @@ export default async function MaMagiaPage({ params, searchParams }: MaMagiaPageP
 
   const data = await loadTodayData(supabase, user.id);
   if (!data?.path.gate_read_at) redirect(`/${locale}/modules/magia/kapu`);
-  const { jegyzet } = await searchParams;
-  return <TodayPage locale={locale} userId={user.id} data={data} openNote={jegyzet === '1'} />;
+  const { jegyzet, este } = await searchParams;
+  return <TodayPage locale={locale} userId={user.id} data={data} openNote={jegyzet === '1'} openEvening={este === '1'} />;
 }

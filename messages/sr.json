@@ -424,13 +424,13 @@
   },
   "feherMagia": {
     "tabs": {
-      "ma": "Danas",
+      "ma": "Vežbanje",
       "tukor": "Ogledalo",
-      "utam": "Moj put"
+      "utam": "Stepeni"
     },
     "header": {
       "fokozat": "Stepen {roman}",
-      "day": "{day}. dan",
+      "day": "{day}. dan vežbanja",
       "wish": "Želja: {wish}"
     },
     "blocks": {
@@ -478,7 +478,7 @@
       "reminderOn": "U oba termina dobićeš podsetnik.",
       "reminderOff": "Podsetnike možeš uključiti kasnije u Podešavanjima.",
       "toToday": "Na današnji dan",
-      "toPath": "Nazad na Moj put",
+      "toPath": "Nazad na Stepene",
       "quote": "„Posle nekog vremena čeznućemo za vežbama.”",
       "saveError": "Čuvanje nije uspelo. Pokušaj ponovo.",
       "previousAsk": "Posmatranje misli je ranije bilo na {minutes} min. Nastavljaš odatle?",
@@ -576,8 +576,8 @@
       "water": "Pri pranju ruku i umivanju: rad sa vodom"
     },
     "quickNote": {
-      "title": "Novo zapažanje",
-      "hint": "Ono što upravo primećuješ kod sebe: 10 sekundi sada, a uveče to mirno pregledaš."
+      "title": "Šta primećuješ kod sebe?",
+      "hint": "Sada je dovoljno 10 sekundi, a uveče to mirno pregledaš."
     },
     "evening": {
       "recallLabel": "1. Pogled unazad · 1 minut",
@@ -682,7 +682,8 @@
       "changeDown": "slabije nego u prethodnom ciklusu",
       "banner": "Tvojih 14 dana je za tobom: pogledaj svoja dva ogledala duše.",
       "bannerLink": "Na Ogledalo",
-      "saveError": "Čuvanje nije uspelo. Pokušaj ponovo."
+      "saveError": "Čuvanje nije uspelo. Pokušaj ponovo.",
+      "countdown": "Još {left, plural, one {# veče} few {# večeri} other {# večeri}} do tvoja dva ogledala duše"
     },
     "utam": {
       "conditionsTitle": "Uslovi za II stepen",

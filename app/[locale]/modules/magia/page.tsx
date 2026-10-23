@@ -49,7 +49,9 @@ export default async function MagiaPage({ params }: MagiaPageProps) {
         )}
       </header>
       <MagiaTabs locale={locale} active="utam" />
-      <PathView locale={locale} data={data} content={content} />
+      <div className="animate-fade-up motion-reduce:animate-none">
+        <PathView locale={locale} data={data} content={content} />
+      </div>
     </div>
   );
 }

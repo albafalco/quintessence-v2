@@ -47,7 +47,9 @@ export default async function TukorPage({ params, searchParams }: TukorPageProps
         <h1 className="font-display text-3xl font-bold text-gradient-gold">{tNav('magia')}</h1>
       </header>
       <MagiaTabs locale={locale} active="tukor" />
-      <MirrorView locale={locale} userId={user.id} data={data} words={words} elements={content.elements} />
+      <div className="animate-fade-up motion-reduce:animate-none">
+        <MirrorView locale={locale} userId={user.id} data={data} words={words} elements={content.elements} />
+      </div>
     </div>
   );
 }

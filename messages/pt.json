@@ -424,13 +424,13 @@
   },
   "feherMagia": {
     "tabs": {
-      "ma": "Hoje",
+      "ma": "Prática",
       "tukor": "Espelho",
-      "utam": "Meu caminho"
+      "utam": "Graus"
     },
     "header": {
       "fokozat": "Grau {roman}",
-      "day": "Dia {day}",
+      "day": "Dia de prática {day}",
       "wish": "Desejo: {wish}"
     },
     "blocks": {
@@ -478,7 +478,7 @@
       "reminderOn": "Você vai receber um lembrete nos dois horários.",
       "reminderOff": "Você pode ativar os lembretes depois, em Configurações.",
       "toToday": "Ir para o dia de hoje",
-      "toPath": "Voltar para Meu caminho",
+      "toPath": "Voltar para Graus",
       "quote": "“Com o tempo, ansiaremos pelos exercícios.”",
       "saveError": "Não foi possível salvar. Tente de novo.",
       "previousAsk": "Antes você estava em {minutes} minutos na observação do pensamento. Continuar de lá?",
@@ -576,8 +576,8 @@
       "water": "Ao lavar as mãos ou me lavar, trabalhei com a água"
     },
     "quickNote": {
-      "title": "Nova observação",
-      "hint": "O que você acabou de notar em si: 10 segundos agora, e à noite você revê com calma."
+      "title": "O que você notou em si?",
+      "hint": "Bastam 10 segundos agora; à noite você revê com calma."
     },
     "evening": {
       "recallLabel": "1. Olhar para trás · 1 minuto",
@@ -682,7 +682,8 @@
       "changeDown": "mais fraco que no ciclo anterior",
       "banner": "Seus 14 dias estão completos: veja os seus dois espelhos da alma.",
       "bannerLink": "Ir para o Espelho",
-      "saveError": "Não foi possível salvar. Tente de novo."
+      "saveError": "Não foi possível salvar. Tente de novo.",
+      "countdown": "{left, plural, one {Falta # noite} other {Faltam # noites}} para os seus dois espelhos da alma"
     },
     "utam": {
       "conditionsTitle": "Requisitos do Grau II",
@@ -713,7 +714,7 @@
       "source": "Fonte: {source}"
     },
     "dashboard": {
-      "note": "+ Observação",
+      "note": "+ Nota",
       "gate": "Ler o Portal",
       "cycleReady": "Seus 14 dias estão completos: os seus dois espelhos da alma estão na aba Espelho",
       "parts": {

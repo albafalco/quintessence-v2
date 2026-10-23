@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -61,13 +61,15 @@ interface TodayViewProps {
   words: Record<string, TraitWords>;
   /** Open the "+" note right away (the dashboard's quick button) */
   openNote?: boolean;
+  /** ?este=1 (the evening reminder): the evening starts right away */
+  openEvening?: boolean;
 }
 
 const PARTS: DayPart[] = ['reggel', 'napkozben', 'este'];
 const THOUGHT_PAGES = ['gondolat', 'fegyelmezes', 'uresseg'] as const;
 
 /** The "Ma" tab: morning, day and evening, each started with one button. */
-export function TodayView({ locale, userId, data, content, words, openNote = false }: TodayViewProps) {
+export function TodayView({ locale, userId, data, content, words, openNote = false, openEvening = false }: TodayViewProps) {
   const t = useTranslations('feherMagia');
   const router = useRouter();
   const [path, setPath] = useState<PathState>(data.path);
@@ -122,6 +124,18 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
     }
     return steps;
   };
+
+  // The evening reminder opens the evening right away, once on arrival (a reload does not reopen it)
+  useEffect(() => {
+    if (!openEvening) return;
+    window.history.replaceState(null, '', window.location.pathname);
+    const id = window.setTimeout(() => {
+      const steps = pendingSteps('este');
+      if (steps.length > 0) setFlow({ part: 'este', step: steps[0], skipped: [] });
+    }, 0);
+    return () => window.clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- only on arrival
+  }, []);
 
   const nextStep = (part: DayPart, skipped: Step[]): Step | 'done' =>
     pendingSteps(part).find((s) => !skipped.includes(s)) ?? 'done';
@@ -356,6 +370,8 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
   return (
     // Room at the bottom for the "+" button
     <div className="space-y-5 pb-20">
+      {/* The tab's content comes in like the settings tabs (the "+" stays outside: it is fixed) */}
+      <div className="animate-fade-up space-y-5 motion-reduce:animate-none">
       {cycleReady && (
         <Link
           href={`/${locale}/modules/magia/tukor`}
@@ -428,6 +444,8 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
           </section>
         );
       })}
+
+      </div>
 
       {/* "+": a note during the day */}
       <button

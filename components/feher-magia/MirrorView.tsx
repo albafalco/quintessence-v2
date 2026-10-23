@@ -178,6 +178,7 @@ export function MirrorView({ locale, userId, data, words, elements }: MirrorView
       <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
         <span>
           <b className="text-cream">{t('cycle', { n: cycle.number })}</b> · {t('days', { days, length: cycle.length_days })} · {closed ? t('closed') : t('open')}
+          {!closed && !ready && <span className="block pt-0.5 text-accent/80">{t('countdown', { left: cycle.length_days - days })}</span>}
         </span>
         {data.cycles.length > 1 && (
           <span className="flex flex-wrap gap-1.5">

@@ -548,13 +548,13 @@
   },
   "feherMagia": {
     "tabs": {
-      "ma": "Hoy",
+      "ma": "Práctica",
       "tukor": "Espejo",
-      "utam": "Mi camino"
+      "utam": "Grados"
     },
     "header": {
       "fokozat": "Grado {roman}",
-      "day": "Día {day}",
+      "day": "Día de práctica {day}",
       "wish": "Deseo: {wish}"
     },
     "blocks": {
@@ -602,7 +602,7 @@
       "reminderOn": "Recibirás un recordatorio a ambas horas.",
       "reminderOff": "Puedes activar los recordatorios más tarde en Ajustes.",
       "toToday": "Ir al día de hoy",
-      "toPath": "Volver a Mi camino",
+      "toPath": "Volver a Grados",
       "quote": "«Con el tiempo anhelaremos los ejercicios.»",
       "saveError": "No se pudo guardar. Inténtalo de nuevo.",
       "previousAsk": "Antes llegaste a {minutes} minutos en la observación del pensamiento. ¿Sigues desde ahí?",
@@ -700,8 +700,8 @@
       "water": "Al lavarme las manos o asearme, trabajé con el agua"
     },
     "quickNote": {
-      "title": "Nueva observación",
-      "hint": "Lo que acabas de notar en ti: 10 segundos ahora, y por la noche lo repasas con calma."
+      "title": "¿Qué has notado en ti?",
+      "hint": "Bastan 10 segundos ahora; por la noche lo repasas con calma."
     },
     "evening": {
       "recallLabel": "1. Mirada atrás · 1 minuto",
@@ -806,7 +806,8 @@
       "changeDown": "más débil que en el ciclo anterior",
       "banner": "Se han completado tus 14 días: mira tus dos espejos del alma.",
       "bannerLink": "Ir al Espejo",
-      "saveError": "No se pudo guardar. Inténtalo de nuevo."
+      "saveError": "No se pudo guardar. Inténtalo de nuevo.",
+      "countdown": "{left, plural, one {Falta # noche} other {Faltan # noches}} para tus dos espejos del alma"
     },
     "utam": {
       "conditionsTitle": "Requisitos del Grado II",
@@ -837,7 +838,7 @@
       "source": "Fuente: {source}"
     },
     "dashboard": {
-      "note": "+ Observación",
+      "note": "+ Nota",
       "gate": "Leer la Puerta",
       "cycleReady": "Se han completado tus 14 días: tus dos espejos del alma están en la pestaña Espejo",
       "parts": {

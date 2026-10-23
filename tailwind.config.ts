@@ -113,6 +113,8 @@ const config: Config = {
         'fade-up': 'fadeUp 0.3s ease-out backwards',
         'pop-in': 'popIn 0.18s ease-out backwards',
         'bell-ring': 'bellRing 0.9s ease-in-out',
+        'sheet-in': 'sheetIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) backwards',
+        'sheet-out': 'sheetOut 0.22s ease-in forwards',
       },
       keyframes: {
         fadeIn: {
@@ -138,6 +140,14 @@ const config: Config = {
         popIn: {
           '0%': { opacity: '0', transform: 'translateY(4px) scale(0.95)' },
           '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
+        sheetIn: {
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        sheetOut: {
+          '0%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(24px)' },
         },
         bellRing: {
           '0%, 100%': { transform: 'rotate(0)' },

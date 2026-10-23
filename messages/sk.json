@@ -424,13 +424,13 @@
   },
   "feherMagia": {
     "tabs": {
-      "ma": "Dnes",
+      "ma": "Cvičenie",
       "tukor": "Zrkadlo",
-      "utam": "Moja cesta"
+      "utam": "Stupne"
     },
     "header": {
       "fokozat": "Stupeň {roman}",
-      "day": "{day}. deň",
+      "day": "{day}. deň cvičenia",
       "wish": "Želanie: {wish}"
     },
     "blocks": {
@@ -478,7 +478,7 @@
       "reminderOn": "V oboch časoch dostaneš pripomienku.",
       "reminderOff": "Pripomienky si môžeš zapnúť neskôr v Nastaveniach.",
       "toToday": "Na dnešný deň",
-      "toPath": "Späť na Moja cesta",
+      "toPath": "Späť na Stupne",
       "quote": "„Po čase budeme po cvičeniach túžiť.“",
       "saveError": "Uloženie sa nepodarilo. Skús to znova.",
       "previousAsk": "Pozorovanie myšlienok bolo predtým na {minutes} min. Pokračuješ odtiaľ?",
@@ -576,8 +576,8 @@
       "water": "Pri umývaní rúk a tela: práca s vodou"
     },
     "quickNote": {
-      "title": "Nové pozorovanie",
-      "hint": "Čo práve na sebe vidíš: 10 sekúnd teraz, večer si to v pokoji prejdeš."
+      "title": "Čo si na sebe všímaš?",
+      "hint": "Teraz stačí 10 sekúnd, večer si to v pokoji prejdeš."
     },
     "evening": {
       "recallLabel": "1. Spätný pohľad · 1 minúta",
@@ -682,7 +682,8 @@
       "changeDown": "slabšie ako v predchádzajúcom cykle",
       "banner": "Tvojich 14 dní je za tebou: pozri si svoje dve zrkadlá duše.",
       "bannerLink": "Na Zrkadlo",
-      "saveError": "Uloženie sa nepodarilo. Skús to znova."
+      "saveError": "Uloženie sa nepodarilo. Skús to znova.",
+      "countdown": "Ešte {left, plural, one {# večer} few {# večery} other {# večerov}} do tvojich dvoch zrkadiel duše"
     },
     "utam": {
       "conditionsTitle": "Podmienky II. stupňa",
@@ -713,7 +714,7 @@
       "source": "Zdroj: {source}"
     },
     "dashboard": {
-      "note": "+ Pozorovanie",
+      "note": "+ Postreh",
       "gate": "Prečítať Bránu",
       "cycleReady": "Tvojich 14 dní je za tebou: tvoje dve zrkadlá duše sú na karte Zrkadlo",
       "parts": {

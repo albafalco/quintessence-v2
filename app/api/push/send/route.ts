@@ -121,7 +121,8 @@ async function buildPushNotifications(
       body: cycleDays
         ? await getMessage(locale, 'push.cycleLastEveningBody', { days: cycleDays })
         : await getMessage(locale, 'push.eveningBody'),
-      url: magiaUrl,
+      // Straight into the evening self-examination
+      url: `${magiaUrl}?este=1`,
     });
   }
 

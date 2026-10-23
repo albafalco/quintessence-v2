@@ -548,13 +548,13 @@
   },
   "feherMagia": {
     "tabs": {
-      "ma": "Heute",
+      "ma": "Übung",
       "tukor": "Spiegel",
-      "utam": "Mein Weg"
+      "utam": "Grade"
     },
     "header": {
       "fokozat": "Grad {roman}",
-      "day": "Tag {day}",
+      "day": "Übungstag {day}",
       "wish": "Wunsch: {wish}"
     },
     "blocks": {
@@ -602,7 +602,7 @@
       "reminderOn": "Du bekommst zu beiden Zeiten eine Erinnerung.",
       "reminderOff": "Erinnerungen kannst du später in den Einstellungen einschalten.",
       "toToday": "Weiter zum heutigen Tag",
-      "toPath": "Zurück zu Mein Weg",
+      "toPath": "Zurück zu Grade",
       "quote": "„Nach einer Weile werden wir uns nach den Übungen sehnen.“",
       "saveError": "Speichern fehlgeschlagen. Bitte versuche es noch einmal.",
       "previousAsk": "Bei der Gedankenbeobachtung warst du früher bei {minutes} Minuten. Machst du dort weiter?",
@@ -700,8 +700,8 @@
       "water": "Beim Händewaschen und Waschen habe ich mit dem Wasser gearbeitet"
     },
     "quickNote": {
-      "title": "Neue Beobachtung",
-      "hint": "Was du gerade an dir bemerkt hast: 10 Sekunden jetzt, am Abend schaust du es in Ruhe durch."
+      "title": "Was hast du an dir bemerkt?",
+      "hint": "10 Sekunden jetzt genügen, am Abend schaust du es in Ruhe durch."
     },
     "evening": {
       "recallLabel": "1. Rückblick · 1 Minute",
@@ -806,7 +806,8 @@
       "changeDown": "schwächer als im vorigen Zyklus",
       "banner": "Deine 14 Tage sind vollständig: Sieh dir deine beiden Seelenspiegel an.",
       "bannerLink": "Weiter zum Spiegel",
-      "saveError": "Speichern fehlgeschlagen. Bitte versuche es noch einmal."
+      "saveError": "Speichern fehlgeschlagen. Bitte versuche es noch einmal.",
+      "countdown": "Noch {left, plural, one {# Abend} other {# Abende}} bis zu deinen zwei Seelenspiegeln"
     },
     "utam": {
       "conditionsTitle": "Voraussetzungen für den II. Grad",
@@ -837,7 +838,7 @@
       "source": "Quelle: {source}"
     },
     "dashboard": {
-      "note": "+ Beobachtung",
+      "note": "+ Notiz",
       "gate": "Das Tor lesen",
       "cycleReady": "Deine 14 Tage sind vollständig: Deine beiden Seelenspiegel findest du im Tab Spiegel",
       "parts": {

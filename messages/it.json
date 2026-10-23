@@ -548,13 +548,13 @@
   },
   "feherMagia": {
     "tabs": {
-      "ma": "Oggi",
+      "ma": "Pratica",
       "tukor": "Specchio",
-      "utam": "Il mio cammino"
+      "utam": "Gradi"
     },
     "header": {
       "fokozat": "Grado {roman}",
-      "day": "Giorno {day}",
+      "day": "Giorno di pratica {day}",
       "wish": "Desiderio: {wish}"
     },
     "blocks": {
@@ -602,7 +602,7 @@
       "reminderOn": "Riceverai un promemoria a entrambi gli orari.",
       "reminderOff": "Puoi attivare i promemoria più tardi nelle Impostazioni.",
       "toToday": "Vai alla giornata di oggi",
-      "toPath": "Torna a Il mio cammino",
+      "toPath": "Torna a Gradi",
       "quote": "«Dopo un po’ desidereremo gli esercizi.»",
       "saveError": "Salvataggio non riuscito. Riprova.",
       "previousAsk": "In precedenza l’osservazione del pensiero era a {minutes} minuti. Riprendi da lì?",
@@ -700,8 +700,8 @@
       "water": "Lavandomi le mani o lavandomi, ho lavorato con l’acqua"
     },
     "quickNote": {
-      "title": "Nuova osservazione",
-      "hint": "Quello che hai appena notato in te: 10 secondi ora, e la sera lo riguardi con calma."
+      "title": "Che cosa hai notato in te?",
+      "hint": "Bastano 10 secondi ora, la sera lo riguardi con calma."
     },
     "evening": {
       "recallLabel": "1. Sguardo indietro · 1 minuto",
@@ -806,7 +806,8 @@
       "changeDown": "più debole che nel ciclo precedente",
       "banner": "I tuoi 14 giorni sono completi: guarda i tuoi due specchi dell’anima.",
       "bannerLink": "Vai allo Specchio",
-      "saveError": "Salvataggio non riuscito. Riprova."
+      "saveError": "Salvataggio non riuscito. Riprova.",
+      "countdown": "{left, plural, one {Ancora # sera} other {Ancora # sere}} ai tuoi due specchi dell’anima"
     },
     "utam": {
       "conditionsTitle": "Requisiti per il Grado II",
@@ -837,7 +838,7 @@
       "source": "Fonte: {source}"
     },
     "dashboard": {
-      "note": "+ Osservazione",
+      "note": "+ Nota",
       "gate": "Leggi la Porta",
       "cycleReady": "I tuoi 14 giorni sono completi: i tuoi due specchi dell’anima sono nella scheda Specchio",
       "parts": {

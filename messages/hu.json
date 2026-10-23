@@ -349,7 +349,7 @@
   "pwa": {
     "name": "Quintessence",
     "description": "Személyes fejlődés és tanulás moduláris rendszere",
-    "shortcutNote": "+ Megfigyelés"
+    "shortcutNote": "+ Észrevétel"
   },
   "push": {
     "morningTitle": "✦ Fehér Mágia — Reggeli gyakorlás",
@@ -549,13 +549,13 @@
   },
   "feherMagia": {
     "tabs": {
-      "ma": "Ma",
+      "ma": "Gyakorlás",
       "tukor": "Tükör",
-      "utam": "Utam"
+      "utam": "Fokozatok"
     },
     "header": {
       "fokozat": "{roman}. fokozat",
-      "day": "{day}. nap",
+      "day": "{day}. gyakorlási nap",
       "wish": "Óhaj: {wish}"
     },
     "blocks": {
@@ -603,7 +603,7 @@
       "reminderOn": "Mindkét időpontban emlékeztetőt kapsz.",
       "reminderOff": "Emlékeztetőt később is kérhetsz a Beállításokban.",
       "toToday": "Tovább a mai naphoz",
-      "toPath": "Vissza az Utam fülre",
+      "toPath": "Vissza a Fokozatok fülre",
       "previousAsk": "Korábban {minutes} percnél tartottál a gondolatmegfigyelésben. Onnan folytatod?",
       "previousYes": "Igen, {minutes} perctől",
       "previousNo": "Nem, 1 perctől",
@@ -701,8 +701,8 @@
       "water": "Kézmosáskor, mosakodáskor a vízzel dolgoztam"
     },
     "quickNote": {
-      "title": "Új megfigyelés",
-      "hint": "Amit most észrevettél magadon: 10 másodperc, este nyugodtan átnézed."
+      "title": "Mit vettél észre magadon?",
+      "hint": "Elég 10 másodperc most, este nyugodtan átnézed."
     },
     "evening": {
       "recallLabel": "1. Visszatekintés · 1 perc",
@@ -790,6 +790,7 @@
       "dominant": "uralkodó: {element}",
       "empty": "Az első 14 napos tükröd az első esti önvizsgálattal indul.",
       "toToday": "Tovább a mai naphoz",
+      "countdown": "Még {left} este a két lélektükrödig",
       "readyTitle": "Kéthetes önismereti összesítő",
       "readyBody": "Elkészült a {days} napod. Mielőtt lezárod, nézd át a két tükröt; egy sorra koppintva rendezheted az erősségeket.",
       "honestyTitle": "A fekete tükröd most {count} tulajdonságot mutat.",
@@ -838,7 +839,7 @@
       "source": "Forrás: {source}"
     },
     "dashboard": {
-      "note": "+ Megfigyelés",
+      "note": "+ Észrevétel",
       "gate": "A Kapu elolvasása",
       "cycleReady": "Elkészült a 14 napod: a két lélektükröd a Tükör fülön",
       "parts": {

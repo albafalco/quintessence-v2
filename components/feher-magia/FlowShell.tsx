@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, type ReactNode } from 'react';
+import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
@@ -15,12 +15,27 @@ interface FlowShellProps {
   children: ReactNode;
 }
 
+/** Length of the closing slide (animate-sheet-out) */
+const CLOSE_MS = 220;
+
 /**
  * Full-screen surface for the practices: one thing at a time, safe-area aware.
+ * Slides up when opened and down when closed with ✕ or Esc (no motion with reduced motion).
  * Opened only by a tap, so it always renders in the browser (never on the server).
  */
-export function FlowShell({ title, meta, onClose, dim, children }: FlowShellProps) {
+export function FlowShell({ title, meta, onClose: close, dim, children }: FlowShellProps) {
   const t = useTranslations('feherMagia.flow');
+  const [closing, setClosing] = useState(false);
+
+  const onClose = useCallback(() => {
+    if (!close) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      close();
+      return;
+    }
+    setClosing(true);
+    window.setTimeout(close, CLOSE_MS);
+  }, [close]);
 
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -31,13 +46,13 @@ export function FlowShell({ title, meta, onClose, dim, children }: FlowShellProp
   }, []);
 
   useEffect(() => {
-    if (!onClose) return;
+    if (!close) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, [onClose]);
+  }, [close, onClose]);
 
   return createPortal(
     <div
@@ -45,7 +60,8 @@ export function FlowShell({ title, meta, onClose, dim, children }: FlowShellProp
       aria-modal="true"
       aria-label={title}
       className={cn(
-        'fixed inset-0 z-[100] flex flex-col overflow-y-auto',
+        'fixed inset-0 z-[100] flex flex-col overflow-y-auto motion-reduce:animate-none',
+        closing ? 'pointer-events-none animate-sheet-out' : 'animate-sheet-in',
         dim ? 'bg-[#05040a] text-cream' : 'bg-background'
       )}
       style={{
@@ -60,7 +76,7 @@ export function FlowShell({ title, meta, onClose, dim, children }: FlowShellProp
           <span className="truncate font-semibold uppercase tracking-[0.18em] text-accent/70">{title}</span>
           <span className="flex items-center gap-3">
             {meta && <span className="tabular-nums">{meta}</span>}
-            {onClose && (
+            {close && (
               <button
                 type="button"
                 onClick={onClose}

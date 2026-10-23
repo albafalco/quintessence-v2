@@ -12,11 +12,13 @@ export async function TodayPage({
   userId,
   data,
   openNote = false,
+  openEvening = false,
 }: {
   locale: string;
   userId: string;
   data: TodayData;
   openNote?: boolean;
+  openEvening?: boolean;
 }) {
   const [t, tNav, content, words] = await Promise.all([
     getTranslations('feherMagia.header'),
@@ -45,6 +47,7 @@ export async function TodayPage({
         data={data}
         words={words}
         openNote={openNote}
+        openEvening={openEvening}
         content={{
           utravalo: content.utravalo,
           thought: content.thought,

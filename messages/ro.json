@@ -424,13 +424,13 @@
   },
   "feherMagia": {
     "tabs": {
-      "ma": "Azi",
+      "ma": "Practică",
       "tukor": "Oglindă",
-      "utam": "Drumul meu"
+      "utam": "Trepte"
     },
     "header": {
       "fokozat": "Treapta {roman}",
-      "day": "Ziua {day}",
+      "day": "Ziua de practică {day}",
       "wish": "Dorință: {wish}"
     },
     "blocks": {
@@ -478,7 +478,7 @@
       "reminderOn": "Vei primi un memento la ambele ore.",
       "reminderOff": "Poți activa mementourile mai târziu, din Setări.",
       "toToday": "Spre ziua de azi",
-      "toPath": "Înapoi la Drumul meu",
+      "toPath": "Înapoi la Trepte",
       "quote": "„După o vreme vom tânji după exerciții.”",
       "saveError": "Salvarea nu a reușit. Încearcă din nou.",
       "previousAsk": "Înainte ajunseseși la {minutes} minute la observarea gândurilor. Continui de acolo?",
@@ -576,8 +576,8 @@
       "water": "La spălatul pe mâini și la spălare am lucrat cu apa"
     },
     "quickNote": {
-      "title": "Observație nouă",
-      "hint": "Ce ai observat acum la tine: 10 secunde acum, iar seara o treci în revistă în liniște."
+      "title": "Ce ai observat la tine?",
+      "hint": "Ajung 10 secunde acum, iar seara o treci în revistă în liniște."
     },
     "evening": {
       "recallLabel": "1. Privire înapoi · 1 minut",
@@ -682,7 +682,8 @@
       "changeDown": "mai slab decât în ciclul anterior",
       "banner": "Cele 14 zile ale tale sunt complete: privește cele două oglinzi ale sufletului tău.",
       "bannerLink": "Spre Oglindă",
-      "saveError": "Salvarea nu a reușit. Încearcă din nou."
+      "saveError": "Salvarea nu a reușit. Încearcă din nou.",
+      "countdown": "{left, plural, one {Încă # seară} few {Încă # seri} other {Încă # de seri}} până la cele două oglinzi ale sufletului"
     },
     "utam": {
       "conditionsTitle": "Condițiile pentru Treapta II",
@@ -713,7 +714,7 @@
       "source": "Sursa: {source}"
     },
     "dashboard": {
-      "note": "+ Observație",
+      "note": "+ Notiță",
       "gate": "Citește Poarta",
       "cycleReady": "Cele 14 zile ale tale sunt complete: cele două oglinzi ale sufletului tău sunt în fila Oglindă",
       "parts": {

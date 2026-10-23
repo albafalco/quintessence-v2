@@ -349,7 +349,7 @@
   "pwa": {
     "name": "Quintessence",
     "description": "Modular system for personal growth and learning",
-    "shortcutNote": "+ Observation"
+    "shortcutNote": "+ Note"
   },
   "push": {
     "morningTitle": "✦ White Magic — Morning practice",
@@ -549,13 +549,13 @@
   },
   "feherMagia": {
     "tabs": {
-      "ma": "Today",
+      "ma": "Practice",
       "tukor": "Mirror",
-      "utam": "My path"
+      "utam": "Grades"
     },
     "header": {
       "fokozat": "Grade {roman}",
-      "day": "Day {day}",
+      "day": "Practice day {day}",
       "wish": "Wish: {wish}"
     },
     "blocks": {
@@ -603,7 +603,7 @@
       "reminderOn": "You will get a reminder at both times.",
       "reminderOff": "You can ask for reminders later in Settings.",
       "toToday": "On to today",
-      "toPath": "Back to My path",
+      "toPath": "Back to Grades",
       "quote": "“After a while we will long for the exercises.”",
       "saveError": "Could not save. Please try again.",
       "previousAsk": "You had reached {minutes} minutes in thought observation before. Continue from there?",
@@ -701,8 +701,8 @@
       "water": "When washing my hands or myself, I worked with the water"
     },
     "quickNote": {
-      "title": "New observation",
-      "hint": "What you just noticed in yourself: 10 seconds now, and you can look it over calmly in the evening."
+      "title": "What did you notice in yourself?",
+      "hint": "10 seconds now is enough; you can look it over calmly in the evening."
     },
     "evening": {
       "recallLabel": "1. Looking back · 1 minute",
@@ -807,7 +807,8 @@
       "changeDown": "weaker than in the previous cycle",
       "banner": "Your 14 days are complete: look at your two soul mirrors.",
       "bannerLink": "On to the Mirror",
-      "saveError": "Could not save. Please try again."
+      "saveError": "Could not save. Please try again.",
+      "countdown": "{left, plural, one {# more evening} other {# more evenings}} until your two soul mirrors"
     },
     "utam": {
       "conditionsTitle": "Conditions for Grade II",
@@ -838,7 +839,7 @@
       "source": "Source: {source}"
     },
     "dashboard": {
-      "note": "+ Observation",
+      "note": "+ Note",
       "gate": "Read the Gate",
       "cycleReady": "Your 14 days are complete: your two soul mirrors are on the Mirror tab",
       "parts": {
