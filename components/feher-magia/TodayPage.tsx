@@ -5,6 +5,7 @@ import { ROMAN_NUMERALS } from '@/lib/magia-utils';
 import type { Locale } from '@/i18n';
 import { MagiaTabs } from './MagiaTabs';
 import { TodayView } from './TodayView';
+import { NoteButton } from './NoteButton';
 
 /** The "Ma" tab. */
 export async function TodayPage({
@@ -29,21 +30,21 @@ export async function TodayPage({
 
   return (
     <div className="mx-auto max-w-2xl space-y-5 xl:max-w-6xl">
-      {/* The header and the tabs keep the width of the other tabs; the day below gets wider */}
-      <div className="mx-auto max-w-2xl space-y-5">
-      <header className="premium-card magia-surface p-5 sm:p-6">
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">
-          {t('fokozat', { roman: ROMAN_NUMERALS[data.path.fokozat] })} · {t('day', { day: data.completedEvenings + 1 })}
-        </p>
-        <h1 className="font-display text-3xl font-bold text-gradient-gold">{tNav('magia')}</h1>
-        {data.path.wish && (
-          <p className="mt-2 inline-flex rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs text-accent">
-            {t('wish', { wish: data.path.wish })}
+      <header className="premium-card magia-surface flex items-start justify-between gap-4 p-5 sm:p-6">
+        <div>
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">
+            {t('fokozat', { roman: ROMAN_NUMERALS[data.path.fokozat] })} · {t('day', { day: data.completedEvenings + 1 })}
           </p>
-        )}
+          <h1 className="font-display text-3xl font-bold text-gradient-gold">{tNav('magia')}</h1>
+          {data.path.wish && (
+            <p className="mt-2 inline-flex rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs text-accent">
+              {t('wish', { wish: data.path.wish })}
+            </p>
+          )}
+        </div>
+        <NoteButton />
       </header>
       <MagiaTabs locale={locale} active="ma" />
-      </div>
       <TodayView
         locale={locale}
         userId={userId}

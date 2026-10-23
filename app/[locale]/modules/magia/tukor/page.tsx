@@ -41,7 +41,7 @@ export default async function TukorPage({ params, searchParams }: TukorPageProps
   ]);
 
   return (
-    <div className="mx-auto max-w-2xl space-y-5">
+    <div className="mx-auto max-w-2xl space-y-5 xl:max-w-6xl">
       <header className="premium-card magia-surface p-5 sm:p-6">
         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/70">{t('fokozat', { roman: ROMAN_NUMERALS[path.fokozat] })}</p>
         <h1 className="font-display text-3xl font-bold text-gradient-gold">{tNav('magia')}</h1>

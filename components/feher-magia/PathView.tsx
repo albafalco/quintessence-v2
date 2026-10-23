@@ -67,9 +67,10 @@ export async function PathView({ locale, data, content }: { locale: string; data
   const [first, ...next] = content.fokozatok;
 
   return (
-    <div className="space-y-6">
+    // Wide screens: the fokozatok on the left, the Útravalók on the right
+    <div className="space-y-6 xl:grid xl:grid-cols-[minmax(0,1fr)_24rem] xl:items-start xl:gap-6 xl:space-y-0">
       {/* The I. fokozat */}
-      <section className="premium-card magia-surface space-y-4 p-5 sm:p-6">
+      <section className="premium-card magia-surface space-y-4 p-5 sm:p-6 xl:col-start-1">
         <div className="flex items-start justify-between gap-4">
           <div>
             <h2 className="font-display text-2xl font-semibold text-cream">{tPath('header.fokozat', { roman: ROMAN_NUMERALS[path.fokozat] })}</h2>
@@ -156,7 +157,7 @@ export async function PathView({ locale, data, content }: { locale: string; data
       </section>
 
       {/* Útravalók */}
-      <section className="space-y-3">
+      <section className="space-y-3 xl:col-start-2 xl:row-span-2 xl:row-start-1">
         <div>
           <h2 className="font-display text-lg font-semibold text-cream">{t('utravaloTitle')}</h2>
           <p className="text-xs text-muted-foreground">{t('utravaloHint')}</p>
@@ -165,7 +166,7 @@ export async function PathView({ locale, data, content }: { locale: string; data
       </section>
 
       {/* The II. and III. fokozat: a closed preview */}
-      <section className="space-y-3">
+      <section className="space-y-3 xl:col-start-1">
         <h2 className="font-display text-lg font-semibold text-cream">{t('nextTitle')}</h2>
         {next.map((f, i) => (
           <article key={f.theme} className="rounded-2xl border border-dashed border-border/50 bg-card/20 p-4 sm:p-5">
@@ -192,7 +193,7 @@ export async function PathView({ locale, data, content }: { locale: string; data
         ))}
       </section>
 
-      <p className="text-center text-xs italic text-muted-foreground">{t('source', { source: content.source })}</p>
+      <p className="text-center text-xs italic text-muted-foreground xl:col-span-2">{t('source', { source: content.source })}</p>
     </div>
   );
 }

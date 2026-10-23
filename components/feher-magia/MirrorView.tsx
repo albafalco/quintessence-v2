@@ -195,9 +195,11 @@ export function MirrorView({ locale, userId, data, words, elements }: MirrorView
         )}
       </div>
 
+      {/* Wide screens: the grid on the left; the closing and the elements on the right */}
+      <div className="space-y-5 xl:grid xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-start xl:gap-5 xl:space-y-0">
       {/* Closing the cycle: the two soul mirrors */}
       {ready && (
-        <section className="flex flex-col gap-3 rounded-2xl border border-accent/40 bg-accent/5 p-5">
+        <section className="flex flex-col gap-3 rounded-2xl border border-accent/40 bg-accent/5 p-5 xl:col-start-2">
           <h2 className="font-display text-xl font-semibold text-gradient-gold">{t('readyTitle')}</h2>
           <p className="text-sm text-cream/90">{t('readyBody', { days })}</p>
           {honesty ? (
@@ -222,7 +224,7 @@ export function MirrorView({ locale, userId, data, words, elements }: MirrorView
         </section>
       )}
       {justClosed && (
-        <section className="flex flex-col gap-2 rounded-2xl border border-accent/40 bg-accent/5 p-5">
+        <section className="flex flex-col gap-2 rounded-2xl border border-accent/40 bg-accent/5 p-5 xl:col-start-2">
           <h2 className="font-display text-xl font-semibold text-gradient-gold">{t('closedTitle')}</h2>
           {dominantText('fekete') && <p className="text-sm text-cream">{dominantText('fekete')}</p>}
           {dominantText('feher') && <p className="text-sm text-cream">{dominantText('feher')}</p>}
@@ -230,8 +232,9 @@ export function MirrorView({ locale, userId, data, words, elements }: MirrorView
           <p className="text-sm text-muted-foreground">{t('nextCycle')}</p>
         </section>
       )}
-      {error && <p className="text-sm text-red-400">{error}</p>}
+      {error && <p className="text-sm text-red-400 xl:col-start-2">{error}</p>}
 
+      <div className="space-y-5 xl:col-start-1 xl:row-span-6 xl:row-start-1">
       {/* Mirror switch */}
       <div className="flex rounded-xl border border-border/50 bg-card/30 p-1" role="group">
         {(['fekete', 'feher'] as const).map((m) => (
@@ -304,9 +307,10 @@ export function MirrorView({ locale, userId, data, words, elements }: MirrorView
           <span>{t('legend')}</span>
         </p>
       </section>
+      </div>
 
       {/* Elements */}
-      <section className="space-y-2 rounded-2xl border border-border/50 bg-card/30 p-4">
+      <section className="space-y-2 rounded-2xl border border-border/50 bg-card/30 p-4 xl:col-start-2">
         <p className="text-xs text-muted-foreground">
           {t(mirror === 'fekete' ? 'elementsBlack' : 'elementsWhite')}
           {balance.dominant && (
@@ -329,6 +333,7 @@ export function MirrorView({ locale, userId, data, words, elements }: MirrorView
           );
         })}
       </section>
+      </div>
     </div>
   );
 }

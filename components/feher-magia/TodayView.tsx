@@ -43,6 +43,7 @@ import { EveningCards } from './EveningCards';
 import { HabitStep, SleepStep } from './EveningSteps';
 import { FlowShell } from './FlowShell';
 import { BottomSheet } from './BottomSheet';
+import { NOTE_EVENT } from './NoteButton';
 import { RecallStep } from './RecallStep';
 import { ThoughtPractice, type ThoughtSaved } from './ThoughtPractice';
 import { TraitPicker, type TraitPick } from './TraitPicker';
@@ -104,6 +105,13 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
   const [reading, setReading] = useState<ReadingPage | null>(null);
   const [noting, setNoting] = useState(openNote);
   const scrolling = useScrolling();
+
+  // Desktop: the header's "+ Észrevétel" button (NoteButton)
+  useEffect(() => {
+    const open = () => setNoting(true);
+    window.addEventListener(NOTE_EVENT, open);
+    return () => window.removeEventListener(NOTE_EVENT, open);
+  }, []);
   const [busy, setBusy] = useState(false);
   const [flowError, setFlowError] = useState<string | null>(null);
   const today = data.today;
@@ -393,16 +401,6 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
     <div className="space-y-5 pb-20">
       {/* The tab's content comes in like the settings tabs (the "+" stays outside: it is fixed) */}
       <div className="animate-fade-up space-y-5 motion-reduce:animate-none">
-      {/* Desktop: the note button under the tabs (the floating "+" is for phones) */}
-      <div className="hidden justify-end md:flex">
-        <button
-          type="button"
-          onClick={() => setNoting(true)}
-          className="rounded-xl border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/20 hover:shadow-glow-gold"
-        >
-          {t('dashboard.note')}
-        </button>
-      </div>
       {cycleReady && (
         <Link
           href={`/${locale}/modules/magia/tukor`}
