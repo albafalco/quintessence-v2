@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
+import { X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 
@@ -62,7 +63,8 @@ export function FlowShell({ title, meta, onClose: close, dim, children }: FlowSh
       className={cn(
         'fixed inset-0 z-[100] flex flex-col overflow-y-auto motion-reduce:animate-none',
         closing ? 'pointer-events-none animate-sheet-out' : 'animate-sheet-in',
-        dim ? 'bg-[#05040a] text-cream' : 'bg-background'
+        // The app's own background; a darker one for the closed-eye practices
+        dim ? 'bg-[#05040a] text-cream' : 'bg-background bg-[image:var(--gradient-cosmic)]'
       )}
       style={{
         paddingTop: 'max(12px, env(safe-area-inset-top))',
@@ -72,18 +74,18 @@ export function FlowShell({ title, meta, onClose: close, dim, children }: FlowSh
       }}
     >
       <div className="mx-auto flex w-full max-w-lg flex-1 flex-col">
-        <header className="flex min-h-11 items-center justify-between gap-3 text-xs text-muted-foreground">
-          <span className="truncate font-semibold uppercase tracking-[0.18em] text-accent/70">{title}</span>
-          <span className="flex items-center gap-3">
+        <header className="flex min-h-12 items-center justify-between gap-3 pb-1">
+          <span className={cn('truncate font-display text-xl font-semibold', dim ? 'text-cream/70' : 'text-gradient-gold')}>{title}</span>
+          <span className="flex shrink-0 items-center gap-3 text-xs text-muted-foreground">
             {meta && <span className="tabular-nums">{meta}</span>}
             {close && (
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-lg px-2 py-1.5 text-muted-foreground transition hover:text-cream"
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/50 bg-muted/30 text-muted-foreground transition hover:border-accent/30 hover:text-accent"
                 aria-label={t('close')}
               >
-                ✕
+                <X className="h-4 w-4" />
               </button>
             )}
           </span>

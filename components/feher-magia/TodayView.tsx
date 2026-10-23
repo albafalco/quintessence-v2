@@ -42,6 +42,7 @@ import { BreathPractice } from './BreathPractice';
 import { EveningCards } from './EveningCards';
 import { HabitStep, SleepStep } from './EveningSteps';
 import { FlowShell } from './FlowShell';
+import { BottomSheet } from './BottomSheet';
 import { RecallStep } from './RecallStep';
 import { ThoughtPractice, type ThoughtSaved } from './ThoughtPractice';
 import { TraitPicker, type TraitPick } from './TraitPicker';
@@ -66,6 +67,25 @@ interface TodayViewProps {
 }
 
 const PARTS: DayPart[] = ['reggel', 'napkozben', 'este'];
+
+/** True while the page scrolls (and a moment after) */
+function useScrolling(): boolean {
+  const [scrolling, setScrolling] = useState(false);
+  useEffect(() => {
+    let timer: number | undefined;
+    const onScroll = () => {
+      setScrolling(true);
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => setScrolling(false), 600);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.clearTimeout(timer);
+    };
+  }, []);
+  return scrolling;
+}
 const THOUGHT_PAGES = ['gondolat', 'fegyelmezes', 'uresseg'] as const;
 
 /** The "Ma" tab: morning, day and evening, each started with one button. */
@@ -83,6 +103,7 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
   const [flow, setFlow] = useState<FlowState | null>(null);
   const [reading, setReading] = useState<ReadingPage | null>(null);
   const [noting, setNoting] = useState(openNote);
+  const scrolling = useScrolling();
   const [busy, setBusy] = useState(false);
   const [flowError, setFlowError] = useState<string | null>(null);
   const today = data.today;
@@ -447,19 +468,22 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
 
       </div>
 
-      {/* "+": a note during the day */}
+      {/* "+": a note during the day; it fades while the page scrolls, so it does not cover what is read */}
       <button
         type="button"
         onClick={() => setNoting(true)}
         aria-label={t('quickNote.title')}
-        className="fixed right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-2xl font-semibold text-accent-foreground shadow-glow-gold transition hover:scale-105 md:bottom-8"
+        className={cn(
+          'fixed right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-xl font-semibold text-accent-foreground shadow-glow-gold transition duration-300 hover:scale-105 md:bottom-8',
+          scrolling && 'opacity-25'
+        )}
         style={{ bottom: 'calc(5.5rem + env(safe-area-inset-bottom))' }}
       >
         +
       </button>
 
       {noting && (
-        <FlowShell title={t('quickNote.title')} onClose={() => setNoting(false)}>
+        <BottomSheet title={t('quickNote.title')} onClose={() => setNoting(false)}>
           <p className="text-sm text-muted-foreground">{t('quickNote.hint')}</p>
           <TraitPicker
             mode="day"
@@ -469,7 +493,7 @@ export function TodayView({ locale, userId, data, content, words, openNote = fal
             elementNames={content.elements.names}
             onSave={noteNow}
           />
-        </FlowShell>
+        </BottomSheet>
       )}
 
       {reading && (
