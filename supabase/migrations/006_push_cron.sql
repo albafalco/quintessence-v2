@@ -1,4 +1,4 @@
--- 006: megbízható push-ütemezés (pg_cron + pg_net) és angol gyakorló-aktivitás
+-- 006: megbízható push-ütemezés (pg_cron + pg_net)
 --
 -- A GitHub Actions ütemezés naponta csak ~15-ször futott (névleg 288), és
 -- 60 nap inaktivitás után a GitHub le is tiltja. Helyette a Supabase hívja
@@ -11,10 +11,6 @@
 --     (select id from vault.secrets where name = 'cron_secret'),
 --     '<új érték>'
 --   );
-
--- Angol gyakorló mód aktivitása (a push "ma még nem gyakoroltál" ellenőrzéséhez)
-ALTER TABLE profiles
-  ADD COLUMN IF NOT EXISTS last_angol_activity_date TEXT;
 
 CREATE EXTENSION IF NOT EXISTS pg_cron;
 CREATE EXTENSION IF NOT EXISTS pg_net;

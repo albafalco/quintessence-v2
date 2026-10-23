@@ -59,7 +59,7 @@ CREATE INDEX IF NOT EXISTS invite_codes_used_by_idx ON public.invite_codes (used
 -- A kezdő kódok a publikus repóban olvashatók: a még fel nem használtak érvénytelenek.
 UPDATE public.invite_codes
 SET revoked_at = now()
-WHERE code IN ('QUINTESSENCE2025', 'MAGIC-INIT-001', 'ANGOL-START-001')
+WHERE code IN ('QUINTESSENCE2025', 'MAGIC-INIT-001')
   AND is_used = false
   AND revoked_at IS NULL;
 

@@ -61,7 +61,6 @@
     --gradient-cosmic: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(76, 29, 149, 0.22) 0%, transparent 55%),
       radial-gradient(ellipse 50% 40% at 100% 100%, rgba(212, 175, 55, 0.06) 0%, transparent 50%);
     --gradient-magia: linear-gradient(135deg, rgba(76, 29, 149, 0.15) 0%, rgba(59, 42, 110, 0.08) 50%, rgba(212, 175, 55, 0.05) 100%);
-    --gradient-angol: linear-gradient(135deg, rgba(30, 58, 95, 0.12) 0%, rgba(20, 16, 31, 0.6) 100%);
     --gradient-gold-shimmer: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.15) 50%, transparent 100%);
     --glass-border: rgba(255, 255, 255, 0.06);
     --glass-border-strong: rgba(255, 255, 255, 0.08);
@@ -125,7 +124,6 @@
     --gradient-cosmic: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(212, 175, 55, 0.16) 0%, transparent 55%),
       radial-gradient(ellipse 50% 40% at 100% 100%, rgba(76, 29, 149, 0.06) 0%, transparent 50%);
     --gradient-magia: linear-gradient(135deg, rgba(76, 29, 149, 0.07) 0%, rgba(255, 252, 245, 0.9) 50%, rgba(212, 175, 55, 0.1) 100%);
-    --gradient-angol: linear-gradient(135deg, rgba(30, 58, 95, 0.06) 0%, rgba(255, 252, 245, 0.9) 100%);
     --gradient-gold-shimmer: linear-gradient(90deg, transparent 0%, rgba(140, 106, 16, 0.15) 50%, transparent 100%);
     --glass-border: rgba(42, 31, 69, 0.08);
     --glass-border-strong: rgba(42, 31, 69, 0.1);
@@ -244,9 +242,6 @@
     @apply border border-primary/20 bg-magia-gradient shadow-glow;
   }
 
-  .angol-surface {
-    @apply border border-slate-500/20 bg-angol-gradient;
-  }
 
   .premium-card {
     @apply rounded-2xl border border-border/80 bg-card-elevated/90 shadow-card transition-all duration-300;

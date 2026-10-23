@@ -10,7 +10,6 @@ import { PushToggle } from '@/components/push/PushToggle';
 import { LanguageBadge } from '@/components/layout/LanguagePicker';
 import { LANGUAGES } from '@/lib/languages';
 import {
-  DEFAULT_ANGOL_PUSH_TIME,
   DEFAULT_MAGIA_PUSH_TIME,
   DEFAULT_MAGIA_EVENING_PUSH_TIME,
   DEFAULT_MAGIA_STREAK_PUSH_TIME,
@@ -45,8 +44,6 @@ interface SettingsData {
   push_magia_streak: boolean;
   push_magia_streak_time: string;
   push_magia_reengagement: boolean;
-  push_angol_reminders: boolean;
-  push_angol_time: string;
 }
 
 type Section = 'account' | 'appearance' | 'reminders' | 'data';
@@ -143,13 +140,10 @@ function PracticeSoundsCard() {
 
 export function SettingsForm({
   profile,
-  angolAccess = false,
   pendingName = null,
   nextNameChangeAt = null,
 }: {
   profile: SettingsData;
-  /** Kreatív Angol unlocked by the admin (it also needs the Hungarian UI) */
-  angolAccess?: boolean;
   /** Name change waiting for the admin */
   pendingName?: PendingNameChange | null;
   /** ISO date of the next allowed name change (90-day rule), null = now */
@@ -194,8 +188,6 @@ export function SettingsForm({
   const [magiaStreak, setMagiaStreak] = useState(profile.push_magia_streak);
   const [magiaStreakTime, setMagiaStreakTime] = useState(profile.push_magia_streak_time || DEFAULT_MAGIA_STREAK_PUSH_TIME);
   const [magiaReengagement, setMagiaReengagement] = useState(profile.push_magia_reengagement);
-  const [angolReminder, setAngolReminder] = useState(profile.push_angol_reminders);
-  const [angolTime, setAngolTime] = useState(profile.push_angol_time || DEFAULT_ANGOL_PUSH_TIME);
 
   const [passwordOpen, setPasswordOpen] = useState(false);
   const [newPassword, setNewPassword] = useState('');
@@ -396,21 +388,6 @@ export function SettingsForm({
                         onCheckedChange={toggle(setMagiaReengagement, 'push_magia_reengagement')}
                       />
                     </div>
-
-                    {language === 'hu' && angolAccess && (
-                      <>
-                        <p className="pt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">{t('anglNotificationsTitle')}</p>
-                        <ReminderRow
-                          boundaryRef={notificationsRef}
-                          label={t('angolReminder')}
-                          description={t('angolReminderDesc')}
-                          checked={angolReminder}
-                          onCheckedChange={toggle(setAngolReminder, 'push_angol_reminders')}
-                          time={angolTime}
-                          onTimeChange={time(setAngolTime, 'push_angol_time')}
-                        />
-                      </>
-                    )}
 
                     <div className="flex flex-col items-end gap-1 pt-4">
                       <button

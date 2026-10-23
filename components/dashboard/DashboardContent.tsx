@@ -3,21 +3,12 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { BookOpen } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { bootLog } from '@/lib/boot-logger';
 
-import { formatActivityDate, getAngolDashboardStats } from '@/lib/dashboard';
-import { cn } from '@/lib/utils';
-import { canUseAngol } from '@/lib/module-access';
+import { formatActivityDate } from '@/lib/dashboard';
 import { isMissingColumnError } from '@/lib/supabase/missing-column';
-import { countReviewQueue, type CardScheduleRow } from '@/lib/angol-srs';
-import { toBudapestDate } from '@/lib/push-reminders';
-import vocabulary from '@/messages/content/angol-vocabulary.json';
-
-const VOCABULARY_SIZE = (vocabulary as unknown[]).length;
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
-import { FlagIcon } from '@/components/ui/FlagIcon';
 import { ElementsIcon, ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { ModuleCard } from '@/components/dashboard/ModuleCard';
 import { DashboardSkeleton } from '@/components/dashboard/DashboardSkeleton';
@@ -38,9 +29,7 @@ function timed<T>(promise: PromiseLike<T>, ms: number, fallback: T): Promise<T> 
 
 interface DashboardData {
   greetingName: string;
-  showAngol: boolean;
   magiaStats: { currentFokozat: number; fokozatPercent: number; lastActivity: string | null };
-  angolStats: { progress: number; lastActivity: string | null; reviewCount: number | null };
   today: TodayData | null;
 }
 
@@ -88,56 +77,13 @@ export function DashboardContent() {
         if (isMissingColumnError(profileResult.error)) profileResult = await loadProfile('username');
 
         const greetingName = profileResult.data?.first_name?.trim() || `@${profileResult.data?.username ?? 'user'}`;
-        // Locked module: Hungarian UI + access granted by the admin
-        const showAngol = await canUseAngol(supabase, locale);
-
         // Not critical: the card is simply left out if this fails
-        const todayPromise = loadTodayData(supabase, user.id, showAngol).catch(
+        const todayPromise = loadTodayData(supabase, user.id).catch(
           (err) => {
             bootLog('dashboard-today-failed', { error: String(err) });
             return null;
           }
         );
-
-        let angolStats = { progress: 0, lastActivity: null as string | null, reviewCount: null as number | null };
-        if (showAngol) {
-          const [cardResult, unlockResult] = await Promise.all([
-            timed(
-              supabase
-                .from('angol_card_progress')
-                .select('correct_count, last_seen, word_hu, due_on, introduced_on')
-                .eq('user_id', user.id),
-              FETCH_TIMEOUT_MS,
-              { data: [], error: null } as never
-            ),
-            timed(
-              supabase
-                .from('angol_section_unlocks')
-                .select('section_id, unlocked_at')
-                .eq('user_id', user.id)
-                .eq('lesson_id', 1),
-              FETCH_TIMEOUT_MS,
-              { data: [], error: null } as never
-            ),
-          ]);
-          let cards = cardResult.data;
-          // due_on / introduced_on come from migration 009 — retry without them before that
-          let hasSchedule = true;
-          if (isMissingColumnError(cardResult.error)) {
-            hasSchedule = false;
-            const fallback = await supabase
-              .from('angol_card_progress')
-              .select('correct_count, last_seen')
-              .eq('user_id', user.id);
-            cards = fallback.data as typeof cards;
-          }
-          angolStats = {
-            ...getAngolDashboardStats(cards ?? [], unlockResult.data ?? []),
-            reviewCount: hasSchedule
-              ? countReviewQueue(VOCABULARY_SIZE, (cards ?? []) as CardScheduleRow[], toBudapestDate(new Date()))
-              : null,
-          };
-        }
 
         const today = await todayPromise;
         if (cancelled) return;
@@ -149,7 +95,7 @@ export function DashboardContent() {
         };
 
         bootLog('dashboard-fetch-done');
-        setData({ greetingName, showAngol, magiaStats: magia, angolStats, today });
+        setData({ greetingName, magiaStats: magia, today });
 
         // Milestones are checked in the background; new ones show up in the bell
         syncBadges(supabase, user.id)
@@ -192,7 +138,7 @@ export function DashboardContent() {
     );
   }
 
-  const { greetingName, showAngol, magiaStats, angolStats, today: todayData } = data;
+  const { greetingName, magiaStats, today: todayData } = data;
 
   return (
     <div className="space-y-10">
@@ -211,7 +157,7 @@ export function DashboardContent() {
               {t('welcome', { name: greetingName })}
             </h1>
           </div>
-          <div className={cn('grid grid-cols-1 gap-3', showAngol && 'min-[400px]:grid-cols-2')}>
+          <div className="grid grid-cols-1 gap-3">
             <div className="rounded-xl border border-border/40 bg-background/40 px-4 py-3 backdrop-blur-sm">
               <div className="flex items-center gap-2 text-accent">
                 <ElementsNavIcon className="h-4 w-4" />
@@ -226,25 +172,11 @@ export function DashboardContent() {
                 {t('fokozat', { level: magiaStats.currentFokozat })}
               </p>
             </div>
-            {showAngol && (
-              <div className="rounded-xl border border-border/40 bg-background/40 px-4 py-3 backdrop-blur-sm">
-                <div className="flex items-center gap-2 text-slate-300">
-                  <BookOpen className="h-4 w-4" />
-                  <span className="text-[10px] font-semibold uppercase tracking-wider">
-                    {t('angolLabel')}
-                  </span>
-                </div>
-                <p className="mt-2 font-display text-2xl font-bold text-cream">
-                  {angolStats.progress}%
-                </p>
-                <p className="text-xs text-muted-foreground">{t('lesson1Progress')}</p>
-              </div>
-            )}
           </div>
         </div>
       </section>
 
-      {todayData && <TodayCard today={todayData} angolReviewCount={showAngol ? angolStats.reviewCount : null} showAngol={showAngol} />}
+      {todayData && <TodayCard today={todayData} />}
 
       <section>
         <h2 className="mb-5 font-display text-xl font-semibold text-cream">{t('continue')}</h2>
@@ -257,21 +189,7 @@ export function DashboardContent() {
             progressLabel={t('fokozat', { level: magiaStats.currentFokozat })}
             lastActivity={formatActivityDate(magiaStats.lastActivity, locale)}
             icon={<ElementsIcon className="h-8 w-8" />}
-            variant="magia"
           />
-
-          {showAngol && (
-            <ModuleCard
-              title={tModules('angol.title')}
-              subtitle={tModules('angol.subtitle')}
-              href={`/${locale}/modules/angol`}
-              progress={angolStats.progress}
-              progressLabel={t('lesson1Progress')}
-              lastActivity={formatActivityDate(angolStats.lastActivity, locale)}
-              icon={<FlagIcon locale="en" className="h-5 w-7" />}
-              variant="angol"
-            />
-          )}
         </div>
       </section>
     </div>

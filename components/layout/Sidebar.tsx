@@ -7,12 +7,10 @@ import { useLocale, useTranslations } from 'next-intl';
 import {
   ChevronLeft,
   ChevronRight,
-  GraduationCap,
   LayoutDashboard,
 } from 'lucide-react';
 import { ShieldLogo } from '@/components/ui/ShieldLogo';
 import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
-import { useAngolAccess } from './ModuleAccessProvider';
 import { cn } from '@/lib/utils';
 
 const STORAGE_KEY = 'quintessence-sidebar-collapsed';
@@ -23,7 +21,6 @@ export function Sidebar() {
   const locale = useLocale();
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
-  const angolAccess = useAngolAccess();
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -59,17 +56,6 @@ export function Sidebar() {
       icon: ElementsNavIcon,
       match: (path: string) => path.includes('/modules/magia'),
     },
-    // Locked module: only for users the admin picked (and Hungarian UI)
-    ...(angolAccess
-      ? [
-          {
-            href: `/${locale}/modules/angol`,
-            label: t('angol'),
-            icon: GraduationCap,
-            match: (path: string) => path.includes('/modules/angol'),
-          },
-        ]
-      : []),
   ];
 
   const renderLink = ({ href, label, icon: Icon, match }: typeof home) => {

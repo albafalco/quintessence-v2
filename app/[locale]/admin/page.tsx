@@ -23,8 +23,6 @@ const ACTION_LABELS: Record<string, string> = {
   'announcement.update': 'Közlemény módosítva',
   'announcement.unpublish': 'Közlemény visszavonva',
   'announcement.delete': 'Közlemény törölve',
-  'module.grant': 'Kreatív Angol hozzáférés adva',
-  'module.revoke': 'Kreatív Angol hozzáférés elvéve',
   'name.approve': 'Névváltoztatás jóváhagyva',
   'name.reject': 'Névváltoztatás elutasítva',
   'name.set': 'Név javítva',

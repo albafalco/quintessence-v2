@@ -11,9 +11,8 @@ export interface BadgeState {
 }
 
 export async function loadBadgeStats(supabase: SupabaseClient, userId: string): Promise<BadgeStats> {
-  const [sessions, cards, path, cycles] = await Promise.all([
+  const [sessions, path, cycles] = await Promise.all([
     supabase.from('magia_sessions').select('started_at, duration_sec, completed').eq('user_id', userId),
-    supabase.from('angol_card_progress').select('correct_count').eq('user_id', userId),
     supabase.from('magia_path').select('fokozat, thought_stage').eq('user_id', userId).maybeSingle(),
     supabase.from('magia_cycles').select('id', { count: 'exact', head: true }).eq('user_id', userId).not('closed_at', 'is', null),
   ]);
@@ -29,7 +28,6 @@ export async function loadBadgeStats(supabase: SupabaseClient, userId: string): 
     masteredExercises: pathRow?.thought_stage ?? 0,
     masteredFokozatok: pathRow ? pathRow.fokozat - 1 : 0,
     closedCycles: cycles.count ?? 0,
-    learnedWords: ((cards.data ?? []) as { correct_count: number }[]).filter((c) => c.correct_count >= 3).length,
   };
 }
 

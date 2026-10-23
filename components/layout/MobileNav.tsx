@@ -3,16 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { GraduationCap, LayoutDashboard } from 'lucide-react';
+import { LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
-import { useAngolAccess } from './ModuleAccessProvider';
 
 export function MobileNav() {
   const t = useTranslations('nav');
   const locale = useLocale();
   const pathname = usePathname();
-  const angolAccess = useAngolAccess();
 
   const items = [
     {
@@ -28,17 +26,6 @@ export function MobileNav() {
       icon: ElementsNavIcon,
       match: (path: string) => path.includes('/modules/magia'),
     },
-    // Locked module: only for users the admin picked (and Hungarian UI)
-    ...(angolAccess
-      ? [
-          {
-            href: `/${locale}/modules/angol`,
-            label: t('angol'),
-            icon: GraduationCap,
-            match: (path: string) => path.includes('/modules/angol'),
-          },
-        ]
-      : []),
   ];
 
   return (

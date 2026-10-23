@@ -136,37 +136,3 @@ export async function getMagiaInactiveDays(
   const today = new Date(budapestDate + 'T00:00:00Z');
   return Math.round((today.getTime() - last.getTime()) / 86_400_000);
 }
-
-export async function hasAngolActivityToday(
-  supabase: SupabaseClient,
-  userId: string,
-  budapestDate: string
-): Promise<boolean> {
-  const { start, end } = getBudapestDayBounds(budapestDate);
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('last_angol_activity_date')
-    .eq('id', userId)
-    .maybeSingle();
-  if (profile?.last_angol_activity_date === budapestDate) return true;
-
-  const [{ data: cards }, { data: exams }] = await Promise.all([
-    supabase
-      .from('angol_card_progress')
-      .select('id')
-      .eq('user_id', userId)
-      .gte('last_seen', start)
-      .lte('last_seen', end)
-      .limit(1),
-    supabase
-      .from('angol_exam_results')
-      .select('id')
-      .eq('user_id', userId)
-      .gte('taken_at', start)
-      .lte('taken_at', end)
-      .limit(1),
-  ]);
-
-  return Boolean(cards?.length || exams?.length);
-}

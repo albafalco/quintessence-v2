@@ -178,62 +178,6 @@ export async function deleteUserAccount(userId: string, confirmUsername: string)
   }
 }
 
-/**
- * Opens or closes the Kreatív Angol module for a user. Granting adds a bell
- * notification (DB trigger) and a push to the user's devices; their Angol
- * progress is kept either way.
- */
-export async function setAngolAccess(userId: string, enabled: boolean): Promise<ActionResult> {
-  try {
-    const { supabase, user } = await requireAdmin();
-    const target = await loadTarget(supabase, userId);
-    if (!target) return { ok: false, error: 'Ismeretlen felhasználó.' };
-
-    const { error } = enabled
-      ? await supabase.from('module_access').upsert({ user_id: userId, module: 'angol', granted_by: user.id }, { ignoreDuplicates: true })
-      : await supabase.from('module_access').delete().eq('user_id', userId).eq('module', 'angol');
-    if (error) throw new Error(error.message);
-    await logAdminAction(supabase, user.id, enabled ? 'module.grant' : 'module.revoke', `@${target.username}`, { module: 'angol' });
-
-    if (enabled) await pushModuleGranted(target);
-    refresh();
-    return { ok: true };
-  } catch (err) {
-    return failure(err);
-  }
-}
-
-/** Best effort: a failed push does not undo the access. */
-async function pushModuleGranted(target: { id: string; preferred_language: string | null }) {
-  try {
-    const service = await createServiceClient();
-    const { data: profile } = await service.from('profiles').select('push_enabled').eq('id', target.id).maybeSingle();
-    if (!profile?.push_enabled) return;
-    const { data: subs } = await service.from('push_subscriptions').select('endpoint, p256dh, auth').eq('user_id', target.id);
-    if (!subs?.length) return;
-
-    // The module is Hungarian-only, so the link always opens the Hungarian UI
-    const locale = resolveLocale(target.preferred_language);
-    const payload = {
-      title: await getMessage(locale, 'push.moduleGrantedTitle'),
-      body: await getMessage(locale, 'push.moduleGrantedBody'),
-      url: '/hu/modules/angol',
-    };
-    const stale: string[] = [];
-    for (const sub of subs) {
-      try {
-        await sendPushNotification(sub, payload);
-      } catch (err) {
-        const statusCode = (err as { statusCode?: number }).statusCode;
-        if (statusCode === 410 || statusCode === 404) stale.push(sub.endpoint);
-      }
-    }
-    if (stale.length) await service.from('push_subscriptions').delete().eq('user_id', target.id).in('endpoint', stale);
-  } catch (err) {
-    console.error('[admin/users] module push failed', err);
-  }
-}
-
 /** Approves or rejects a pending name change; the user is notified (DB function). */
 export async function decideNameChange(userId: string, approve: boolean): Promise<ActionResult> {
   try {

@@ -101,7 +101,6 @@ const config: Config = {
       backgroundImage: {
         'cosmic-gradient': 'var(--gradient-cosmic)',
         'magia-gradient': 'var(--gradient-magia)',
-        'angol-gradient': 'var(--gradient-angol)',
         'gold-shimmer': 'var(--gradient-gold-shimmer)',
       },
       animation: {

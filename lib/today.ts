@@ -24,7 +24,6 @@ export interface PathProgress {
 export interface TodayData {
   items: TodayPlanItem[];
   streak: number;
-  hardCount: number;
   path: PathProgress;
 }
 
@@ -57,24 +56,20 @@ export function newPathToday(day: DaySummary | null): { items: TodayPlanItem[]; 
 }
 
 /** Data of the dashboard "Mai teendők" card and the header chip (same plan as the "Ma" page). */
-export async function loadTodayData(supabase: SupabaseClient, userId: string, withAngol: boolean): Promise<TodayData> {
+export async function loadTodayData(supabase: SupabaseClient, userId: string): Promise<TodayData> {
   const today = toBudapestDate(new Date());
   const streakStart = new Date(Date.now() - 366 * 86_400_000).toISOString();
 
-  const [streakRes, hardRes, day] = await Promise.all([
+  const [streakRes, day] = await Promise.all([
     supabase
       .from('magia_sessions')
       .select('started_at, completed')
       .eq('user_id', userId)
       .eq('completed', true)
       .gte('started_at', streakStart),
-    withAngol
-      ? supabase.from('angol_hard_items').select('id', { count: 'exact', head: true }).eq('user_id', userId)
-      : Promise.resolve({ count: 0, error: null }),
     loadDaySummary(supabase, userId),
   ]);
 
   const streak = computeStreak((streakRes.data ?? []) as { started_at: string; completed: boolean }[], today);
-  const hardCount = hardRes.error ? 0 : (hardRes.count ?? 0);
-  return { ...newPathToday(day), streak, hardCount };
+  return { ...newPathToday(day), streak };
 }

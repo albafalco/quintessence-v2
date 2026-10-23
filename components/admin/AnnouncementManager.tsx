@@ -294,14 +294,14 @@ export function AnnouncementManager({ announcements }: { announcements: Announce
                 className={cn(fieldClass, 'resize-y py-2 leading-relaxed')}
               />
               <span className="text-[11px] text-muted-foreground">
-                Formázás: <code className="text-accent/80">**félkövér**</code> · <code className="text-accent/80">[szöveg](/modules/angol)</code> · üres sor = új bekezdés
+                Formázás: <code className="text-accent/80">**félkövér**</code> · <code className="text-accent/80">[szöveg](/modules/magia/ma)</code> · üres sor = új bekezdés
               </span>
             </label>
 
             <div className="grid gap-3 sm:grid-cols-2">
               <label className="flex flex-col gap-1">
                 <span className="text-xs text-muted-foreground">Gomb linkje (nem kötelező)</span>
-                <input value={form.linkUrl} onChange={(e) => set('linkUrl', e.target.value)} placeholder="/modules/angol vagy https://…" className={cn(fieldClass, 'h-10')} />
+                <input value={form.linkUrl} onChange={(e) => set('linkUrl', e.target.value)} placeholder="/modules/magia/ma vagy https://…" className={cn(fieldClass, 'h-10')} />
               </label>
               <label className="flex flex-col gap-1">
                 <span className="text-xs text-muted-foreground">Gomb felirata</span>

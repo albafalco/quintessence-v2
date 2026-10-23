@@ -208,8 +208,6 @@ RETURNS TABLE (
   invited_by_username TEXT,
   invites_sent INTEGER,
   invites_accepted INTEGER,
-  angol_access BOOLEAN,
-  angol_has_progress BOOLEAN,
   first_name TEXT,
   last_name TEXT,
   name_changed_at TIMESTAMPTZ,
@@ -237,12 +235,8 @@ BEGIN
     u.created_at,
     u.last_sign_in_at,
     u.banned_until,
-    nullif(greatest(
-      coalesce((SELECT max((s.started_at AT TIME ZONE 'Europe/Budapest')::DATE)
-                FROM public.magia_sessions s WHERE s.user_id = u.id), '-infinity'::DATE),
-      CASE WHEN p.last_angol_activity_date ~ '^\d{4}-\d{2}-\d{2}$'
-           THEN p.last_angol_activity_date::DATE ELSE '-infinity'::DATE END
-    ), '-infinity'::DATE),
+    (SELECT max((s.started_at AT TIME ZONE 'Europe/Budapest')::DATE)
+     FROM public.magia_sessions s WHERE s.user_id = u.id),
     coalesce(p.push_enabled, false),
     (SELECT count(*)::INTEGER FROM public.push_subscriptions ps WHERE ps.user_id = u.id),
     public.invite_balance(u.id),
@@ -251,10 +245,6 @@ BEGIN
      WHERE ic.used_by = u.id LIMIT 1),
     (SELECT count(*)::INTEGER FROM public.invite_codes ic WHERE ic.created_by = u.id AND ic.revoked_at IS NULL),
     (SELECT count(*)::INTEGER FROM public.invite_codes ic WHERE ic.created_by = u.id AND ic.is_used),
-    EXISTS (SELECT 1 FROM public.module_access m WHERE m.user_id = u.id AND m.module = 'angol'),
-    EXISTS (SELECT 1 FROM public.angol_card_progress c WHERE c.user_id = u.id)
-      OR EXISTS (SELECT 1 FROM public.angol_exam_results e WHERE e.user_id = u.id)
-      OR EXISTS (SELECT 1 FROM public.angol_section_unlocks su WHERE su.user_id = u.id AND su.section_id NOT IN (0, 1, 2, 5)),
     p.first_name,
     p.last_name,
     p.name_changed_at,

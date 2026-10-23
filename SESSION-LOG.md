@@ -14,11 +14,11 @@
 Next.js 14 PWA személyes fejlődés app:
 
 - **Auth:** Supabase (meghívókódos regisztráció)
-- **Modulok:** Mágia (10 fokozat), Kreatív Angol (hu nyelvű felhasználóknak)
+- **Modulok:** Mágia (10 fokozat)
 - **i18n:** hu, en, de, es, it (next-intl)
 - **Design:** cosmic purple/gold, glass UI, Outfit + Cinzel betűtípusok
 - **PWA:** next-pwa, custom service worker push kezeléssel
-- **Push:** web-push + VAPID, angol napi emlékeztető Budapest idő szerint
+- **Push:** web-push + VAPID, napi emlékeztető Budapest idő szerint
 
 ---
 
@@ -43,23 +43,17 @@ Next.js 14 PWA személyes fejlődés app:
 - `LanguageSwitcher.tsx`, `ProfileForm.tsx` frissítve
 - Mobilon is zászló gombok (korábban `<select>` volt, ott nem látszott zászló)
 
-### 5. Angol push értesítések
-- Logika: `lib/push-reminders.ts` — Budapest idő, napi aktivitás ellenőrzés
-- Küldés feltétele: `push_enabled` + `push_angol_reminders` + `preferred_language === 'hu'` + beállított időpont + **ma még nincs angol aktivitás** (szólap `last_seen` vagy vizsga `taken_at`)
-- Alapértelmezett angol idő: **20:00** Budapest (`003_push_angol_default.sql`)
-- Duplikáció elkerülés: `last_angol_push_date` oszlop a `profiles` táblában
-
-### 6. Vercel auto-deploy meghibásodás — JAVÍTVA
+### 5. Vercel auto-deploy meghibásodás — JAVÍTVA
 - **Ok:** `vercel.json` cron `*/5 * * * *` → **Vercel Hobby csak napi cront enged** → deploy hiba
 - **Megoldás:** `vercel.json` törölve; cron átrakva **GitHub Actions**-re (`.github/workflows/push-reminders.yml`, 5 percenként hívja `/api/push/send`)
 
-### 7. CRON_SECRET
+### 6. CRON_SECRET
 - Generált érték (user beállította Vercel + GitHub Actions Secrets-ben):
   ```
   B8FHtWzpsu6dt1ZHntZhAR9cNEO2qKBwgN9EWb10zDA=
   ```
 
-### 8. Push értesítések — több körös javítás
+### 7. Push értesítések — több körös javítás
 - Hibakezelés + visszajelzés a `PushToggle`-ban
 - Teszt endpoint: `POST /api/push/test`
 - Service worker push handler: `worker/index.js` (next-pwa `customWorkerDir`)
@@ -116,7 +110,6 @@ Futtatandó a Supabase SQL Editorban (ha még nem):
 
 1. `supabase/migrations/001_initial.sql` — alap séma
 2. `supabase/migrations/002_grants_and_permissions.sql` — GRANT-ok, RLS WITH CHECK, invite seed
-3. `supabase/migrations/003_push_angol_default.sql` — `push_angol_time` default `20:00`, `last_angol_push_date` oszlop
 
 ---
 
@@ -133,12 +126,7 @@ Futtatandó a Supabase SQL Editorban (ha még nem):
 - Az ikonról kell megnyitni, nem Safari tab-ból
 - Régi ikon törlése + újratelepítés deploy után ajánlott
 
-### Angol „napi aktivitás” definíció
-- Számol: `angol_card_progress.last_seen` + `angol_exam_results.taken_at` (Budapest nap)
-- **Nem számol:** gyakorló modul (PracticeSession) — nincs DB naplózás
-
 ### Egyéb nyitott (nem implementált)
-- Angol lecke aloldalak designje elmaradhat a fő redesign mögött
 - `GET /api/auth/register` → 405 (szándékos, csak POST)
 - Next.js 14.2.18 security advisory (npm) — upgrade nem kért
 
@@ -151,7 +139,6 @@ Futtatandó a Supabase SQL Editorban (ha még nem):
 82d9d4b Push értesítés javítás: hibakezelés, SW regisztráció, teszt értesítés
 989b622 Mobil nyelvválasztó: SVG zászlók visszaállítva
 59f3c88 Fix: Vercel Hobby-kompatibilis deploy, push cron GitHub Actions-re
-3f650ff Zászló SVG ikonok desktopon, angol push emlékeztető Budapest idővel
 750ed23 Logó: favicon.png
 d8fe45a Mobil overflow javítás iPhone-ra
 cdc39cd Outfit + Cinzel betűtípus, láthatóbb kijelentkezés
@@ -168,7 +155,6 @@ cdc39cd Outfit + Cinzel betűtípus, láthatóbb kijelentkezés
    - „Teszt értesítés” gomb → értesítés megjelenik
 3. **Push újranyitás:** app bezárás → újranyitás → profil → kapcsoló továbbra is ON
 4. **GitHub Actions:** `Push reminders` workflow fut-e 5 percenként (CRON_SECRET-tel)
-5. **Angol emlékeztető:** user 20:00-ra állítva, nincs mai angol aktivitás → értesítés érkezik
 
 ---
 

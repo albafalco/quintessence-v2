@@ -7,7 +7,6 @@ import { ElementsNavIcon } from '@/components/ui/ElementsIcon';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { cn } from '@/lib/utils';
 
 interface ModuleCardProps {
   title: string;
@@ -16,9 +15,7 @@ interface ModuleCardProps {
   progress: number;
   progressLabel?: string;
   lastActivity: string | null;
-  /** Emoji or element (flag emojis don't render on Windows — use FlagIcon). */
   icon: React.ReactNode;
-  variant?: 'magia' | 'angol';
 }
 
 export function ModuleCard({
@@ -29,44 +26,26 @@ export function ModuleCard({
   progressLabel,
   lastActivity,
   icon,
-  variant = 'magia',
 }: ModuleCardProps) {
   const t = useTranslations('dashboard');
-  const isMagia = variant === 'magia';
 
   return (
-    <Card
-      className={cn(
-        'group premium-card-hover overflow-hidden',
-        isMagia ? 'magia-surface' : 'angol-surface'
-      )}
-    >
-      <div
-        className={cn(
-          'absolute inset-x-0 top-0 h-px opacity-60',
-          isMagia ? 'bg-gradient-to-r from-transparent via-accent to-transparent' : 'bg-gradient-to-r from-transparent via-slate-400/50 to-transparent'
-        )}
-      />
+    <Card className="group premium-card-hover magia-surface overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-60" />
 
       <CardHeader className="relative">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0 space-y-2">
             <CardTitle className="flex items-center gap-3 text-lg sm:text-xl">
-              <span
-                className={cn(
-                  'flex h-11 w-11 items-center justify-center rounded-xl text-2xl',
-                  isMagia ? 'bg-primary/20 shadow-glow-gold' : 'bg-slate-700/30'
-                )}
-                aria-hidden
-              >
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-2xl shadow-glow-gold" aria-hidden>
                 {icon}
               </span>
-              <span className={cn('break-words', isMagia ? 'text-gradient-gold' : 'text-cream')}>{title}</span>
+              <span className="break-words text-gradient-gold">{title}</span>
             </CardTitle>
             <CardDescription className="max-w-[220px]">{subtitle}</CardDescription>
             {progressLabel && (
               <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-accent/80">
-                {isMagia && <ElementsNavIcon className="h-3 w-3" />}
+                <ElementsNavIcon className="h-3 w-3" />
                 {progressLabel}
               </p>
             )}
@@ -80,7 +59,7 @@ export function ModuleCard({
               <span>{t('progress')}</span>
               <span className="text-cream">{Math.round(progress)}%</span>
             </div>
-            <Progress value={progress} variant={isMagia ? 'gold' : 'angol'} className="h-2" />
+            <Progress value={progress} variant="gold" className="h-2" />
           </div>
 
         <div className="rounded-xl border border-border/40 bg-background/30 px-4 py-3">

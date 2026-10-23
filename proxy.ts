@@ -44,10 +44,6 @@ export async function proxy(request: NextRequest) {
   const locale = firstSegment;
   const pathnameWithoutLocale = pathname.slice(locale.length + 1) || '/';
 
-  if (pathnameWithoutLocale.startsWith('/modules/angol') && locale !== 'hu') {
-    return NextResponse.redirect(new URL(`/${locale}`, request.url));
-  }
-
   const response = intlMiddleware(request);
 
   // Refresh the Supabase session here: Server Components cannot write cookies,

@@ -2,26 +2,19 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase/server';
 import { sendPushNotification } from '@/lib/push';
 import {
-  DEFAULT_ANGOL_PUSH_TIME,
   DEFAULT_MAGIA_PUSH_TIME,
   DEFAULT_MAGIA_EVENING_PUSH_TIME,
   DEFAULT_MAGIA_STREAK_PUSH_TIME,
 } from '@/lib/locale-meta';
 import {
   getBudapestNow,
-  hasAngolActivityToday,
   hasMagiaActivityToday,
   getMagiaInactiveDays,
   isReminderDue,
 } from '@/lib/push-reminders';
 import { getMessage, resolveLocale } from '@/lib/i18n-messages';
-import type { Locale } from '@/i18n';
-import { countReviewQueue, type CardScheduleRow } from '@/lib/angol-srs';
 import { sendDueAnnouncementPushes } from '@/lib/announcement-push';
 import { practiceDate } from '@/lib/magia/path';
-import vocabulary from '@/messages/content/angol-vocabulary.json';
-
-const VOCABULARY_SIZE = (vocabulary as unknown[]).length;
 
 interface ProfileRow {
   id: string;
@@ -38,18 +31,14 @@ interface ProfileRow {
   last_magia_streak_push_date: string | null;
   last_magia_reengagement_date: string | null;
   last_magia_activity_date: string | null;
-  push_angol_reminders: boolean;
-  push_angol_time: string | null;
   preferred_language: string;
-  last_angol_push_date: string | null;
 }
 
 type NotificationType =
   | 'magia_morning'
   | 'magia_evening'
   | 'magia_streak'
-  | 'magia_reengagement'
-  | 'angol';
+  | 'magia_reengagement';
 
 interface PushPayload {
   type: NotificationType;
@@ -83,9 +72,7 @@ async function cycleLastEvening(supabase: ServiceClient, userId: string, today: 
 async function buildPushNotifications(
   profile: ProfileRow,
   budapestNow: ReturnType<typeof getBudapestNow>,
-  supabase: ServiceClient,
-  /** Users with Kreatív Angol access (locked module) */
-  angolUsers: Set<string>
+  supabase: ServiceClient
 ): Promise<PushPayload[]> {
   const locale = resolveLocale(profile.preferred_language);
   const notifications: PushPayload[] = [];
@@ -171,37 +158,6 @@ async function buildPushNotifications(
     }
   }
 
-  const angolTime = profile.push_angol_time || DEFAULT_ANGOL_PUSH_TIME;
-  const angolDue =
-    profile.push_angol_reminders &&
-    profile.preferred_language === 'hu' &&
-    angolUsers.has(profile.id) &&
-    isReminderDue(budapestNow.totalMinutes, angolTime);
-  const alreadySentAngolToday = profile.last_angol_push_date === budapestNow.date;
-
-  if (angolDue && !alreadySentAngolToday) {
-    const completedToday = await hasAngolActivityToday(supabase, profile.id, budapestNow.date);
-    if (!completedToday) {
-      // Mention today's vocabulary review when the schedule (migration 009) exists
-      const { data: cardRows, error: cardError } = await supabase
-        .from('angol_card_progress')
-        .select('word_hu, due_on, introduced_on')
-        .eq('user_id', profile.id);
-      const reviewCount = cardError
-        ? 0
-        : countReviewQueue(VOCABULARY_SIZE, (cardRows ?? []) as CardScheduleRow[], budapestNow.date);
-      notifications.push({
-        type: 'angol',
-        title: await getMessage(locale as Locale, 'push.angolTitle'),
-        body:
-          reviewCount > 0
-            ? await getMessage(locale as Locale, 'push.angolReviewBody', { count: reviewCount })
-            : await getMessage(locale as Locale, 'push.angolBody'),
-        url: `/${locale}/modules/angol`,
-      });
-    }
-  }
-
   return notifications;
 }
 
@@ -227,7 +183,7 @@ export async function GET(request: Request) {
   }
 
   const baseColumns =
-    'id, push_enabled, push_magia_reminders, push_magia_time, push_magia_evening, push_magia_evening_time, push_magia_streak, push_magia_streak_time, push_magia_reengagement, last_magia_push_date, last_magia_evening_push_date, last_magia_streak_push_date, last_magia_reengagement_date, last_magia_activity_date, push_angol_reminders, push_angol_time, preferred_language, last_angol_push_date';
+    'id, push_enabled, push_magia_reminders, push_magia_time, push_magia_evening, push_magia_evening_time, push_magia_streak, push_magia_streak_time, push_magia_reengagement, last_magia_push_date, last_magia_evening_push_date, last_magia_streak_push_date, last_magia_reengagement_date, last_magia_activity_date, preferred_language';
   const { data: profiles, error } = await supabase.from('profiles').select(baseColumns).eq('push_enabled', true);
 
   if (error) {
@@ -237,16 +193,6 @@ export async function GET(request: Request) {
   if (!profiles?.length) {
     return NextResponse.json({ sent: 0, checked: 0, announcementsSent, budapest: budapestNow });
   }
-
-  // Kreatív Angol is locked: reminders only for users with access and admins
-  // (migration 016; no reminders at all until it has been run)
-  const [accessRows, adminRows] = await Promise.all([
-    supabase.from('module_access').select('user_id').eq('module', 'angol'),
-    supabase.from('admins').select('user_id'),
-  ]);
-  const angolUsers = new Set<string>(
-    accessRows.error ? [] : [...(accessRows.data ?? []), ...(adminRows.data ?? [])].map((r) => (r as { user_id: string }).user_id)
-  );
 
   let sent = 0;
   let staleRemoved = 0;
@@ -259,10 +205,9 @@ export async function GET(request: Request) {
 
     if (!subscriptions?.length) continue;
 
-    const notifications = await buildPushNotifications(profile, budapestNow, supabase, angolUsers);
+    const notifications = await buildPushNotifications(profile, budapestNow, supabase);
     if (!notifications.length) continue;
 
-    let angolSent = false;
     let magiaMorningSent = false;
     let magiaEveningSent = false;
     let magiaStreakSent = false;
@@ -276,7 +221,6 @@ export async function GET(request: Request) {
         try {
           await sendPushNotification(sub, notif);
           sent++;
-          if (notif.type === 'angol') angolSent = true;
           if (notif.type === 'magia_morning') magiaMorningSent = true;
           if (notif.type === 'magia_evening') magiaEveningSent = true;
           if (notif.type === 'magia_streak') magiaStreakSent = true;
@@ -309,7 +253,6 @@ export async function GET(request: Request) {
     }
 
     const updates: Record<string, unknown> = { updated_at: new Date().toISOString() };
-    if (angolSent) updates.last_angol_push_date = budapestNow.date;
     if (magiaMorningSent) updates.last_magia_push_date = budapestNow.date;
     if (magiaEveningSent) updates.last_magia_evening_push_date = budapestNow.date;
     if (magiaStreakSent) updates.last_magia_streak_push_date = budapestNow.date;

@@ -60,7 +60,7 @@ export function MomentumChip() {
         data: { user },
       } = await supabase.auth.getUser();
       if (!user) return;
-      const today = await loadTodayData(supabase, user.id, false);
+      const today = await loadTodayData(supabase, user.id);
       if (cancelled) return;
       setMomentum({ streak: today.streak, done: today.items.filter((i) => i.done).length, total: today.items.length });
     })().catch((err) => console.error('[momentum] load failed', err));

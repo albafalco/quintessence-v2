@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { redirect } from 'next/navigation';
-import { Flame, GraduationCap, Hourglass, PenLine, Star } from 'lucide-react';
+import { Flame, Hourglass, PenLine, Star } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
-import { hasModuleAccess } from '@/lib/module-access';
 import { formatFullName } from '@/lib/person-name';
 import { loadBadgeStats } from '@/lib/badges-sync';
 import { toIntlLocale } from '@/i18n';
@@ -39,10 +38,9 @@ export default async function ProfilePage({ params }: { params: Promise<{ locale
   } = await supabase.auth.getUser();
   if (!user) redirect(`/${locale}/auth/login`);
 
-  const [{ data: profile }, { data: adminRow }, angolAccess, stats] = await Promise.all([
+  const [{ data: profile }, { data: adminRow }, stats] = await Promise.all([
     supabase.from('profiles').select('first_name, last_name, name, username, created_at').eq('id', user.id).single(),
     supabase.from('admins').select('user_id').eq('user_id', user.id).maybeSingle(),
-    hasModuleAccess(supabase, 'angol'),
     loadBadgeStats(supabase, user.id),
   ]);
   if (!profile) redirect(`/${locale}/auth/login`);
@@ -54,7 +52,6 @@ export default async function ProfilePage({ params }: { params: Promise<{ locale
   const hours = Math.floor(stats.totalPracticeSec / 3600);
   const minutes = Math.floor((stats.totalPracticeSec % 3600) / 60);
   const practice = hours > 0 ? t('statHours', { count: hours }) : t('statMinutes', { count: minutes });
-  const showAngol = locale === 'hu' && angolAccess;
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -83,11 +80,10 @@ export default async function ProfilePage({ params }: { params: Promise<{ locale
         </Link>
       </section>
 
-      <section className={showAngol ? 'grid grid-cols-2 gap-3 sm:grid-cols-4' : 'grid grid-cols-3 gap-3'}>
+      <section className="grid grid-cols-3 gap-3">
         <Stat icon={Flame} value={tDash('momentumStreakValue', { count: stats.longestStreak })} label={t('statStreak')} />
         <Stat icon={Hourglass} value={practice} label={t('statPractice')} />
         <Stat icon={Star} value={String(stats.masteredExercises)} label={t('statMastered')} />
-        {showAngol && <Stat icon={GraduationCap} value={String(stats.learnedWords)} label={t('statWords')} />}
       </section>
 
       <BadgesSection userId={user.id} />

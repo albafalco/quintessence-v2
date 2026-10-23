@@ -4,7 +4,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
-import { useAngolAccess } from '@/components/layout/ModuleAccessProvider';
 import { NOTIFICATIONS_CHANGED_EVENT, resolveNotification, type FeedRow, type ResolvedNotification } from '@/lib/notifications';
 
 /** Background re-check while the app is visible (scheduled announcements have no other trigger). */
@@ -43,7 +42,6 @@ export function useNotifications(limit: number): NotificationsState {
   const tNotifications = useTranslations('notifications');
   const tBadges = useTranslations('badges');
   const pathname = usePathname();
-  const angol = useAngolAccess() === true;
   const [rows, setRows] = useState<FeedRow[]>([]);
   const [unread, setUnread] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -104,10 +102,10 @@ export function useNotifications(limit: number): NotificationsState {
           resolveNotification(row, locale, {
             notifications: tNotifications as never,
             badges: tBadges as never,
-          }, angol)
+          })
         )
         .filter((n): n is ResolvedNotification => n !== null),
-    [rows, locale, tNotifications, tBadges, angol]
+    [rows, locale, tNotifications, tBadges]
   );
 
   // Hidden (locked-module) rows must not count as unread either

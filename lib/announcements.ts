@@ -34,7 +34,7 @@ export function announcementStatus(a: Pick<AnnouncementRow, 'publish_at' | 'expi
   return 'published';
 }
 
-/** In-app path ("/modules/angol") or an https link; anything else is rejected. */
+/** In-app path ("/modules/magia/ma") or an https link; anything else is rejected. */
 export function isValidAnnouncementLink(url: string) {
   return /^\/[^\s]*$/.test(url) || /^https:\/\/[^\s]+$/i.test(url);
 }

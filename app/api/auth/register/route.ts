@@ -164,21 +164,6 @@ export async function POST(request: Request) {
       console.error('[register] invite_codes update failed:', inviteUpdateError.message);
     }
 
-    const defaultUnlocks = [
-      { user_id: userId, lesson_id: 1, section_id: 0 },
-      { user_id: userId, lesson_id: 1, section_id: 1 },
-      { user_id: userId, lesson_id: 1, section_id: 2 },
-      { user_id: userId, lesson_id: 1, section_id: 5 },
-    ];
-
-    const { error: unlockError } = await supabase
-      .from('angol_section_unlocks')
-      .insert(defaultUnlocks);
-
-    if (unlockError) {
-      console.error('[register] angol_section_unlocks insert failed:', unlockError.message);
-    }
-
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error('[register] unexpected error:', err);

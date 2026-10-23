@@ -91,15 +91,6 @@ export function buildUserReportHtml(data: ExportData, { locale, t, tBadges, path
       .map((b) => [esc(tBadges(`${b.badge_id}.title`)), esc(date(b.earned_at))])
   );
 
-  const cards = rows(data, 'angol_card_progress');
-  const exams = rows(data, 'angol_exam_results').filter((e) => e.passed);
-  const angolHtml =
-    cards.length || exams.length
-      ? `<ul><li>${esc(t('learnedWords', { count: cards.filter((c) => Number(c.correct_count) >= 3).length }))}</li><li>${esc(
-          t('passedExams', { count: exams.length })
-        )}</li></ul>`
-      : '';
-
   const section = (title: string, body: string) => `<section><h2>${esc(title)}</h2>${body}</section>`;
 
   return `<!doctype html>
@@ -157,7 +148,6 @@ ${section(
 ${section(t('newPath'), pathHtml)}
 ${section(t('sessions'), sessionsHtml)}
 ${section(t('badges'), badgesHtml)}
-${angolHtml ? section(t('angol'), angolHtml) : ''}
 </main>
 </body>
 </html>`;

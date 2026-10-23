@@ -273,12 +273,8 @@ BEGIN
     u.created_at,
     u.last_sign_in_at,
     u.banned_until,
-    nullif(greatest(
-      coalesce((SELECT max((s.started_at AT TIME ZONE 'Europe/Budapest')::DATE)
-                FROM public.magia_sessions s WHERE s.user_id = u.id), '-infinity'::DATE),
-      CASE WHEN p.last_angol_activity_date ~ '^\d{4}-\d{2}-\d{2}$'
-           THEN p.last_angol_activity_date::DATE ELSE '-infinity'::DATE END
-    ), '-infinity'::DATE),
+    (SELECT max((s.started_at AT TIME ZONE 'Europe/Budapest')::DATE)
+     FROM public.magia_sessions s WHERE s.user_id = u.id),
     coalesce(p.push_enabled, false),
     (SELECT count(*)::INTEGER FROM public.push_subscriptions ps WHERE ps.user_id = u.id),
     public.invite_balance(u.id),

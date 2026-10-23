@@ -40,18 +40,6 @@ DROP POLICY IF EXISTS "own_magia_journal" ON magia_journal;
 CREATE POLICY "own_magia_journal" ON magia_journal
   FOR ALL USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
 
-DROP POLICY IF EXISTS "own_angol_card" ON angol_card_progress;
-CREATE POLICY "own_angol_card" ON angol_card_progress
-  FOR ALL USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
-
-DROP POLICY IF EXISTS "own_angol_unlocks" ON angol_section_unlocks;
-CREATE POLICY "own_angol_unlocks" ON angol_section_unlocks
-  FOR ALL USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
-
-DROP POLICY IF EXISTS "own_angol_exam" ON angol_exam_results;
-CREATE POLICY "own_angol_exam" ON angol_exam_results
-  FOR ALL USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
-
 DROP POLICY IF EXISTS "own_push" ON push_subscriptions;
 CREATE POLICY "own_push" ON push_subscriptions
   FOR ALL USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
@@ -59,6 +47,5 @@ CREATE POLICY "own_push" ON push_subscriptions
 -- Seed invite codes (safe to re-run)
 INSERT INTO invite_codes (code) VALUES
   ('QUINTESSENCE2025'),
-  ('MAGIC-INIT-001'),
-  ('ANGOL-START-001')
+  ('MAGIC-INIT-001')
 ON CONFLICT (code) DO NOTHING;

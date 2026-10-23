@@ -12,9 +12,6 @@ const MAX_MAGIA_ROWS = 5;
 
 interface TodayCardProps {
   today: TodayData;
-  /** null when the review schedule is not available or Kreatív Angol is hidden */
-  angolReviewCount: number | null;
-  showAngol: boolean;
 }
 
 function TaskRow({ href, done, children }: { href: string; done: boolean; children: React.ReactNode }) {
@@ -38,15 +35,14 @@ function TaskRow({ href, done, children }: { href: string; done: boolean; childr
   );
 }
 
-export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps) {
+export function TodayCard({ today }: TodayCardProps) {
   const t = useTranslations('dashboard');
   const tNav = useTranslations('nav');
   const tPath = useTranslations('feherMagia');
   const locale = useLocale();
 
-  const hasAngolTask = showAngol && angolReviewCount !== null;
-  const total = today.items.length + (hasAngolTask ? 1 : 0);
-  const done = today.items.filter((i) => i.done).length + (hasAngolTask && angolReviewCount === 0 ? 1 : 0);
+  const total = today.items.length;
+  const done = today.items.filter((i) => i.done).length;
   const allDone = total > 0 && done === total;
   const visible = today.items.slice(0, MAX_MAGIA_ROWS);
   const hidden = today.items.length - visible.length;
@@ -110,34 +106,6 @@ export function TodayCard({ today, angolReviewCount, showAngol }: TodayCardProps
               {t('todayMore', { count: hidden })}
             </Link>
           )}
-        </div>
-      )}
-
-      {showAngol && (hasAngolTask || today.hardCount > 0) && (
-        <div className="mt-3">
-          <p className="mb-1 px-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">{t('angolLabel')}</p>
-          <ul>
-            {hasAngolTask && (
-              <TaskRow href={`/${locale}/modules/angol/lecke/1/szakasz/0`} done={angolReviewCount === 0}>
-                <AppIcon name="repeat" className="mr-1.5 h-3.5 w-3.5 align-[-2px]" />
-                {t('todayReview', { count: angolReviewCount ?? 0 })}
-              </TaskRow>
-            )}
-            {today.hardCount > 0 && (
-              <li>
-                <Link
-                  href={`/${locale}/modules/angol/lecke/1/nehez`}
-                  className="flex items-center gap-3 rounded-xl px-2 py-2 text-sm text-amber-200/90 transition hover:bg-muted/30"
-                >
-                  <span className="flex w-5 justify-center">
-                    <AppIcon name="alert" className="h-4 w-4" />
-                  </span>
-                  <span className="flex-1">{t('todayHard', { count: today.hardCount })}</span>
-                  <ChevronRight className="h-4 w-4 text-muted-foreground/50" />
-                </Link>
-              </li>
-            )}
-          </ul>
         </div>
       )}
 

@@ -1,5 +1,5 @@
 -- Esti és streak push értesítők napi dedup mezői
--- A reggeli (last_magia_push_date) és angol (last_angol_push_date) dedup már létezik.
+-- A reggeli (last_magia_push_date) dedup már létezik.
 -- Az esti és streak emlékeztetők eddig dedup nélkül küldtek — 30 perces ablakban
 -- többször is elküldhette. Ez a két oszlop megakadályozza a dupla küldést.
 ALTER TABLE profiles

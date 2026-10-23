@@ -49,7 +49,7 @@ const ANNOUNCEMENT_ICONS: Record<string, string> = { news: 'sparkles', content: 
 
 type Translator = (key: string, values?: Record<string, string | number>) => string;
 
-/** In-app paths are written without locale ("/modules/angol"); external links stay as they are. */
+/** In-app paths are written without locale ("/modules/magia/ma"); external links stay as they are. */
 export function localizeHref(url: string | null, locale: string): string | null {
   if (!url) return null;
   if (/^https?:\/\//i.test(url)) return url;
@@ -62,8 +62,6 @@ export function resolveNotification(
   row: FeedRow,
   locale: string,
   t: { notifications: Translator; badges: Translator },
-  /** Kreatív Angol unlocked for this user; its personal notifications are hidden otherwise */
-  angol: boolean,
   now = Date.now()
 ): ResolvedNotification | null {
   if (row.source === 'announcement') {
@@ -95,7 +93,7 @@ export function resolveNotification(
   switch (row.kind) {
     case 'badge': {
       const badge = BADGES.find((b) => b.id === data.badge_id);
-      // Retired milestones (e.g. the Kreatív Angol ones) are not shown
+      // Retired milestones are not shown
       if (!badge) return null;
       return personal(
         badge.icon,
@@ -115,9 +113,6 @@ export function resolveNotification(
         t.notifications(data.reason === 'revoked' ? 'inviteRevokedBody' : 'inviteExpiredBody', { email: String(data.email ?? '') }),
         `/${locale}/profile`
       );
-    case 'module_granted':
-      if (data.module !== 'angol' || !angol) return null;
-      return personal('graduation', t.notifications('moduleGrantedTitle'), t.notifications('moduleGrantedBody'), `/${locale}/modules/angol`);
     case 'name_change_requested':
       // Sent to admins; the admin area is Hungarian-only
       return personal(

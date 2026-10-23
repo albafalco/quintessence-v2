@@ -9,7 +9,6 @@
 -- - a megszűnt oldalakra mutató régi csengő-értesítések törlődnek
 -- - a régi táblák törlődnek: magia_progress, magia_journal, magia_soul_mirror
 -- - a heti jelentés profil-oszlopai törlődnek
--- - a 'feher_magia' zárt modul megszűnik (mindenki látja az új utat)
 -- - bejelentés a csengőbe és push-értesítésként, 9 nyelven
 
 BEGIN;
@@ -36,13 +35,7 @@ ALTER TABLE public.profiles
   DROP COLUMN IF EXISTS push_weekly_report,
   DROP COLUMN IF EXISTS last_weekly_report_date;
 
--- ── 4. A 'feher_magia' zárt modul megszűnik ─────────────────────────────────
-DELETE FROM public.module_access WHERE module = 'feher_magia';
-ALTER TABLE public.module_access DROP CONSTRAINT IF EXISTS module_access_module_check;
-ALTER TABLE public.module_access
-  ADD CONSTRAINT module_access_module_check CHECK (module IN ('angol'));
-
--- ── 5. Bejelentés (csengő + push; a push-t a következő ütemezett futás küldi) ─
+-- ── 4. Bejelentés (csengő + push; a push-t a következő ütemezett futás küldi) ─
 INSERT INTO public.announcements (kind, title, body, translations, link_url, link_label, audience, publish_at, send_push)
 SELECT
   'content',

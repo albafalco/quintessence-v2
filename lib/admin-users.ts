@@ -15,9 +15,6 @@ export interface AdminUserRow {
   invited_by_username?: string | null;
   invites_sent?: number;
   invites_accepted?: number;
-  /** Migration 016 */
-  angol_access?: boolean;
-  angol_has_progress?: boolean;
   /** Migration 018 */
   first_name?: string | null;
   last_name?: string | null;

@@ -1,8 +1,6 @@
 -- 020: Az új Fehér Mágia út (Kovács-Magyar András, I–III. fokozat)
 -- Futtatás: Supabase SQL Editor. Többször is lefuttatható.
 --
--- - module_access: új zárt modul, 'feher_magia' — az élesítésig csak az admin
---   és a kijelölt tesztelők látják az új felületet
 -- - magia_path: az út állapota (Kapu, fokozat, óhaj, gondolatgyakorlat, légzés,
 --   a test iskolázásának tételei), felhasználónként egy sor
 -- - magia_cycles: 14 napos ciklusok, lezáráskor az összesítő (a két lélektükör)
@@ -15,12 +13,7 @@
 -- Minden új táblát csak a saját tulajdonosa olvashat és írhat; a felhasználó
 -- törlésekor a sorai vele együtt törlődnek.
 
--- ── 1. Zárt modul: az új Fehér Mágia ────────────────────────────────────────
-ALTER TABLE public.module_access DROP CONSTRAINT IF EXISTS module_access_module_check;
-ALTER TABLE public.module_access
-  ADD CONSTRAINT module_access_module_check CHECK (module IN ('angol', 'feher_magia'));
-
--- ── 2. Az út állapota ───────────────────────────────────────────────────────
+-- ── 1. Az út állapota ───────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS public.magia_path (
   user_id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
   -- A Kapu (a 189. oldal) elolvasásának ideje; NULL = még a Kapu előtt áll
@@ -46,7 +39,7 @@ CREATE TABLE IF NOT EXISTS public.magia_path (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
--- ── 3. 14 napos ciklusok ────────────────────────────────────────────────────
+-- ── 2. 14 napos ciklusok ────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS public.magia_cycles (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
@@ -67,7 +60,7 @@ CREATE TABLE IF NOT EXISTS public.magia_cycles (
 );
 CREATE INDEX IF NOT EXISTS magia_cycles_user_idx ON public.magia_cycles (user_id, number DESC);
 
--- ── 4. Esti önvizsgálat ─────────────────────────────────────────────────────
+-- ── 3. Esti önvizsgálat ─────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS public.magia_evenings (
   user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
   obs_date DATE NOT NULL,
@@ -83,7 +76,7 @@ CREATE TABLE IF NOT EXISTS public.magia_evenings (
 );
 CREATE INDEX IF NOT EXISTS magia_evenings_cycle_idx ON public.magia_evenings (cycle_id);
 
--- ── 5. Hozzáadott tulajdonságok ─────────────────────────────────────────────
+-- ── 4. Hozzáadott tulajdonságok ─────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS public.magia_user_traits (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
@@ -98,7 +91,7 @@ CREATE TABLE IF NOT EXISTS public.magia_user_traits (
   UNIQUE (user_id, trait_key)
 );
 
--- ── 6. Napközbeni jegyzetek ─────────────────────────────────────────────────
+-- ── 5. Napközbeni jegyzetek ─────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS public.magia_day_notes (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
@@ -110,12 +103,12 @@ CREATE TABLE IF NOT EXISTS public.magia_day_notes (
 );
 CREATE INDEX IF NOT EXISTS magia_day_notes_user_date_idx ON public.magia_day_notes (user_id, obs_date);
 
--- ── 7. Gyakorlási alkalmak: két új mező ─────────────────────────────────────
+-- ── 6. Gyakorlási alkalmak: két új mező ─────────────────────────────────────
 ALTER TABLE public.magia_sessions
   ADD COLUMN IF NOT EXISTS outcome TEXT CHECK (outcome IN ('igen', 'reszben', 'nem')),
   ADD COLUMN IF NOT EXISTS reps INT CHECK (reps >= 0);
 
--- ── 8. Jogosultságok: mindenki csak a sajátját ──────────────────────────────
+-- ── 7. Jogosultságok: mindenki csak a sajátját ──────────────────────────────
 DO $$
 DECLARE
   t TEXT;

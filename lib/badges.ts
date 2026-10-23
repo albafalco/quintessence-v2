@@ -10,8 +10,6 @@ export interface BadgeStats {
   masteredFokozatok: number;
   /** Closed 14-day cycles, each with the two soul mirrors */
   closedCycles: number;
-  /** Kreatív Angol words known (a profile stat; there are no Angol milestones) */
-  learnedWords: number;
 }
 
 export interface BadgeDefinition {

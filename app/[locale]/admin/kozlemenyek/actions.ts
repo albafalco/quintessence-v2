@@ -69,7 +69,7 @@ export async function saveAnnouncement(input: AnnouncementInput): Promise<Action
 
     const linkUrl = input.linkUrl.trim();
     if (linkUrl && !isValidAnnouncementLink(linkUrl)) {
-      return { ok: false, error: 'A link „/”-rel kezdődő app-útvonal (pl. /modules/angol) vagy https:// cím lehet.' };
+      return { ok: false, error: 'A link „/”-rel kezdődő app-útvonal (pl. /modules/magia/ma) vagy https:// cím lehet.' };
     }
 
     let publishAt: string | null = null;
